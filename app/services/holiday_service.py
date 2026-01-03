@@ -59,6 +59,7 @@ class HolidayService:
     _instance = None
     _data = {}  # country -> {subdivisions, holidays_by_year}
     _holidays_dir = None
+    _initialized = False
     
     @classmethod
     def get_instance(cls):
@@ -70,15 +71,32 @@ class HolidayService:
     def init(cls, holidays_dir):
         """Initialize the service and fetch/load data."""
         instance = cls.get_instance()
+        
+        # Prevent duplicate initialization from multiple workers
+        if cls._initialized:
+            return instance
+        
         instance._holidays_dir = holidays_dir
         os.makedirs(holidays_dir, exist_ok=True)
         
+        # Use lock file to prevent multiple workers from fetching simultaneously
+        lock_file = os.path.join(holidays_dir, ".fetch_lock")
+        
+        # Check if another process is currently fetching
+        if os.path.exists(lock_file):
+            lock_age = time.time() - os.path.getmtime(lock_file)
+            if lock_age < 600:  # Lock valid for 10 minutes
+                print("Another worker is fetching holidays, loading from cache only...")
+                cls._load_all_from_cache(instance, holidays_dir)
+                cls._initialized = True
+                return instance
+        
         # Try to load from cache first, fetch if needed
+        needs_fetch = []
         for country_code in SUPPORTED_COUNTRIES.keys():
             cache_file = os.path.join(holidays_dir, f"{country_code.lower()}_holidays.json")
             
             if os.path.exists(cache_file):
-                # Check if cache is recent (less than 24 hours old)
                 mtime = os.path.getmtime(cache_file)
                 if time.time() - mtime < 2592000:  # 30 days
                     try:
@@ -89,15 +107,41 @@ class HolidayService:
                     except Exception as e:
                         print(f"Error loading cache for {country_code}: {e}")
             
-            # Fetch from API
-            print(f"Fetching {country_code} holidays from API...")
-            instance._fetch_country(country_code)
-            time.sleep(1)  # Rate limiting
+            needs_fetch.append(country_code)
+        
+        # Only fetch if there are countries that need updating
+        if needs_fetch:
+            # Create lock file
+            with open(lock_file, 'w') as f:
+                f.write(str(time.time()))
+            
+            try:
+                for country_code in needs_fetch:
+                    print(f"Fetching {country_code} holidays from API...")
+                    instance._fetch_country(country_code)
+                    time.sleep(1)  # Rate limiting
+            finally:
+                # Remove lock file
+                if os.path.exists(lock_file):
+                    os.remove(lock_file)
         
         # Generate iCal files
         instance._generate_ical_files()
         
+        cls._initialized = True
         return instance
+    
+    @classmethod
+    def _load_all_from_cache(cls, instance, holidays_dir):
+        """Load all countries from cache without fetching."""
+        for country_code in SUPPORTED_COUNTRIES.keys():
+            cache_file = os.path.join(holidays_dir, f"{country_code.lower()}_holidays.json")
+            if os.path.exists(cache_file):
+                try:
+                    with open(cache_file, 'r', encoding='utf-8') as f:
+                        instance._data[country_code] = json.load(f)
+                except Exception:
+                    pass
     
     @classmethod
     def _fetch_country(cls, country_code):
