@@ -140,8 +140,9 @@ def create_app(config_class=Config):
             print("✓ Downloaded missing vendor libraries")
         
         # Initialize holiday service (fetches from API or loads cache)
+        # Use data directory which is mounted as a volume for persistence
         from app.services.holiday_service import HolidayService
-        holidays_dir = os.path.join(app.root_path, 'assets', 'holidays')
+        holidays_dir = os.path.join(os.path.dirname(app.root_path), 'data', 'holidays')
         HolidayService.init(holidays_dir)
     
     return app
