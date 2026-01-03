@@ -29,5 +29,5 @@ ENV FLASK_ENV=production
 # Expose port
 EXPOSE 5000
 
-# Run with gunicorn (using factory pattern)
-CMD ["gunicorn", "--bind", "0.0.0.0:5000", "--workers", "2", "app:create_app()"]
+# Run with gunicorn
+CMD ["gunicorn", "--bind", "0.0.0.0:5000", "--workers", "2", "wsgi:application"]
