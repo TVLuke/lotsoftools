@@ -2,12 +2,7 @@ version: '3.8'
 
 services:
   usefull:
-    build:
-      context: .
-      tags:
-        - "usefull:1.0.3"
-        - "usefull:latest"
-    image: usefull:1.0.3
+    build: .
     container_name: usefull
     restart: unless-stopped
     ports:
