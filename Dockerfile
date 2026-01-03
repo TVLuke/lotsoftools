@@ -1,7 +1,7 @@
 FROM python:3.11-slim
 
 # Version label - update this when making changes
-LABEL version="1.0.9"
+LABEL version="1.0.10"
 LABEL description="Usefull Tools Collection"
 
 WORKDIR /app
@@ -10,6 +10,7 @@ WORKDIR /app
 RUN apt-get update && apt-get install -y --no-install-recommends \
     gcc \
     libffi-dev \
+    ffmpeg \
     && rm -rf /var/lib/apt/lists/*
 
 # Copy requirements first for better caching
@@ -35,4 +36,4 @@ ENV PYTHONUNBUFFERED=1
 EXPOSE 5000
 
 # Print version on startup and run gunicorn
-CMD echo "Starting Usefull v1.0.9" && gunicorn --bind 0.0.0.0:5000 --workers 2 --timeout 1500 --preload wsgi:application
+CMD echo "Starting Usefull v1.0.10" && gunicorn --bind 0.0.0.0:5000 --workers 2 --timeout 1500 --preload wsgi:application
