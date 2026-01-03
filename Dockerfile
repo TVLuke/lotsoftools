@@ -1,5 +1,9 @@
 FROM python:3.11-slim
 
+# Version label - update this when making changes
+LABEL version="1.0.1"
+LABEL description="Usefull Tools Collection"
+
 WORKDIR /app
 
 # Install system dependencies
@@ -29,5 +33,5 @@ ENV FLASK_ENV=production
 # Expose port
 EXPOSE 5000
 
-# Run with gunicorn
-CMD ["gunicorn", "--bind", "0.0.0.0:5000", "--workers", "2", "wsgi:application"]
+# Print version on startup and run gunicorn
+CMD echo "Starting Usefull v1.0.1" && gunicorn --bind 0.0.0.0:5000 --workers 2 wsgi:application
