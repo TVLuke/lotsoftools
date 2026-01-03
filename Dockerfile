@@ -1,7 +1,7 @@
 FROM python:3.11-slim
 
 # Version label - update this when making changes
-LABEL version="1.0.1"
+LABEL version="1.0.2"
 LABEL description="Usefull Tools Collection"
 
 WORKDIR /app
@@ -29,9 +29,10 @@ RUN mkdir -p data geoip_data instance
 # Set environment variables
 ENV FLASK_APP=app.py
 ENV FLASK_ENV=production
+ENV PYTHONUNBUFFERED=1
 
 # Expose port
 EXPOSE 5000
 
 # Print version on startup and run gunicorn
-CMD echo "Starting Usefull v1.0.1" && gunicorn --bind 0.0.0.0:5000 --workers 2 wsgi:application
+CMD echo "Starting Usefull v1.0.2" && gunicorn --bind 0.0.0.0:5000 --workers 2 wsgi:application
