@@ -50,17 +50,37 @@ def support_link_text(link, placement, lang):
 
 
 def load_support_links():
-    config_path = os.path.join('app', 'config', 'support_config.json')
-    if not os.path.exists(config_path):
-        return []
+    import base64
+    # Try environment variable first (for Docker deployments)
+    # Supports both raw JSON and base64-encoded JSON
+    env_config = os.environ.get('SUPPORT_CONFIG')
+    if env_config:
+        try:
+            # Try base64 decode first
+            decoded = base64.b64decode(env_config).decode('utf-8')
+            data = json.loads(decoded)
+        except Exception:
+            try:
+                # Fall back to raw JSON
+                data = json.loads(env_config)
+            except Exception:
+                data = None
+    else:
+        # Fall back to config file
+        config_path = os.path.join('app', 'config', 'support_config.json')
+        if not os.path.exists(config_path):
+            return []
 
-    try:
-        with open(config_path, 'r', encoding='utf-8') as f:
-            raw = f.read().strip()
-            if not raw:
-                return []
-            data = json.loads(raw)
-    except Exception:
+        try:
+            with open(config_path, 'r', encoding='utf-8') as f:
+                raw = f.read().strip()
+                if not raw:
+                    return []
+                data = json.loads(raw)
+        except Exception:
+            return []
+    
+    if data is None:
         return []
 
     links = data.get('links') if isinstance(data, dict) else None

@@ -8,18 +8,23 @@ services:
     ports:
       - "5000:5000"
     volumes:
-      # Persist database
-      - ./data:/app/data
-      # GeoIP databases (optional, for IP lookup tool)
-      - ./geoip_data:/app/geoip_data
-      # Support config (optional)
-      - ./app/config/support_config.json:/app/app/config/support_config.json:ro
+      # Persist database and holiday cache
+      - usefull_data:/app/data
+      # GeoIP databases
+      - usefull_geoip:/app/geoip_data
     environment:
       - SECRET_KEY=${SECRET_KEY:-change-this-in-production}
       - FLASK_ENV=production
+      # Support links config (optional) - base64 encoded JSON
+      # Generate with: cat support_config.json | base64
+      - SUPPORT_CONFIG=${SUPPORT_CONFIG:-}
     healthcheck:
       test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:5000/')"]
       interval: 30s
       timeout: 10s
       retries: 5
       start_period: 600s
+
+volumes:
+  usefull_data:
+  usefull_geoip:
