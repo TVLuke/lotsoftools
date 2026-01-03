@@ -125,7 +125,10 @@ def create_app(config_class=Config):
         from app.models.link import Link
         
         # Create database tables if they don't exist
-        db.create_all()
+        from sqlalchemy import inspect
+        inspector = inspect(db.engine)
+        if not inspector.has_table('link'):
+            db.create_all()
         
         sync_app_data()
         

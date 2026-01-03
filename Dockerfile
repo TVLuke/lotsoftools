@@ -1,7 +1,7 @@
 FROM python:3.11-slim
 
 # Version label - update this when making changes
-LABEL version="1.0.4"
+LABEL version="1.0.5"
 LABEL description="Usefull Tools Collection"
 
 WORKDIR /app
@@ -35,4 +35,4 @@ ENV PYTHONUNBUFFERED=1
 EXPOSE 5000
 
 # Print version on startup and run gunicorn
-CMD echo "Starting Usefull v1.0.4" && gunicorn --bind 0.0.0.0:5000 --workers 2 wsgi:application
+CMD echo "Starting Usefull v1.0.5" && gunicorn --bind 0.0.0.0:5000 --workers 2 wsgi:application
