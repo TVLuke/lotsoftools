@@ -1,0 +1,99 @@
+{
+  "route": "/tools/qr-generator",
+  "img": "fas fa-qrcode",
+  "name": {
+    "en": "QR Code Generator",
+    "de": "QR-Code-Generator"
+  },
+  "description": {
+    "en": "Generate QR codes from text or URLs",
+    "de": "QR-Codes aus Text oder URLs generieren"
+  },
+  "tags": ["generator"],
+  "new_window": false,
+  "frontend_only": true,
+  "seo": {
+    "title": {
+      "en": "QR Code Generator - Free Online QR Code Creator Tool",
+      "de": "QR-Code-Generator - Kostenloser Online QR-Code-Ersteller"
+    },
+    "meta_description": {
+      "en": "Create QR codes from text, URLs, or any data. Customizable size and error correction. Browser-based, privacy-friendly, instant generation. Download as PNG.",
+      "de": "Erstellen Sie QR-Codes aus Text, URLs oder beliebigen Daten. Anpassbare Größe und Fehlerkorrektur. Browser-basiert, datenschutzfreundlich, sofortige Generierung. Als PNG herunterladen."
+    },
+    "keywords": {
+      "en": "QR code generator, create QR code, QR code maker, URL to QR, text to QR, browser-based, privacy-friendly, free QR tool",
+      "de": "QR-Code-Generator, QR-Code erstellen, QR-Code-Maker, URL zu QR, Text zu QR, Browser-basiert, Datenschutzfreundlich, kostenloses QR-Tool"
+    },
+    "content": {
+      "heading": {
+        "en": "About This QR Code Generator",
+        "de": "Über diesen QR-Code-Generator"
+      },
+      "intro": {
+        "en": "This browser-based QR code generator creates scannable QR codes from any text, URL, or data. Generate QR codes instantly with customizable size and error correction levels. All processing happens in your browser - your data remains private and is never sent to any server.",
+        "de": "Dieser Browser-basierte QR-Code-Generator erstellt scannbare QR-Codes aus beliebigem Text, URLs oder Daten. Generieren Sie QR-Codes sofort mit anpassbarer Größe und Fehlerkorrektur-Levels. Alle Verarbeitung erfolgt in Ihrem Browser - Ihre Daten bleiben privat und werden nie an einen Server gesendet."
+      },
+      "features": {
+        "heading": {
+          "en": "Key Features:",
+          "de": "Hauptfunktionen:"
+        },
+        "items": [
+          {
+            "en": "<strong>Any Content:</strong> Generate QR codes from URLs, text, contact info, WiFi credentials, and more",
+            "de": "<strong>Beliebiger Inhalt:</strong> Generieren Sie QR-Codes aus URLs, Text, Kontaktinformationen, WLAN-Zugangsdaten und mehr"
+          },
+          {
+            "en": "<strong>Customizable Size:</strong> Adjust QR code dimensions to fit your needs",
+            "de": "<strong>Anpassbare Größe:</strong> Passen Sie die QR-Code-Abmessungen an Ihre Bedürfnisse an"
+          },
+          {
+            "en": "<strong>Error Correction:</strong> Choose error correction level for damaged code recovery",
+            "de": "<strong>Fehlerkorrektur:</strong> Wählen Sie Fehlerkorrektur-Level für beschädigte Code-Wiederherstellung"
+          },
+          {
+            "en": "<strong>Download as PNG:</strong> Save generated QR codes as high-quality PNG images",
+            "de": "<strong>Als PNG herunterladen:</strong> Speichern Sie generierte QR-Codes als hochwertige PNG-Bilder"
+          },
+          {
+            "en": "<strong>Instant Preview:</strong> See your QR code update in real-time as you type",
+            "de": "<strong>Sofortige Vorschau:</strong> Sehen Sie Ihren QR-Code in Echtzeit aktualisieren während Sie tippen"
+          }
+        ]
+      },
+      "use_cases": {
+        "heading": {
+          "en": "Use Cases:",
+          "de": "Anwendungsfälle:"
+        },
+        "items": [
+          {
+            "en": "Share website URLs and links quickly",
+            "de": "Website-URLs und Links schnell teilen"
+          },
+          {
+            "en": "Create contact cards (vCard QR codes)",
+            "de": "Kontaktkarten erstellen (vCard QR-Codes)"
+          },
+          {
+            "en": "WiFi network sharing without typing passwords",
+            "de": "WLAN-Netzwerk teilen ohne Passwörter zu tippen"
+          },
+          {
+            "en": "Event tickets and registration",
+            "de": "Veranstaltungstickets und Registrierung"
+          },
+          {
+            "en": "Product information and marketing materials",
+            "de": "Produktinformationen und Marketingmaterialien"
+          }
+        ]
+      },
+      "privacy_note": {
+        "en": "🔒 Privacy-Friendly: QR codes are generated entirely in your browser. Your data never leaves your device.",
+        "de": "🔒 Datenschutzfreundlich: QR-Codes werden vollständig in Ihrem Browser generiert. Ihre Daten verlassen nie Ihr Gerät."
+      }
+    }
+  }
+}

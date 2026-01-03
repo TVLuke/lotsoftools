@@ -1,0 +1,35 @@
+{% if tool_data and tool_data.seo and tool_data.seo.content %}
+<!-- SEO Content -->
+<div class="row mt-4">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <h2 class="h5 mb-3">{{ tool_data.seo.content.heading[current_lang] }}</h2>
+                <p>{{ tool_data.seo.content.intro[current_lang] }}</p>
+                
+                {% if tool_data.seo.content.features %}
+                <h3 class="h6 mb-2 mt-3">{{ tool_data.seo.content.features.heading[current_lang] }}</h3>
+                <ul>
+                    {% for item in tool_data.seo.content.features['items'] %}
+                    <li>{{ item[current_lang]|safe }}</li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
+                
+                {% if tool_data.seo.content.use_cases %}
+                <h3 class="h6 mb-2 mt-3">{{ tool_data.seo.content.use_cases.heading[current_lang] }}</h3>
+                <ul>
+                    {% for item in tool_data.seo.content.use_cases['items'] %}
+                    <li>{{ item[current_lang] }}</li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
+                
+                {% if tool_data.seo.content.privacy_note %}
+                <p class="text-muted small mt-3">{{ tool_data.seo.content.privacy_note[current_lang] }}</p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endif %}

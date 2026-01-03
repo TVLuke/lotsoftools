@@ -1,0 +1,177 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ tool_data.seo.title[current_lang] }} - usefull{% endblock %}
+
+{% block meta_description %}{{ tool_data.seo.description[current_lang] }}{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h1 class="mb-3">{{ tool_data.name[current_lang] }}</h1>
+    <p class="lead mb-4">{{ tool_data.description[current_lang] }}</p>
+    
+    <div class="row justify-content-center">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+                    <!-- Search Field -->
+                    <div class="mb-4">
+                        <label for="asciiSearchInput" class="form-label">{{ tool_data.ui.search[current_lang] }}</label>
+                        <input type="text" class="form-control" id="asciiSearchInput" 
+                               placeholder="{{ tool_data.ui.search_placeholder[current_lang] }}">
+                    </div>
+                    
+                    <!-- ASCII Table -->
+                    <div class="table-responsive">
+                        <table class="table table-striped table-hover" id="asciiTable">
+                            <thead class="table-dark">
+                                <tr>
+                                    <th>{{ tool_data.ui.decimal[current_lang] }}</th>
+                                    <th>{{ tool_data.ui.hexadecimal[current_lang] }}</th>
+                                    <th>{{ tool_data.ui.binary[current_lang] }}</th>
+                                    <th>{{ tool_data.ui.character[current_lang] }}</th>
+                                    <th>{{ tool_data.ui.description[current_lang] }}</th>
+                                </tr>
+                            </thead>
+                            <tbody id="asciiTableBody">
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                    <!-- No results message -->
+                    <div id="noResults" class="alert alert-info d-none">
+                        {{ tool_data.ui.no_results[current_lang] }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    {% include 'components/seo_content.html' %}
+</div>
+
+<style>
+#asciiTable td:nth-child(3) {
+    font-family: monospace;
+    font-size: 0.9em;
+}
+#asciiTable td:nth-child(4) {
+    font-family: monospace;
+    font-weight: bold;
+    font-size: 1.1em;
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const searchInput = document.getElementById('asciiSearchInput');
+    const tableBody = document.getElementById('asciiTableBody');
+    const noResults = document.getElementById('noResults');
+    
+    const asciiDescriptions = {
+        0: 'NUL (Null)',
+        1: 'SOH (Start of Heading)',
+        2: 'STX (Start of Text)',
+        3: 'ETX (End of Text)',
+        4: 'EOT (End of Transmission)',
+        5: 'ENQ (Enquiry)',
+        6: 'ACK (Acknowledge)',
+        7: 'BEL (Bell)',
+        8: 'BS (Backspace)',
+        9: 'HT (Horizontal Tab)',
+        10: 'LF (Line Feed)',
+        11: 'VT (Vertical Tab)',
+        12: 'FF (Form Feed)',
+        13: 'CR (Carriage Return)',
+        14: 'SO (Shift Out)',
+        15: 'SI (Shift In)',
+        16: 'DLE (Data Link Escape)',
+        17: 'DC1 (Device Control 1)',
+        18: 'DC2 (Device Control 2)',
+        19: 'DC3 (Device Control 3)',
+        20: 'DC4 (Device Control 4)',
+        21: 'NAK (Negative Acknowledge)',
+        22: 'SYN (Synchronous Idle)',
+        23: 'ETB (End of Trans. Block)',
+        24: 'CAN (Cancel)',
+        25: 'EM (End of Medium)',
+        26: 'SUB (Substitute)',
+        27: 'ESC (Escape)',
+        28: 'FS (File Separator)',
+        29: 'GS (Group Separator)',
+        30: 'RS (Record Separator)',
+        31: 'US (Unit Separator)',
+        32: 'Space',
+        127: 'DEL (Delete)'
+    };
+    
+    function getCharDisplay(code) {
+        if (code < 32) return '␀␁␂␃␄␅␆␇␈␉␊␋␌␍␎␏␐␑␒␓␔␕␖␗␘␙␚␛␜␝␞␟'[code];
+        if (code === 32) return '␠';
+        if (code === 127) return '␡';
+        return String.fromCharCode(code);
+    }
+    
+    function getDescription(code) {
+        if (asciiDescriptions[code]) return asciiDescriptions[code];
+        if (code >= 33 && code <= 47) return 'Punctuation';
+        if (code >= 48 && code <= 57) return 'Digit';
+        if (code >= 58 && code <= 64) return 'Punctuation';
+        if (code >= 65 && code <= 90) return 'Uppercase Letter';
+        if (code >= 91 && code <= 96) return 'Punctuation';
+        if (code >= 97 && code <= 122) return 'Lowercase Letter';
+        if (code >= 123 && code <= 126) return 'Punctuation';
+        return '';
+    }
+    
+    function buildTable(filter = '') {
+        tableBody.innerHTML = '';
+        let hasResults = false;
+        
+        const filterChars = filter.split('');
+        const filterCodes = filterChars.map(c => c.charCodeAt(0));
+        
+        for (let i = 0; i < 128; i++) {
+            if (filter && !filterCodes.includes(i)) continue;
+            
+            hasResults = true;
+            const row = document.createElement('tr');
+            
+            const decCell = document.createElement('td');
+            decCell.textContent = i;
+            
+            const hexCell = document.createElement('td');
+            hexCell.textContent = '0x' + i.toString(16).toUpperCase().padStart(2, '0');
+            
+            const binCell = document.createElement('td');
+            binCell.textContent = i.toString(2).padStart(8, '0');
+            
+            const charCell = document.createElement('td');
+            charCell.textContent = getCharDisplay(i);
+            
+            const descCell = document.createElement('td');
+            descCell.textContent = getDescription(i);
+            
+            row.appendChild(decCell);
+            row.appendChild(hexCell);
+            row.appendChild(binCell);
+            row.appendChild(charCell);
+            row.appendChild(descCell);
+            tableBody.appendChild(row);
+        }
+        
+        if (hasResults) {
+            noResults.classList.add('d-none');
+        } else {
+            noResults.classList.remove('d-none');
+        }
+    }
+    
+    searchInput.addEventListener('input', function() {
+        buildTable(this.value);
+    });
+    
+    // Initialize with full table
+    buildTable();
+});
+</script>
+{% endblock %}

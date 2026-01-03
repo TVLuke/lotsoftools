@@ -1,0 +1,99 @@
+{
+  "route": "/tools/barcode-generator",
+  "img": "fas fa-barcode",
+  "name": {
+    "en": "Barcode Generator",
+    "de": "Barcode-Generator"
+  },
+  "description": {
+    "en": "Generate EAN-8, EAN-13, EAN-14, UPC-A, and UPC-E barcodes",
+    "de": "Generiere EAN-8, EAN-13, EAN-14, UPC-A und UPC-E Barcodes"
+  },
+  "tags": ["generator"],
+  "new_window": false,
+  "frontend_only": true,
+  "seo": {
+    "title": {
+      "en": "Barcode Generator - Free EAN-8, EAN-13, UPC-A, UPC-E Generator",
+      "de": "Barcode-Generator - Kostenloser EAN-8, EAN-13, UPC-A, UPC-E Generator"
+    },
+    "meta_description": {
+      "en": "Generate EAN-8, EAN-13, EAN-14, UPC-A, and UPC-E barcodes online. Browser-based barcode generator, privacy-friendly, instant generation, download as PNG.",
+      "de": "Generieren Sie EAN-8, EAN-13, EAN-14, UPC-A und UPC-E Barcodes online. Browser-basierter Barcode-Generator, datenschutzfreundlich, sofortige Generierung, als PNG herunterladen."
+    },
+    "keywords": {
+      "en": "barcode generator, EAN-8, EAN-13, EAN-14, UPC-A, UPC-E, create barcode, browser-based, privacy-friendly, free barcode tool",
+      "de": "Barcode-Generator, EAN-8, EAN-13, EAN-14, UPC-A, UPC-E, Barcode erstellen, Browser-basiert, Datenschutzfreundlich, kostenloses Barcode-Tool"
+    },
+    "content": {
+      "heading": {
+        "en": "About This Barcode Generator",
+        "de": "Über diesen Barcode-Generator"
+      },
+      "intro": {
+        "en": "This browser-based barcode generator creates industry-standard barcodes for retail, inventory, and product identification. Generate EAN and UPC barcodes instantly with automatic validation. All barcode generation happens in your browser - your data remains completely private and is never sent to any server.",
+        "de": "Dieser Browser-basierte Barcode-Generator erstellt branchenübliche Barcodes für Einzelhandel, Inventar und Produktidentifikation. Generieren Sie EAN- und UPC-Barcodes sofort mit automatischer Validierung. Alle Barcode-Generierung erfolgt in Ihrem Browser - Ihre Daten bleiben vollständig privat und werden nie an einen Server gesendet."
+      },
+      "features": {
+        "heading": {
+          "en": "Supported Barcode Formats:",
+          "de": "Unterstützte Barcode-Formate:"
+        },
+        "items": [
+          {
+            "en": "<strong>EAN-8:</strong> 8-digit European Article Number for small products",
+            "de": "<strong>EAN-8:</strong> 8-stellige Europäische Artikelnummer für kleine Produkte"
+          },
+          {
+            "en": "<strong>EAN-13:</strong> 13-digit standard barcode for retail products worldwide",
+            "de": "<strong>EAN-13:</strong> 13-stelliger Standard-Barcode für Einzelhandelsprodukte weltweit"
+          },
+          {
+            "en": "<strong>EAN-14:</strong> 14-digit barcode for shipping containers and logistics",
+            "de": "<strong>EAN-14:</strong> 14-stelliger Barcode für Versandbehälter und Logistik"
+          },
+          {
+            "en": "<strong>UPC-A:</strong> 12-digit Universal Product Code used in North America",
+            "de": "<strong>UPC-A:</strong> 12-stelliger Universal Product Code in Nordamerika verwendet"
+          },
+          {
+            "en": "<strong>UPC-E:</strong> 6-digit compressed UPC for small packages",
+            "de": "<strong>UPC-E:</strong> 6-stelliger komprimierter UPC für kleine Pakete"
+          }
+        ]
+      },
+      "use_cases": {
+        "heading": {
+          "en": "Use Cases:",
+          "de": "Anwendungsfälle:"
+        },
+        "items": [
+          {
+            "en": "Generate barcodes for retail products",
+            "de": "Barcodes für Einzelhandelsprodukte generieren"
+          },
+          {
+            "en": "Create inventory tracking labels",
+            "de": "Inventarverfolgungsetiketten erstellen"
+          },
+          {
+            "en": "Print product identification codes",
+            "de": "Produktidentifikationscodes drucken"
+          },
+          {
+            "en": "Test barcode scanning systems",
+            "de": "Barcode-Scansysteme testen"
+          },
+          {
+            "en": "Generate shipping container barcodes",
+            "de": "Versandbehälter-Barcodes generieren"
+          }
+        ]
+      },
+      "privacy_note": {
+        "en": "🔒 Privacy-Friendly: Barcodes are generated entirely in your browser. Your data never leaves your device.",
+        "de": "🔒 Datenschutzfreundlich: Barcodes werden vollständig in Ihrem Browser generiert. Ihre Daten verlassen nie Ihr Gerät."
+      }
+    }
+  }
+}

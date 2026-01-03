@@ -1,0 +1,99 @@
+{
+  "route": "/tools/icon-finder",
+  "img": "fas fa-search",
+  "name": {
+    "en": "Icon Finder",
+    "de": "Icon-Finder"
+  },
+  "description": {
+    "en": "Browse and search Font Awesome and Lucide icons with categories",
+    "de": "Font Awesome und Lucide Icons mit Kategorien durchsuchen"
+  },
+  "tags": ["design", "icons"],
+  "new_window": false,
+  "frontend_only": true,
+  "seo": {
+    "title": {
+      "en": "Icon Finder - Browse Font Awesome & Lucide Icons",
+      "de": "Icon-Finder - Font Awesome & Lucide Icons durchsuchen"
+    },
+    "meta_description": {
+      "en": "Browse and search thousands of Font Awesome and Lucide icons. Filter by category, search by name, and copy icon code instantly. Free icon finder tool.",
+      "de": "Durchsuchen Sie Tausende von Font Awesome und Lucide Icons. Nach Kategorie filtern, nach Namen suchen und Icon-Code sofort kopieren. Kostenloses Icon-Finder-Tool."
+    },
+    "keywords": {
+      "en": "icon finder, font awesome icons, lucide icons, icon search, icon browser, free icons, icon library, svg icons, web icons",
+      "de": "Icon-Finder, Font Awesome Icons, Lucide Icons, Icon-Suche, Icon-Browser, kostenlose Icons, Icon-Bibliothek, SVG-Icons, Web-Icons"
+    },
+    "content": {
+      "heading": {
+        "en": "About This Icon Finder",
+        "de": "Über diesen Icon-Finder"
+      },
+      "intro": {
+        "en": "This icon finder helps you browse and search through thousands of icons from Font Awesome and Lucide. Filter by category, search by name, and copy the icon code with a single click. Perfect for developers and designers looking for the perfect icon.",
+        "de": "Dieser Icon-Finder hilft Ihnen, Tausende von Icons von Font Awesome und Lucide zu durchsuchen. Nach Kategorie filtern, nach Namen suchen und den Icon-Code mit einem Klick kopieren. Perfekt für Entwickler und Designer, die das perfekte Icon suchen."
+      },
+      "features": {
+        "heading": {
+          "en": "Key Features:",
+          "de": "Hauptfunktionen:"
+        },
+        "items": [
+          {
+            "en": "<strong>Multiple Icon Libraries:</strong> Browse Font Awesome (free) and Lucide icons in one place",
+            "de": "<strong>Mehrere Icon-Bibliotheken:</strong> Font Awesome (kostenlos) und Lucide Icons an einem Ort durchsuchen"
+          },
+          {
+            "en": "<strong>Category Filtering:</strong> Browse icons by category for easier discovery",
+            "de": "<strong>Kategorie-Filterung:</strong> Icons nach Kategorie durchsuchen für einfachere Entdeckung"
+          },
+          {
+            "en": "<strong>Search by Name:</strong> Quickly find icons by searching for keywords",
+            "de": "<strong>Suche nach Namen:</strong> Icons schnell durch Suche nach Stichwörtern finden"
+          },
+          {
+            "en": "<strong>Copy Code:</strong> Click to copy icon code (HTML class or SVG) to clipboard",
+            "de": "<strong>Code kopieren:</strong> Klicken Sie, um Icon-Code (HTML-Klasse oder SVG) in die Zwischenablage zu kopieren"
+          },
+          {
+            "en": "<strong>Preview Icons:</strong> See icons rendered in real-time as you browse",
+            "de": "<strong>Icons Vorschau:</strong> Sehen Sie Icons in Echtzeit gerendert während Sie durchsuchen"
+          }
+        ]
+      },
+      "use_cases": {
+        "heading": {
+          "en": "Use Cases:",
+          "de": "Anwendungsfälle:"
+        },
+        "items": [
+          {
+            "en": "Find the perfect icon for your web project",
+            "de": "Das perfekte Icon für Ihr Webprojekt finden"
+          },
+          {
+            "en": "Browse icon categories for design inspiration",
+            "de": "Icon-Kategorien für Design-Inspiration durchsuchen"
+          },
+          {
+            "en": "Quickly copy icon code for development",
+            "de": "Icon-Code schnell für Entwicklung kopieren"
+          },
+          {
+            "en": "Compare icons from different libraries",
+            "de": "Icons aus verschiedenen Bibliotheken vergleichen"
+          },
+          {
+            "en": "Discover new icons you didn't know existed",
+            "de": "Neue Icons entdecken, von denen Sie nicht wussten, dass sie existieren"
+          }
+        ]
+      },
+      "privacy_note": {
+        "en": "🔒 Privacy-Friendly: All icon browsing happens in your browser. No data is sent to servers. Icons are loaded from CDNs (Font Awesome and Lucide).",
+        "de": "🔒 Datenschutzfreundlich: Das gesamte Icon-Browsing erfolgt in Ihrem Browser. Keine Daten werden an Server gesendet. Icons werden von CDNs geladen (Font Awesome und Lucide)."
+      }
+    }
+  }
+}

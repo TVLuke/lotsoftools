@@ -1,0 +1,95 @@
+{
+  "route": "/tools/color",
+  "img": "fas fa-palette",
+  "name": {
+    "en": "Color Overview",
+    "de": "Farbübersicht"
+  },
+  "description": {
+    "en": "View color information in multiple formats",
+    "de": "Farbinformationen in verschiedenen Formaten anzeigen"
+  },
+  "tags": ["catalogue", "color"],
+  "new_window": false,
+  "frontend_only": true,
+  "seo": {
+    "title": {
+      "en": "Color Converter - Hex, RGB, HSL, CMYK, Color Palettes & Tints",
+      "de": "Farbkonverter - Hex, RGB, HSL, CMYK, Farbpaletten & Töne"
+    },
+    "meta_description": {
+      "en": "Convert colors between Hex, RGB, HSL, HSV, CMYK, XYZ, Lab formats. Generate color palettes, tints, and shades. Browser-based color tool, privacy-friendly, instant conversion.",
+      "de": "Konvertieren Sie Farben zwischen Hex, RGB, HSL, HSV, CMYK, XYZ, Lab Formaten. Generieren Sie Farbpaletten, Töne und Schattierungen. Browser-basiertes Farbwerkzeug, datenschutzfreundlich, sofortige Konvertierung."
+    },
+    "keywords": {
+      "en": "color converter, hex to RGB, RGB to HSL, CMYK converter, color palette generator, tints and shades, color picker, browser-based, privacy-friendly",
+      "de": "Farbkonverter, Hex zu RGB, RGB zu HSL, CMYK-Konverter, Farbpaletten-Generator, Töne und Schattierungen, Farbwähler, Browser-basiert, Datenschutzfreundlich"
+    },
+    "content": {
+      "heading": {
+        "en": "About This Color Tool",
+        "de": "Über dieses Farbwerkzeug"
+      },
+      "intro": {
+        "en": "This comprehensive browser-based color tool converts between all major color formats and generates color palettes using color theory. View any color in Hex, RGB, HSL, HSV, CMYK, XYZ, and Lab formats. Generate tints, shades, and seven types of color palettes (analogous, monochromatic, triadic, complementary, split complementary, compound, and shades). All calculations happen in your browser with complete privacy.",
+        "de": "Dieses umfassende Browser-basierte Farbwerkzeug konvertiert zwischen allen wichtigen Farbformaten und generiert Farbpaletten mit Farbtheorie. Zeigen Sie jede Farbe in Hex, RGB, HSL, HSV, CMYK, XYZ und Lab Formaten an. Generieren Sie Töne, Schattierungen und sieben Arten von Farbpaletten (analog, monochromatisch, triadisch, komplementär, split-komplementär, zusammengesetzt und Schattierungen). Alle Berechnungen erfolgen in Ihrem Browser mit vollständiger Privatsphäre."
+      },
+      "features": {
+        "heading": {
+          "en": "Key Features:",
+          "de": "Hauptfunktionen:"
+        },
+        "items": [
+          {
+            "en": "<strong>Multiple Formats:</strong> Hex, RGB, HSL, HSV, CMYK, XYZ, Yxy, Hunter Lab, CIE-Lab",
+            "de": "<strong>Mehrere Formate:</strong> Hex, RGB, HSL, HSV, CMYK, XYZ, Yxy, Hunter Lab, CIE-Lab"
+          },
+          {
+            "en": "<strong>Color Palettes:</strong> Generate 7 types of palettes using Dojo Toolkit color theory",
+            "de": "<strong>Farbpaletten:</strong> Generieren Sie 7 Arten von Paletten mit Dojo Toolkit Farbtheorie"
+          },
+          {
+            "en": "<strong>Tints & Shades:</strong> Create lighter and darker variations of any color",
+            "de": "<strong>Töne & Schattierungen:</strong> Erstellen Sie hellere und dunklere Variationen jeder Farbe"
+          },
+          {
+            "en": "<strong>Color Picker:</strong> Interactive color selection with live preview",
+            "de": "<strong>Farbwähler:</strong> Interaktive Farbauswahl mit Live-Vorschau"
+          },
+          {
+            "en": "<strong>Clickable Colors:</strong> Click any color to explore it in detail",
+            "de": "<strong>Klickbare Farben:</strong> Klicken Sie auf jede Farbe um sie im Detail zu erkunden"
+          }
+        ]
+      },
+      "use_cases": {
+        "heading": {
+          "en": "Use Cases:",
+          "de": "Anwendungsfälle:"
+        },
+        "items": [
+          {
+            "en": "Convert colors between different formats for web development",
+            "de": "Farben zwischen verschiedenen Formaten für Webentwicklung konvertieren"
+          },
+          {
+            "en": "Generate harmonious color palettes for design projects",
+            "de": "Harmonische Farbpaletten für Designprojekte generieren"
+          },
+          {
+            "en": "Create color variations and themes",
+            "de": "Farbvariationen und Themen erstellen"
+          },
+          {
+            "en": "Explore color relationships and theory",
+            "de": "Farbbeziehungen und -theorie erkunden"
+          }
+        ]
+      },
+      "privacy_note": {
+        "en": "🔒 Privacy-Friendly: All color conversions and palette generation happen in your browser. No data is sent to any server.",
+        "de": "🔒 Datenschutzfreundlich: Alle Farbkonvertierungen und Palettengenerierung erfolgen in Ihrem Browser. Es werden keine Daten an einen Server gesendet."
+      }
+    }
+  }
+}

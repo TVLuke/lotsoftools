@@ -1,0 +1,95 @@
+{
+  "route": "/tools/calendar",
+  "img": "fas fa-calendar-alt",
+  "name": {
+    "en": "Calendar",
+    "de": "Kalender"
+  },
+  "description": {
+    "en": "View calendar with week numbers and customizable first day of week",
+    "de": "Kalender mit Wochennummern und anpassbarem ersten Wochentag anzeigen"
+  },
+  "tags": ["calendar", "catalogue"],
+  "new_window": false,
+  "frontend_only": true,
+  "seo": {
+    "title": {
+      "en": "Calendar with Week Numbers - Free Online Year Calendar Tool",
+      "de": "Kalender mit Wochennummern - Kostenloser Online Jahreskalender"
+    },
+    "meta_description": {
+      "en": "View any year calendar with ISO week numbers. Customizable first day of week (Monday/Sunday). Browser-based, privacy-friendly, no registration required.",
+      "de": "Zeigen Sie jeden Jahreskalender mit ISO-Wochennummern an. Anpassbarer erster Wochentag (Montag/Sonntag). Browser-basiert, datenschutzfreundlich, keine Registrierung erforderlich."
+    },
+    "keywords": {
+      "en": "calendar, week numbers, ISO week, year calendar, Monday first, Sunday first, online calendar, browser-based, privacy-friendly, free calendar tool",
+      "de": "Kalender, Wochennummern, ISO Woche, Jahreskalender, Montag zuerst, Sonntag zuerst, Online Kalender, Browser-basiert, Datenschutzfreundlich, kostenloses Kalender-Tool"
+    },
+    "content": {
+      "heading": {
+        "en": "About This Calendar Tool",
+        "de": "Über dieses Kalender-Tool"
+      },
+      "intro": {
+        "en": "This browser-based calendar tool displays a complete year view with ISO 8601 week numbers. Navigate through any year from 1 to 9999, customize the first day of the week, and view all 12 months in a clean, organized layout. All features work directly in your browser with no data collection.",
+        "de": "Dieses Browser-basierte Kalender-Tool zeigt eine vollständige Jahresansicht mit ISO 8601 Wochennummern. Navigieren Sie durch jedes Jahr von 1 bis 9999, passen Sie den ersten Wochentag an und sehen Sie alle 12 Monate in einem übersichtlichen Layout. Alle Funktionen arbeiten direkt in Ihrem Browser ohne Datenerfassung."
+      },
+      "features": {
+        "heading": {
+          "en": "Key Features:",
+          "de": "Hauptfunktionen:"
+        },
+        "items": [
+          {
+            "en": "<strong>ISO Week Numbers:</strong> Display ISO 8601 standard week numbers for each week",
+            "de": "<strong>ISO-Wochennummern:</strong> Zeigt ISO 8601 Standard-Wochennummern für jede Woche"
+          },
+          {
+            "en": "<strong>Year Navigation:</strong> Browse any year from 1 to 9999 using arrows or direct input",
+            "de": "<strong>Jahresnavigation:</strong> Durchsuchen Sie jedes Jahr von 1 bis 9999 mit Pfeilen oder direkter Eingabe"
+          },
+          {
+            "en": "<strong>Customizable Week Start:</strong> Choose between Monday (default) or Sunday as first day",
+            "de": "<strong>Anpassbarer Wochenstart:</strong> Wählen Sie zwischen Montag (Standard) oder Sonntag als ersten Tag"
+          },
+          {
+            "en": "<strong>Full Year View:</strong> See all 12 months at once in a responsive grid layout",
+            "de": "<strong>Vollständige Jahresansicht:</strong> Sehen Sie alle 12 Monate auf einmal in einem responsiven Rasterlayout"
+          },
+          {
+            "en": "<strong>Today Highlight:</strong> Current date is automatically highlighted in yellow",
+            "de": "<strong>Heute-Hervorhebung:</strong> Das aktuelle Datum wird automatisch gelb hervorgehoben"
+          }
+        ]
+      },
+      "use_cases": {
+        "heading": {
+          "en": "Use Cases:",
+          "de": "Anwendungsfälle:"
+        },
+        "items": [
+          {
+            "en": "Plan projects and events across the year",
+            "de": "Projekte und Veranstaltungen über das Jahr planen"
+          },
+          {
+            "en": "Check week numbers for scheduling and reporting",
+            "de": "Wochennummern für Planung und Berichterstattung prüfen"
+          },
+          {
+            "en": "View historical or future calendars",
+            "de": "Historische oder zukünftige Kalender anzeigen"
+          },
+          {
+            "en": "Quick reference for date and day-of-week lookup",
+            "de": "Schnelle Referenz für Datums- und Wochentagssuche"
+          }
+        ]
+      },
+      "privacy_note": {
+        "en": "🔒 Privacy-Friendly: This calendar runs entirely in your browser. No data is collected or sent to any server.",
+        "de": "🔒 Datenschutzfreundlich: Dieser Kalender läuft vollständig in Ihrem Browser. Es werden keine Daten erfasst oder an einen Server gesendet."
+      }
+    }
+  }
+}

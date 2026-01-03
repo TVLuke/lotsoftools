@@ -1,0 +1,345 @@
+{% extends 'base.html' %}
+{% from 'components/textarea.html' import enhanced_textarea %}
+
+{% block title %}{{ tool_data.seo.title[current_lang] }}{% endblock %}
+{% block meta_description %}{{ tool_data.seo.meta_description[current_lang] }}{% endblock %}
+{% block meta_keywords %}{{ tool_data.seo.keywords[current_lang] }}{% endblock %}
+{% block og_title %}{{ tool_data.seo.title[current_lang] }}{% endblock %}
+{% block og_description %}{{ tool_data.seo.meta_description[current_lang] }}{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-12">
+        <h1 class="mb-4">
+            <i class="fas fa-paragraph me-2"></i>
+            {% if current_lang == 'de' %}Lorem-Ipsum-Generator{% else %}Lorem Ipsum Generator{% endif %}
+        </h1>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12 col-lg-4">
+        <div class="card mb-3">
+            <div class="card-body">
+                <h5 class="card-title">
+                    {% if current_lang == 'de' %}Optionen{% else %}Options{% endif %}
+                </h5>
+                
+                <div class="mb-3">
+                    <label for="languageSelect" class="form-label">
+                        {% if current_lang == 'de' %}Sprache{% else %}Language{% endif %}
+                    </label>
+                    <select class="form-select" id="languageSelect">
+                        <option value="en">English / Latin</option>
+                    </select>
+                </div>
+                
+                <div class="mb-3">
+                    <label for="generationType" class="form-label">
+                        {% if current_lang == 'de' %}Typ{% else %}Type{% endif %}
+                    </label>
+                    <select class="form-select" id="generationType">
+                        <option value="words">{% if current_lang == 'de' %}Wörter{% else %}Words{% endif %}</option>
+                        <option value="sentences">{% if current_lang == 'de' %}Sätze{% else %}Sentences{% endif %}</option>
+                        <option value="paragraphs" selected>{% if current_lang == 'de' %}Absätze{% else %}Paragraphs{% endif %}</option>
+                    </select>
+                </div>
+                
+                <div class="mb-3">
+                    <label for="amount" class="form-label">
+                        {% if current_lang == 'de' %}Anzahl{% else %}Amount{% endif %}
+                        <span id="amountValue" class="text-muted">(5)</span>
+                    </label>
+                    <input type="range" class="form-range" id="amount" min="1" max="50" value="5">
+                </div>
+                
+                <div class="mb-3">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="startWithLorem" checked>
+                        <label class="form-check-label" for="startWithLorem">
+                            {% if current_lang == 'de' %}Mit "Lorem ipsum dolor sit amet..." beginnen{% else %}Start with "Lorem ipsum dolor sit amet..."{% endif %}
+                        </label>
+                    </div>
+                </div>
+                
+                <button type="button" class="btn btn-primary w-100" id="generateBtn">
+                    <i class="fas fa-sync-alt me-2"></i>
+                    {% if current_lang == 'de' %}Generieren{% else %}Generate{% endif %}
+                </button>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-body">
+                <h6 class="card-subtitle mb-2 text-muted">
+                    <i class="fas fa-info-circle me-1"></i>
+                    {% if current_lang == 'de' %}Schnelltasten{% else %}Quick Actions{% endif %}
+                </h6>
+                <div class="d-grid gap-2">
+                    <button class="btn btn-sm btn-outline-secondary" onclick="quickGenerate('words', 10)">
+                        10 {% if current_lang == 'de' %}Wörter{% else %}Words{% endif %}
+                    </button>
+                    <button class="btn btn-sm btn-outline-secondary" onclick="quickGenerate('sentences', 5)">
+                        5 {% if current_lang == 'de' %}Sätze{% else %}Sentences{% endif %}
+                    </button>
+                    <button class="btn btn-sm btn-outline-secondary" onclick="quickGenerate('paragraphs', 3)">
+                        3 {% if current_lang == 'de' %}Absätze{% else %}Paragraphs{% endif %}
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-12 col-lg-8">
+        <div class="card">
+            <div class="card-header d-flex justify-content-between align-items-center">
+                <h5 class="mb-0">
+                    {% if current_lang == 'de' %}Generierter Text{% else %}Generated Text{% endif %}
+                </h5>
+                <button class="btn btn-sm btn-outline-primary" id="copyBtn">
+                    <i class="fas fa-copy me-1"></i>
+                    {% if current_lang == 'de' %}Kopieren{% else %}Copy{% endif %}
+                </button>
+            </div>
+            <div class="card-body">
+                {{ enhanced_textarea('output', rows=20, placeholder='Klicken Sie auf \'Generieren\', um Lorem-Ipsum-Text zu erstellen...' if current_lang == 'de' else 'Click \'Generate\' to create Lorem Ipsum text...') }}
+            </div>
+        </div>
+    </div>
+</div>
+
+{% include 'components/seo_content.html' %}
+
+{% set library_name = "i18n-lipsum" %}
+{% set library_url = "https://github.com/gfmio/i18n-lipsum" %}
+{% set library_author = "Frédérique Mittelstaedt" %}
+{% set library_license = "MIT License" %}
+{% include 'components/library_credit.html' %}
+{% endblock %}
+
+{% block extra_js %}
+<script>
+const lang = document.documentElement.lang || 'en';
+let loremData = [];
+let currentLanguage = 'en';
+
+// Load Lorem Ipsum data
+fetch('/static/lorem/lorem.json')
+    .then(response => response.json())
+    .then(data => {
+        loremData = data;
+        // Populate language selector
+        populateLanguageSelector();
+        // Auto-generate on load
+        generateText();
+    })
+    .catch(error => {
+        console.error('Error loading lorem data:', error);
+    });
+
+function populateLanguageSelector() {
+    const select = document.getElementById('languageSelect');
+    select.innerHTML = '';
+    
+    // Create array of all languages with their index
+    const allLanguages = [];
+    
+    loremData.forEach((item, index) => {
+        item.languages.forEach(lang => {
+            const displayName = lang.nativeName || lang.name;
+            const code = lang.code || lang.name.toLowerCase().replace(/\s+/g, '-');
+            allLanguages.push({
+                code: code,
+                name: displayName,
+                index: index
+            });
+        });
+    });
+    
+    // Sort by language name
+    allLanguages.sort((a, b) => a.name.localeCompare(b.name));
+    
+    // Add options
+    allLanguages.forEach(lang => {
+        const option = document.createElement('option');
+        option.value = lang.code;
+        option.textContent = lang.name;
+        option.dataset.index = lang.index;
+        if (lang.code === 'en') {
+            option.selected = true;
+        }
+        select.appendChild(option);
+    });
+}
+
+// Language selector change handler
+document.addEventListener('DOMContentLoaded', function() {
+    const languageSelect = document.getElementById('languageSelect');
+    if (languageSelect) {
+        languageSelect.addEventListener('change', function() {
+            currentLanguage = this.value;
+            generateText();
+        });
+    }
+});
+
+const lorem = {
+    getCurrentText: function() {
+        const entry = loremData.find(item => 
+            item.languages.some(l => {
+                const code = l.code || l.name.toLowerCase().replace(/\s+/g, '-');
+                return code === currentLanguage;
+            })
+        );
+        let text = entry ? entry.loremIpsum : loremData[0]?.loremIpsum || '';
+        // Handle array format (like Japanese)
+        if (Array.isArray(text)) {
+            text = text.filter(t => typeof t === 'string').join(' ');
+        }
+        return text;
+    },
+    
+    splitIntoWords: function(text) {
+        return text.split(/\s+/).filter(w => w.length > 0);
+    },
+    
+    generateWords: function(count) {
+        const baseText = this.getCurrentText();
+        const words = this.splitIntoWords(baseText);
+        const result = [];
+        
+        for (let i = 0; i < count; i++) {
+            result.push(words[i % words.length]);
+        }
+        
+        return result.join(' ');
+    },
+    
+    generateSentences: function(count) {
+        const baseText = this.getCurrentText();
+        const words = this.splitIntoWords(baseText);
+        const sentences = [];
+        
+        for (let i = 0; i < count; i++) {
+            const wordCount = Math.floor(Math.random() * 8) + 8; // 8-16 words
+            const sentenceWords = [];
+            
+            for (let j = 0; j < wordCount; j++) {
+                const word = words[Math.floor(Math.random() * words.length)];
+                sentenceWords.push(word);
+            }
+            
+            let sentence = sentenceWords.join(' ');
+            // Capitalize first letter and add period
+            sentence = sentence.charAt(0).toUpperCase() + sentence.slice(1);
+            // Remove any trailing punctuation and add period
+            sentence = sentence.replace(/[.,!?;:]+$/, '') + '.';
+            sentences.push(sentence);
+        }
+        
+        return sentences.join(' ');
+    },
+    
+    generateParagraphs: function(count) {
+        const paragraphs = [];
+        
+        for (let i = 0; i < count; i++) {
+            const sentenceCount = Math.floor(Math.random() * 5) + 4; // 4-8 sentences
+            paragraphs.push(this.generateSentences(sentenceCount));
+        }
+        
+        return paragraphs.join('\n\n');
+    }
+};
+
+// Update amount display
+document.getElementById('amount').addEventListener('input', function() {
+    document.getElementById('amountValue').textContent = `(${this.value})`;
+});
+
+// Generate button
+document.getElementById('generateBtn').addEventListener('click', generateText);
+
+// Copy button
+document.getElementById('copyBtn').addEventListener('click', function() {
+    const output = document.getElementById('output');
+    output.select();
+    document.execCommand('copy');
+    
+    // Visual feedback
+    const icon = this.querySelector('i');
+    const originalClass = icon.className;
+    icon.className = 'fas fa-check me-1';
+    this.classList.remove('btn-outline-primary');
+    this.classList.add('btn-success');
+    
+    setTimeout(() => {
+        icon.className = originalClass;
+        this.classList.remove('btn-success');
+        this.classList.add('btn-outline-primary');
+    }, 1500);
+});
+
+// Enter key on amount slider
+document.getElementById('amount').addEventListener('keypress', function(e) {
+    if (e.key === 'Enter') {
+        generateText();
+    }
+});
+
+function generateText() {
+    const type = document.getElementById('generationType').value;
+    const amount = parseInt(document.getElementById('amount').value);
+    const startWithLorem = document.getElementById('startWithLorem').checked;
+    
+    let text = '';
+    
+    switch(type) {
+        case 'words':
+            text = lorem.generateWords(amount);
+            break;
+        case 'sentences':
+            text = lorem.generateSentences(amount);
+            break;
+        case 'paragraphs':
+            text = lorem.generateParagraphs(amount);
+            break;
+    }
+    
+    // Replace first occurrence with classic Lorem Ipsum start if checked
+    if (startWithLorem && text) {
+        const loremStart = "Lorem ipsum dolor sit amet, consectetur adipiscing elit";
+        
+        if (type === 'words') {
+            const words = text.split(' ');
+            const loremWords = loremStart.split(' ').slice(0, Math.min(amount, 10));
+            text = loremWords.join(' ') + (amount > 10 ? ' ' + words.slice(10).join(' ') : '');
+        } else if (type === 'sentences') {
+            const sentences = text.split('. ');
+            sentences[0] = loremStart;
+            text = sentences.join('. ');
+        } else if (type === 'paragraphs') {
+            const paragraphs = text.split('\n');
+            paragraphs[0] = loremStart + ', ' + paragraphs[0].substring(paragraphs[0].indexOf(' ') + 1);
+            text = paragraphs.join('\n');
+        }
+    }
+    
+    document.getElementById('output').value = text;
+    
+    // Trigger enhanced textarea update
+    const event = new Event('input', { bubbles: true });
+    document.getElementById('output').dispatchEvent(event);
+}
+
+function quickGenerate(type, amount) {
+    document.getElementById('generationType').value = type;
+    document.getElementById('amount').value = amount;
+    document.getElementById('amountValue').textContent = `(${amount})`;
+    generateText();
+}
+
+// Generate initial text
+generateText();
+</script>
+{% endblock %}

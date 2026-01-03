@@ -1,0 +1,89 @@
+{
+    "route": "/tools/base64",
+    "img": "fa-solid fa-code",
+    "name": {
+        "en": "Base64 Converter",
+        "de": "Base64 Konverter"
+    },
+    "description": {
+        "en": "Encode text to Base64 or decode Base64 to text",
+        "de": "Text zu Base64 kodieren oder Base64 zu Text dekodieren"
+    },
+    "tags": ["base64", "encode", "decode", "converter", "text", "utility"],
+    "new_window": false,
+    "frontend_only": true,
+    "ui": {
+        "input": { "en": "Input", "de": "Eingabe" },
+        "output": { "en": "Output", "de": "Ausgabe" },
+        "encode": { "en": "Encode to Base64", "de": "Zu Base64 kodieren" },
+        "decode": { "en": "Decode from Base64", "de": "Von Base64 dekodieren" },
+        "input_placeholder_encode": { "en": "Enter text to encode...", "de": "Text zum Kodieren eingeben..." },
+        "input_placeholder_decode": { "en": "Enter Base64 to decode...", "de": "Base64 zum Dekodieren eingeben..." },
+        "output_placeholder": { "en": "Result will appear here...", "de": "Ergebnis erscheint hier..." },
+        "error_invalid_base64": { "en": "Invalid Base64 input", "de": "Ungültige Base64-Eingabe" }
+    },
+    "seo": {
+        "title": {
+            "en": "Base64 Converter - Encode & Decode",
+            "de": "Base64 Konverter - Kodieren & Dekodieren"
+        },
+        "description": {
+            "en": "Free online Base64 encoder and decoder. Convert text to Base64 or decode Base64 to text instantly.",
+            "de": "Kostenloser Online Base64 Encoder und Decoder. Text zu Base64 konvertieren oder Base64 zu Text dekodieren."
+        },
+        "content": {
+            "heading": {
+                "en": "About Base64 Encoding",
+                "de": "Über Base64-Kodierung"
+            },
+            "intro": {
+                "en": "Base64 is a binary-to-text encoding scheme that represents binary data in an ASCII string format. It's commonly used to encode data for transmission over text-based protocols.",
+                "de": "Base64 ist ein Binär-zu-Text-Kodierungsschema, das Binärdaten in einem ASCII-Zeichenkettenformat darstellt. Es wird häufig verwendet, um Daten für die Übertragung über textbasierte Protokolle zu kodieren."
+            },
+            "features": {
+                "heading": {
+                    "en": "Features:",
+                    "de": "Funktionen:"
+                },
+                "items": [
+                    {
+                        "en": "<strong>Encode:</strong> Convert plain text to Base64 format",
+                        "de": "<strong>Kodieren:</strong> Klartext in Base64-Format konvertieren"
+                    },
+                    {
+                        "en": "<strong>Decode:</strong> Convert Base64 back to readable text",
+                        "de": "<strong>Dekodieren:</strong> Base64 zurück in lesbaren Text konvertieren"
+                    },
+                    {
+                        "en": "<strong>Instant:</strong> Real-time conversion as you type",
+                        "de": "<strong>Sofort:</strong> Echtzeit-Konvertierung während der Eingabe"
+                    }
+                ]
+            },
+            "use_cases": {
+                "heading": {
+                    "en": "Common Use Cases:",
+                    "de": "Häufige Anwendungsfälle:"
+                },
+                "items": [
+                    {
+                        "en": "Encoding data for URLs or HTTP headers",
+                        "de": "Kodieren von Daten für URLs oder HTTP-Header"
+                    },
+                    {
+                        "en": "Embedding images in HTML or CSS",
+                        "de": "Einbetten von Bildern in HTML oder CSS"
+                    },
+                    {
+                        "en": "Storing binary data in JSON or XML",
+                        "de": "Speichern von Binärdaten in JSON oder XML"
+                    }
+                ]
+            },
+            "privacy_note": {
+                "en": "🔒 Privacy-Friendly: All encoding and decoding happens in your browser. No data is sent to any server.",
+                "de": "🔒 Datenschutzfreundlich: Alle Kodierung und Dekodierung erfolgt in Ihrem Browser. Es werden keine Daten an einen Server gesendet."
+            }
+        }
+    }
+}

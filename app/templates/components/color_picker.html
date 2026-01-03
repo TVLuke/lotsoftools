@@ -1,0 +1,31 @@
+{% macro color_picker(id, label='', initial_color='#000000', layout='horizontal') %}
+<div class="mb-3">
+    {% if label %}
+    <label class="form-label">{{ label }}</label>
+    {% endif %}
+    <div class="{% if layout == 'vertical' %}csv-color-picker{% else %}custom-color-picker{% endif %}">
+        <div class="color-circle-wrapper">
+            <div class="color-circle{% if layout == 'vertical' %} csv-color-circle{% endif %}" style="background-color: {{ initial_color }};">
+                <input type="color" id="{{ id }}" value="{{ initial_color }}">
+            </div>
+        </div>
+        <input 
+            type="text" 
+            class="form-control {% if layout == 'vertical' %}csv-hex-input{% else %}hex-input{% endif %}" 
+            id="{{ id }}_hex" 
+            value="{{ initial_color|upper }}" 
+            maxlength="7" 
+            pattern="^#[0-9A-Fa-f]{6}$"
+        >
+    </div>
+</div>
+{% endmacro %}
+
+{% macro color_picker_inline(id, initial_color='#000000', column_index=0) %}
+<div class="csv-color-picker">
+    <div class="csv-color-circle" style="background-color: {{ initial_color }};">
+        <input type="color" class="color-input" value="{{ initial_color }}" data-column="{{ column_index }}">
+    </div>
+    <input type="text" class="csv-hex-input" value="{{ initial_color|upper }}" data-column="{{ column_index }}" maxlength="7">
+</div>
+{% endmacro %}

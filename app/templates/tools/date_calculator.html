@@ -1,0 +1,766 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    {% if current_lang == 'de' %}{{ tool_data.name.de }}{% else %}{{ tool_data.name.en }}{% endif %} - usefull
+{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h1 class="mb-4">{% if current_lang == 'de' %}{{ tool_data.name.de }}{% else %}{{ tool_data.name.en }}{% endif %}</h1>
+    <p class="text-muted mb-4">{% if current_lang == 'de' %}{{ tool_data.description.de }}{% else %}{{ tool_data.description.en }}{% endif %}</p>
+    
+    <div class="row mb-4">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <div class="mb-3">
+                        <label for="dateInput" class="form-label">{% if current_lang == 'de' %}Datum{% else %}Date{% endif %}</label>
+                        <input type="date" class="form-control" id="dateInput">
+                    </div>
+                    <div class="mb-3">
+                        <label for="timeInput" class="form-label">{% if current_lang == 'de' %}Uhrzeit (optional){% else %}Time (optional){% endif %}</label>
+                        <input type="time" class="form-control" id="timeInput" step="1">
+                    </div>
+                    <div class="form-check mb-3">
+                        <input class="form-check-input" type="checkbox" id="includeTime">
+                        <label class="form-check-label" for="includeTime">
+                            {% if current_lang == 'de' %}Uhrzeit einbeziehen{% else %}Include time{% endif %}
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    <h6 class="mb-0">{% if current_lang == 'de' %}Beispiele{% else %}Examples{% endif %}</h6>
+                </div>
+                <div class="card-body">
+                    <div class="d-flex flex-wrap gap-2">
+                        <button class="btn btn-outline-secondary btn-sm example-btn" data-date="last-christmas" data-time="false">
+                            {% if current_lang == 'de' %}Letztes Weihnachten{% else %}Last Christmas{% endif %}
+                        </button>
+                        <button class="btn btn-outline-secondary btn-sm example-btn" data-date="next-christmas" data-time="false">
+                            {% if current_lang == 'de' %}Nächstes Weihnachten{% else %}Next Christmas{% endif %}
+                        </button>
+                        <button class="btn btn-outline-secondary btn-sm example-btn" data-date="new-years" data-time="true">
+                            {% if current_lang == 'de' %}Silvester Mitternacht{% else %}New Year's Midnight{% endif %}
+                        </button>
+                        <button class="btn btn-outline-secondary btn-sm example-btn" data-date="fall-of-rome" data-time="false">
+                            {% if current_lang == 'de' %}Fall Roms (476){% else %}Fall of Rome (476){% endif %}
+                        </button>
+                        <button class="btn btn-outline-secondary btn-sm example-btn" data-date="moon-landing" data-time="true">
+                            {% if current_lang == 'de' %}Mondlandung (1969){% else %}Moon Landing (1969){% endif %}
+                        </button>
+                        <button class="btn btn-outline-secondary btn-sm example-btn" data-date="berlin-wall" data-time="false">
+                            {% if current_lang == 'de' %}Mauerfall (1989){% else %}Fall of Berlin Wall (1989){% endif %}
+                        </button>
+                        <button class="btn btn-outline-secondary btn-sm example-btn" data-date="millennium" data-time="true">
+                            {% if current_lang == 'de' %}Jahrtausendwende{% else %}Millennium{% endif %}
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="mb-0" id="resultTitle">
+                        {% if mode == 'until' %}
+                            {% if current_lang == 'de' %}Zeit bis{% else %}Time until{% endif %}
+                        {% else %}
+                            {% if current_lang == 'de' %}Zeit seit{% else %}Time since{% endif %}
+                        {% endif %}
+                    </h5>
+                </div>
+                <div class="card-body">
+                    <div id="noDateMessage" class="text-muted">
+                        {% if current_lang == 'de' %}Bitte wählen Sie ein Datum aus{% else %}Please select a date{% endif %}
+                    </div>
+                    <div id="resultContainer" style="display: none;">
+                        <table class="table table-borderless mb-0">
+                            <tbody>
+                                <tr>
+                                    <td class="text-muted" style="width: 250px;">{% if current_lang == 'de' %}Jahre, Monate, Tage, Stunden, Minuten, Sekunden{% else %}Years, Months, Days, Hours, Minutes, Seconds{% endif %}</td>
+                                    <td><strong id="fullFormat" class="font-monospace fs-5">-</strong></td>
+                                    <td class="text-end"><button class="btn btn-sm btn-outline-secondary fullscreen-btn" data-format="full" title="{% if current_lang == 'de' %}Vollbild{% else %}Fullscreen{% endif %}"><i class="fas fa-expand"></i></button></td>
+                                </tr>
+                                <tr>
+                                    <td class="text-muted">{% if current_lang == 'de' %}Jahre (dezimal){% else %}Years (decimal){% endif %}</td>
+                                    <td><strong id="yearsDecimal" class="font-monospace fs-5">-</strong></td>
+                                    <td class="text-end"><button class="btn btn-sm btn-outline-secondary fullscreen-btn" data-format="years" title="{% if current_lang == 'de' %}Vollbild{% else %}Fullscreen{% endif %}"><i class="fas fa-expand"></i></button></td>
+                                </tr>
+                                <tr>
+                                    <td class="text-muted">{% if current_lang == 'de' %}Tage, Stunden, Minuten, Sekunden{% else %}Days, Hours, Minutes, Seconds{% endif %}</td>
+                                    <td><strong id="daysFormat" class="font-monospace fs-5">-</strong></td>
+                                    <td class="text-end"><button class="btn btn-sm btn-outline-secondary fullscreen-btn" data-format="days" title="{% if current_lang == 'de' %}Vollbild{% else %}Fullscreen{% endif %}"><i class="fas fa-expand"></i></button></td>
+                                </tr>
+                                <tr>
+                                    <td class="text-muted">{% if current_lang == 'de' %}Stunden, Minuten, Sekunden{% else %}Hours, Minutes, Seconds{% endif %}</td>
+                                    <td><strong id="hoursFormat" class="font-monospace fs-5">-</strong></td>
+                                    <td class="text-end"><button class="btn btn-sm btn-outline-secondary fullscreen-btn" data-format="hours" title="{% if current_lang == 'de' %}Vollbild{% else %}Fullscreen{% endif %}"><i class="fas fa-expand"></i></button></td>
+                                </tr>
+                                <tr>
+                                    <td class="text-muted">{% if current_lang == 'de' %}Minuten, Sekunden{% else %}Minutes, Seconds{% endif %}</td>
+                                    <td><strong id="minutesFormat" class="font-monospace fs-5">-</strong></td>
+                                    <td class="text-end"><button class="btn btn-sm btn-outline-secondary fullscreen-btn" data-format="minutes" title="{% if current_lang == 'de' %}Vollbild{% else %}Fullscreen{% endif %}"><i class="fas fa-expand"></i></button></td>
+                                </tr>
+                                <tr>
+                                    <td class="text-muted">{% if current_lang == 'de' %}Sekunden{% else %}Seconds{% endif %}</td>
+                                    <td><strong id="secondsFormat" class="font-monospace fs-5">-</strong></td>
+                                    <td class="text-end"><button class="btn btn-sm btn-outline-secondary fullscreen-btn" data-format="seconds" title="{% if current_lang == 'de' %}Vollbild{% else %}Fullscreen{% endif %}"><i class="fas fa-expand"></i></button></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    {% if tool_data and tool_data.seo and tool_data.seo.content %}
+    <div class="mt-5">
+        <h2 class="h5 mb-3">{{ tool_data.seo.content.heading[current_lang] }}</h2>
+        <p>{{ tool_data.seo.content.intro[current_lang] }}</p>
+        
+        {% if tool_data.seo.content.features %}
+        <ul class="mt-3">
+            {% for feature in tool_data.seo.content.features %}
+            <li><strong>{{ feature.title[current_lang] }}</strong> – {{ feature.description[current_lang] }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        
+        {% if tool_data.seo.content.data_source %}
+        <p class="text-muted small mt-3">{{ tool_data.seo.content.data_source[current_lang]|safe }}</p>
+        {% endif %}
+    </div>
+    {% endif %}
+</div>
+
+<!-- Fullscreen Overlay -->
+<div id="fullscreenOverlay" class="fullscreen-overlay" style="display: none;">
+    <div class="fullscreen-controls">
+        <div class="btn-group btn-group-sm me-3">
+            <button class="btn btn-outline-light style-btn active" data-style="led">LED</button>
+            <button class="btn btn-outline-light style-btn" data-style="flip">Flip</button>
+            <button class="btn btn-outline-light style-btn" data-style="simple">{% if current_lang == 'de' %}Dunkel{% else %}Dark{% endif %}</button>
+            <button class="btn btn-outline-light style-btn" data-style="simple-light">{% if current_lang == 'de' %}Hell{% else %}Light{% endif %}</button>
+        </div>
+        <button class="btn btn-outline-light btn-sm" id="closeFullscreen"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="fullscreen-content">
+        <div id="fullscreenDisplay" class="display-led"></div>
+    </div>
+</div>
+
+<style>
+.fullscreen-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: #000;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.fullscreen-controls {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.fullscreen-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    padding: 40px;
+}
+
+/* Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;300&display=swap');
+
+/* LED Display Style - 7-Segment */
+@font-face {
+    font-family: 'DSEG7';
+    src: url('https://cdn.jsdelivr.net/npm/dseg@0.46.0/fonts/DSEG7-Classic/DSEG7Classic-Bold.woff2') format('woff2'),
+         url('https://cdn.jsdelivr.net/npm/dseg@0.46.0/fonts/DSEG7-Classic/DSEG7Classic-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+}
+
+.display-led {
+    font-family: 'DSEG7', 'Courier New', monospace;
+    font-size: clamp(3rem, 12vw, 10rem);
+    font-weight: bold;
+    color: #ff0000;
+    text-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000, 0 0 30px #ff3333;
+    letter-spacing: 0.05em;
+    text-align: center;
+}
+
+/* Flip Clock Style - Split Flap */
+.display-flip {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: clamp(2.5rem, 10vw, 8rem);
+    font-weight: bold;
+    color: #fff;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.08em;
+    perspective: 400px;
+}
+
+.display-flip .flip-tile {
+    display: inline-block;
+    position: relative;
+    width: 0.8em;
+    height: 1.2em;
+    margin: 0 0.02em;
+}
+
+.display-flip .flip-tile .top,
+.display-flip .flip-tile .bottom {
+    position: absolute;
+    width: 100%;
+    height: 50%;
+    overflow: hidden;
+    background: #2a2a2a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.display-flip .flip-tile .top {
+    top: 0;
+    border-radius: 6px 6px 0 0;
+    background: linear-gradient(180deg, #3a3a3a 0%, #2a2a2a 100%);
+    border-bottom: 1px solid #1a1a1a;
+}
+
+.display-flip .flip-tile .bottom {
+    bottom: 0;
+    border-radius: 0 0 6px 6px;
+    background: linear-gradient(180deg, #252525 0%, #1a1a1a 100%);
+}
+
+.display-flip .flip-tile .bottom-new {
+    position: absolute;
+    width: 100%;
+    height: 50%;
+    bottom: 0;
+    overflow: hidden;
+    border-radius: 0 0 6px 6px;
+    background: linear-gradient(180deg, #252525 0%, #1a1a1a 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+}
+
+.display-flip .flip-tile .bottom-new span {
+    position: absolute;
+    width: 100%;
+    height: 200%;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.display-flip .flip-tile.flipping .bottom-new {
+    animation: revealBottom 0.01s 0.35s forwards;
+}
+
+@keyframes revealBottom {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+.display-flip .flip-tile .top span {
+    position: absolute;
+    width: 100%;
+    height: 200%;
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.display-flip .flip-tile .bottom span {
+    position: absolute;
+    width: 100%;
+    height: 200%;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.display-flip .flip-tile .flap {
+    position: absolute;
+    width: 100%;
+    height: 50%;
+    top: 0;
+    overflow: hidden;
+    background: linear-gradient(180deg, #3a3a3a 0%, #2a2a2a 100%);
+    border-radius: 6px 6px 0 0;
+    transform-origin: bottom center;
+    backface-visibility: hidden;
+    z-index: 2;
+}
+
+.display-flip .flip-tile .flap span {
+    position: absolute;
+    width: 100%;
+    height: 200%;
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.display-flip .flip-tile.flipping .flap {
+    animation: flapDown 0.4s ease-in forwards;
+}
+
+@keyframes flapDown {
+    0% { transform: rotateX(0deg); }
+    100% { transform: rotateX(-180deg); }
+}
+
+.display-flip .flip-separator {
+    display: inline-flex;
+    align-items: center;
+    padding: 0 0.15em;
+    color: #666;
+    font-size: 0.9em;
+}
+
+/* Simple Style - Dark */
+.display-simple {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-size: clamp(3rem, 12vw, 10rem);
+    font-weight: 200;
+    color: #fff;
+    text-align: center;
+    letter-spacing: -0.02em;
+}
+
+/* Simple Style - Light */
+.display-simple-light {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-size: clamp(3rem, 12vw, 10rem);
+    font-weight: 200;
+    color: #1a1a1a;
+    text-align: center;
+    letter-spacing: -0.02em;
+}
+
+.fullscreen-overlay.light-mode {
+    background: #f5f5f5;
+}
+
+.fullscreen-overlay.light-mode .fullscreen-controls .btn-outline-light {
+    color: #333;
+    border-color: #ccc;
+}
+
+.fullscreen-overlay.light-mode .fullscreen-controls .btn-outline-light:hover {
+    background: #ddd;
+}
+
+.fullscreen-overlay.light-mode .style-btn.active {
+    background: #333;
+    color: #fff;
+}
+
+.style-btn.active {
+    background: #fff;
+    color: #000;
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const dateInput = document.getElementById('dateInput');
+    const timeInput = document.getElementById('timeInput');
+    const includeTime = document.getElementById('includeTime');
+    const noDateMessage = document.getElementById('noDateMessage');
+    const resultContainer = document.getElementById('resultContainer');
+    
+    const fullFormat = document.getElementById('fullFormat');
+    const yearsDecimal = document.getElementById('yearsDecimal');
+    const daysFormat = document.getElementById('daysFormat');
+    const hoursFormat = document.getElementById('hoursFormat');
+    const minutesFormat = document.getElementById('minutesFormat');
+    const secondsFormat = document.getElementById('secondsFormat');
+    
+    const mode = '{{ mode }}';
+    let intervalId = null;
+    
+    // Set default date to today
+    const today = new Date();
+    dateInput.value = today.toISOString().split('T')[0];
+    timeInput.value = today.toTimeString().split(' ')[0];
+    
+    function getTargetDate() {
+        if (!dateInput.value) return null;
+        
+        let dateStr = dateInput.value;
+        if (includeTime.checked && timeInput.value) {
+            dateStr += 'T' + timeInput.value;
+        } else {
+            dateStr += 'T00:00:00';
+        }
+        return new Date(dateStr);
+    }
+    
+    function formatNumber(num) {
+        return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+    }
+    
+    function updateDisplay() {
+        const targetDate = getTargetDate();
+        
+        if (!targetDate) {
+            noDateMessage.style.display = 'block';
+            resultContainer.style.display = 'none';
+            return;
+        }
+        
+        noDateMessage.style.display = 'none';
+        resultContainer.style.display = 'block';
+        
+        const now = new Date();
+        let diffMs = targetDate - now;
+        
+        // Handle negative values (past/future depending on mode)
+        const isNegative = diffMs < 0;
+        diffMs = Math.abs(diffMs);
+        
+        const totalSeconds = Math.floor(diffMs / 1000);
+        const totalMinutes = Math.floor(diffMs / (1000 * 60));
+        const totalHours = Math.floor(diffMs / (1000 * 60 * 60));
+        const totalDays = Math.floor(diffMs / (1000 * 60 * 60 * 24));
+        
+        // Years decimal (approximate: 365.25 days per year)
+        const yearsDecimalVal = (diffMs / (1000 * 60 * 60 * 24 * 365.25)).toFixed(6);
+        
+        // Full format: years, months, days, hours, minutes, seconds
+        const years = Math.floor(totalDays / 365.25);
+        const remainingDaysAfterYears = totalDays - Math.floor(years * 365.25);
+        const months = Math.floor(remainingDaysAfterYears / 30.44);
+        const days = Math.floor(remainingDaysAfterYears - Math.floor(months * 30.44));
+        const hours = Math.floor((diffMs % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((diffMs % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((diffMs % (1000 * 60)) / 1000);
+        
+        // Days format
+        const daysHours = Math.floor((diffMs % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const daysMinutes = Math.floor((diffMs % (1000 * 60 * 60)) / (1000 * 60));
+        const daysSeconds = Math.floor((diffMs % (1000 * 60)) / 1000);
+        
+        // Hours format
+        const hoursMinutes = Math.floor((diffMs % (1000 * 60 * 60)) / (1000 * 60));
+        const hoursSeconds = Math.floor((diffMs % (1000 * 60)) / 1000);
+        
+        // Minutes format
+        const minutesSeconds = Math.floor((diffMs % (1000 * 60)) / 1000);
+        
+        const prefix = isNegative ? '-' : '';
+        
+        // Update display
+        fullFormat.textContent = `${prefix}${years}y ${months}m ${days}d ${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+        yearsDecimal.textContent = `${prefix}${yearsDecimalVal}`;
+        daysFormat.textContent = `${prefix}${formatNumber(totalDays)}d ${daysHours.toString().padStart(2, '0')}:${daysMinutes.toString().padStart(2, '0')}:${daysSeconds.toString().padStart(2, '0')}`;
+        hoursFormat.textContent = `${prefix}${formatNumber(totalHours)}:${hoursMinutes.toString().padStart(2, '0')}:${hoursSeconds.toString().padStart(2, '0')}`;
+        minutesFormat.textContent = `${prefix}${formatNumber(totalMinutes)}:${minutesSeconds.toString().padStart(2, '0')}`;
+        secondsFormat.textContent = `${prefix}${formatNumber(totalSeconds)}`;
+    }
+    
+    function startLiveUpdate() {
+        if (intervalId) clearInterval(intervalId);
+        updateDisplay();
+        intervalId = setInterval(updateDisplay, 1000);
+    }
+    
+    // Example dates
+    function getExampleDate(type) {
+        const now = new Date();
+        const currentYear = now.getFullYear();
+        
+        switch(type) {
+            case 'last-christmas':
+                // Dec 25 of last year, or this year if we're past it
+                const lastChristmas = new Date(currentYear, 11, 25);
+                if (now < lastChristmas) {
+                    return { date: new Date(currentYear - 1, 11, 25), time: null };
+                }
+                return { date: lastChristmas, time: null };
+            
+            case 'next-christmas':
+                // Dec 25 of this year, or next year if we're past it
+                const nextChristmas = new Date(currentYear, 11, 25);
+                if (now >= nextChristmas) {
+                    return { date: new Date(currentYear + 1, 11, 25), time: null };
+                }
+                return { date: nextChristmas, time: null };
+            
+            case 'new-years':
+                // Jan 1 midnight of next year
+                return { date: new Date(currentYear + 1, 0, 1, 0, 0, 0), time: '00:00:00' };
+            
+            case 'fall-of-rome':
+                // 476 AD, Jan 1 (approximate)
+                return { date: new Date('0476-01-01'), time: null };
+            
+            case 'moon-landing':
+                // July 20, 1969, 20:17 UTC (first step on moon was 02:56 UTC July 21)
+                return { date: new Date('1969-07-20T20:17:00Z'), time: '20:17:00' };
+            
+            case 'berlin-wall':
+                // Nov 9, 1989
+                return { date: new Date(1989, 10, 9), time: null };
+            
+            case 'millennium':
+                // Jan 1, 2000, midnight
+                return { date: new Date(2000, 0, 1, 0, 0, 0), time: '00:00:00' };
+            
+            default:
+                return null;
+        }
+    }
+    
+    // Example button click handlers
+    document.querySelectorAll('.example-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+            const dateType = this.dataset.date;
+            const useTime = this.dataset.time === 'true';
+            const example = getExampleDate(dateType);
+            
+            if (example) {
+                // Format date for input
+                const d = example.date;
+                const year = d.getFullYear();
+                const month = (d.getMonth() + 1).toString().padStart(2, '0');
+                const day = d.getDate().toString().padStart(2, '0');
+                
+                // Handle years before 1000 (need special formatting)
+                if (year < 1000) {
+                    dateInput.value = `${year.toString().padStart(4, '0')}-${month}-${day}`;
+                } else {
+                    dateInput.value = `${year}-${month}-${day}`;
+                }
+                
+                if (useTime && example.time) {
+                    timeInput.value = example.time;
+                    includeTime.checked = true;
+                } else {
+                    includeTime.checked = false;
+                }
+                
+                startLiveUpdate();
+                updateUrl();
+            }
+        });
+    });
+    
+    // URL state management
+    function updateUrl() {
+        const params = new URLSearchParams();
+        if (dateInput.value) {
+            params.set('date', dateInput.value);
+        }
+        if (includeTime.checked && timeInput.value) {
+            params.set('time', timeInput.value);
+        }
+        const newUrl = `${window.location.pathname}?${params.toString()}`;
+        history.replaceState(null, '', newUrl);
+    }
+    
+    function loadFromUrl() {
+        const params = new URLSearchParams(window.location.search);
+        const dateParam = params.get('date');
+        const timeParam = params.get('time');
+        
+        if (dateParam) {
+            dateInput.value = dateParam;
+        }
+        if (timeParam) {
+            timeInput.value = timeParam;
+            includeTime.checked = true;
+        }
+    }
+    
+    // Load from URL on page load
+    loadFromUrl();
+    
+    // Event listeners
+    dateInput.addEventListener('change', () => { startLiveUpdate(); updateUrl(); });
+    timeInput.addEventListener('change', () => { startLiveUpdate(); updateUrl(); });
+    includeTime.addEventListener('change', () => { startLiveUpdate(); updateUrl(); });
+    
+    // Fullscreen functionality
+    const fullscreenOverlay = document.getElementById('fullscreenOverlay');
+    const fullscreenDisplay = document.getElementById('fullscreenDisplay');
+    const closeFullscreen = document.getElementById('closeFullscreen');
+    let currentFullscreenFormat = 'full';
+    let currentStyle = 'led';
+    let fullscreenIntervalId = null;
+    
+    function formatForFullscreen(format) {
+        const targetDate = getTargetDate();
+        if (!targetDate) return '-';
+        
+        const now = new Date();
+        let diffMs = targetDate - now;
+        const isNegative = diffMs < 0;
+        diffMs = Math.abs(diffMs);
+        
+        const totalSeconds = Math.floor(diffMs / 1000);
+        const totalMinutes = Math.floor(diffMs / (1000 * 60));
+        const totalHours = Math.floor(diffMs / (1000 * 60 * 60));
+        const totalDays = Math.floor(diffMs / (1000 * 60 * 60 * 24));
+        
+        const years = Math.floor(totalDays / 365.25);
+        const remainingDaysAfterYears = totalDays - Math.floor(years * 365.25);
+        const months = Math.floor(remainingDaysAfterYears / 30.44);
+        const days = Math.floor(remainingDaysAfterYears - Math.floor(months * 30.44));
+        const hours = Math.floor((diffMs % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((diffMs % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((diffMs % (1000 * 60)) / 1000);
+        
+        const prefix = isNegative ? '-' : '';
+        
+        switch(format) {
+            case 'full':
+                return `${prefix}${years}y ${months}m ${days}d ${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+            case 'years':
+                return `${prefix}${(diffMs / (1000 * 60 * 60 * 24 * 365.25)).toFixed(6)}`;
+            case 'days':
+                return `${prefix}${totalDays}d ${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+            case 'hours':
+                return `${prefix}${totalHours}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+            case 'minutes':
+                return `${prefix}${totalMinutes}:${seconds.toString().padStart(2, '0')}`;
+            case 'seconds':
+                return `${prefix}${totalSeconds}`;
+            default:
+                return '-';
+        }
+    }
+    
+    let previousFlipValues = {};
+    
+    function formatFlipStyle(text, animate = true) {
+        const chars = text.split('');
+        let html = '';
+        
+        chars.forEach((char, index) => {
+            if (char === ':' || char === ' ') {
+                html += `<span class="flip-separator">${char}</span>`;
+            } else {
+                const prevChar = previousFlipValues[index] || char;
+                const isChanging = animate && prevChar !== char;
+                
+                // Bottom shows OLD number initially, new number revealed after animation
+                html += `
+                    <div class="flip-tile ${isChanging ? 'flipping' : ''}">
+                        <div class="top"><span>${char}</span></div>
+                        <div class="bottom"><span>${isChanging ? prevChar : char}</span></div>
+                        <div class="bottom-new"><span>${char}</span></div>
+                        ${isChanging ? `<div class="flap"><span>${prevChar}</span></div>` : ''}
+                    </div>
+                `;
+                
+                previousFlipValues[index] = char;
+            }
+        });
+        
+        return html;
+    }
+    
+    function updateFullscreenDisplay() {
+        const text = formatForFullscreen(currentFullscreenFormat);
+        
+        if (currentStyle === 'flip') {
+            fullscreenDisplay.innerHTML = formatFlipStyle(text);
+        } else {
+            fullscreenDisplay.textContent = text;
+        }
+    }
+    
+    function openFullscreen(format) {
+        currentFullscreenFormat = format;
+        fullscreenOverlay.style.display = 'flex';
+        updateFullscreenDisplay();
+        fullscreenIntervalId = setInterval(updateFullscreenDisplay, 1000);
+        document.body.style.overflow = 'hidden';
+    }
+    
+    function closeFullscreenOverlay() {
+        fullscreenOverlay.style.display = 'none';
+        if (fullscreenIntervalId) {
+            clearInterval(fullscreenIntervalId);
+            fullscreenIntervalId = null;
+        }
+        document.body.style.overflow = '';
+    }
+    
+    // Fullscreen button click handlers
+    document.querySelectorAll('.fullscreen-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+            openFullscreen(this.dataset.format);
+        });
+    });
+    
+    closeFullscreen.addEventListener('click', closeFullscreenOverlay);
+    
+    // Style button click handlers
+    document.querySelectorAll('.style-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+            document.querySelectorAll('.style-btn').forEach(b => b.classList.remove('active'));
+            this.classList.add('active');
+            currentStyle = this.dataset.style;
+            
+            // Handle light mode overlay background
+            if (currentStyle === 'simple-light') {
+                fullscreenOverlay.classList.add('light-mode');
+                fullscreenDisplay.className = 'display-simple-light';
+            } else {
+                fullscreenOverlay.classList.remove('light-mode');
+                fullscreenDisplay.className = `display-${currentStyle}`;
+            }
+            
+            updateFullscreenDisplay();
+        });
+    });
+    
+    // Close on Escape key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && fullscreenOverlay.style.display === 'flex') {
+            closeFullscreenOverlay();
+        }
+    });
+    
+    // Initial update
+    startLiveUpdate();
+});
+</script>
+{% endblock %}

@@ -1,0 +1,63 @@
+{
+  "route": "/tools/diff",
+  "img": "fas fa-columns",
+  "name": {
+    "en": "Text Diff",
+    "de": "Text-Vergleich"
+  },
+  "description": {
+    "en": "Compare two texts and see the differences",
+    "de": "Zwei Texte vergleichen und Unterschiede anzeigen"
+  },
+  "tags": ["text", "comparison"],
+  "new_window": false,
+  "frontend_only": true,
+  "seo": {
+    "title": {
+      "en": "Text Diff Tool - Compare Two Texts Side by Side",
+      "de": "Text-Vergleich - Zwei Texte nebeneinander vergleichen"
+    },
+    "meta_description": {
+      "en": "Free online diff tool to compare two texts side by side. See additions in green and deletions in red. Option to ignore whitespace changes.",
+      "de": "Kostenloses Online-Diff-Tool zum Vergleichen von zwei Texten nebeneinander. Zeigt Hinzufügungen in grün und Löschungen in rot. Option zum Ignorieren von Leerzeichenänderungen."
+    },
+    "keywords": {
+      "en": "diff tool, text comparison, compare texts, diff viewer, text diff, code diff, online diff",
+      "de": "Diff-Tool, Textvergleich, Texte vergleichen, Diff-Anzeige, Text-Diff, Code-Diff, Online-Diff"
+    },
+    "content": {
+      "heading": {
+        "en": "About This Diff Tool",
+        "de": "Über dieses Diff-Tool"
+      },
+      "intro": {
+        "en": "This diff tool allows you to compare two texts side by side and instantly see the differences. Paste the original text on the left and the modified text on the right to highlight what was added, removed, or changed.",
+        "de": "Dieses Diff-Tool ermöglicht es Ihnen, zwei Texte nebeneinander zu vergleichen und sofort die Unterschiede zu sehen. Fügen Sie den Originaltext links und den geänderten Text rechts ein, um hervorzuheben, was hinzugefügt, entfernt oder geändert wurde."
+      },
+      "features": {
+        "heading": {
+          "en": "Features:",
+          "de": "Funktionen:"
+        },
+        "items": [
+          {
+            "en": "<strong>Side-by-side comparison:</strong> View original and modified text next to each other",
+            "de": "<strong>Nebeneinander-Vergleich:</strong> Original- und geänderten Text nebeneinander anzeigen"
+          },
+          {
+            "en": "<strong>Color-coded differences:</strong> Deletions shown in red, additions shown in green",
+            "de": "<strong>Farbcodierte Unterschiede:</strong> Löschungen in rot, Hinzufügungen in grün"
+          },
+          {
+            "en": "<strong>Ignore whitespace:</strong> Option to ignore changes that only affect whitespace",
+            "de": "<strong>Leerzeichen ignorieren:</strong> Option zum Ignorieren von Änderungen, die nur Leerzeichen betreffen"
+          }
+        ]
+      },
+      "privacy_note": {
+        "en": "🔒 Privacy-Friendly: All processing happens directly in your browser. Your text is never sent to any server.",
+        "de": "🔒 Datenschutzfreundlich: Alle Verarbeitung erfolgt direkt in Ihrem Browser. Ihr Text wird niemals an einen Server gesendet."
+      }
+    }
+  }
+}

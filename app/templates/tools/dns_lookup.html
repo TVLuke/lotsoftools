@@ -1,0 +1,434 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ tool_data.seo.title[current_lang] }}{% endblock %}
+{% block meta_description %}{{ tool_data.seo.meta_description[current_lang] }}{% endblock %}
+{% block meta_keywords %}{{ tool_data.seo.keywords[current_lang] }}{% endblock %}
+{% block og_title %}{{ tool_data.seo.title[current_lang] }}{% endblock %}
+{% block og_description %}{{ tool_data.seo.meta_description[current_lang] }}{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-12">
+        <h1 class="mb-4">
+            <i class="fas fa-globe me-2"></i>
+            {% if current_lang == 'de' %}DNS-Abfrage{% else %}DNS Lookup{% endif %}
+        </h1>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12 col-lg-8">
+        <div class="card mb-3">
+            <div class="card-body">
+                <div class="row g-2 align-items-end">
+                    <div class="col-12 col-md-5">
+                        <label for="domainInput" class="form-label">
+                            {% if current_lang == 'de' %}Domain{% else %}Domain{% endif %}
+                        </label>
+                        <input type="text" class="form-control" id="domainInput" placeholder="example.com">
+                    </div>
+                    <div class="col-6 col-md-3">
+                        <label for="recordType" class="form-label">
+                            {% if current_lang == 'de' %}Eintragstyp{% else %}Record Type{% endif %}
+                        </label>
+                        <select class="form-select" id="recordType">
+                            <option value="ALL">{% if current_lang == 'de' %}Alle{% else %}All{% endif %}</option>
+                            {% for rtype in record_types %}
+                            <option value="{{ rtype }}">{{ rtype }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="col-6 col-md-3">
+                        <label for="customServer" class="form-label">
+                            {% if current_lang == 'de' %}Eigener DNS{% else %}Custom DNS{% endif %}
+                        </label>
+                        <input type="text" class="form-control" id="customServer" placeholder="1.2.3.4">
+                    </div>
+                    <div class="col-12 col-md-1">
+                        <button class="btn btn-primary w-100" id="lookupBtn">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="form-check mt-3">
+                    <input class="form-check-input" type="checkbox" id="autoRefresh">
+                    <label class="form-check-label" for="autoRefresh">
+                        {% if current_lang == 'de' %}Automatisch alle 5 Minuten aktualisieren{% else %}Auto refresh every 5 minutes{% endif %}
+                    </label>
+                </div>
+            </div>
+        </div>
+        
+        <div class="alert alert-danger" id="errorAlert" style="display:none;"></div>
+        
+        <div id="resultsContainer"></div>
+    </div>
+    
+    <div class="col-12 col-lg-4">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0">
+                    <i class="fas fa-server me-2"></i>
+                    {% if current_lang == 'de' %}DNS-Server{% else %}DNS Servers{% endif %}
+                </h5>
+            </div>
+            <div class="card-body">
+                <ul class="list-unstyled mb-0">
+                    {% for server in dns_servers %}
+                    <li class="mb-2">
+                        <strong>{{ server.name }}</strong>
+                        <span class="text-muted font-monospace ms-2">{{ server.ip }}</span>
+                    </li>
+                    {% endfor %}
+                    <li class="text-muted small mt-3">
+                        {% if current_lang == 'de' %}
+                        + Optionaler eigener DNS-Server
+                        {% else %}
+                        + Optional custom DNS server
+                        {% endif %}
+                    </li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="card mt-3">
+            <div class="card-header">
+                <h5 class="mb-0">
+                    <i class="fas fa-info-circle me-2"></i>
+                    {% if current_lang == 'de' %}Eintragstypen{% else %}Record Types{% endif %}
+                </h5>
+            </div>
+            <div class="card-body small">
+                <dl class="mb-2">
+                    <dt>A</dt>
+                    <dd class="text-muted">IPv4 {% if current_lang == 'de' %}Adresse{% else %}Address{% endif %}</dd>
+                    <dt>AAAA</dt>
+                    <dd class="text-muted">IPv6 {% if current_lang == 'de' %}Adresse{% else %}Address{% endif %}</dd>
+                    <dt>MX</dt>
+                    <dd class="text-muted">Mail Exchange</dd>
+                    <dt>TXT</dt>
+                    <dd class="text-muted">Text (SPF, DKIM, DMARC)</dd>
+                    <dt>NS</dt>
+                    <dd class="text-muted">Nameserver</dd>
+                    <dt>CNAME</dt>
+                    <dd class="text-muted">Canonical Name (Alias)</dd>
+                    <dt>CAA</dt>
+                    <dd class="text-muted">{% if current_lang == 'de' %}Zertifizierungsstellen{% else %}Certificate Authority{% endif %}</dd>
+                    <dt>SOA</dt>
+                    <dd class="text-muted">Start of Authority</dd>
+                    <dt>SRV</dt>
+                    <dd class="text-muted">Service Locator</dd>
+                </dl>
+                <a href="https://en.wikipedia.org/wiki/List_of_DNS_record_types" target="_blank" rel="noopener" class="text-muted">
+                    <i class="fas fa-external-link-alt me-1"></i>
+                    {% if current_lang == 'de' %}Alle Eintragstypen (Wikipedia){% else %}All record types (Wikipedia){% endif %}
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% include 'components/seo_content.html' %}
+
+{% set library_name = "dnspython" %}
+{% set library_url = "https://dnspython.org" %}
+{% set library_author = "dnspython contributors" %}
+{% include 'components/library_credit.html' %}
+{% endblock %}
+
+{% block extra_js %}
+<script>
+const lang = document.documentElement.lang || 'en';
+
+const domainInput = document.getElementById('domainInput');
+const recordType = document.getElementById('recordType');
+const customServer = document.getElementById('customServer');
+const lookupBtn = document.getElementById('lookupBtn');
+const autoRefresh = document.getElementById('autoRefresh');
+const errorAlert = document.getElementById('errorAlert');
+const resultsContainer = document.getElementById('resultsContainer');
+
+let autoRefreshInterval = null;
+
+const t = {
+    en: {
+        querying: 'Querying...',
+        noRecords: 'No records found',
+        error: 'Error',
+        ttl: 'TTL',
+        preference: 'Preference',
+        exchange: 'Exchange',
+        priority: 'Priority',
+        weight: 'Weight',
+        port: 'Port',
+        target: 'Target',
+        serial: 'Serial',
+        refresh: 'Refresh',
+        retry: 'Retry',
+        expire: 'Expire',
+        minimum: 'Minimum',
+        queryTime: 'Query time',
+        clearHistory: 'Clear History'
+    },
+    de: {
+        querying: 'Abfrage läuft...',
+        noRecords: 'Keine Einträge gefunden',
+        error: 'Fehler',
+        ttl: 'TTL',
+        preference: 'Präferenz',
+        exchange: 'Exchange',
+        priority: 'Priorität',
+        weight: 'Gewicht',
+        port: 'Port',
+        target: 'Ziel',
+        serial: 'Seriennummer',
+        refresh: 'Aktualisierung',
+        retry: 'Wiederholung',
+        expire: 'Ablauf',
+        minimum: 'Minimum',
+        queryTime: 'Abfragezeit',
+        clearHistory: 'Verlauf löschen'
+    }
+}[lang] || {
+    querying: 'Querying...',
+    noRecords: 'No records found',
+    error: 'Error',
+    ttl: 'TTL',
+    preference: 'Preference',
+    exchange: 'Exchange',
+    priority: 'Priority',
+    weight: 'Weight',
+    port: 'Port',
+    target: 'Target',
+    serial: 'Serial',
+    refresh: 'Refresh',
+    retry: 'Retry',
+    expire: 'Expire',
+    minimum: 'Minimum',
+    queryTime: 'Query time',
+    clearHistory: 'Clear History'
+};
+
+function showError(msg) {
+    errorAlert.textContent = msg;
+    errorAlert.style.display = 'block';
+}
+
+function clearError() {
+    errorAlert.style.display = 'none';
+}
+
+function formatTimestamp(isoString) {
+    const date = new Date(isoString);
+    return date.toLocaleString(lang === 'de' ? 'de-DE' : 'en-US', {
+        year: 'numeric',
+        month: '2-digit',
+        day: '2-digit',
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit'
+    });
+}
+
+function renderRecordValue(rtype, record) {
+    let html = `<code>${escapeHtml(record.value)}</code>`;
+    
+    if (rtype === 'MX' && record.preference !== undefined) {
+        html = `<span class="badge bg-secondary me-1">${record.preference}</span> ${html}`;
+    } else if (rtype === 'SRV') {
+        html = `<span class="badge bg-secondary me-1">${record.priority}/${record.weight}:${record.port}</span> ${html}`;
+    }
+    
+    return html;
+}
+
+function escapeHtml(str) {
+    return String(str)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#39;');
+}
+
+function renderResults(data) {
+    const servers = data.servers;
+    const recordTypes = new Set();
+    
+    // Collect all record types that have data
+    for (const server of servers) {
+        for (const rtype of Object.keys(server.records)) {
+            recordTypes.add(rtype);
+        }
+    }
+    
+    // Sort: records with answers first, then alphabetically
+    const sortedTypes = Array.from(recordTypes).sort((a, b) => {
+        const aHasData = servers.some(s => s.records[a]?.success && s.records[a]?.data?.length > 0);
+        const bHasData = servers.some(s => s.records[b]?.success && s.records[b]?.data?.length > 0);
+        if (aHasData && !bHasData) return -1;
+        if (!aHasData && bHasData) return 1;
+        return a.localeCompare(b);
+    });
+    
+    let html = `
+        <div class="card mb-3 result-card">
+            <div class="card-header d-flex justify-content-between align-items-center">
+                <div>
+                    <strong class="font-monospace">${escapeHtml(data.domain)}</strong>
+                    <span class="badge bg-primary ms-2">${data.record_type}</span>
+                </div>
+                <small class="text-muted">${t.queryTime}: ${formatTimestamp(data.timestamp)}</small>
+            </div>
+            <div class="card-body p-0">
+                <div class="table-responsive">
+                    <table class="table table-sm table-striped mb-0">
+                        <thead>
+                            <tr>
+                                <th style="width: 80px;">Type</th>
+                                ${servers.map(s => `<th>${escapeHtml(s.name)}<br><small class="text-muted font-monospace">${escapeHtml(s.ip)}</small></th>`).join('')}
+                            </tr>
+                        </thead>
+                        <tbody>
+    `;
+    
+    for (const rtype of sortedTypes) {
+        html += `<tr><td><strong>${rtype}</strong></td>`;
+        
+        for (const server of servers) {
+            const record = server.records[rtype];
+            html += '<td>';
+            
+            if (!record) {
+                html += '<span class="text-muted">-</span>';
+            } else if (!record.success || record.data.length === 0) {
+                html += `<span class="text-muted">${t.noRecords}</span>`;
+            } else {
+                html += '<div class="small">';
+                for (const r of record.data) {
+                    html += `<div class="mb-1">${renderRecordValue(rtype, r)}</div>`;
+                }
+                if (record.ttl) {
+                    html += `<div class="text-muted">${t.ttl}: ${record.ttl}s</div>`;
+                }
+                html += '</div>';
+            }
+            
+            html += '</td>';
+        }
+        
+        html += '</tr>';
+    }
+    
+    html += `
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+    `;
+    
+    // Add email authentication section if available
+    const firstServer = servers[0];
+    if (firstServer && firstServer.email_auth) {
+        const auth = firstServer.email_auth;
+        html += `
+            <div class="card-footer">
+                <h6 class="mb-2"><i class="fas fa-envelope me-2"></i>${lang === 'de' ? 'E-Mail-Authentifizierung' : 'Email Authentication'}</h6>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="d-flex align-items-center mb-2">
+                            ${auth.spf?.found 
+                                ? '<span class="badge bg-success me-2"><i class="fas fa-check"></i></span>' 
+                                : '<span class="badge bg-danger me-2"><i class="fas fa-times"></i></span>'}
+                            <strong>SPF</strong>
+                            <span class="ms-2 text-muted small">${auth.spf?.found ? (lang === 'de' ? 'Gefunden' : 'Found') : (lang === 'de' ? 'Nicht gefunden' : 'Not found')}</span>
+                        </div>
+                        ${auth.spf?.record ? `<code class="small d-block text-break">${escapeHtml(auth.spf.record)}</code>` : ''}
+                    </div>
+                    <div class="col-md-6">
+                        <div class="d-flex align-items-center mb-2">
+                            ${auth.dmarc?.found 
+                                ? '<span class="badge bg-success me-2"><i class="fas fa-check"></i></span>' 
+                                : '<span class="badge bg-danger me-2"><i class="fas fa-times"></i></span>'}
+                            <strong>DMARC</strong>
+                            ${auth.dmarc?.policy ? `<span class="badge bg-${auth.dmarc.policy === 'reject' ? 'success' : auth.dmarc.policy === 'quarantine' ? 'warning' : 'secondary'} ms-2">${auth.dmarc.policy}</span>` : ''}
+                            <span class="ms-2 text-muted small">${auth.dmarc?.found ? (lang === 'de' ? 'Gefunden' : 'Found') : (lang === 'de' ? 'Nicht gefunden' : 'Not found')}</span>
+                        </div>
+                        ${auth.dmarc?.record ? `<code class="small d-block text-break">${escapeHtml(auth.dmarc.record)}</code>` : ''}
+                    </div>
+                </div>
+            </div>
+        `;
+    }
+    
+    html += `</div>`;
+    
+    return html;
+}
+
+async function performLookup() {
+    const domain = domainInput.value.trim();
+    
+    if (!domain) {
+        showError(lang === 'de' ? 'Bitte geben Sie eine Domain ein' : 'Please enter a domain');
+        return;
+    }
+    
+    clearError();
+    lookupBtn.disabled = true;
+    lookupBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i>';
+    
+    try {
+        const resp = await fetch('/tools/dns-lookup/query', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                domain: domain,
+                record_type: recordType.value,
+                custom_server: customServer.value.trim()
+            })
+        });
+        
+        const data = await resp.json();
+        
+        if (!resp.ok) {
+            showError(data.error || 'Query failed');
+            return;
+        }
+        
+        const resultHtml = renderResults(data);
+        resultsContainer.insertAdjacentHTML('afterbegin', resultHtml);
+        
+        if (typeof window.showSupportOnAction === 'function') {
+            window.showSupportOnAction(30000);
+        }
+        
+    } catch (e) {
+        showError((lang === 'de' ? 'Netzwerkfehler: ' : 'Network error: ') + e.message);
+    } finally {
+        lookupBtn.disabled = false;
+        lookupBtn.innerHTML = '<i class="fas fa-search"></i>';
+    }
+}
+
+lookupBtn.addEventListener('click', performLookup);
+
+domainInput.addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') {
+        performLookup();
+    }
+});
+
+autoRefresh.addEventListener('change', () => {
+    if (autoRefresh.checked) {
+        autoRefreshInterval = setInterval(performLookup, 5 * 60 * 1000);
+    } else {
+        if (autoRefreshInterval) {
+            clearInterval(autoRefreshInterval);
+            autoRefreshInterval = null;
+        }
+    }
+});
+</script>
+{% endblock %}

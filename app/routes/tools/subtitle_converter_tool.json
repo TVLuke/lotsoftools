@@ -1,0 +1,75 @@
+{
+  "route": "/tools/subtitle-converter",
+  "img": "fas fa-closed-captioning",
+  "name": {
+    "en": "Subtitle Converter",
+    "de": "Untertitel-Konverter"
+  },
+  "description": {
+    "en": "Convert subtitle files between different formats (SRT, ASS, VTT, TTML, and more)",
+    "de": "Konvertieren Sie Untertiteldateien zwischen verschiedenen Formaten (SRT, ASS, VTT, TTML und mehr)"
+  },
+  "tags": ["converter", "video"],
+  "new_window": false,
+  "frontend_only": false,
+  "seo": {
+    "title": {
+      "en": "Subtitle Converter - Convert Between SRT, ASS, VTT, TTML and More",
+      "de": "Untertitel-Konverter - Konvertieren zwischen SRT, ASS, VTT, TTML und mehr"
+    },
+    "meta_description": {
+      "en": "Convert subtitle files between formats: SRT, ASS, SSA, VTT, TTML, SAMI, MPL2, TMP, and MicroDVD. Privacy-friendly, files auto-deleted after 5 minutes.",
+      "de": "Konvertieren Sie Untertiteldateien zwischen Formaten: SRT, ASS, SSA, VTT, TTML, SAMI, MPL2, TMP und MicroDVD. Datenschutzfreundlich, Dateien werden nach 5 Minuten automatisch gelöscht."
+    },
+    "keywords": {
+      "en": "subtitle converter, srt converter, ass converter, vtt converter, webvtt, ttml, sami, convert subtitles, privacy-friendly, auto-delete",
+      "de": "Untertitel-Konverter, SRT-Konverter, ASS-Konverter, VTT-Konverter, WebVTT, TTML, SAMI, Untertitel konvertieren, Datenschutzfreundlich, Auto-Löschen"
+    },
+    "content": {
+      "heading": {
+        "en": "About This Subtitle Converter",
+        "de": "Über diesen Untertitel-Konverter"
+      },
+      "intro": {
+        "en": "Convert subtitle files between popular formats including SRT, ASS, VTT, TTML, and more. This tool supports all major subtitle formats used in video production, streaming, and accessibility.",
+        "de": "Konvertieren Sie Untertiteldateien zwischen gängigen Formaten wie SRT, ASS, VTT, TTML und mehr. Dieses Tool unterstützt alle wichtigen Untertitelformate, die in der Videoproduktion, beim Streaming und für Barrierefreiheit verwendet werden."
+      },
+      "features": {
+        "heading": {
+          "en": "Supported Formats:",
+          "de": "Unterstützte Formate:"
+        },
+        "items": [
+          {
+            "en": "<strong>SubRip (.srt):</strong> Most common subtitle format",
+            "de": "<strong>SubRip (.srt):</strong> Häufigstes Untertitelformat"
+          },
+          {
+            "en": "<strong>SubStation Alpha (.ass, .ssa):</strong> Advanced styling support",
+            "de": "<strong>SubStation Alpha (.ass, .ssa):</strong> Erweiterte Styling-Unterstützung"
+          },
+          {
+            "en": "<strong>WebVTT (.vtt):</strong> Web standard for HTML5 video",
+            "de": "<strong>WebVTT (.vtt):</strong> Webstandard für HTML5-Video"
+          },
+          {
+            "en": "<strong>TTML (.ttml):</strong> Timed Text Markup Language",
+            "de": "<strong>TTML (.ttml):</strong> Timed Text Markup Language"
+          },
+          {
+            "en": "<strong>SAMI (.sami):</strong> Microsoft subtitle format",
+            "de": "<strong>SAMI (.sami):</strong> Microsoft-Untertitelformat"
+          },
+          {
+            "en": "<strong>MPL2, TMP, MicroDVD:</strong> Additional legacy formats",
+            "de": "<strong>MPL2, TMP, MicroDVD:</strong> Zusätzliche Legacy-Formate"
+          }
+        ]
+      },
+      "privacy_note": {
+        "en": "🔒 Privacy-Friendly: Uploaded subtitle files and converted files are stored temporarily on the server and automatically deleted after 5 minutes. No data is kept permanently.",
+        "de": "🔒 Datenschutzfreundlich: Hochgeladene Untertiteldateien und konvertierte Dateien werden temporär auf dem Server gespeichert und nach 5 Minuten automatisch gelöscht. Keine Daten werden dauerhaft gespeichert."
+      }
+    }
+  }
+}

@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block title %}usefull - Dashboard{% endblock %}
+
+{% block content %}
+<div class="layout-switcher desktop-layout-switcher">
+    <div class="layout-buttons">
+        <button id="desktop-categorized" class="layout-button {% if desktop_layout == 'categorized' %}active{% endif %}" title="Categorized View">
+            <i class="fas fa-th-large"></i>
+        </button>
+        <button id="desktop-compact" class="layout-button {% if desktop_layout == 'compact' %}active{% endif %}" title="Compact View">
+            <i class="fas fa-th"></i>
+        </button>
+    </div>
+</div>
+
+<div class="layout-switcher mobile-layout-switcher">
+    <div class="layout-buttons">
+        <button id="mobile-categorized" class="layout-button {% if mobile_layout == 'categorized' %}active{% endif %}" title="Categorized View">
+            <i class="fas fa-th-large"></i>
+        </button>
+        <button id="mobile-compact" class="layout-button {% if mobile_layout == 'compact' %}active{% endif %}" title="Compact View">
+            <i class="fas fa-th"></i>
+        </button>
+    </div>
+</div>
+
+<div class="container-fluid">
+    <div class="compact-tiles mb-5">
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5 g-3">
+            {% for link in all_links %}
+                {% include 'components/tile.html' %}
+            {% endfor %}
+        </div>
+    </div>
+    
+    {% for category, links in categories.items() %}
+        {% include 'components/category_section.html' %}
+    {% endfor %}
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{{ url_for('static', filename='js/search.js') }}"></script>
+<script src="{{ url_for('static', filename='js/layout-switcher.js') }}"></script>
+{% endblock %}

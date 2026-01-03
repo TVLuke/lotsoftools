@@ -1,0 +1,121 @@
+{
+  "route": "/tools/teleprompter",
+  "img": "fas fa-scroll",
+  "name": {
+    "en": "Teleprompter",
+    "de": "Teleprompter"
+  },
+  "description": {
+    "en": "Display scrolling text for presentations and speeches with countdown and mirror mode",
+    "de": "Scrollender Text für Präsentationen und Reden mit Countdown und Spiegelmodus"
+  },
+  "tags": ["presentation", "speech", "text", "video", "productivity"],
+  "new_window": false,
+  "frontend_only": true,
+  "ui": {
+    "text_input": {
+      "en": "Enter your script (Markdown supported):",
+      "de": "Geben Sie Ihr Skript ein (Markdown unterstützt):"
+    },
+    "countdown": {
+      "en": "Countdown (seconds)",
+      "de": "Countdown (Sekunden)"
+    },
+    "font_size": {
+      "en": "Font Size (px)",
+      "de": "Schriftgröße (px)"
+    },
+    "scroll_speed": {
+      "en": "Scroll Speed",
+      "de": "Scroll-Geschwindigkeit"
+    },
+    "mirror_mode": {
+      "en": "Mirror Mode",
+      "de": "Spiegelmodus"
+    },
+    "text_color": {
+      "en": "Text Color",
+      "de": "Textfarbe"
+    },
+    "background_color": {
+      "en": "Background Color",
+      "de": "Hintergrundfarbe"
+    },
+    "marker_color": {
+      "en": "Marker Line Color",
+      "de": "Markierungslinienfarbe"
+    },
+    "start": {
+      "en": "Start Teleprompter",
+      "de": "Teleprompter starten"
+    },
+    "pause_hint": {
+      "en": "Use <<X>> to pause for X seconds, use <<break>> to create sections (navigate with arrow keys)",
+      "de": "Verwenden Sie <<X>> für X Sekunden Pause, <<break>> für Abschnitte (Navigation mit Pfeiltasten)"
+    },
+    "exit_hint": {
+      "en": "Press ESC or click X to exit fullscreen",
+      "de": "Drücken Sie ESC oder klicken Sie X zum Beenden"
+    }
+  },
+  "seo": {
+    "title": {
+      "en": "Teleprompter - Free Online Scrolling Text Display",
+      "de": "Teleprompter - Kostenloser Online-Scrolltext"
+    },
+    "meta_description": {
+      "en": "Free online teleprompter with countdown, mirror mode, customizable colors and scroll speed. Perfect for presentations, speeches, and video recordings. Privacy-friendly - runs entirely in your browser.",
+      "de": "Kostenloser Online-Teleprompter mit Countdown, Spiegelmodus, anpassbaren Farben und Scroll-Geschwindigkeit. Perfekt für Präsentationen, Reden und Videoaufnahmen. Datenschutzfreundlich - läuft vollständig in Ihrem Browser."
+    },
+    "keywords": {
+      "en": "teleprompter, prompter, scrolling text, presentation, speech, video recording, mirror mode, free online tool",
+      "de": "Teleprompter, Prompter, Scrolltext, Präsentation, Rede, Videoaufnahme, Spiegelmodus, kostenloses Online-Tool"
+    },
+    "content": {
+      "heading": {
+        "en": "About This Teleprompter",
+        "de": "Über diesen Teleprompter"
+      },
+      "intro": {
+        "en": "A professional teleprompter that runs entirely in your browser. Perfect for recording videos, giving presentations, or practicing speeches. Supports Markdown formatting, customizable countdown, and optional mirror mode for use with teleprompter mirrors or glass.",
+        "de": "Ein professioneller Teleprompter, der vollständig in Ihrem Browser läuft. Perfekt für Videoaufnahmen, Präsentationen oder das Üben von Reden. Unterstützt Markdown-Formatierung, anpassbaren Countdown und optionalen Spiegelmodus für die Verwendung mit Teleprompter-Spiegeln oder Glas."
+      },
+      "features": {
+        "heading": {
+          "en": "Features:",
+          "de": "Funktionen:"
+        },
+        "items": [
+          {
+            "en": "<strong>Countdown Timer:</strong> Configurable countdown before scrolling begins",
+            "de": "<strong>Countdown-Timer:</strong> Konfigurierbarer Countdown vor dem Scrollen"
+          },
+          {
+            "en": "<strong>Pause Markers:</strong> Insert <<X>> to pause for X seconds at any position",
+            "de": "<strong>Pausenmarkierungen:</strong> Fügen Sie <<X>> ein, um an beliebiger Stelle X Sekunden zu pausieren"
+          },
+          {
+            "en": "<strong>Mirror Mode:</strong> Flip text horizontally for teleprompter mirrors",
+            "de": "<strong>Spiegelmodus:</strong> Text horizontal spiegeln für Teleprompter-Spiegel"
+          },
+          {
+            "en": "<strong>Customizable Colors:</strong> Set text, background, and marker line colors",
+            "de": "<strong>Anpassbare Farben:</strong> Text-, Hintergrund- und Markierungsfarben einstellen"
+          },
+          {
+            "en": "<strong>Fullscreen Mode:</strong> Distraction-free fullscreen display",
+            "de": "<strong>Vollbildmodus:</strong> Ablenkungsfreie Vollbildanzeige"
+          },
+          {
+            "en": "<strong>Markdown Support:</strong> Format your text with headings, bold, italic, and lists",
+            "de": "<strong>Markdown-Unterstützung:</strong> Formatieren Sie Ihren Text mit Überschriften, Fett, Kursiv und Listen"
+          }
+        ]
+      },
+      "privacy_note": {
+        "en": "🔒 Privacy-Friendly: All processing happens in your browser. Your script never leaves your device.",
+        "de": "🔒 Datenschutzfreundlich: Alle Verarbeitung erfolgt in Ihrem Browser. Ihr Skript verlässt nie Ihr Gerät."
+      }
+    }
+  }
+}

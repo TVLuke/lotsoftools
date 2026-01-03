@@ -1,0 +1,232 @@
+{% extends 'base.html' %}
+{% from 'components/textarea.html' import enhanced_textarea %}
+
+{% block title %}
+    {% if current_lang == 'de' %}Zufallsstring-Generator{% else %}Random String Generator{% endif %} - usefull
+{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-12">
+        <h1 class="mb-4">
+            <i class="fas fa-random me-2"></i>
+            {% if current_lang == 'de' %}Zufallsstring-Generator{% else %}Random String Generator{% endif %}
+        </h1>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12 col-lg-4">
+        <div class="card mb-4">
+            <div class="card-header">
+                <h5 class="mb-0">
+                    <i class="fas fa-cog me-2"></i>
+                    {% if current_lang == 'de' %}Einstellungen{% else %}Settings{% endif %}
+                </h5>
+            </div>
+            <div class="card-body">
+                <div class="mb-3">
+                    <label for="stringCount" class="form-label">
+                        {% if current_lang == 'de' %}Anzahl:{% else %}Count:{% endif %}
+                    </label>
+                    <input type="number" class="form-control" id="stringCount" value="10" min="1" max="100">
+                </div>
+                
+                <div class="mb-3">
+                    <label for="stringLength" class="form-label">
+                        {% if current_lang == 'de' %}Länge:{% else %}Length:{% endif %}
+                    </label>
+                    <input type="number" class="form-control" id="stringLength" value="16" min="1" max="100">
+                </div>
+                
+                <div class="mb-3">
+                    <label class="form-label">
+                        {% if current_lang == 'de' %}Zeichensatz:{% else %}Character Set:{% endif %}
+                    </label>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="includeUppercase" checked>
+                        <label class="form-check-label" for="includeUppercase">
+                            {% if current_lang == 'de' %}Großbuchstaben (A-Z){% else %}Uppercase Letters (A-Z){% endif %}
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="includeLowercase" checked>
+                        <label class="form-check-label" for="includeLowercase">
+                            {% if current_lang == 'de' %}Kleinbuchstaben (a-z){% else %}Lowercase Letters (a-z){% endif %}
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="includeNumbers" checked>
+                        <label class="form-check-label" for="includeNumbers">
+                            {% if current_lang == 'de' %}Zahlen (0-9){% else %}Numbers (0-9){% endif %}
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="includeSymbols">
+                        <label class="form-check-label" for="includeSymbols">
+                            {% if current_lang == 'de' %}Symbole (!@#$%^&*...){% else %}Symbols (!@#$%^&*...){% endif %}
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="includeUnicode">
+                        <label class="form-check-label" for="includeUnicode">
+                            {% if current_lang == 'de' %}Unicode (zufällige Zeichen){% else %}Unicode (random characters){% endif %}
+                        </label>
+                    </div>
+                </div>
+                
+                <button type="button" class="btn btn-primary w-100" id="generateBtn">
+                    <i class="fas fa-magic me-2"></i>
+                    {% if current_lang == 'de' %}Generieren{% else %}Generate{% endif %}
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-12 col-lg-8">
+        <div class="card mb-4">
+            <div class="card-header d-flex justify-content-between align-items-center">
+                <h5 class="mb-0">
+                    {% if current_lang == 'de' %}Generierte Strings{% else %}Generated Strings{% endif %}
+                </h5>
+                <button type="button" class="btn btn-sm btn-outline-secondary" id="copyBtn">
+                    <i class="fas fa-copy me-1"></i>
+                    {% if current_lang == 'de' %}Kopieren{% else %}Copy{% endif %}
+                </button>
+            </div>
+            <div class="card-body">
+                {{ enhanced_textarea('stringOutput', rows=20, placeholder='Generated strings will appear here...' if current_lang == 'en' else 'Generierte Strings erscheinen hier...') }}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+const stringCount = document.getElementById('stringCount');
+const stringLength = document.getElementById('stringLength');
+const includeUppercase = document.getElementById('includeUppercase');
+const includeLowercase = document.getElementById('includeLowercase');
+const includeNumbers = document.getElementById('includeNumbers');
+const includeSymbols = document.getElementById('includeSymbols');
+const includeUnicode = document.getElementById('includeUnicode');
+const generateBtn = document.getElementById('generateBtn');
+const stringOutput = document.getElementById('stringOutput');
+const copyBtn = document.getElementById('copyBtn');
+
+const UPPERCASE = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+const LOWERCASE = 'abcdefghijklmnopqrstuvwxyz';
+const NUMBERS = '0123456789';
+const SYMBOLS = '!@#$%^&*()_+-=[]{}|;:,.<>?';
+
+function generateRandomString(length, charset) {
+    let result = '';
+    const charsetLength = charset.length;
+    
+    if (charsetLength === 0) {
+        return '';
+    }
+    
+    for (let i = 0; i < length; i++) {
+        const randomIndex = Math.floor(Math.random() * charsetLength);
+        result += charset[randomIndex];
+    }
+    
+    return result;
+}
+
+function generateRandomUnicode(length) {
+    let result = '';
+    for (let i = 0; i < length; i++) {
+        // Generate random Unicode character (printable range)
+        // Using ranges that are more likely to produce visible characters
+        const ranges = [
+            [0x0020, 0x007E], // Basic Latin
+            [0x00A0, 0x00FF], // Latin-1 Supplement
+            [0x0100, 0x017F], // Latin Extended-A
+            [0x0370, 0x03FF], // Greek
+            [0x0400, 0x04FF], // Cyrillic
+            [0x4E00, 0x9FFF], // CJK Unified Ideographs
+            [0x3040, 0x309F], // Hiragana
+            [0x30A0, 0x30FF], // Katakana
+        ];
+        
+        const range = ranges[Math.floor(Math.random() * ranges.length)];
+        const codePoint = Math.floor(Math.random() * (range[1] - range[0] + 1)) + range[0];
+        result += String.fromCodePoint(codePoint);
+    }
+    return result;
+}
+
+function generateStrings() {
+    const count = parseInt(stringCount.value);
+    const length = parseInt(stringLength.value);
+    
+    if (count < 1 || count > 100) {
+        alert('{% if current_lang == "de" %}Bitte geben Sie eine Anzahl zwischen 1 und 100 ein{% else %}Please enter a count between 1 and 100{% endif %}');
+        return;
+    }
+    
+    if (length < 1 || length > 100) {
+        alert('{% if current_lang == "de" %}Bitte geben Sie eine Länge zwischen 1 und 100 ein{% else %}Please enter a length between 1 and 100{% endif %}');
+        return;
+    }
+    
+    // Build character set
+    let charset = '';
+    if (includeUppercase.checked) charset += UPPERCASE;
+    if (includeLowercase.checked) charset += LOWERCASE;
+    if (includeNumbers.checked) charset += NUMBERS;
+    if (includeSymbols.checked) charset += SYMBOLS;
+    
+    const useUnicode = includeUnicode.checked;
+    
+    if (charset === '' && !useUnicode) {
+        alert('{% if current_lang == "de" %}Bitte wählen Sie mindestens einen Zeichensatz aus{% else %}Please select at least one character set{% endif %}');
+        return;
+    }
+    
+    const strings = [];
+    for (let i = 0; i < count; i++) {
+        let randomString;
+        if (useUnicode) {
+            randomString = generateRandomUnicode(length);
+        } else {
+            randomString = generateRandomString(length, charset);
+        }
+        strings.push(randomString);
+    }
+    
+    stringOutput.value = strings.join('\n');
+}
+
+function copyToClipboard() {
+    stringOutput.select();
+    navigator.clipboard.writeText(stringOutput.value).then(() => {
+        const originalText = copyBtn.innerHTML;
+        copyBtn.innerHTML = '<i class="fas fa-check me-1"></i>{% if current_lang == "de" %}Kopiert!{% else %}Copied!{% endif %}';
+        
+        setTimeout(() => {
+            copyBtn.innerHTML = originalText;
+        }, 2000);
+    }).catch(err => {
+        // Fallback
+        document.execCommand('copy');
+        const originalText = copyBtn.innerHTML;
+        copyBtn.innerHTML = '<i class="fas fa-check me-1"></i>{% if current_lang == "de" %}Kopiert!{% else %}Copied!{% endif %}';
+        
+        setTimeout(() => {
+            copyBtn.innerHTML = originalText;
+        }, 2000);
+    });
+}
+
+// Event listeners
+generateBtn.addEventListener('click', generateStrings);
+copyBtn.addEventListener('click', copyToClipboard);
+
+// Generate on load
+generateStrings();
+</script>
+{% endblock %}

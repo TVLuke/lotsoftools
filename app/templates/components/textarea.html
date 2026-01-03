@@ -1,0 +1,15 @@
+{% macro enhanced_textarea(id, rows=5, placeholder='', label='', required=false, value='') %}
+<div class="mb-3">
+    {% if label %}
+    <label for="{{ id }}" class="form-label">{{ label }}</label>
+    {% endif %}
+    <textarea 
+        class="form-control" 
+        id="{{ id }}" 
+        rows="{{ rows }}" 
+        data-enhanced 
+        placeholder="{{ placeholder }}"
+        {% if required %}required{% endif %}
+    >{{ value }}</textarea>
+</div>
+{% endmacro %}

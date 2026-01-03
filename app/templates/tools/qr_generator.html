@@ -1,0 +1,430 @@
+{% extends 'base.html' %}
+{% from 'components/color_picker.html' import color_picker %}
+
+{% block title %}{{ tool_data.seo.title[current_lang] }}{% endblock %}
+{% block meta_description %}{{ tool_data.seo.meta_description[current_lang] }}{% endblock %}
+{% block meta_keywords %}{{ tool_data.seo.keywords[current_lang] }}{% endblock %}
+{% block og_title %}{{ tool_data.seo.title[current_lang] }}{% endblock %}
+{% block og_description %}{{ tool_data.seo.meta_description[current_lang] }}{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-12">
+        <h1 class="mb-4">
+            <i class="fas fa-qrcode me-2"></i>
+            {% if current_lang == 'de' %}QR-Code-Generator{% else %}QR Code Generator{% endif %}
+        </h1>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12 col-lg-6">
+        <div class="card mb-4">
+            <div class="card-body">
+                <div class="mb-3">
+                    <label for="qrType" class="form-label">
+                        {% if current_lang == 'de' %}Typ:{% else %}Type:{% endif %}
+                    </label>
+                    <select class="form-select" id="qrType">
+                        <option value="text">Text</option>
+                        <option value="url" selected>URL</option>
+                        <option value="email">Email</option>
+                        <option value="sms">SMS</option>
+                        <option value="phone">{% if current_lang == 'de' %}Telefon{% else %}Phone{% endif %}</option>
+                        <option value="wifi">WiFi</option>
+                        <option value="vcard">vCard</option>
+                    </select>
+                </div>
+                
+                <div id="inputFields">
+                    <label for="qrInput" class="form-label">
+                        {% if current_lang == 'de' %}Text oder URL eingeben:{% else %}Enter text or URL:{% endif %}
+                    </label>
+                    <textarea class="form-control" id="qrInput" rows="5" data-enhanced placeholder="{% if current_lang == 'de' %}Text oder URL hier eingeben...{% else %}Enter text or URL here...{% endif %}"></textarea>
+                </div>
+                
+                <div class="mt-3">
+                    <label for="qrSize" class="form-label">
+                        {% if current_lang == 'de' %}Größe:{% else %}Size:{% endif %}
+                    </label>
+                    <select class="form-select" id="qrSize">
+                        <option value="128">128x128</option>
+                        <option value="256" selected>256x256</option>
+                        <option value="512">512x512</option>
+                        <option value="1024">1024x1024</option>
+                        <option value="custom">{% if current_lang == 'de' %}Benutzerdefiniert{% else %}Custom{% endif %}</option>
+                    </select>
+                </div>
+                
+                <div class="mt-3" id="customSizeFields" style="display: none;">
+                    <div class="row">
+                        <div class="col-6">
+                            <label for="qrWidth" class="form-label">
+                                {% if current_lang == 'de' %}Breite:{% else %}Width:{% endif %}
+                            </label>
+                            <input type="number" class="form-control" id="qrWidth" value="256" min="64" max="2048" step="1">
+                        </div>
+                        <div class="col-6">
+                            <label for="qrHeight" class="form-label">
+                                {% if current_lang == 'de' %}Höhe:{% else %}Height:{% endif %}
+                            </label>
+                            <input type="number" class="form-control" id="qrHeight" value="256" min="64" max="2048" step="1">
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="row mt-3">
+                    <div class="col-12 col-md-6">
+                        {{ color_picker('colorDark', label='Vordergrundfarbe:' if current_lang == 'de' else 'Foreground Color:', initial_color='#000000') }}
+                    </div>
+                    <div class="col-12 col-md-6">
+                        {{ color_picker('colorLight', label='Hintergrundfarbe:' if current_lang == 'de' else 'Background Color:', initial_color='#ffffff') }}
+                    </div>
+                </div>
+                
+                <div class="mt-3">
+                    <button type="button" class="btn btn-primary w-100" id="generateBtn">
+                        <i class="fas fa-magic me-2"></i>
+                        {% if current_lang == 'de' %}QR-Code generieren{% else %}Generate QR Code{% endif %}
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-12 col-lg-6">
+        <div class="card mb-4">
+            <div class="card-header">
+                <h5 class="mb-0">
+                    {% if current_lang == 'de' %}QR-Code{% else %}QR Code{% endif %}
+                </h5>
+            </div>
+            <div class="card-body text-center">
+                <div id="qrCodeContainer" class="mb-3">
+                    <p class="text-muted">
+                        {% if current_lang == 'de' %}Geben Sie Text ein und klicken Sie auf "Generieren"{% else %}Enter text and click "Generate"{% endif %}
+                    </p>
+                </div>
+                
+                <div id="downloadSection" style="display: none;">
+                    <div class="btn-group w-100" role="group">
+                        <button type="button" class="btn btn-success" id="downloadPngBtn">
+                            <i class="fas fa-download me-2"></i>PNG
+                        </button>
+                        <button type="button" class="btn btn-success" id="downloadJpgBtn">
+                            <i class="fas fa-download me-2"></i>JPG
+                        </button>
+                        <button type="button" class="btn btn-success" id="downloadSvgBtn">
+                            <i class="fas fa-download me-2"></i>SVG
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% include 'components/seo_content.html' %}
+{% endblock %}
+
+{% block extra_css %}
+<style>
+#qrCodeContainer {
+    min-height: 256px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#qrCodeContainer img,
+#qrCodeContainer canvas {
+    max-width: 400px !important;
+    max-height: 400px !important;
+    height: auto !important;
+    width: auto !important;
+    border: 1px solid #dee2e6;
+    border-radius: 0.375rem;
+}
+</style>
+{% endblock %}
+
+{% block extra_js %}
+{% include 'components/imports/qrcode.html' %}
+
+<script>
+const qrType = document.getElementById('qrType');
+const qrInput = document.getElementById('qrInput');
+const qrSize = document.getElementById('qrSize');
+const colorDark = document.getElementById('colorDark');
+const colorLight = document.getElementById('colorLight');
+const hexDark = document.getElementById('colorDark_hex');
+const hexLight = document.getElementById('colorLight_hex');
+const generateBtn = document.getElementById('generateBtn');
+const qrCodeContainer = document.getElementById('qrCodeContainer');
+const downloadSection = document.getElementById('downloadSection');
+const downloadPngBtn = document.getElementById('downloadPngBtn');
+const downloadJpgBtn = document.getElementById('downloadJpgBtn');
+const downloadSvgBtn = document.getElementById('downloadSvgBtn');
+const inputFields = document.getElementById('inputFields');
+
+let currentQRCode = null;
+let currentText = '';
+
+// Color pickers are auto-initialized by color-picker.js component
+
+function updateInputFields() {
+    const type = qrType.value;
+    let html = '';
+    
+    switch(type) {
+        case 'text':
+        case 'url':
+            html = `<label for="qrInput" class="form-label">{% if current_lang == "de" %}Text oder URL:{% else %}Text or URL:{% endif %}</label>
+                    <textarea class="form-control" id="qrInput" rows="5" data-enhanced placeholder="{% if current_lang == "de" %}Text oder URL hier eingeben...{% else %}Enter text or URL here...{% endif %}"></textarea>`;
+            break;
+        case 'email':
+            html = `<label for="emailAddr" class="form-label">Email:</label>
+                    <input type="email" class="form-control mb-2" id="emailAddr" placeholder="email@example.com">
+                    <label for="emailSubject" class="form-label">{% if current_lang == "de" %}Betreff:{% else %}Subject:{% endif %}</label>
+                    <input type="text" class="form-control mb-2" id="emailSubject">
+                    <label for="emailBody" class="form-label">{% if current_lang == "de" %}Nachricht:{% else %}Message:{% endif %}</label>
+                    <textarea class="form-control" id="emailBody" rows="3"></textarea>`;
+            break;
+        case 'sms':
+            html = `<label for="smsNumber" class="form-label">{% if current_lang == "de" %}Telefonnummer:{% else %}Phone Number:{% endif %}</label>
+                    <input type="tel" class="form-control mb-2" id="smsNumber" placeholder="+1234567890">
+                    <label for="smsMessage" class="form-label">{% if current_lang == "de" %}Nachricht:{% else %}Message:{% endif %}</label>
+                    <textarea class="form-control" id="smsMessage" rows="3"></textarea>`;
+            break;
+        case 'phone':
+            html = `<label for="phoneNumber" class="form-label">{% if current_lang == "de" %}Telefonnummer:{% else %}Phone Number:{% endif %}</label>
+                    <input type="tel" class="form-control" id="phoneNumber" placeholder="+1234567890">`;
+            break;
+        case 'wifi':
+            html = `<label for="wifiSSID" class="form-label">SSID:</label>
+                    <input type="text" class="form-control mb-2" id="wifiSSID">
+                    <label for="wifiPassword" class="form-label">{% if current_lang == "de" %}Passwort:{% else %}Password:{% endif %}</label>
+                    <input type="text" class="form-control mb-2" id="wifiPassword">
+                    <label for="wifiEncryption" class="form-label">{% if current_lang == "de" %}Verschlüsselung:{% else %}Encryption:{% endif %}</label>
+                    <select class="form-select" id="wifiEncryption">
+                        <option value="WPA">WPA/WPA2</option>
+                        <option value="WEP">WEP</option>
+                        <option value="nopass">{% if current_lang == "de" %}Keine{% else %}None{% endif %}</option>
+                    </select>`;
+            break;
+        case 'vcard':
+            html = `<label for="vcardName" class="form-label">{% if current_lang == "de" %}Name:{% else %}Name:{% endif %}</label>
+                    <input type="text" class="form-control mb-2" id="vcardName">
+                    <label for="vcardPhone" class="form-label">{% if current_lang == "de" %}Telefon:{% else %}Phone:{% endif %}</label>
+                    <input type="tel" class="form-control mb-2" id="vcardPhone">
+                    <label for="vcardEmail" class="form-label">Email:</label>
+                    <input type="email" class="form-control mb-2" id="vcardEmail">
+                    <label for="vcardOrg" class="form-label">{% if current_lang == "de" %}Organisation:{% else %}Organization:{% endif %}</label>
+                    <input type="text" class="form-control" id="vcardOrg">`;
+            break;
+    }
+    
+    inputFields.innerHTML = html;
+}
+
+function getQRText() {
+    const type = qrType.value;
+    let text = '';
+    
+    switch(type) {
+        case 'text':
+        case 'url':
+            text = document.getElementById('qrInput').value.trim();
+            break;
+        case 'email':
+            const email = document.getElementById('emailAddr').value;
+            const subject = document.getElementById('emailSubject').value;
+            const body = document.getElementById('emailBody').value;
+            text = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+            break;
+        case 'sms':
+            const smsNumber = document.getElementById('smsNumber').value;
+            const smsMessage = document.getElementById('smsMessage').value;
+            text = `sms:${smsNumber}?body=${encodeURIComponent(smsMessage)}`;
+            break;
+        case 'phone':
+            const phoneNumber = document.getElementById('phoneNumber').value;
+            text = `tel:${phoneNumber}`;
+            break;
+        case 'wifi':
+            const ssid = document.getElementById('wifiSSID').value;
+            const password = document.getElementById('wifiPassword').value;
+            const encryption = document.getElementById('wifiEncryption').value;
+            text = `WIFI:T:${encryption};S:${ssid};P:${password};;`;
+            break;
+        case 'vcard':
+            const name = document.getElementById('vcardName').value;
+            const phone = document.getElementById('vcardPhone').value;
+            const vcardEmail = document.getElementById('vcardEmail').value;
+            const org = document.getElementById('vcardOrg').value;
+            text = `BEGIN:VCARD\nVERSION:3.0\nFN:${name}\nTEL:${phone}\nEMAIL:${vcardEmail}\nORG:${org}\nEND:VCARD`;
+            break;
+    }
+    
+    return text;
+}
+
+function generateQRCode() {
+    const text = getQRText();
+    
+    if (!text) {
+        alert('{% if current_lang == "de" %}Bitte füllen Sie die erforderlichen Felder aus{% else %}Please fill in the required fields{% endif %}');
+        return;
+    }
+    
+    currentText = text;
+    
+    // Get size - either preset or custom
+    let width, height;
+    if (qrSize.value === 'custom') {
+        width = parseInt(document.getElementById('qrWidth').value);
+        height = parseInt(document.getElementById('qrHeight').value);
+    } else {
+        const size = parseInt(qrSize.value);
+        width = size;
+        height = size;
+    }
+    
+    // Clear previous QR code
+    qrCodeContainer.innerHTML = '';
+    
+    // Generate new QR code at actual size
+    currentQRCode = new QRCode(qrCodeContainer, {
+        text: text,
+        width: width,
+        height: height,
+        colorDark: colorDark.value,
+        colorLight: colorLight.value,
+        correctLevel: QRCode.CorrectLevel.H
+    });
+    
+    // Show download buttons
+    downloadSection.style.display = 'block';
+}
+
+function downloadAsPNG() {
+    const canvas = qrCodeContainer.querySelector('canvas');
+    if (!canvas) return;
+    
+    canvas.toBlob(function(blob) {
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'qrcode.png';
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+
+        if (typeof window.showSupportOnAction === 'function') {
+            window.showSupportOnAction(30000);
+        }
+    });
+}
+
+function downloadAsJPG() {
+    const canvas = qrCodeContainer.querySelector('canvas');
+    if (!canvas) return;
+    
+    // Create a new canvas with white background for JPG
+    const tempCanvas = document.createElement('canvas');
+    tempCanvas.width = canvas.width;
+    tempCanvas.height = canvas.height;
+    const ctx = tempCanvas.getContext('2d');
+    
+    // Fill white background
+    ctx.fillStyle = '#ffffff';
+    ctx.fillRect(0, 0, tempCanvas.width, tempCanvas.height);
+    
+    // Draw QR code on top
+    ctx.drawImage(canvas, 0, 0);
+    
+    // Convert to JPG
+    tempCanvas.toBlob(function(blob) {
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'qrcode.jpg';
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+
+        if (typeof window.showSupportOnAction === 'function') {
+            window.showSupportOnAction(30000);
+        }
+    }, 'image/jpeg', 0.95);
+}
+
+function downloadAsSVG() {
+    const canvas = qrCodeContainer.querySelector('canvas');
+    if (!canvas) return;
+    
+    const size = canvas.width;
+    const ctx = canvas.getContext('2d');
+    const imageData = ctx.getImageData(0, 0, size, size);
+    const data = imageData.data;
+    
+    // Create SVG
+    let svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${size}" height="${size}" viewBox="0 0 ${size} ${size}">`;
+    svg += `<rect width="${size}" height="${size}" fill="#ffffff"/>`;
+    
+    // Sample pixels to create rectangles (simplified approach)
+    const moduleSize = size / Math.sqrt(size);
+    for (let y = 0; y < size; y += moduleSize) {
+        for (let x = 0; x < size; x += moduleSize) {
+            const i = (Math.floor(y) * size + Math.floor(x)) * 4;
+            const r = data[i];
+            
+            // If pixel is dark (black)
+            if (r < 128) {
+                svg += `<rect x="${x}" y="${y}" width="${moduleSize}" height="${moduleSize}" fill="#000000"/>`;
+            }
+        }
+    }
+    
+    svg += '</svg>';
+    
+    // Download SVG
+    const blob = new Blob([svg], { type: 'image/svg+xml' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'qrcode.svg';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+
+    if (typeof window.showSupportOnAction === 'function') {
+        window.showSupportOnAction(30000);
+    }
+}
+
+// Toggle custom size fields
+qrSize.addEventListener('change', function() {
+    const customFields = document.getElementById('customSizeFields');
+    if (qrSize.value === 'custom') {
+        customFields.style.display = 'block';
+    } else {
+        customFields.style.display = 'none';
+    }
+});
+
+// Event listeners
+qrType.addEventListener('change', updateInputFields);
+generateBtn.addEventListener('click', generateQRCode);
+downloadPngBtn.addEventListener('click', downloadAsPNG);
+downloadJpgBtn.addEventListener('click', downloadAsJPG);
+downloadSvgBtn.addEventListener('click', downloadAsSVG);
+
+// Initialize
+updateInputFields();
+updateInputFields();
+</script>
+{% endblock %}

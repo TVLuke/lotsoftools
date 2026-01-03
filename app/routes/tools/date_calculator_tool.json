@@ -1,0 +1,50 @@
+{
+    "route": "/tools/time-since",
+    "img": "fas fa-hourglass-start",
+    "name": {
+        "en": "Time Since",
+        "de": "Zeit seit"
+    },
+    "description": {
+        "en": "Calculate how much time has passed since a specific date",
+        "de": "Berechne wie viel Zeit seit einem bestimmten Datum vergangen ist"
+    },
+    "tags": ["time", "date", "calculator", "zeit"],
+    "new_window": false,
+    "frontend_only": true,
+    "uses_external_service": false,
+    "seo": {
+        "title": {
+            "en": "Time Since Calculator - How long ago was a date?",
+            "de": "Zeit seit Rechner - Wie lange ist ein Datum her?"
+        },
+        "description": {
+            "en": "Calculate how much time has passed since any date. See the result in years, months, days, hours, minutes and seconds - live updating.",
+            "de": "Berechne wie viel Zeit seit einem Datum vergangen ist. Ergebnis in Jahren, Monaten, Tagen, Stunden, Minuten und Sekunden - live aktualisiert."
+        },
+        "content": {
+            "heading": {
+                "en": "About This Tool",
+                "de": "Über dieses Tool"
+            },
+            "intro": {
+                "en": "This tool calculates the exact time elapsed since any date you specify.",
+                "de": "Dieses Tool berechnet die genaue vergangene Zeit seit einem beliebigen Datum."
+            },
+            "features": [
+                {
+                    "title": { "en": "Multiple Formats", "de": "Mehrere Formate" },
+                    "description": { "en": "View elapsed time in years, days, hours, minutes or seconds.", "de": "Zeige vergangene Zeit in Jahren, Tagen, Stunden, Minuten oder Sekunden an." }
+                },
+                {
+                    "title": { "en": "Live Updates", "de": "Live-Aktualisierung" },
+                    "description": { "en": "Watch the seconds tick by in real-time.", "de": "Beobachte die Sekunden in Echtzeit." }
+                },
+                {
+                    "title": { "en": "Historical Events", "de": "Historische Ereignisse" },
+                    "description": { "en": "Quick examples include Moon Landing, Fall of Rome, and more.", "de": "Schnelle Beispiele wie Mondlandung, Fall Roms und mehr." }
+                }
+            ]
+        }
+    }
+}

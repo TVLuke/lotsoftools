@@ -1,0 +1,95 @@
+{
+  "route": "/tools/uuid-generator",
+  "img": "fas fa-fingerprint",
+  "name": {
+    "en": "UUID Generator",
+    "de": "UUID-Generator"
+  },
+  "description": {
+    "en": "Generate UUIDs in various formats",
+    "de": "UUIDs in verschiedenen Formaten generieren"
+  },
+  "tags": ["generator", "random"],
+  "new_window": false,
+  "frontend_only": true,
+  "seo": {
+    "title": {
+      "en": "UUID Generator - Free Online UUID/GUID Generator Tool",
+      "de": "UUID-Generator - Kostenloser Online UUID/GUID Generator"
+    },
+    "meta_description": {
+      "en": "Generate UUIDs (Universally Unique Identifiers) in multiple formats: v1, v4, v5, with/without hyphens. Browser-based, privacy-friendly, instant generation.",
+      "de": "Generieren Sie UUIDs (Universally Unique Identifiers) in mehreren Formaten: v1, v4, v5, mit/ohne Bindestriche. Browser-basiert, datenschutzfreundlich, sofortige Generierung."
+    },
+    "keywords": {
+      "en": "UUID generator, GUID generator, unique identifier, v4 UUID, random UUID, browser-based, privacy-friendly, free UUID tool",
+      "de": "UUID Generator, GUID Generator, eindeutige Kennung, v4 UUID, zufällige UUID, Browser-basiert, Datenschutzfreundlich, kostenloses UUID-Tool"
+    },
+    "content": {
+      "heading": {
+        "en": "What is a UUID Generator?",
+        "de": "Was ist ein UUID-Generator?"
+      },
+      "intro": {
+        "en": "A UUID (Universally Unique Identifier) generator creates unique 128-bit identifiers used in software development, databases, and distributed systems. This browser-based tool generates cryptographically secure UUIDs instantly without sending any data to servers, ensuring complete privacy.",
+        "de": "Ein UUID (Universally Unique Identifier) Generator erstellt eindeutige 128-Bit-Kennungen, die in der Softwareentwicklung, Datenbanken und verteilten Systemen verwendet werden. Dieses Browser-basierte Tool generiert kryptographisch sichere UUIDs sofort, ohne Daten an Server zu senden, was vollständige Privatsphäre gewährleistet."
+      },
+      "features": {
+        "heading": {
+          "en": "Supported UUID Formats:",
+          "de": "Unterstützte UUID-Formate:"
+        },
+        "items": [
+          {
+            "en": "<strong>UUID v1:</strong> Time-based UUIDs with timestamp and MAC address",
+            "de": "<strong>UUID v1:</strong> Zeitbasierte UUIDs mit Zeitstempel und MAC-Adresse"
+          },
+          {
+            "en": "<strong>UUID v4:</strong> Random UUIDs using cryptographically secure random numbers",
+            "de": "<strong>UUID v4:</strong> Zufällige UUIDs mit kryptographisch sicheren Zufallszahlen"
+          },
+          {
+            "en": "<strong>Multiple Formats:</strong> Generate with or without hyphens, uppercase or lowercase",
+            "de": "<strong>Mehrere Formate:</strong> Generieren mit oder ohne Bindestriche, Groß- oder Kleinbuchstaben"
+          },
+          {
+            "en": "<strong>Bulk Generation:</strong> Generate multiple UUIDs at once",
+            "de": "<strong>Massengenerierung:</strong> Mehrere UUIDs auf einmal generieren"
+          },
+          {
+            "en": "<strong>Copy to Clipboard:</strong> One-click copy functionality",
+            "de": "<strong>In Zwischenablage kopieren:</strong> Ein-Klick-Kopierfunktion"
+          }
+        ]
+      },
+      "use_cases": {
+        "heading": {
+          "en": "Use Cases:",
+          "de": "Anwendungsfälle:"
+        },
+        "items": [
+          {
+            "en": "Database primary keys and unique identifiers",
+            "de": "Datenbank-Primärschlüssel und eindeutige Kennungen"
+          },
+          {
+            "en": "API request tracking and session IDs",
+            "de": "API-Anforderungsverfolgung und Sitzungs-IDs"
+          },
+          {
+            "en": "File naming and resource identification",
+            "de": "Dateibenennung und Ressourcenidentifikation"
+          },
+          {
+            "en": "Distributed system coordination",
+            "de": "Koordination verteilter Systeme"
+          }
+        ]
+      },
+      "privacy_note": {
+        "en": "🔒 Privacy-Friendly: UUIDs are generated directly in your browser using secure random number generation. No data is sent to any server.",
+        "de": "🔒 Datenschutzfreundlich: UUIDs werden direkt in Ihrem Browser mit sicherer Zufallszahlengenerierung erstellt. Es werden keine Daten an einen Server gesendet."
+      }
+    }
+  }
+}

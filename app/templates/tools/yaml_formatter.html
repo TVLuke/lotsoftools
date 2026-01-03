@@ -1,0 +1,190 @@
+{% extends 'base.html' %}
+{% from 'components/textarea.html' import enhanced_textarea %}
+
+{% block title %}{{ tool_data.seo.title[current_lang] }}{% endblock %}
+{% block meta_description %}{{ tool_data.seo.meta_description[current_lang] }}{% endblock %}
+{% block meta_keywords %}{{ tool_data.seo.keywords[current_lang] }}{% endblock %}
+{% block og_title %}{{ tool_data.seo.title[current_lang] }}{% endblock %}
+{% block og_description %}{{ tool_data.seo.meta_description[current_lang] }}{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-12">
+        <h1 class="mb-4">
+            <i class="fas fa-project-diagram me-2"></i>
+            {% if current_lang == 'de' %}YAML-Formatierer{% else %}YAML Formatter{% endif %}
+        </h1>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12 col-lg-6 mb-4">
+        <div class="card h-100">
+            <div class="card-header">
+                <h5 class="mb-0">
+                    {% if current_lang == 'de' %}Eingabe{% else %}Input{% endif %}
+                </h5>
+            </div>
+            <div class="card-body d-flex flex-column">
+                <textarea class="form-control flex-grow-1 font-monospace" id="yamlInput" rows="20" data-enhanced placeholder="{% if current_lang == 'de' %}YAML hier einfügen...{% else %}Paste YAML here...{% endif %}"></textarea>
+                <div id="validationMessage" class="mt-2"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-12 col-lg-6 mb-4">
+        <div class="card h-100">
+            <div class="card-header">
+                <h5 class="mb-0">
+                    {% if current_lang == 'de' %}Ausgabe{% else %}Output{% endif %}
+                </h5>
+            </div>
+            <div class="card-body d-flex flex-column">
+                <textarea class="form-control flex-grow-1 font-monospace" id="yamlOutput" rows="20" data-enhanced readonly placeholder="{% if current_lang == 'de' %}Formatierte YAML erscheint hier...{% else %}Formatted YAML will appear here...{% endif %}"></textarea>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0">
+                    {% if current_lang == 'de' %}Formatierungsoptionen{% else %}Formatting Options{% endif %}
+                </h5>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-12 col-md-6 mb-3">
+                        <label class="form-label">
+                            {% if current_lang == 'de' %}Einrückung{% else %}Indentation{% endif %}
+                        </label>
+                        <div class="btn-group w-100" role="group">
+                            <input type="radio" class="btn-check" name="indentation" id="indent2" value="2" autocomplete="off" checked>
+                            <label class="btn btn-outline-primary" for="indent2">2 {% if current_lang == 'de' %}Leerzeichen{% else %}Spaces{% endif %}</label>
+
+                            <input type="radio" class="btn-check" name="indentation" id="indent4" value="4" autocomplete="off">
+                            <label class="btn btn-outline-primary" for="indent4">4 {% if current_lang == 'de' %}Leerzeichen{% else %}Spaces{% endif %}</label>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-md-6 mb-3">
+                        <label class="form-label">&nbsp;</label>
+                        <button type="button" class="btn btn-primary w-100" id="formatBtn">
+                            <i class="fas fa-magic me-2"></i>
+                            {% if current_lang == 'de' %}Formatieren{% else %}Format{% endif %}
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% include 'components/seo_content.html' %}
+{% endblock %}
+
+{% block extra_css %}
+<style>
+.font-monospace {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.9rem;
+}
+
+.card-body textarea {
+    resize: none;
+}
+
+.validation-error {
+    color: #dc3545;
+    font-weight: bold;
+}
+
+.validation-success {
+    color: #198754;
+    font-weight: bold;
+}
+
+.error-highlight {
+    background-color: #f8d7da;
+    border: 2px solid #dc3545;
+}
+
+@media (min-width: 992px) {
+    .card.h-100 {
+        min-height: 500px;
+    }
+}
+</style>
+{% endblock %}
+
+{% block extra_js %}
+{% include 'components/imports/jsyaml.html' %}
+<script>
+const yamlInput = document.getElementById('yamlInput');
+const yamlOutput = document.getElementById('yamlOutput');
+const validationMessage = document.getElementById('validationMessage');
+const formatBtn = document.getElementById('formatBtn');
+
+let currentYaml = null;
+let isValid = false;
+
+function validateYaml() {
+    const input = yamlInput.value.trim();
+
+    if (!input) {
+        validationMessage.innerHTML = '';
+        yamlOutput.value = '';
+        yamlInput.classList.remove('error-highlight');
+        isValid = false;
+        currentYaml = null;
+        return;
+    }
+
+    try {
+        currentYaml = jsyaml.load(input);
+        isValid = true;
+        yamlInput.classList.remove('error-highlight');
+        validationMessage.innerHTML = '<span class="validation-success"><i class="fas fa-check-circle me-2"></i>{% if current_lang == "de" %}Gültiges YAML{% else %}Valid YAML{% endif %}</span>';
+        formatYaml();
+    } catch (e) {
+        isValid = false;
+        currentYaml = null;
+        yamlInput.classList.add('error-highlight');
+        yamlOutput.value = '';
+        validationMessage.innerHTML = `<span class="validation-error"><i class="fas fa-exclamation-circle me-2"></i>{% if current_lang == "de" %}Ungültiges YAML{% else %}Invalid YAML{% endif %}: ${e.message}</span>`;
+    }
+}
+
+function formatYaml() {
+    if (!isValid) return;
+
+    const indentValue = document.querySelector('input[name="indentation"]:checked').value;
+    const indent = parseInt(indentValue, 10);
+
+    try {
+        yamlOutput.value = jsyaml.dump(currentYaml, {
+            indent: indent,
+            lineWidth: -1,
+            noRefs: true
+        });
+    } catch (e) {
+        yamlOutput.value = '{% if current_lang == "de" %}Fehler beim Formatieren{% else %}Error formatting{% endif %}: ' + e.message;
+    }
+}
+
+// Event listeners
+yamlInput.addEventListener('input', validateYaml);
+formatBtn.addEventListener('click', formatYaml);
+
+// Update formatting when indentation changes
+document.querySelectorAll('input[name="indentation"]').forEach(radio => {
+    radio.addEventListener('change', () => {
+        if (isValid) {
+            formatYaml();
+        }
+    });
+});
+</script>
+{% endblock %}

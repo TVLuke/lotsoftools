@@ -1,0 +1,208 @@
+{% extends 'base.html' %}
+{% from 'components/textarea.html' import enhanced_textarea %}
+
+{% block title %}
+    {% if current_lang == 'de' %}UUID-Generator{% else %}UUID Generator{% endif %} - usefull
+{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-12">
+        <h1 class="mb-4">
+            <i class="fas fa-fingerprint me-2"></i>
+            {% if current_lang == 'de' %}UUID-Generator{% else %}UUID Generator{% endif %}
+        </h1>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12">
+        <div class="card mb-4">
+            <div class="card-body text-center">
+                <div id="uuidDisplay" class="mb-3 p-4 bg-light rounded" style="font-family: monospace; font-size: 1.5rem; word-break: break-all; transition: color 0.3s;">
+                    <!-- UUID will be displayed here -->
+                </div>
+                
+                <div class="btn-group" role="group">
+                    <button type="button" class="btn btn-primary" id="recreateBtn">
+                        <i class="fas fa-sync-alt me-2"></i>
+                        {% if current_lang == 'de' %}Erneuern{% else %}Recreate{% endif %}
+                    </button>
+                    <button type="button" class="btn btn-success" id="copyBtn">
+                        <i class="fas fa-copy me-2"></i>
+                        {% if current_lang == 'de' %}Kopieren{% else %}Copy{% endif %}
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12">
+        <div class="card mb-4">
+            <div class="card-header">
+                <h5 class="mb-0">
+                    <i class="fas fa-cog me-2"></i>
+                    {% if current_lang == 'de' %}Einstellungen{% else %}Settings{% endif %}
+                </h5>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label for="uuidVersion" class="form-label">
+                            {% if current_lang == 'de' %}UUID-Version:{% else %}UUID Version:{% endif %}
+                        </label>
+                        <select class="form-select" id="uuidVersion">
+                            <option value="v4" selected>UUID v4 ({% if current_lang == 'de' %}Zufällig{% else %}Random{% endif %})</option>
+                        </select>
+                    </div>
+                    
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label">
+                            {% if current_lang == 'de' %}Format:{% else %}Format:{% endif %}
+                        </label>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="uuidFormat" id="formatStandard" value="standard" checked>
+                            <label class="form-check-label" for="formatStandard">
+                                {% if current_lang == 'de' %}Standard{% else %}Standard{% endif %} (8-4-4-4-12)
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="uuidFormat" id="formatUppercase" value="uppercase">
+                            <label class="form-check-label" for="formatUppercase">
+                                {% if current_lang == 'de' %}Großbuchstaben{% else %}Uppercase{% endif %}
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="uuidFormat" id="formatNoDashes" value="nodashes">
+                            <label class="form-check-label" for="formatNoDashes">
+                                {% if current_lang == 'de' %}Ohne Bindestriche{% else %}No dashes{% endif %}
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="uuidFormat" id="formatBraces" value="braces">
+                            <label class="form-check-label" for="formatBraces">
+                                {% if current_lang == 'de' %}Mit geschweiften Klammern{% else %}With braces{% endif %} {UUID}
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0">
+                    <i class="fas fa-info-circle me-2"></i>
+                    {% if current_lang == 'de' %}UUID-Versionen{% else %}UUID Versions{% endif %}
+                </h5>
+            </div>
+            <div class="card-body">
+                <dl class="row mb-0">
+                    <dt class="col-sm-2">UUID v4</dt>
+                    <dd class="col-sm-10 mb-0">
+                        {% if current_lang == 'de' %}
+                        Zufällig generiert mit 122 Bits Entropie. RFC 4122 konform. Am häufigsten verwendet für allgemeine Zwecke wie Session-IDs, Datenbank-Primärschlüssel und eindeutige Identifikatoren.
+                        {% else %}
+                        Randomly generated with 122 bits of entropy. RFC 4122 compliant. Most commonly used for general purposes like session IDs, database primary keys, and unique identifiers.
+                        {% endif %}
+                    </dd>
+                </dl>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+const uuidVersion = document.getElementById('uuidVersion');
+const uuidDisplay = document.getElementById('uuidDisplay');
+const recreateBtn = document.getElementById('recreateBtn');
+const copyBtn = document.getElementById('copyBtn');
+
+let currentUUID = '';
+
+function generateUUID() {
+    const format = document.querySelector('input[name="uuidFormat"]:checked').value;
+    
+    // Generate UUID v4 using native browser crypto API
+    let generatedUuid = crypto.randomUUID();
+    
+    // Format UUID
+    switch(format) {
+        case 'uppercase':
+            generatedUuid = generatedUuid.toUpperCase();
+            break;
+        case 'nodashes':
+            generatedUuid = generatedUuid.replace(/-/g, '');
+            break;
+        case 'braces':
+            generatedUuid = '{' + generatedUuid + '}';
+            break;
+        // 'standard' needs no modification
+    }
+    
+    currentUUID = generatedUuid;
+    uuidDisplay.textContent = generatedUuid;
+    uuidDisplay.style.color = '#000';
+    
+    // Reset copy button
+    copyBtn.innerHTML = '<i class="fas fa-copy me-2"></i>{% if current_lang == "de" %}Kopieren{% else %}Copy{% endif %}';
+    copyBtn.classList.remove('btn-secondary');
+    copyBtn.classList.add('btn-success');
+}
+
+function copyToClipboard() {
+    // Copy to clipboard using modern API
+    navigator.clipboard.writeText(currentUUID).then(() => {
+        // Visual feedback - grey out UUID
+        uuidDisplay.style.color = '#6c757d';
+        
+        // Change button text and style
+        copyBtn.innerHTML = '<i class="fas fa-check me-2"></i>{% if current_lang == "de" %}Kopiert{% else %}Copied{% endif %}';
+        copyBtn.classList.remove('btn-success');
+        copyBtn.classList.add('btn-secondary');
+
+        if (typeof window.showSupportOnAction === 'function') {
+            window.showSupportOnAction(30000);
+        }
+    }).catch(err => {
+        // Fallback for older browsers
+        const textarea = document.createElement('textarea');
+        textarea.value = currentUUID;
+        document.body.appendChild(textarea);
+        textarea.select();
+        document.execCommand('copy');
+        document.body.removeChild(textarea);
+        
+        // Same visual feedback
+        uuidDisplay.style.color = '#6c757d';
+        copyBtn.innerHTML = '<i class="fas fa-check me-2"></i>{% if current_lang == "de" %}Kopiert{% else %}Copied{% endif %}';
+        copyBtn.classList.remove('btn-success');
+        copyBtn.classList.add('btn-secondary');
+
+        if (typeof window.showSupportOnAction === 'function') {
+            window.showSupportOnAction(30000);
+        }
+    });
+}
+
+// Event listeners
+recreateBtn.addEventListener('click', generateUUID);
+copyBtn.addEventListener('click', copyToClipboard);
+
+// Settings change listeners - regenerate UUID when format changes
+document.querySelectorAll('input[name="uuidFormat"]').forEach(radio => {
+    radio.addEventListener('change', generateUUID);
+});
+
+// Generate one UUID v7 on load - call directly since scripts load after DOM
+generateUUID();
+</script>
+{% endblock %}

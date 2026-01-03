@@ -1,0 +1,282 @@
+{% extends 'base.html' %}
+{% from 'components/textarea.html' import enhanced_textarea %}
+
+{% block title %}
+    {% if current_lang == 'de' %}XML-Formatierer{% else %}XML Formatter{% endif %} - usefull
+{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-12">
+        <h1 class="mb-4">
+            <i class="fas fa-file-code me-2"></i>
+            {% if current_lang == 'de' %}XML-Formatierer{% else %}XML Formatter{% endif %}
+        </h1>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12 col-lg-6 mb-4">
+        <div class="card h-100">
+            <div class="card-header">
+                <h5 class="mb-0">
+                    {% if current_lang == 'de' %}Eingabe{% else %}Input{% endif %}
+                </h5>
+            </div>
+            <div class="card-body d-flex flex-column">
+                <textarea class="form-control flex-grow-1 font-monospace" id="xmlInput" rows="20" data-enhanced placeholder="{% if current_lang == 'de' %}XML hier einfügen...{% else %}Paste XML here...{% endif %}"></textarea>
+                <div id="validationMessage" class="mt-2"></div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-12 col-lg-6 mb-4">
+        <div class="card h-100">
+            <div class="card-header">
+                <h5 class="mb-0">
+                    {% if current_lang == 'de' %}Ausgabe{% else %}Output{% endif %}
+                </h5>
+            </div>
+            <div class="card-body d-flex flex-column">
+                <textarea class="form-control flex-grow-1 font-monospace" id="xmlOutput" rows="20" data-enhanced readonly></textarea>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0">
+                    {% if current_lang == 'de' %}Formatierungsoptionen{% else %}Formatting Options{% endif %}
+                </h5>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-12 col-md-6 mb-3">
+                        <label class="form-label">
+                            {% if current_lang == 'de' %}Einrückung{% else %}Indentation{% endif %}
+                        </label>
+                        <div class="btn-group w-100 flex-wrap" role="group">
+                            <input type="radio" class="btn-check" name="indentation" id="indent1" value="1" autocomplete="off">
+                            <label class="btn btn-outline-primary" for="indent1">1 {% if current_lang == 'de' %}Leerzeichen{% else %}Space{% endif %}</label>
+                            
+                            <input type="radio" class="btn-check" name="indentation" id="indent2" value="2" autocomplete="off" checked>
+                            <label class="btn btn-outline-primary" for="indent2">2 {% if current_lang == 'de' %}Leerzeichen{% else %}Spaces{% endif %}</label>
+                            
+                            <input type="radio" class="btn-check" name="indentation" id="indent3" value="3" autocomplete="off">
+                            <label class="btn btn-outline-primary" for="indent3">3 {% if current_lang == 'de' %}Leerzeichen{% else %}Spaces{% endif %}</label>
+                            
+                            <input type="radio" class="btn-check" name="indentation" id="indent4" value="4" autocomplete="off">
+                            <label class="btn btn-outline-primary" for="indent4">4 {% if current_lang == 'de' %}Leerzeichen{% else %}Spaces{% endif %}</label>
+                            
+                            <input type="radio" class="btn-check" name="indentation" id="indentTab" value="tab" autocomplete="off">
+                            <label class="btn btn-outline-primary" for="indentTab">Tab</label>
+                        </div>
+                    </div>
+                    
+                    <div class="col-12 col-md-6 mb-3">
+                        <label class="form-label">&nbsp;</label>
+                        <div>
+                            <button type="button" class="btn btn-primary w-100" id="formatBtn">
+                                <i class="fas fa-magic me-2"></i>
+                                {% if current_lang == 'de' %}Formatieren{% else %}Format{% endif %}
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="col-12">
+                        <button type="button" class="btn btn-secondary w-100" id="minifyBtn">
+                            <i class="fas fa-compress me-2"></i>
+                            {% if current_lang == 'de' %}Minimieren{% else %}Minify{% endif %}
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_css %}
+<style>
+.font-monospace {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.9rem;
+}
+
+.card-body textarea {
+    resize: none;
+}
+
+.validation-error {
+    color: #dc3545;
+    font-weight: bold;
+}
+
+.validation-success {
+    color: #198754;
+    font-weight: bold;
+}
+
+.error-highlight {
+    background-color: #f8d7da;
+    border: 2px solid #dc3545;
+}
+
+@media (min-width: 992px) {
+    .card.h-100 {
+        min-height: 500px;
+    }
+}
+</style>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+const xmlInput = document.getElementById('xmlInput');
+const xmlOutput = document.getElementById('xmlOutput');
+const validationMessage = document.getElementById('validationMessage');
+const formatBtn = document.getElementById('formatBtn');
+const minifyBtn = document.getElementById('minifyBtn');
+
+let currentXml = null;
+let isValid = false;
+
+function validateXml() {
+    const input = xmlInput.value.trim();
+    
+    if (!input) {
+        validationMessage.innerHTML = '';
+        xmlOutput.value = '';
+        xmlInput.classList.remove('error-highlight');
+        isValid = false;
+        return;
+    }
+    
+    try {
+        const parser = new DOMParser();
+        const xmlDoc = parser.parseFromString(input, 'text/xml');
+        
+        // Check for parsing errors
+        const parseError = xmlDoc.querySelector('parsererror');
+        if (parseError) {
+            throw new Error(parseError.textContent);
+        }
+        
+        currentXml = xmlDoc;
+        isValid = true;
+        xmlInput.classList.remove('error-highlight');
+        validationMessage.innerHTML = '<span class="validation-success"><i class="fas fa-check-circle me-2"></i>{% if current_lang == "de" %}Gültiges XML{% else %}Valid XML{% endif %}</span>';
+        
+        // Auto-format with current indentation
+        formatXml();
+    } catch (e) {
+        isValid = false;
+        currentXml = null;
+        xmlInput.classList.add('error-highlight');
+        xmlOutput.value = '';
+        
+        let errorMsg = e.message;
+        validationMessage.innerHTML = `<span class="validation-error"><i class="fas fa-exclamation-circle me-2"></i>{% if current_lang == "de" %}Ungültiges XML{% else %}Invalid XML{% endif %}: ${errorMsg}</span>`;
+    }
+}
+
+function formatXml() {
+    if (!isValid || !currentXml) {
+        return;
+    }
+    
+    const indentValue = document.querySelector('input[name="indentation"]:checked').value;
+    let indentStr;
+    
+    if (indentValue === 'tab') {
+        indentStr = '\t';
+    } else {
+        indentStr = ' '.repeat(parseInt(indentValue));
+    }
+    
+    try {
+        const serializer = new XMLSerializer();
+        const xmlString = serializer.serializeToString(currentXml);
+        
+        // Format the XML
+        const formatted = formatXmlString(xmlString, indentStr);
+        xmlOutput.value = formatted;
+    } catch (e) {
+        xmlOutput.value = '{% if current_lang == "de" %}Fehler beim Formatieren{% else %}Error formatting{% endif %}: ' + e.message;
+    }
+}
+
+function formatXmlString(xml, indent) {
+    let formatted = '';
+    let indentLevel = 0;
+    const nodes = xml.split(/>\s*</);
+    
+    for (let i = 0; i < nodes.length; i++) {
+        let node = nodes[i];
+        
+        // Add back the angle brackets
+        if (i > 0) node = '<' + node;
+        if (i < nodes.length - 1) node = node + '>';
+        
+        // Determine if this is a closing tag
+        const isClosing = node.match(/^<\//);
+        const isSelfClosing = node.match(/\/>$/);
+        const isOpening = !isClosing && !isSelfClosing && node.match(/^</);
+        
+        // Decrease indent for closing tags
+        if (isClosing) {
+            indentLevel--;
+        }
+        
+        // Add indentation
+        formatted += indent.repeat(Math.max(0, indentLevel)) + node.trim() + '\n';
+        
+        // Increase indent for opening tags
+        if (isOpening) {
+            indentLevel++;
+        }
+    }
+    
+    return formatted.trim();
+}
+
+function minifyXml() {
+    if (!isValid || !currentXml) {
+        return;
+    }
+    
+    try {
+        const serializer = new XMLSerializer();
+        let xmlString = serializer.serializeToString(currentXml);
+        
+        // Remove whitespace between tags
+        xmlString = xmlString.replace(/>\s+</g, '><');
+        
+        xmlOutput.value = xmlString;
+    } catch (e) {
+        xmlOutput.value = '{% if current_lang == "de" %}Fehler beim Minimieren{% else %}Error minifying{% endif %}: ' + e.message;
+    }
+}
+
+// Event listeners
+xmlInput.addEventListener('input', validateXml);
+
+formatBtn.addEventListener('click', formatXml);
+
+minifyBtn.addEventListener('click', minifyXml);
+
+// Update formatting when indentation changes
+document.querySelectorAll('input[name="indentation"]').forEach(radio => {
+    radio.addEventListener('change', () => {
+        if (isValid) {
+            formatXml();
+        }
+    });
+});
+</script>
+{% endblock %}

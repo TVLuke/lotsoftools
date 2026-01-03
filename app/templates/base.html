@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="{% block meta_description %}Free online tools for developers and designers: JSON formatter, UUID generator, color tools, hash generator, calendar, and more. No registration required.{% endblock %}">
+    <meta name="keywords" content="{% block meta_keywords %}online tools, developer tools, JSON formatter, UUID generator, color picker, hash generator, QR code generator, text tools, free tools{% endblock %}">
+    <meta name="author" content="usefull">
+    <meta property="og:title" content="{% block og_title %}usefull - Free Online Developer Tools{% endblock %}">
+    <meta property="og:description" content="{% block og_description %}Collection of free online tools for developers and designers. No registration required.{% endblock %}">
+    <meta property="og:type" content="website">
+    <title>{% block title %}usefull{% endblock %}</title>
+    {% include 'components/imports/bootstrap.html' %}
+    {% include 'components/imports/fontawesome.html' %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/custom.css') }}?v=5">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/tiles.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/layout-switcher.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/enhanced-textarea.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/color-picker.css') }}">
+    {% block extra_css %}{% endblock %}
+
+    {% include 'components/support_on_action_head.html' %}
+</head>
+<body data-desktop-layout="{{ desktop_layout|default('categorized') }}" data-mobile-layout="{{ mobile_layout|default('compact') }}">
+    <nav class="navbar navbar-expand-md navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="{{ url_for('main.index') }}">
+                <i class="fas fa-tools me-2"></i>
+                <span class="d-none d-md-inline">usefull</span>
+            </a>
+            
+            <div class="ms-auto d-flex align-items-center">
+                {% if request.endpoint == 'main.index' %}
+                <div class="d-flex d-md-none me-2" style="max-width: 180px;">
+                    <div class="input-group">
+                        <input type="text" id="searchInputMobile" class="form-control" placeholder="Search..." aria-label="Search">
+                        <span class="input-group-text"><i class="fas fa-search"></i></span>
+                    </div>
+                </div>
+                {% endif %}
+                
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#topNavbarCollapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+            
+            <div class="collapse navbar-collapse" id="topNavbarCollapse">
+                <ul class="navbar-nav me-auto mb-0">
+                </ul>
+
+                {% if support_links %}
+                    <div class="d-none d-md-flex align-items-center me-3">
+                        {% for link in support_links %}
+                            {% if support_placement_enabled(link, 'menu') %}
+                                <a href="{{ link.url }}" class="nav-link small text-muted" target="_blank" rel="noopener noreferrer">
+                                    <i class="{{ support_icon_class(link.type) }} me-1"></i>
+                                    {{ support_link_text(link, 'menu', current_lang) }}
+                                </a>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                {% endif %}
+
+                {% if request.endpoint == 'main.index' %}
+                <div class="d-none d-md-flex me-3">
+                    <div class="input-group">
+                        <input type="text" id="searchInput" class="form-control" placeholder="Search..." aria-label="Search">
+                        <span class="input-group-text"><i class="fas fa-search"></i></span>
+                    </div>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </nav>
+    
+    <main class="container" style="margin-top: 30px;">
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer class="text-center py-4 mt-5">
+        <p class="text-muted mb-1"><strong>usefull</strong> - Full of tools to use</p>
+        <p class="text-muted small mb-0">Ad-free, no third-party cookies, privacy-friendly solutions.</p>
+        <p class="mt-2">
+            <a href="/about" class="text-muted small">{% if current_lang == 'de' %}Über diesen Dienst{% else %}About{% endif %}</a>
+            <span class="text-muted small mx-2">|</span>
+            <a href="/sitemap" class="text-muted small">{% if current_lang == 'de' %}Seitenübersicht{% else %}Sitemap{% endif %}</a>
+        </p>
+        {% if support_links %}
+            <div class="mt-2">
+                {% for link in support_links %}
+                    {% if support_placement_enabled(link, 'footer') %}
+                        <a href="{{ link.url }}" class="text-muted small ms-2 me-2" target="_blank" rel="noopener noreferrer">
+                            <i class="{{ support_icon_class(link.type) }} me-1"></i>
+                            {{ support_link_text(link, 'footer', current_lang) }}
+                        </a>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        {% endif %}
+    </footer>
+
+    {% include 'components/support_on_action_body.html' %}
+
+    {% include 'components/imports/jquery.html' %}
+    <script src="{{ url_for('static', filename='js/enhanced-textarea.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/color-picker.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/layout-switcher.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/search.js') }}"></script>
+
+    {% block extra_js %}{% endblock %}
+</body>
+</html>

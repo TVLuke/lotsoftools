@@ -1,0 +1,212 @@
+{% extends "base.html" %}
+
+{% block title %}{{ tool_data.name[current_lang] }} - {{ super() }}{% endblock %}
+{% block meta_description %}{{ tool_data.description[current_lang] }}{% endblock %}
+{% block meta_keywords %}{% if tool_data.seo and tool_data.seo.keywords %}{{ tool_data.seo.keywords[current_lang] }}{% else %}youtube, downloader, video, audio, mp3, mp4{% endif %}{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-12">
+        <h1 class="mb-4">
+            <i class="fab fa-youtube me-2"></i>
+            {% if current_lang == 'de' %}YouTube Downloader{% else %}YouTube Downloader{% endif %}
+        </h1>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12 col-lg-8 mx-auto">
+        <div class="card">
+            <div class="card-body">
+                <form id="downloadForm">
+                    <div class="mb-3">
+                        <label for="urlInput" class="form-label">
+                            {% if current_lang == 'de' %}YouTube URL{% else %}YouTube URL{% endif %}
+                        </label>
+                        <input type="text" class="form-control" id="urlInput" 
+                               placeholder="https://www.youtube.com/watch?v=..." required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">
+                            {% if current_lang == 'de' %}Format{% else %}Format{% endif %}
+                        </label>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="formatType" id="formatVideo" value="video" checked>
+                            <label class="form-check-label" for="formatVideo">
+                                <i class="fas fa-video me-2"></i>
+                                {% if current_lang == 'de' %}Video (MP4){% else %}Video (MP4){% endif %}
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="formatType" id="formatAudio" value="audio">
+                            <label class="form-check-label" for="formatAudio">
+                                <i class="fas fa-music me-2"></i>
+                                {% if current_lang == 'de' %}Nur Audio (MP3){% else %}Audio Only (MP3){% endif %}
+                            </label>
+                        </div>
+                    </div>
+
+                    <div id="audioMetadataFields" class="mb-3" style="display: none;">
+                        <label class="form-label">
+                            {% if current_lang == 'de' %}MP3 Metadaten (optional){% else %}MP3 Metadata (optional){% endif %}
+                        </label>
+                        <div class="row g-2">
+                            <div class="col-12 col-md-6">
+                                <input type="text" class="form-control" id="metaTitle" placeholder="{% if current_lang == 'de' %}Titel{% else %}Title{% endif %}">
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <input type="text" class="form-control" id="metaArtist" placeholder="{% if current_lang == 'de' %}Interpret{% else %}Artist{% endif %}">
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <input type="text" class="form-control" id="metaAlbum" placeholder="{% if current_lang == 'de' %}Album{% else %}Album{% endif %}">
+                            </div>
+                            <div class="col-12 col-md-3">
+                                <input type="text" class="form-control" id="metaTrack" placeholder="{% if current_lang == 'de' %}Track # (z.B. 1/12){% else %}Track # (e.g. 1/12){% endif %}">
+                            </div>
+                            <div class="col-12 col-md-3">
+                                <input type="text" class="form-control" id="metaYear" placeholder="{% if current_lang == 'de' %}Jahr{% else %}Year{% endif %}">
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <input type="text" class="form-control" id="metaGenre" placeholder="{% if current_lang == 'de' %}Genre{% else %}Genre{% endif %}">
+                            </div>
+                            <div class="col-12">
+                                <input type="text" class="form-control" id="metaComment" placeholder="{% if current_lang == 'de' %}Kommentar{% else %}Comment{% endif %}">
+                            </div>
+                        </div>
+                        <div class="form-text">
+                            {% if current_lang == 'de' %}Das schreibt ID3 Tags in die MP3-Datei.{% else %}This writes ID3 tags into the MP3 file.{% endif %}
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary w-100" id="downloadBtn">
+                        <i class="fas fa-download me-2"></i>
+                        {% if current_lang == 'de' %}Herunterladen{% else %}Download{% endif %}
+                    </button>
+                </form>
+
+                <div id="progressDiv" class="mt-3" style="display: none;">
+                    <div class="progress">
+                        <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: 100%"></div>
+                    </div>
+                    <p class="text-center mt-2 text-muted">
+                        {% if current_lang == 'de' %}Wird heruntergeladen...{% else %}Downloading...{% endif %}
+                    </p>
+                </div>
+
+                <div id="errorDiv" class="alert alert-danger mt-3" style="display: none;"></div>
+                <div id="successDiv" class="alert alert-success mt-3" style="display: none;"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% include 'components/seo_content.html' %}
+{% endblock %}
+
+{% block extra_js %}
+<script>
+const lang = document.documentElement.lang || 'en';
+
+function updateAudioMetadataVisibility() {
+    const formatType = document.querySelector('input[name="formatType"]:checked')?.value;
+    const el = document.getElementById('audioMetadataFields');
+    if (!el) return;
+    el.style.display = (formatType === 'audio') ? 'block' : 'none';
+}
+
+document.getElementById('formatVideo').addEventListener('change', updateAudioMetadataVisibility);
+document.getElementById('formatAudio').addEventListener('change', updateAudioMetadataVisibility);
+updateAudioMetadataVisibility();
+
+document.getElementById('downloadForm').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    
+    const urlInput = document.getElementById('urlInput');
+    const formatType = document.querySelector('input[name="formatType"]:checked').value;
+    const downloadBtn = document.getElementById('downloadBtn');
+    const progressDiv = document.getElementById('progressDiv');
+    const errorDiv = document.getElementById('errorDiv');
+    const successDiv = document.getElementById('successDiv');
+    
+    // Validate URL
+    if (!urlInput.value.trim()) {
+        showError(lang === 'de' ? 'Bitte geben Sie eine YouTube URL ein' : 'Please enter a YouTube URL');
+        return;
+    }
+    
+    // Show progress
+    downloadBtn.disabled = true;
+    progressDiv.style.display = 'block';
+    errorDiv.style.display = 'none';
+    successDiv.style.display = 'none';
+    
+    try {
+        const metadata = (formatType === 'audio') ? {
+            title: document.getElementById('metaTitle')?.value?.trim() || null,
+            artist: document.getElementById('metaArtist')?.value?.trim() || null,
+            album: document.getElementById('metaAlbum')?.value?.trim() || null,
+            track: document.getElementById('metaTrack')?.value?.trim() || null,
+            year: document.getElementById('metaYear')?.value?.trim() || null,
+            genre: document.getElementById('metaGenre')?.value?.trim() || null,
+            comment: document.getElementById('metaComment')?.value?.trim() || null,
+        } : null;
+
+        const response = await fetch('/tools/youtube-dl/download', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                url: urlInput.value.trim(),
+                format: formatType,
+                metadata: metadata
+            })
+        });
+
+        let data;
+        try {
+            data = await response.json();
+        } catch (e) {
+            throw new Error(lang === 'de' ? 'Ungültige Server-Antwort' : 'Invalid server response');
+        }
+
+        if (!response.ok) {
+            throw new Error(data.error || (lang === 'de' ? 'Download fehlgeschlagen' : 'Download failed'));
+        }
+
+        // Hide progress
+        progressDiv.style.display = 'none';
+
+        const message = lang === 'de'
+            ? 'Download erfolgreich! Datei wird heruntergeladen...'
+            : 'Download successful! File is downloading...';
+        showSuccess(message);
+
+        window.location.href = `/tools/youtube-dl/get/${data.download_id}`;
+
+        urlInput.value = '';
+        downloadBtn.disabled = false;
+        
+    } catch (error) {
+        progressDiv.style.display = 'none';
+        downloadBtn.disabled = false;
+        showError(error.message);
+    }
+});
+
+function showError(message) {
+    const errorDiv = document.getElementById('errorDiv');
+    errorDiv.textContent = message;
+    errorDiv.style.display = 'block';
+    document.getElementById('successDiv').style.display = 'none';
+}
+
+function showSuccess(message) {
+    const successDiv = document.getElementById('successDiv');
+    successDiv.textContent = message;
+    successDiv.style.display = 'block';
+    document.getElementById('errorDiv').style.display = 'none';
+}
+</script>
+{% endblock %}

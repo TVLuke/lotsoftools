@@ -1,0 +1,95 @@
+{
+  "route": "/tools/letter-counter",
+  "img": "fas fa-font",
+  "name": {
+    "en": "Letter Counter",
+    "de": "Zeichenzähler"
+  },
+  "description": {
+    "en": "Count characters, words, and analyze character frequency",
+    "de": "Zeichen, Wörter zählen und Zeichenhäufigkeit analysieren"
+  },
+  "tags": ["text tools"],
+  "new_window": false,
+  "frontend_only": true,
+  "seo": {
+    "title": {
+      "en": "Letter Counter - Free Character & Word Counter Tool",
+      "de": "Zeichenzähler - Kostenloser Zeichen & Wort Zähler"
+    },
+    "meta_description": {
+      "en": "Count characters, words, lines, and analyze character frequency in real-time. Browser-based text analysis tool, privacy-friendly, no registration required.",
+      "de": "Zählen Sie Zeichen, Wörter, Zeilen und analysieren Sie Zeichenhäufigkeit in Echtzeit. Browser-basiertes Textanalyse-Tool, datenschutzfreundlich, keine Registrierung erforderlich."
+    },
+    "keywords": {
+      "en": "character counter, word counter, letter counter, text analysis, character frequency, browser-based, privacy-friendly, free text tool",
+      "de": "Zeichenzähler, Wortzähler, Buchstabenzähler, Textanalyse, Zeichenhäufigkeit, Browser-basiert, Datenschutzfreundlich, kostenloses Text-Tool"
+    },
+    "content": {
+      "heading": {
+        "en": "About This Letter Counter Tool",
+        "de": "Über dieses Zeichenzähler-Tool"
+      },
+      "intro": {
+        "en": "This browser-based letter counter analyzes your text in real-time, counting characters, words, lines, and character frequency. Perfect for writers, students, and content creators who need to track text statistics. All analysis happens directly in your browser with complete privacy.",
+        "de": "Dieser Browser-basierte Zeichenzähler analysiert Ihren Text in Echtzeit und zählt Zeichen, Wörter, Zeilen und Zeichenhäufigkeit. Perfekt für Autoren, Studenten und Content-Ersteller, die Textstatistiken verfolgen müssen. Alle Analysen erfolgen direkt in Ihrem Browser mit vollständiger Privatsphäre."
+      },
+      "features": {
+        "heading": {
+          "en": "Key Features:",
+          "de": "Hauptfunktionen:"
+        },
+        "items": [
+          {
+            "en": "<strong>Character Count:</strong> Total characters with and without spaces",
+            "de": "<strong>Zeichenzählung:</strong> Gesamtzeichen mit und ohne Leerzeichen"
+          },
+          {
+            "en": "<strong>Word Count:</strong> Accurate word counting for any language",
+            "de": "<strong>Wortzählung:</strong> Genaue Wortzählung für jede Sprache"
+          },
+          {
+            "en": "<strong>Line Count:</strong> Track number of lines in your text",
+            "de": "<strong>Zeilenzählung:</strong> Verfolgen Sie die Anzahl der Zeilen in Ihrem Text"
+          },
+          {
+            "en": "<strong>Character Frequency:</strong> Analyze which characters appear most often",
+            "de": "<strong>Zeichenhäufigkeit:</strong> Analysieren Sie, welche Zeichen am häufigsten vorkommen"
+          },
+          {
+            "en": "<strong>Real-time Analysis:</strong> Instant updates as you type",
+            "de": "<strong>Echtzeit-Analyse:</strong> Sofortige Aktualisierungen während Sie tippen"
+          }
+        ]
+      },
+      "use_cases": {
+        "heading": {
+          "en": "Use Cases:",
+          "de": "Anwendungsfälle:"
+        },
+        "items": [
+          {
+            "en": "Check character limits for social media posts",
+            "de": "Zeichenlimits für Social-Media-Beiträge prüfen"
+          },
+          {
+            "en": "Track word count for essays and articles",
+            "de": "Wortzahl für Aufsätze und Artikel verfolgen"
+          },
+          {
+            "en": "Analyze text patterns and character usage",
+            "de": "Textmuster und Zeichenverwendung analysieren"
+          },
+          {
+            "en": "Verify content length requirements",
+            "de": "Anforderungen an Inhaltslänge überprüfen"
+          }
+        ]
+      },
+      "privacy_note": {
+        "en": "🔒 Privacy-Friendly: All text analysis happens in your browser. Your text never leaves your device.",
+        "de": "🔒 Datenschutzfreundlich: Alle Textanalysen erfolgen in Ihrem Browser. Ihr Text verlässt nie Ihr Gerät."
+      }
+    }
+  }
+}

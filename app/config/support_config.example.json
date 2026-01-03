@@ -1,0 +1,35 @@
+{
+  "links": [
+    {
+      "url": "https://ko-fi.com/yourlink",
+      "type": "ko-fi",
+      "text": {
+        "en": "Support this project on Ko-fi",
+        "de": "Unterstütze dieses Projekt auf Ko-fi"
+      },
+      "placements": {
+        "footer": {
+          "enabled": true,
+          "text": {
+            "en": "Support on Ko-fi",
+            "de": "Support auf Ko-fi"
+          }
+        },
+        "menu": {
+          "enabled": false,
+          "text": {
+            "en": "Support",
+            "de": "Support"
+          }
+        },
+        "on_action": {
+          "enabled": true,
+          "text": {
+            "en": "Enjoying the tool? Buy me a coffee",
+            "de": "Hilft dir das Tool? Spendier mir einen Kaffee"
+          }
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "route": "/tools/random-string",
+  "img": "fas fa-random",
+  "name": {
+    "en": "Random String Generator",
+    "de": "Zufallsstring-Generator"
+  },
+  "description": {
+    "en": "Generate random strings with custom length and character sets",
+    "de": "Generiere zufällige Zeichenketten mit anpassbarer Länge und Zeichensätzen"
+  },
+  "tags": ["generator", "random"],
+  "new_window": false,
+  "frontend_only": true,
+  "seo": {
+    "title": {
+      "en": "Random String Generator - Free Secure Password & Token Generator",
+      "de": "Zufallsstring-Generator - Kostenloser sicherer Passwort & Token Generator"
+    },
+    "meta_description": {
+      "en": "Generate secure random strings, passwords, and tokens. Customizable length and character sets (uppercase, lowercase, numbers, symbols). Browser-based, cryptographically secure, privacy-friendly.",
+      "de": "Generieren Sie sichere Zufallsstrings, Passwörter und Tokens. Anpassbare Länge und Zeichensätze (Großbuchstaben, Kleinbuchstaben, Zahlen, Symbole). Browser-basiert, kryptographisch sicher, datenschutzfreundlich."
+    },
+    "keywords": {
+      "en": "random string generator, password generator, secure password, random token, API key generator, browser-based, cryptographically secure, privacy-friendly",
+      "de": "Zufallsstring-Generator, Passwort-Generator, sicheres Passwort, zufälliger Token, API-Schlüssel-Generator, Browser-basiert, kryptographisch sicher, Datenschutzfreundlich"
+    },
+    "content": {
+      "heading": {
+        "en": "About This Random String Generator",
+        "de": "Über diesen Zufallsstring-Generator"
+      },
+      "intro": {
+        "en": "This browser-based random string generator creates cryptographically secure random strings for passwords, API keys, tokens, and more. Customize the length and character sets to match your exact requirements. All generation happens in your browser using secure random number generation - no data is ever sent to any server.",
+        "de": "Dieser Browser-basierte Zufallsstring-Generator erstellt kryptographisch sichere Zufallsstrings für Passwörter, API-Schlüssel, Tokens und mehr. Passen Sie die Länge und Zeichensätze an Ihre genauen Anforderungen an. Alle Generierung erfolgt in Ihrem Browser mit sicherer Zufallszahlengenerierung - es werden nie Daten an einen Server gesendet."
+      },
+      "features": {
+        "heading": {
+          "en": "Key Features:",
+          "de": "Hauptfunktionen:"
+        },
+        "items": [
+          {
+            "en": "<strong>Customizable Length:</strong> Generate strings from 1 to 1000+ characters",
+            "de": "<strong>Anpassbare Länge:</strong> Generieren Sie Strings von 1 bis 1000+ Zeichen"
+          },
+          {
+            "en": "<strong>Character Set Options:</strong> Choose from uppercase, lowercase, numbers, and special symbols",
+            "de": "<strong>Zeichensatz-Optionen:</strong> Wählen Sie aus Großbuchstaben, Kleinbuchstaben, Zahlen und Sonderzeichen"
+          },
+          {
+            "en": "<strong>Cryptographically Secure:</strong> Uses browser's crypto API for true randomness",
+            "de": "<strong>Kryptographisch sicher:</strong> Verwendet die Crypto-API des Browsers für echte Zufälligkeit"
+          },
+          {
+            "en": "<strong>Bulk Generation:</strong> Generate multiple random strings at once",
+            "de": "<strong>Massengenerierung:</strong> Mehrere Zufallsstrings auf einmal generieren"
+          },
+          {
+            "en": "<strong>Copy to Clipboard:</strong> Quick copy functionality for easy use",
+            "de": "<strong>In Zwischenablage kopieren:</strong> Schnelle Kopierfunktion für einfache Verwendung"
+          }
+        ]
+      },
+      "use_cases": {
+        "heading": {
+          "en": "Use Cases:",
+          "de": "Anwendungsfälle:"
+        },
+        "items": [
+          {
+            "en": "Generate secure passwords for accounts",
+            "de": "Sichere Passwörter für Konten generieren"
+          },
+          {
+            "en": "Create API keys and authentication tokens",
+            "de": "API-Schlüssel und Authentifizierungs-Tokens erstellen"
+          },
+          {
+            "en": "Generate session IDs and temporary codes",
+            "de": "Sitzungs-IDs und temporäre Codes generieren"
+          },
+          {
+            "en": "Create unique identifiers for testing",
+            "de": "Eindeutige Kennungen für Tests erstellen"
+          }
+        ]
+      },
+      "privacy_note": {
+        "en": "🔒 Privacy-Friendly & Secure: Random strings are generated in your browser using cryptographically secure random number generation. Nothing is sent to any server.",
+        "de": "🔒 Datenschutzfreundlich & Sicher: Zufallsstrings werden in Ihrem Browser mit kryptographisch sicherer Zufallszahlengenerierung erstellt. Nichts wird an einen Server gesendet."
+      }
+    }
+  }
+}

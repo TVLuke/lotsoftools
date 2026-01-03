@@ -1,0 +1,59 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+env/
+ENV/
+*.egg-info/
+dist/
+build/
+
+# Flask
+instance/
+.webassets-cache
+
+# Database
+*.db
+*.sqlite
+*.sqlite3
+
+# GeoIP databases (auto-downloaded)
+geoip_data/
+
+# Holiday cache (fetched from OpenHolidays API on startup)
+app/assets/holidays/*_holidays.json
+app/assets/holidays/*.ics
+
+# Temporary favicon files
+temp_favicons/
+
+# Icon cache
+cache/
+*.tmp
+
+# Vendor libraries (downloaded via scripts/download_vendor_libs.py)
+app/static/libs/vendor/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Environment variables
+.env
+.env.local
+
+# Host-specific support configuration
+app/config/support_config.json

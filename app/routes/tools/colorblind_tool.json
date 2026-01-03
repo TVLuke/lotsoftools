@@ -1,0 +1,99 @@
+{
+  "route": "/tools/colorblind-simulator",
+  "img": "fas fa-eye",
+  "name": {
+    "en": "Color Blindness Simulator",
+    "de": "Farbenblindheit-Simulator"
+  },
+  "description": {
+    "en": "Simulate how colors appear with different types of color blindness",
+    "de": "Simuliere wie Farben bei verschiedenen Arten von Farbenblindheit erscheinen"
+  },
+  "tags": ["color", "accessibility"],
+  "new_window": false,
+  "frontend_only": true,
+  "seo": {
+    "title": {
+      "en": "Color Blindness Simulator - Test Accessibility for Protanopia, Deuteranopia, Tritanopia",
+      "de": "Farbenblindheit-Simulator - Barrierefreiheit für Protanopie, Deuteranopie, Tritanopie testen"
+    },
+    "meta_description": {
+      "en": "Simulate how colors appear with protanopia, deuteranopia, tritanopia, and achromatopsia. Test color accessibility for web design. Browser-based, privacy-friendly simulator.",
+      "de": "Simulieren Sie, wie Farben bei Protanopie, Deuteranopie, Tritanopie und Achromatopsie erscheinen. Testen Sie Farbbarrierefreiheit für Webdesign. Browser-basierter, datenschutzfreundlicher Simulator."
+    },
+    "keywords": {
+      "en": "color blindness simulator, protanopia, deuteranopia, tritanopia, achromatopsia, accessibility testing, color blind test, browser-based, privacy-friendly",
+      "de": "Farbenblindheit-Simulator, Protanopie, Deuteranopie, Tritanopie, Achromatopsie, Barrierefreiheitstest, Farbenblindheitstest, Browser-basiert, Datenschutzfreundlich"
+    },
+    "content": {
+      "heading": {
+        "en": "About This Color Blindness Simulator",
+        "de": "Über diesen Farbenblindheit-Simulator"
+      },
+      "intro": {
+        "en": "This browser-based color blindness simulator shows how colors appear to people with different types of color vision deficiency. Essential for designers and developers testing color accessibility. Simulate protanopia (red-blind), deuteranopia (green-blind), tritanopia (blue-blind), and achromatopsia (total color blindness). All simulations run in your browser with complete privacy.",
+        "de": "Dieser Browser-basierte Farbenblindheit-Simulator zeigt, wie Farben für Menschen mit verschiedenen Arten von Farbsehschwäche erscheinen. Unverzichtbar für Designer und Entwickler, die Farbbarrierefreiheit testen. Simulieren Sie Protanopie (Rotblindheit), Deuteranopie (Grünblindheit), Tritanopie (Blaublindheit) und Achromatopsie (totale Farbenblindheit). Alle Simulationen laufen in Ihrem Browser mit vollständiger Privatsphäre."
+      },
+      "features": {
+        "heading": {
+          "en": "Supported Color Vision Deficiencies:",
+          "de": "Unterstützte Farbsehschwächen:"
+        },
+        "items": [
+          {
+            "en": "<strong>Protanopia:</strong> Red color blindness - difficulty distinguishing red from green",
+            "de": "<strong>Protanopie:</strong> Rotblindheit - Schwierigkeit Rot von Grün zu unterscheiden"
+          },
+          {
+            "en": "<strong>Deuteranopia:</strong> Green color blindness - most common form of color blindness",
+            "de": "<strong>Deuteranopie:</strong> Grünblindheit - häufigste Form der Farbenblindheit"
+          },
+          {
+            "en": "<strong>Tritanopia:</strong> Blue color blindness - rare blue-yellow color confusion",
+            "de": "<strong>Tritanopie:</strong> Blaublindheit - seltene Blau-Gelb-Farbverwirrung"
+          },
+          {
+            "en": "<strong>Achromatopsia:</strong> Total color blindness - see only in grayscale",
+            "de": "<strong>Achromatopsie:</strong> Totale Farbenblindheit - nur Graustufen sehen"
+          },
+          {
+            "en": "<strong>Real-time Simulation:</strong> Instant color transformation as you select colors",
+            "de": "<strong>Echtzeit-Simulation:</strong> Sofortige Farbtransformation beim Auswählen von Farben"
+          }
+        ]
+      },
+      "use_cases": {
+        "heading": {
+          "en": "Use Cases:",
+          "de": "Anwendungsfälle:"
+        },
+        "items": [
+          {
+            "en": "Test website and app color accessibility",
+            "de": "Website- und App-Farbbarrierefreiheit testen"
+          },
+          {
+            "en": "Design inclusive color schemes",
+            "de": "Inklusive Farbschemata entwerfen"
+          },
+          {
+            "en": "Verify color contrast for readability",
+            "de": "Farbkontrast für Lesbarkeit überprüfen"
+          },
+          {
+            "en": "Understand color perception differences",
+            "de": "Unterschiede in der Farbwahrnehmung verstehen"
+          },
+          {
+            "en": "Meet WCAG accessibility guidelines",
+            "de": "WCAG-Barrierefreiheitsrichtlinien erfüllen"
+          }
+        ]
+      },
+      "privacy_note": {
+        "en": "🔒 Privacy-Friendly: Color simulations happen entirely in your browser. No data is sent to any server.",
+        "de": "🔒 Datenschutzfreundlich: Farbsimulationen erfolgen vollständig in Ihrem Browser. Es werden keine Daten an einen Server gesendet."
+      }
+    }
+  }
+}

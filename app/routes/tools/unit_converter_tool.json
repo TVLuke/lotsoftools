@@ -1,0 +1,99 @@
+{
+  "route": "/tools/unit-converter",
+  "img": "fas fa-exchange-alt",
+  "name": {
+    "en": "Unit Converter",
+    "de": "Einheitenumrechner"
+  },
+  "description": {
+    "en": "Convert between different units of measurement",
+    "de": "Zwischen verschiedenen Maßeinheiten umrechnen"
+  },
+  "tags": ["converter", "zeit"],
+  "new_window": false,
+  "frontend_only": true,
+  "seo": {
+    "title": {
+      "en": "Unit Converter - Free Online Measurement Conversion Tool",
+      "de": "Einheitenumrechner - Kostenloser Online-Maßeinheiten-Konverter"
+    },
+    "meta_description": {
+      "en": "Convert between units of length, mass, temperature, volume, time, area, speed, and more. Fast, accurate, browser-based unit conversion tool. Privacy-friendly, no data sent to servers.",
+      "de": "Konvertieren Sie zwischen Einheiten für Länge, Masse, Temperatur, Volumen, Zeit, Fläche, Geschwindigkeit und mehr. Schneller, präziser, Browser-basierter Einheitenumrechner. Datenschutzfreundlich, keine Datenübertragung."
+    },
+    "keywords": {
+      "en": "unit converter, measurement conversion, length converter, temperature converter, weight converter, volume converter, speed converter, browser-based, privacy-friendly, free converter",
+      "de": "Einheitenumrechner, Maßeinheiten-Konverter, Längenumrechner, Temperaturumrechner, Gewichtsumrechner, Volumenumrechner, Geschwindigkeitsumrechner, Browser-basiert, Datenschutzfreundlich, kostenloser Konverter"
+    },
+    "content": {
+      "heading": {
+        "en": "About This Unit Converter",
+        "de": "Über diesen Einheitenumrechner"
+      },
+      "intro": {
+        "en": "This browser-based unit converter helps you quickly convert between different units of measurement. Supporting length, mass, temperature, volume, time, area, energy, power, pressure, force, speed, acceleration, and more. All conversions happen in your browser using the convert.js library - your data remains private and is never sent to any server.",
+        "de": "Dieser Browser-basierte Einheitenumrechner hilft Ihnen, schnell zwischen verschiedenen Maßeinheiten zu konvertieren. Unterstützt Länge, Masse, Temperatur, Volumen, Zeit, Fläche, Energie, Leistung, Druck, Kraft, Geschwindigkeit, Beschleunigung und mehr. Alle Konvertierungen erfolgen in Ihrem Browser mit der convert.js-Bibliothek - Ihre Daten bleiben privat und werden nie an einen Server gesendet."
+      },
+      "features": {
+        "heading": {
+          "en": "Key Features:",
+          "de": "Hauptfunktionen:"
+        },
+        "items": [
+          {
+            "en": "<strong>Multiple Categories:</strong> Convert length, mass, temperature, volume, time, area, energy, power, pressure, force, speed, and acceleration",
+            "de": "<strong>Mehrere Kategorien:</strong> Konvertieren Sie Länge, Masse, Temperatur, Volumen, Zeit, Fläche, Energie, Leistung, Druck, Kraft, Geschwindigkeit und Beschleunigung"
+          },
+          {
+            "en": "<strong>Comprehensive Units:</strong> Supports metric, imperial, and other measurement systems",
+            "de": "<strong>Umfassende Einheiten:</strong> Unterstützt metrische, imperiale und andere Maßsysteme"
+          },
+          {
+            "en": "<strong>Real-time Conversion:</strong> See results instantly as you type",
+            "de": "<strong>Echtzeit-Konvertierung:</strong> Sehen Sie Ergebnisse sofort während Sie tippen"
+          },
+          {
+            "en": "<strong>Powered by convert.js:</strong> Uses the fast and accurate convert.js library for all calculations",
+            "de": "<strong>Angetrieben von convert.js:</strong> Verwendet die schnelle und präzise convert.js-Bibliothek für alle Berechnungen"
+          },
+          {
+            "en": "<strong>Bidirectional:</strong> Easily swap between from and to units",
+            "de": "<strong>Bidirektional:</strong> Einfaches Wechseln zwischen Von- und Zu-Einheiten"
+          }
+        ]
+      },
+      "use_cases": {
+        "heading": {
+          "en": "Use Cases:",
+          "de": "Anwendungsfälle:"
+        },
+        "items": [
+          {
+            "en": "Convert cooking measurements (cups to milliliters, ounces to grams)",
+            "de": "Koch-Maße umrechnen (Tassen zu Milliliter, Unzen zu Gramm)"
+          },
+          {
+            "en": "Calculate distances for travel (miles to kilometers)",
+            "de": "Entfernungen für Reisen berechnen (Meilen zu Kilometer)"
+          },
+          {
+            "en": "Convert temperatures (Fahrenheit to Celsius)",
+            "de": "Temperaturen umrechnen (Fahrenheit zu Celsius)"
+          },
+          {
+            "en": "Calculate speed and acceleration for physics problems",
+            "de": "Geschwindigkeit und Beschleunigung für Physikaufgaben berechnen"
+          },
+          {
+            "en": "Convert energy and power units for engineering",
+            "de": "Energie- und Leistungseinheiten für Ingenieurwesen umrechnen"
+          }
+        ]
+      },
+      "privacy_note": {
+        "en": "🔒 Privacy-Friendly: All conversions are performed entirely in your browser using the convert.js library. Your data never leaves your device. Powered by convert.js by Jonah Snider.",
+        "de": "🔒 Datenschutzfreundlich: Alle Konvertierungen werden vollständig in Ihrem Browser mit der convert.js-Bibliothek durchgeführt. Ihre Daten verlassen nie Ihr Gerät. Angetrieben von convert.js von Jonah Snider."
+      }
+    }
+  }
+}

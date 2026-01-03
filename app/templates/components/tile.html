@@ -1,0 +1,23 @@
+<div class="col">
+    <div class="tile-wrapper position-relative">
+        <a href="{{ link.url }}" class="tile-card" onclick="trackClick('{{ link.url }}', event)">
+            <div class="tile-icon-container">
+                <i class="{{ link.img }} tile-icon-fa"></i>
+            </div>
+            <div class="tile-content">
+                <h5 class="tile-title">{{ link.name }}</h5>
+                {% if link.description %}
+                <p class="tile-description">{{ link.description }}</p>
+                {% endif %}
+            </div>
+        </a>
+        {% if link.frontend_only is defined %}
+        <span class="badge position-absolute top-0 end-0 m-2 {% if link.uses_external_service %}text-white{% elif link.frontend_only %}bg-success{% else %}bg-warning{% endif %}" {% if link.uses_external_service %}style="background-color: #fd7e14;"{% endif %} 
+              data-bs-toggle="tooltip" 
+              data-bs-placement="left"
+              title="{% if link.uses_external_service %}{% if current_lang == 'de' %}Externer Dienst: Sendet Daten an externe API{% else %}External service: Sends data to external API{% endif %}{% elif link.frontend_only %}{% if current_lang == 'de' %}Datenschutzfreundlich: Läuft vollständig in Ihrem Browser{% else %}Privacy-friendly: Runs entirely in your browser{% endif %}{% else %}{% if current_lang == 'de' %}Server-seitig: Verarbeitung auf dem Server{% else %}Server-side: Processing on the server{% endif %}{% endif %}">
+            <i class="fa-solid fa-window-restore"></i>
+        </span>
+        {% endif %}
+    </div>
+</div>

@@ -1,0 +1,87 @@
+{
+  "route": "/tools/dns-lookup",
+  "img": "fas fa-globe",
+  "name": {
+    "en": "DNS Lookup",
+    "de": "DNS-Abfrage"
+  },
+  "description": {
+    "en": "Query DNS records from multiple servers",
+    "de": "DNS-Einträge von mehreren Servern abfragen"
+  },
+  "tags": ["network", "lookup"],
+  "new_window": false,
+  "frontend_only": false,
+  "seo": {
+    "title": {
+      "en": "DNS Lookup - Query A, AAAA, MX, TXT Records from Multiple Servers",
+      "de": "DNS-Abfrage - A, AAAA, MX, TXT Einträge von mehreren Servern abfragen"
+    },
+    "meta_description": {
+      "en": "Free DNS lookup tool to query A, AAAA, MX, TXT, NS, CNAME, SOA, PTR, SRV, and CAA records from multiple DNS servers including Google, Cloudflare, and Quad9.",
+      "de": "Kostenloses DNS-Abfrage-Tool zum Abfragen von A, AAAA, MX, TXT, NS, CNAME, SOA, PTR, SRV und CAA Einträgen von mehreren DNS-Servern wie Google, Cloudflare und Quad9."
+    },
+    "keywords": {
+      "en": "DNS lookup, DNS query, A record, AAAA record, MX record, TXT record, NS record, CNAME, SOA, PTR, SRV, CAA, DNS propagation, DNS checker",
+      "de": "DNS-Abfrage, DNS-Lookup, A-Eintrag, AAAA-Eintrag, MX-Eintrag, TXT-Eintrag, NS-Eintrag, CNAME, SOA, PTR, SRV, CAA, DNS-Propagation, DNS-Prüfer"
+    },
+    "content": {
+      "heading": {
+        "en": "About This DNS Lookup Tool",
+        "de": "Über dieses DNS-Abfrage-Tool"
+      },
+      "intro": {
+        "en": "This DNS lookup tool allows you to query DNS records for any domain from multiple public DNS servers simultaneously. Compare results across Google, Cloudflare, Quad9, and custom DNS servers to check DNS propagation and troubleshoot DNS issues.",
+        "de": "Dieses DNS-Abfrage-Tool ermöglicht es Ihnen, DNS-Einträge für jede Domain von mehreren öffentlichen DNS-Servern gleichzeitig abzufragen. Vergleichen Sie Ergebnisse von Google, Cloudflare, Quad9 und benutzerdefinierten DNS-Servern, um die DNS-Propagation zu überprüfen und DNS-Probleme zu beheben."
+      },
+      "features": {
+        "heading": {
+          "en": "Key Features:",
+          "de": "Hauptfunktionen:"
+        },
+        "items": [
+          {
+            "en": "<strong>Multiple DNS Servers:</strong> Query Google (8.8.8.8), Cloudflare (1.1.1.1), Quad9 (9.9.9.9), and custom servers",
+            "de": "<strong>Mehrere DNS-Server:</strong> Abfrage von Google (8.8.8.8), Cloudflare (1.1.1.1), Quad9 (9.9.9.9) und benutzerdefinierten Servern"
+          },
+          {
+            "en": "<strong>All Record Types:</strong> A, AAAA, MX, TXT, NS, CNAME, SOA, PTR, SRV, CAA",
+            "de": "<strong>Alle Eintragstypen:</strong> A, AAAA, MX, TXT, NS, CNAME, SOA, PTR, SRV, CAA"
+          },
+          {
+            "en": "<strong>Query History:</strong> Keep track of multiple queries with timestamps",
+            "de": "<strong>Abfrageverlauf:</strong> Behalten Sie den Überblick über mehrere Abfragen mit Zeitstempeln"
+          },
+          {
+            "en": "<strong>Auto Refresh:</strong> Automatically re-query every 5 minutes to monitor DNS propagation",
+            "de": "<strong>Automatische Aktualisierung:</strong> Automatische Wiederabfrage alle 5 Minuten zur Überwachung der DNS-Propagation"
+          }
+        ]
+      },
+      "use_cases": {
+        "heading": {
+          "en": "Use Cases:",
+          "de": "Anwendungsfälle:"
+        },
+        "items": [
+          {
+            "en": "Check DNS propagation after making changes",
+            "de": "DNS-Propagation nach Änderungen überprüfen"
+          },
+          {
+            "en": "Troubleshoot DNS configuration issues",
+            "de": "DNS-Konfigurationsprobleme beheben"
+          },
+          {
+            "en": "Verify MX records for email delivery",
+            "de": "MX-Einträge für E-Mail-Zustellung überprüfen"
+          },
+          {
+            "en": "Check TXT records for SPF, DKIM, DMARC",
+            "de": "TXT-Einträge für SPF, DKIM, DMARC überprüfen"
+          }
+        ]
+      }
+    }
+  }
+}

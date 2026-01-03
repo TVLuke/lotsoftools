@@ -1,0 +1,69 @@
+{
+    "route": "/tools/ascii",
+    "img": "fa-solid fa-table-cells",
+    "name": {
+        "en": "ASCII Table",
+        "de": "ASCII-Tabelle"
+    },
+    "description": {
+        "en": "Interactive ASCII table with search and filter functionality",
+        "de": "Interaktive ASCII-Tabelle mit Such- und Filterfunktion"
+    },
+    "tags": ["ascii", "table", "characters", "encoding", "reference", "utility"],
+     "new_window": false, 
+    "frontend_only": true,
+    "ui": {
+        "search": { "en": "Search", "de": "Suchen" },
+        "search_placeholder": { "en": "Type characters to filter...", "de": "Zeichen zum Filtern eingeben..." },
+        "decimal": { "en": "Dec", "de": "Dez" },
+        "hexadecimal": { "en": "Hex", "de": "Hex" },
+        "binary": { "en": "Binary", "de": "Binär" },
+        "character": { "en": "Char", "de": "Zeichen" },
+        "description": { "en": "Description", "de": "Beschreibung" },
+        "no_results": { "en": "No matching characters found", "de": "Keine passenden Zeichen gefunden" }
+    },
+    "seo": {
+        "title": {
+            "en": "ASCII Table - Character Reference",
+            "de": "ASCII-Tabelle - Zeichenreferenz"
+        },
+        "description": {
+            "en": "Interactive ASCII table with decimal, hexadecimal and binary values. Search and filter characters instantly.",
+            "de": "Interaktive ASCII-Tabelle mit Dezimal-, Hexadezimal- und Binärwerten. Zeichen sofort suchen und filtern."
+        },
+        "content": {
+            "heading": {
+                "en": "About ASCII",
+                "de": "Über ASCII"
+            },
+            "intro": {
+                "en": "ASCII (American Standard Code for Information Interchange) is a character encoding standard that assigns numeric values to letters, digits, and symbols. This table shows all 128 standard ASCII characters.",
+                "de": "ASCII (American Standard Code for Information Interchange) ist ein Zeichenkodierungsstandard, der Buchstaben, Ziffern und Symbolen numerische Werte zuweist. Diese Tabelle zeigt alle 128 Standard-ASCII-Zeichen."
+            },
+            "features": {
+                "heading": {
+                    "en": "Features:",
+                    "de": "Funktionen:"
+                },
+                "items": [
+                    {
+                        "en": "<strong>Complete Table:</strong> All 128 ASCII characters with their values",
+                        "de": "<strong>Vollständige Tabelle:</strong> Alle 128 ASCII-Zeichen mit ihren Werten"
+                    },
+                    {
+                        "en": "<strong>Multiple Formats:</strong> Decimal, hexadecimal, and binary representations",
+                        "de": "<strong>Mehrere Formate:</strong> Dezimal-, Hexadezimal- und Binärdarstellung"
+                    },
+                    {
+                        "en": "<strong>Interactive Search:</strong> Filter by typing any character",
+                        "de": "<strong>Interaktive Suche:</strong> Filtern durch Eingabe beliebiger Zeichen"
+                    }
+                ]
+            },
+            "privacy_note": {
+                "en": "🔒 Privacy-Friendly: Everything runs in your browser. No data is sent to any server.",
+                "de": "🔒 Datenschutzfreundlich: Alles läuft in Ihrem Browser. Es werden keine Daten an einen Server gesendet."
+            }
+        }
+    }
+}

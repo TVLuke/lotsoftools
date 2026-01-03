@@ -1,0 +1,83 @@
+{
+  "route": "/tools/image-cropper",
+  "img": "fas fa-crop",
+  "name": {
+    "en": "Image Cropper",
+    "de": "Bild zuschneiden"
+  },
+  "description": {
+    "en": "Crop images locally in your browser. No upload.",
+    "de": "Bilder lokal im Browser zuschneiden. Kein Upload."
+  },
+  "tags": ["image", "editor"],
+  "new_window": false,
+  "frontend_only": true,
+  "seo": {
+    "title": {
+      "en": "Image Cropper - Crop Images in Your Browser (No Upload)",
+      "de": "Bild zuschneiden - Bilder im Browser zuschneiden (kein Upload)"
+    },
+    "meta_description": {
+      "en": "Crop images locally in your browser. No upload, no tracking. Select an image, draw a crop rectangle, lock aspect ratios like 1:1 or 16:9, and export at original resolution.",
+      "de": "Bilder lokal im Browser zuschneiden. Kein Upload, kein Tracking. Bild auswählen, Zuschneide-Rechteck ziehen, Seitenverhältnisse wie 1:1 oder 16:9 sperren und in Originalauflösung exportieren."
+    },
+    "keywords": {
+      "en": "image cropper, crop image, crop tool, aspect ratio, 16:9, 1:1, canvas, browser-based, client-side, privacy-friendly, no upload, no tracking",
+      "de": "bild zuschneiden, bilder zuschneiden, zuschneiden tool, seitenverhältnis, 16:9, 1:1, canvas, browser-basiert, client-seitig, datenschutzfreundlich, kein upload, kein tracking"
+    },
+    "content": {
+      "heading": {
+        "en": "Crop Images Locally (Privacy-Friendly)",
+        "de": "Bilder lokal zuschneiden (datenschutzfreundlich)"
+      },
+      "intro": {
+        "en": "This image cropper runs entirely in your browser. Your image is never uploaded to a server. You can drag a crop rectangle, lock a fixed aspect ratio (like 1:1 or 16:9), and export the cropped area at the original pixel resolution.",
+        "de": "Dieser Bild-Cropper läuft vollständig in Ihrem Browser. Ihr Bild wird niemals auf einen Server hochgeladen. Sie können ein Zuschneide-Rechteck ziehen, ein festes Seitenverhältnis (z.B. 1:1 oder 16:9) sperren und den Ausschnitt in Original-Pixelauflösung exportieren."
+      },
+      "features": {
+        "heading": {
+          "en": "Key Features:",
+          "de": "Hauptfunktionen:"
+        },
+        "items": [
+          {
+            "en": "<strong>Client-side only:</strong> Cropping happens in your browser (no upload)",
+            "de": "<strong>Nur client-seitig:</strong> Zuschnitt erfolgt im Browser (kein Upload)"
+          },
+          {
+            "en": "<strong>Aspect ratio presets:</strong> 1:1, 4:3, 16:9, 3:2 and custom ratios",
+            "de": "<strong>Seitenverhältnis-Presets:</strong> 1:1, 4:3, 16:9, 3:2 und eigene Verhältnisse"
+          },
+          {
+            "en": "<strong>Original resolution export:</strong> Export uses original pixels (display is scaled for usability)",
+            "de": "<strong>Export in Originalauflösung:</strong> Export nutzt Original-Pixel (Anzeige wird nur skaliert)"
+          }
+        ]
+      },
+      "use_cases": {
+        "heading": {
+          "en": "Common Use Cases:",
+          "de": "Typische Anwendungsfälle:"
+        },
+        "items": [
+          {
+            "en": "Create social media crops (square, 16:9, etc.)",
+            "de": "Social-Media-Zuschnitte erstellen (Quadrat, 16:9, etc.)"
+          },
+          {
+            "en": "Cut screenshots to the relevant region",
+            "de": "Screenshots auf den relevanten Bereich zuschneiden"
+          },
+          {
+            "en": "Prepare header/thumbnail images",
+            "de": "Header-/Thumbnail-Bilder vorbereiten"
+          }
+        ]
+      },
+      "privacy_note": {
+        "en": "🔒 Privacy first: Your image stays on your device. This tool does not upload files to a server and does not store your data.",
+        "de": "🔒 Datenschutzfreundlich: Ihr Bild bleibt auf Ihrem Gerät. Dieses Tool lädt keine Dateien auf einen Server hoch und speichert keine Daten."
+      }
+    }
+  }
+}

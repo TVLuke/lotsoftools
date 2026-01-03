@@ -1,0 +1,321 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ tool_data.seo.title[current_lang] }}{% endblock %}
+{% block meta_description %}{{ tool_data.seo.meta_description[current_lang] }}{% endblock %}
+{% block meta_keywords %}{{ tool_data.seo.keywords[current_lang] }}{% endblock %}
+{% block og_title %}{{ tool_data.seo.title[current_lang] }}{% endblock %}
+{% block og_description %}{{ tool_data.seo.meta_description[current_lang] }}{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-12">
+        <h1 class="mb-4">
+            <i class="fas fa-calculator me-2"></i>
+            {% if current_lang == 'de' %}Zahlenbasis-Konverter{% else %}Number Base Converter{% endif %}
+        </h1>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12">
+        <!-- Base 2 (Binary) -->
+        <div class="card mb-3">
+            <div class="card-body">
+                <div class="row align-items-center">
+                    <div class="col-md-2">
+                        <label class="form-label fw-bold mb-0">
+                            {% if current_lang == 'de' %}Basis 2 (Binär){% else %}Base 2 (Binary){% endif %}
+                        </label>
+                    </div>
+                    <div class="col-md-10">
+                        <input type="text" class="form-control font-monospace" id="base2Input" 
+                               placeholder="{% if current_lang == 'de' %}Binärzahl eingeben...{% else %}Enter binary number...{% endif %}"
+                               data-base="2">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Base 8 (Octal) -->
+        <div class="card mb-3">
+            <div class="card-body">
+                <div class="row align-items-center">
+                    <div class="col-md-2">
+                        <label class="form-label fw-bold mb-0">
+                            {% if current_lang == 'de' %}Basis 8 (Oktal){% else %}Base 8 (Octal){% endif %}
+                        </label>
+                    </div>
+                    <div class="col-md-10">
+                        <input type="text" class="form-control font-monospace" id="base8Input" 
+                               placeholder="{% if current_lang == 'de' %}Oktalzahl eingeben...{% else %}Enter octal number...{% endif %}"
+                               data-base="8">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Base 10 (Decimal) -->
+        <div class="card mb-3">
+            <div class="card-body">
+                <div class="row align-items-center">
+                    <div class="col-md-2">
+                        <label class="form-label fw-bold mb-0">
+                            {% if current_lang == 'de' %}Basis 10 (Dezimal){% else %}Base 10 (Decimal){% endif %}
+                        </label>
+                    </div>
+                    <div class="col-md-10">
+                        <input type="text" class="form-control font-monospace" id="base10Input" 
+                               placeholder="{% if current_lang == 'de' %}Dezimalzahl eingeben...{% else %}Enter decimal number...{% endif %}"
+                               data-base="10">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Base 16 (Hexadecimal) -->
+        <div class="card mb-3">
+            <div class="card-body">
+                <div class="row align-items-center">
+                    <div class="col-md-2">
+                        <label class="form-label fw-bold mb-0">
+                            {% if current_lang == 'de' %}Basis 16 (Hex){% else %}Base 16 (Hex){% endif %}
+                        </label>
+                    </div>
+                    <div class="col-md-10">
+                        <input type="text" class="form-control font-monospace" id="base16Input" 
+                               placeholder="{% if current_lang == 'de' %}Hexadezimalzahl eingeben...{% else %}Enter hexadecimal number...{% endif %}"
+                               data-base="16">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Custom Base -->
+        <div class="card mb-3">
+            <div class="card-body">
+                <div class="row align-items-center mb-3">
+                    <div class="col-md-2">
+                        <label class="form-label fw-bold mb-0">
+                            {% if current_lang == 'de' %}Eigene Basis{% else %}Custom Base{% endif %}
+                        </label>
+                    </div>
+                    <div class="col-md-2">
+                        <input type="number" class="form-control" id="customBaseNumber" 
+                               placeholder="{% if current_lang == 'de' %}Basis{% else %}Base{% endif %}"
+                               min="2" max="62" value="">
+                    </div>
+                    <div class="col-md-8">
+                        <input type="text" class="form-control font-monospace" id="customBaseInput" 
+                               placeholder="{% if current_lang == 'de' %}Zahl eingeben...{% else %}Enter number...{% endif %}"
+                               data-base="custom" disabled>
+                    </div>
+                </div>
+                <div class="row align-items-center">
+                    <div class="col-md-2">
+                        <label class="form-label mb-0">
+                            {% if current_lang == 'de' %}Ziffernsymbole{% else %}Digit Symbols{% endif %}
+                        </label>
+                    </div>
+                    <div class="col-md-10">
+                        <input type="text" class="form-control font-monospace" id="customSymbols" 
+                               placeholder="{% if current_lang == 'de' %}Kommagetrennte Symbole (z.B. 0,1,2,3,4,5,6,7,8,9,A,B,C,D,E,F){% else %}Comma-separated symbols (e.g. 0,1,2,3,4,5,6,7,8,9,A,B,C,D,E,F){% endif %}">
+                        <small class="text-muted">
+                            {% if current_lang == 'de' %}Erstes Symbol = 0, zweites = 1, usw.{% else %}First symbol = 0, second = 1, etc.{% endif %}
+                        </small>
+                    </div>
+                </div>
+                <div id="customBaseWarning" class="alert alert-warning mt-3" style="display: none;"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% include 'components/seo_content.html' %}
+{% endblock %}
+
+{% block extra_js %}
+<script src="{{ url_for('static', filename='js/base_converter.js') }}"></script>
+<script>
+const lang = document.documentElement.lang || 'en';
+
+// Elements
+const base2Input = document.getElementById('base2Input');
+const base8Input = document.getElementById('base8Input');
+const base10Input = document.getElementById('base10Input');
+const base16Input = document.getElementById('base16Input');
+const customBaseInput = document.getElementById('customBaseInput');
+const customBaseNumber = document.getElementById('customBaseNumber');
+const customSymbolsInput = document.getElementById('customSymbols');
+const customBaseWarning = document.getElementById('customBaseWarning');
+
+let isUpdating = false;
+let currentCustomBase = null;
+let currentCustomSymbols = [];
+
+// Update all fields based on input from a specific field
+function updateAllFields(sourceId, sourceBase) {
+    if (isUpdating) return;
+    isUpdating = true;
+    
+    try {
+        const sourceInput = document.getElementById(sourceId);
+        const sourceValue = sourceInput.value;
+        
+        // Get symbols for the source base
+        const symbols = sourceBase === 'custom' 
+            ? currentCustomSymbols 
+            : BaseConverter.getDefaultSymbols(sourceBase);
+        
+        // Filter the source input
+        const filteredValue = BaseConverter.filterToValidSymbols(sourceValue, sourceBase, symbols);
+        
+        if (filteredValue !== sourceValue) {
+            sourceInput.value = filteredValue;
+        }
+        
+        // Convert to decimal
+        const actualBase = sourceBase === 'custom' ? currentCustomBase : sourceBase;
+        const decimalResult = BaseConverter.toDecimal(filteredValue, actualBase, symbols);
+        const decimal = decimalResult.value;
+        
+        // Update other fields
+        const fields = [
+            { id: 'base2Input', base: 2 },
+            { id: 'base8Input', base: 8 },
+            { id: 'base10Input', base: 10 },
+            { id: 'base16Input', base: 16 }
+        ];
+        
+        for (const field of fields) {
+            if (field.id !== sourceId) {
+                const input = document.getElementById(field.id);
+                if (decimal !== null) {
+                    const result = BaseConverter.fromDecimal(decimal, field.base, BaseConverter.getDefaultSymbols(field.base));
+                    input.value = result.value || '';
+                } else {
+                    input.value = '';
+                }
+            }
+        }
+        
+        // Update custom base field if it has a valid base set
+        if (sourceId !== 'customBaseInput' && currentCustomBase && currentCustomSymbols.length === currentCustomBase) {
+            if (decimal !== null) {
+                const result = BaseConverter.fromDecimal(decimal, currentCustomBase, currentCustomSymbols);
+                customBaseInput.value = result.value || '';
+            } else {
+                customBaseInput.value = '';
+            }
+        }
+    } finally {
+        isUpdating = false;
+    }
+}
+
+// Validate and update custom base settings
+function updateCustomBase() {
+    const baseValue = parseInt(customBaseNumber.value);
+    const symbolsValue = customSymbolsInput.value.trim();
+    
+    // Clear warning
+    customBaseWarning.style.display = 'none';
+    
+    // If no base entered, disable custom input
+    if (!baseValue || isNaN(baseValue)) {
+        customBaseInput.disabled = true;
+        customBaseInput.value = '';
+        currentCustomBase = null;
+        currentCustomSymbols = [];
+        return;
+    }
+    
+    // Validate base range
+    if (baseValue < 2) {
+        customBaseWarning.textContent = lang === 'de' 
+            ? 'Die Basis muss mindestens 2 sein.' 
+            : 'Base must be at least 2.';
+        customBaseWarning.style.display = 'block';
+        customBaseInput.disabled = true;
+        currentCustomBase = null;
+        currentCustomSymbols = [];
+        return;
+    }
+    
+    // Parse symbols
+    let symbols;
+    if (symbolsValue) {
+        symbols = BaseConverter.parseSymbolsString(symbolsValue);
+    } else {
+        // Use default symbols
+        symbols = BaseConverter.getDefaultSymbols(baseValue);
+    }
+    
+    // Check if we have enough default symbols
+    if (!symbolsValue && !symbols) {
+        customBaseWarning.textContent = lang === 'de' 
+            ? `Basis ${baseValue} erfordert ${baseValue} Symbole. Bitte definieren Sie eigene Symbole.` 
+            : `Base ${baseValue} requires ${baseValue} symbols. Please define custom symbols.`;
+        customBaseWarning.style.display = 'block';
+        customBaseInput.disabled = true;
+        currentCustomBase = null;
+        currentCustomSymbols = [];
+        return;
+    }
+    
+    // Validate symbols
+    const validation = BaseConverter.validateSymbols(symbols, baseValue);
+    if (!validation.valid) {
+        customBaseWarning.textContent = lang === 'de' 
+            ? validation.error 
+            : validation.error;
+        customBaseWarning.style.display = 'block';
+        customBaseInput.disabled = true;
+        currentCustomBase = null;
+        currentCustomSymbols = [];
+        return;
+    }
+    
+    // Valid configuration
+    currentCustomBase = baseValue;
+    currentCustomSymbols = symbols;
+    customBaseInput.disabled = false;
+    
+    // Update symbols display if using defaults
+    if (!symbolsValue) {
+        customSymbolsInput.value = symbols.join(',');
+    }
+    
+    // If there's a value in another field, update the custom field
+    const base10Value = base10Input.value;
+    if (base10Value) {
+        const decimalResult = BaseConverter.toDecimal(base10Value, 10, BaseConverter.getDefaultSymbols(10));
+        if (decimalResult.value !== null) {
+            const result = BaseConverter.fromDecimal(decimalResult.value, currentCustomBase, currentCustomSymbols);
+            customBaseInput.value = result.value || '';
+        }
+    }
+}
+
+// Event listeners for standard base inputs
+['base2Input', 'base8Input', 'base10Input', 'base16Input'].forEach(id => {
+    const input = document.getElementById(id);
+    const base = parseInt(input.dataset.base);
+    
+    input.addEventListener('input', () => updateAllFields(id, base));
+});
+
+// Event listener for custom base input
+customBaseInput.addEventListener('input', () => {
+    if (currentCustomBase && currentCustomSymbols.length === currentCustomBase) {
+        updateAllFields('customBaseInput', 'custom');
+    }
+});
+
+// Event listeners for custom base configuration
+customBaseNumber.addEventListener('input', updateCustomBase);
+customSymbolsInput.addEventListener('input', updateCustomBase);
+
+// Initialize
+updateCustomBase();
+</script>
+{% endblock %}

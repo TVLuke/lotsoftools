@@ -1,0 +1,123 @@
+{% extends 'base.html' %}
+{% from 'components/textarea.html' import enhanced_textarea %}
+
+{% block title %}{{ tool_data.seo.title[current_lang] }} - usefull{% endblock %}
+
+{% block meta_description %}{{ tool_data.seo.description[current_lang] }}{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h1 class="mb-3">{{ tool_data.name[current_lang] }}</h1>
+    <p class="lead mb-4">{{ tool_data.description[current_lang] }}</p>
+    
+    <div class="row justify-content-center">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+                    <!-- Mode Selector -->
+                    <div class="mb-4 text-center">
+                        <div class="btn-group" role="group">
+                            <input type="radio" class="btn-check" name="conversionMode" id="encodeMode" value="encode" checked>
+                            <label class="btn btn-outline-secondary" for="encodeMode">{{ tool_data.ui.encode[current_lang] }}</label>
+                            
+                            <input type="radio" class="btn-check" name="conversionMode" id="decodeMode" value="decode">
+                            <label class="btn btn-outline-secondary" for="decodeMode">{{ tool_data.ui.decode[current_lang] }}</label>
+                        </div>
+                    </div>
+                    
+                    <!-- Converter -->
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label for="inputText" class="form-label">{{ tool_data.ui.input[current_lang] }}</label>
+                            <textarea 
+                                class="form-control" 
+                                id="inputText" 
+                                rows="10" 
+                                data-enhanced 
+                                placeholder="{{ tool_data.ui.input_placeholder_encode[current_lang] }}"
+                            ></textarea>
+                        </div>
+                        <div class="col-md-6 mt-3 mt-md-0">
+                            <label for="outputText" class="form-label">{{ tool_data.ui.output[current_lang] }}</label>
+                            <textarea 
+                                class="form-control" 
+                                id="outputText" 
+                                rows="10" 
+                                data-enhanced 
+                                placeholder="{{ tool_data.ui.output_placeholder[current_lang] }}"
+                                readonly
+                            ></textarea>
+                        </div>
+                    </div>
+                    
+                    <!-- Error message -->
+                    <div id="errorMessage" class="alert alert-danger mt-3 d-none"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    {% include 'components/seo_content.html' %}
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const inputText = document.getElementById('inputText');
+    const outputText = document.getElementById('outputText');
+    const errorMessage = document.getElementById('errorMessage');
+    const encodeMode = document.getElementById('encodeMode');
+    const decodeMode = document.getElementById('decodeMode');
+    
+    let currentMode = 'encode';
+    
+    const placeholders = {
+        encode: "{{ tool_data.ui.input_placeholder_encode[current_lang] }}",
+        decode: "{{ tool_data.ui.input_placeholder_decode[current_lang] }}"
+    };
+    
+    const errorInvalidBase64 = "{{ tool_data.ui.error_invalid_base64[current_lang] }}";
+    
+    function convert() {
+        const input = inputText.value;
+        errorMessage.classList.add('d-none');
+        
+        if (!input) {
+            outputText.value = '';
+            return;
+        }
+        
+        try {
+            if (currentMode === 'encode') {
+                outputText.value = btoa(unescape(encodeURIComponent(input)));
+            } else {
+                outputText.value = decodeURIComponent(escape(atob(input)));
+            }
+        } catch (e) {
+            outputText.value = '';
+            errorMessage.textContent = errorInvalidBase64;
+            errorMessage.classList.remove('d-none');
+        }
+    }
+    
+    function setMode(mode) {
+        currentMode = mode;
+        inputText.placeholder = placeholders[mode];
+        inputText.value = '';
+        outputText.value = '';
+        errorMessage.classList.add('d-none');
+    }
+    
+    // Input handler
+    inputText.addEventListener('input', convert);
+    
+    // Mode toggle
+    encodeMode.addEventListener('change', function() {
+        if (this.checked) setMode('encode');
+    });
+    
+    decodeMode.addEventListener('change', function() {
+        if (this.checked) setMode('decode');
+    });
+});
+</script>
+{% endblock %}

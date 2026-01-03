@@ -1,0 +1,70 @@
+{
+    "route": "/tools/clock",
+    "img": "fa-solid fa-clock",
+    "name": {
+        "en": "Time",
+        "de": "Zeit"
+    },
+    "new_window": false,
+    "frontend_only": true,
+    "description": {
+        "en": "Display the current time in analog or digital format with timezone support",
+        "de": "Zeige die aktuelle Uhrzeit in analoger oder digitaler Darstellung mit Zeitzonenunterstützung"
+    },
+    "tags": ["time", "clock", "timezone", "utility"],
+    "ui": {
+        "local_time": { "en": "Local Time", "de": "Lokale Zeit" },
+        "analog": { "en": "Analog", "de": "Analog" },
+        "digital": { "en": "Digital", "de": "Digital" },
+        "timezone": { "en": "Timezone", "de": "Zeitzone" },
+        "select_timezone": { "en": "Select timezone", "de": "Zeitzone auswählen" }
+    },
+    "seo": {
+        "title": {
+            "en": "Clock - Current Time Display",
+            "de": "Uhr - Aktuelle Zeitanzeige"
+        },
+        "description": {
+            "en": "Free online clock with analog and digital display. View current time in any timezone.",
+            "de": "Kostenlose Online-Uhr mit analoger und digitaler Anzeige. Aktuelle Zeit in jeder Zeitzone anzeigen."
+        },
+        "privacy_note": {
+            "en": "🔒 Privacy-Friendly: All time calculations happen in your browser. No data is sent to any server.",
+            "de": "🔒 Datenschutzfreundlich: Alle Zeitberechnungen erfolgen in Ihrem Browser. Es werden keine Daten an einen Server gesendet."
+        },
+        "content": {
+            "heading": {
+                "en": "About the Clock",
+                "de": "Über die Uhr"
+            },
+            "intro": {
+                "en": "A simple, elegant clock that displays the current time. Switch between analog and digital views, and select any timezone.",
+                "de": "Eine einfache, elegante Uhr, die die aktuelle Zeit anzeigt. Wechsle zwischen analoger und digitaler Ansicht und wähle jede Zeitzone."
+            },
+            "features": {
+                "heading": {
+                    "en": "Features:",
+                    "de": "Funktionen:"
+                },
+                "items": [
+                    {
+                        "en": "<strong>Analog Clock:</strong> Classic 12-hour clock face design",
+                        "de": "<strong>Analoge Uhr:</strong> Klassisches 12-Stunden-Zifferblatt-Design"
+                    },
+                    {
+                        "en": "<strong>Digital Clock:</strong> Clear digital time display",
+                        "de": "<strong>Digitale Uhr:</strong> Klare digitale Zeitanzeige"
+                    },
+                    {
+                        "en": "<strong>Timezone Support:</strong> View time in any timezone worldwide",
+                        "de": "<strong>Zeitzonenunterstützung:</strong> Zeit in jeder Zeitzone weltweit anzeigen"
+                    }
+                ]
+            },
+            "privacy_note": {
+                "en": "🔒 Privacy-Friendly: All time calculations happen in your browser. No data is sent to any server.",
+                "de": "🔒 Datenschutzfreundlich: Alle Zeitberechnungen erfolgen in Ihrem Browser. Es werden keine Daten an einen Server gesendet."
+            }
+        }
+    }
+}

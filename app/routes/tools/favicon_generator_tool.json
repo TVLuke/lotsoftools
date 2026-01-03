@@ -1,0 +1,99 @@
+{
+  "route": "/tools/favicon-generator",
+  "img": "fas fa-icons",
+  "name": {
+    "en": "Favicon Generator",
+    "de": "Favicon-Generator"
+  },
+  "description": {
+    "en": "Generate favicon files from an image",
+    "de": "Favicon-Dateien aus einem Bild generieren"
+  },
+  "tags": ["generator"],
+  "new_window": false,
+  "frontend_only": false,
+  "seo": {
+    "title": {
+      "en": "Favicon Generator - Create Favicon Files from Image",
+      "de": "Favicon-Generator - Favicon-Dateien aus Bild erstellen"
+    },
+    "meta_description": {
+      "en": "Upload an image and generate all necessary favicon files: .ico, .png, .svg, Apple Touch Icon, and web app manifest. Privacy-friendly, files auto-deleted after 5 minutes.",
+      "de": "Laden Sie ein Bild hoch und generieren Sie alle notwendigen Favicon-Dateien: .ico, .png, .svg, Apple Touch Icon und Web-App-Manifest. Datenschutzfreundlich, Dateien werden nach 5 Minuten automatisch gelöscht."
+    },
+    "keywords": {
+      "en": "favicon generator, create favicon, ico generator, apple touch icon, web app manifest, favicon from image, privacy-friendly, auto-delete",
+      "de": "Favicon-Generator, Favicon erstellen, ICO-Generator, Apple Touch Icon, Web-App-Manifest, Favicon aus Bild, Datenschutzfreundlich, Auto-Löschen"
+    },
+    "content": {
+      "heading": {
+        "en": "About This Favicon Generator",
+        "de": "Über diesen Favicon-Generator"
+      },
+      "intro": {
+        "en": "This favicon generator creates all the necessary favicon files for your website from a single image. Upload a PNG or JPEG image, and get a complete set of favicon files including .ico, multiple PNG sizes, SVG, Apple Touch Icon, and web app manifest. All processing happens on the server, and generated files are automatically deleted after 5 minutes for your privacy.",
+        "de": "Dieser Favicon-Generator erstellt alle notwendigen Favicon-Dateien für Ihre Website aus einem einzigen Bild. Laden Sie ein PNG- oder JPEG-Bild hoch und erhalten Sie einen vollständigen Satz von Favicon-Dateien einschließlich .ico, mehreren PNG-Größen, SVG, Apple Touch Icon und Web-App-Manifest. Alle Verarbeitung erfolgt auf dem Server, und generierte Dateien werden nach 5 Minuten automatisch gelöscht, um Ihre Privatsphäre zu schützen."
+      },
+      "features": {
+        "heading": {
+          "en": "Key Features:",
+          "de": "Hauptfunktionen:"
+        },
+        "items": [
+          {
+            "en": "<strong>Complete Favicon Set:</strong> Generates favicon.ico, favicon-96x96.png, apple-touch-icon.png, web app manifest icons (192x192, 512x512), and favicon.svg",
+            "de": "<strong>Vollständiger Favicon-Satz:</strong> Generiert favicon.ico, favicon-96x96.png, apple-touch-icon.png, Web-App-Manifest-Icons (192x192, 512x512) und favicon.svg"
+          },
+          {
+            "en": "<strong>Multiple Formats:</strong> Supports PNG and JPEG input images",
+            "de": "<strong>Mehrere Formate:</strong> Unterstützt PNG- und JPEG-Eingabebilder"
+          },
+          {
+            "en": "<strong>ZIP Download:</strong> All generated files packaged in a convenient ZIP archive",
+            "de": "<strong>ZIP-Download:</strong> Alle generierten Dateien in einem praktischen ZIP-Archiv verpackt"
+          },
+          {
+            "en": "<strong>Auto-Cleanup:</strong> Generated files automatically deleted after 5 minutes for privacy",
+            "de": "<strong>Auto-Bereinigung:</strong> Generierte Dateien werden nach 5 Minuten automatisch gelöscht, um die Privatsphäre zu schützen"
+          },
+          {
+            "en": "<strong>Web App Manifest:</strong> Includes site.webmanifest file for PWA support",
+            "de": "<strong>Web-App-Manifest:</strong> Enthält site.webmanifest-Datei für PWA-Unterstützung"
+          }
+        ]
+      },
+      "use_cases": {
+        "heading": {
+          "en": "Use Cases:",
+          "de": "Anwendungsfälle:"
+        },
+        "items": [
+          {
+            "en": "Create favicons for new websites",
+            "de": "Favicons für neue Websites erstellen"
+          },
+          {
+            "en": "Update existing website favicons",
+            "de": "Bestehende Website-Favicons aktualisieren"
+          },
+          {
+            "en": "Generate all required sizes for modern browsers",
+            "de": "Alle erforderlichen Größen für moderne Browser generieren"
+          },
+          {
+            "en": "Create Apple Touch Icons for iOS devices",
+            "de": "Apple Touch Icons für iOS-Geräte erstellen"
+          },
+          {
+            "en": "Prepare favicon files for Progressive Web Apps",
+            "de": "Favicon-Dateien für Progressive Web Apps vorbereiten"
+          }
+        ]
+      },
+      "privacy_note": {
+        "en": "🔒 Privacy-Friendly: Uploaded images and generated files are stored temporarily on the server and automatically deleted after 5 minutes. No data is kept permanently.",
+        "de": "🔒 Datenschutzfreundlich: Hochgeladene Bilder und generierte Dateien werden temporär auf dem Server gespeichert und nach 5 Minuten automatisch gelöscht. Keine Daten werden dauerhaft gespeichert."
+      }
+    }
+  }
+}

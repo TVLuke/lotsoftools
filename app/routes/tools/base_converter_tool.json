@@ -1,0 +1,95 @@
+{
+  "route": "/tools/base-converter",
+  "img": "fas fa-calculator",
+  "name": {
+    "en": "Number Base Converter",
+    "de": "Zahlenbasis-Konverter"
+  },
+  "description": {
+    "en": "Convert numbers between different bases (binary, octal, decimal, hexadecimal, custom)",
+    "de": "Zahlen zwischen verschiedenen Basen umrechnen (binär, oktal, dezimal, hexadezimal, benutzerdefiniert)"
+  },
+  "tags": ["converter", "math"],
+  "new_window": false,
+  "frontend_only": true,
+  "seo": {
+    "title": {
+      "en": "Number Base Converter - Free Online Base Conversion Tool",
+      "de": "Zahlenbasis-Konverter - Kostenloser Online-Basis-Umrechner"
+    },
+    "meta_description": {
+      "en": "Convert numbers between binary, octal, decimal, hexadecimal and custom bases. Define your own digit symbols. Fast, browser-based conversion tool. Privacy-friendly, no data sent to servers.",
+      "de": "Zahlen zwischen binär, oktal, dezimal, hexadezimal und benutzerdefinierten Basen umrechnen. Eigene Ziffernsymbole definieren. Schneller, Browser-basierter Konverter. Datenschutzfreundlich, keine Datenübertragung."
+    },
+    "keywords": {
+      "en": "base converter, number converter, binary converter, hexadecimal converter, octal converter, decimal converter, custom base, radix converter, browser-based, privacy-friendly",
+      "de": "Basis-Konverter, Zahlenkonverter, Binär-Konverter, Hexadezimal-Konverter, Oktal-Konverter, Dezimal-Konverter, benutzerdefinierte Basis, Radix-Konverter, Browser-basiert, Datenschutzfreundlich"
+    },
+    "content": {
+      "heading": {
+        "en": "About This Number Base Converter",
+        "de": "Über diesen Zahlenbasis-Konverter"
+      },
+      "intro": {
+        "en": "This browser-based number base converter helps you quickly convert numbers between different numeral systems. Supports binary (base 2), octal (base 8), decimal (base 10), hexadecimal (base 16), and any custom base with your own digit symbols. All conversions happen in your browser - your data remains private and is never sent to any server.",
+        "de": "Dieser Browser-basierte Zahlenbasis-Konverter hilft Ihnen, Zahlen schnell zwischen verschiedenen Zahlensystemen umzurechnen. Unterstützt binär (Basis 2), oktal (Basis 8), dezimal (Basis 10), hexadezimal (Basis 16) und jede benutzerdefinierte Basis mit eigenen Ziffernsymbolen. Alle Konvertierungen erfolgen in Ihrem Browser - Ihre Daten bleiben privat und werden nie an einen Server gesendet."
+      },
+      "features": {
+        "heading": {
+          "en": "Key Features:",
+          "de": "Hauptfunktionen:"
+        },
+        "items": [
+          {
+            "en": "<strong>Multiple Bases:</strong> Convert between binary, octal, decimal, hexadecimal, and custom bases",
+            "de": "<strong>Mehrere Basen:</strong> Konvertieren zwischen binär, oktal, dezimal, hexadezimal und benutzerdefinierten Basen"
+          },
+          {
+            "en": "<strong>Custom Symbols:</strong> Define your own digit symbols for any base",
+            "de": "<strong>Eigene Symbole:</strong> Definieren Sie eigene Ziffernsymbole für jede Basis"
+          },
+          {
+            "en": "<strong>Real-time Conversion:</strong> See results instantly as you type",
+            "de": "<strong>Echtzeit-Konvertierung:</strong> Sehen Sie Ergebnisse sofort während Sie tippen"
+          },
+          {
+            "en": "<strong>Input Validation:</strong> Only valid digits for each base are accepted",
+            "de": "<strong>Eingabevalidierung:</strong> Nur gültige Ziffern für jede Basis werden akzeptiert"
+          },
+          {
+            "en": "<strong>Extended Symbols:</strong> Default symbols include 0-9, A-Z, and Greek letters for higher bases",
+            "de": "<strong>Erweiterte Symbole:</strong> Standard-Symbole umfassen 0-9, A-Z und griechische Buchstaben für höhere Basen"
+          }
+        ]
+      },
+      "use_cases": {
+        "heading": {
+          "en": "Use Cases:",
+          "de": "Anwendungsfälle:"
+        },
+        "items": [
+          {
+            "en": "Programming: Convert between binary, hex, and decimal for debugging",
+            "de": "Programmierung: Konvertieren zwischen binär, hex und dezimal zum Debuggen"
+          },
+          {
+            "en": "Education: Learn how different number systems work",
+            "de": "Bildung: Lernen Sie, wie verschiedene Zahlensysteme funktionieren"
+          },
+          {
+            "en": "Mathematics: Explore arbitrary base number systems",
+            "de": "Mathematik: Erkunden Sie beliebige Zahlensysteme"
+          },
+          {
+            "en": "Custom encodings: Create your own symbol-based number representations",
+            "de": "Eigene Kodierungen: Erstellen Sie eigene symbolbasierte Zahlendarstellungen"
+          }
+        ]
+      },
+      "privacy_note": {
+        "en": "🔒 Privacy-Friendly: All conversions are performed entirely in your browser using JavaScript. Your data never leaves your device.",
+        "de": "🔒 Datenschutzfreundlich: Alle Konvertierungen werden vollständig in Ihrem Browser mit JavaScript durchgeführt. Ihre Daten verlassen nie Ihr Gerät."
+      }
+    }
+  }
+}

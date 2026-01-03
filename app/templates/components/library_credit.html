@@ -1,0 +1,18 @@
+{% if library_name and library_url %}
+<div class="row mt-3">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <p class="mb-0 text-muted small">
+                    <i class="fas fa-info-circle me-1"></i>
+                    {% if current_lang == 'de' %}
+                        Powered by <a href="{{ library_url }}" target="_blank" rel="noopener">{{ library_name }}</a>{% if library_author %} von {{ library_author }}{% endif %}{% if library_license %} unter <a href="{{ library_license_url if library_license_url else (library_url ~ '/blob/master/LICENSE') }}" target="_blank" rel="noopener">{{ library_license }}</a>{% endif %}
+                    {% else %}
+                        Powered by <a href="{{ library_url }}" target="_blank" rel="noopener">{{ library_name }}</a>{% if library_author %} by {{ library_author }}{% endif %}{% if library_license %} under <a href="{{ library_license_url if library_license_url else (library_url ~ '/blob/master/LICENSE') }}" target="_blank" rel="noopener">{{ library_license }}</a>{% endif %}
+                    {% endif %}
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endif %}

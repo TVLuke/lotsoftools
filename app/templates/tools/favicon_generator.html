@@ -1,0 +1,172 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ tool_data.seo.title[current_lang] }}{% endblock %}
+{% block meta_description %}{{ tool_data.seo.meta_description[current_lang] }}{% endblock %}
+{% block meta_keywords %}{{ tool_data.seo.keywords[current_lang] }}{% endblock %}
+{% block og_title %}{{ tool_data.seo.title[current_lang] }}{% endblock %}
+{% block og_description %}{{ tool_data.seo.meta_description[current_lang] }}{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-12">
+        <h1 class="mb-4">
+            <i class="fas fa-icons me-2"></i>
+            {% if current_lang == 'de' %}Favicon-Generator{% else %}Favicon Generator{% endif %}
+        </h1>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12">
+        <div class="card mb-3">
+            <div class="card-body">
+                <h5 class="card-title">
+                    {% if current_lang == 'de' %}Bild hochladen{% else %}Upload Image{% endif %}
+                </h5>
+                <p class="text-muted">
+                    {% if current_lang == 'de' %}
+                        Laden Sie ein PNG- oder JPEG-Bild hoch (mindestens 512x512 Pixel empfohlen)
+                    {% else %}
+                        Upload a PNG or JPEG image (minimum 512x512 pixels recommended)
+                    {% endif %}
+                </p>
+                
+                <form id="uploadForm" enctype="multipart/form-data">
+                    <div class="mb-3">
+                        <input type="file" class="form-control" id="fileInput" accept="image/png,image/jpeg" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary" id="generateBtn">
+                        <i class="fas fa-cog me-2"></i>
+                        {% if current_lang == 'de' %}Favicons generieren{% else %}Generate Favicons{% endif %}
+                    </button>
+                </form>
+                
+                <div id="progressSection" class="mt-3" style="display: none;">
+                    <div class="progress">
+                        <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: 100%"></div>
+                    </div>
+                    <p class="text-muted mt-2">
+                        {% if current_lang == 'de' %}Generiere Favicons...{% else %}Generating favicons...{% endif %}
+                    </p>
+                </div>
+                
+                <div id="errorSection" class="alert alert-danger mt-3" style="display: none;"></div>
+                
+                <div id="successSection" class="alert alert-success mt-3" style="display: none;">
+                    <h5>
+                        <i class="fas fa-check-circle me-2"></i>
+                        {% if current_lang == 'de' %}Erfolgreich generiert!{% else %}Successfully generated!{% endif %}
+                    </h5>
+                    <p class="mb-2">
+                        {% if current_lang == 'de' %}
+                            Ihre Favicon-Dateien wurden erstellt. Klicken Sie unten, um sie herunterzuladen.
+                        {% else %}
+                            Your favicon files have been created. Click below to download them.
+                        {% endif %}
+                    </p>
+                    <button type="button" class="btn btn-success" id="downloadBtn">
+                        <i class="fas fa-download me-2"></i>
+                        {% if current_lang == 'de' %}Favicons herunterladen (ZIP){% else %}Download Favicons (ZIP){% endif %}
+                    </button>
+                    <p class="text-muted small mt-2 mb-0">
+                        <i class="fas fa-clock me-1"></i>
+                        {% if current_lang == 'de' %}
+                            Dateien werden nach 5 Minuten automatisch gelöscht
+                        {% else %}
+                            Files will be automatically deleted after 5 minutes
+                        {% endif %}
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0">
+                    {% if current_lang == 'de' %}Generierte Dateien{% else %}Generated Files{% endif %}
+                </h5>
+            </div>
+            <div class="card-body">
+                <ul class="mb-0">
+                    <li><code>favicon.ico</code> - {% if current_lang == 'de' %}Standard-Favicon (16x16, 32x32, 48x48){% else %}Standard favicon (16x16, 32x32, 48x48){% endif %}</li>
+                    <li><code>favicon-96x96.png</code> - {% if current_lang == 'de' %}Moderne Browser{% else %}Modern browsers{% endif %}</li>
+                    <li><code>apple-touch-icon.png</code> - {% if current_lang == 'de' %}iOS-Geräte (180x180){% else %}iOS devices (180x180){% endif %}</li>
+                    <li><code>web-app-manifest-192x192.png</code> - {% if current_lang == 'de' %}PWA-Icon{% else %}PWA icon{% endif %}</li>
+                    <li><code>web-app-manifest-512x512.png</code> - {% if current_lang == 'de' %}PWA-Icon (groß){% else %}PWA icon (large){% endif %}</li>
+                    <li><code>favicon.svg</code> - {% if current_lang == 'de' %}Vektorgrafik{% else %}Vector graphic{% endif %}</li>
+                    <li><code>site.webmanifest</code> - {% if current_lang == 'de' %}Web-App-Manifest{% else %}Web app manifest{% endif %}</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% include 'components/seo_content.html' %}
+{% endblock %}
+
+{% block extra_js %}
+<script>
+const lang = document.documentElement.lang || 'en';
+let downloadId = null;
+
+document.getElementById('uploadForm').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    
+    const fileInput = document.getElementById('fileInput');
+    const file = fileInput.files[0];
+    
+    if (!file) {
+        showError(lang === 'de' ? 'Bitte wählen Sie eine Datei aus' : 'Please select a file');
+        return;
+    }
+    
+    // Hide previous results
+    document.getElementById('errorSection').style.display = 'none';
+    document.getElementById('successSection').style.display = 'none';
+    document.getElementById('progressSection').style.display = 'block';
+    document.getElementById('generateBtn').disabled = true;
+    
+    const formData = new FormData();
+    formData.append('file', file);
+    
+    try {
+        const response = await fetch('/tools/favicon-generator/upload', {
+            method: 'POST',
+            body: formData
+        });
+        
+        const data = await response.json();
+        
+        if (response.ok && data.success) {
+            downloadId = data.download_id;
+            document.getElementById('progressSection').style.display = 'none';
+            document.getElementById('successSection').style.display = 'block';
+        } else {
+            showError(data.error || (lang === 'de' ? 'Ein Fehler ist aufgetreten' : 'An error occurred'));
+        }
+    } catch (error) {
+        showError(lang === 'de' ? 'Netzwerkfehler: ' + error.message : 'Network error: ' + error.message);
+    } finally {
+        document.getElementById('progressSection').style.display = 'none';
+        document.getElementById('generateBtn').disabled = false;
+    }
+});
+
+document.getElementById('downloadBtn').addEventListener('click', function() {
+    if (downloadId) {
+        window.location.href = `/tools/favicon-generator/download/${downloadId}`;
+
+        if (typeof window.showSupportOnAction === 'function') {
+            window.showSupportOnAction(30000);
+        }
+    }
+});
+
+function showError(message) {
+    const errorSection = document.getElementById('errorSection');
+    errorSection.textContent = message;
+    errorSection.style.display = 'block';
+    document.getElementById('progressSection').style.display = 'none';
+}
+</script>
+{% endblock %}

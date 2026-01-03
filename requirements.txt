@@ -1,0 +1,12 @@
+Flask==3.0.0
+Flask-SQLAlchemy==3.1.1
+Flask-Migrate==4.0.5
+Pillow==10.1.0
+geoip2==4.7.0
+requests==2.32.3
+pysubs2==1.8.0
+emoji==2.12.1
+yt-dlp
+mutagen==1.47.0
+dnspython==2.4.2
+reportlab==4.0.7

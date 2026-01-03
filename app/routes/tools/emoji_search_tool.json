@@ -1,0 +1,63 @@
+{
+  "route": "/tools/emoji-search",
+  "img": "far fa-smile",
+  "name": {
+    "en": "Emoji Search",
+    "de": "Emoji-Suche"
+  },
+  "description": {
+    "en": "Search all emojis by name, shortcode, character, or Unicode codepoint. No ads, no trackers.",
+    "de": "Alle Emojis nach Name, Shortcode, Zeichen oder Unicode-Codepoint durchsuchen. Ohne Werbung, ohne Tracking."
+  },
+  "tags": ["text tools", "search"],
+  "new_window": false,
+  "frontend_only": false,
+  "seo": {
+    "title": {
+      "en": "Emoji Search - Find Any Emoji by Name or Unicode",
+      "de": "Emoji-Suche - Jedes Emoji nach Name oder Unicode finden"
+    },
+    "meta_description": {
+      "en": "Search the full Unicode emoji set by emoji character, name/shortcode, or U+ codepoints. Choose a search language or search across all translations. Privacy-friendly, no cookies, no ads.",
+      "de": "Das komplette Unicode-Emoji-Set nach Emoji-Zeichen, Name/Shortcode oder U+-Codepoints durchsuchen. Suchsprache wählen oder über alle Übersetzungen suchen. Datenschutzfreundlich, keine Cookies, keine Werbung."
+    },
+    "keywords": {
+      "en": "emoji search, emoji finder, emojipedia alternative, unicode emoji list, emoji shortcode, U+ codepoint, privacy-friendly",
+      "de": "Emoji-Suche, Emoji-Finder, Emojipedia Alternative, Unicode-Emoji-Liste, Emoji-Shortcode, U+-Codepoint, datenschutzfreundlich"
+    },
+    "content": {
+      "heading": {
+        "en": "About This Emoji Search",
+        "de": "Über diese Emoji-Suche"
+      },
+      "intro": {
+        "en": "This tool lets you search the complete Unicode emoji set without ads, banners, or tracking. Search by pasting an emoji, typing a name/shortcode, or entering Unicode codepoints (e.g. U+1F44D). You can search in a specific language or across all available translations.",
+        "de": "Dieses Tool durchsucht das komplette Unicode-Emoji-Set ohne Werbung, Banner oder Tracking. Suche durch Einfügen eines Emojis, durch Eingabe eines Namens/Shortcodes oder durch Unicode-Codepoints (z.B. U+1F44D). Du kannst eine bestimmte Sprache wählen oder über alle verfügbaren Übersetzungen suchen."
+      },
+      "features": {
+        "heading": {
+          "en": "Key Features:",
+          "de": "Hauptfunktionen:"
+        },
+        "items": [
+          {
+            "en": "<strong>All emojis:</strong> Full Unicode emoji dataset",
+            "de": "<strong>Alle Emojis:</strong> Vollständiger Unicode-Emoji-Datensatz"
+          },
+          {
+            "en": "<strong>Multiple search modes:</strong> emoji, shortcode/name, or U+ codepoints",
+            "de": "<strong>Mehrere Suchmodi:</strong> Emoji, Shortcode/Name oder U+-Codepoints"
+          },
+          {
+            "en": "<strong>Language support:</strong> Search in a chosen language or across all translations",
+            "de": "<strong>Sprachunterstützung:</strong> Suche in einer gewählten Sprache oder über alle Übersetzungen"
+          }
+        ]
+      },
+      "privacy_note": {
+        "en": "🔒 Privacy-Friendly: Searches are processed on the server and no queries are stored.",
+        "de": "🔒 Datenschutzfreundlich: Suchen werden auf dem Server verarbeitet und nicht gespeichert."
+      }
+    }
+  }
+}

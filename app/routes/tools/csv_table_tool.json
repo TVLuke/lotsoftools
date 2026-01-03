@@ -1,0 +1,95 @@
+{
+  "route": "/tools/csv-table",
+  "img": "fas fa-table",
+  "name": {
+    "en": "CSV Table",
+    "de": "CSV-Tabelle"
+  },
+  "description": {
+    "en": "Visualize CSV data as a formatted table with color coding",
+    "de": "CSV-Daten als formatierte Tabelle mit Farbcodierung visualisieren"
+  },
+  "tags": ["text tools", "formatter", "CSV"],
+  "new_window": false,
+  "frontend_only": true,
+  "seo": {
+    "title": {
+      "en": "CSV Table Viewer - Free Online CSV to Table Converter",
+      "de": "CSV-Tabellen-Viewer - Kostenloser Online CSV zu Tabelle Konverter"
+    },
+    "meta_description": {
+      "en": "Visualize CSV data as formatted tables with color coding. View, analyze, and format CSV files online. Browser-based CSV viewer, privacy-friendly, no upload required.",
+      "de": "Visualisieren Sie CSV-Daten als formatierte Tabellen mit Farbcodierung. CSV-Dateien online anzeigen, analysieren und formatieren. Browser-basierter CSV-Viewer, datenschutzfreundlich, kein Upload erforderlich."
+    },
+    "keywords": {
+      "en": "CSV viewer, CSV to table, CSV formatter, view CSV online, CSV visualizer, browser-based, privacy-friendly, free CSV tool",
+      "de": "CSV-Viewer, CSV zu Tabelle, CSV-Formatierer, CSV online anzeigen, CSV-Visualisierer, Browser-basiert, Datenschutzfreundlich, kostenloses CSV-Tool"
+    },
+    "content": {
+      "heading": {
+        "en": "About This CSV Table Viewer",
+        "de": "Über diesen CSV-Tabellen-Viewer"
+      },
+      "intro": {
+        "en": "This browser-based CSV table viewer transforms CSV data into beautifully formatted, color-coded tables. Perfect for data analysis, spreadsheet viewing, and CSV file inspection. All processing happens in your browser - your CSV data remains completely private and is never uploaded to any server.",
+        "de": "Dieser Browser-basierte CSV-Tabellen-Viewer verwandelt CSV-Daten in schön formatierte, farbcodierte Tabellen. Perfekt für Datenanalyse, Tabellenansicht und CSV-Dateiinspektion. Alle Verarbeitung erfolgt in Ihrem Browser - Ihre CSV-Daten bleiben vollständig privat und werden nie auf einen Server hochgeladen."
+      },
+      "features": {
+        "heading": {
+          "en": "Key Features:",
+          "de": "Hauptfunktionen:"
+        },
+        "items": [
+          {
+            "en": "<strong>Color Coding:</strong> Automatically color-code columns for easy data visualization",
+            "de": "<strong>Farbcodierung:</strong> Automatische Farbcodierung von Spalten für einfache Datenvisualisierung"
+          },
+          {
+            "en": "<strong>Formatted Display:</strong> Clean, readable table layout with proper spacing",
+            "de": "<strong>Formatierte Anzeige:</strong> Sauberes, lesbares Tabellenlayout mit korrektem Abstand"
+          },
+          {
+            "en": "<strong>Custom Delimiters:</strong> Support for comma, semicolon, tab, and custom separators",
+            "de": "<strong>Benutzerdefinierte Trennzeichen:</strong> Unterstützung für Komma, Semikolon, Tab und benutzerdefinierte Trennzeichen"
+          },
+          {
+            "en": "<strong>Large File Support:</strong> Handle large CSV files efficiently in the browser",
+            "de": "<strong>Große Dateien:</strong> Große CSV-Dateien effizient im Browser verarbeiten"
+          },
+          {
+            "en": "<strong>Instant Preview:</strong> See formatted table as you paste or type",
+            "de": "<strong>Sofortige Vorschau:</strong> Formatierte Tabelle beim Einfügen oder Tippen sehen"
+          }
+        ]
+      },
+      "use_cases": {
+        "heading": {
+          "en": "Use Cases:",
+          "de": "Anwendungsfälle:"
+        },
+        "items": [
+          {
+            "en": "View and analyze CSV exports from databases",
+            "de": "CSV-Exporte aus Datenbanken anzeigen und analysieren"
+          },
+          {
+            "en": "Inspect CSV files before importing",
+            "de": "CSV-Dateien vor dem Import inspizieren"
+          },
+          {
+            "en": "Format CSV data for presentations",
+            "de": "CSV-Daten für Präsentationen formatieren"
+          },
+          {
+            "en": "Quick data visualization without spreadsheet software",
+            "de": "Schnelle Datenvisualisierung ohne Tabellenkalkulations-Software"
+          }
+        ]
+      },
+      "privacy_note": {
+        "en": "🔒 Privacy-Friendly: CSV processing happens entirely in your browser. Your data is never uploaded or sent to any server.",
+        "de": "🔒 Datenschutzfreundlich: CSV-Verarbeitung erfolgt vollständig in Ihrem Browser. Ihre Daten werden nie hochgeladen oder an einen Server gesendet."
+      }
+    }
+  }
+}

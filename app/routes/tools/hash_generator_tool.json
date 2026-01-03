@@ -1,0 +1,99 @@
+{
+  "route": "/tools/hash-generator",
+  "img": "fas fa-hashtag",
+  "name": {
+    "en": "Hash Generator",
+    "de": "Hash-Generator"
+  },
+  "description": {
+    "en": "Generate MD5, SHA-1, SHA-256, SHA-384, and SHA-512 hashes for text",
+    "de": "Generiere MD5, SHA-1, SHA-256, SHA-384 und SHA-512 Hashes für Text"
+  },
+  "tags": ["text", "security", "catalogue"],
+  "new_window": false,
+  "frontend_only": true,
+  "seo": {
+    "title": {
+      "en": "Hash Generator - Free Online MD5, SHA-1, SHA-256 Tool",
+      "de": "Hash-Generator - Kostenloser Online MD5, SHA-1, SHA-256 Generator"
+    },
+    "meta_description": {
+      "en": "Generate MD5, SHA-1, SHA-256, SHA-384, and SHA-512 hashes for any text. Privacy-friendly browser-based tool, no registration required. Your data never leaves your browser.",
+      "de": "Generieren Sie MD5, SHA-1, SHA-256, SHA-384 und SHA-512 Hashes für beliebigen Text. Datenschutzfreundliches Browser-Tool, keine Registrierung erforderlich. Ihre Daten verlassen nie Ihren Browser."
+    },
+    "keywords": {
+      "en": "hash generator, MD5, SHA-1, SHA-256, SHA-384, SHA-512, calculate hash, checksum, online tool, browser-based, privacy-friendly, client-side, secure, no registration",
+      "de": "Hash Generator, MD5, SHA-1, SHA-256, SHA-384, SHA-512, Hash berechnen, Checksumme, Online Tool, Browser-basiert, Datenschutzfreundlich, Client-seitig, sicher, keine Registrierung"
+    },
+    "content": {
+      "heading": {
+        "en": "What is a Hash Generator?",
+        "de": "Was ist ein Hash-Generator?"
+      },
+      "intro": {
+        "en": "A hash generator is a privacy-friendly, browser-based tool that takes an input (text, file, etc.) and creates a unique fingerprint (hash). This hash is a fixed-length string that represents the input. Even the smallest changes to the input result in a completely different hash. All calculations happen directly in your browser - your data never leaves your device, ensuring complete privacy and security.",
+        "de": "Ein Hash-Generator ist ein datenschutzfreundliches, Browser-basiertes Tool, das eine Eingabe (Text, Datei, etc.) nimmt und einen eindeutigen Fingerabdruck (Hash) erstellt. Dieser Hash ist eine Zeichenkette fester Länge, die die Eingabe repräsentiert. Selbst kleinste Änderungen an der Eingabe führen zu einem völlig anderen Hash. Alle Berechnungen erfolgen direkt in Ihrem Browser - Ihre Daten verlassen nie Ihr Gerät, was vollständige Privatsphäre und Sicherheit gewährleistet."
+      },
+      "features": {
+        "heading": {
+          "en": "Supported Hash Algorithms:",
+          "de": "Unterstützte Hash-Algorithmen:"
+        },
+        "items": [
+          {
+            "en": "MD5: 128-bit hash, fast but no longer recommended for security",
+            "de": "MD5: 128-Bit Hash, schnell aber nicht mehr für Sicherheit empfohlen"
+          },
+          {
+            "en": "SHA-1: 160-bit hash, deprecated for security applications",
+            "de": "SHA-1: 160-Bit Hash, veraltet für Sicherheitsanwendungen"
+          },
+          {
+            "en": "SHA-256: 256-bit hash, widely used and secure",
+            "de": "SHA-256: 256-Bit Hash, weit verbreitet und sicher"
+          },
+          {
+            "en": "SHA-384: 384-bit hash, higher security",
+            "de": "SHA-384: 384-Bit Hash, höhere Sicherheit"
+          },
+          {
+            "en": "SHA-512: 512-bit hash, maximum security",
+            "de": "SHA-512: 512-Bit Hash, maximale Sicherheit"
+          }
+        ]
+      },
+      "use_cases": {
+        "heading": {
+          "en": "Use Cases:",
+          "de": "Anwendungsfälle:"
+        },
+        "items": [
+          {
+            "en": "Verify file integrity",
+            "de": "Dateiintegrität überprüfen"
+          },
+          {
+            "en": "Password hashing (with salt!)",
+            "de": "Passwort-Hashing (mit Salt!)"
+          },
+          {
+            "en": "Digital signatures",
+            "de": "Digitale Signaturen"
+          },
+          {
+            "en": "Checksums for downloads",
+            "de": "Checksummen für Downloads"
+          },
+          {
+            "en": "Data deduplication",
+            "de": "Daten-Deduplizierung"
+          }
+        ]
+      },
+      "privacy_note": {
+        "en": "🔒 Privacy-Friendly & Secure: This browser-based tool calculates hashes directly in your browser using client-side JavaScript. Your data never leaves your device and is not sent to any server. No registration, no tracking, completely private.",
+        "de": "🔒 Datenschutzfreundlich & Sicher: Dieses Browser-basierte Tool berechnet Hashes direkt in Ihrem Browser mit client-seitigem JavaScript. Ihre Daten verlassen nie Ihr Gerät und werden nicht an einen Server gesendet. Keine Registrierung, kein Tracking, vollständig privat."
+      }
+    }
+  }
+}

@@ -1,0 +1,610 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ tool_data.seo.title[current_lang] }} - usefull{% endblock %}
+
+{% block meta_description %}{{ tool_data.seo.description[current_lang] }}{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h1 class="mb-3">{{ tool_data.name[current_lang] }}</h1>
+    <p class="lead mb-4">{{ tool_data.description[current_lang] }}</p>
+    
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <div class="card">
+                <div class="card-body text-center">
+                    <!-- Noise Type Selector -->
+                    <div class="mb-4">
+                        <label class="form-label fw-bold">{{ tool_data.ui.noise_type[current_lang] }}</label>
+                        <div class="btn-group d-flex" role="group">
+                            <input type="radio" class="btn-check" name="noiseType" id="whiteNoise" value="white" checked>
+                            <label class="btn btn-outline-secondary" for="whiteNoise">{{ tool_data.ui.white[current_lang] }}</label>
+                            
+                            <input type="radio" class="btn-check" name="noiseType" id="pinkNoise" value="pink">
+                            <label class="btn btn-outline-secondary" for="pinkNoise">{{ tool_data.ui.pink[current_lang] }}</label>
+                            
+                            <input type="radio" class="btn-check" name="noiseType" id="brownNoise" value="brown">
+                            <label class="btn btn-outline-secondary" for="brownNoise">{{ tool_data.ui.brown[current_lang] }}</label>
+                        </div>
+                    </div>
+                    
+                    <!-- Volume Control -->
+                    <div class="mb-4">
+                        <label for="volumeSlider" class="form-label fw-bold">
+                            {{ tool_data.ui.volume[current_lang] }}: <span id="volumeValue">50</span>%
+                        </label>
+                        <input type="range" class="form-range" id="volumeSlider" min="0" max="100" value="50">
+                    </div>
+                    
+                    <!-- Timer -->
+                    <div class="mb-4">
+                        <label class="form-label fw-bold">{{ tool_data.ui.timer[current_lang] }}</label>
+                        <div class="row g-2 justify-content-center">
+                            <div class="col-auto">
+                                <div class="input-group input-group-sm">
+                                    <input type="number" class="form-control" id="timerHours" min="0" max="24" value="0" style="width: 70px;">
+                                    <span class="input-group-text">{{ tool_data.ui.hours[current_lang] }}</span>
+                                </div>
+                            </div>
+                            <div class="col-auto">
+                                <div class="input-group input-group-sm">
+                                    <input type="number" class="form-control" id="timerMinutes" min="0" max="59" value="0" style="width: 70px;">
+                                    <span class="input-group-text">{{ tool_data.ui.minutes[current_lang] }}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <small class="text-muted">{{ tool_data.ui.timer_hint[current_lang] }}</small>
+                    </div>
+                    
+                    <!-- Timer Display -->
+                    <div id="timerDisplay" class="mb-4" style="display: none;">
+                        <span class="badge bg-secondary fs-5" id="timerCountdown">00:00</span>
+                    </div>
+                    
+                    <!-- Play/Stop Button -->
+                    <button id="playButton" class="btn btn-success btn-lg px-5">
+                        <i class="fas fa-play me-2"></i>
+                        <span id="playButtonText">{{ tool_data.ui.play[current_lang] }}</span>
+                    </button>
+                    
+                    <!-- Status -->
+                    <div id="statusText" class="mt-3 text-muted" style="display: none;">
+                        <i class="fas fa-volume-up me-1"></i>
+                        <span id="noiseTypePlaying">White</span> {{ tool_data.ui.playing[current_lang] }}
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Visualization -->
+            <div class="card mt-4">
+                <div class="card-body p-0">
+                    <canvas id="visualizer" height="100" style="width: 100%; display: block;"></canvas>
+                </div>
+            </div>
+            
+            <!-- Fullscreen Visualization Button -->
+            <div class="text-center mt-3">
+                <button id="fullscreenBtn" class="btn btn-outline-secondary" disabled>
+                    <i class="fas fa-expand me-2"></i>
+                    {{ tool_data.ui.fullscreen[current_lang] }}
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Fullscreen Overlay -->
+    <div id="fullscreenOverlay" class="fullscreen-viz-overlay" style="display: none;">
+        <canvas id="fullscreenCanvas"></canvas>
+        <div class="fullscreen-viz-controls">
+            <div class="btn-group btn-group-sm me-3">
+                <button class="btn btn-outline-light viz-btn active" data-viz="fading">{{ tool_data.ui.fading[current_lang] }}</button>
+                <button class="btn btn-outline-light viz-btn" data-viz="spinning">{{ tool_data.ui.spinning[current_lang] }}</button>
+                <button class="btn btn-outline-light viz-btn" data-viz="solid">{{ tool_data.ui.solid[current_lang] }}</button>
+            </div>
+            <input type="color" id="solidColorPicker" value="#1a1a2e" class="form-control form-control-color" style="display: none; width: 40px;">
+            <button class="btn btn-outline-light btn-sm ms-2" id="closeFullscreenViz"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="fullscreen-viz-timer" id="fullscreenTimer" style="display: none;">
+            <span id="fullscreenTimerText">00:00</span>
+        </div>
+    </div>
+    
+    {% include 'components/seo_content.html' %}
+</div>
+
+<style>
+.fullscreen-viz-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: #000;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.fullscreen-viz-overlay canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.fullscreen-viz-controls {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    opacity: 0.3;
+    transition: opacity 0.3s;
+}
+
+.fullscreen-viz-controls:hover {
+    opacity: 1;
+}
+
+.fullscreen-viz-controls .viz-btn.active {
+    background: #fff;
+    color: #000;
+}
+
+.fullscreen-viz-timer {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10000;
+    font-size: 1.5rem;
+    color: rgba(255,255,255,0.5);
+    font-family: monospace;
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    let audioContext = null;
+    let noiseNode = null;
+    let gainNode = null;
+    let analyser = null;
+    let isPlaying = false;
+    let timerInterval = null;
+    let remainingSeconds = 0;
+    let currentVizMode = 'fading';
+    let fullscreenAnimationId = null;
+    let hue = 0;
+    let mandalaAngle = 0;
+    
+    const playButton = document.getElementById('playButton');
+    const playButtonText = document.getElementById('playButtonText');
+    const volumeSlider = document.getElementById('volumeSlider');
+    const volumeValue = document.getElementById('volumeValue');
+    const timerHours = document.getElementById('timerHours');
+    const timerMinutes = document.getElementById('timerMinutes');
+    const timerDisplay = document.getElementById('timerDisplay');
+    const timerCountdown = document.getElementById('timerCountdown');
+    const statusText = document.getElementById('statusText');
+    const noiseTypePlaying = document.getElementById('noiseTypePlaying');
+    const canvas = document.getElementById('visualizer');
+    const canvasCtx = canvas.getContext('2d');
+    
+    const fullscreenBtn = document.getElementById('fullscreenBtn');
+    const fullscreenOverlay = document.getElementById('fullscreenOverlay');
+    const fullscreenCanvas = document.getElementById('fullscreenCanvas');
+    const fullscreenCtx = fullscreenCanvas.getContext('2d');
+    const closeFullscreenViz = document.getElementById('closeFullscreenViz');
+    const solidColorPicker = document.getElementById('solidColorPicker');
+    const fullscreenTimer = document.getElementById('fullscreenTimer');
+    const fullscreenTimerText = document.getElementById('fullscreenTimerText');
+    
+    const noiseLabels = {
+        white: '{{ tool_data.ui.white[current_lang] }}',
+        pink: '{{ tool_data.ui.pink[current_lang] }}',
+        brown: '{{ tool_data.ui.brown[current_lang] }}'
+    };
+    
+    const uiText = {
+        play: '{{ tool_data.ui.play[current_lang] }}',
+        stop: '{{ tool_data.ui.stop[current_lang] }}'
+    };
+    
+    function getSelectedNoiseType() {
+        return document.querySelector('input[name="noiseType"]:checked').value;
+    }
+    
+    function createWhiteNoise(ctx) {
+        const bufferSize = 2 * ctx.sampleRate;
+        const buffer = ctx.createBuffer(1, bufferSize, ctx.sampleRate);
+        const data = buffer.getChannelData(0);
+        
+        for (let i = 0; i < bufferSize; i++) {
+            data[i] = Math.random() * 2 - 1;
+        }
+        
+        const source = ctx.createBufferSource();
+        source.buffer = buffer;
+        source.loop = true;
+        return source;
+    }
+    
+    function createPinkNoise(ctx) {
+        const bufferSize = 2 * ctx.sampleRate;
+        const buffer = ctx.createBuffer(1, bufferSize, ctx.sampleRate);
+        const data = buffer.getChannelData(0);
+        
+        let b0 = 0, b1 = 0, b2 = 0, b3 = 0, b4 = 0, b5 = 0, b6 = 0;
+        
+        for (let i = 0; i < bufferSize; i++) {
+            const white = Math.random() * 2 - 1;
+            b0 = 0.99886 * b0 + white * 0.0555179;
+            b1 = 0.99332 * b1 + white * 0.0750759;
+            b2 = 0.96900 * b2 + white * 0.1538520;
+            b3 = 0.86650 * b3 + white * 0.3104856;
+            b4 = 0.55000 * b4 + white * 0.5329522;
+            b5 = -0.7616 * b5 - white * 0.0168980;
+            data[i] = (b0 + b1 + b2 + b3 + b4 + b5 + b6 + white * 0.5362) * 0.11;
+            b6 = white * 0.115926;
+        }
+        
+        const source = ctx.createBufferSource();
+        source.buffer = buffer;
+        source.loop = true;
+        return source;
+    }
+    
+    function createBrownNoise(ctx) {
+        const bufferSize = 2 * ctx.sampleRate;
+        const buffer = ctx.createBuffer(1, bufferSize, ctx.sampleRate);
+        const data = buffer.getChannelData(0);
+        
+        let lastOut = 0;
+        
+        for (let i = 0; i < bufferSize; i++) {
+            const white = Math.random() * 2 - 1;
+            data[i] = (lastOut + (0.02 * white)) / 1.02;
+            lastOut = data[i];
+            data[i] *= 3.5;
+        }
+        
+        const source = ctx.createBufferSource();
+        source.buffer = buffer;
+        source.loop = true;
+        return source;
+    }
+    
+    function startNoise() {
+        if (audioContext) {
+            audioContext.close();
+        }
+        
+        audioContext = new (window.AudioContext || window.webkitAudioContext)();
+        gainNode = audioContext.createGain();
+        analyser = audioContext.createAnalyser();
+        analyser.fftSize = 256;
+        
+        const noiseType = getSelectedNoiseType();
+        
+        switch (noiseType) {
+            case 'pink':
+                noiseNode = createPinkNoise(audioContext);
+                break;
+            case 'brown':
+                noiseNode = createBrownNoise(audioContext);
+                break;
+            default:
+                noiseNode = createWhiteNoise(audioContext);
+        }
+        
+        noiseNode.connect(gainNode);
+        gainNode.connect(analyser);
+        analyser.connect(audioContext.destination);
+        
+        gainNode.gain.value = volumeSlider.value / 100;
+        noiseNode.start();
+        
+        isPlaying = true;
+        playButton.classList.remove('btn-success');
+        playButton.classList.add('btn-danger');
+        playButton.innerHTML = `<i class="fas fa-stop me-2"></i><span>${uiText.stop}</span>`;
+        
+        noiseTypePlaying.textContent = noiseLabels[noiseType];
+        statusText.style.display = 'block';
+        fullscreenBtn.disabled = false;
+        
+        // Start timer if set
+        const hours = parseInt(timerHours.value) || 0;
+        const mins = parseInt(timerMinutes.value) || 0;
+        const totalMinutes = hours * 60 + mins;
+        if (totalMinutes > 0) {
+            remainingSeconds = totalMinutes * 60;
+            timerDisplay.style.display = 'block';
+            updateTimerDisplay();
+            timerInterval = setInterval(function() {
+                remainingSeconds--;
+                updateTimerDisplay();
+                if (remainingSeconds <= 0) {
+                    stopNoise();
+                }
+            }, 1000);
+        }
+        
+        drawVisualizer();
+    }
+    
+    function stopNoise() {
+        if (noiseNode) {
+            noiseNode.stop();
+            noiseNode = null;
+        }
+        if (audioContext) {
+            audioContext.close();
+            audioContext = null;
+        }
+        if (timerInterval) {
+            clearInterval(timerInterval);
+            timerInterval = null;
+        }
+        
+        isPlaying = false;
+        playButton.classList.remove('btn-danger');
+        playButton.classList.add('btn-success');
+        playButton.innerHTML = `<i class="fas fa-play me-2"></i><span>${uiText.play}</span>`;
+        
+        statusText.style.display = 'none';
+        timerDisplay.style.display = 'none';
+        fullscreenBtn.disabled = true;
+        
+        // Close fullscreen if open
+        if (fullscreenOverlay.style.display === 'flex') {
+            fullscreenOverlay.style.display = 'none';
+            document.body.style.overflow = '';
+            if (fullscreenAnimationId) {
+                cancelAnimationFrame(fullscreenAnimationId);
+            }
+        }
+        
+        // Clear canvas
+        canvasCtx.fillStyle = '#1a1a1a';
+        canvasCtx.fillRect(0, 0, canvas.width, canvas.height);
+    }
+    
+    function updateTimerDisplay() {
+        const minutes = Math.floor(remainingSeconds / 60);
+        const seconds = remainingSeconds % 60;
+        timerCountdown.textContent = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+    }
+    
+    function drawVisualizer() {
+        if (!isPlaying || !analyser) return;
+        
+        requestAnimationFrame(drawVisualizer);
+        
+        const bufferLength = analyser.frequencyBinCount;
+        const dataArray = new Uint8Array(bufferLength);
+        analyser.getByteFrequencyData(dataArray);
+        
+        canvas.width = canvas.offsetWidth;
+        canvas.height = 100;
+        
+        canvasCtx.fillStyle = '#1a1a1a';
+        canvasCtx.fillRect(0, 0, canvas.width, canvas.height);
+        
+        const barWidth = (canvas.width / bufferLength) * 2.5;
+        let x = 0;
+        
+        for (let i = 0; i < bufferLength; i++) {
+            const barHeight = (dataArray[i] / 255) * canvas.height;
+            
+            const noiseType = getSelectedNoiseType();
+            let color;
+            switch (noiseType) {
+                case 'pink':
+                    color = `rgb(255, ${100 + dataArray[i] / 2}, ${150 + dataArray[i] / 3})`;
+                    break;
+                case 'brown':
+                    color = `rgb(${139 + dataArray[i] / 3}, ${69 + dataArray[i] / 4}, ${19 + dataArray[i] / 5})`;
+                    break;
+                default:
+                    color = `rgb(${200 + dataArray[i] / 5}, ${200 + dataArray[i] / 5}, ${200 + dataArray[i] / 5})`;
+            }
+            
+            canvasCtx.fillStyle = color;
+            canvasCtx.fillRect(x, canvas.height - barHeight, barWidth, barHeight);
+            x += barWidth + 1;
+        }
+    }
+    
+    // Event listeners
+    playButton.addEventListener('click', function() {
+        if (isPlaying) {
+            stopNoise();
+        } else {
+            startNoise();
+        }
+    });
+    
+    volumeSlider.addEventListener('input', function() {
+        volumeValue.textContent = this.value;
+        if (gainNode) {
+            gainNode.gain.value = this.value / 100;
+        }
+    });
+    
+    // Change noise type while playing
+    document.querySelectorAll('input[name="noiseType"]').forEach(radio => {
+        radio.addEventListener('change', function() {
+            if (isPlaying) {
+                const currentVolume = volumeSlider.value;
+                const currentTimer = remainingSeconds;
+                stopNoise();
+                startNoise();
+                if (currentTimer > 0) {
+                    remainingSeconds = currentTimer;
+                }
+            }
+        });
+    });
+    
+    // Initial canvas setup
+    canvas.width = canvas.offsetWidth;
+    canvasCtx.fillStyle = '#1a1a1a';
+    canvasCtx.fillRect(0, 0, canvas.width, canvas.height);
+    
+    // Fullscreen visualization functions
+    function openFullscreenViz() {
+        fullscreenOverlay.style.display = 'flex';
+        fullscreenCanvas.width = window.innerWidth;
+        fullscreenCanvas.height = window.innerHeight;
+        document.body.style.overflow = 'hidden';
+        
+        if (remainingSeconds > 0) {
+            fullscreenTimer.style.display = 'block';
+        }
+        
+        drawFullscreenViz();
+    }
+    
+    function closeFullscreenVizFn() {
+        fullscreenOverlay.style.display = 'none';
+        document.body.style.overflow = '';
+        fullscreenTimer.style.display = 'none';
+        if (fullscreenAnimationId) {
+            cancelAnimationFrame(fullscreenAnimationId);
+        }
+    }
+    
+    function drawFullscreenViz() {
+        if (fullscreenOverlay.style.display === 'none') return;
+        
+        fullscreenAnimationId = requestAnimationFrame(drawFullscreenViz);
+        
+        fullscreenCanvas.width = window.innerWidth;
+        fullscreenCanvas.height = window.innerHeight;
+        
+        switch (currentVizMode) {
+            case 'fading':
+                drawFadingColors();
+                break;
+            case 'spinning':
+                drawSpinning();
+                break;
+            case 'solid':
+                drawSolidColor();
+                break;
+        }
+        
+        // Update timer display
+        if (remainingSeconds > 0) {
+            const minutes = Math.floor(remainingSeconds / 60);
+            const seconds = remainingSeconds % 60;
+            fullscreenTimerText.textContent = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+        }
+    }
+    
+    function drawFadingColors() {
+        hue = (hue + 0.2) % 360;
+        const saturation = 50 + Math.sin(Date.now() / 3000) * 20;
+        const lightness = 20 + Math.sin(Date.now() / 5000) * 10;
+        
+        fullscreenCtx.fillStyle = `hsl(${hue}, ${saturation}%, ${lightness}%)`;
+        fullscreenCtx.fillRect(0, 0, fullscreenCanvas.width, fullscreenCanvas.height);
+    }
+    
+    function drawSpinning() {
+        const w = fullscreenCanvas.width;
+        const h = fullscreenCanvas.height;
+        const cx = w / 2;
+        const cy = h / 2;
+        const maxRadius = Math.min(w, h) * 0.45;
+        
+        // Fade previous frame
+        fullscreenCtx.fillStyle = 'rgba(0, 0, 0, 0.03)';
+        fullscreenCtx.fillRect(0, 0, w, h);
+        
+        mandalaAngle += 0.005;
+        const layers = 8;
+        const petalsPerLayer = 12;
+        
+        for (let layer = 0; layer < layers; layer++) {
+            const radius = maxRadius * (layer + 1) / layers;
+            const layerHue = (hue + layer * 30) % 360;
+            
+            for (let i = 0; i < petalsPerLayer; i++) {
+                const angle = (i / petalsPerLayer) * Math.PI * 2 + mandalaAngle * (layer % 2 === 0 ? 1 : -1);
+                const x = cx + Math.cos(angle) * radius;
+                const y = cy + Math.sin(angle) * radius;
+                const petalSize = 10 + Math.sin(Date.now() / 1000 + layer) * 5;
+                
+                fullscreenCtx.beginPath();
+                fullscreenCtx.arc(x, y, petalSize, 0, Math.PI * 2);
+                fullscreenCtx.fillStyle = `hsla(${layerHue}, 70%, 50%, 0.6)`;
+                fullscreenCtx.fill();
+                
+                // Connect to center
+                fullscreenCtx.beginPath();
+                fullscreenCtx.moveTo(cx, cy);
+                fullscreenCtx.lineTo(x, y);
+                fullscreenCtx.strokeStyle = `hsla(${layerHue}, 60%, 40%, 0.2)`;
+                fullscreenCtx.lineWidth = 1;
+                fullscreenCtx.stroke();
+            }
+        }
+        
+        // Center glow
+        const gradient = fullscreenCtx.createRadialGradient(cx, cy, 0, cx, cy, 50);
+        gradient.addColorStop(0, `hsla(${hue}, 80%, 60%, 0.8)`);
+        gradient.addColorStop(1, 'transparent');
+        fullscreenCtx.fillStyle = gradient;
+        fullscreenCtx.beginPath();
+        fullscreenCtx.arc(cx, cy, 50, 0, Math.PI * 2);
+        fullscreenCtx.fill();
+        
+        hue = (hue + 0.3) % 360;
+    }
+    
+    function drawSolidColor() {
+        fullscreenCtx.fillStyle = solidColorPicker.value;
+        fullscreenCtx.fillRect(0, 0, fullscreenCanvas.width, fullscreenCanvas.height);
+    }
+    
+    // Fullscreen button
+    fullscreenBtn.addEventListener('click', openFullscreenViz);
+    
+    // Close fullscreen
+    closeFullscreenViz.addEventListener('click', closeFullscreenVizFn);
+    
+    // Escape to close
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && fullscreenOverlay.style.display === 'flex') {
+            closeFullscreenVizFn();
+        }
+    });
+    
+    // Viz mode buttons
+    document.querySelectorAll('.viz-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+            document.querySelectorAll('.viz-btn').forEach(b => b.classList.remove('active'));
+            this.classList.add('active');
+            currentVizMode = this.dataset.viz;
+            
+            // Show color picker only for solid mode
+            solidColorPicker.style.display = currentVizMode === 'solid' ? 'inline-block' : 'none';
+            
+            // Clear canvas for fresh start
+            fullscreenCtx.fillStyle = '#000';
+            fullscreenCtx.fillRect(0, 0, fullscreenCanvas.width, fullscreenCanvas.height);
+        });
+    });
+    
+    // Enable/disable fullscreen button based on playing state
+    function updateFullscreenButton() {
+        fullscreenBtn.disabled = !isPlaying;
+    }
+});
+</script>
+{% endblock %}

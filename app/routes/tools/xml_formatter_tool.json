@@ -1,0 +1,95 @@
+{
+  "route": "/tools/xml-formatter",
+  "img": "fas fa-file-code",
+  "name": {
+    "en": "XML Formatter",
+    "de": "XML-Formatierer"
+  },
+  "description": {
+    "en": "Format, validate and minify XML data",
+    "de": "XML-Daten formatieren, validieren und minimieren"
+  },
+  "tags": ["text tools", "formatter", "validator"],
+  "new_window": false,
+  "frontend_only": true,
+  "seo": {
+    "title": {
+      "en": "XML Formatter - Free Online XML Validator & Beautifier",
+      "de": "XML-Formatierer - Kostenloser Online XML Validator & Verschönerer"
+    },
+    "meta_description": {
+      "en": "Format, validate, and minify XML data online. Pretty print XML with syntax highlighting. Browser-based XML formatter, privacy-friendly, no registration required.",
+      "de": "XML-Daten online formatieren, validieren und minimieren. XML mit Syntaxhervorhebung schön drucken. Browser-basierter XML-Formatierer, datenschutzfreundlich, keine Registrierung erforderlich."
+    },
+    "keywords": {
+      "en": "XML formatter, XML validator, XML beautifier, XML minify, pretty print XML, browser-based, privacy-friendly, free XML tool",
+      "de": "XML-Formatierer, XML-Validator, XML-Verschönerer, XML minimieren, XML schön drucken, Browser-basiert, Datenschutzfreundlich, kostenloses XML-Tool"
+    },
+    "content": {
+      "heading": {
+        "en": "About This XML Formatter",
+        "de": "Über diesen XML-Formatierer"
+      },
+      "intro": {
+        "en": "This browser-based XML formatter validates, formats, and minifies XML data with syntax highlighting. Essential for developers working with SOAP APIs, configuration files, and data exchange formats. All processing happens in your browser - your XML data stays completely private.",
+        "de": "Dieser Browser-basierte XML-Formatierer validiert, formatiert und minimiert XML-Daten mit Syntaxhervorhebung. Unverzichtbar für Entwickler, die mit SOAP-APIs, Konfigurationsdateien und Datenaustauschformaten arbeiten. Alle Verarbeitung erfolgt in Ihrem Browser - Ihre XML-Daten bleiben vollständig privat."
+      },
+      "features": {
+        "heading": {
+          "en": "Key Features:",
+          "de": "Hauptfunktionen:"
+        },
+        "items": [
+          {
+            "en": "<strong>Format & Beautify:</strong> Convert minified XML to readable, indented format",
+            "de": "<strong>Formatieren & Verschönern:</strong> Minimiertes XML in lesbares, eingerücktes Format konvertieren"
+          },
+          {
+            "en": "<strong>Validate XML:</strong> Check for syntax errors and malformed XML",
+            "de": "<strong>XML validieren:</strong> Auf Syntaxfehler und fehlerhaftes XML prüfen"
+          },
+          {
+            "en": "<strong>Minify:</strong> Compress XML by removing whitespace and formatting",
+            "de": "<strong>Minimieren:</strong> XML durch Entfernen von Leerzeichen und Formatierung komprimieren"
+          },
+          {
+            "en": "<strong>Syntax Highlighting:</strong> Color-coded XML for easy reading",
+            "de": "<strong>Syntaxhervorhebung:</strong> Farbcodiertes XML für einfaches Lesen"
+          },
+          {
+            "en": "<strong>Error Detection:</strong> Identify and highlight XML errors",
+            "de": "<strong>Fehlererkennung:</strong> XML-Fehler identifizieren und hervorheben"
+          }
+        ]
+      },
+      "use_cases": {
+        "heading": {
+          "en": "Use Cases:",
+          "de": "Anwendungsfälle:"
+        },
+        "items": [
+          {
+            "en": "Debug SOAP API responses",
+            "de": "SOAP-API-Antworten debuggen"
+          },
+          {
+            "en": "Format configuration and settings files",
+            "de": "Konfigurations- und Einstellungsdateien formatieren"
+          },
+          {
+            "en": "Validate XML before processing",
+            "de": "XML vor Verarbeitung validieren"
+          },
+          {
+            "en": "Minify XML to reduce file size",
+            "de": "XML minimieren um Dateigröße zu reduzieren"
+          }
+        ]
+      },
+      "privacy_note": {
+        "en": "🔒 Privacy-Friendly: XML formatting and validation happens entirely in your browser. Your data never leaves your device.",
+        "de": "🔒 Datenschutzfreundlich: XML-Formatierung und -Validierung erfolgt vollständig in Ihrem Browser. Ihre Daten verlassen nie Ihr Gerät."
+      }
+    }
+  }
+}

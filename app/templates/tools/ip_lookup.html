@@ -1,0 +1,244 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ tool_data.seo.title[current_lang] }}{% endblock %}
+{% block meta_description %}{{ tool_data.seo.meta_description[current_lang] }}{% endblock %}
+{% block meta_keywords %}{{ tool_data.seo.keywords[current_lang] }}{% endblock %}
+{% block og_title %}{{ tool_data.seo.title[current_lang] }}{% endblock %}
+{% block og_description %}{{ tool_data.seo.meta_description[current_lang] }}{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-12">
+        <h1 class="mb-4">
+            <i class="fas fa-globe me-2"></i>
+            {% if current_lang == 'de' %}IP-Adress-Lookup{% else %}IP Address Lookup{% endif %}
+        </h1>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12 col-lg-6">
+        <div class="card mb-3">
+            <div class="card-body">
+                <h5 class="card-title">
+                    {% if current_lang == 'de' %}IP-Adresse eingeben{% else %}Enter IP Address{% endif %}
+                </h5>
+                
+                <div class="mb-3">
+                    <label for="ipInput" class="form-label">
+                        {% if current_lang == 'de' %}IP-Adresse (IPv4 oder IPv6){% else %}IP Address (IPv4 or IPv6){% endif %}
+                    </label>
+                    <div class="input-group">
+                        <input type="text" class="form-control" id="ipInput" placeholder="e.g., 8.8.8.8 or 2001:4860:4860::8888" value="{{ client_ip }}">
+                        <button class="btn btn-outline-secondary" type="button" id="myIpBtn" title="{% if current_lang == 'de' %}Meine IP verwenden{% else %}Use my IP{% endif %}">
+                            <i class="fas fa-user"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <button type="button" class="btn btn-primary" id="lookupBtn">
+                    <i class="fas fa-search me-2"></i>
+                    {% if current_lang == 'de' %}Nachschlagen{% else %}Lookup{% endif %}
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-12 col-lg-6">
+        <div class="card mb-3" id="resultsCard" style="display: none;">
+            <div class="card-header">
+                <h5 class="mb-0">
+                    {% if current_lang == 'de' %}Ergebnisse{% else %}Results{% endif %}
+                </h5>
+            </div>
+            <div class="card-body">
+                <div id="resultsContent"></div>
+            </div>
+        </div>
+        
+        <div class="alert alert-danger" id="errorAlert" style="display: none;"></div>
+    </div>
+</div>
+
+<div class="row" id="mapRow" style="display: none;">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0">
+                    <i class="fas fa-map-marker-alt me-2"></i>
+                    {% if current_lang == 'de' %}Standort{% else %}Location{% endif %}
+                </h5>
+            </div>
+            <div class="card-body">
+                <div id="map" style="height: 400px; background: #e0e0e0; border-radius: 4px; display: flex; align-items: center; justify-content: center;">
+                    <p class="text-muted mb-0">
+                        {% if current_lang == 'de' %}Karte wird geladen...{% else %}Loading map...{% endif %}
+                    </p>
+                </div>
+                <p class="text-muted small mt-2 mb-0">
+                    <i class="fas fa-info-circle me-1"></i>
+                    <span id="mapCoordinates"></span>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% include 'components/seo_content.html' %}
+
+{% set library_name = "MaxMind GeoLite2" %}
+{% set library_url = "https://www.maxmind.com" %}
+{% include 'components/library_credit.html' %}
+{% endblock %}
+
+{% block extra_js %}
+<script>
+const lang = document.documentElement.lang || 'en';
+
+document.getElementById('lookupBtn').addEventListener('click', performLookup);
+document.getElementById('ipInput').addEventListener('keypress', function(e) {
+    if (e.key === 'Enter') {
+        performLookup();
+    }
+});
+
+document.getElementById('myIpBtn').addEventListener('click', async function() {
+    try {
+        const response = await fetch('/tools/ip-lookup/my-ip');
+        const data = await response.json();
+        document.getElementById('ipInput').value = data.ip;
+    } catch (error) {
+        console.error('Failed to get IP:', error);
+    }
+});
+
+async function performLookup() {
+    const ip = document.getElementById('ipInput').value.trim();
+    
+    if (!ip) {
+        showError(lang === 'de' ? 'Bitte geben Sie eine IP-Adresse ein' : 'Please enter an IP address');
+        return;
+    }
+    
+    document.getElementById('errorAlert').style.display = 'none';
+    document.getElementById('resultsCard').style.display = 'none';
+    document.getElementById('mapRow').style.display = 'none';
+    
+    try {
+        const response = await fetch('/tools/ip-lookup/query', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ ip })
+        });
+        
+        const data = await response.json();
+        
+        if (response.ok) {
+            displayResults(data);
+        } else {
+            showError(data.error || (lang === 'de' ? 'Ein Fehler ist aufgetreten' : 'An error occurred'));
+        }
+    } catch (error) {
+        showError(lang === 'de' ? 'Netzwerkfehler: ' + error.message : 'Network error: ' + error.message);
+    }
+}
+
+function displayResults(data) {
+    let html = '<dl class="row mb-0">';
+    
+    // IP Address
+    html += `<dt class="col-sm-4">${lang === 'de' ? 'IP-Adresse' : 'IP Address'}:</dt>`;
+    html += `<dd class="col-sm-8"><code>${data.ip}</code> <span class="badge bg-secondary">${data.version}</span></dd>`;
+    
+    // Country
+    if (data.country) {
+        html += `<dt class="col-sm-4">${lang === 'de' ? 'Land' : 'Country'}:</dt>`;
+        html += `<dd class="col-sm-8">${data.country.name} (${data.country.code})</dd>`;
+    }
+    
+    // Region
+    if (data.region) {
+        html += `<dt class="col-sm-4">${lang === 'de' ? 'Region' : 'State/Region'}:</dt>`;
+        html += `<dd class="col-sm-8">${data.region}</dd>`;
+    }
+    
+    // City
+    if (data.city) {
+        html += `<dt class="col-sm-4">${lang === 'de' ? 'Stadt' : 'City'}:</dt>`;
+        html += `<dd class="col-sm-8">${data.city}</dd>`;
+    }
+    
+    // Postal Code
+    if (data.postal_code) {
+        html += `<dt class="col-sm-4">${lang === 'de' ? 'Postleitzahl' : 'Postal Code'}:</dt>`;
+        html += `<dd class="col-sm-8">${data.postal_code}</dd>`;
+    }
+    
+    // Location
+    if (data.location) {
+        html += `<dt class="col-sm-4">${lang === 'de' ? 'Koordinaten' : 'Coordinates'}:</dt>`;
+        html += `<dd class="col-sm-8">${data.location.latitude.toFixed(4)}°, ${data.location.longitude.toFixed(4)}°</dd>`;
+        
+        if (data.location.time_zone) {
+            html += `<dt class="col-sm-4">${lang === 'de' ? 'Zeitzone' : 'Time Zone'}:</dt>`;
+            html += `<dd class="col-sm-8">${data.location.time_zone}</dd>`;
+        }
+    }
+    
+    // ASN
+    if (data.asn) {
+        html += `<dt class="col-sm-4">ASN:</dt>`;
+        html += `<dd class="col-sm-8">${data.asn.number}</dd>`;
+        
+        html += `<dt class="col-sm-4">${lang === 'de' ? 'Organisation/ISP' : 'Organization/ISP'}:</dt>`;
+        html += `<dd class="col-sm-8">${data.asn.organization}</dd>`;
+    }
+    
+    html += '</dl>';
+    
+    document.getElementById('resultsContent').innerHTML = html;
+    document.getElementById('resultsCard').style.display = 'block';
+    
+    // Show map if location available
+    if (data.location) {
+        showMap(data.location.latitude, data.location.longitude);
+    }
+}
+
+function showMap(lat, lng) {
+    const mapDiv = document.getElementById('map');
+    const coordsDiv = document.getElementById('mapCoordinates');
+    
+    // Create OpenStreetMap embed
+    mapDiv.innerHTML = `
+        <iframe 
+            width="100%" 
+            height="400" 
+            frameborder="0" 
+            scrolling="no" 
+            marginheight="0" 
+            marginwidth="0" 
+            src="https://www.openstreetmap.org/export/embed.html?bbox=${lng-0.1},${lat-0.1},${lng+0.1},${lat+0.1}&layer=mapnik&marker=${lat},${lng}"
+            style="border: 1px solid #ccc; border-radius: 4px;">
+        </iframe>
+    `;
+    
+    coordsDiv.innerHTML = `${lang === 'de' ? 'Breitengrad' : 'Latitude'}: ${lat.toFixed(6)}°, ${lang === 'de' ? 'Längengrad' : 'Longitude'}: ${lng.toFixed(6)}°`;
+    
+    document.getElementById('mapRow').style.display = 'block';
+}
+
+function showError(message) {
+    const errorAlert = document.getElementById('errorAlert');
+    errorAlert.textContent = message;
+    errorAlert.style.display = 'block';
+}
+
+// Auto-lookup on page load if IP is present
+if (document.getElementById('ipInput').value) {
+    performLookup();
+}
+</script>
+{% endblock %}

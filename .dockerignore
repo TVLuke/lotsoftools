@@ -1,0 +1,49 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+env/
+ENV/
+*.egg-info/
+dist/
+build/
+
+# Git
+.git/
+.gitignore
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Local data (will be mounted as volumes)
+data/
+geoip_data/
+instance/
+
+# Cache
+cache/
+*.tmp
+
+# Logs
+*.log
+
+# Environment
+.env
+.env.local
+
+# Tests
+tests/
+
+# Vendor libs (downloaded at build time)
+app/static/libs/vendor/

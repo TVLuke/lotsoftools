@@ -1,0 +1,338 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    {% if current_lang == 'de' %}Text-Vergleich{% else %}Text Diff{% endif %} - usefull
+{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-12">
+        <h1 class="mb-4">
+            <i class="fas fa-columns me-2"></i>
+            {% if current_lang == 'de' %}Text-Vergleich{% else %}Text Diff{% endif %}
+        </h1>
+    </div>
+</div>
+
+<div class="row mb-3">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body py-2">
+                <div class="d-flex flex-wrap align-items-center gap-3">
+                    <button type="button" class="btn btn-primary" id="diffBtn">
+                        <i class="fas fa-exchange-alt me-2"></i>
+                        {% if current_lang == 'de' %}Vergleichen{% else %}Compare{% endif %}
+                    </button>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="ignoreWhitespace">
+                        <label class="form-check-label" for="ignoreWhitespace">
+                            {% if current_lang == 'de' %}Leerzeichen ignorieren{% else %}Ignore whitespace{% endif %}
+                        </label>
+                    </div>
+                    <button type="button" class="btn btn-outline-secondary btn-sm" id="clearBtn">
+                        <i class="fas fa-trash me-1"></i>
+                        {% if current_lang == 'de' %}Löschen{% else %}Clear{% endif %}
+                    </button>
+                    <div class="ms-auto" id="diffStats"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row" id="inputRow">
+    <div class="col-12 col-lg-6 mb-4">
+        <div class="card h-100">
+            <div class="card-header">
+                <h5 class="mb-0">
+                    <i class="fas fa-file-alt me-2 text-danger"></i>
+                    {% if current_lang == 'de' %}Original (Vorher){% else %}Original (Before){% endif %}
+                </h5>
+            </div>
+            <div class="card-body d-flex flex-column">
+                <textarea class="form-control flex-grow-1 font-monospace" id="leftInput" rows="20" data-enhanced placeholder="{% if current_lang == 'de' %}Originaltext hier einfügen...{% else %}Paste original text here...{% endif %}"></textarea>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-12 col-lg-6 mb-4">
+        <div class="card h-100">
+            <div class="card-header">
+                <h5 class="mb-0">
+                    <i class="fas fa-file-alt me-2 text-success"></i>
+                    {% if current_lang == 'de' %}Geändert (Nachher){% else %}Modified (After){% endif %}
+                </h5>
+            </div>
+            <div class="card-body d-flex flex-column">
+                <textarea class="form-control flex-grow-1 font-monospace" id="rightInput" rows="20" data-enhanced placeholder="{% if current_lang == 'de' %}Geänderten Text hier einfügen...{% else %}Paste modified text here...{% endif %}"></textarea>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row" id="outputRow" style="display: none;">
+    <div class="col-12 col-lg-6 mb-4">
+        <div class="card h-100">
+            <div class="card-header d-flex justify-content-between align-items-center">
+                <h5 class="mb-0">
+                    <i class="fas fa-minus-circle me-2 text-danger"></i>
+                    {% if current_lang == 'de' %}Entfernt{% else %}Removed{% endif %}
+                </h5>
+                <button type="button" class="btn btn-sm btn-outline-secondary" id="editLeftBtn">
+                    <i class="fas fa-edit me-1"></i>{% if current_lang == 'de' %}Bearbeiten{% else %}Edit{% endif %}
+                </button>
+            </div>
+            <div class="card-body">
+                <pre class="diff-output mb-0" id="leftOutput"></pre>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-12 col-lg-6 mb-4">
+        <div class="card h-100">
+            <div class="card-header d-flex justify-content-between align-items-center">
+                <h5 class="mb-0">
+                    <i class="fas fa-plus-circle me-2 text-success"></i>
+                    {% if current_lang == 'de' %}Hinzugefügt{% else %}Added{% endif %}
+                </h5>
+                <button type="button" class="btn btn-sm btn-outline-secondary" id="editRightBtn">
+                    <i class="fas fa-edit me-1"></i>{% if current_lang == 'de' %}Bearbeiten{% else %}Edit{% endif %}
+                </button>
+            </div>
+            <div class="card-body">
+                <pre class="diff-output mb-0" id="rightOutput"></pre>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% include 'components/seo_content.html' %}
+{% endblock %}
+
+{% block extra_css %}
+<style>
+.font-monospace {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.85rem;
+}
+
+.card-body textarea {
+    resize: none;
+}
+
+.diff-output {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.85rem;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    margin: 0;
+    padding: 0;
+    background: transparent;
+    max-height: 600px;
+    overflow-y: auto;
+}
+
+.diff-line {
+    display: block;
+    padding: 1px 4px;
+    margin: 0;
+}
+
+.diff-removed {
+    background-color: #ffdddd;
+    color: #a00;
+}
+
+.diff-added {
+    background-color: #ddffdd;
+    color: #080;
+}
+
+.diff-unchanged {
+    color: var(--bs-body-color);
+}
+
+.diff-line-number {
+    display: inline-block;
+    width: 3em;
+    text-align: right;
+    padding-right: 0.5em;
+    margin-right: 0.5em;
+    border-right: 1px solid #ccc;
+    color: #888;
+    user-select: none;
+}
+
+@media (min-width: 992px) {
+    .card.h-100 {
+        min-height: 500px;
+    }
+}
+
+[data-bs-theme="dark"] .diff-removed {
+    background-color: #4a2020;
+    color: #ff8888;
+}
+
+[data-bs-theme="dark"] .diff-added {
+    background-color: #204a20;
+    color: #88ff88;
+}
+</style>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+const leftInput = document.getElementById('leftInput');
+const rightInput = document.getElementById('rightInput');
+const leftOutput = document.getElementById('leftOutput');
+const rightOutput = document.getElementById('rightOutput');
+const diffBtn = document.getElementById('diffBtn');
+const clearBtn = document.getElementById('clearBtn');
+const ignoreWhitespace = document.getElementById('ignoreWhitespace');
+const inputRow = document.getElementById('inputRow');
+const outputRow = document.getElementById('outputRow');
+const diffStats = document.getElementById('diffStats');
+const editLeftBtn = document.getElementById('editLeftBtn');
+const editRightBtn = document.getElementById('editRightBtn');
+
+const lang = document.documentElement.lang || 'en';
+
+function escapeHtml(str) {
+    return String(str)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#39;');
+}
+
+// Simple LCS-based diff algorithm
+function computeDiff(oldLines, newLines, ignoreWs) {
+    const normalize = ignoreWs ? (s) => s.replace(/\s+/g, ' ').trim() : (s) => s;
+    
+    const m = oldLines.length;
+    const n = newLines.length;
+    
+    // Build LCS table
+    const dp = Array(m + 1).fill(null).map(() => Array(n + 1).fill(0));
+    
+    for (let i = 1; i <= m; i++) {
+        for (let j = 1; j <= n; j++) {
+            if (normalize(oldLines[i - 1]) === normalize(newLines[j - 1])) {
+                dp[i][j] = dp[i - 1][j - 1] + 1;
+            } else {
+                dp[i][j] = Math.max(dp[i - 1][j], dp[i][j - 1]);
+            }
+        }
+    }
+    
+    // Backtrack to find diff
+    const result = [];
+    let i = m, j = n;
+    
+    while (i > 0 || j > 0) {
+        if (i > 0 && j > 0 && normalize(oldLines[i - 1]) === normalize(newLines[j - 1])) {
+            result.unshift({ type: 'unchanged', oldLine: i, newLine: j, text: oldLines[i - 1] });
+            i--;
+            j--;
+        } else if (j > 0 && (i === 0 || dp[i][j - 1] >= dp[i - 1][j])) {
+            result.unshift({ type: 'added', newLine: j, text: newLines[j - 1] });
+            j--;
+        } else {
+            result.unshift({ type: 'removed', oldLine: i, text: oldLines[i - 1] });
+            i--;
+        }
+    }
+    
+    return result;
+}
+
+function renderDiff() {
+    const oldText = leftInput.value;
+    const newText = rightInput.value;
+    const ignoreWs = ignoreWhitespace.checked;
+    
+    const oldLines = oldText.split('\n');
+    const newLines = newText.split('\n');
+    
+    const diff = computeDiff(oldLines, newLines, ignoreWs);
+    
+    let leftHtml = '';
+    let rightHtml = '';
+    let addedCount = 0;
+    let removedCount = 0;
+    let leftLineNum = 0;
+    let rightLineNum = 0;
+    
+    for (const item of diff) {
+        if (item.type === 'unchanged') {
+            leftLineNum++;
+            rightLineNum++;
+            leftHtml += `<span class="diff-line diff-unchanged"><span class="diff-line-number">${leftLineNum}</span>${escapeHtml(item.text)}</span>\n`;
+            rightHtml += `<span class="diff-line diff-unchanged"><span class="diff-line-number">${rightLineNum}</span>${escapeHtml(item.text)}</span>\n`;
+        } else if (item.type === 'removed') {
+            leftLineNum++;
+            removedCount++;
+            leftHtml += `<span class="diff-line diff-removed"><span class="diff-line-number">${leftLineNum}</span>${escapeHtml(item.text)}</span>\n`;
+            rightHtml += `<span class="diff-line diff-unchanged"><span class="diff-line-number"></span></span>\n`;
+        } else if (item.type === 'added') {
+            rightLineNum++;
+            addedCount++;
+            leftHtml += `<span class="diff-line diff-unchanged"><span class="diff-line-number"></span></span>\n`;
+            rightHtml += `<span class="diff-line diff-added"><span class="diff-line-number">${rightLineNum}</span>${escapeHtml(item.text)}</span>\n`;
+        }
+    }
+    
+    leftOutput.innerHTML = leftHtml;
+    rightOutput.innerHTML = rightHtml;
+    
+    // Show stats
+    const statsText = lang === 'de' 
+        ? `<span class="text-danger">−${removedCount}</span> / <span class="text-success">+${addedCount}</span> ${addedCount + removedCount === 0 ? '(identisch)' : 'Zeilen'}`
+        : `<span class="text-danger">−${removedCount}</span> / <span class="text-success">+${addedCount}</span> ${addedCount + removedCount === 0 ? '(identical)' : 'lines'}`;
+    diffStats.innerHTML = statsText;
+    
+    // Show output, hide input
+    inputRow.style.display = 'none';
+    outputRow.style.display = 'flex';
+    
+    if (typeof window.showSupportOnAction === 'function') {
+        window.showSupportOnAction(30000);
+    }
+}
+
+function showInputs() {
+    inputRow.style.display = 'flex';
+    outputRow.style.display = 'none';
+    diffStats.innerHTML = '';
+}
+
+function clearAll() {
+    leftInput.value = '';
+    rightInput.value = '';
+    leftOutput.innerHTML = '';
+    rightOutput.innerHTML = '';
+    diffStats.innerHTML = '';
+    showInputs();
+}
+
+diffBtn.addEventListener('click', () => {
+    if (outputRow.style.display === 'none') {
+        renderDiff();
+    } else {
+        showInputs();
+    }
+});
+
+clearBtn.addEventListener('click', clearAll);
+editLeftBtn.addEventListener('click', showInputs);
+editRightBtn.addEventListener('click', showInputs);
+
+ignoreWhitespace.addEventListener('change', () => {
+    if (outputRow.style.display !== 'none') {
+        renderDiff();
+    }
+});
+</script>
+{% endblock %}

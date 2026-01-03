@@ -1,0 +1,229 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ tool_data.seo.title[current_lang] }} - usefull{% endblock %}
+
+{% block meta_description %}{{ tool_data.seo.description[current_lang] }}{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h1 class="mb-3">{{ tool_data.name[current_lang] }}</h1>
+    <p class="lead mb-4">{{ tool_data.description[current_lang] }}</p>
+    
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <div class="card">
+                <div class="card-body text-center">
+                    <!-- Mode Selector -->
+                    <div class="mb-4">
+                        <div class="btn-group" role="group">
+                            <input type="radio" class="btn-check" name="clockMode" id="analogMode" value="analog" checked>
+                            <label class="btn btn-outline-secondary" for="analogMode">{{ tool_data.ui.analog[current_lang] }}</label>
+                            
+                            <input type="radio" class="btn-check" name="clockMode" id="digitalMode" value="digital">
+                            <label class="btn btn-outline-secondary" for="digitalMode">{{ tool_data.ui.digital[current_lang] }}</label>
+                        </div>
+                    </div>
+                    
+                    <!-- Clock Display -->
+                    <div id="clockContainer" class="my-4">
+                        <!-- Analog Clock -->
+                        <div id="analogClock" class="analog-clock-container">
+                            <div id="clock" second="true"></div>
+                        </div>
+                        
+                        <!-- Digital Clock -->
+                        <div id="digitalClock" class="digital-clock-container" style="display: none;">
+                            <div class="digital-time" id="digitalTime">00:00:00</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Timezone Display -->
+                    <div class="timezone-badge mb-4">
+                        <span class="badge bg-secondary fs-6" id="timezoneDisplay"></span>
+                    </div>
+                    
+                    <!-- Timezone Selector -->
+                    <div class="mb-3">
+                        <label for="timezoneSelect" class="form-label">{{ tool_data.ui.timezone[current_lang] }}</label>
+                        <select class="form-select" id="timezoneSelect" style="max-width: 400px; margin: 0 auto;">
+                            <option value="local">{{ tool_data.ui.local_time[current_lang] }}</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    {% include 'components/seo_content.html' %}
+</div>
+
+<style>
+.analog-clock-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#clock {
+    width: 250px;
+    margin: 0 auto;
+}
+
+.digital-clock-container {
+    padding: 20px;
+}
+
+.digital-time {
+    font-family: 'Courier New', monospace;
+    font-size: 4rem;
+    font-weight: bold;
+    letter-spacing: 0.1em;
+}
+
+@media (max-width: 576px) {
+    .digital-time {
+        font-size: 2.5rem;
+    }
+    #clock {
+        width: 200px;
+    }
+}
+</style>
+
+<script src="{{ url_for('static', filename='libs/analogclock-1.0.1/clock.min.js') }}"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const analogClock = document.getElementById('analogClock');
+    const digitalClock = document.getElementById('digitalClock');
+    const digitalTime = document.getElementById('digitalTime');
+    const timezoneDisplay = document.getElementById('timezoneDisplay');
+    const timezoneSelect = document.getElementById('timezoneSelect');
+    const clockWidget = document.getElementById('clock');
+    
+    // Read parameters from URL
+    const urlParams = new URLSearchParams(window.location.search);
+    let selectedTimezone = urlParams.get('tz') || 'local';
+    let currentMode = urlParams.get('mode') || 'analog';
+    
+    // Get all timezones from browser
+    const allTimezones = Intl.supportedValuesOf('timeZone');
+    
+    // Get UTC offset for a timezone
+    function getTimezoneOffset(timezone) {
+        const now = new Date();
+        const utcDate = new Date(now.toLocaleString('en-US', { timeZone: 'UTC' }));
+        const tzDate = new Date(now.toLocaleString('en-US', { timeZone: timezone }));
+        const offset = (tzDate - utcDate) / 60000; // in minutes
+        const hours = Math.floor(Math.abs(offset) / 60);
+        const minutes = Math.abs(offset) % 60;
+        const sign = offset >= 0 ? '+' : '-';
+        return `${sign}${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}`;
+    }
+    
+    // Get local UTC offset
+    function getLocalOffset() {
+        const offset = -new Date().getTimezoneOffset();
+        const hours = Math.floor(Math.abs(offset) / 60);
+        const minutes = Math.abs(offset) % 60;
+        const sign = offset >= 0 ? '+' : '-';
+        return `${sign}${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}`;
+    }
+    
+    // Populate timezone dropdown with all timezones
+    allTimezones.forEach(tz => {
+        const option = document.createElement('option');
+        option.value = tz;
+        option.textContent = tz.replace(/_/g, ' ');
+        timezoneSelect.appendChild(option);
+    });
+    
+    function getTimeInTimezone(timezone) {
+        const now = new Date();
+        if (timezone === 'local') {
+            return now;
+        }
+        const options = { timeZone: timezone };
+        const tzString = now.toLocaleString('en-US', options);
+        return new Date(tzString);
+    }
+    
+    function getTimezoneLabel(timezone) {
+        if (timezone === 'local') {
+            return Intl.DateTimeFormat().resolvedOptions().timeZone;
+        }
+        return timezone.replace(/_/g, ' ');
+    }
+    
+    function getOffset(timezone) {
+        if (timezone === 'local') {
+            return getLocalOffset();
+        }
+        return getTimezoneOffset(timezone);
+    }
+    
+    function reloadWithParams() {
+        const url = new URL(window.location.href);
+        // Set timezone
+        if (selectedTimezone === 'local') {
+            url.searchParams.delete('tz');
+        } else {
+            url.searchParams.set('tz', selectedTimezone);
+        }
+        // Set mode
+        if (currentMode === 'analog') {
+            url.searchParams.delete('mode');
+        } else {
+            url.searchParams.set('mode', currentMode);
+        }
+        window.location.href = url.toString();
+    }
+    
+    function updateDigitalClock() {
+        const time = getTimeInTimezone(selectedTimezone);
+        const hours = time.getHours();
+        const minutes = time.getMinutes();
+        const seconds = time.getSeconds();
+        
+        const h = hours.toString().padStart(2, '0');
+        const m = minutes.toString().padStart(2, '0');
+        const s = seconds.toString().padStart(2, '0');
+        digitalTime.textContent = `${h}:${m}:${s}`;
+        
+        // Update timezone display
+        timezoneDisplay.textContent = getTimezoneLabel(selectedTimezone);
+    }
+    
+    // Mode toggle - reload page with new mode
+    document.querySelectorAll('input[name="clockMode"]').forEach(radio => {
+        radio.addEventListener('change', function() {
+            currentMode = this.value;
+            reloadWithParams();
+        });
+    });
+    
+    // Timezone selector - reload page with new timezone
+    timezoneSelect.addEventListener('change', function() {
+        selectedTimezone = this.value;
+        reloadWithParams();
+    });
+    
+    // Initialize with parameters from URL
+    clockWidget.setAttribute('offset', getOffset(selectedTimezone));
+    timezoneSelect.value = selectedTimezone;
+    
+    // Apply initial mode
+    if (currentMode === 'digital') {
+        analogClock.style.display = 'none';
+        digitalClock.style.display = 'block';
+        document.getElementById('digitalMode').checked = true;
+    } else {
+        document.getElementById('analogMode').checked = true;
+    }
+    
+    updateDigitalClock();
+    
+    // Update digital clock every second
+    setInterval(updateDigitalClock, 1000);
+});
+</script>
+{% endblock %}

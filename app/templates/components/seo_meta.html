@@ -1,0 +1,11 @@
+{# This component cannot be used for meta tags because Jinja2 blocks don't work in includes #}
+{# Each tool template must define these blocks directly after {% extends 'base.html' %} #}
+{# 
+Usage in tool templates:
+
+{% block title %}{{ tool_data.seo.title[current_lang] }}{% endblock %}
+{% block meta_description %}{{ tool_data.seo.meta_description[current_lang] }}{% endblock %}
+{% block meta_keywords %}{{ tool_data.seo.keywords[current_lang] }}{% endblock %}
+{% block og_title %}{{ tool_data.seo.title[current_lang] }}{% endblock %}
+{% block og_description %}{{ tool_data.seo.meta_description[current_lang] }}{% endblock %}
+#}

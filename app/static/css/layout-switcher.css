@@ -1,0 +1,136 @@
+.layout-switcher {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+    margin-top: 0.5rem;
+}
+
+.layout-buttons {
+    display: flex;
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.layout-button {
+    background-color: var(--color-card-bg);
+    border: none;
+    padding: 0.6rem 1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+    min-width: 48px;
+}
+
+.layout-button:first-child {
+    border-right: 1px solid var(--color-border);
+}
+
+.layout-button:hover {
+    background-color: var(--color-light);
+}
+
+.layout-button.active {
+    background-color: var(--color-primary);
+    color: white;
+}
+
+.layout-button i {
+    font-size: 1.3rem;
+}
+
+@media (max-width: 767.98px) {
+    .desktop-layout-switcher {
+        display: none;
+    }
+}
+
+@media (min-width: 768px) {
+    .mobile-layout-switcher {
+        display: none;
+    }
+}
+
+@media (min-width: 768px) {
+    .compact-layout .category-section {
+        display: none;
+    }
+    
+    .compact-layout .compact-tiles {
+        display: block;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .compact-layout-mobile .category-section {
+        display: none;
+    }
+    
+    .compact-layout-mobile .compact-tiles {
+        display: block;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .compact-layout-mobile .tile-card {
+        height: 120px;
+    }
+    
+    .compact-layout-mobile .tile-icon-container {
+        height: 70px;
+        padding: 0.5rem;
+    }
+    
+    .compact-layout-mobile .tile-icon {
+        max-height: 50px;
+        max-width: 50px;
+    }
+    
+    .compact-layout-mobile .tile-content {
+        padding: 0.4rem;
+    }
+    
+    .compact-layout-mobile .tile-title {
+        font-size: 0.85rem;
+        margin-bottom: 0.2rem;
+    }
+    
+    .compact-layout-mobile .tile-description {
+        font-size: 0.7rem;
+        -webkit-line-clamp: 1;
+        line-clamp: 1;
+    }
+}
+
+.compact-tiles {
+    display: none;
+}
+
+@media (max-width: 767.98px) {
+    .compact-layout-mobile .row {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 0.3rem;
+        margin-left: 0;
+        margin-right: 0;
+    }
+    
+    .compact-layout-mobile .col {
+        width: 100%;
+        max-width: 100%;
+        padding: 0.15rem;
+        flex: none;
+    }
+    
+    .compact-layout-mobile .tile-wrapper {
+        height: 100%;
+    }
+    
+    .compact-layout-mobile .tile-card {
+        height: 100%;
+    }
+}

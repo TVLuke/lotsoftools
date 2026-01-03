@@ -1,0 +1,68 @@
+<div id="supportOnActionToast" class="support-toast--hidden" aria-live="polite" aria-atomic="true">
+    <div class="support-toast-inner">
+        <i id="supportOnActionIcon" class="fas fa-heart"></i>
+        <a id="supportOnActionLink" href="#" target="_blank" rel="noopener noreferrer">
+            <span id="supportOnActionText"></span>
+        </a>
+    </div>
+</div>
+
+{% set ns = namespace(on_action_links=[]) %}
+{% if support_links %}
+    {% for link in support_links %}
+        {% if support_placement_enabled(link, 'on_action') %}
+            {% set _ = ns.on_action_links.append({
+                'url': link.url,
+                'iconClass': support_icon_class(link.type),
+                'text': support_link_text(link, 'on_action', current_lang)
+            }) %}
+        {% endif %}
+    {% endfor %}
+{% endif %}
+<script type="application/json" id="supportOnActionConfig">{{ ns.on_action_links|tojson }}</script>
+
+<script>
+    (function() {
+        let hideTimer = null;
+        const toast = document.getElementById('supportOnActionToast');
+        const linkEl = document.getElementById('supportOnActionLink');
+        const textEl = document.getElementById('supportOnActionText');
+        const iconEl = document.getElementById('supportOnActionIcon');
+
+        try {
+            const configEl = document.getElementById('supportOnActionConfig');
+            const parsed = configEl ? JSON.parse(configEl.textContent || '[]') : [];
+            window.__supportOnActionLinks = Array.isArray(parsed) ? parsed : [];
+        } catch (e) {
+            window.__supportOnActionLinks = [];
+        }
+
+        function show(durationMs) {
+            const links = Array.isArray(window.__supportOnActionLinks) ? window.__supportOnActionLinks : [];
+            if (!toast || !linkEl || !textEl || !iconEl) return;
+            if (!links.length) return;
+
+            const chosen = links[0];
+            if (!chosen || !chosen.url) return;
+
+            linkEl.href = chosen.url;
+            textEl.textContent = chosen.text || chosen.url;
+            iconEl.className = chosen.iconClass || 'fas fa-heart';
+
+            toast.classList.remove('support-toast--hidden');
+            toast.classList.add('support-toast--visible');
+
+            if (hideTimer) {
+                clearTimeout(hideTimer);
+                hideTimer = null;
+            }
+
+            hideTimer = setTimeout(() => {
+                toast.classList.remove('support-toast--visible');
+                toast.classList.add('support-toast--hidden');
+            }, typeof durationMs === 'number' ? durationMs : 30000);
+        }
+
+        window.showSupportOnAction = show;
+    })();
+</script>

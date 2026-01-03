@@ -1,0 +1,237 @@
+{% extends 'base.html' %}
+{% from 'components/textarea.html' import enhanced_textarea %}
+
+{% block title %}
+    {% if current_lang == 'de' %}JSON-Formatierer{% else %}JSON Formatter{% endif %} - usefull
+{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-12">
+        <h1 class="mb-4">
+            <i class="fas fa-code me-2"></i>
+            {% if current_lang == 'de' %}JSON-Formatierer{% else %}JSON Formatter{% endif %}
+        </h1>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12 col-lg-6 mb-4">
+        <div class="card h-100">
+            <div class="card-header">
+                <h5 class="mb-0">
+                    {% if current_lang == 'de' %}Eingabe{% else %}Input{% endif %}
+                </h5>
+            </div>
+            <div class="card-body d-flex flex-column">
+                <textarea class="form-control flex-grow-1 font-monospace" id="jsonInput" rows="20" data-enhanced placeholder="{% if current_lang == 'de' %}JSON hier einfügen...{% else %}Paste JSON here...{% endif %}"></textarea>
+                <div id="validationMessage" class="mt-2"></div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-12 col-lg-6 mb-4">
+        <div class="card h-100">
+            <div class="card-header">
+                <h5 class="mb-0">
+                    {% if current_lang == 'de' %}Ausgabe{% else %}Output{% endif %}
+                </h5>
+            </div>
+            <div class="card-body d-flex flex-column">
+                <textarea class="form-control flex-grow-1 font-monospace" id="jsonOutput" rows="20" data-enhanced readonly></textarea>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0">
+                    {% if current_lang == 'de' %}Formatierungsoptionen{% else %}Formatting Options{% endif %}
+                </h5>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-12 col-md-6 mb-3">
+                        <label class="form-label">
+                            {% if current_lang == 'de' %}Einrückung{% else %}Indentation{% endif %}
+                        </label>
+                        <div class="btn-group w-100 flex-wrap" role="group">
+                            <input type="radio" class="btn-check" name="indentation" id="indent1" value="1" autocomplete="off">
+                            <label class="btn btn-outline-primary" for="indent1">1 {% if current_lang == 'de' %}Leerzeichen{% else %}Space{% endif %}</label>
+                            
+                            <input type="radio" class="btn-check" name="indentation" id="indent2" value="2" autocomplete="off" checked>
+                            <label class="btn btn-outline-primary" for="indent2">2 {% if current_lang == 'de' %}Leerzeichen{% else %}Spaces{% endif %}</label>
+                            
+                            <input type="radio" class="btn-check" name="indentation" id="indent3" value="3" autocomplete="off">
+                            <label class="btn btn-outline-primary" for="indent3">3 {% if current_lang == 'de' %}Leerzeichen{% else %}Spaces{% endif %}</label>
+                            
+                            <input type="radio" class="btn-check" name="indentation" id="indent4" value="4" autocomplete="off">
+                            <label class="btn btn-outline-primary" for="indent4">4 {% if current_lang == 'de' %}Leerzeichen{% else %}Spaces{% endif %}</label>
+                            
+                            <input type="radio" class="btn-check" name="indentation" id="indentTab" value="tab" autocomplete="off">
+                            <label class="btn btn-outline-primary" for="indentTab">Tab</label>
+                        </div>
+                    </div>
+                    
+                    <div class="col-12 col-md-6 mb-3">
+                        <label class="form-label">&nbsp;</label>
+                        <div>
+                            <button type="button" class="btn btn-primary w-100" id="formatBtn">
+                                <i class="fas fa-magic me-2"></i>
+                                {% if current_lang == 'de' %}Formatieren{% else %}Format{% endif %}
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="col-12">
+                        <button type="button" class="btn btn-secondary w-100" id="minifyBtn">
+                            <i class="fas fa-compress me-2"></i>
+                            {% if current_lang == 'de' %}Minimieren{% else %}Minify{% endif %}
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_css %}
+<style>
+.font-monospace {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.9rem;
+}
+
+.card-body textarea {
+    resize: none;
+}
+
+.validation-error {
+    color: #dc3545;
+    font-weight: bold;
+}
+
+.validation-success {
+    color: #198754;
+    font-weight: bold;
+}
+
+.error-highlight {
+    background-color: #f8d7da;
+    border: 2px solid #dc3545;
+}
+
+@media (min-width: 992px) {
+    .card.h-100 {
+        min-height: 500px;
+    }
+}
+</style>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+const jsonInput = document.getElementById('jsonInput');
+const jsonOutput = document.getElementById('jsonOutput');
+const validationMessage = document.getElementById('validationMessage');
+const formatBtn = document.getElementById('formatBtn');
+const minifyBtn = document.getElementById('minifyBtn');
+
+let currentJson = null;
+let isValid = false;
+
+function validateJson() {
+    const input = jsonInput.value.trim();
+    
+    if (!input) {
+        validationMessage.innerHTML = '';
+        jsonOutput.value = '';
+        jsonInput.classList.remove('error-highlight');
+        isValid = false;
+        return;
+    }
+    
+    try {
+        currentJson = JSON.parse(input);
+        isValid = true;
+        jsonInput.classList.remove('error-highlight');
+        validationMessage.innerHTML = '<span class="validation-success"><i class="fas fa-check-circle me-2"></i>{% if current_lang == "de" %}Gültiges JSON{% else %}Valid JSON{% endif %}</span>';
+        
+        // Auto-format with current indentation
+        formatJson();
+    } catch (e) {
+        isValid = false;
+        currentJson = null;
+        jsonInput.classList.add('error-highlight');
+        jsonOutput.value = '';
+        
+        // Extract error position if available
+        let errorMsg = e.message;
+        let position = '';
+        
+        // Try to extract position from error message
+        const posMatch = errorMsg.match(/position (\d+)/i);
+        if (posMatch) {
+            position = ` {% if current_lang == "de" %}bei Position{% else %}at position{% endif %} ${posMatch[1]}`;
+        }
+        
+        validationMessage.innerHTML = `<span class="validation-error"><i class="fas fa-exclamation-circle me-2"></i>{% if current_lang == "de" %}Ungültiges JSON{% else %}Invalid JSON{% endif %}${position}: ${errorMsg}</span>`;
+    }
+}
+
+function formatJson() {
+    if (!isValid || !currentJson) {
+        return;
+    }
+    
+    const indentValue = document.querySelector('input[name="indentation"]:checked').value;
+    let indent;
+    
+    if (indentValue === 'tab') {
+        indent = '\t';
+    } else {
+        indent = parseInt(indentValue);
+    }
+    
+    try {
+        jsonOutput.value = JSON.stringify(currentJson, null, indent);
+    } catch (e) {
+        jsonOutput.value = '{% if current_lang == "de" %}Fehler beim Formatieren{% else %}Error formatting{% endif %}: ' + e.message;
+    }
+}
+
+function minifyJson() {
+    if (!isValid || !currentJson) {
+        return;
+    }
+    
+    try {
+        jsonOutput.value = JSON.stringify(currentJson);
+    } catch (e) {
+        jsonOutput.value = '{% if current_lang == "de" %}Fehler beim Minimieren{% else %}Error minifying{% endif %}: ' + e.message;
+    }
+}
+
+// Event listeners
+jsonInput.addEventListener('input', validateJson);
+
+formatBtn.addEventListener('click', formatJson);
+
+minifyBtn.addEventListener('click', minifyJson);
+
+// Update formatting when indentation changes
+document.querySelectorAll('input[name="indentation"]').forEach(radio => {
+    radio.addEventListener('change', () => {
+        if (isValid) {
+            formatJson();
+        }
+    });
+});
+</script>
+{% endblock %}

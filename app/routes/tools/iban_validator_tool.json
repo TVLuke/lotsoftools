@@ -1,0 +1,92 @@
+{
+  "route": "/tools/iban-validator",
+  "img": "fas fa-university",
+  "name": {
+    "en": "IBAN Validator",
+    "de": "IBAN-Validator"
+  },
+  "description": {
+    "en": "Validate IBAN numbers and get bank information",
+    "de": "IBAN-Nummern validieren und Bankinformationen abrufen"
+  },
+  "tags": ["validator", "finance"],
+  "new_window": false,
+  "frontend_only": true,
+  "uses_external_service": true,
+  "seo": {
+    "title": {
+      "en": "IBAN Validator - Free Online IBAN Validation Tool",
+      "de": "IBAN-Validator - Kostenloses Online-IBAN-Validierungstool"
+    },
+    "meta_description": {
+      "en": "Validate IBAN numbers and retrieve bank information including BIC, bank name, and country. Uses the Openiban API for accurate validation.",
+      "de": "IBAN-Nummern validieren und Bankinformationen wie BIC, Bankname und Land abrufen. Verwendet die Openiban-API für präzise Validierung."
+    },
+    "keywords": {
+      "en": "IBAN validator, IBAN checker, bank account validator, BIC lookup, SEPA validator, international bank account number, IBAN verification",
+      "de": "IBAN-Validator, IBAN-Prüfer, Kontovalidierung, BIC-Suche, SEPA-Validator, internationale Bankkontonummer, IBAN-Verifizierung"
+    },
+    "content": {
+      "heading": {
+        "en": "About This IBAN Validator",
+        "de": "Über diesen IBAN-Validator"
+      },
+      "intro": {
+        "en": "This IBAN validator helps you verify International Bank Account Numbers (IBANs) and retrieve associated bank information. It uses the Openiban API to check the validity of IBANs and provide details like the bank name, BIC code, and country.",
+        "de": "Dieser IBAN-Validator hilft Ihnen, internationale Bankkontonummern (IBANs) zu überprüfen und zugehörige Bankinformationen abzurufen. Er verwendet die Openiban-API, um die Gültigkeit von IBANs zu prüfen und Details wie Bankname, BIC-Code und Land bereitzustellen."
+      },
+      "features": {
+        "heading": {
+          "en": "Key Features:",
+          "de": "Hauptfunktionen:"
+        },
+        "items": [
+          {
+            "en": "<strong>IBAN Validation:</strong> Check if an IBAN is valid according to international standards",
+            "de": "<strong>IBAN-Validierung:</strong> Prüfen Sie, ob eine IBAN nach internationalen Standards gültig ist"
+          },
+          {
+            "en": "<strong>Bank Information:</strong> Get the bank name, city, and address for valid IBANs",
+            "de": "<strong>Bankinformationen:</strong> Erhalten Sie Bankname, Stadt und Adresse für gültige IBANs"
+          },
+          {
+            "en": "<strong>BIC/SWIFT Code:</strong> Retrieve the BIC code associated with the IBAN",
+            "de": "<strong>BIC/SWIFT-Code:</strong> Rufen Sie den zur IBAN gehörenden BIC-Code ab"
+          },
+          {
+            "en": "<strong>Country Detection:</strong> Automatically detect the country from the IBAN",
+            "de": "<strong>Ländererkennung:</strong> Automatische Erkennung des Landes aus der IBAN"
+          }
+        ]
+      },
+      "use_cases": {
+        "heading": {
+          "en": "Use Cases:",
+          "de": "Anwendungsfälle:"
+        },
+        "items": [
+          {
+            "en": "Verify bank account details before making transfers",
+            "de": "Bankdaten vor Überweisungen überprüfen"
+          },
+          {
+            "en": "Validate customer-provided IBANs in forms",
+            "de": "Von Kunden angegebene IBANs in Formularen validieren"
+          },
+          {
+            "en": "Look up bank information from an IBAN",
+            "de": "Bankinformationen aus einer IBAN nachschlagen"
+          },
+          {
+            "en": "Check IBAN format and checksum validity",
+            "de": "IBAN-Format und Prüfsummen-Gültigkeit prüfen"
+          }
+        ]
+      },
+      "privacy_note": {
+        "en": "⚠️ Note: This tool sends the IBAN to the Openiban API (openiban.com) for validation. Do not use with sensitive data if privacy is a concern.",
+        "de": "⚠️ Hinweis: Dieses Tool sendet die IBAN zur Validierung an die Openiban-API (openiban.com). Verwenden Sie es nicht mit sensiblen Daten, wenn Datenschutz ein Anliegen ist."
+      }
+    }
+  }
+}

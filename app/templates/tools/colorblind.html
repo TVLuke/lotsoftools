@@ -1,0 +1,175 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ tool_data.seo.title[current_lang] }} - usefull{% endblock %}
+
+{% block meta_description %}{{ tool_data.seo.meta_description[current_lang] }}{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-12">
+        <h1 class="mb-4">
+            <i class="fas fa-eye me-2"></i>
+            {% if current_lang == 'de' %}Farbenblindheit-Simulator{% else %}Color Blindness Simulator{% endif %}
+        </h1>
+    </div>
+</div>
+
+<div class="row mb-4">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0">
+                    {% if current_lang == 'de' %}Farbblindheitstyp{% else %}Color Deficiency Type{% endif %}
+                </h5>
+            </div>
+            <div class="card-body">
+                <select class="form-select" id="deficiencyType">
+                    <option value="protanopia">Protanopia ({% if current_lang == 'de' %}Kein Rot{% else %}No red{% endif %})</option>
+                    <option value="deuteranopia">Deuteranopia ({% if current_lang == 'de' %}Kein Grün{% else %}No green{% endif %})</option>
+                    <option value="tritanopia">Tritanopia ({% if current_lang == 'de' %}Kein Blau{% else %}No blue{% endif %})</option>
+                    <option value="achromatopsia">Achromatopsia ({% if current_lang == 'de' %}Keine Farbe{% else %}No color{% endif %})</option>
+                </select>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12 col-lg-6">
+        <div class="card mb-4">
+            <div class="card-header">
+                <h5 class="mb-0">
+                    {% if current_lang == 'de' %}Originalfarben{% else %}Original Colors{% endif %}
+                </h5>
+            </div>
+            <div class="card-body">
+                <div id="originalColors">
+                    <!-- 5 color inputs will be generated here -->
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-12 col-lg-6">
+        <div class="card mb-4">
+            <div class="card-header">
+                <h5 class="mb-0">
+                    {% if current_lang == 'de' %}Simulierte Farben{% else %}Simulated Colors{% endif %}
+                </h5>
+            </div>
+            <div class="card-body">
+                <div id="simulatedColors">
+                    <!-- 5 simulated color displays will be generated here -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% include 'components/seo_content.html' %}
+
+{% set library_name = "@bjornlu/colorblind" %}
+{% set library_url = "https://github.com/bluwy/colorblind" %}
+{% include 'components/library_credit.html' %}
+
+{% endblock %}
+
+{% block extra_js %}
+{% include 'components/imports/colorblind.html' %}
+<script>
+// Get colors from URL parameters or use defaults
+const urlParams = new URLSearchParams(window.location.search);
+const colorsParam = urlParams.get('colors');
+const defaultColors = colorsParam ? colorsParam.split(',').map(c => '#' + c).slice(0, 5) : ['#FF0000', '#00FF00', '#0000FF', '#FFFF00', '#FF00FF'];
+
+// Ensure we always have 5 colors
+while (defaultColors.length < 5) {
+    defaultColors.push('#' + Math.floor(Math.random()*16777215).toString(16).padStart(6, '0'));
+}
+
+// Initialize color inputs
+function initializeColors() {
+    const originalContainer = document.getElementById('originalColors');
+    const simulatedContainer = document.getElementById('simulatedColors');
+    
+    defaultColors.forEach((color, index) => {
+        // Create original color input
+        const originalDiv = document.createElement('div');
+        originalDiv.className = 'mb-3';
+        originalDiv.innerHTML = `
+            <label for="color${index}" class="form-label">{% if current_lang == 'de' %}Farbe{% else %}Color{% endif %} ${index + 1}</label>
+            <div class="d-flex align-items-center">
+                <input type="color" class="form-control form-control-color me-2" id="color${index}" value="${color}" style="width: 60px; height: 60px;">
+                <input type="text" class="form-control font-monospace" id="colorHex${index}" value="${color}" maxlength="7" style="width: 100px;">
+            </div>
+        `;
+        originalContainer.appendChild(originalDiv);
+        
+        // Create simulated color display
+        const simulatedDiv = document.createElement('div');
+        simulatedDiv.className = 'mb-3';
+        simulatedDiv.innerHTML = `
+            <label class="form-label">{% if current_lang == 'de' %}Farbe{% else %}Color{% endif %} ${index + 1}</label>
+            <div class="d-flex align-items-center">
+                <div id="simColor${index}" style="width: 60px; height: 60px; border: 1px solid #dee2e6; border-radius: 4px; background-color: ${color};" class="me-2"></div>
+                <input type="text" class="form-control font-monospace" id="simColorHex${index}" value="${color}" readonly style="width: 100px;">
+            </div>
+        `;
+        simulatedContainer.appendChild(simulatedDiv);
+        
+        // Add event listeners
+        const colorInput = document.getElementById(`color${index}`);
+        const hexInput = document.getElementById(`colorHex${index}`);
+        
+        colorInput.addEventListener('change', function(e) {
+            hexInput.value = e.target.value.toUpperCase();
+            simulateColors();
+        });
+        
+        hexInput.addEventListener('input', function(e) {
+            const hex = e.target.value;
+            if (/^#[0-9A-Fa-f]{6}$/.test(hex)) {
+                colorInput.value = hex;
+                simulateColors();
+            }
+        });
+    });
+    
+    simulateColors();
+}
+
+// Simulate colors based on selected deficiency
+function simulateColors() {
+    const deficiency = document.getElementById('deficiencyType').value;
+    
+    defaultColors.forEach((_, index) => {
+        const colorInput = document.getElementById(`color${index}`);
+        const hex = colorInput.value;
+        
+        // Convert hex to RGB
+        const r = parseInt(hex.substr(1, 2), 16);
+        const g = parseInt(hex.substr(3, 2), 16);
+        const b = parseInt(hex.substr(5, 2), 16);
+        
+        // Simulate color blindness
+        const simulated = colorblind.simulate({ r, g, b }, deficiency);
+        
+        // Convert back to hex
+        const simHex = '#' + 
+            Math.round(simulated.r).toString(16).padStart(2, '0') +
+            Math.round(simulated.g).toString(16).padStart(2, '0') +
+            Math.round(simulated.b).toString(16).padStart(2, '0');
+        
+        // Update simulated color display
+        document.getElementById(`simColor${index}`).style.backgroundColor = simHex.toUpperCase();
+        document.getElementById(`simColorHex${index}`).value = simHex.toUpperCase();
+    });
+}
+
+// Event listener for deficiency type change
+document.getElementById('deficiencyType').addEventListener('change', simulateColors);
+
+// Initialize on page load
+initializeColors();
+</script>
+{% endblock %}

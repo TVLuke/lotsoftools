@@ -1,0 +1,59 @@
+{
+  "route": "/tools/youtube-dl",
+  "img": "fab fa-youtube",
+  "name": {
+    "en": "YouTube Downloader",
+    "de": "YouTube Downloader"
+  },
+  "description": {
+    "en": "Download YouTube videos or extract audio",
+    "de": "YouTube-Videos herunterladen oder Audio extrahieren"
+  },
+  "tags": ["media", "converter"],
+  "new_window": false,
+  "frontend_only": false,
+  "seo": {
+    "meta_description": {
+      "en": "Download YouTube videos or extract audio files. Privacy-friendly with automatic file deletion after 1 minute.",
+      "de": "YouTube-Videos herunterladen oder Audiodateien extrahieren. Datenschutzfreundlich mit automatischer Dateilöschung nach 1 Minute."
+    },
+    "keywords": {
+      "en": "youtube, downloader, video, audio, mp3, mp4, converter, privacy",
+      "de": "youtube, downloader, video, audio, mp3, mp4, konverter, datenschutz"
+    },
+    "content": {
+      "heading": {
+        "en": "About This YouTube Downloader",
+        "de": "Über diesen YouTube Downloader"
+      },
+      "intro": {
+        "en": "Download YouTube videos or extract audio files quickly and easily. Choose between video (MP4) or audio-only (MP3) formats.",
+        "de": "Laden Sie YouTube-Videos herunter oder extrahieren Sie Audiodateien schnell und einfach. Wählen Sie zwischen Video (MP4) oder reinem Audio (MP3)."
+      },
+      "features": {
+        "heading": {
+          "en": "Key Features:",
+          "de": "Hauptfunktionen:"
+        },
+        "items": [
+          {
+            "en": "<strong>Video Download:</strong> Download videos in MP4 format with the best available quality",
+            "de": "<strong>Video-Download:</strong> Videos im MP4-Format mit der besten verfügbaren Qualität herunterladen"
+          },
+          {
+            "en": "<strong>Audio Extraction:</strong> Extract audio from videos and save as MP3 files",
+            "de": "<strong>Audio-Extraktion:</strong> Audio aus Videos extrahieren und als MP3-Dateien speichern"
+          },
+          {
+            "en": "<strong>Fast Processing:</strong> Quick downloads powered by yt-dlp",
+            "de": "<strong>Schnelle Verarbeitung:</strong> Schnelle Downloads mit yt-dlp"
+          }
+        ]
+      },
+      "privacy_note": {
+        "en": "🔒 Privacy First: All files are automatically deleted after 1 minute. No permanent storage, no tracking.",
+        "de": "🔒 Datenschutz zuerst: Alle Dateien werden automatisch nach 1 Minute gelöscht. Keine dauerhafte Speicherung, kein Tracking."
+      }
+    }
+  }
+}

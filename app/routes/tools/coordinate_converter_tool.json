@@ -1,0 +1,130 @@
+{
+  "route": "/tools/coordinates",
+  "img": "fas fa-map-marker-alt",
+  "name": {
+    "en": "Coordinate Converter",
+    "de": "Koordinaten-Umrechner"
+  },
+  "description": {
+    "en": "Convert between decimal coordinates and degrees/minutes/seconds (DMS)",
+    "de": "Umrechnung zwischen Dezimalkoordinaten und Grad/Minuten/Sekunden (GMS)"
+  },
+  "tags": ["coordinates", "gps", "map", "geography", "conversion"],
+  "new_window": false,
+  "frontend_only": true,
+  "uses_external_service": false,
+  "ui": {
+    "decimal": {
+      "en": "Decimal Degrees",
+      "de": "Dezimalgrad"
+    },
+    "dms": {
+      "en": "Degrees Minutes Seconds",
+      "de": "Grad Minuten Sekunden"
+    },
+    "latitude": {
+      "en": "Latitude",
+      "de": "Breitengrad"
+    },
+    "longitude": {
+      "en": "Longitude",
+      "de": "Längengrad"
+    },
+    "degrees": {
+      "en": "Degrees",
+      "de": "Grad"
+    },
+    "minutes": {
+      "en": "Minutes",
+      "de": "Minuten"
+    },
+    "seconds": {
+      "en": "Seconds",
+      "de": "Sekunden"
+    },
+    "direction": {
+      "en": "Direction",
+      "de": "Richtung"
+    },
+    "north": {
+      "en": "N",
+      "de": "N"
+    },
+    "south": {
+      "en": "S",
+      "de": "S"
+    },
+    "east": {
+      "en": "E",
+      "de": "O"
+    },
+    "west": {
+      "en": "W",
+      "de": "W"
+    },
+    "dms_string": {
+      "en": "DMS Notation",
+      "de": "GMS-Schreibweise"
+    },
+    "dms_hint": {
+      "en": "Format: 52° 31' 12.03\" or -13° 24' 17.83\" (use - for S/W)",
+      "de": "Format: 52° 31' 12.03\" oder -13° 24' 17.83\" (- für S/W)"
+    },
+    "share_link": {
+      "en": "Share Link",
+      "de": "Link teilen"
+    },
+    "copied": {
+      "en": "Copied!",
+      "de": "Kopiert!"
+    }
+  },
+  "seo": {
+    "title": {
+      "en": "Coordinate Converter - Decimal to DMS and DMS to Decimal",
+      "de": "Koordinaten-Umrechner - Dezimal zu GMS und GMS zu Dezimal"
+    },
+    "description": {
+      "en": "Free online coordinate converter. Convert GPS coordinates between decimal degrees and degrees minutes seconds (DMS). Includes interactive OpenStreetMap.",
+      "de": "Kostenloser Online-Koordinaten-Umrechner. GPS-Koordinaten zwischen Dezimalgrad und Grad Minuten Sekunden (GMS) umrechnen. Mit interaktiver OpenStreetMap."
+    },
+    "keywords": {
+      "en": "coordinate converter, GPS coordinates, decimal degrees, DMS, degrees minutes seconds, latitude longitude, map coordinates",
+      "de": "Koordinaten-Umrechner, GPS-Koordinaten, Dezimalgrad, GMS, Grad Minuten Sekunden, Breitengrad Längengrad, Kartenkoordinaten"
+    },
+    "content": {
+      "heading": {
+        "en": "About This Coordinate Converter",
+        "de": "Über diesen Koordinaten-Umrechner"
+      },
+      "intro": {
+        "en": "This tool allows you to convert geographic coordinates between decimal degrees (DD) format and degrees, minutes, seconds (DMS) format. Simply enter coordinates in either format and see the instant conversion along with the location on an interactive map.",
+        "de": "Dieses Tool ermöglicht die Umrechnung von geografischen Koordinaten zwischen Dezimalgrad (DD) und Grad, Minuten, Sekunden (GMS). Geben Sie einfach Koordinaten in einem der Formate ein und sehen Sie die sofortige Umrechnung sowie den Standort auf einer interaktiven Karte."
+      },
+      "features": {
+        "heading": {
+          "en": "Features:",
+          "de": "Funktionen:"
+        },
+        "items": [
+          {
+            "en": "<strong>Bidirectional conversion:</strong> Convert from decimal to DMS or DMS to decimal",
+            "de": "<strong>Bidirektionale Umrechnung:</strong> Von Dezimal zu GMS oder GMS zu Dezimal umrechnen"
+          },
+          {
+            "en": "<strong>Interactive map:</strong> See the location displayed on OpenStreetMap",
+            "de": "<strong>Interaktive Karte:</strong> Standort auf OpenStreetMap anzeigen"
+          },
+          {
+            "en": "<strong>Shareable links:</strong> Share coordinates via URL parameters",
+            "de": "<strong>Teilbare Links:</strong> Koordinaten über URL-Parameter teilen"
+          }
+        ]
+      },
+      "privacy_note": {
+        "en": "🔒 Privacy-Friendly: All conversions happen directly in your browser. Your coordinates are never sent to any server.",
+        "de": "🔒 Datenschutzfreundlich: Alle Umrechnungen erfolgen direkt in Ihrem Browser. Ihre Koordinaten werden niemals an einen Server gesendet."
+      }
+    }
+  }
+}

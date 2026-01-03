@@ -1,0 +1,61 @@
+<style>
+    #supportOnActionToast {
+        position: fixed;
+        z-index: 1080;
+        pointer-events: none;
+    }
+
+    #supportOnActionToast .support-toast-inner {
+        pointer-events: auto;
+        background: rgba(255, 255, 255, 0.98);
+        border: 1px solid rgba(0, 0, 0, 0.08);
+        border-radius: 12px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+        padding: 10px 12px;
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    #supportOnActionToast .support-toast-inner a {
+        text-decoration: none;
+        color: inherit;
+    }
+
+    #supportOnActionToast.support-toast--hidden {
+        opacity: 0;
+    }
+
+    @media (max-width: 767.98px) {
+        #supportOnActionToast {
+            left: 0;
+            right: 0;
+            bottom: 14px;
+            display: flex;
+            justify-content: center;
+            transform: translateY(120%);
+            opacity: 0;
+            transition: transform 260ms ease, opacity 260ms ease;
+        }
+
+        #supportOnActionToast.support-toast--visible {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    }
+
+    @media (min-width: 768px) {
+        #supportOnActionToast {
+            top: 90px;
+            right: 14px;
+            transform: translateX(120%);
+            opacity: 0;
+            transition: transform 260ms ease, opacity 260ms ease;
+        }
+
+        #supportOnActionToast.support-toast--visible {
+            transform: translateX(0);
+            opacity: 1;
+        }
+    }
+</style>

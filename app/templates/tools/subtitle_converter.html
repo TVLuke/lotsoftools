@@ -1,0 +1,172 @@
+{% extends "base.html" %}
+
+{% block title %}{{ tool_data.name[current_lang] }} - {{ super() }}{% endblock %}
+{% block meta_description %}{{ tool_data.description[current_lang] }}{% endblock %}
+{% block meta_keywords %}{% if tool_data.seo and tool_data.seo.keywords %}{{ tool_data.seo.keywords[current_lang] }}{% else %}subtitle, converter, srt, ass, vtt, webvtt, ttml, sami, mpl2, microdvd{% endif %}{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-12">
+        <h1 class="mb-4">
+            <i class="fas fa-closed-captioning me-2"></i>
+            {% if current_lang == 'de' %}Untertitel-Konverter{% else %}Subtitle Converter{% endif %}
+        </h1>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12">
+        <div class="card mb-4">
+            <div class="card-body">
+                <form id="converterForm" enctype="multipart/form-data">
+                    <div class="mb-3">
+                        <label for="fileInput" class="form-label">
+                            {% if current_lang == 'de' %}Untertiteldatei auswählen{% else %}Select Subtitle File{% endif %}
+                        </label>
+                        <input type="file" class="form-control" id="fileInput" name="file" accept=".srt,.ass,.ssa,.vtt,.ttml,.sami,.tmp,.mpl2,.sub" required>
+                        <div class="form-text">
+                            {% if current_lang == 'de' %}
+                                Maximale Dateigröße: 2 MB
+                            {% else %}
+                                Maximum file size: 2 MB
+                            {% endif %}
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="formatSelect" class="form-label">
+                            {% if current_lang == 'de' %}Zielformat{% else %}Target Format{% endif %}
+                        </label>
+                        <select class="form-select" id="formatSelect" name="format" required>
+                            <option value="">{% if current_lang == 'de' %}Format wählen...{% else %}Select format...{% endif %}</option>
+                            <option value="srt">SubRip (.srt)</option>
+                            <option value="ass">SubStation Alpha (.ass)</option>
+                            <option value="ssa">SubStation Alpha (.ssa)</option>
+                            <option value="vtt">WebVTT (.vtt)</option>
+                            <option value="ttml">TTML (.ttml)</option>
+                            <option value="sami">SAMI (.sami)</option>
+                            <option value="tmp">TMP Player (.tmp)</option>
+                            <option value="mpl2">MPL2 (.mpl2)</option>
+                            <option value="microdvd">MicroDVD (.sub)</option>
+                        </select>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary" id="convertBtn">
+                        <i class="fas fa-exchange-alt me-2"></i>
+                        {% if current_lang == 'de' %}Konvertieren{% else %}Convert{% endif %}
+                    </button>
+                </form>
+
+                <div id="progressDiv" class="mt-3" style="display: none;">
+                    <div class="progress">
+                        <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: 100%"></div>
+                    </div>
+                    <p class="text-center mt-2 text-muted">
+                        {% if current_lang == 'de' %}Konvertiere...{% else %}Converting...{% endif %}
+                    </p>
+                </div>
+
+                <div id="errorDiv" class="alert alert-danger mt-3" style="display: none;"></div>
+                <div id="successDiv" class="alert alert-success mt-3" style="display: none;"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% include 'components/seo_content.html' %}
+{% endblock %}
+
+{% block extra_js %}
+<script>
+const lang = document.documentElement.lang || 'en';
+
+document.getElementById('converterForm').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    
+    const fileInput = document.getElementById('fileInput');
+    const formatSelect = document.getElementById('formatSelect');
+    const convertBtn = document.getElementById('convertBtn');
+    const progressDiv = document.getElementById('progressDiv');
+    const errorDiv = document.getElementById('errorDiv');
+    const successDiv = document.getElementById('successDiv');
+    
+    // Validate inputs
+    if (!fileInput.files[0]) {
+        showError(lang === 'de' ? 'Bitte wählen Sie eine Datei aus' : 'Please select a file');
+        return;
+    }
+    
+    if (!formatSelect.value) {
+        showError(lang === 'de' ? 'Bitte wählen Sie ein Zielformat' : 'Please select a target format');
+        return;
+    }
+    
+    // Check file size
+    const maxSize = 2 * 1024 * 1024; // 2 MB
+    if (fileInput.files[0].size > maxSize) {
+        showError(lang === 'de' ? 'Datei ist zu groß. Maximale Größe: 2 MB' : 'File is too large. Maximum size: 2 MB');
+        return;
+    }
+    
+    // Hide previous messages
+    errorDiv.style.display = 'none';
+    successDiv.style.display = 'none';
+    
+    // Show progress
+    progressDiv.style.display = 'block';
+    convertBtn.disabled = true;
+    
+    // Prepare form data
+    const formData = new FormData();
+    formData.append('file', fileInput.files[0]);
+    formData.append('format', formatSelect.value);
+    
+    try {
+        const response = await fetch('/tools/subtitle-converter/convert', {
+            method: 'POST',
+            body: formData
+        });
+        
+        if (!response.ok) {
+            const error = await response.json();
+            throw new Error(error.error || 'Conversion failed');
+        }
+        
+        // Download the file
+        const blob = await response.blob();
+        const url = window.URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = fileInput.files[0].name.replace(/\.[^.]+$/, '') + '_converted.zip';
+        document.body.appendChild(a);
+        a.click();
+        window.URL.revokeObjectURL(url);
+        document.body.removeChild(a);
+
+        if (typeof window.showSupportOnAction === 'function') {
+            window.showSupportOnAction(30000);
+        }
+        
+        // Show success message
+        successDiv.textContent = lang === 'de' ? 'Konvertierung erfolgreich! Download gestartet.' : 'Conversion successful! Download started.';
+        successDiv.style.display = 'block';
+        
+        // Reset form
+        fileInput.value = '';
+        formatSelect.value = '';
+        
+    } catch (error) {
+        showError(error.message);
+    } finally {
+        progressDiv.style.display = 'none';
+        convertBtn.disabled = false;
+    }
+});
+
+function showError(message) {
+    const errorDiv = document.getElementById('errorDiv');
+    errorDiv.textContent = message;
+    errorDiv.style.display = 'block';
+}
+</script>
+{% endblock %}

@@ -1,0 +1,311 @@
+{% extends 'base.html' %}
+{% from 'components/textarea.html' import enhanced_textarea %}
+
+{% block title %}{{ tool_data.seo.title[current_lang] }} - usefull{% endblock %}
+
+{% block meta_description %}{{ tool_data.seo.meta_description[current_lang] }}{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-12">
+        <h1 class="mb-4">
+            <i class="fas fa-table me-2"></i>
+            {% if current_lang == 'de' %}CSV-Tabelle{% else %}CSV Table{% endif %}
+        </h1>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12">
+        <div class="card mb-4">
+            <div class="card-body">
+                <label for="csvInput" class="form-label">
+                    {% if current_lang == 'de' %}CSV-Daten eingeben:{% else %}Enter CSV data:{% endif %}
+                </label>
+                <textarea class="form-control font-monospace" id="csvInput" rows="15" data-enhanced placeholder="{% if current_lang == 'de' %}CSV-Daten hier einfügen...{% else %}Paste CSV data here...{% endif %}"></textarea>
+                
+                <div class="form-check mt-3">
+                    <input class="form-check-input" type="checkbox" id="hasHeaderCheckbox">
+                    <label class="form-check-label" for="hasHeaderCheckbox">
+                        {% if current_lang == 'de' %}Erste Zeile ist Kopfzeile{% else %}First row is header{% endif %}
+                    </label>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12">
+        <h5 class="mb-3">
+            {% if current_lang == 'de' %}Tabelle{% else %}Table{% endif %}
+        </h5>
+        <div id="tableContainer" class="table-responsive">
+            <p class="text-muted text-center">
+                {% if current_lang == 'de' %}Geben Sie CSV-Daten ein, um die Tabelle zu sehen{% else %}Enter CSV data to see the table{% endif %}
+            </p>
+        </div>
+    </div>
+</div>
+
+{% include 'components/seo_content.html' %}
+{% endblock %}
+
+{% block extra_css %}
+<style>
+.font-monospace {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.9rem;
+}
+
+.csv-table {
+    width: 100%;
+    margin-top: 1rem;
+}
+
+.csv-table th,
+.csv-table td {
+    padding: 0.75rem;
+    border: 1px solid #dee2e6;
+}
+
+.csv-table th {
+    background-color: #f8f9fa;
+    font-weight: bold;
+}
+
+/* Color picker styles moved to color-picker.css */
+
+#csvInput {
+    white-space: pre;
+    overflow-wrap: normal;
+    overflow-x: auto;
+}
+</style>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+const csvInput = document.getElementById('csvInput');
+const tableContainer = document.getElementById('tableContainer');
+
+let parsedData = [];
+let headers = [];
+let columnColorMap = {};
+let coloredTextarea = null;
+
+function parseCSV(text) {
+    if (!text.trim()) {
+        return [];
+    }
+    
+    const lines = text.split('\n').filter(line => line.trim());
+    const result = [];
+    
+    for (let line of lines) {
+        // Simple CSV parsing (handles basic cases)
+        const row = [];
+        let currentField = '';
+        let inQuotes = false;
+        
+        for (let i = 0; i < line.length; i++) {
+            const char = line[i];
+            
+            if (char === '"') {
+                inQuotes = !inQuotes;
+            } else if (char === ',' && !inQuotes) {
+                row.push(currentField.trim());
+                currentField = '';
+            } else {
+                currentField += char;
+            }
+        }
+        row.push(currentField.trim());
+        result.push(row);
+    }
+    
+    return result;
+}
+
+function updateTable() {
+    const text = csvInput.value;
+    
+    if (!text.trim()) {
+        tableContainer.innerHTML = '<p class="text-muted text-center">{% if current_lang == "de" %}Geben Sie CSV-Daten ein, um die Tabelle zu sehen{% else %}Enter CSV data to see the table{% endif %}</p>';
+        return;
+    }
+    
+    parsedData = parseCSV(text);
+    
+    if (parsedData.length === 0) {
+        tableContainer.innerHTML = '<p class="text-muted text-center">{% if current_lang == "de" %}Keine Daten gefunden{% else %}No data found{% endif %}</p>';
+        return;
+    }
+    
+    const hasHeader = document.getElementById('hasHeaderCheckbox').checked;
+    
+    // Determine headers and data rows based on checkbox
+    if (hasHeader) {
+        headers = parsedData[0];
+        var rows = parsedData.slice(1);
+    } else {
+        // Generate column headers (Column 1, Column 2, etc.)
+        const maxCols = Math.max(...parsedData.map(row => row.length));
+        headers = Array.from({length: maxCols}, (_, i) => `Column ${i + 1}`);
+        var rows = parsedData;
+    }
+    
+    // Create table with color selectors in header
+    let html = '<table class="table table-bordered csv-table">';
+    
+    // Header row with color pickers
+    html += '<thead><tr>';
+    for (let i = 0; i < headers.length; i++) {
+        const color = columnColorMap[i] || '#000000';
+        html += `<th>
+            <div class="csv-color-picker">
+                <div class="csv-color-circle" style="background-color: ${color};">
+                    <input type="color" class="color-input" value="${color}" data-column="${i}">
+                </div>
+                <input type="text" class="csv-hex-input" value="${color.toUpperCase()}" data-column="${i}" maxlength="7">
+            </div>
+            ${escapeHtml(headers[i])}
+        </th>`;
+    }
+    html += '</tr></thead>';
+    
+    // Data rows
+    html += '<tbody>';
+    for (let row of rows) {
+        html += '<tr>';
+        for (let i = 0; i < headers.length; i++) {
+            const value = row[i] || '';
+            const color = columnColorMap[i] || '#000000';
+            html += `<td style="color: ${color}">${escapeHtml(value)}</td>`;
+        }
+        html += '</tr>';
+    }
+    html += '</tbody></table>';
+    
+    tableContainer.innerHTML = html;
+    
+    // Initialize color pickers and listen for changes
+    document.querySelectorAll('.csv-color-picker').forEach(picker => {
+        // Initialize the ColorPicker component
+        new ColorPicker(picker);
+        
+        // Listen for color changes
+        picker.addEventListener('colorchange', function(e) {
+            const colorInput = this.querySelector('.color-input');
+            const columnIndex = parseInt(colorInput.dataset.column);
+            columnColorMap[columnIndex] = e.detail.color;
+            colorTextInInput();
+        });
+    });
+    
+    // Update text coloring
+    colorTextInInput();
+}
+
+function colorTextInInput() {
+    const lines = csvInput.value.split('\n');
+    let coloredHtml = '';
+    
+    for (let lineIdx = 0; lineIdx < lines.length; lineIdx++) {
+        const line = lines[lineIdx];
+        if (!line.trim()) {
+            coloredHtml += '\n';
+            continue;
+        }
+        
+        const fields = parseCSVLine(line);
+        let coloredLine = '';
+        let currentPos = 0;
+        
+        for (let fieldIdx = 0; fieldIdx < fields.length; fieldIdx++) {
+            const field = fields[fieldIdx];
+            const color = columnColorMap[fieldIdx] || '#000000';
+            
+            // Find the field in the original line
+            const fieldStart = line.indexOf(field, currentPos);
+            
+            // Add any text before the field (commas, quotes, etc)
+            if (fieldStart > currentPos) {
+                coloredLine += escapeHtml(line.substring(currentPos, fieldStart));
+            }
+            
+            // Add the colored field
+            coloredLine += `<span style="color: ${color}">${escapeHtml(field)}</span>`;
+            currentPos = fieldStart + field.length;
+        }
+        
+        // Add any remaining text on the line
+        if (currentPos < line.length) {
+            coloredLine += escapeHtml(line.substring(currentPos));
+        }
+        
+        coloredHtml += coloredLine + '\n';
+    }
+    
+    // Create or update colored overlay
+    if (!coloredTextarea) {
+        // Create overlay div
+        coloredTextarea = document.createElement('div');
+        coloredTextarea.className = 'colored-textarea-overlay';
+        coloredTextarea.style.position = 'absolute';
+        coloredTextarea.style.top = csvInput.offsetTop + 'px';
+        coloredTextarea.style.left = csvInput.offsetLeft + 'px';
+        coloredTextarea.style.width = csvInput.offsetWidth + 'px';
+        coloredTextarea.style.height = csvInput.offsetHeight + 'px';
+        coloredTextarea.style.padding = '0.375rem 0.75rem';
+        coloredTextarea.style.fontFamily = csvInput.style.fontFamily || 'monospace';
+        coloredTextarea.style.fontSize = csvInput.style.fontSize || '0.9rem';
+        coloredTextarea.style.whiteSpace = 'pre';
+        coloredTextarea.style.overflow = 'auto';
+        coloredTextarea.style.pointerEvents = 'none';
+        coloredTextarea.style.border = '1px solid transparent';
+        coloredTextarea.style.borderRadius = '0.375rem';
+        
+        csvInput.parentNode.style.position = 'relative';
+        csvInput.parentNode.appendChild(coloredTextarea);
+        
+        // Make textarea background transparent to show overlay
+        csvInput.style.color = 'transparent';
+        csvInput.style.caretColor = 'black';
+    }
+    
+    coloredTextarea.innerHTML = coloredHtml;
+}
+
+function parseCSVLine(line) {
+    const fields = [];
+    let currentField = '';
+    let inQuotes = false;
+    
+    for (let i = 0; i < line.length; i++) {
+        const char = line[i];
+        
+        if (char === '"') {
+            inQuotes = !inQuotes;
+        } else if (char === ',' && !inQuotes) {
+            fields.push(currentField.trim());
+            currentField = '';
+        } else {
+            currentField += char;
+        }
+    }
+    fields.push(currentField.trim());
+    return fields;
+}
+
+function escapeHtml(text) {
+    const div = document.createElement('div');
+    div.textContent = text;
+    return div.innerHTML;
+}
+
+// Event listeners
+csvInput.addEventListener('input', updateTable);
+document.getElementById('hasHeaderCheckbox').addEventListener('change', updateTable);
+</script>
+{% endblock %}

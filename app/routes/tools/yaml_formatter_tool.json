@@ -1,0 +1,83 @@
+{
+  "route": "/tools/yaml-formatter",
+  "img": "fas fa-project-diagram",
+  "name": {
+    "en": "YAML Formatter",
+    "de": "YAML-Formatierer"
+  },
+  "description": {
+    "en": "Format and validate YAML (YML) data",
+    "de": "YAML (YML) Daten formatieren und validieren"
+  },
+  "tags": ["text tools", "formatter", "validator"],
+  "new_window": false,
+  "frontend_only": true,
+  "seo": {
+    "title": {
+      "en": "YAML Formatter - Free Online YAML Validator & Beautifier",
+      "de": "YAML-Formatierer - Kostenloser Online YAML Validator & Verschönerer"
+    },
+    "meta_description": {
+      "en": "Format and validate YAML (YML) online. Pretty print YAML with customizable indentation. Browser-based, privacy-friendly, no registration required.",
+      "de": "YAML (YML) online formatieren und validieren. YAML schön drucken mit anpassbarer Einrückung. Browser-basiert, datenschutzfreundlich, keine Registrierung erforderlich."
+    },
+    "keywords": {
+      "en": "YAML formatter, YML formatter, YAML validator, YAML beautifier, pretty print YAML, browser-based, privacy-friendly, free YAML tool",
+      "de": "YAML-Formatierer, YML-Formatierer, YAML-Validator, YAML-Verschönerer, YAML schön drucken, Browser-basiert, Datenschutzfreundlich, kostenloses YAML-Tool"
+    },
+    "content": {
+      "heading": {
+        "en": "About This YAML Formatter",
+        "de": "Über diesen YAML-Formatierer"
+      },
+      "intro": {
+        "en": "This browser-based YAML formatter validates and formats YAML (YML) data for readability. Useful for Kubernetes manifests, CI/CD configs, and app configuration files. All processing happens in your browser - your YAML stays private.",
+        "de": "Dieser Browser-basierte YAML-Formatierer validiert und formatiert YAML (YML) Daten für bessere Lesbarkeit. Nützlich für Kubernetes-Manifeste, CI/CD-Konfigurationen und App-Config-Dateien. Alle Verarbeitung erfolgt in Ihrem Browser - Ihre YAML-Daten bleiben privat."
+      },
+      "features": {
+        "heading": {
+          "en": "Key Features:",
+          "de": "Hauptfunktionen:"
+        },
+        "items": [
+          {
+            "en": "<strong>Format & Beautify:</strong> Convert messy YAML into a consistent, indented structure",
+            "de": "<strong>Formatieren & Verschönern:</strong> Unübersichtliches YAML in eine konsistente, eingerückte Struktur umwandeln"
+          },
+          {
+            "en": "<strong>Validate YAML:</strong> Detect syntax errors and invalid YAML documents",
+            "de": "<strong>YAML validieren:</strong> Syntaxfehler und ungültige YAML-Dokumente erkennen"
+          },
+          {
+            "en": "<strong>Indentation options:</strong> Choose 2 or 4 spaces",
+            "de": "<strong>Einrückungsoptionen:</strong> 2 oder 4 Leerzeichen wählen"
+          }
+        ]
+      },
+      "use_cases": {
+        "heading": {
+          "en": "Use Cases:",
+          "de": "Anwendungsfälle:"
+        },
+        "items": [
+          {
+            "en": "Format Kubernetes YAML manifests",
+            "de": "Kubernetes-YAML-Manifeste formatieren"
+          },
+          {
+            "en": "Validate CI/CD configuration files",
+            "de": "CI/CD-Konfigurationsdateien validieren"
+          },
+          {
+            "en": "Clean up application configuration (YML) files",
+            "de": "Anwendungs-Konfigurationsdateien (YML) aufräumen"
+          }
+        ]
+      },
+      "privacy_note": {
+        "en": "🔒 Privacy-Friendly: YAML formatting and validation happens entirely in your browser. Your data never leaves your device.",
+        "de": "🔒 Datenschutzfreundlich: YAML-Formatierung und -Validierung erfolgt vollständig in Ihrem Browser. Ihre Daten verlassen nie Ihr Gerät."
+      }
+    }
+  }
+}

@@ -1,0 +1,551 @@
+{% extends 'base.html' %}
+{% from 'components/textarea.html' import enhanced_textarea %}
+
+{% block title %}
+    {% if current_lang == 'de' %}Teleprompter{% else %}Teleprompter{% endif %} - usefull
+{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-12">
+        <h1 class="mb-4">
+            <i class="fas fa-scroll me-2"></i>
+            Teleprompter
+        </h1>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12">
+        <div class="card mb-4">
+            <div class="card-body">
+                {{ enhanced_textarea('scriptInput', rows=12, label=tool_data.ui.text_input[current_lang], placeholder='# My Speech\n\nWelcome everyone...\n\n<<3>>\n\nThis is the main part...' if current_lang == 'en' else '# Meine Rede\n\nWillkommen alle...\n\n<<3>>\n\nDies ist der Hauptteil...') }}
+                <small class="text-muted d-block mt-2">
+                    <i class="fas fa-info-circle me-1"></i>
+                    {{ tool_data.ui.pause_hint[current_lang] }}
+                </small>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12">
+        <div class="card mb-4">
+            <div class="card-header">
+                <h5 class="mb-0">
+                    {% if current_lang == 'de' %}Einstellungen{% else %}Settings{% endif %}
+                </h5>
+            </div>
+            <div class="card-body">
+                <div class="row g-3">
+                    <div class="col-md-4">
+                        <label for="countdown" class="form-label">{{ tool_data.ui.countdown[current_lang] }}</label>
+                        <input type="number" class="form-control" id="countdown" value="10" min="0" max="60">
+                    </div>
+                    <div class="col-md-4">
+                        <label for="fontSize" class="form-label">{{ tool_data.ui.font_size[current_lang] }}</label>
+                        <input type="number" class="form-control" id="fontSize" value="48" min="16" max="200">
+                    </div>
+                    <div class="col-md-4">
+                        <label for="scrollSpeed" class="form-label">{{ tool_data.ui.scroll_speed[current_lang] }}</label>
+                        <input type="range" class="form-range mt-2" id="scrollSpeed" min="1" max="10" value="3">
+                        <div class="d-flex justify-content-between">
+                            <small>{% if current_lang == 'de' %}Langsam{% else %}Slow{% endif %}</small>
+                            <small>{% if current_lang == 'de' %}Schnell{% else %}Fast{% endif %}</small>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="row g-3 mt-2">
+                    <div class="col-md-3">
+                        <label for="textColor" class="form-label">{{ tool_data.ui.text_color[current_lang] }}</label>
+                        <input type="color" class="form-control form-control-color w-100" id="textColor" value="#ffffff">
+                    </div>
+                    <div class="col-md-3">
+                        <label for="bgColor" class="form-label">{{ tool_data.ui.background_color[current_lang] }}</label>
+                        <input type="color" class="form-control form-control-color w-100" id="bgColor" value="#000000">
+                    </div>
+                    <div class="col-md-3">
+                        <label for="markerColor" class="form-label">{{ tool_data.ui.marker_color[current_lang] }}</label>
+                        <input type="color" class="form-control form-control-color w-100" id="markerColor" value="#8b0000">
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-check mt-4">
+                            <input class="form-check-input" type="checkbox" id="mirrorMode">
+                            <label class="form-check-label" for="mirrorMode">
+                                {{ tool_data.ui.mirror_mode[current_lang] }}
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12">
+        <button class="btn btn-primary btn-lg w-100" id="startBtn">
+            <i class="fas fa-play me-2"></i>
+            {{ tool_data.ui.start[current_lang] }}
+        </button>
+        <small class="text-muted d-block text-center mt-2">
+            <i class="fas fa-keyboard me-1"></i>
+            {{ tool_data.ui.exit_hint[current_lang] }}
+        </small>
+    </div>
+</div>
+
+<!-- Fullscreen Teleprompter Overlay -->
+<div id="teleprompterOverlay" class="teleprompter-overlay">
+    <button class="teleprompter-close" id="closeBtn" title="{% if current_lang == 'de' %}Schließen (ESC){% else %}Close (ESC){% endif %}">
+        <i class="fas fa-times"></i>
+    </button>
+    
+    <div class="teleprompter-countdown" id="countdownDisplay"></div>
+    
+    <div class="teleprompter-marker" id="markerLine"></div>
+    
+    <div class="teleprompter-content" id="teleprompterContent"></div>
+    
+    <div class="teleprompter-pause-indicator" id="pauseIndicator">
+        <i class="fas fa-pause-circle"></i>
+        <span id="pauseCountdown"></span>
+    </div>
+    
+    <div class="teleprompter-nav-buttons">
+        <button class="teleprompter-nav-btn" id="prevBreakBtn" title="{% if current_lang == 'de' %}Vorheriger Abschnitt{% else %}Previous section{% endif %}">
+            <i class="fas fa-chevron-up"></i>
+        </button>
+        <button class="teleprompter-nav-btn" id="nextBreakBtn" title="{% if current_lang == 'de' %}Nächster Abschnitt{% else %}Next section{% endif %}">
+            <i class="fas fa-chevron-down"></i>
+        </button>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_css %}
+<style>
+.teleprompter-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 9999;
+    overflow: hidden;
+}
+
+.teleprompter-overlay.active {
+    display: block;
+}
+
+.teleprompter-close {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 10001;
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    color: inherit;
+    font-size: 24px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.teleprompter-close:hover {
+    background: rgba(255, 255, 255, 0.4);
+}
+
+.teleprompter-countdown {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 200px;
+    font-weight: bold;
+    z-index: 10002;
+    display: none;
+}
+
+.teleprompter-countdown.active {
+    display: block;
+}
+
+.teleprompter-marker {
+    position: fixed;
+    top: 50%;
+    left: 0;
+    right: 0;
+    z-index: 9998;
+    transform: translateY(-50%);
+    pointer-events: none;
+    opacity: 0.4;
+}
+
+.teleprompter-content {
+    position: absolute;
+    left: 5%;
+    right: 5%;
+    text-align: center;
+    line-height: 1.6;
+    padding-top: 50vh;
+    padding-bottom: 50vh;
+}
+
+.teleprompter-content.mirrored {
+    transform: scaleX(-1);
+}
+
+.teleprompter-content h1 {
+    font-size: 1.5em;
+    margin: 0.5em 0;
+}
+
+.teleprompter-content h2 {
+    font-size: 1.3em;
+    margin: 0.4em 0;
+}
+
+.teleprompter-content h3 {
+    font-size: 1.15em;
+    margin: 0.3em 0;
+}
+
+.teleprompter-content p {
+    margin: 0.5em 0;
+}
+
+.teleprompter-content ul,
+.teleprompter-content ol {
+    text-align: left;
+    display: inline-block;
+}
+
+.teleprompter-pause-indicator {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 24px;
+    padding: 10px 20px;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    display: none;
+    z-index: 10001;
+}
+
+.teleprompter-pause-indicator.active {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.teleprompter-nav-buttons {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    z-index: 10001;
+}
+
+.teleprompter-nav-btn {
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    color: inherit;
+    font-size: 24px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.teleprompter-nav-btn:hover {
+    background: rgba(255, 255, 255, 0.4);
+}
+
+.break-marker {
+    height: 0;
+    margin: 0;
+    padding: 0;
+}
+</style>
+{% endblock %}
+
+{% block extra_js %}
+{% include 'components/imports/marked.html' %}
+<script>
+const scriptInput = document.getElementById('scriptInput');
+const countdownInput = document.getElementById('countdown');
+const fontSizeInput = document.getElementById('fontSize');
+const scrollSpeedInput = document.getElementById('scrollSpeed');
+const textColorInput = document.getElementById('textColor');
+const bgColorInput = document.getElementById('bgColor');
+const markerColorInput = document.getElementById('markerColor');
+const mirrorModeInput = document.getElementById('mirrorMode');
+const startBtn = document.getElementById('startBtn');
+const closeBtn = document.getElementById('closeBtn');
+
+const overlay = document.getElementById('teleprompterOverlay');
+const countdownDisplay = document.getElementById('countdownDisplay');
+const markerLine = document.getElementById('markerLine');
+const teleprompterContent = document.getElementById('teleprompterContent');
+const pauseIndicator = document.getElementById('pauseIndicator');
+const pauseCountdown = document.getElementById('pauseCountdown');
+
+let scrollInterval = null;
+let isPaused = false;
+let currentPauseTimeout = null;
+
+function parseScript(text) {
+    const markerPattern = /<<(\d+|break)>>/gi;
+    const segments = [];
+    let lastIndex = 0;
+    let match;
+    
+    while ((match = markerPattern.exec(text)) !== null) {
+        if (match.index > lastIndex) {
+            segments.push({
+                type: 'text',
+                content: text.slice(lastIndex, match.index)
+            });
+        }
+        
+        const value = match[1].toLowerCase();
+        if (value === 'break') {
+            segments.push({ type: 'break' });
+        } else {
+            segments.push({
+                type: 'pause',
+                duration: parseInt(value, 10)
+            });
+        }
+        lastIndex = match.index + match[0].length;
+    }
+    
+    if (lastIndex < text.length) {
+        segments.push({
+            type: 'text',
+            content: text.slice(lastIndex)
+        });
+    }
+    
+    return segments;
+}
+
+let breakPositions = [];
+
+function renderContent(segments) {
+    let html = '';
+    let breakIndex = 0;
+    segments.forEach((segment, index) => {
+        if (segment.type === 'text') {
+            html += marked.parse(segment.content);
+        } else if (segment.type === 'pause') {
+            html += `<div class="pause-marker" data-pause="${segment.duration}" data-index="${index}"></div>`;
+        } else if (segment.type === 'break') {
+            html += `<div class="break-marker" data-break-index="${breakIndex}"></div>`;
+            breakIndex++;
+        }
+    });
+    return html;
+}
+
+function startTeleprompter() {
+    const script = scriptInput.value.trim();
+    if (!script) {
+        alert('{% if current_lang == "de" %}Bitte geben Sie einen Text ein{% else %}Please enter a script{% endif %}');
+        return;
+    }
+    
+    const fontSize = parseInt(fontSizeInput.value, 10);
+    const textColor = textColorInput.value;
+    const bgColor = bgColorInput.value;
+    const markerColor = markerColorInput.value;
+    const mirrored = mirrorModeInput.checked;
+    const countdownSeconds = parseInt(countdownInput.value, 10);
+    const speed = parseInt(scrollSpeedInput.value, 10);
+    
+    overlay.style.backgroundColor = bgColor;
+    overlay.style.color = textColor;
+    teleprompterContent.style.fontSize = `${fontSize}px`;
+    markerLine.style.backgroundColor = markerColor;
+    markerLine.style.height = `${fontSize * 1.6}px`;
+    
+    if (mirrored) {
+        teleprompterContent.classList.add('mirrored');
+    } else {
+        teleprompterContent.classList.remove('mirrored');
+    }
+    
+    const segments = parseScript(script);
+    teleprompterContent.innerHTML = renderContent(segments);
+    
+    overlay.classList.add('active');
+    document.body.style.overflow = 'hidden';
+    
+    overlay.scrollTop = 0;
+    
+    // Collect break positions
+    breakPositions = [];
+    const breakMarkers = teleprompterContent.querySelectorAll('.break-marker');
+    breakMarkers.forEach(marker => {
+        breakPositions.push(marker.offsetTop - overlay.clientHeight / 2);
+    });
+    
+    if (countdownSeconds > 0) {
+        runCountdown(countdownSeconds, () => {
+            startScrolling(speed);
+        });
+    } else {
+        startScrolling(speed);
+    }
+}
+
+function runCountdown(seconds, callback) {
+    countdownDisplay.classList.add('active');
+    countdownDisplay.textContent = seconds;
+    
+    const tick = () => {
+        seconds--;
+        if (seconds > 0) {
+            countdownDisplay.textContent = seconds;
+            setTimeout(tick, 1000);
+        } else {
+            countdownDisplay.classList.remove('active');
+            callback();
+        }
+    };
+    
+    setTimeout(tick, 1000);
+}
+
+function startScrolling(speed) {
+    const pixelsPerFrame = speed * 0.15;
+    const frameInterval = 16;
+    
+    const pauseMarkers = teleprompterContent.querySelectorAll('.pause-marker');
+    const pausePositions = [];
+    
+    pauseMarkers.forEach(marker => {
+        pausePositions.push({
+            position: marker.offsetTop - overlay.clientHeight / 2,
+            duration: parseInt(marker.dataset.pause, 10),
+            triggered: false
+        });
+    });
+    
+    scrollInterval = setInterval(() => {
+        if (isPaused) return;
+        
+        const currentScroll = overlay.scrollTop;
+        const maxScroll = overlay.scrollHeight - overlay.clientHeight;
+        
+        for (const pause of pausePositions) {
+            if (!pause.triggered && currentScroll >= pause.position - 10 && currentScroll <= pause.position + 10) {
+                pause.triggered = true;
+                triggerPause(pause.duration);
+                return;
+            }
+        }
+        
+        if (currentScroll >= maxScroll) {
+            stopTeleprompter();
+            return;
+        }
+        
+        overlay.scrollTop += pixelsPerFrame;
+    }, frameInterval);
+}
+
+function triggerPause(duration) {
+    isPaused = true;
+    pauseIndicator.classList.add('active');
+    pauseCountdown.textContent = duration;
+    
+    let remaining = duration;
+    const pauseTick = () => {
+        remaining--;
+        if (remaining > 0) {
+            pauseCountdown.textContent = remaining;
+            currentPauseTimeout = setTimeout(pauseTick, 1000);
+        } else {
+            pauseIndicator.classList.remove('active');
+            isPaused = false;
+        }
+    };
+    
+    currentPauseTimeout = setTimeout(pauseTick, 1000);
+}
+
+function stopTeleprompter() {
+    if (scrollInterval) {
+        clearInterval(scrollInterval);
+        scrollInterval = null;
+    }
+    if (currentPauseTimeout) {
+        clearTimeout(currentPauseTimeout);
+        currentPauseTimeout = null;
+    }
+    isPaused = false;
+    pauseIndicator.classList.remove('active');
+    countdownDisplay.classList.remove('active');
+    overlay.classList.remove('active');
+    document.body.style.overflow = '';
+}
+
+startBtn.addEventListener('click', startTeleprompter);
+closeBtn.addEventListener('click', stopTeleprompter);
+
+const prevBreakBtn = document.getElementById('prevBreakBtn');
+const nextBreakBtn = document.getElementById('nextBreakBtn');
+
+function jumpToNextBreak() {
+    if (!overlay.classList.contains('active') || breakPositions.length === 0) return;
+    const currentScroll = overlay.scrollTop;
+    for (const pos of breakPositions) {
+        if (pos > currentScroll + 10) {
+            overlay.scrollTop = pos;
+            return;
+        }
+    }
+}
+
+function jumpToPrevBreak() {
+    if (!overlay.classList.contains('active') || breakPositions.length === 0) return;
+    const currentScroll = overlay.scrollTop;
+    for (let i = breakPositions.length - 1; i >= 0; i--) {
+        if (breakPositions[i] < currentScroll - 10) {
+            overlay.scrollTop = breakPositions[i];
+            return;
+        }
+    }
+    overlay.scrollTop = 0;
+}
+
+prevBreakBtn.addEventListener('click', jumpToPrevBreak);
+nextBreakBtn.addEventListener('click', jumpToNextBreak);
+
+document.addEventListener('keydown', (e) => {
+    if (!overlay.classList.contains('active')) return;
+    
+    if (e.key === 'Escape') {
+        stopTeleprompter();
+    } else if (e.key === 'ArrowDown' || e.key === 'ArrowRight') {
+        e.preventDefault();
+        jumpToNextBreak();
+    } else if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') {
+        e.preventDefault();
+        jumpToPrevBreak();
+    }
+});
+</script>
+{% endblock %}

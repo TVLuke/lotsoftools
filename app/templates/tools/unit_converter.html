@@ -1,0 +1,520 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ tool_data.seo.title[current_lang] }}{% endblock %}
+{% block meta_description %}{{ tool_data.seo.meta_description[current_lang] }}{% endblock %}
+{% block meta_keywords %}{{ tool_data.seo.keywords[current_lang] }}{% endblock %}
+{% block og_title %}{{ tool_data.seo.title[current_lang] }}{% endblock %}
+{% block og_description %}{{ tool_data.seo.meta_description[current_lang] }}{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-12">
+        <h1 class="mb-4">
+            <i class="fas fa-exchange-alt me-2"></i>
+            {% if current_lang == 'de' %}Einheitenumrechner{% else %}Unit Converter{% endif %}
+        </h1>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12">
+        <div class="card mb-3">
+            <div class="card-body">
+                <label class="form-label">
+                    {% if current_lang == 'de' %}Kategorie:{% else %}Category:{% endif %}
+                </label>
+                <div class="btn-group w-100 flex-wrap" role="group" id="categoryButtons">
+                    <input type="radio" class="btn-check" name="category" id="cat-length" value="length" autocomplete="off" checked>
+                    <label class="btn btn-outline-primary" for="cat-length">{% if current_lang == 'de' %}Länge{% else %}Length{% endif %}</label>
+                    
+                    <input type="radio" class="btn-check" name="category" id="cat-mass" value="mass" autocomplete="off">
+                    <label class="btn btn-outline-primary" for="cat-mass">{% if current_lang == 'de' %}Masse{% else %}Mass{% endif %}</label>
+                    
+                    <input type="radio" class="btn-check" name="category" id="cat-temperature" value="temperature" autocomplete="off">
+                    <label class="btn btn-outline-primary" for="cat-temperature">{% if current_lang == 'de' %}Temp.{% else %}Temp.{% endif %}</label>
+                    
+                    <input type="radio" class="btn-check" name="category" id="cat-volume" value="volume" autocomplete="off">
+                    <label class="btn btn-outline-primary" for="cat-volume">{% if current_lang == 'de' %}Volumen{% else %}Volume{% endif %}</label>
+                    
+                    <input type="radio" class="btn-check" name="category" id="cat-time" value="time" autocomplete="off">
+                    <label class="btn btn-outline-primary" for="cat-time">{% if current_lang == 'de' %}Zeit{% else %}Time{% endif %}</label>
+                    
+                    <input type="radio" class="btn-check" name="category" id="cat-area" value="area" autocomplete="off">
+                    <label class="btn btn-outline-primary" for="cat-area">{% if current_lang == 'de' %}Fläche{% else %}Area{% endif %}</label>
+                    
+                    <input type="radio" class="btn-check" name="category" id="cat-speed" value="speed" autocomplete="off">
+                    <label class="btn btn-outline-primary" for="cat-speed">{% if current_lang == 'de' %}Geschw.{% else %}Speed{% endif %}</label>
+                    
+                    <input type="radio" class="btn-check" name="category" id="cat-acceleration" value="acceleration" autocomplete="off">
+                    <label class="btn btn-outline-primary" for="cat-acceleration">{% if current_lang == 'de' %}Beschl.{% else %}Accel.{% endif %}</label>
+                    
+                    <input type="radio" class="btn-check" name="category" id="cat-energy" value="energy" autocomplete="off">
+                    <label class="btn btn-outline-primary" for="cat-energy">{% if current_lang == 'de' %}Energie{% else %}Energy{% endif %}</label>
+                    
+                    <input type="radio" class="btn-check" name="category" id="cat-power" value="power" autocomplete="off">
+                    <label class="btn btn-outline-primary" for="cat-power">{% if current_lang == 'de' %}Leistung{% else %}Power{% endif %}</label>
+                    
+                    <input type="radio" class="btn-check" name="category" id="cat-pressure" value="pressure" autocomplete="off">
+                    <label class="btn btn-outline-primary" for="cat-pressure">{% if current_lang == 'de' %}Druck{% else %}Pressure{% endif %}</label>
+                    
+                    <input type="radio" class="btn-check" name="category" id="cat-force" value="force" autocomplete="off">
+                    <label class="btn btn-outline-primary" for="cat-force">{% if current_lang == 'de' %}Kraft{% else %}Force{% endif %}</label>
+                    
+                    <input type="radio" class="btn-check" name="category" id="cat-angle" value="angle" autocomplete="off">
+                    <label class="btn btn-outline-primary" for="cat-angle">{% if current_lang == 'de' %}Winkel{% else %}Angle{% endif %}</label>
+                    
+                    <input type="radio" class="btn-check" name="category" id="cat-data" value="data" autocomplete="off">
+                    <label class="btn btn-outline-primary" for="cat-data">{% if current_lang == 'de' %}Daten{% else %}Data{% endif %}</label>
+                </div>
+            </div>
+        </div>
+        
+        <div class="card mb-3">
+            <div class="card-body">
+                <label class="form-label">
+                    {% if current_lang == 'de' %}Eingabe:{% else %}Input:{% endif %}
+                </label>
+                <div class="d-flex align-items-center gap-2 flex-wrap" id="inputSection">
+                    <input type="number" class="form-control" id="inputValue" value="1" step="any" style="max-width: 200px;">
+                    <select class="form-select" id="inputUnit1" style="max-width: 150px;"></select>
+                    <span id="unitSeparator" style="display: none;">/</span>
+                    <select class="form-select" id="inputUnit2" style="max-width: 150px; display: none;"></select>
+                    <span id="squareIndicator" style="display: none;">²</span>
+                </div>
+            </div>
+        </div>
+        
+        <hr class="my-4">
+        
+        <div class="card mb-3">
+            <div class="card-body">
+                <label class="form-label">
+                    {% if current_lang == 'de' %}Ausgabe:{% else %}Output:{% endif %}
+                </label>
+                <div class="d-flex align-items-center gap-2 flex-wrap mb-3" id="outputSection">
+                    <select class="form-select" id="outputUnit1" style="max-width: 150px;"></select>
+                    <span id="outputSeparator" style="display: none;">/</span>
+                    <select class="form-select" id="outputUnit2" style="max-width: 150px; display: none;"></select>
+                    <span id="outputSquareIndicator" style="display: none;">²</span>
+                </div>
+                <div class="alert alert-info mb-0">
+                    <h5 id="outputValue" class="mb-0">-</h5>
+                </div>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0">
+                    {% if current_lang == 'de' %}Alle Umrechnungen{% else %}All Conversions{% endif %}
+                </h5>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-sm table-hover" id="conversionTable">
+                        <thead>
+                            <tr>
+                                <th>{% if current_lang == 'de' %}Einheit{% else %}Unit{% endif %}</th>
+                                <th class="text-end">{% if current_lang == 'de' %}Wert{% else %}Value{% endif %}</th>
+                            </tr>
+                        </thead>
+                        <tbody id="conversionTableBody">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% include 'components/seo_content.html' %}
+
+{% set library_name = "convert.js" %}
+{% set library_url = "https://github.com/jonahsnider/convert" %}
+{% set library_author = "Jonah Snider" %}
+{% set library_license = "MIT License" %}
+{% include 'components/library_credit.html' %}
+{% endblock %}
+
+{% block extra_js %}
+<script src="https://cdn.jsdelivr.net/npm/convert@5/dist/index.js"></script>
+<script>
+const lang = document.documentElement.lang || 'en';
+
+// The library exports as 'convert' object with a 'convert' function
+// Access it as convert.convert or window.convert.convert
+const convertFn = (typeof convert !== 'undefined' && convert.convert) ? convert.convert : 
+                  (typeof window.convert !== 'undefined' && window.convert.convert) ? window.convert.convert :
+                  (typeof convert !== 'undefined') ? convert :
+                  (typeof window.convert !== 'undefined') ? window.convert :
+                  null;
+
+if (!convertFn) {
+    console.error('Convert library not loaded properly. Available:', typeof convert, typeof window.convert);
+} else {
+    console.log('Convert library loaded successfully');
+    // Test conversion
+    try {
+        const test = convertFn(1, 'mi').to('km');
+        console.log('Test conversion: 1 mile =', test, 'km');
+    } catch (e) {
+        console.error('Test conversion failed:', e);
+    }
+}
+
+// Use actual units from the library - these are known to work based on documentation
+const units = {
+    length: ['mm', 'cm', 'm', 'km', 'in', 'ft', 'yd', 'mi'],
+    mass: ['mg', 'g', 'kg', 'oz', 'lb'],
+    temperature: ['C', 'F', 'K'],
+    volume: ['ml', 'l', 'tsp', 'Tbs', 'fl-oz', 'cup', 'pnt', 'qt', 'gal'],
+    time: ['ns', 'ms', 's', 'min', 'h', 'd', 'week', 'month', 'year'],
+    area: ['mm2', 'cm2', 'm2', 'km2', 'in2', 'ft2', 'ac', 'mi2'],
+    energy: ['J', 'kJ', 'Wh', 'kWh', 'cal', 'kcal'],
+    power: ['W', 'kW', 'MW', 'hp'],
+    pressure: ['Pa', 'kPa', 'MPa', 'bar', 'psi', 'atm'],
+    force: ['N', 'kN', 'lbf'],
+    angle: ['deg', 'rad'],
+    data: ['b', 'B', 'KB', 'MB', 'GB', 'TB']
+};
+
+// Unit labels for display
+const unitLabels = {
+    // Length
+    'mm': 'Millimeters', 'cm': 'Centimeters', 'm': 'Meters', 'km': 'Kilometers',
+    'in': 'Inches', 'ft': 'Feet', 'yd': 'Yards', 'mi': 'Miles', 'nmi': 'Nautical Miles',
+    // Mass
+    'mg': 'Milligrams', 'g': 'Grams', 'kg': 'Kilograms', 't': 'Metric Tons',
+    'oz': 'Ounces', 'lb': 'Pounds', 'st': 'Stones', 'ton': 'US Tons',
+    // Temperature
+    'C': 'Celsius', 'F': 'Fahrenheit', 'K': 'Kelvin',
+    // Volume
+    'ml': 'Milliliters', 'l': 'Liters', 'kl': 'Kiloliters',
+    'tsp': 'Teaspoons', 'Tbs': 'Tablespoons', 'fl-oz': 'Fluid Ounces',
+    'cup': 'Cups', 'pnt': 'Pints', 'qt': 'Quarts', 'gal': 'Gallons',
+    'ft3': 'Cubic Feet', 'm3': 'Cubic Meters',
+    // Time
+    'ns': 'Nanoseconds', 'mu': 'Microseconds', 'ms': 'Milliseconds', 's': 'Seconds',
+    'min': 'Minutes', 'h': 'Hours', 'd': 'Days', 'week': 'Weeks', 'month': 'Months', 'year': 'Years',
+    // Area
+    'mm2': 'Square Millimeters', 'cm2': 'Square Centimeters', 'm2': 'Square Meters',
+    'ha': 'Hectares', 'km2': 'Square Kilometers', 'in2': 'Square Inches',
+    'ft2': 'Square Feet', 'ac': 'Acres', 'mi2': 'Square Miles',
+    // Energy
+    'J': 'Joules', 'kJ': 'Kilojoules', 'Wh': 'Watt-hours', 'kWh': 'Kilowatt-hours',
+    'eV': 'Electronvolts', 'BTU': 'BTU', 'cal': 'Calories', 'kcal': 'Kilocalories',
+    // Power
+    'W': 'Watts', 'kW': 'Kilowatts', 'MW': 'Megawatts', 'hp': 'Horsepower', 'BTU/s': 'BTU/second',
+    // Pressure
+    'Pa': 'Pascals', 'kPa': 'Kilopascals', 'MPa': 'Megapascals', 'bar': 'Bar',
+    'psi': 'PSI', 'atm': 'Atmospheres', 'torr': 'Torr',
+    // Force
+    'N': 'Newtons', 'kN': 'Kilonewtons', 'lbf': 'Pound-force',
+    // Angle
+    'deg': 'Degrees', 'rad': 'Radians', 'grad': 'Gradians', 'arcmin': 'Arcminutes', 'arcsec': 'Arcseconds',
+    // Data
+    'b': 'Bits', 'B': 'Bytes', 'KB': 'Kilobytes', 'MB': 'Megabytes', 'GB': 'Gigabytes', 'TB': 'Terabytes',
+    'KiB': 'Kibibytes', 'MiB': 'Mebibytes', 'GiB': 'Gibibytes', 'TiB': 'Tebibytes'
+};
+
+let currentCategory = 'length';
+
+function setupCategory(category) {
+    currentCategory = category;
+    const inputUnit1 = document.getElementById('inputUnit1');
+    const inputUnit2 = document.getElementById('inputUnit2');
+    const outputUnit1 = document.getElementById('outputUnit1');
+    const outputUnit2 = document.getElementById('outputUnit2');
+    const unitSeparator = document.getElementById('unitSeparator');
+    const squareIndicator = document.getElementById('squareIndicator');
+    const outputSeparator = document.getElementById('outputSeparator');
+    const outputSquareIndicator = document.getElementById('outputSquareIndicator');
+    
+    // Clear all dropdowns
+    inputUnit1.innerHTML = '';
+    inputUnit2.innerHTML = '';
+    outputUnit1.innerHTML = '';
+    outputUnit2.innerHTML = '';
+    
+    if (category === 'speed') {
+        // Speed: length / time
+        inputUnit2.style.display = 'block';
+        outputUnit2.style.display = 'block';
+        unitSeparator.style.display = 'inline';
+        outputSeparator.style.display = 'inline';
+        squareIndicator.style.display = 'none';
+        outputSquareIndicator.style.display = 'none';
+        
+        // Populate length units
+        units.length.forEach(unit => {
+            inputUnit1.add(new Option(unitLabels[unit] || unit, unit));
+            outputUnit1.add(new Option(unitLabels[unit] || unit, unit));
+        });
+        
+        // Populate time units
+        units.time.forEach(unit => {
+            inputUnit2.add(new Option(unitLabels[unit] || unit, unit));
+            outputUnit2.add(new Option(unitLabels[unit] || unit, unit));
+        });
+        
+        inputUnit1.value = 'm';
+        inputUnit2.value = 's';
+        outputUnit1.value = 'km';
+        outputUnit2.value = 'h';
+    } else if (category === 'acceleration') {
+        // Acceleration: length / time²
+        inputUnit2.style.display = 'block';
+        outputUnit2.style.display = 'block';
+        unitSeparator.style.display = 'inline';
+        outputSeparator.style.display = 'inline';
+        squareIndicator.style.display = 'inline';
+        outputSquareIndicator.style.display = 'inline';
+        
+        // Populate length units
+        units.length.forEach(unit => {
+            inputUnit1.add(new Option(unitLabels[unit] || unit, unit));
+            outputUnit1.add(new Option(unitLabels[unit] || unit, unit));
+        });
+        
+        // Populate time units
+        units.time.forEach(unit => {
+            inputUnit2.add(new Option(unitLabels[unit] || unit, unit));
+            outputUnit2.add(new Option(unitLabels[unit] || unit, unit));
+        });
+        
+        inputUnit1.value = 'm';
+        inputUnit2.value = 's';
+        outputUnit1.value = 'm';
+        outputUnit2.value = 's';
+    } else {
+        // Standard category
+        inputUnit2.style.display = 'none';
+        outputUnit2.style.display = 'none';
+        unitSeparator.style.display = 'none';
+        outputSeparator.style.display = 'none';
+        squareIndicator.style.display = 'none';
+        outputSquareIndicator.style.display = 'none';
+        
+        const categoryUnits = units[category] || [];
+        categoryUnits.forEach((unit, index) => {
+            const label = unitLabels[unit] || unit;
+            inputUnit1.add(new Option(label, unit));
+            outputUnit1.add(new Option(label, unit));
+        });
+        
+        if (categoryUnits.length > 0) {
+            inputUnit1.value = categoryUnits[0];
+            outputUnit1.value = categoryUnits[Math.min(1, categoryUnits.length - 1)];
+        }
+    }
+    
+    performConversion();
+}
+
+function performConversion() {
+    const inputValue = parseFloat(document.getElementById('inputValue').value);
+    const outputValueEl = document.getElementById('outputValue');
+    const tableBody = document.getElementById('conversionTableBody');
+    
+    if (isNaN(inputValue)) {
+        outputValueEl.textContent = '-';
+        tableBody.innerHTML = '';
+        return;
+    }
+    
+    try {
+        let result;
+        const inputUnit1 = document.getElementById('inputUnit1').value;
+        const outputUnit1 = document.getElementById('outputUnit1').value;
+        
+        if (currentCategory === 'speed') {
+            const inputUnit2 = document.getElementById('inputUnit2').value;
+            const outputUnit2 = document.getElementById('outputUnit2').value;
+            
+            // Convert to m/s
+            const lengthInM = convertFn(inputValue, inputUnit1).to('m');
+            const timeInS = convertFn(1, inputUnit2).to('s');
+            const speedMPS = lengthInM / timeInS;
+            
+            // Convert to output units
+            const outLength = convertFn(speedMPS, 'm').to(outputUnit1);
+            const outTime = convertFn(1, 's').to(outputUnit2);
+            result = outLength / outTime;
+            
+            outputValueEl.textContent = `${formatNumber(result)} ${outputUnit1}/${outputUnit2}`;
+            
+            // Generate table for all combinations
+            generateSpeedTable(inputValue, inputUnit1, inputUnit2, tableBody);
+        } else if (currentCategory === 'acceleration') {
+            const inputUnit2 = document.getElementById('inputUnit2').value;
+            const outputUnit2 = document.getElementById('outputUnit2').value;
+            
+            // Convert to m/s²
+            const lengthInM = convertFn(inputValue, inputUnit1).to('m');
+            const timeInS = convertFn(1, inputUnit2).to('s');
+            const accelMPS2 = lengthInM / (timeInS * timeInS);
+            
+            // Convert to output units
+            const outLength = convertFn(accelMPS2, 'm').to(outputUnit1);
+            const outTime = convertFn(1, 's').to(outputUnit2);
+            result = outLength / (outTime * outTime);
+            
+            outputValueEl.textContent = `${formatNumber(result)} ${outputUnit1}/${outputUnit2}²`;
+            
+            // Generate table for all combinations
+            generateAccelerationTable(inputValue, inputUnit1, inputUnit2, tableBody);
+        } else {
+            result = convertFn(inputValue, inputUnit1).to(outputUnit1);
+            outputValueEl.textContent = `${formatNumber(result)} ${outputUnit1}`;
+            
+            // Generate table for all units in category
+            generateStandardTable(inputValue, inputUnit1, tableBody);
+        }
+    } catch (error) {
+        console.error('Conversion error:', error);
+        outputValueEl.textContent = 'Error';
+        tableBody.innerHTML = '<tr><td colspan="2" class="text-danger">Conversion error</td></tr>';
+    }
+}
+
+function formatNumber(num) {
+    // Handle very small numbers with scientific notation
+    if (Math.abs(num) < 0.000001 && num !== 0) {
+        return num.toExponential(6);
+    }
+    
+    // For regular numbers, use up to 10 decimal places to avoid rounding to 0
+    let str = num.toFixed(10).replace(/\.?0+$/, '');
+    
+    // If result is just "0" but original number wasn't 0, show more precision
+    if (str === '0' && num !== 0) {
+        str = num.toExponential(6);
+    }
+    
+    const parts = str.split('.');
+    parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+    return parts.join('.');
+}
+
+function generateStandardTable(value, fromUnit, tableBody) {
+    tableBody.innerHTML = '';
+    const categoryUnits = units[currentCategory] || [];
+    
+    categoryUnits.forEach(toUnit => {
+        try {
+            const result = convertFn(value, fromUnit).to(toUnit);
+            const row = tableBody.insertRow();
+            row.style.cursor = 'pointer';
+            row.innerHTML = `
+                <td>${unitLabels[toUnit] || toUnit}</td>
+                <td class="text-end font-monospace">${formatNumber(result)}</td>
+            `;
+            row.addEventListener('click', () => {
+                document.getElementById('inputValue').value = result;
+                document.getElementById('inputUnit1').value = toUnit;
+                document.getElementById('outputUnit1').value = fromUnit;
+                performConversion();
+            });
+        } catch (e) {
+            // Skip units that don't convert
+        }
+    });
+}
+
+function generateSpeedTable(value, lengthUnit, timeUnit, tableBody) {
+    tableBody.innerHTML = '';
+    
+    // Convert to m/s first
+    const lengthInM = convertFn(value, lengthUnit).to('m');
+    const timeInS = convertFn(1, timeUnit).to('s');
+    const speedMPS = lengthInM / timeInS;
+    
+    // Generate all combinations of length and time units
+    const lengthUnits = units.length || [];
+    const timeUnits = units.time || [];
+    
+    lengthUnits.forEach(l => {
+        timeUnits.forEach(t => {
+            try {
+                const outLength = convertFn(speedMPS, 'm').to(l);
+                const outTime = convertFn(1, 's').to(t);
+                const result = outLength / outTime;
+                
+                const row = tableBody.insertRow();
+                row.style.cursor = 'pointer';
+                row.innerHTML = `
+                    <td>${unitLabels[l] || l} / ${unitLabels[t] || t}</td>
+                    <td class="text-end font-monospace">${formatNumber(result)}</td>
+                `;
+                row.addEventListener('click', () => {
+                    document.getElementById('inputValue').value = result;
+                    document.getElementById('inputUnit1').value = l;
+                    document.getElementById('inputUnit2').value = t;
+                    document.getElementById('outputUnit1').value = lengthUnit;
+                    document.getElementById('outputUnit2').value = timeUnit;
+                    performConversion();
+                });
+            } catch (e) {
+                // Skip invalid combinations
+            }
+        });
+    });
+}
+
+function generateAccelerationTable(value, lengthUnit, timeUnit, tableBody) {
+    tableBody.innerHTML = '';
+    
+    // Convert to m/s² first
+    const lengthInM = convertFn(value, lengthUnit).to('m');
+    const timeInS = convertFn(1, timeUnit).to('s');
+    const accelMPS2 = lengthInM / (timeInS * timeInS);
+    
+    // Generate all combinations of length and time units
+    const lengthUnits = units.length || [];
+    const timeUnits = units.time || [];
+    
+    lengthUnits.forEach(l => {
+        timeUnits.forEach(t => {
+            try {
+                const outLength = convertFn(accelMPS2, 'm').to(l);
+                const outTime = convertFn(1, 's').to(t);
+                const result = outLength / (outTime * outTime);
+                
+                const row = tableBody.insertRow();
+                row.style.cursor = 'pointer';
+                row.innerHTML = `
+                    <td>${unitLabels[l] || l} / ${unitLabels[t] || t}²</td>
+                    <td class="text-end font-monospace">${formatNumber(result)}</td>
+                `;
+                row.addEventListener('click', () => {
+                    document.getElementById('inputValue').value = result;
+                    document.getElementById('inputUnit1').value = l;
+                    document.getElementById('inputUnit2').value = t;
+                    document.getElementById('outputUnit1').value = lengthUnit;
+                    document.getElementById('outputUnit2').value = timeUnit;
+                    performConversion();
+                });
+            } catch (e) {
+                // Skip invalid combinations
+            }
+        });
+    });
+}
+
+// Event listeners
+document.querySelectorAll('input[name="category"]').forEach(radio => {
+    radio.addEventListener('change', function() {
+        setupCategory(this.value);
+    });
+});
+
+document.getElementById('inputValue').addEventListener('input', performConversion);
+document.getElementById('inputUnit1').addEventListener('change', performConversion);
+document.getElementById('inputUnit2').addEventListener('change', performConversion);
+document.getElementById('outputUnit1').addEventListener('change', performConversion);
+document.getElementById('outputUnit2').addEventListener('change', performConversion);
+
+// Initialize
+setupCategory('length');
+</script>
+{% endblock %}

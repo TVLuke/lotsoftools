@@ -1,0 +1,50 @@
+{
+    "route": "/tools/time-until",
+    "img": "fas fa-hourglass-end",
+    "name": {
+        "en": "Time Until",
+        "de": "Zeit bis"
+    },
+    "description": {
+        "en": "Calculate how much time remains until a specific date",
+        "de": "Berechne wie viel Zeit bis zu einem bestimmten Datum verbleibt"
+    },
+    "tags": ["time", "date", "calculator", "zeit"],
+    "new_window": false,
+    "frontend_only": true,
+    "uses_external_service": false,
+    "seo": {
+        "title": {
+            "en": "Time Until Calculator - Countdown to any date",
+            "de": "Zeit bis Rechner - Countdown zu jedem Datum"
+        },
+        "description": {
+            "en": "Calculate how much time remains until any date. See the countdown in years, months, days, hours, minutes and seconds - live updating.",
+            "de": "Berechne wie viel Zeit bis zu einem Datum verbleibt. Countdown in Jahren, Monaten, Tagen, Stunden, Minuten und Sekunden - live aktualisiert."
+        },
+        "content": {
+            "heading": {
+                "en": "About This Tool",
+                "de": "Über dieses Tool"
+            },
+            "intro": {
+                "en": "This tool calculates the exact time remaining until any future date you specify.",
+                "de": "Dieses Tool berechnet die genaue verbleibende Zeit bis zu einem beliebigen Datum."
+            },
+            "features": [
+                {
+                    "title": { "en": "Multiple Formats", "de": "Mehrere Formate" },
+                    "description": { "en": "View remaining time in years, days, hours, minutes or seconds.", "de": "Zeige verbleibende Zeit in Jahren, Tagen, Stunden, Minuten oder Sekunden an." }
+                },
+                {
+                    "title": { "en": "Live Countdown", "de": "Live-Countdown" },
+                    "description": { "en": "Watch the countdown tick in real-time.", "de": "Beobachte den Countdown in Echtzeit." }
+                },
+                {
+                    "title": { "en": "Quick Examples", "de": "Schnelle Beispiele" },
+                    "description": { "en": "Countdown to Christmas, New Year's Eve, and more.", "de": "Countdown zu Weihnachten, Silvester und mehr." }
+                }
+            ]
+        }
+    }
+}

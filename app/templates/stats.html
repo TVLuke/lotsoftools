@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block title %}Stats - usefull{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h1 class="mb-4">Link Statistics</h1>
+    
+    <div class="table-responsive">
+        <table class="table table-hover">
+            <thead class="table-dark">
+                <tr>
+                    <th style="width: 50px;">#</th>
+                    <th>Name</th>
+                    <th>URL</th>
+                    <th class="text-end" style="width: 100px;">Clicks</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for link in links %}
+                <tr>
+                    <td class="text-muted">{{ loop.index }}</td>
+                    <td>
+                        {% if link.name is mapping %}
+                            {{ link.name.get(current_lang, link.name.get('en', link.name)) }}
+                        {% else %}
+                            {{ link.name }}
+                        {% endif %}
+                    </td>
+                    <td><code><a href="{{ link.url }}" class="text-decoration-none">{{ link.url }}</a></code></td>
+                    <td class="text-end">
+                        <span class="badge bg-{% if link.click_count > 20 %}success{% elif link.click_count > 10 %}primary{% elif link.click_count > 5 %}secondary{% else %}light text-dark{% endif %}">
+                            {{ link.click_count }}
+                        </span>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    
+    <p class="text-muted small mt-4">
+        Total: {{ links|length }} links | 
+        Total clicks: {{ links|map(attribute='click_count')|sum }}
+    </p>
+</div>
+{% endblock %}

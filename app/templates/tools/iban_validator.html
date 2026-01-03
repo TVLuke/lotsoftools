@@ -1,0 +1,317 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ tool_data.seo.title[current_lang] }}{% endblock %}
+{% block meta_description %}{{ tool_data.seo.meta_description[current_lang] }}{% endblock %}
+{% block meta_keywords %}{{ tool_data.seo.keywords[current_lang] }}{% endblock %}
+{% block og_title %}{{ tool_data.seo.title[current_lang] }}{% endblock %}
+{% block og_description %}{{ tool_data.seo.meta_description[current_lang] }}{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-12">
+        <h1 class="mb-4">
+            <i class="fas fa-university me-2"></i>
+            {% if current_lang == 'de' %}IBAN-Validator{% else %}IBAN Validator{% endif %}
+        </h1>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12 col-lg-8">
+        <div class="card mb-3">
+            <div class="card-body">
+                <label class="form-label fw-bold" for="ibanInput">
+                    {% if current_lang == 'de' %}IBAN eingeben:{% else %}Enter IBAN:{% endif %}
+                </label>
+                <div class="input-group">
+                    <input type="text" class="form-control font-monospace" id="ibanInput" 
+                           placeholder="{% if current_lang == 'de' %}z.B. DE89370400440532013000{% else %}e.g. DE89370400440532013000{% endif %}"
+                           autocomplete="off" spellcheck="false">
+                    <button class="btn btn-primary" type="button" id="validateBtn">
+                        <i class="fas fa-check me-1"></i>
+                        {% if current_lang == 'de' %}Validieren{% else %}Validate{% endif %}
+                    </button>
+                </div>
+                <small class="text-muted">
+                    {% if current_lang == 'de' %}Leerzeichen werden automatisch entfernt{% else %}Spaces will be removed automatically{% endif %}
+                </small>
+            </div>
+        </div>
+
+        <!-- Result Card -->
+        <div class="card mb-3" id="resultCard" style="display: none;">
+            <div class="card-header" id="resultHeader">
+                <h5 class="mb-0" id="resultTitle">
+                    <i class="fas fa-spinner fa-spin me-2"></i>
+                    {% if current_lang == 'de' %}Wird geprüft...{% else %}Validating...{% endif %}
+                </h5>
+            </div>
+            <div class="card-body" id="resultBody">
+                <!-- Results will be inserted here -->
+            </div>
+        </div>
+
+        <!-- Bank Details Card -->
+        <div class="card mb-3" id="bankDetailsCard" style="display: none;">
+            <div class="card-header">
+                <h5 class="mb-0">
+                    <i class="fas fa-building me-2"></i>
+                    {% if current_lang == 'de' %}Bankdetails{% else %}Bank Details{% endif %}
+                </h5>
+            </div>
+            <div class="card-body">
+                <table class="table table-sm mb-0">
+                    <tbody id="bankDetailsBody">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-12 col-lg-4">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0">
+                    <i class="fas fa-info-circle me-2"></i>
+                    {% if current_lang == 'de' %}Über IBANs{% else %}About IBANs{% endif %}
+                </h5>
+            </div>
+            <div class="card-body">
+                <p class="small">
+                    {% if current_lang == 'de' %}
+                    Die <strong>IBAN</strong> (International Bank Account Number) ist ein international vereinbarter Code zur Identifizierung von Bankkonten über nationale Grenzen hinweg.
+                    {% else %}
+                    The <strong>IBAN</strong> (International Bank Account Number) is an internationally agreed system of identifying bank accounts across national borders.
+                    {% endif %}
+                </p>
+                <p class="small mb-0">
+                    {% if current_lang == 'de' %}
+                    Eine IBAN besteht aus einem Ländercode (2 Buchstaben), einer Prüfziffer (2 Ziffern) und einer bankspezifischen Kontonummer (bis zu 30 Zeichen).
+                    {% else %}
+                    An IBAN consists of a country code (2 letters), check digits (2 digits), and a bank-specific account number (up to 30 characters).
+                    {% endif %}
+                </p>
+            </div>
+        </div>
+        
+        <div class="card mt-3">
+            <div class="card-body">
+                <p class="small mb-0">
+                    <i class="fas fa-exclamation-triangle text-warning me-1"></i>
+                    {% if current_lang == 'de' %}
+                    <strong>Hinweis:</strong> Für Bankdetails (Name, BIC) wird die IBAN an <a href="https://openiban.com" target="_blank" rel="noopener">openiban.com</a> gesendet.
+                    {% else %}
+                    <strong>Note:</strong> For bank details (name, BIC), the IBAN is sent to <a href="https://openiban.com" target="_blank" rel="noopener">openiban.com</a>.
+                    {% endif %}
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% include 'components/seo_content.html' %}
+
+{% set library_name = "Openiban.js" %}
+{% set library_url = "https://openiban.com" %}
+{% set library_author = "Openiban" %}
+{% include 'components/library_credit.html' %}
+{% endblock %}
+
+{% block extra_js %}
+<script src="{{ url_for('static', filename='js/iban_validator.js') }}"></script>
+<script src="https://cdn.jsdelivr.net/npm/openiban@1.0.1/dist/openiban.browser.min.js"></script>
+<script>
+const lang = document.documentElement.lang || 'en';
+
+const ibanInput = document.getElementById('ibanInput');
+const validateBtn = document.getElementById('validateBtn');
+const resultCard = document.getElementById('resultCard');
+const resultHeader = document.getElementById('resultHeader');
+const resultTitle = document.getElementById('resultTitle');
+const resultBody = document.getElementById('resultBody');
+const bankDetailsCard = document.getElementById('bankDetailsCard');
+const bankDetailsBody = document.getElementById('bankDetailsBody');
+
+const labels = {
+    en: {
+        validating: 'Fetching bank details...',
+        valid: 'Valid IBAN',
+        invalid: 'Invalid IBAN',
+        error: 'Error',
+        country: 'Country',
+        bankCode: 'Bank Code',
+        bankName: 'Bank Name',
+        bic: 'BIC/SWIFT',
+        city: 'City',
+        zip: 'ZIP Code',
+        address: 'Address',
+        checkDigits: 'Check Digits',
+        bban: 'BBAN',
+        formattedIban: 'Formatted IBAN',
+        errorMessage: 'Could not fetch bank details. IBAN validation was performed locally.',
+        enterIban: 'Please enter an IBAN',
+        apiUnavailable: 'Bank details could not be loaded (openiban.com unavailable). IBAN format is valid.'
+    },
+    de: {
+        validating: 'Bankdetails werden abgerufen...',
+        valid: 'Gültige IBAN',
+        invalid: 'Ungültige IBAN',
+        error: 'Fehler',
+        country: 'Land',
+        bankCode: 'Bankleitzahl',
+        bankName: 'Bankname',
+        bic: 'BIC/SWIFT',
+        city: 'Stadt',
+        zip: 'PLZ',
+        address: 'Adresse',
+        checkDigits: 'Prüfziffer',
+        bban: 'BBAN',
+        formattedIban: 'Formatierte IBAN',
+        errorMessage: 'Bankdetails konnten nicht abgerufen werden. IBAN-Validierung wurde lokal durchgeführt.',
+        enterIban: 'Bitte geben Sie eine IBAN ein',
+        apiUnavailable: 'Bankdetails konnten nicht geladen werden (openiban.com nicht erreichbar). IBAN-Format ist gültig.'
+    }
+};
+
+const t = labels[lang] || labels.en;
+
+function showLoading() {
+    resultCard.style.display = 'block';
+    resultHeader.className = 'card-header bg-secondary text-white';
+    resultTitle.innerHTML = `<i class="fas fa-spinner fa-spin me-2"></i>${t.validating}`;
+    resultBody.innerHTML = '';
+    bankDetailsCard.style.display = 'none';
+}
+
+function showValidResult(localResult, bankData = null, apiFailed = false) {
+    resultCard.style.display = 'block';
+    resultHeader.className = 'card-header bg-success text-white';
+    resultTitle.innerHTML = `<i class="fas fa-check-circle me-2"></i>${t.valid}`;
+    
+    let html = '<table class="table table-sm mb-0"><tbody>';
+    html += `<tr><th>${t.formattedIban}</th><td class="font-monospace">${localResult.formatted}</td></tr>`;
+    html += `<tr><th>${t.country}</th><td>${localResult.countryName || localResult.countryCode}</td></tr>`;
+    html += `<tr><th>${t.checkDigits}</th><td class="font-monospace">${localResult.checkDigits}</td></tr>`;
+    html += `<tr><th>${t.bban}</th><td class="font-monospace">${localResult.bban}</td></tr>`;
+    html += '</tbody></table>';
+    
+    if (apiFailed) {
+        html += `<div class="alert alert-warning mt-3 mb-0 small"><i class="fas fa-exclamation-triangle me-1"></i>${t.apiUnavailable}</div>`;
+    }
+    
+    resultBody.innerHTML = html;
+    
+    // Show bank details if available from API
+    if (bankData && (bankData.name || bankData.bic)) {
+        bankDetailsCard.style.display = 'block';
+        let bankHtml = '';
+        
+        if (bankData.name) {
+            bankHtml += `<tr><th>${t.bankName}</th><td>${bankData.name}</td></tr>`;
+        }
+        if (bankData.bic) {
+            bankHtml += `<tr><th>${t.bic}</th><td class="font-monospace">${bankData.bic}</td></tr>`;
+        }
+        if (bankData.bankCode) {
+            bankHtml += `<tr><th>${t.bankCode}</th><td class="font-monospace">${bankData.bankCode}</td></tr>`;
+        }
+        if (bankData.city) {
+            bankHtml += `<tr><th>${t.city}</th><td>${bankData.city}</td></tr>`;
+        }
+        if (bankData.zip) {
+            bankHtml += `<tr><th>${t.zip}</th><td>${bankData.zip}</td></tr>`;
+        }
+        if (bankData.address) {
+            bankHtml += `<tr><th>${t.address}</th><td>${bankData.address}</td></tr>`;
+        }
+        
+        bankDetailsBody.innerHTML = bankHtml;
+    } else {
+        bankDetailsCard.style.display = 'none';
+    }
+}
+
+function showInvalidResult(localResult) {
+    resultCard.style.display = 'block';
+    resultHeader.className = 'card-header bg-danger text-white';
+    resultTitle.innerHTML = `<i class="fas fa-times-circle me-2"></i>${t.invalid}`;
+    
+    let html = '<p class="mb-0">';
+    if (localResult.errors && localResult.errors.length > 0) {
+        html += localResult.errors.join('<br>');
+    } else {
+        html += lang === 'de' ? 'Die eingegebene IBAN ist ungültig.' : 'The entered IBAN is invalid.';
+    }
+    html += '</p>';
+    resultBody.innerHTML = html;
+    bankDetailsCard.style.display = 'none';
+}
+
+function showError(message) {
+    resultCard.style.display = 'block';
+    resultHeader.className = 'card-header bg-warning';
+    resultTitle.innerHTML = `<i class="fas fa-exclamation-triangle me-2"></i>${t.error}`;
+    resultBody.innerHTML = `<p class="mb-0">${message}</p>`;
+    bankDetailsCard.style.display = 'none';
+}
+
+function validateIban() {
+    const iban = IbanValidator.cleanIban(ibanInput.value);
+    
+    if (!iban) {
+        showError(t.enterIban);
+        return;
+    }
+    
+    // First, validate locally using our library
+    const localResult = IbanValidator.validate(iban);
+    
+    if (!localResult.valid) {
+        // Invalid IBAN - show error immediately without API call
+        showInvalidResult(localResult);
+        return;
+    }
+    
+    // Valid IBAN - show result and try to get bank details from API (if available)
+    if (typeof Openiban !== 'undefined') {
+        showLoading();
+        
+        Openiban
+            .validate(iban)
+            .then((apiResult) => {
+                showValidResult(localResult, apiResult.bankData);
+                if (typeof window.showSupportOnAction === 'function') {
+                    window.showSupportOnAction(30000);
+                }
+            })
+            .catch((err) => {
+                console.error('Openiban API error:', err);
+                // Still show valid result, but indicate API was unavailable
+                showValidResult(localResult, null, true);
+                if (typeof window.showSupportOnAction === 'function') {
+                    window.showSupportOnAction(30000);
+                }
+            });
+    } else {
+        // Openiban library not loaded - show local validation result with warning
+        showValidResult(localResult, null, true);
+        if (typeof window.showSupportOnAction === 'function') {
+            window.showSupportOnAction(30000);
+        }
+    }
+}
+
+// Event listeners
+validateBtn.addEventListener('click', validateIban);
+ibanInput.addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') {
+        validateIban();
+    }
+});
+
+// Auto-uppercase input
+ibanInput.addEventListener('input', (e) => {
+    e.target.value = e.target.value.toUpperCase();
+});
+</script>
+{% endblock %}

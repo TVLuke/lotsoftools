@@ -1,0 +1,608 @@
+{% extends "base.html" %}
+
+{% block title %}{{ tool_data.seo.title[current_lang] }}{% endblock %}
+{% block meta_description %}{{ tool_data.seo.meta_description[current_lang] }}{% endblock %}
+{% block meta_keywords %}{{ tool_data.seo.keywords[current_lang] }}{% endblock %}
+{% block og_title %}{{ tool_data.seo.title[current_lang] }}{% endblock %}
+{% block og_description %}{{ tool_data.seo.meta_description[current_lang] }}{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-12">
+        <h1 class="mb-4">
+            <i class="fas fa-crop me-2"></i>
+            {{ tool_data.name[current_lang] }}
+        </h1>
+    </div>
+</div>
+
+<div class="row g-3">
+    <div class="col-12 col-lg-4">
+        <div class="card">
+            <div class="card-body">
+                <div class="mb-3">
+                    <label class="form-label">{% if current_lang == 'de' %}Bild auswählen{% else %}Choose image{% endif %}</label>
+                    <input type="file" class="form-control" id="fileInput" accept="image/*">
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">{% if current_lang == 'de' %}Seitenverhältnis{% else %}Aspect ratio{% endif %}</label>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="lockRatio">
+                        <label class="form-check-label" for="lockRatio">
+                            {% if current_lang == 'de' %}Seitenverhältnis sperren{% else %}Lock aspect ratio{% endif %}
+                        </label>
+                    </div>
+
+                    <div class="mt-2" id="ratioPresets">
+                        <div class="form-check">
+                            <input class="form-check-input ratioPreset" type="radio" name="ratioPreset" id="ratioFree" value="free" checked>
+                            <label class="form-check-label" for="ratioFree">{% if current_lang == 'de' %}Frei{% else %}Free{% endif %}</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input ratioPreset" type="radio" name="ratioPreset" id="ratio1x1" value="1:1">
+                            <label class="form-check-label" for="ratio1x1">1:1</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input ratioPreset" type="radio" name="ratioPreset" id="ratio4x3" value="4:3">
+                            <label class="form-check-label" for="ratio4x3">4:3</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input ratioPreset" type="radio" name="ratioPreset" id="ratio16x9" value="16:9">
+                            <label class="form-check-label" for="ratio16x9">16:9</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input ratioPreset" type="radio" name="ratioPreset" id="ratio3x2" value="3:2">
+                            <label class="form-check-label" for="ratio3x2">3:2</label>
+                        </div>
+                    </div>
+
+                    <div class="row g-2 mt-2">
+                        <div class="col-6">
+                            <input type="number" class="form-control" id="ratioW" min="1" placeholder="W">
+                        </div>
+                        <div class="col-6">
+                            <input type="number" class="form-control" id="ratioH" min="1" placeholder="H">
+                        </div>
+                    </div>
+                    <div class="form-text">
+                        {% if current_lang == 'de' %}Optional: eigenes Verhältnis (W:H).{% else %}Optional: custom ratio (W:H).{% endif %}
+                    </div>
+                </div>
+
+                <div class="d-grid gap-2">
+                    <button class="btn btn-primary" id="fitButton" disabled>
+                        {% if current_lang == 'de' %}Größtes Rechteck einpassen{% else %}Fit largest rectangle{% endif %}
+                    </button>
+                    <div class="btn-group w-100" role="group">
+                        <button type="button" class="btn btn-success" id="exportPngButton" disabled>
+                            <i class="fas fa-download me-2"></i>PNG
+                        </button>
+                        <button type="button" class="btn btn-success" id="exportJpgButton" disabled>
+                            <i class="fas fa-download me-2"></i>JPG
+                        </button>
+                    </div>
+                </div>
+
+                <div id="infoBox" class="mt-3 text-muted" style="font-size: 0.9rem;"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-12 col-lg-8">
+        <div class="card">
+            <div class="card-body">
+                <div class="ratio ratio-16x9" style="--bs-aspect-ratio: 62%;">
+                    <canvas id="canvas" style="width: 100%; height: 100%; border: 1px solid rgba(0,0,0,0.1);"></canvas>
+                </div>
+                <div class="form-text mt-2">
+                    {% if current_lang == 'de' %}Hinweis: Das Bild wird zur Anzeige skaliert. Export erfolgt in Originalauflösung.{% else %}Note: The image is scaled for display. Export is at original resolution.{% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% include 'components/seo_content.html' %}
+{% endblock %}
+
+{% block extra_js %}
+<script>
+const lang = document.documentElement.lang || 'en';
+
+const fileInput = document.getElementById('fileInput');
+const canvas = document.getElementById('canvas');
+const ctx = canvas.getContext('2d');
+const exportPngButton = document.getElementById('exportPngButton');
+const exportJpgButton = document.getElementById('exportJpgButton');
+const fitButton = document.getElementById('fitButton');
+const lockRatio = document.getElementById('lockRatio');
+const ratioW = document.getElementById('ratioW');
+const ratioH = document.getElementById('ratioH');
+const infoBox = document.getElementById('infoBox');
+
+let img = null;
+let imgW = 0;
+let imgH = 0;
+let displayScale = 1;
+let displayOffsetX = 0;
+let displayOffsetY = 0;
+
+let crop = { x: 0, y: 0, w: 0, h: 0 };
+let dragging = false;
+let dragMode = null; // 'move' | 'nw' | 'ne' | 'sw' | 'se' | 'n' | 's' | 'e' | 'w'
+let dragStart = null;
+
+function initDefaultCrop() {
+    if (!img) return;
+    crop.w = Math.max(1, Math.floor(imgW * 0.5));
+    crop.h = Math.max(1, Math.floor(imgH * 0.5));
+    crop.x = Math.floor((imgW - crop.w) / 2);
+    crop.y = Math.floor((imgH - crop.h) / 2);
+}
+
+function getAspectRatio() {
+    const preset = document.querySelector('input[name="ratioPreset"]:checked')?.value || 'free';
+    if (preset !== 'free') {
+        const parts = preset.split(':');
+        const w = Number(parts[0]);
+        const h = Number(parts[1]);
+        if (w > 0 && h > 0) return w / h;
+    }
+
+    const w = Number(ratioW.value);
+    const h = Number(ratioH.value);
+    if (w > 0 && h > 0) return w / h;
+
+    return null;
+}
+
+function isRatioLocked() {
+    return lockRatio.checked && getAspectRatio() !== null;
+}
+
+function clampCrop() {
+    if (!img) return;
+    crop.x = Math.max(0, Math.min(imgW, crop.x));
+    crop.y = Math.max(0, Math.min(imgH, crop.y));
+    crop.w = Math.max(1, Math.min(imgW - crop.x, crop.w));
+    crop.h = Math.max(1, Math.min(imgH - crop.y, crop.h));
+}
+
+function fitLargestRect() {
+    if (!img) return;
+
+    const ar = getAspectRatio();
+    if (!ar) {
+        crop = { x: 0, y: 0, w: imgW, h: imgH };
+        return;
+    }
+
+    const imgAr = imgW / imgH;
+    let w, h;
+    if (imgAr >= ar) {
+        h = imgH;
+        w = Math.floor(h * ar);
+    } else {
+        w = imgW;
+        h = Math.floor(w / ar);
+    }
+
+    crop.w = w;
+    crop.h = h;
+    crop.x = Math.floor((imgW - w) / 2);
+    crop.y = Math.floor((imgH - h) / 2);
+}
+
+function resizeCanvasToContainer() {
+    const rect = canvas.getBoundingClientRect();
+    const dpr = window.devicePixelRatio || 1;
+    canvas.width = Math.max(1, Math.round(rect.width * dpr));
+    canvas.height = Math.max(1, Math.round(rect.height * dpr));
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+    draw();
+}
+
+function computeDisplayMapping() {
+    if (!img) return;
+
+    const rect = canvas.getBoundingClientRect();
+    const cw = rect.width;
+    const ch = rect.height;
+
+    const scaleX = cw / imgW;
+    const scaleY = ch / imgH;
+    displayScale = Math.min(scaleX, scaleY);
+
+    const drawnW = imgW * displayScale;
+    const drawnH = imgH * displayScale;
+
+    displayOffsetX = (cw - drawnW) / 2;
+    displayOffsetY = (ch - drawnH) / 2;
+}
+
+function imageToCanvas(x, y) {
+    return {
+        x: displayOffsetX + x * displayScale,
+        y: displayOffsetY + y * displayScale,
+    };
+}
+
+function canvasToImage(x, y) {
+    return {
+        x: (x - displayOffsetX) / displayScale,
+        y: (y - displayOffsetY) / displayScale,
+    };
+}
+
+function drawCropOverlay() {
+    const rect = canvas.getBoundingClientRect();
+
+    const topLeft = imageToCanvas(crop.x, crop.y);
+    const bottomRight = imageToCanvas(crop.x + crop.w, crop.y + crop.h);
+
+    const x = topLeft.x;
+    const y = topLeft.y;
+    const w = bottomRight.x - topLeft.x;
+    const h = bottomRight.y - topLeft.y;
+
+    ctx.save();
+
+    // Darken everything outside the crop area, but keep the image visible inside.
+    ctx.fillStyle = 'rgba(0, 0, 0, 0.35)';
+    ctx.beginPath();
+    ctx.rect(0, 0, rect.width, rect.height);
+    ctx.rect(x, y, w, h);
+    ctx.fill('evenodd');
+
+    // Slight tint inside crop area to make it obvious without blocking the image
+    ctx.fillStyle = 'rgba(255, 255, 255, 0.06)';
+    ctx.fillRect(x, y, w, h);
+
+    ctx.strokeStyle = 'rgba(255, 255, 255, 0.95)';
+    ctx.lineWidth = 2;
+    ctx.strokeRect(x, y, w, h);
+
+    const handleSize = 10;
+    const handles = [
+        { k: 'nw', x: x, y: y },
+        { k: 'ne', x: x + w, y: y },
+        { k: 'sw', x: x, y: y + h },
+        { k: 'se', x: x + w, y: y + h },
+    ];
+
+    ctx.fillStyle = 'rgba(255, 255, 255, 0.95)';
+    for (const hnd of handles) {
+        ctx.fillRect(hnd.x - handleSize / 2, hnd.y - handleSize / 2, handleSize, handleSize);
+    }
+
+    ctx.restore();
+}
+
+function draw() {
+    const rect = canvas.getBoundingClientRect();
+    ctx.clearRect(0, 0, rect.width, rect.height);
+
+    if (!img) {
+        ctx.save();
+        ctx.fillStyle = 'rgba(0,0,0,0.5)';
+        ctx.font = '16px sans-serif';
+        const msg = lang === 'de' ? 'Bild auswählen, um zu starten' : 'Choose an image to start';
+        ctx.fillText(msg, 12, 24);
+        ctx.restore();
+        return;
+    }
+
+    computeDisplayMapping();
+
+    const drawnW = imgW * displayScale;
+    const drawnH = imgH * displayScale;
+
+    ctx.drawImage(img, displayOffsetX, displayOffsetY, drawnW, drawnH);
+
+    drawCropOverlay();
+
+    infoBox.textContent = `${Math.round(crop.w)}×${Math.round(crop.h)} px`;
+}
+
+function getPointerPos(evt) {
+    const rect = canvas.getBoundingClientRect();
+    return {
+        x: evt.clientX - rect.left,
+        y: evt.clientY - rect.top,
+    };
+}
+
+function hitTestHandles(px, py) {
+    const topLeft = imageToCanvas(crop.x, crop.y);
+    const bottomRight = imageToCanvas(crop.x + crop.w, crop.y + crop.h);
+
+    const x1 = topLeft.x;
+    const y1 = topLeft.y;
+    const x2 = bottomRight.x;
+    const y2 = bottomRight.y;
+
+    const handleSize = 14;
+    const corners = [
+        { k: 'nw', x: x1, y: y1 },
+        { k: 'ne', x: x2, y: y1 },
+        { k: 'sw', x: x1, y: y2 },
+        { k: 'se', x: x2, y: y2 },
+    ];
+
+    for (const c of corners) {
+        if (Math.abs(px - c.x) <= handleSize && Math.abs(py - c.y) <= handleSize) {
+            return c.k;
+        }
+    }
+
+    if (px >= x1 && px <= x2 && py >= y1 && py <= y2) {
+        return 'move';
+    }
+
+    return null;
+}
+
+function applyResizeFromCorner(mode, start, current) {
+    const ar = isRatioLocked() ? getAspectRatio() : null;
+
+    const startImg = canvasToImage(start.x, start.y);
+    const currentImg = canvasToImage(current.x, current.y);
+
+    let x = crop.x;
+    let y = crop.y;
+    let w = crop.w;
+    let h = crop.h;
+
+    const left = crop.x;
+    const top = crop.y;
+    const right = crop.x + crop.w;
+    const bottom = crop.y + crop.h;
+
+    if (mode === 'se') {
+        w = currentImg.x - left;
+        h = currentImg.y - top;
+        if (ar) {
+            if (w / h > ar) {
+                w = h * ar;
+            } else {
+                h = w / ar;
+            }
+        }
+        x = left;
+        y = top;
+    } else if (mode === 'sw') {
+        w = right - currentImg.x;
+        h = currentImg.y - top;
+        if (ar) {
+            if (w / h > ar) {
+                w = h * ar;
+            } else {
+                h = w / ar;
+            }
+        }
+        x = right - w;
+        y = top;
+    } else if (mode === 'ne') {
+        w = currentImg.x - left;
+        h = bottom - currentImg.y;
+        if (ar) {
+            if (w / h > ar) {
+                w = h * ar;
+            } else {
+                h = w / ar;
+            }
+        }
+        x = left;
+        y = bottom - h;
+    } else if (mode === 'nw') {
+        w = right - currentImg.x;
+        h = bottom - currentImg.y;
+        if (ar) {
+            if (w / h > ar) {
+                w = h * ar;
+            } else {
+                h = w / ar;
+            }
+        }
+        x = right - w;
+        y = bottom - h;
+    }
+
+    crop.x = x;
+    crop.y = y;
+    crop.w = w;
+    crop.h = h;
+    clampCrop();
+}
+
+canvas.addEventListener('pointerdown', (evt) => {
+    if (!img) return;
+
+    const p = getPointerPos(evt);
+    const hit = hitTestHandles(p.x, p.y);
+
+    dragging = true;
+    dragMode = hit;
+    dragStart = {
+        x: p.x,
+        y: p.y,
+        crop: { ...crop },
+    };
+
+    canvas.setPointerCapture(evt.pointerId);
+});
+
+canvas.addEventListener('pointermove', (evt) => {
+    if (!img) return;
+
+    const p = getPointerPos(evt);
+
+    if (!dragging) {
+        const hit = hitTestHandles(p.x, p.y);
+        canvas.style.cursor = hit === 'move' ? 'move' : (hit ? 'nwse-resize' : 'default');
+        return;
+    }
+
+    if (!dragMode) return;
+
+    if (dragMode === 'move') {
+        const start = dragStart;
+        const startImg = canvasToImage(start.x, start.y);
+        const curImg = canvasToImage(p.x, p.y);
+        const dx = curImg.x - startImg.x;
+        const dy = curImg.y - startImg.y;
+
+        crop.x = start.crop.x + dx;
+        crop.y = start.crop.y + dy;
+        clampCrop();
+    } else {
+        crop = { ...dragStart.crop };
+        applyResizeFromCorner(dragMode, { x: dragStart.x, y: dragStart.y }, p);
+    }
+
+    draw();
+});
+
+canvas.addEventListener('pointerup', (evt) => {
+    dragging = false;
+    dragMode = null;
+    dragStart = null;
+});
+
+fileInput.addEventListener('change', async () => {
+    const file = fileInput.files?.[0];
+    if (!file) return;
+
+    const url = URL.createObjectURL(file);
+    const newImg = new Image();
+
+    newImg.onload = () => {
+        img = newImg;
+        imgW = img.naturalWidth;
+        imgH = img.naturalHeight;
+
+        if (isRatioLocked()) {
+            fitLargestRect();
+        } else {
+            initDefaultCrop();
+        }
+        clampCrop();
+
+        exportPngButton.disabled = false;
+        exportJpgButton.disabled = false;
+        fitButton.disabled = false;
+
+        resizeCanvasToContainer();
+    };
+
+    newImg.src = url;
+});
+
+fitButton.addEventListener('click', () => {
+    if (!img) return;
+    fitLargestRect();
+    clampCrop();
+    draw();
+});
+
+lockRatio.addEventListener('change', () => {
+    if (!img) return;
+    if (isRatioLocked()) {
+        fitLargestRect();
+        clampCrop();
+        draw();
+    }
+});
+
+document.querySelectorAll('.ratioPreset').forEach((el) => {
+    el.addEventListener('change', () => {
+        if (!img) return;
+        const preset = document.querySelector('input[name="ratioPreset"]:checked')?.value || 'free';
+        if (preset === 'free') {
+            lockRatio.checked = false;
+        } else {
+            lockRatio.checked = true;
+        }
+        fitLargestRect();
+        clampCrop();
+        draw();
+    });
+});
+
+[ratioW, ratioH].forEach((el) => {
+    el.addEventListener('input', () => {
+        if (!img) return;
+        if (Number(ratioW.value) > 0 && Number(ratioH.value) > 0) {
+            lockRatio.checked = true;
+            document.getElementById('ratioFree').checked = true;
+            fitLargestRect();
+            clampCrop();
+            draw();
+        }
+    });
+});
+
+async function exportCrop(mime, filename, quality) {
+    if (!img) return;
+
+    clampCrop();
+
+    const out = document.createElement('canvas');
+    out.width = Math.round(crop.w);
+    out.height = Math.round(crop.h);
+
+    const octx = out.getContext('2d');
+    octx.drawImage(
+        img,
+        Math.round(crop.x),
+        Math.round(crop.y),
+        Math.round(crop.w),
+        Math.round(crop.h),
+        0,
+        0,
+        Math.round(crop.w),
+        Math.round(crop.h)
+    );
+
+    const blob = await new Promise((resolve) => {
+        if (typeof quality === 'number') {
+            out.toBlob(resolve, mime, quality);
+        } else {
+            out.toBlob(resolve, mime);
+        }
+    });
+    if (!blob) return;
+
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = filename;
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    URL.revokeObjectURL(a.href);
+
+    if (typeof window.showSupportOnAction === 'function') {
+        window.showSupportOnAction(30000);
+    }
+}
+
+exportPngButton.addEventListener('click', async () => {
+    await exportCrop('image/png', 'crop.png');
+});
+
+exportJpgButton.addEventListener('click', async () => {
+    await exportCrop('image/jpeg', 'crop.jpg', 0.92);
+});
+
+window.addEventListener('resize', () => {
+    if (!img) {
+        resizeCanvasToContainer();
+        return;
+    }
+    resizeCanvasToContainer();
+});
+
+resizeCanvasToContainer();
+</script>
+{% endblock %}

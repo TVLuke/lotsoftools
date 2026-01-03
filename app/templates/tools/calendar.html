@@ -1,0 +1,175 @@
+{% extends "base.html" %}
+
+{% block title %}{% if current_lang == 'de' %}Kalender{% else %}Calendar{% endif %}{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <div class="row mb-4">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <div class="d-flex justify-content-between align-items-center flex-wrap gap-2">
+                        <h5 class="mb-0">{% if current_lang == 'de' %}Kalender{% else %}Calendar{% endif %}</h5>
+                        <div class="d-flex align-items-center gap-2">
+                            <button class="btn btn-sm btn-outline-secondary" id="prevYear">
+                                <i class="fas fa-chevron-left"></i>
+                            </button>
+                            <input type="number" class="form-control form-control-sm text-center" id="yearInput" style="width: 120px;">
+                            <button class="btn btn-sm btn-outline-secondary" id="nextYear">
+                                <i class="fas fa-chevron-right"></i>
+                            </button>
+                            <div class="form-check form-switch ms-3">
+                                <input class="form-check-input" type="checkbox" id="firstDayToggle">
+                                <label class="form-check-label" for="firstDayToggle">
+                                    {% if current_lang == 'de' %}Sonntag zuerst{% else %}Sunday first{% endif %}
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div id="calendarContainer" class="row"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+const currentYear = new Date().getFullYear();
+let selectedYear = currentYear;
+let startWithSunday = false;
+
+// Initialize
+document.getElementById('yearInput').value = selectedYear;
+
+// Get week number (ISO 8601)
+function getWeekNumber(date) {
+    const d = new Date(Date.UTC(date.getFullYear(), date.getMonth(), date.getDate()));
+    const dayNum = d.getUTCDay() || 7;
+    d.setUTCDate(d.getUTCDate() + 4 - dayNum);
+    const yearStart = new Date(Date.UTC(d.getUTCFullYear(), 0, 1));
+    return Math.ceil((((d - yearStart) / 86400000) + 1) / 7);
+}
+
+// Generate calendar for a month
+function generateMonth(year, month) {
+    const monthNames = {
+        'en': ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+        'de': ['Januar', 'Februar', 'März', 'April', 'Mai', 'Juni', 'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember']
+    };
+    const lang = document.documentElement.lang || 'en';
+    const monthName = monthNames[lang][month];
+    
+    const firstDay = new Date(year, month, 1);
+    const lastDay = new Date(year, month + 1, 0);
+    const daysInMonth = lastDay.getDate();
+    
+    let html = '<div class="col-md-4 col-lg-3 mb-4">';
+    html += '<div class="card h-100">';
+    html += `<div class="card-header bg-primary text-white text-center py-2"><strong>${monthName}</strong></div>`;
+    html += '<div class="card-body p-2">';
+    html += '<table class="table table-sm table-bordered mb-0" style="font-size: 0.85rem;">';
+    
+    // Header with day names
+    html += '<thead><tr>';
+    html += '<th class="text-center p-1" style="width: 30px;">{% if current_lang == "de" %}KW{% else %}W{% endif %}</th>';
+    
+    const dayNames = startWithSunday ? 
+        ['{% if current_lang == "de" %}So{% else %}Su{% endif %}', '{% if current_lang == "de" %}Mo{% else %}Mo{% endif %}', '{% if current_lang == "de" %}Di{% else %}Tu{% endif %}', '{% if current_lang == "de" %}Mi{% else %}We{% endif %}', '{% if current_lang == "de" %}Do{% else %}Th{% endif %}', '{% if current_lang == "de" %}Fr{% else %}Fr{% endif %}', '{% if current_lang == "de" %}Sa{% else %}Sa{% endif %}'] :
+        ['{% if current_lang == "de" %}Mo{% else %}Mo{% endif %}', '{% if current_lang == "de" %}Di{% else %}Tu{% endif %}', '{% if current_lang == "de" %}Mi{% else %}We{% endif %}', '{% if current_lang == "de" %}Do{% else %}Th{% endif %}', '{% if current_lang == "de" %}Fr{% else %}Fr{% endif %}', '{% if current_lang == "de" %}Sa{% else %}Sa{% endif %}', '{% if current_lang == "de" %}So{% else %}Su{% endif %}'];
+    
+    dayNames.forEach(day => {
+        html += `<th class="text-center p-1">${day}</th>`;
+    });
+    html += '</tr></thead><tbody>';
+    
+    // Calculate starting day
+    let startDay = firstDay.getDay();
+    if (!startWithSunday) {
+        startDay = startDay === 0 ? 6 : startDay - 1;
+    }
+    
+    let day = 1;
+    let weekCount = Math.ceil((startDay + daysInMonth) / 7);
+    
+    for (let week = 0; week < weekCount; week++) {
+        html += '<tr>';
+        
+        // Week number
+        const weekDate = new Date(year, month, day + (week * 7) - startDay);
+        const weekNum = getWeekNumber(weekDate);
+        html += `<td class="text-center p-1 bg-light"><small>${weekNum}</small></td>`;
+        
+        for (let dayOfWeek = 0; dayOfWeek < 7; dayOfWeek++) {
+            if ((week === 0 && dayOfWeek < startDay) || day > daysInMonth) {
+                html += '<td class="p-1"></td>';
+            } else {
+                const currentDate = new Date(year, month, day);
+                const isToday = currentDate.toDateString() === new Date().toDateString();
+                const bgClass = isToday ? 'bg-warning' : '';
+                html += `<td class="text-center p-1 ${bgClass}">${day}</td>`;
+                day++;
+            }
+        }
+        html += '</tr>';
+    }
+    
+    html += '</tbody></table>';
+    html += '</div></div></div>';
+    
+    return html;
+}
+
+// Render full year calendar
+function renderCalendar() {
+    const container = document.getElementById('calendarContainer');
+    container.innerHTML = '';
+    
+    for (let month = 0; month < 12; month++) {
+        container.innerHTML += generateMonth(selectedYear, month);
+    }
+}
+
+// Event listeners
+document.getElementById('prevYear').addEventListener('click', () => {
+    selectedYear--;
+    document.getElementById('yearInput').value = selectedYear;
+    renderCalendar();
+});
+
+document.getElementById('nextYear').addEventListener('click', () => {
+    selectedYear++;
+    document.getElementById('yearInput').value = selectedYear;
+    renderCalendar();
+});
+
+document.getElementById('yearInput').addEventListener('input', (e) => {
+    const year = parseInt(e.target.value);
+    if (!isNaN(year) && year !== 0) {
+        selectedYear = year;
+        renderCalendar();
+    }
+});
+
+document.getElementById('yearInput').addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') {
+        const year = parseInt(e.target.value);
+        if (!isNaN(year) && year !== 0) {
+            selectedYear = year;
+            renderCalendar();
+        }
+    }
+});
+
+document.getElementById('firstDayToggle').addEventListener('change', (e) => {
+    startWithSunday = e.target.checked;
+    renderCalendar();
+});
+
+// Initial render
+renderCalendar();
+</script>
+{% endblock %}

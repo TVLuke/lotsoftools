@@ -1,0 +1,95 @@
+{
+  "route": "/tools/json-formatter",
+  "img": "fas fa-code",
+  "name": {
+    "en": "JSON Formatter",
+    "de": "JSON-Formatierer"
+  },
+  "description": {
+    "en": "Format, validate and minify JSON data",
+    "de": "JSON-Daten formatieren, validieren und minimieren"
+  },
+  "tags": ["text tools", "formatter", "validator"],
+  "new_window": false,
+  "frontend_only": true,
+  "seo": {
+    "title": {
+      "en": "JSON Formatter - Free Online JSON Validator & Beautifier",
+      "de": "JSON-Formatierer - Kostenloser Online JSON Validator & Verschönerer"
+    },
+    "meta_description": {
+      "en": "Format, validate, and minify JSON data online. Pretty print JSON with syntax highlighting. Browser-based JSON formatter, privacy-friendly, no registration required.",
+      "de": "JSON-Daten online formatieren, validieren und minimieren. JSON mit Syntaxhervorhebung schön drucken. Browser-basierter JSON-Formatierer, datenschutzfreundlich, keine Registrierung erforderlich."
+    },
+    "keywords": {
+      "en": "JSON formatter, JSON validator, JSON beautifier, JSON minify, pretty print JSON, browser-based, privacy-friendly, free JSON tool",
+      "de": "JSON-Formatierer, JSON-Validator, JSON-Verschönerer, JSON minimieren, JSON schön drucken, Browser-basiert, Datenschutzfreundlich, kostenloses JSON-Tool"
+    },
+    "content": {
+      "heading": {
+        "en": "About This JSON Formatter",
+        "de": "Über diesen JSON-Formatierer"
+      },
+      "intro": {
+        "en": "This browser-based JSON formatter validates, formats, and minifies JSON data with syntax highlighting. Perfect for developers working with APIs, configuration files, and data structures. All processing happens in your browser - your JSON data remains completely private.",
+        "de": "Dieser Browser-basierte JSON-Formatierer validiert, formatiert und minimiert JSON-Daten mit Syntaxhervorhebung. Perfekt für Entwickler, die mit APIs, Konfigurationsdateien und Datenstrukturen arbeiten. Alle Verarbeitung erfolgt in Ihrem Browser - Ihre JSON-Daten bleiben vollständig privat."
+      },
+      "features": {
+        "heading": {
+          "en": "Key Features:",
+          "de": "Hauptfunktionen:"
+        },
+        "items": [
+          {
+            "en": "<strong>Format & Beautify:</strong> Convert minified JSON to readable, indented format",
+            "de": "<strong>Formatieren & Verschönern:</strong> Minimiertes JSON in lesbares, eingerücktes Format konvertieren"
+          },
+          {
+            "en": "<strong>Validate JSON:</strong> Check for syntax errors and invalid JSON structure",
+            "de": "<strong>JSON validieren:</strong> Auf Syntaxfehler und ungültige JSON-Struktur prüfen"
+          },
+          {
+            "en": "<strong>Minify:</strong> Compress JSON by removing whitespace and formatting",
+            "de": "<strong>Minimieren:</strong> JSON durch Entfernen von Leerzeichen und Formatierung komprimieren"
+          },
+          {
+            "en": "<strong>Syntax Highlighting:</strong> Color-coded JSON for easy reading",
+            "de": "<strong>Syntaxhervorhebung:</strong> Farbcodiertes JSON für einfaches Lesen"
+          },
+          {
+            "en": "<strong>Error Detection:</strong> Identify and highlight JSON errors",
+            "de": "<strong>Fehlererkennung:</strong> JSON-Fehler identifizieren und hervorheben"
+          }
+        ]
+      },
+      "use_cases": {
+        "heading": {
+          "en": "Use Cases:",
+          "de": "Anwendungsfälle:"
+        },
+        "items": [
+          {
+            "en": "Debug API responses and requests",
+            "de": "API-Antworten und -Anfragen debuggen"
+          },
+          {
+            "en": "Format configuration files for readability",
+            "de": "Konfigurationsdateien für Lesbarkeit formatieren"
+          },
+          {
+            "en": "Validate JSON before deployment",
+            "de": "JSON vor Bereitstellung validieren"
+          },
+          {
+            "en": "Minify JSON to reduce file size",
+            "de": "JSON minimieren um Dateigröße zu reduzieren"
+          }
+        ]
+      },
+      "privacy_note": {
+        "en": "🔒 Privacy-Friendly: JSON formatting and validation happens entirely in your browser. Your data never leaves your device.",
+        "de": "🔒 Datenschutzfreundlich: JSON-Formatierung und -Validierung erfolgt vollständig in Ihrem Browser. Ihre Daten verlassen nie Ihr Gerät."
+      }
+    }
+  }
+}

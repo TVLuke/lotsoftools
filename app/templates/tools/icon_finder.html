@@ -1,0 +1,283 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ tool_data.seo.title[current_lang] }}{% endblock %}
+{% block meta_description %}{{ tool_data.seo.meta_description[current_lang] }}{% endblock %}
+{% block meta_keywords %}{{ tool_data.seo.keywords[current_lang] }}{% endblock %}
+{% block og_title %}{{ tool_data.seo.title[current_lang] }}{% endblock %}
+{% block og_description %}{{ tool_data.seo.meta_description[current_lang] }}{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-12">
+        <h1 class="mb-4">
+            <i class="fas fa-search me-2"></i>
+            {% if current_lang == 'de' %}Icon-Finder{% else %}Icon Finder{% endif %}
+        </h1>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12">
+        <div class="card mb-3">
+            <div class="card-body">
+                <div class="row mb-3">
+                    <div class="col-12 col-md-6">
+                        <label for="iconSearchInput" class="form-label">
+                            {% if current_lang == 'de' %}Suche{% else %}Search{% endif %}
+                        </label>
+                        <input type="text" class="form-control" id="iconSearchInput" 
+                               placeholder="{% if current_lang == 'de' %}Icon-Namen suchen...{% else %}Search icon names...{% endif %}"
+                               oninput="if(typeof displayIcons === 'function') { console.log('Input event, value:', this.value); displayIcons(); }">
+                    </div>
+                    <div class="col-12 col-md-3">
+                        <label for="librarySelect" class="form-label">
+                            {% if current_lang == 'de' %}Bibliothek{% else %}Library{% endif %}
+                        </label>
+                        <select class="form-select" id="librarySelect" onchange="if(typeof displayIcons === 'function') displayIcons();">
+                            <option value="all">{% if current_lang == 'de' %}Alle{% else %}All{% endif %}</option>
+                            <option value="fontawesome">Font Awesome</option>
+                            <option value="lucide">Lucide</option>
+                        </select>
+                    </div>
+                    <div class="col-12 col-md-3">
+                        <label for="categorySelect" class="form-label">
+                            {% if current_lang == 'de' %}Kategorie{% else %}Category{% endif %}
+                        </label>
+                        <select class="form-select" id="categorySelect" onchange="if(typeof displayIcons === 'function') displayIcons();">
+                            <option value="all">{% if current_lang == 'de' %}Alle{% else %}All{% endif %}</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="d-flex justify-content-between align-items-center mb-2">
+                    <span class="text-muted" id="resultCount">0 icons</span>
+                    <div>
+                        <a href="https://fontawesome.com/search?o=r&m=free" target="_blank" rel="noopener" class="btn btn-sm btn-outline-secondary me-2">
+                            <i class="fas fa-external-link-alt me-1"></i>Font Awesome
+                        </a>
+                        <a href="https://lucide.dev/icons/" target="_blank" rel="noopener" class="btn btn-sm btn-outline-secondary">
+                            <i class="fas fa-external-link-alt me-1"></i>Lucide
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <div id="iconGrid" class="row g-3">
+                    <div class="col-12 text-center text-muted">
+                        <i class="fas fa-spinner fa-spin fa-2x mb-3"></i>
+                        <p>{% if current_lang == 'de' %}Icons werden geladen...{% else %}Loading icons...{% endif %}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% include 'components/seo_content.html' %}
+
+{% set library_name = "Font Awesome" %}
+{% set library_url = "https://fontawesome.com" %}
+{% set library_license = "Font Awesome Free License" %}
+{% include 'components/library_credit.html' %}
+
+{% set library_name = "Lucide" %}
+{% set library_url = "https://github.com/lucide-icons/lucide" %}
+{% set library_license = "ISC License" %}
+{% include 'components/library_credit.html' %}
+{% endblock %}
+
+{% block extra_js %}
+<script src="https://unpkg.com/lucide@latest"></script>
+<script>
+const lang = document.documentElement.lang || 'en';
+let allIcons = [];
+
+// Load Font Awesome icons metadata from backend cache
+const fontAwesomePromise = fetch('/api/icons/fontawesome')
+    .then(response => response.json())
+    .catch(error => {
+        console.error('Error loading Font Awesome icons:', error);
+        return [];
+    });
+
+// Load Lucide icons metadata from backend cache
+const lucidePromise = fetch('/api/icons/lucide')
+    .then(response => response.json())
+    .catch(error => {
+        console.error('Error loading Lucide icons:', error);
+        return [];
+    });
+
+// Attach event listeners immediately (before icons load)
+document.addEventListener('DOMContentLoaded', () => {
+    const searchInput = document.getElementById('iconSearchInput');
+    const librarySelect = document.getElementById('librarySelect');
+    const categorySelect = document.getElementById('categorySelect');
+    
+    console.log('DOM ready, attaching event listeners:', { searchInput, librarySelect, categorySelect });
+    
+    if (searchInput) {
+        searchInput.addEventListener('input', () => {
+            console.log('Search input changed:', searchInput.value);
+            displayIcons();
+        });
+    }
+    if (librarySelect) {
+        librarySelect.addEventListener('change', () => {
+            console.log('Library changed:', librarySelect.value);
+            displayIcons();
+        });
+    }
+    if (categorySelect) {
+        categorySelect.addEventListener('change', () => {
+            console.log('Category changed:', categorySelect.value);
+            displayIcons();
+        });
+    }
+});
+
+// Wait for both to load
+Promise.all([fontAwesomePromise, lucidePromise])
+    .then(([fontAwesomeIcons, lucideIcons]) => {
+        allIcons = [...fontAwesomeIcons, ...lucideIcons];
+        console.log(`Loaded ${fontAwesomeIcons.length} Font Awesome icons and ${lucideIcons.length} Lucide icons`);
+        populateCategories();
+        displayIcons();
+    });
+
+// Populate category dropdown
+function populateCategories() {
+    const categories = [...new Set(allIcons.map(icon => icon.category))].sort();
+    const categorySelect = document.getElementById('categorySelect');
+    categorySelect.innerHTML = '<option value="all">' + (lang === 'de' ? 'Alle' : 'All') + '</option>';
+    categories.forEach(cat => {
+        const option = document.createElement('option');
+        option.value = cat;
+        option.textContent = cat.charAt(0).toUpperCase() + cat.slice(1);
+        categorySelect.appendChild(option);
+    });
+}
+
+// Filter and display icons
+function displayIcons() {
+    const searchInput = document.getElementById('iconSearchInput');
+    const librarySelect = document.getElementById('librarySelect');
+    const categorySelect = document.getElementById('categorySelect');
+    
+    if (!searchInput || !librarySelect || !categorySelect) {
+        console.error('Search elements not found');
+        return;
+    }
+    
+    const searchTerm = searchInput.value.toLowerCase();
+    const selectedLibrary = librarySelect.value;
+    const selectedCategory = categorySelect.value;
+    
+    console.log('Filtering:', { searchTerm, selectedLibrary, selectedCategory, totalIcons: allIcons.length });
+    
+    const filtered = allIcons.filter(icon => {
+        const matchesSearch = !searchTerm || icon.name.toLowerCase().includes(searchTerm);
+        const matchesLibrary = selectedLibrary === 'all' || icon.library === selectedLibrary;
+        const matchesCategory = selectedCategory === 'all' || icon.category === selectedCategory;
+        return matchesSearch && matchesLibrary && matchesCategory;
+    });
+    
+    console.log('Filtered results:', filtered.length);
+    
+    const iconGrid = document.getElementById('iconGrid');
+    const resultCount = document.getElementById('resultCount');
+    
+    resultCount.textContent = `${filtered.length} ${lang === 'de' ? 'Icons' : 'icons'}`;
+    
+    if (filtered.length === 0) {
+        iconGrid.innerHTML = `
+            <div class="col-12 text-center text-muted py-5">
+                <i class="fas fa-search fa-3x mb-3"></i>
+                <p>${lang === 'de' ? 'Keine Icons gefunden' : 'No icons found'}</p>
+            </div>
+        `;
+        return;
+    }
+    
+    iconGrid.innerHTML = filtered.map(icon => {
+        const isLucide = icon.library === 'lucide';
+        const iconHtml = isLucide 
+            ? `<i data-lucide="${icon.name}" class="icon-preview"></i>`
+            : `<i class="${icon.class} icon-preview"></i>`;
+        
+        const code = isLucide 
+            ? `<i data-lucide="${icon.name}"></i>`
+            : `<i class="${icon.class}"></i>`;
+        
+        return `
+            <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+                <div class="icon-card p-3 text-center" data-code="${code.replace(/"/g, '&quot;')}" onclick="copyIconCode(this)">
+                    ${iconHtml}
+                    <div class="icon-name mt-2 small">${icon.name}</div>
+                    <div class="icon-library text-muted" style="font-size: 0.75rem;">${icon.library}</div>
+                </div>
+            </div>
+        `;
+    }).join('');
+    
+    // Initialize Lucide icons
+    if (typeof lucide !== 'undefined') {
+        lucide.createIcons();
+    }
+}
+
+// Copy icon code to clipboard
+function copyIconCode(element) {
+    const code = element.dataset.code;
+    navigator.clipboard.writeText(code).then(() => {
+        // Show toast notification
+        const toast = document.createElement('div');
+        toast.className = 'position-fixed top-0 start-50 translate-middle-x mt-3 alert alert-success';
+        toast.style.zIndex = '9999';
+        toast.textContent = lang === 'de' ? 'Code kopiert!' : 'Code copied!';
+        document.body.appendChild(toast);
+        setTimeout(() => toast.remove(), 2000);
+    });
+}
+
+// Show loading state initially
+document.getElementById('iconGrid').innerHTML = `
+    <div class="col-12 text-center text-muted">
+        <i class="fas fa-spinner fa-spin fa-2x mb-3"></i>
+        <p>${lang === 'de' ? 'Icons werden geladen...' : 'Loading icons...'}</p>
+    </div>
+`;
+</script>
+
+<style>
+.icon-card {
+    border: 1px solid var(--bs-border-color);
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.icon-card:hover {
+    background-color: var(--bs-light);
+    border-color: var(--bs-primary);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.icon-preview {
+    font-size: 2rem;
+    color: var(--bs-primary);
+}
+
+.icon-name {
+    word-break: break-word;
+}
+</style>
+{% endblock %}

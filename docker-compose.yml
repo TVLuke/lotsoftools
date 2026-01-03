@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+  usefull:
+    build: .
+    container_name: usefull
+    restart: unless-stopped
+    ports:
+      - "5000:5000"
+    volumes:
+      # Persist database
+      - ./data:/app/data
+      # GeoIP databases (optional, for IP lookup tool)
+      - ./geoip_data:/app/geoip_data
+      # Support config (optional)
+      - ./app/config/support_config.json:/app/app/config/support_config.json:ro
+    environment:
+      - SECRET_KEY=${SECRET_KEY:-change-this-in-production}
+      - FLASK_ENV=production
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:5000/"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s

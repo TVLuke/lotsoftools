@@ -1,0 +1,113 @@
+{
+    "route": "/tools/noise-generator",
+    "img": "fa-solid fa-volume-high",
+    "name": {
+        "en": "Noise Generator",
+        "de": "Rauschgenerator"
+    },
+    "description": {
+        "en": "Generate white, pink, or brown noise for relaxation, focus, or sleep",
+        "de": "Erzeuge weißes, rosa oder braunes Rauschen zur Entspannung, Konzentration oder zum Schlafen"
+    },
+    "tags": ["audio", "relaxation", "focus", "sleep", "meditation"],
+    "new_window": false,
+    "frontend_only": true,
+    "ui": {
+        "noise_type": { "en": "Noise Type", "de": "Rauschtyp" },
+        "white": { "en": "White", "de": "Weiß" },
+        "pink": { "en": "Pink", "de": "Rosa" },
+        "brown": { "en": "Brown", "de": "Braun" },
+        "volume": { "en": "Volume", "de": "Lautstärke" },
+        "timer": { "en": "Timer (optional)", "de": "Timer (optional)" },
+        "hours": { "en": "h", "de": "Std" },
+        "minutes": { "en": "m", "de": "Min" },
+        "timer_hint": { "en": "Leave at 0 for unlimited", "de": "Auf 0 lassen für unbegrenzt" },
+        "play": { "en": "Play", "de": "Abspielen" },
+        "stop": { "en": "Stop", "de": "Stopp" },
+        "playing": { "en": "noise playing...", "de": "Rauschen läuft..." },
+        "fullscreen": { "en": "Fullscreen Visualization", "de": "Vollbild-Visualisierung" },
+        "fading": { "en": "Fading", "de": "Farbverlauf" },
+        "spinning": { "en": "Spinning", "de": "Drehend" },
+        "solid": { "en": "Solid", "de": "Einfarbig" }
+    },
+    "seo": {
+        "title": {
+            "en": "Noise Generator - White, Pink & Brown Noise",
+            "de": "Rauschgenerator - Weißes, Rosa & Braunes Rauschen"
+        },
+        "description": {
+            "en": "Free online noise generator. Create white noise, pink noise, or brown noise for relaxation, focus, sleep, or meditation. No downloads required.",
+            "de": "Kostenloser Online-Rauschgenerator. Erzeuge weißes, rosa oder braunes Rauschen zur Entspannung, Konzentration, zum Schlafen oder Meditieren. Kein Download erforderlich."
+        },
+        "privacy_note": {
+            "en": "🔒 Privacy-Friendly: All audio is generated entirely in your browser using the Web Audio API. No data is sent to any server.",
+            "de": "🔒 Datenschutzfreundlich: Alle Audiodaten werden vollständig in Ihrem Browser mit der Web Audio API erzeugt. Es werden keine Daten an einen Server gesendet."
+        },
+        "content": {
+            "heading": {
+                "en": "About Noise Generator",
+                "de": "Über den Rauschgenerator"
+            },
+            "intro": {
+                "en": "Generate soothing background noise directly in your browser using the Web Audio API. Perfect for concentration, relaxation, or sleep.",
+                "de": "Erzeuge beruhigende Hintergrundgeräusche direkt in deinem Browser mit der Web Audio API. Perfekt für Konzentration, Entspannung oder Schlaf."
+            },
+            "features": {
+                "heading": {
+                    "en": "Features:",
+                    "de": "Funktionen:"
+                },
+                "items": [
+                    {
+                        "en": "<strong>White Noise:</strong> Equal energy across all frequencies. Sounds like static or a waterfall.",
+                        "de": "<strong>Weißes Rauschen:</strong> Gleiche Energie über alle Frequenzen. Klingt wie Rauschen oder ein Wasserfall."
+                    },
+                    {
+                        "en": "<strong>Pink Noise:</strong> More bass, less treble. Often compared to steady rainfall or wind.",
+                        "de": "<strong>Rosa Rauschen:</strong> Mehr Bass, weniger Höhen. Oft verglichen mit gleichmäßigem Regen oder Wind."
+                    },
+                    {
+                        "en": "<strong>Brown Noise:</strong> Deep, rumbling sound. Similar to thunder or a strong waterfall.",
+                        "de": "<strong>Braunes Rauschen:</strong> Tiefes, rumpelndes Geräusch. Ähnlich wie Donner oder ein starker Wasserfall."
+                    },
+                    {
+                        "en": "<strong>Sleep Timer:</strong> Set a timer to automatically stop the noise after a set duration.",
+                        "de": "<strong>Schlaf-Timer:</strong> Stelle einen Timer ein, um das Rauschen nach einer bestimmten Zeit automatisch zu stoppen."
+                    },
+                    {
+                        "en": "<strong>Fullscreen Visualization:</strong> Relaxing visual effects to accompany the audio.",
+                        "de": "<strong>Vollbild-Visualisierung:</strong> Entspannende visuelle Effekte zur Begleitung des Audios."
+                    }
+                ]
+            },
+            "use_cases": {
+                "heading": {
+                    "en": "Use Cases:",
+                    "de": "Anwendungsfälle:"
+                },
+                "items": [
+                    {
+                        "en": "Fall asleep faster with soothing background noise",
+                        "de": "Schneller einschlafen mit beruhigenden Hintergrundgeräuschen"
+                    },
+                    {
+                        "en": "Block out distracting sounds while working or studying",
+                        "de": "Ablenkende Geräusche beim Arbeiten oder Lernen ausblenden"
+                    },
+                    {
+                        "en": "Calm a baby or help children sleep",
+                        "de": "Ein Baby beruhigen oder Kindern beim Schlafen helfen"
+                    },
+                    {
+                        "en": "Meditation and relaxation sessions",
+                        "de": "Meditations- und Entspannungssitzungen"
+                    }
+                ]
+            },
+            "privacy_note": {
+                "en": "🔒 Privacy-Friendly: All audio is generated entirely in your browser using the Web Audio API. No data is sent to any server.",
+                "de": "🔒 Datenschutzfreundlich: Alle Audiodaten werden vollständig in Ihrem Browser mit der Web Audio API erzeugt. Es werden keine Daten an einen Server gesendet."
+            }
+        }
+    }
+}

@@ -1,0 +1,227 @@
+{% extends 'base.html' %}
+{% from 'components/textarea.html' import enhanced_textarea %}
+
+{% block title %}
+    {% if current_lang == 'de' %}Zeichenzähler{% else %}Letter Counter{% endif %} - usefull
+{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-12">
+        <h1 class="mb-4">
+            <i class="fas fa-font me-2"></i>
+            {% if current_lang == 'de' %}Zeichenzähler{% else %}Letter Counter{% endif %}
+        </h1>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12">
+        <div class="card mb-4">
+            <div class="card-body">
+                {{ enhanced_textarea('textInput', rows=15, label='Text eingeben:' if current_lang == 'de' else 'Enter text:', placeholder='Fügen Sie hier Ihren Text ein...' if current_lang == 'de' else 'Paste your text here...') }}
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12">
+        <div class="card mb-4">
+            <div class="card-header">
+                <h5 class="mb-0">
+                    {% if current_lang == 'de' %}Statistiken{% else %}Statistics{% endif %}
+                </h5>
+            </div>
+            <div class="card-body">
+                <div class="row text-center">
+                    <div class="col-12 col-md-4 mb-3 mb-md-0">
+                        <strong class="d-block mb-2">{% if current_lang == 'de' %}Zeichen (mit Leerzeichen){% else %}Characters (with spaces){% endif %}</strong>
+                        <div class="fs-3 text-primary" id="charsWithSpaces">0</div>
+                    </div>
+                    <div class="col-12 col-md-4 mb-3 mb-md-0">
+                        <strong class="d-block mb-2">{% if current_lang == 'de' %}Zeichen (ohne Leerzeichen){% else %}Characters (without spaces){% endif %}</strong>
+                        <div class="fs-3 text-primary" id="charsWithoutSpaces">0</div>
+                    </div>
+                    <div class="col-12 col-md-4">
+                        <strong class="d-block mb-2">{% if current_lang == 'de' %}Wörter{% else %}Words{% endif %}</strong>
+                        <div class="fs-3 text-primary" id="wordCount">0</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12">
+        <div class="card mb-4">
+            <div class="card-header">
+                <h5 class="mb-0">
+                    {% if current_lang == 'de' %}Zeichenhäufigkeit{% else %}Character Frequency{% endif %}
+                </h5>
+            </div>
+            <div class="card-body">
+                <div id="charFrequency" class="char-frequency-list">
+                    <p class="text-muted text-center">
+                        {% if current_lang == 'de' %}Geben Sie Text ein, um die Zeichenhäufigkeit zu sehen{% else %}Enter text to see character frequency{% endif %}
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0">
+                    {% if current_lang == 'de' %}Worthäufigkeit (Top 100){% else %}Word Frequency (Top 100){% endif %}
+                </h5>
+            </div>
+            <div class="card-body">
+                <div id="wordFrequency" class="word-frequency-list">
+                    <p class="text-muted text-center">
+                        {% if current_lang == 'de' %}Geben Sie Text ein, um die Worthäufigkeit zu sehen{% else %}Enter text to see word frequency{% endif %}
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_css %}
+<style>
+.char-frequency-list,
+.word-frequency-list {
+    max-height: 500px;
+    overflow-y: auto;
+}
+
+.char-frequency-table,
+.word-frequency-table {
+    width: 100%;
+    margin: 0;
+}
+
+.char-frequency-table td,
+.word-frequency-table td {
+    padding: 0.5rem;
+}
+
+.char-display,
+.word-display {
+    font-family: monospace;
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+.char-count,
+.word-count {
+    color: var(--color-primary);
+    font-weight: bold;
+    text-align: right;
+}
+</style>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+const textInput = document.getElementById('textInput');
+const charsWithSpaces = document.getElementById('charsWithSpaces');
+const charsWithoutSpaces = document.getElementById('charsWithoutSpaces');
+const wordCount = document.getElementById('wordCount');
+const charFrequency = document.getElementById('charFrequency');
+const wordFrequency = document.getElementById('wordFrequency');
+
+function analyzeText() {
+    const text = textInput.value;
+    
+    // Count characters with spaces
+    const withSpaces = text.length;
+    charsWithSpaces.textContent = withSpaces.toLocaleString();
+    
+    // Count characters without spaces
+    const withoutSpaces = text.replace(/\s/g, '').length;
+    charsWithoutSpaces.textContent = withoutSpaces.toLocaleString();
+    
+    // Count words
+    const words = text.trim().split(/\s+/).filter(word => word.length > 0);
+    wordCount.textContent = words.length.toLocaleString();
+    
+    // Count character frequency
+    const charMap = {};
+    for (let char of text) {
+        if (charMap[char]) {
+            charMap[char]++;
+        } else {
+            charMap[char] = 1;
+        }
+    }
+    
+    // Sort by frequency (descending)
+    const sortedChars = Object.entries(charMap).sort((a, b) => b[1] - a[1]);
+    
+    // Display character frequency
+    if (sortedChars.length === 0) {
+        charFrequency.innerHTML = '<p class="text-muted text-center">{% if current_lang == "de" %}Geben Sie Text ein, um die Zeichenhäufigkeit zu sehen{% else %}Enter text to see character frequency{% endif %}</p>';
+    } else {
+        let html = '<table class="table table-sm table-hover char-frequency-table"><tbody>';
+        for (let [char, count] of sortedChars) {
+            let displayChar = char;
+            if (char === ' ') {
+                displayChar = '{% if current_lang == "de" %}Leerzeichen{% else %}Space{% endif %}';
+            } else if (char === '\n') {
+                displayChar = '{% if current_lang == "de" %}Neue Zeile{% else %}Newline{% endif %}';
+            } else if (char === '\t') {
+                displayChar = '{% if current_lang == "de" %}Tab{% else %}Tab{% endif %}';
+            }
+            
+            html += `
+                <tr>
+                    <td class="char-display">${displayChar}</td>
+                    <td class="char-count">${count.toLocaleString()}</td>
+                </tr>
+            `;
+        }
+        html += '</tbody></table>';
+        charFrequency.innerHTML = html;
+    }
+    
+    // Count word frequency
+    const wordMap = {};
+    for (let word of words) {
+        const lowerWord = word.toLowerCase();
+        if (wordMap[lowerWord]) {
+            wordMap[lowerWord]++;
+        } else {
+            wordMap[lowerWord] = 1;
+        }
+    }
+    
+    // Sort by frequency (descending) and take top 100
+    const sortedWords = Object.entries(wordMap).sort((a, b) => b[1] - a[1]).slice(0, 100);
+    
+    // Display word frequency
+    if (sortedWords.length === 0) {
+        wordFrequency.innerHTML = '<p class="text-muted text-center">{% if current_lang == "de" %}Geben Sie Text ein, um die Worthäufigkeit zu sehen{% else %}Enter text to see word frequency{% endif %}</p>';
+    } else {
+        let html = '<table class="table table-sm table-hover word-frequency-table"><tbody>';
+        for (let [word, count] of sortedWords) {
+            html += `
+                <tr>
+                    <td class="word-display">${word}</td>
+                    <td class="word-count">${count.toLocaleString()}</td>
+                </tr>
+            `;
+        }
+        html += '</tbody></table>';
+        wordFrequency.innerHTML = html;
+    }
+}
+
+textInput.addEventListener('input', analyzeText);
+</script>
+{% endblock %}

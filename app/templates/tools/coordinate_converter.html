@@ -1,0 +1,461 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ tool_data.seo.title[current_lang] }} - usefull{% endblock %}
+
+{% block meta_description %}{{ tool_data.seo.description[current_lang] }}{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
+<style>
+#map {
+    height: 400px;
+    width: 100%;
+    border-radius: 0.375rem;
+}
+
+.coordinate-input {
+    font-family: 'Courier New', monospace;
+}
+
+.dms-group {
+    display: flex;
+    gap: 0.5rem;
+    align-items: end;
+}
+
+.dms-group .form-control {
+    width: 80px;
+}
+
+.dms-group .form-select {
+    width: 70px;
+}
+
+.dms-label {
+    font-size: 0.75rem;
+    color: var(--bs-secondary);
+}
+
+@media (max-width: 576px) {
+    .dms-group {
+        flex-wrap: wrap;
+    }
+    .dms-group .form-control,
+    .dms-group .form-select {
+        width: 65px;
+    }
+}
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h1 class="mb-3">
+        <i class="{{ tool_data.img }} me-2"></i>{{ tool_data.name[current_lang] }}
+    </h1>
+    <p class="lead mb-4">{{ tool_data.description[current_lang] }}</p>
+    
+    <div class="row">
+        <div class="col-lg-6 mb-4">
+            <!-- Decimal Degrees Input -->
+            <div class="card mb-3">
+                <div class="card-header">
+                    <h5 class="mb-0">
+                        <i class="fas fa-hashtag me-2"></i>{{ tool_data.ui.decimal[current_lang] }}
+                    </h5>
+                </div>
+                <div class="card-body">
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <label for="decLat" class="form-label">{{ tool_data.ui.latitude[current_lang] }}</label>
+                            <input type="number" step="any" class="form-control coordinate-input" id="decLat" placeholder="52.520008">
+                        </div>
+                        <div class="col-md-6">
+                            <label for="decLon" class="form-label">{{ tool_data.ui.longitude[current_lang] }}</label>
+                            <input type="number" step="any" class="form-control coordinate-input" id="decLon" placeholder="13.404954">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- DMS String Input -->
+            <div class="card mb-3">
+                <div class="card-header">
+                    <h5 class="mb-0">
+                        <i class="fas fa-quote-right me-2"></i>{{ tool_data.ui.dms_string[current_lang] }}
+                    </h5>
+                </div>
+                <div class="card-body">
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <label for="dmsStrLat" class="form-label">{{ tool_data.ui.latitude[current_lang] }}</label>
+                            <input type="text" class="form-control coordinate-input" id="dmsStrLat" placeholder="52° 31' 12.03&quot;">
+                        </div>
+                        <div class="col-md-6">
+                            <label for="dmsStrLon" class="form-label">{{ tool_data.ui.longitude[current_lang] }}</label>
+                            <input type="text" class="form-control coordinate-input" id="dmsStrLon" placeholder="13° 24' 17.83&quot;">
+                        </div>
+                    </div>
+                    <small class="text-muted mt-2 d-block">{{ tool_data.ui.dms_hint[current_lang] }}</small>
+                </div>
+            </div>
+            
+            <!-- DMS Input -->
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="mb-0">
+                        <i class="fas fa-compass me-2"></i>{{ tool_data.ui.dms[current_lang] }}
+                    </h5>
+                </div>
+                <div class="card-body">
+                    <!-- Latitude DMS -->
+                    <label class="form-label">{{ tool_data.ui.latitude[current_lang] }}</label>
+                    <div class="dms-group mb-3">
+                        <div>
+                            <span class="dms-label">{{ tool_data.ui.degrees[current_lang] }}</span>
+                            <input type="number" class="form-control coordinate-input" id="dmsLatDeg" placeholder="52" min="0" max="90">
+                        </div>
+                        <div>
+                            <span class="dms-label">{{ tool_data.ui.minutes[current_lang] }}</span>
+                            <input type="number" class="form-control coordinate-input" id="dmsLatMin" placeholder="31" min="0" max="59">
+                        </div>
+                        <div>
+                            <span class="dms-label">{{ tool_data.ui.seconds[current_lang] }}</span>
+                            <input type="number" step="any" class="form-control coordinate-input" id="dmsLatSec" placeholder="12.03">
+                        </div>
+                        <div>
+                            <span class="dms-label">{{ tool_data.ui.direction[current_lang] }}</span>
+                            <select class="form-select" id="dmsLatDir">
+                                <option value="N">{{ tool_data.ui.north[current_lang] }}</option>
+                                <option value="S">{{ tool_data.ui.south[current_lang] }}</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <!-- Longitude DMS -->
+                    <label class="form-label">{{ tool_data.ui.longitude[current_lang] }}</label>
+                    <div class="dms-group">
+                        <div>
+                            <span class="dms-label">{{ tool_data.ui.degrees[current_lang] }}</span>
+                            <input type="number" class="form-control coordinate-input" id="dmsLonDeg" placeholder="13" min="0" max="180">
+                        </div>
+                        <div>
+                            <span class="dms-label">{{ tool_data.ui.minutes[current_lang] }}</span>
+                            <input type="number" class="form-control coordinate-input" id="dmsLonMin" placeholder="24" min="0" max="59">
+                        </div>
+                        <div>
+                            <span class="dms-label">{{ tool_data.ui.seconds[current_lang] }}</span>
+                            <input type="number" step="any" class="form-control coordinate-input" id="dmsLonSec" placeholder="17.83">
+                        </div>
+                        <div>
+                            <span class="dms-label">{{ tool_data.ui.direction[current_lang] }}</span>
+                            <select class="form-select" id="dmsLonDir">
+                                <option value="E">{{ tool_data.ui.east[current_lang] }}</option>
+                                <option value="W">{{ tool_data.ui.west[current_lang] }}</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Share Button -->
+            <div class="mt-3">
+                <button class="btn btn-outline-secondary" id="shareBtn">
+                    <i class="fas fa-share-alt me-2"></i>{{ tool_data.ui.share_link[current_lang] }}
+                </button>
+                <span class="ms-2 text-success" id="copiedMsg" style="display: none;">
+                    <i class="fas fa-check me-1"></i>{{ tool_data.ui.copied[current_lang] }}
+                </span>
+            </div>
+        </div>
+        
+        <!-- Map -->
+        <div class="col-lg-6 mb-4">
+            <div class="card h-100">
+                <div class="card-header">
+                    <h5 class="mb-0">
+                        <i class="fas fa-map me-2"></i>OpenStreetMap
+                    </h5>
+                </div>
+                <div class="card-body">
+                    <div id="map"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    {% include 'components/seo_content.html' %}
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+<script src="https://unpkg.com/geodesy@2.4.0/latlon-spherical.min.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Elements
+    const decLat = document.getElementById('decLat');
+    const decLon = document.getElementById('decLon');
+    const dmsStrLat = document.getElementById('dmsStrLat');
+    const dmsStrLon = document.getElementById('dmsStrLon');
+    const dmsLatDeg = document.getElementById('dmsLatDeg');
+    const dmsLatMin = document.getElementById('dmsLatMin');
+    const dmsLatSec = document.getElementById('dmsLatSec');
+    const dmsLatDir = document.getElementById('dmsLatDir');
+    const dmsLonDeg = document.getElementById('dmsLonDeg');
+    const dmsLonMin = document.getElementById('dmsLonMin');
+    const dmsLonSec = document.getElementById('dmsLonSec');
+    const dmsLonDir = document.getElementById('dmsLonDir');
+    const shareBtn = document.getElementById('shareBtn');
+    const copiedMsg = document.getElementById('copiedMsg');
+    
+    // Default coordinates (Berlin)
+    let currentLat = 52.520008;
+    let currentLon = 13.404954;
+    
+    // Initialize map
+    const map = L.map('map').setView([currentLat, currentLon], 13);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(map);
+    
+    let marker = L.marker([currentLat, currentLon]).addTo(map);
+    
+    // Conversion functions using geodesy library concepts (manual implementation for reliability)
+    function decimalToDms(decimal, isLat) {
+        const absolute = Math.abs(decimal);
+        const degrees = Math.floor(absolute);
+        const minutesFloat = (absolute - degrees) * 60;
+        const minutes = Math.floor(minutesFloat);
+        const seconds = (minutesFloat - minutes) * 60;
+        
+        let direction;
+        if (isLat) {
+            direction = decimal >= 0 ? 'N' : 'S';
+        } else {
+            direction = decimal >= 0 ? 'E' : 'W';
+        }
+        
+        return { degrees, minutes, seconds, direction };
+    }
+    
+    function decimalToDmsString(decimal) {
+        const absolute = Math.abs(decimal);
+        const degrees = Math.floor(absolute);
+        const minutesFloat = (absolute - degrees) * 60;
+        const minutes = Math.floor(minutesFloat);
+        const seconds = (minutesFloat - minutes) * 60;
+        const sign = decimal < 0 ? '-' : '';
+        return `${sign}${degrees}° ${minutes}' ${seconds.toFixed(4)}"`;
+    }
+    
+    function parseDmsString(str) {
+        if (!str || str.trim() === '') return null;
+        
+        // Clean up the string
+        str = str.trim();
+        
+        // Check for negative sign
+        const isNegative = str.startsWith('-');
+        if (isNegative) str = str.substring(1).trim();
+        
+        // Also check for direction letters
+        let directionMultiplier = 1;
+        const upperStr = str.toUpperCase();
+        if (upperStr.includes('S') || upperStr.includes('W')) {
+            directionMultiplier = -1;
+        }
+        // Remove direction letters
+        str = str.replace(/[NSEWnsew]/g, '').trim();
+        
+        // Parse degrees, minutes, seconds
+        // Patterns: 52° 31' 12.03" or 52 31 12.03 or 52°31'12.03"
+        const regex = /(-?\d+(?:\.\d+)?)\s*[°d]?\s*(\d+(?:\.\d+)?)\s*[′'m]?\s*(\d+(?:\.\d+)?)\s*[″"s]?/i;
+        const match = str.match(regex);
+        
+        if (!match) {
+            // Try simple decimal
+            const decimal = parseFloat(str);
+            if (!isNaN(decimal)) {
+                return isNegative ? -Math.abs(decimal) : decimal * directionMultiplier;
+            }
+            return null;
+        }
+        
+        const degrees = parseFloat(match[1]) || 0;
+        const minutes = parseFloat(match[2]) || 0;
+        const seconds = parseFloat(match[3]) || 0;
+        
+        let decimal = Math.abs(degrees) + (minutes / 60) + (seconds / 3600);
+        
+        if (isNegative) {
+            decimal = -decimal;
+        } else if (directionMultiplier === -1) {
+            decimal = -decimal;
+        }
+        
+        return decimal;
+    }
+    
+    function dmsToDecimal(degrees, minutes, seconds, direction) {
+        let decimal = Math.abs(degrees) + (minutes / 60) + (seconds / 3600);
+        if (direction === 'S' || direction === 'W') {
+            decimal = -decimal;
+        }
+        return decimal;
+    }
+    
+    function updateMap(lat, lon) {
+        if (isNaN(lat) || isNaN(lon)) return;
+        if (lat < -90 || lat > 90 || lon < -180 || lon > 180) return;
+        
+        currentLat = lat;
+        currentLon = lon;
+        
+        marker.setLatLng([lat, lon]);
+        map.setView([lat, lon], map.getZoom());
+        
+        updateUrl();
+    }
+    
+    function updateUrl() {
+        const url = new URL(window.location.href);
+        url.searchParams.set('lat', currentLat.toFixed(6));
+        url.searchParams.set('lon', currentLon.toFixed(6));
+        window.history.replaceState({}, '', url.toString());
+    }
+    
+    function updateDmsFromDecimal(skipDmsString = false) {
+        const lat = parseFloat(decLat.value);
+        const lon = parseFloat(decLon.value);
+        
+        if (isNaN(lat) || isNaN(lon)) return;
+        
+        const latDms = decimalToDms(lat, true);
+        const lonDms = decimalToDms(lon, false);
+        
+        dmsLatDeg.value = latDms.degrees;
+        dmsLatMin.value = latDms.minutes;
+        dmsLatSec.value = latDms.seconds.toFixed(2);
+        dmsLatDir.value = latDms.direction;
+        
+        dmsLonDeg.value = lonDms.degrees;
+        dmsLonMin.value = lonDms.minutes;
+        dmsLonSec.value = lonDms.seconds.toFixed(2);
+        dmsLonDir.value = lonDms.direction;
+        
+        if (!skipDmsString) {
+            dmsStrLat.value = decimalToDmsString(lat);
+            dmsStrLon.value = decimalToDmsString(lon);
+        }
+        
+        updateMap(lat, lon);
+    }
+    
+    function updateDecimalFromDms() {
+        const latDeg = parseInt(dmsLatDeg.value) || 0;
+        const latMin = parseInt(dmsLatMin.value) || 0;
+        const latSec = parseFloat(dmsLatSec.value) || 0;
+        const latDir = dmsLatDir.value;
+        
+        const lonDeg = parseInt(dmsLonDeg.value) || 0;
+        const lonMin = parseInt(dmsLonMin.value) || 0;
+        const lonSec = parseFloat(dmsLonSec.value) || 0;
+        const lonDir = dmsLonDir.value;
+        
+        const lat = dmsToDecimal(latDeg, latMin, latSec, latDir);
+        const lon = dmsToDecimal(lonDeg, lonMin, lonSec, lonDir);
+        
+        decLat.value = lat.toFixed(6);
+        decLon.value = lon.toFixed(6);
+        
+        dmsStrLat.value = decimalToDmsString(lat);
+        dmsStrLon.value = decimalToDmsString(lon);
+        
+        updateMap(lat, lon);
+    }
+    
+    function updateFromDmsString() {
+        const lat = parseDmsString(dmsStrLat.value);
+        const lon = parseDmsString(dmsStrLon.value);
+        
+        if (lat === null || lon === null) return;
+        
+        decLat.value = lat.toFixed(6);
+        decLon.value = lon.toFixed(6);
+        
+        updateDmsFromDecimal(true);
+    }
+    
+    // Event listeners for decimal inputs
+    let decimalTimeout;
+    [decLat, decLon].forEach(input => {
+        input.addEventListener('input', function() {
+            clearTimeout(decimalTimeout);
+            decimalTimeout = setTimeout(updateDmsFromDecimal, 300);
+        });
+    });
+    
+    // Event listeners for DMS inputs
+    let dmsTimeout;
+    [dmsLatDeg, dmsLatMin, dmsLatSec, dmsLatDir, dmsLonDeg, dmsLonMin, dmsLonSec, dmsLonDir].forEach(input => {
+        input.addEventListener('input', function() {
+            clearTimeout(dmsTimeout);
+            dmsTimeout = setTimeout(updateDecimalFromDms, 300);
+        });
+        input.addEventListener('change', function() {
+            clearTimeout(dmsTimeout);
+            dmsTimeout = setTimeout(updateDecimalFromDms, 300);
+        });
+    });
+    
+    // Event listeners for DMS string inputs
+    let dmsStrTimeout;
+    [dmsStrLat, dmsStrLon].forEach(input => {
+        input.addEventListener('input', function() {
+            clearTimeout(dmsStrTimeout);
+            dmsStrTimeout = setTimeout(updateFromDmsString, 500);
+        });
+    });
+    
+    // Map click to set coordinates
+    map.on('click', function(e) {
+        const lat = e.latlng.lat;
+        const lon = e.latlng.lng;
+        
+        decLat.value = lat.toFixed(6);
+        decLon.value = lon.toFixed(6);
+        updateDmsFromDecimal();
+    });
+    
+    // Share button
+    shareBtn.addEventListener('click', function() {
+        const url = window.location.href;
+        navigator.clipboard.writeText(url).then(function() {
+            copiedMsg.style.display = 'inline';
+            setTimeout(function() {
+                copiedMsg.style.display = 'none';
+            }, 2000);
+        });
+    });
+    
+    // Load coordinates from URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const urlLat = urlParams.get('lat');
+    const urlLon = urlParams.get('lon');
+    
+    if (urlLat && urlLon) {
+        currentLat = parseFloat(urlLat);
+        currentLon = parseFloat(urlLon);
+        decLat.value = currentLat.toFixed(6);
+        decLon.value = currentLon.toFixed(6);
+        updateDmsFromDecimal();
+    } else {
+        // Set default values
+        decLat.value = currentLat.toFixed(6);
+        decLon.value = currentLon.toFixed(6);
+        updateDmsFromDecimal();
+    }
+});
+</script>
+{% endblock %}

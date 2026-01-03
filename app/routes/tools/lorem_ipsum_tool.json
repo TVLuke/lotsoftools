@@ -1,0 +1,103 @@
+{
+  "route": "/tools/lorem-ipsum",
+  "img": "fas fa-paragraph",
+  "name": {
+    "en": "Lorem Ipsum Generator",
+    "de": "Lorem-Ipsum-Generator"
+  },
+  "description": {
+    "en": "Generate placeholder text for your designs and mockups",
+    "de": "Platzhaltertext für Designs und Mockups generieren"
+  },
+  "tags": ["text", "generator"],
+  "new_window": false,
+  "frontend_only": true,
+  "seo": {
+    "title": {
+      "en": "Lorem Ipsum Generator - Placeholder Text Generator",
+      "de": "Lorem-Ipsum-Generator - Platzhaltertext-Generator"
+    },
+    "meta_description": {
+      "en": "Generate Lorem Ipsum placeholder text for your designs, mockups, and prototypes. Choose words, sentences, or paragraphs with customizable options.",
+      "de": "Generieren Sie Lorem-Ipsum-Platzhaltertext für Ihre Designs, Mockups und Prototypen. Wählen Sie Wörter, Sätze oder Absätze mit anpassbaren Optionen."
+    },
+    "keywords": {
+      "en": "lorem ipsum, placeholder text, dummy text, filler text, lipsum, text generator, design mockup, prototype text",
+      "de": "Lorem Ipsum, Platzhaltertext, Blindtext, Fülltext, Lipsum, Textgenerator, Design-Mockup, Prototyp-Text"
+    },
+    "content": {
+      "heading": {
+        "en": "About Lorem Ipsum",
+        "de": "Über Lorem Ipsum"
+      },
+      "intro": {
+        "en": "Lorem Ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups. This generator creates customizable Lorem Ipsum text with options for words, sentences, or paragraphs.",
+        "de": "Lorem Ipsum ist Platzhaltertext, der häufig in der Grafik-, Druck- und Verlagsindustrie verwendet wird, um Layouts und visuelle Mockups in der Vorschau anzuzeigen. Dieser Generator erstellt anpassbaren Lorem-Ipsum-Text mit Optionen für Wörter, Sätze oder Absätze."
+      },
+      "features": {
+        "heading": {
+          "en": "Key Features:",
+          "de": "Hauptfunktionen:"
+        },
+        "items": [
+          {
+            "en": "<strong>Multiple Formats:</strong> Generate words, sentences, or paragraphs",
+            "de": "<strong>Mehrere Formate:</strong> Generieren Sie Wörter, Sätze oder Absätze"
+          },
+          {
+            "en": "<strong>Customizable Length:</strong> Choose exactly how much text you need",
+            "de": "<strong>Anpassbare Länge:</strong> Wählen Sie genau, wie viel Text Sie benötigen"
+          },
+          {
+            "en": "<strong>Instant Generation:</strong> Text generated instantly in your browser",
+            "de": "<strong>Sofortige Generierung:</strong> Text wird sofort in Ihrem Browser generiert"
+          },
+          {
+            "en": "<strong>Easy Copy:</strong> One-click copy to clipboard",
+            "de": "<strong>Einfaches Kopieren:</strong> Ein-Klick-Kopieren in die Zwischenablage"
+          },
+          {
+            "en": "<strong>Enhanced Textarea:</strong> Character and word count, line numbers, and formatting options",
+            "de": "<strong>Erweitertes Textfeld:</strong> Zeichen- und Wortzählung, Zeilennummern und Formatierungsoptionen"
+          }
+        ]
+      },
+      "use_cases": {
+        "heading": {
+          "en": "Use Cases:",
+          "de": "Anwendungsfälle:"
+        },
+        "items": [
+          {
+            "en": "Fill design mockups and wireframes with realistic text",
+            "de": "Füllen Sie Design-Mockups und Wireframes mit realistischem Text"
+          },
+          {
+            "en": "Test typography and layout in web and print designs",
+            "de": "Testen Sie Typografie und Layout in Web- und Druckdesigns"
+          },
+          {
+            "en": "Create placeholder content for prototypes and demos",
+            "de": "Erstellen Sie Platzhalterinhalte für Prototypen und Demos"
+          },
+          {
+            "en": "Preview how text flows in different layouts",
+            "de": "Vorschau, wie Text in verschiedenen Layouts fließt"
+          },
+          {
+            "en": "Generate sample content for testing and development",
+            "de": "Generieren Sie Beispielinhalte für Tests und Entwicklung"
+          }
+        ]
+      },
+      "history": {
+        "en": "📜 History: Lorem Ipsum has been the industry's standard dummy text since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting.",
+        "de": "📜 Geschichte: Lorem Ipsum ist seit den 1500er Jahren der Standard-Blindtext der Branche, als ein unbekannter Drucker eine Galeere mit Schrift nahm und sie durcheinander brachte, um ein Musterbuch zu erstellen. Es hat nicht nur fünf Jahrhunderte überlebt, sondern auch den Sprung in den elektronischen Schriftsatz."
+      },
+      "privacy_note": {
+        "en": "🔒 Privacy-Friendly: Lorem Ipsum text is generated entirely in your browser. No data is sent to any server.",
+        "de": "🔒 Datenschutzfreundlich: Lorem-Ipsum-Text wird vollständig in Ihrem Browser generiert. Es werden keine Daten an einen Server gesendet."
+      }
+    }
+  }
+}

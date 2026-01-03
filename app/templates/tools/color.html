@@ -1,0 +1,556 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    {% if current_lang == 'de' %}Farbübersicht{% else %}Color Overview{% endif %} - #{{ hex_color }} - usefull
+{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-12">
+        <h1 class="mb-4">
+            <i class="fas fa-palette me-2"></i>
+            {% if current_lang == 'de' %}Farbübersicht{% else %}Color Overview{% endif %}
+        </h1>
+    </div>
+</div>
+
+<!-- Color Display -->
+<div class="row mb-4">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body text-center">
+                <div id="colorDisplay" style="width: 100%; height: 200px; background-color: #{{ hex_color }}; border-radius: 8px; border: 1px solid #dee2e6;"></div>
+                <h2 class="mt-3 mb-0">#{{ hex_color }}</h2>
+                <div class="mt-3">
+                    <label for="colorPicker" class="form-label">
+                        {% if current_lang == 'de' %}Farbe ändern{% else %}Change Color{% endif %}
+                    </label>
+                    <input type="color" class="form-control form-control-color mx-auto" id="colorPicker" value="#{{ hex_color }}" style="width: 100px; height: 50px;">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Color Formats -->
+<div class="row mb-4">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0">
+                    {% if current_lang == 'de' %}Farbformate{% else %}Color Formats{% endif %}
+                </h5>
+            </div>
+            <div class="card-body">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>{% if current_lang == 'de' %}Format{% else %}Format{% endif %}</th>
+                            <th>{% if current_lang == 'de' %}Wert{% else %}Value{% endif %}</th>
+                        </tr>
+                    </thead>
+                    <tbody id="colorFormatsTable">
+                        <tr>
+                            <td>RGB</td>
+                            <td id="rgb"></td>
+                        </tr>
+                        <tr>
+                            <td>HSL</td>
+                            <td id="hsl"></td>
+                        </tr>
+                        <tr>
+                            <td>HSV</td>
+                            <td id="hsv"></td>
+                        </tr>
+                        <tr>
+                            <td>CMYK</td>
+                            <td id="cmyk"></td>
+                        </tr>
+                        <tr>
+                            <td>XYZ</td>
+                            <td id="xyz"></td>
+                        </tr>
+                        <tr>
+                            <td>Yxy</td>
+                            <td id="yxy"></td>
+                        </tr>
+                        <tr>
+                            <td>Hunter Lab</td>
+                            <td id="hunterlab"></td>
+                        </tr>
+                        <tr>
+                            <td>CIE-Lab</td>
+                            <td id="cielab"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Base Numbers -->
+<div class="row mb-4">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0">
+                    {% if current_lang == 'de' %}Basisnummern{% else %}Base Numbers{% endif %}
+                </h5>
+            </div>
+            <div class="card-body">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>{% if current_lang == 'de' %}Basis{% else %}Base{% endif %}</th>
+                            <th>{% if current_lang == 'de' %}Rot{% else %}Red{% endif %}</th>
+                            <th>{% if current_lang == 'de' %}Grün{% else %}Green{% endif %}</th>
+                            <th>{% if current_lang == 'de' %}Blau{% else %}Blue{% endif %}</th>
+                        </tr>
+                    </thead>
+                    <tbody id="baseNumbersTable">
+                        <tr>
+                            <td>Binary</td>
+                            <td id="binR"></td>
+                            <td id="binG"></td>
+                            <td id="binB"></td>
+                        </tr>
+                        <tr>
+                            <td>Octal</td>
+                            <td id="octR"></td>
+                            <td id="octG"></td>
+                            <td id="octB"></td>
+                        </tr>
+                        <tr>
+                            <td>Decimal</td>
+                            <td id="decR"></td>
+                            <td id="decG"></td>
+                            <td id="decB"></td>
+                        </tr>
+                        <tr>
+                            <td>Hex</td>
+                            <td id="hexR"></td>
+                            <td id="hexG"></td>
+                            <td id="hexB"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Tints -->
+<div class="row mb-4">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header d-flex justify-content-between align-items-center">
+                <h5 class="mb-0">
+                    {% if current_lang == 'de' %}Tönungen{% else %}Tints{% endif %}
+                </h5>
+                <div class="btn-group btn-group-sm" role="group">
+                    <input type="radio" class="btn-check" name="tintsCount" id="tints10" value="10" checked>
+                    <label class="btn btn-outline-primary" for="tints10">10</label>
+                    <input type="radio" class="btn-check" name="tintsCount" id="tints20" value="20">
+                    <label class="btn btn-outline-primary" for="tints20">20</label>
+                </div>
+            </div>
+            <div class="card-body">
+                <div id="tintsDisplay" class="d-flex" style="height: 60px;"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Shades -->
+<div class="row mb-4">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header d-flex justify-content-between align-items-center">
+                <h5 class="mb-0">
+                    {% if current_lang == 'de' %}Schattierungen{% else %}Shades{% endif %}
+                </h5>
+                <div class="btn-group btn-group-sm" role="group">
+                    <input type="radio" class="btn-check" name="shadesCount" id="shades10" value="10" checked>
+                    <label class="btn btn-outline-primary" for="shades10">10</label>
+                    <input type="radio" class="btn-check" name="shadesCount" id="shades20" value="20">
+                    <label class="btn btn-outline-primary" for="shades20">20</label>
+                </div>
+            </div>
+            <div class="card-body">
+                <div id="shadesDisplay" class="d-flex" style="height: 60px;"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Color Palettes -->
+<div class="row mb-4">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0">
+                    {% if current_lang == 'de' %}Farbpaletten{% else %}Color Palettes{% endif %}
+                </h5>
+                <small class="text-muted">
+                    {% if current_lang == 'de' %}Generiert mit{% else %}Generated using{% endif %} 
+                    <a href="https://dojotoolkit.org/reference-guide/1.9/dojox/color/Palette.html" target="_blank">Dojo Toolkit Color Palette</a>
+                </small>
+            </div>
+            <div class="card-body">
+                <div id="palettesContainer"></div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+{% include 'components/imports/dojo.html' %}
+<script>
+const hexColor = '{{ hex_color }}';
+
+// Parse hex color to RGB
+function hexToRgb(hex) {
+    const r = parseInt(hex.substr(0, 2), 16);
+    const g = parseInt(hex.substr(2, 2), 16);
+    const b = parseInt(hex.substr(4, 2), 16);
+    return { r, g, b };
+}
+
+// RGB to HSL
+function rgbToHsl(r, g, b) {
+    r /= 255; g /= 255; b /= 255;
+    const max = Math.max(r, g, b), min = Math.min(r, g, b);
+    let h, s, l = (max + min) / 2;
+
+    if (max === min) {
+        h = s = 0;
+    } else {
+        const d = max - min;
+        s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
+        switch (max) {
+            case r: h = ((g - b) / d + (g < b ? 6 : 0)) / 6; break;
+            case g: h = ((b - r) / d + 2) / 6; break;
+            case b: h = ((r - g) / d + 4) / 6; break;
+        }
+    }
+    return { h: Math.round(h * 360), s: Math.round(s * 100), l: Math.round(l * 100) };
+}
+
+// RGB to HSV
+function rgbToHsv(r, g, b) {
+    r /= 255; g /= 255; b /= 255;
+    const max = Math.max(r, g, b), min = Math.min(r, g, b);
+    let h, s, v = max;
+
+    const d = max - min;
+    s = max === 0 ? 0 : d / max;
+
+    if (max === min) {
+        h = 0;
+    } else {
+        switch (max) {
+            case r: h = ((g - b) / d + (g < b ? 6 : 0)) / 6; break;
+            case g: h = ((b - r) / d + 2) / 6; break;
+            case b: h = ((r - g) / d + 4) / 6; break;
+        }
+    }
+    return { h: Math.round(h * 360), s: Math.round(s * 100), v: Math.round(v * 100) };
+}
+
+// RGB to CMYK
+function rgbToCmyk(r, g, b) {
+    r /= 255; g /= 255; b /= 255;
+    const k = 1 - Math.max(r, g, b);
+    const c = k === 1 ? 0 : (1 - r - k) / (1 - k);
+    const m = k === 1 ? 0 : (1 - g - k) / (1 - k);
+    const y = k === 1 ? 0 : (1 - b - k) / (1 - k);
+    return { 
+        c: Math.round(c * 100), 
+        m: Math.round(m * 100), 
+        y: Math.round(y * 100), 
+        k: Math.round(k * 100) 
+    };
+}
+
+// RGB to XYZ
+function rgbToXyz(r, g, b) {
+    r /= 255; g /= 255; b /= 255;
+    
+    r = r > 0.04045 ? Math.pow((r + 0.055) / 1.055, 2.4) : r / 12.92;
+    g = g > 0.04045 ? Math.pow((g + 0.055) / 1.055, 2.4) : g / 12.92;
+    b = b > 0.04045 ? Math.pow((b + 0.055) / 1.055, 2.4) : b / 12.92;
+    
+    r *= 100; g *= 100; b *= 100;
+    
+    const x = r * 0.4124 + g * 0.3576 + b * 0.1805;
+    const y = r * 0.2126 + g * 0.7152 + b * 0.0722;
+    const z = r * 0.0193 + g * 0.1192 + b * 0.9505;
+    
+    return { x: x.toFixed(2), y: y.toFixed(2), z: z.toFixed(2) };
+}
+
+// XYZ to Yxy
+function xyzToYxy(x, y, z) {
+    const sum = parseFloat(x) + parseFloat(y) + parseFloat(z);
+    if (sum === 0) return { Y: 0, x: 0, y: 0 };
+    return {
+        Y: parseFloat(y).toFixed(2),
+        x: (parseFloat(x) / sum).toFixed(4),
+        y: (parseFloat(y) / sum).toFixed(4)
+    };
+}
+
+// XYZ to Hunter Lab
+function xyzToHunterLab(x, y, z) {
+    const sqrtY = Math.sqrt(parseFloat(y));
+    const L = 10 * sqrtY;
+    const a = sqrtY === 0 ? 0 : 17.5 * (((1.02 * parseFloat(x)) - parseFloat(y)) / sqrtY);
+    const b = sqrtY === 0 ? 0 : 7 * ((parseFloat(y) - (0.847 * parseFloat(z))) / sqrtY);
+    return { L: L.toFixed(2), a: a.toFixed(2), b: b.toFixed(2) };
+}
+
+// XYZ to CIE-Lab
+function xyzToCieLab(x, y, z) {
+    // D65 reference white
+    const refX = 95.047, refY = 100.000, refZ = 108.883;
+    
+    x = parseFloat(x) / refX;
+    y = parseFloat(y) / refY;
+    z = parseFloat(z) / refZ;
+    
+    x = x > 0.008856 ? Math.pow(x, 1/3) : (7.787 * x) + (16/116);
+    y = y > 0.008856 ? Math.pow(y, 1/3) : (7.787 * y) + (16/116);
+    z = z > 0.008856 ? Math.pow(z, 1/3) : (7.787 * z) + (16/116);
+    
+    const L = (116 * y) - 16;
+    const a = 500 * (x - y);
+    const b = 200 * (y - z);
+    
+    return { L: L.toFixed(2), a: a.toFixed(2), b: b.toFixed(2) };
+}
+
+// Calculate all color formats
+const rgb = hexToRgb(hexColor);
+const hsl = rgbToHsl(rgb.r, rgb.g, rgb.b);
+const hsv = rgbToHsv(rgb.r, rgb.g, rgb.b);
+const cmyk = rgbToCmyk(rgb.r, rgb.g, rgb.b);
+const xyz = rgbToXyz(rgb.r, rgb.g, rgb.b);
+const yxy = xyzToYxy(xyz.x, xyz.y, xyz.z);
+const hunterLab = xyzToHunterLab(xyz.x, xyz.y, xyz.z);
+const cieLab = xyzToCieLab(xyz.x, xyz.y, xyz.z);
+
+// Display color formats
+document.getElementById('rgb').textContent = `rgb(${rgb.r}, ${rgb.g}, ${rgb.b})`;
+document.getElementById('hsl').textContent = `hsl(${hsl.h}°, ${hsl.s}%, ${hsl.l}%)`;
+document.getElementById('hsv').textContent = `hsv(${hsv.h}°, ${hsv.s}%, ${hsv.v}%)`;
+document.getElementById('cmyk').textContent = `cmyk(${cmyk.c}%, ${cmyk.m}%, ${cmyk.y}%, ${cmyk.k}%)`;
+document.getElementById('xyz').textContent = `XYZ(${xyz.x}, ${xyz.y}, ${xyz.z})`;
+document.getElementById('yxy').textContent = `Yxy(${yxy.Y}, ${yxy.x}, ${yxy.y})`;
+document.getElementById('hunterlab').textContent = `Lab(${hunterLab.L}, ${hunterLab.a}, ${hunterLab.b})`;
+document.getElementById('cielab').textContent = `Lab(${cieLab.L}, ${cieLab.a}, ${cieLab.b})`;
+
+// Display base numbers
+document.getElementById('binR').textContent = rgb.r.toString(2).padStart(8, '0');
+document.getElementById('binG').textContent = rgb.g.toString(2).padStart(8, '0');
+document.getElementById('binB').textContent = rgb.b.toString(2).padStart(8, '0');
+
+document.getElementById('octR').textContent = rgb.r.toString(8);
+document.getElementById('octG').textContent = rgb.g.toString(8);
+document.getElementById('octB').textContent = rgb.b.toString(8);
+
+document.getElementById('decR').textContent = rgb.r;
+document.getElementById('decG').textContent = rgb.g;
+document.getElementById('decB').textContent = rgb.b;
+
+document.getElementById('hexR').textContent = rgb.r.toString(16).toUpperCase().padStart(2, '0');
+document.getElementById('hexG').textContent = rgb.g.toString(16).toUpperCase().padStart(2, '0');
+document.getElementById('hexB').textContent = rgb.b.toString(16).toUpperCase().padStart(2, '0');
+
+// Generate tints
+function generateTints(count) {
+    const tintsDisplay = document.getElementById('tintsDisplay');
+    tintsDisplay.innerHTML = '';
+    
+    for (let i = 1; i <= count; i++) {
+        const factor = i / count;
+        const r = Math.round(rgb.r + ((255 - rgb.r) * factor));
+        const g = Math.round(rgb.g + ((255 - rgb.g) * factor));
+        const b = Math.round(rgb.b + ((255 - rgb.b) * factor));
+        
+        const hex = '#' + 
+            r.toString(16).padStart(2, '0') + 
+            g.toString(16).padStart(2, '0') + 
+            b.toString(16).padStart(2, '0');
+        
+        const tintDiv = document.createElement('div');
+        tintDiv.style.flex = '1';
+        tintDiv.style.backgroundColor = hex.toUpperCase();
+        tintDiv.style.cursor = 'pointer';
+        tintDiv.title = hex.toUpperCase();
+        tintDiv.addEventListener('click', () => {
+            window.location.href = '/tools/color/' + hex.substring(1);
+        });
+        
+        tintsDisplay.appendChild(tintDiv);
+    }
+}
+
+// Generate shades
+function generateShades(count) {
+    const shadesDisplay = document.getElementById('shadesDisplay');
+    shadesDisplay.innerHTML = '';
+    
+    for (let i = 1; i <= count; i++) {
+        const factor = 1 - (i / count);
+        const r = Math.round(rgb.r * factor);
+        const g = Math.round(rgb.g * factor);
+        const b = Math.round(rgb.b * factor);
+        
+        const hex = '#' + 
+            r.toString(16).padStart(2, '0') + 
+            g.toString(16).padStart(2, '0') + 
+            b.toString(16).padStart(2, '0');
+        
+        const shadeDiv = document.createElement('div');
+        shadeDiv.style.flex = '1';
+        shadeDiv.style.backgroundColor = hex.toUpperCase();
+        shadeDiv.style.cursor = 'pointer';
+        shadeDiv.title = hex.toUpperCase();
+        shadeDiv.addEventListener('click', () => {
+            window.location.href = '/tools/color/' + hex.substring(1);
+        });
+        
+        shadesDisplay.appendChild(shadeDiv);
+    }
+}
+
+// Event listeners for tints/shades count
+document.querySelectorAll('input[name="tintsCount"]').forEach(radio => {
+    radio.addEventListener('change', (e) => generateTints(parseInt(e.target.value)));
+});
+
+document.querySelectorAll('input[name="shadesCount"]').forEach(radio => {
+    radio.addEventListener('change', (e) => generateShades(parseInt(e.target.value)));
+});
+
+// Initial generation
+generateTints(10);
+generateShades(10);
+
+// Color picker change handler
+document.getElementById('colorPicker').addEventListener('change', function(e) {
+    const newColor = e.target.value.substring(1); // Remove # from color
+    window.location.href = '/tools/color/' + newColor;
+});
+
+// Generate color palettes using Dojo Toolkit
+require([
+    "dojo/_base/array",
+    "dojox/color/Palette"
+], function(array, Palette) {
+    var palettesContainer = document.getElementById('palettesContainer');
+    var storedPalettes = [];
+    
+    var paletteTypes = [
+        { name: 'Analogous', type: 'analogous' },
+        { name: 'Monochromatic', type: 'monochromatic' },
+        { name: 'Triadic', type: 'triadic' },
+        { name: 'Complementary', type: 'complementary' },
+        { name: 'Split Complementary', type: 'splitComplementary' },
+        { name: 'Compound', type: 'compound' },
+        { name: 'Shades', type: 'shades' }
+    ];
+    
+    // Generate and store palettes
+    array.forEach(paletteTypes, function(paletteInfo) {
+        var palette = Palette.generate('#' + hexColor, paletteInfo.type);
+        storedPalettes.push({
+            name: paletteInfo.name,
+            colors: palette.colors
+        });
+    });
+    
+    // Render palettes normally first
+    function renderPalettesNormal() {
+        palettesContainer.innerHTML = '';
+        array.forEach(storedPalettes, function(paletteData) {
+            var paletteDiv = document.createElement('div');
+            paletteDiv.className = 'mb-3';
+            
+            var title = document.createElement('h6');
+            title.textContent = paletteData.name;
+            title.className = 'mb-2';
+            paletteDiv.appendChild(title);
+            
+            var colorsDiv = document.createElement('div');
+            colorsDiv.className = 'd-flex';
+            colorsDiv.style.height = '50px';
+            
+            array.forEach(paletteData.colors, function(color) {
+                var colorDiv = document.createElement('div');
+                colorDiv.style.flex = '1';
+                colorDiv.style.backgroundColor = color.toHex();
+                colorDiv.style.cursor = 'pointer';
+                colorDiv.title = color.toHex().toUpperCase();
+                colorDiv.addEventListener('click', function() {
+                    window.location.href = '/tools/color/' + color.toHex().substring(1);
+                });
+                colorsDiv.appendChild(colorDiv);
+            });
+            
+            paletteDiv.appendChild(colorsDiv);
+            palettesContainer.appendChild(paletteDiv);
+        });
+    }
+    
+    // Initial render
+    palettesContainer.innerHTML = '';
+    array.forEach(storedPalettes, function(paletteData) {
+        var paletteDiv = document.createElement('div');
+        paletteDiv.className = 'mb-3';
+        
+        var titleRow = document.createElement('div');
+        titleRow.className = 'd-flex justify-content-between align-items-center mb-2';
+        
+        var title = document.createElement('h6');
+        title.textContent = paletteData.name;
+        title.className = 'mb-0';
+        titleRow.appendChild(title);
+        
+        // Create link to colorblind simulator with palette colors
+        var colors = [];
+        array.forEach(paletteData.colors, function(color) {
+            colors.push(color.toHex().substring(1));
+        });
+        var colorblindLink = document.createElement('a');
+        colorblindLink.href = '/tools/colorblind-simulator?colors=' + colors.join(',');
+        colorblindLink.className = 'btn btn-sm btn-outline-secondary';
+        colorblindLink.innerHTML = '<i class="fas fa-eye me-1"></i>' + (document.documentElement.lang === 'de' ? 'Farbenblindheit' : 'Color Blindness');
+        titleRow.appendChild(colorblindLink);
+        
+        paletteDiv.appendChild(titleRow);
+        
+        var colorsDiv = document.createElement('div');
+        colorsDiv.className = 'd-flex';
+        colorsDiv.style.height = '50px';
+        
+        array.forEach(paletteData.colors, function(color) {
+            var colorDiv = document.createElement('div');
+            colorDiv.style.flex = '1';
+            colorDiv.style.backgroundColor = color.toHex();
+            colorDiv.style.cursor = 'pointer';
+            colorDiv.title = color.toHex().toUpperCase();
+            colorDiv.addEventListener('click', function() {
+                window.location.href = '/tools/color/' + color.toHex().substring(1);
+            });
+            colorsDiv.appendChild(colorDiv);
+        });
+        
+        paletteDiv.appendChild(colorsDiv);
+        palettesContainer.appendChild(paletteDiv);
+    });
+});
+</script>
+{% endblock %}

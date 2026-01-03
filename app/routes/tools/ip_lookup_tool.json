@@ -1,0 +1,107 @@
+{
+  "route": "/tools/ip-lookup",
+  "img": "fas fa-globe",
+  "name": {
+    "en": "IP Address Lookup",
+    "de": "IP-Adress-Lookup"
+  },
+  "description": {
+    "en": "Get geolocation and network information for any IP address. No data stored, completely private.",
+    "de": "Geolokalisierung und Netzwerkinformationen für jede IP-Adresse abrufen. Keine Datenspeicherung, vollständig privat."
+  },
+  "tags": ["network", "lookup"],
+  "new_window": false,
+  "frontend_only": false,
+  "seo": {
+    "title": {
+      "en": "IP Address Lookup - Geolocation, ISP, ASN Information",
+      "de": "IP-Adress-Lookup - Geolokalisierung, ISP, ASN-Informationen"
+    },
+    "meta_description": {
+      "en": "Look up any IPv4 or IPv6 address to find geolocation (country, city, coordinates), ISP, ASN, and network information. Privacy-friendly with local GeoIP database. No IP addresses stored or logged.",
+      "de": "Suchen Sie jede IPv4- oder IPv6-Adresse, um Geolokalisierung (Land, Stadt, Koordinaten), ISP, ASN und Netzwerkinformationen zu finden. Datenschutzfreundlich mit lokaler GeoIP-Datenbank. Keine IP-Adressen gespeichert oder protokolliert."
+    },
+    "keywords": {
+      "en": "ip lookup, ip geolocation, find ip location, ip address info, ASN lookup, ISP lookup, what is my ip, ip to location, privacy-friendly",
+      "de": "IP-Lookup, IP-Geolokalisierung, IP-Standort finden, IP-Adressinformationen, ASN-Lookup, ISP-Lookup, Was ist meine IP, IP zu Standort, Datenschutzfreundlich"
+    },
+    "content": {
+      "heading": {
+        "en": "About This IP Lookup Tool",
+        "de": "Über dieses IP-Lookup-Tool"
+      },
+      "intro": {
+        "en": "This IP address lookup tool provides detailed geolocation and network information for any IPv4 or IPv6 address. Using the MaxMind GeoLite2 database, all lookups are performed locally on the server for privacy and speed. <strong>No IP addresses are stored, logged, or sent to external services.</strong> All data exists only in memory during the lookup and is immediately discarded. Get information about country, region, city, coordinates, ISP, ASN, and more.",
+        "de": "Dieses IP-Adress-Lookup-Tool bietet detaillierte Geolokalisierungs- und Netzwerkinformationen für jede IPv4- oder IPv6-Adresse. Mit der MaxMind GeoLite2-Datenbank werden alle Abfragen lokal auf dem Server durchgeführt, um Datenschutz und Geschwindigkeit zu gewährleisten. <strong>Keine IP-Adressen werden gespeichert, protokolliert oder an externe Dienste gesendet.</strong> Alle Daten existieren nur im Speicher während der Abfrage und werden sofort verworfen. Erhalten Sie Informationen über Land, Region, Stadt, Koordinaten, ISP, ASN und mehr."
+      },
+      "features": {
+        "heading": {
+          "en": "Key Features:",
+          "de": "Hauptfunktionen:"
+        },
+        "items": [
+          {
+            "en": "<strong>Geolocation Data:</strong> Country, state/region, city, postal code, latitude, longitude, and timezone",
+            "de": "<strong>Geolokalisierungsdaten:</strong> Land, Bundesland/Region, Stadt, Postleitzahl, Breitengrad, Längengrad und Zeitzone"
+          },
+          {
+            "en": "<strong>Network Information:</strong> ISP name, ASN (Autonomous System Number), and organization",
+            "de": "<strong>Netzwerkinformationen:</strong> ISP-Name, ASN (Autonomous System Number) und Organisation"
+          },
+          {
+            "en": "<strong>IPv4 and IPv6:</strong> Full support for both IPv4 and IPv6 addresses",
+            "de": "<strong>IPv4 und IPv6:</strong> Volle Unterstützung für IPv4- und IPv6-Adressen"
+          },
+          {
+            "en": "<strong>Auto-Detection:</strong> Automatically detects and displays your current IP address",
+            "de": "<strong>Auto-Erkennung:</strong> Erkennt und zeigt automatisch Ihre aktuelle IP-Adresse an"
+          },
+          {
+            "en": "<strong>Privacy-Friendly:</strong> All lookups performed locally using GeoLite2 database, no external API calls, no IP addresses stored or logged",
+            "de": "<strong>Datenschutzfreundlich:</strong> Alle Abfragen werden lokal mit der GeoLite2-Datenbank durchgeführt, keine externen API-Aufrufe, keine IP-Adressen gespeichert oder protokolliert"
+          },
+          {
+            "en": "<strong>Map Visualization:</strong> Shows location on an interactive map with coordinates",
+            "de": "<strong>Kartenvisualisierung:</strong> Zeigt den Standort auf einer interaktiven Karte mit Koordinaten an"
+          }
+        ]
+      },
+      "use_cases": {
+        "heading": {
+          "en": "Use Cases:",
+          "de": "Anwendungsfälle:"
+        },
+        "items": [
+          {
+            "en": "Find your current public IP address and location",
+            "de": "Finden Sie Ihre aktuelle öffentliche IP-Adresse und Ihren Standort"
+          },
+          {
+            "en": "Investigate suspicious IP addresses",
+            "de": "Untersuchen Sie verdächtige IP-Adressen"
+          },
+          {
+            "en": "Verify VPN or proxy server locations",
+            "de": "Überprüfen Sie VPN- oder Proxy-Server-Standorte"
+          },
+          {
+            "en": "Identify ISP and network provider information",
+            "de": "Identifizieren Sie ISP- und Netzwerkanbierinformationen"
+          },
+          {
+            "en": "Troubleshoot network and geolocation issues",
+            "de": "Beheben Sie Netzwerk- und Geolokalisierungsprobleme"
+          }
+        ]
+      },
+      "data_source": {
+        "en": "📊 Data Source: This tool uses the MaxMind GeoLite2 database, which is updated regularly for accuracy. GeoLite2 databases are created by MaxMind and available from <a href='https://www.maxmind.com' target='_blank'>https://www.maxmind.com</a>.",
+        "de": "📊 Datenquelle: Dieses Tool verwendet die MaxMind GeoLite2-Datenbank, die regelmäßig aktualisiert wird, um Genauigkeit zu gewährleisten. GeoLite2-Datenbanken werden von MaxMind erstellt und sind verfügbar unter <a href='https://www.maxmind.com' target='_blank'>https://www.maxmind.com</a>."
+      },
+      "privacy_note": {
+        "en": "🔒 Privacy-Friendly: IP lookups are performed entirely on our server using local GeoLite2 databases. No IP addresses are stored, logged, or sent to any external services. All data exists only in memory during the lookup and is immediately discarded after the response is sent.",
+        "de": "🔒 Datenschutzfreundlich: IP-Abfragen werden vollständig auf unserem Server mit lokalen GeoLite2-Datenbanken durchgeführt. Keine IP-Adressen werden gespeichert, protokolliert oder an externe Dienste gesendet. Alle Daten existieren nur im Speicher während der Abfrage und werden sofort nach dem Senden der Antwort verworfen."
+      }
+    }
+  }
+}

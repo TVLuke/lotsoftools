@@ -1,0 +1,333 @@
+{% extends "base.html" %}
+
+{% block title %}{{ tool_data.seo.title[current_lang] }}{% endblock %}
+{% block meta_description %}{{ tool_data.seo.meta_description[current_lang] }}{% endblock %}
+{% block meta_keywords %}{{ tool_data.seo.keywords[current_lang] }}{% endblock %}
+{% block og_title %}{{ tool_data.seo.title[current_lang] }}{% endblock %}
+{% block og_description %}{{ tool_data.seo.meta_description[current_lang] }}{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <div class="row mb-4">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="mb-0">{% if current_lang == 'de' %}Barcode-Einstellungen{% else %}Barcode Settings{% endif %}</h5>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="barcodeType" class="form-label">{% if current_lang == 'de' %}Barcode-Typ{% else %}Barcode Type{% endif %}</label>
+                            <select class="form-select" id="barcodeType">
+                                <option value="EAN8">EAN-8 (8 {% if current_lang == 'de' %}Ziffern{% else %}digits{% endif %})</option>
+                                <option value="EAN13" selected>EAN-13 (13 {% if current_lang == 'de' %}Ziffern{% else %}digits{% endif %})</option>
+                                <option value="EAN14">EAN-14 (14 {% if current_lang == 'de' %}Ziffern{% else %}digits{% endif %})</option>
+                                <option value="UPC">UPC-A (12 {% if current_lang == 'de' %}Ziffern{% else %}digits{% endif %})</option>
+                                <option value="UPCE">UPC-E (6 {% if current_lang == 'de' %}Ziffern{% else %}digits{% endif %})</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="barcodeValue" class="form-label">{% if current_lang == 'de' %}Barcode-Wert{% else %}Barcode Value{% endif %}</label>
+                            <input type="text" class="form-control font-monospace" id="barcodeValue" placeholder="{% if current_lang == 'de' %}Nur Zahlen eingeben{% else %}Enter numbers only{% endif %}">
+                            <small class="text-muted" id="formatHelp"></small>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="barcodeWidth" class="form-label">{% if current_lang == 'de' %}Breite{% else %}Width{% endif %}</label>
+                            <input type="number" class="form-control" id="barcodeWidth" value="2" min="1" max="5" step="0.5">
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="barcodeHeight" class="form-label">{% if current_lang == 'de' %}Höhe{% else %}Height{% endif %}</label>
+                            <input type="number" class="form-control" id="barcodeHeight" value="100" min="50" max="300">
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-12">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="autoCheckDigit" checked>
+                                <label class="form-check-label" for="autoCheckDigit">
+                                    {% if current_lang == 'de' %}Prüfziffer automatisch berechnen{% else %}Auto-calculate check digit{% endif %}
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="autoPad" checked>
+                                <label class="form-check-label" for="autoPad">
+                                    {% if current_lang == 'de' %}Mit Nullen auffüllen wenn zu kurz{% else %}Auto-fill with zeros if too short{% endif %}
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="btn btn-primary" id="generateBtn">
+                        <i class="fas fa-barcode me-2"></i>{% if current_lang == 'de' %}Barcode generieren{% else %}Generate Barcode{% endif %}
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mb-4" id="barcodeResult" style="display: none;">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="mb-0">{% if current_lang == 'de' %}Generierter Barcode{% else %}Generated Barcode{% endif %}</h5>
+                </div>
+                <div class="card-body text-center">
+                    <svg id="barcode"></svg>
+                    <div id="errorMessage" class="alert alert-danger mt-3" style="display: none;"></div>
+                    
+                    <div id="downloadSection" class="mt-3" style="display: none;">
+                        <div class="btn-group w-100" role="group">
+                            <button type="button" class="btn btn-success" id="downloadPngBtn">
+                                <i class="fas fa-download me-2"></i>PNG
+                            </button>
+                            <button type="button" class="btn btn-success" id="downloadJpgBtn">
+                                <i class="fas fa-download me-2"></i>JPG
+                            </button>
+                            <button type="button" class="btn btn-success" id="downloadSvgBtn">
+                                <i class="fas fa-download me-2"></i>SVG
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% include 'components/seo_content.html' %}
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script src="https://cdn.jsdelivr.net/npm/jsbarcode@3.11.5/dist/JsBarcode.all.min.js"></script>
+<script>
+const lang = document.documentElement.lang || 'en';
+
+// Format help text and lengths
+const formatHelpWithCheck = {
+    'EAN8': lang === 'de' ? '7 Ziffern (Prüfziffer wird berechnet)' : '7 digits (check digit calculated)',
+    'EAN13': lang === 'de' ? '12 Ziffern (Prüfziffer wird berechnet)' : '12 digits (check digit calculated)',
+    'EAN14': lang === 'de' ? '13 Ziffern (Prüfziffer wird berechnet)' : '13 digits (check digit calculated)',
+    'UPC': lang === 'de' ? '11 Ziffern (Prüfziffer wird berechnet)' : '11 digits (check digit calculated)',
+    'UPCE': lang === 'de' ? '6 Ziffern' : '6 digits'
+};
+
+const formatHelpWithoutCheck = {
+    'EAN8': lang === 'de' ? '8 Ziffern (inkl. Prüfziffer)' : '8 digits (including check digit)',
+    'EAN13': lang === 'de' ? '13 Ziffern (inkl. Prüfziffer)' : '13 digits (including check digit)',
+    'EAN14': lang === 'de' ? '14 Ziffern (inkl. Prüfziffer)' : '14 digits (including check digit)',
+    'UPC': lang === 'de' ? '12 Ziffern (inkl. Prüfziffer)' : '12 digits (including check digit)',
+    'UPCE': lang === 'de' ? '6 Ziffern' : '6 digits'
+};
+
+const formatLengths = {
+    'EAN8': 7,
+    'EAN13': 12,
+    'EAN14': 13,
+    'UPC': 11,
+    'UPCE': 6
+};
+
+// Calculate check digit for EAN/UPC
+function calculateCheckDigit(code, type) {
+    if (type === 'UPCE') return code; // UPC-E doesn't need check digit calculation
+    
+    let sum = 0;
+    const digits = code.split('').map(Number);
+    
+    // EAN/UPC algorithm: alternate multiplying by 3 and 1 from right to left
+    for (let i = digits.length - 1; i >= 0; i--) {
+        const position = digits.length - 1 - i;
+        sum += digits[i] * (position % 2 === 0 ? 3 : 1);
+    }
+    
+    const checkDigit = (10 - (sum % 10)) % 10;
+    return code + checkDigit;
+}
+
+// Pad with zeros
+function padWithZeros(code, targetLength) {
+    return code.padStart(targetLength, '0');
+}
+
+// Update format help
+function updateFormatHelp() {
+    const type = document.getElementById('barcodeType').value;
+    const autoCheckDigit = document.getElementById('autoCheckDigit').checked;
+    const formatHelp = autoCheckDigit ? formatHelpWithCheck : formatHelpWithoutCheck;
+    document.getElementById('formatHelp').textContent = formatHelp[type];
+}
+
+// Generate barcode
+function generateBarcode() {
+    const type = document.getElementById('barcodeType').value;
+    let value = document.getElementById('barcodeValue').value.trim();
+    const width = parseFloat(document.getElementById('barcodeWidth').value);
+    const height = parseInt(document.getElementById('barcodeHeight').value);
+    const autoCheckDigit = document.getElementById('autoCheckDigit').checked;
+    const autoPad = document.getElementById('autoPad').checked;
+    
+    const errorDiv = document.getElementById('errorMessage');
+    const resultDiv = document.getElementById('barcodeResult');
+    
+    errorDiv.style.display = 'none';
+    
+    if (!value) {
+        errorDiv.textContent = lang === 'de' ? 'Bitte geben Sie einen Barcode-Wert ein.' : 'Please enter a barcode value.';
+        errorDiv.style.display = 'block';
+        return;
+    }
+    
+    // Validate input is numeric
+    if (!/^\d+$/.test(value)) {
+        errorDiv.textContent = lang === 'de' ? 'Nur Zahlen sind erlaubt.' : 'Only numbers are allowed.';
+        errorDiv.style.display = 'block';
+        return;
+    }
+    
+    // Auto-pad if enabled and value is too short
+    const targetLength = formatLengths[type];
+    if (autoPad && value.length < targetLength) {
+        value = padWithZeros(value, targetLength);
+    }
+    
+    // Auto-calculate check digit if enabled
+    if (autoCheckDigit && type !== 'UPCE') {
+        // Remove any existing check digit if value is already full length
+        if (value.length === targetLength + 1) {
+            value = value.substring(0, targetLength);
+        }
+        // Only add check digit if we have the right base length
+        if (value.length === targetLength) {
+            value = calculateCheckDigit(value, type);
+        }
+    }
+    
+    try {
+        JsBarcode("#barcode", value, {
+            format: type,
+            width: width,
+            height: height,
+            displayValue: true,
+            fontSize: 14,
+            margin: 10
+        });
+        
+        resultDiv.style.display = 'block';
+        document.getElementById('downloadSection').style.display = 'block';
+        
+        // Scroll to result
+        resultDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    } catch (error) {
+        errorDiv.textContent = lang === 'de' ? 
+            'Fehler beim Generieren des Barcodes: ' + error.message : 
+            'Error generating barcode: ' + error.message;
+        errorDiv.style.display = 'block';
+        resultDiv.style.display = 'block';
+    }
+}
+
+// Download barcode as PNG
+function downloadBarcodePng() {
+    const svg = document.getElementById('barcode');
+    const svgData = new XMLSerializer().serializeToString(svg);
+    const canvas = document.createElement('canvas');
+    const ctx = canvas.getContext('2d');
+    const img = new Image();
+    
+    img.onload = function() {
+        canvas.width = img.width;
+        canvas.height = img.height;
+        ctx.fillStyle = 'white';
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        ctx.drawImage(img, 0, 0);
+        
+        canvas.toBlob(function(blob) {
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'barcode.png';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+
+            if (typeof window.showSupportOnAction === 'function') {
+                window.showSupportOnAction(30000);
+            }
+        });
+    };
+    
+    img.src = 'data:image/svg+xml;base64,' + btoa(unescape(encodeURIComponent(svgData)));
+}
+
+// Download barcode as JPG
+function downloadBarcodeJpg() {
+    const svg = document.getElementById('barcode');
+    const svgData = new XMLSerializer().serializeToString(svg);
+    const canvas = document.createElement('canvas');
+    const ctx = canvas.getContext('2d');
+    const img = new Image();
+    
+    img.onload = function() {
+        canvas.width = img.width;
+        canvas.height = img.height;
+        ctx.fillStyle = 'white';
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        ctx.drawImage(img, 0, 0);
+        
+        canvas.toBlob(function(blob) {
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'barcode.jpg';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+
+            if (typeof window.showSupportOnAction === 'function') {
+                window.showSupportOnAction(30000);
+            }
+        }, 'image/jpeg', 0.95);
+    };
+    
+    img.src = 'data:image/svg+xml;base64,' + btoa(unescape(encodeURIComponent(svgData)));
+}
+
+// Download barcode as SVG
+function downloadBarcodeSvg() {
+    const svg = document.getElementById('barcode');
+    const svgData = new XMLSerializer().serializeToString(svg);
+    const blob = new Blob([svgData], { type: 'image/svg+xml' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'barcode.svg';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+
+    if (typeof window.showSupportOnAction === 'function') {
+        window.showSupportOnAction(30000);
+    }
+}
+
+// Event listeners
+document.getElementById('barcodeType').addEventListener('change', updateFormatHelp);
+document.getElementById('autoCheckDigit').addEventListener('change', updateFormatHelp);
+document.getElementById('generateBtn').addEventListener('click', generateBarcode);
+document.getElementById('downloadPngBtn').addEventListener('click', downloadBarcodePng);
+document.getElementById('downloadJpgBtn').addEventListener('click', downloadBarcodeJpg);
+document.getElementById('downloadSvgBtn').addEventListener('click', downloadBarcodeSvg);
+document.getElementById('barcodeValue').addEventListener('keypress', function(e) {
+    if (e.key === 'Enter') {
+        generateBarcode();
+    }
+});
+
+// Initialize
+updateFormatHelp();
+</script>
+{% endblock %}
