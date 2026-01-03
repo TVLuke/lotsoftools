@@ -121,6 +121,9 @@ def create_app(config_class=Config):
     app.register_blueprint(icon_cache_bp)
     
     with app.app_context():
+        # Import models so SQLAlchemy knows about them
+        from app.models.link import Link
+        
         # Create database tables if they don't exist
         db.create_all()
         
