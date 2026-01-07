@@ -7,7 +7,7 @@
         {% if current_lang == 'de' %}Schulferien & Feiertage {{ seo_country }} {{ seo_year }}{% else %}School Holidays & Bank Holidays {{ seo_country_en }} {{ seo_year }}{% endif %}
     {% else %}
         {% if current_lang == 'de' %}Schulferien & Feiertage{% else %}School Holidays & Bank Holidays{% endif %}
-    {% endif %} - usefull
+    {% endif %} - Lots of Tools
 {% endblock %}
 
 {% block content %}
@@ -653,21 +653,21 @@ document.addEventListener('DOMContentLoaded', function() {
         let title, heading, description;
         if (lang === 'de') {
             if (regionName) {
-                title = `Schulferien & Feiertage ${regionName} ${year} - usefull`;
+                title = `Schulferien & Feiertage ${regionName} ${year} - Lots of Tools`;
                 heading = `Schulferien & Feiertage ${regionName} ${year}`;
                 description = `Übersicht aller Schulferien und gesetzlichen Feiertage für ${regionName}, ${countryName} im Jahr ${year}. Kalender zum Ausdrucken als PDF und iCal-Download verfügbar.`;
             } else {
-                title = `Schulferien & Feiertage ${countryName} ${year} - usefull`;
+                title = `Schulferien & Feiertage ${countryName} ${year} - Lots of Tools`;
                 heading = `Schulferien & Feiertage ${countryName} ${year}`;
                 description = `Übersicht aller Schulferien und gesetzlichen Feiertage für ${countryName} im Jahr ${year}. Kalender zum Ausdrucken als PDF und iCal-Download verfügbar.`;
             }
         } else {
             if (regionName) {
-                title = `School Holidays & Bank Holidays ${regionName} ${year} - usefull`;
+                title = `School Holidays & Bank Holidays ${regionName} ${year} - Lots of Tools`;
                 heading = `School Holidays & Bank Holidays ${regionName} ${year}`;
                 description = `Overview of all school holidays and public holidays for ${regionName}, ${countryName} in ${year}. Printable PDF calendar and iCal download available.`;
             } else {
-                title = `School Holidays & Bank Holidays ${countryName} ${year} - usefull`;
+                title = `School Holidays & Bank Holidays ${countryName} ${year} - Lots of Tools`;
                 heading = `School Holidays & Bank Holidays ${countryName} ${year}`;
                 description = `Overview of all school holidays and public holidays for ${countryName} in ${year}. Printable PDF calendar and iCal download available.`;
             }

@@ -1,0 +1,3885 @@
+{
+  "country": "ZA",
+  "country_name": {
+    "name": "Südafrika",
+    "name_en": "South Africa"
+  },
+  "subdivisions": [],
+  "public_holidays": [
+    {
+      "id": "4550ec8a-6587-47e9-a55d-9d9eeb2c5dd6",
+      "startDate": "2020-01-01",
+      "endDate": "2020-01-01",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Neujahrstag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Neujahrstag",
+        "EN": "New Year’s Day",
+        "FR": "New Year’s Day",
+        "ES": "New Year’s Day",
+        "IT": "New Year’s Day"
+      }
+    },
+    {
+      "id": "306930ff-d008-4d5a-abcb-faa405ae6e62",
+      "startDate": "2020-03-21",
+      "endDate": "2020-03-21",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Tag der Menschenrechte"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Tag der Menschenrechte",
+        "EN": "Human Rights Day",
+        "FR": "Human Rights Day",
+        "ES": "Human Rights Day",
+        "IT": "Human Rights Day"
+      }
+    },
+    {
+      "id": "42b2355c-4c82-4ecd-ad16-132b7b4aef58",
+      "startDate": "2020-04-10",
+      "endDate": "2020-04-10",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Karfreitag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Karfreitag",
+        "EN": "Good Friday",
+        "FR": "Good Friday",
+        "ES": "Good Friday",
+        "IT": "Good Friday"
+      }
+    },
+    {
+      "id": "3b0928b0-af69-4f5c-8aaa-0ea75493babb",
+      "startDate": "2020-04-13",
+      "endDate": "2020-04-13",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Tag der Familie"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Tag der Familie",
+        "EN": "Family Day",
+        "FR": "Family Day",
+        "ES": "Family Day",
+        "IT": "Family Day"
+      }
+    },
+    {
+      "id": "32fbf3b8-4961-4df5-b39f-391d84e50d24",
+      "startDate": "2020-04-27",
+      "endDate": "2020-04-27",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Tag der Freiheit"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Tag der Freiheit",
+        "EN": "Freedom Day",
+        "FR": "Freedom Day",
+        "ES": "Freedom Day",
+        "IT": "Freedom Day"
+      }
+    },
+    {
+      "id": "7ea520a0-ef32-494a-b2ca-2380f1b5f3e9",
+      "startDate": "2020-05-01",
+      "endDate": "2020-05-01",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Tag der Arbeit"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Tag der Arbeit",
+        "EN": "Workers' Day",
+        "FR": "Workers' Day",
+        "ES": "Workers' Day",
+        "IT": "Workers' Day"
+      }
+    },
+    {
+      "id": "9b1a6c98-7551-4d31-870a-fb0482074a69",
+      "startDate": "2020-06-16",
+      "endDate": "2020-06-16",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Tag der Jugend"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Tag der Jugend",
+        "EN": "Youth Day",
+        "FR": "Youth Day",
+        "ES": "Youth Day",
+        "IT": "Youth Day"
+      }
+    },
+    {
+      "id": "efd843e4-00c2-4798-9727-f3b84c521eee",
+      "startDate": "2020-08-09",
+      "endDate": "2020-08-09",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Nationaler Frauentag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Nationaler Frauentag",
+        "EN": "National Women's Day",
+        "FR": "National Women's Day",
+        "ES": "National Women's Day",
+        "IT": "National Women's Day"
+      }
+    },
+    {
+      "id": "b4d45be8-6035-42ea-935a-13252c820aab",
+      "startDate": "2020-09-24",
+      "endDate": "2020-09-24",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Tag des Kulturerbes"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Tag des Kulturerbes",
+        "EN": "Heritage Day",
+        "FR": "Heritage Day",
+        "ES": "Heritage Day",
+        "IT": "Heritage Day"
+      }
+    },
+    {
+      "id": "efd8f801-d48b-46db-8f69-be2df31b4886",
+      "startDate": "2020-12-16",
+      "endDate": "2020-12-16",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Versöhnungstag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Versöhnungstag",
+        "EN": "Day of Reconciliation",
+        "FR": "Day of Reconciliation",
+        "ES": "Day of Reconciliation",
+        "IT": "Day of Reconciliation"
+      }
+    },
+    {
+      "id": "33e41d38-ab19-4631-b94b-09bb8a327887",
+      "startDate": "2020-12-25",
+      "endDate": "2020-12-25",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Weihnachtstag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Weihnachtstag",
+        "EN": "Christmas Day",
+        "FR": "Christmas Day",
+        "ES": "Christmas Day",
+        "IT": "Christmas Day"
+      }
+    },
+    {
+      "id": "e45dd9a1-00e3-40d7-ba10-6ef35154164e",
+      "startDate": "2020-12-26",
+      "endDate": "2020-12-26",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Tag des gegenseitigen Verständnisses"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Tag des gegenseitigen Verständnisses",
+        "EN": "Day of Goodwill",
+        "FR": "Day of Goodwill",
+        "ES": "Day of Goodwill",
+        "IT": "Day of Goodwill"
+      }
+    },
+    {
+      "id": "19b225d9-9eb4-421a-9186-2f545581b37e",
+      "startDate": "2021-01-01",
+      "endDate": "2021-01-01",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Neujahrstag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Neujahrstag",
+        "EN": "New Year’s Day",
+        "FR": "New Year’s Day",
+        "ES": "New Year’s Day",
+        "IT": "New Year’s Day"
+      }
+    },
+    {
+      "id": "0dc05d50-76f1-45e2-8285-e255f6537cc3",
+      "startDate": "2021-03-21",
+      "endDate": "2021-03-21",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Tag der Menschenrechte"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Tag der Menschenrechte",
+        "EN": "Human Rights Day",
+        "FR": "Human Rights Day",
+        "ES": "Human Rights Day",
+        "IT": "Human Rights Day"
+      }
+    },
+    {
+      "id": "2c98e2c5-0e43-43d9-9f31-5a902d39749a",
+      "startDate": "2021-03-22",
+      "endDate": "2021-03-22",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Montag nach Tag der Menschenrechte"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Montag nach Tag der Menschenrechte",
+        "EN": "Human Rights Day observed",
+        "FR": "Human Rights Day observed",
+        "ES": "Human Rights Day observed",
+        "IT": "Human Rights Day observed"
+      }
+    },
+    {
+      "id": "79224b9f-6821-497d-be77-8b185926d5ad",
+      "startDate": "2021-04-02",
+      "endDate": "2021-04-02",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Karfreitag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Karfreitag",
+        "EN": "Good Friday",
+        "FR": "Good Friday",
+        "ES": "Good Friday",
+        "IT": "Good Friday"
+      }
+    },
+    {
+      "id": "afbd1bc1-ed1a-4f23-b8a1-1a5004f14fe2",
+      "startDate": "2021-04-05",
+      "endDate": "2021-04-05",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Tag der Familie"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Tag der Familie",
+        "EN": "Family Day",
+        "FR": "Family Day",
+        "ES": "Family Day",
+        "IT": "Family Day"
+      }
+    },
+    {
+      "id": "89ac883e-d653-40ed-b1e7-b5e5f700ea55",
+      "startDate": "2021-04-27",
+      "endDate": "2021-04-27",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Tag der Freiheit"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Tag der Freiheit",
+        "EN": "Freedom Day",
+        "FR": "Freedom Day",
+        "ES": "Freedom Day",
+        "IT": "Freedom Day"
+      }
+    },
+    {
+      "id": "f2fa9794-064c-489f-90f2-be00a8997905",
+      "startDate": "2021-05-01",
+      "endDate": "2021-05-01",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Tag der Arbeit"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Tag der Arbeit",
+        "EN": "Workers' Day",
+        "FR": "Workers' Day",
+        "ES": "Workers' Day",
+        "IT": "Workers' Day"
+      }
+    },
+    {
+      "id": "756c9b8d-aed0-443b-bf36-f6ab6f7dbbe0",
+      "startDate": "2021-06-16",
+      "endDate": "2021-06-16",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Tag der Jugend"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Tag der Jugend",
+        "EN": "Youth Day",
+        "FR": "Youth Day",
+        "ES": "Youth Day",
+        "IT": "Youth Day"
+      }
+    },
+    {
+      "id": "e0456a5b-b65c-4a7a-8ede-6fead03ac696",
+      "startDate": "2021-08-09",
+      "endDate": "2021-08-09",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Nationaler Frauentag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Nationaler Frauentag",
+        "EN": "National Women's Day",
+        "FR": "National Women's Day",
+        "ES": "National Women's Day",
+        "IT": "National Women's Day"
+      }
+    },
+    {
+      "id": "a7fae5f0-2b59-4bfe-93c7-d41ee82355f8",
+      "startDate": "2021-09-24",
+      "endDate": "2021-09-24",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Tag des Kulturerbes"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Tag des Kulturerbes",
+        "EN": "Heritage Day",
+        "FR": "Heritage Day",
+        "ES": "Heritage Day",
+        "IT": "Heritage Day"
+      }
+    },
+    {
+      "id": "5b6f4e27-1812-461e-af47-671df4e62fcd",
+      "startDate": "2021-12-16",
+      "endDate": "2021-12-16",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Versöhnungstag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Versöhnungstag",
+        "EN": "Day of Reconciliation",
+        "FR": "Day of Reconciliation",
+        "ES": "Day of Reconciliation",
+        "IT": "Day of Reconciliation"
+      }
+    },
+    {
+      "id": "237d54b5-4a89-4e1a-8e53-301692d494eb",
+      "startDate": "2021-12-25",
+      "endDate": "2021-12-25",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Weihnachtstag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Weihnachtstag",
+        "EN": "Christmas Day",
+        "FR": "Christmas Day",
+        "ES": "Christmas Day",
+        "IT": "Christmas Day"
+      }
+    },
+    {
+      "id": "5fbf0a18-08f5-4f34-8187-c448646533a7",
+      "startDate": "2021-12-26",
+      "endDate": "2021-12-26",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Tag des gegenseitigen Verständnisses"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Tag des gegenseitigen Verständnisses",
+        "EN": "Day of Goodwill",
+        "FR": "Day of Goodwill",
+        "ES": "Day of Goodwill",
+        "IT": "Day of Goodwill"
+      }
+    },
+    {
+      "id": "8151db6c-2af0-47d0-a7ee-ec1193b5ed00",
+      "startDate": "2022-01-01",
+      "endDate": "2022-01-01",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Neujahrstag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Neujahrstag",
+        "EN": "New Year’s Day",
+        "FR": "New Year’s Day",
+        "ES": "New Year’s Day",
+        "IT": "New Year’s Day"
+      }
+    },
+    {
+      "id": "0351a4c2-8973-43b0-b85f-781b68f414f9",
+      "startDate": "2022-03-21",
+      "endDate": "2022-03-21",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Tag der Menschenrechte"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Tag der Menschenrechte",
+        "EN": "Human Rights Day",
+        "FR": "Human Rights Day",
+        "ES": "Human Rights Day",
+        "IT": "Human Rights Day"
+      }
+    },
+    {
+      "id": "5c91896d-ba33-47d0-81d0-4fdf8435efe7",
+      "startDate": "2022-04-15",
+      "endDate": "2022-04-15",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Karfreitag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Karfreitag",
+        "EN": "Good Friday",
+        "FR": "Good Friday",
+        "ES": "Good Friday",
+        "IT": "Good Friday"
+      }
+    },
+    {
+      "id": "46990422-3643-4649-9fbb-f061b5da5d20",
+      "startDate": "2022-04-18",
+      "endDate": "2022-04-18",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Tag der Familie"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Tag der Familie",
+        "EN": "Family Day",
+        "FR": "Family Day",
+        "ES": "Family Day",
+        "IT": "Family Day"
+      }
+    },
+    {
+      "id": "79cb1282-8365-4ad2-bde5-f6053412b637",
+      "startDate": "2022-04-27",
+      "endDate": "2022-04-27",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Tag der Freiheit"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Tag der Freiheit",
+        "EN": "Freedom Day",
+        "FR": "Freedom Day",
+        "ES": "Freedom Day",
+        "IT": "Freedom Day"
+      }
+    },
+    {
+      "id": "1b2ac55a-962e-495d-b2aa-8cd9a93f5326",
+      "startDate": "2022-05-01",
+      "endDate": "2022-05-01",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Tag der Arbeit"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Tag der Arbeit",
+        "EN": "Workers' Day",
+        "FR": "Workers' Day",
+        "ES": "Workers' Day",
+        "IT": "Workers' Day"
+      }
+    },
+    {
+      "id": "7c3973fa-75d1-4994-8404-69df6e9bbcfa",
+      "startDate": "2022-05-02",
+      "endDate": "2022-05-02",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Montag nach Tag der Arbeit"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Montag nach Tag der Arbeit",
+        "EN": "Workers' Day observed",
+        "FR": "Workers' Day observed",
+        "ES": "Workers' Day observed",
+        "IT": "Workers' Day observed"
+      }
+    },
+    {
+      "id": "1063b973-b8f0-4ab1-919f-be30058063b7",
+      "startDate": "2022-06-16",
+      "endDate": "2022-06-16",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Tag der Jugend"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Tag der Jugend",
+        "EN": "Youth Day",
+        "FR": "Youth Day",
+        "ES": "Youth Day",
+        "IT": "Youth Day"
+      }
+    },
+    {
+      "id": "9f743550-02f2-4bd0-8dd4-363fa6a17b44",
+      "startDate": "2022-08-09",
+      "endDate": "2022-08-09",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Nationaler Frauentag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Nationaler Frauentag",
+        "EN": "National Women's Day",
+        "FR": "National Women's Day",
+        "ES": "National Women's Day",
+        "IT": "National Women's Day"
+      }
+    },
+    {
+      "id": "38bdbf45-0d01-4d2d-95fd-81fc677b9feb",
+      "startDate": "2022-09-24",
+      "endDate": "2022-09-24",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Tag des Kulturerbes"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Tag des Kulturerbes",
+        "EN": "Heritage Day",
+        "FR": "Heritage Day",
+        "ES": "Heritage Day",
+        "IT": "Heritage Day"
+      }
+    },
+    {
+      "id": "7345b663-a4cb-4748-8a6e-6d5b2cafa359",
+      "startDate": "2022-12-16",
+      "endDate": "2022-12-16",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Versöhnungstag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Versöhnungstag",
+        "EN": "Day of Reconciliation",
+        "FR": "Day of Reconciliation",
+        "ES": "Day of Reconciliation",
+        "IT": "Day of Reconciliation"
+      }
+    },
+    {
+      "id": "f2293641-f852-49d2-991b-2b3991896cb4",
+      "startDate": "2022-12-25",
+      "endDate": "2022-12-25",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Weihnachtstag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Weihnachtstag",
+        "EN": "Christmas Day",
+        "FR": "Christmas Day",
+        "ES": "Christmas Day",
+        "IT": "Christmas Day"
+      }
+    },
+    {
+      "id": "ffa2c184-384b-473c-9df0-7e86314199ae",
+      "startDate": "2022-12-26",
+      "endDate": "2022-12-26",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Tag des gegenseitigen Verständnisses"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Tag des gegenseitigen Verständnisses",
+        "EN": "Day of Goodwill",
+        "FR": "Day of Goodwill",
+        "ES": "Day of Goodwill",
+        "IT": "Day of Goodwill"
+      }
+    },
+    {
+      "id": "e5a997cf-c3de-4ea8-a6e1-7486bf561353",
+      "startDate": "2023-01-01",
+      "endDate": "2023-01-01",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Neujahrstag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Neujahrstag",
+        "EN": "New Year’s Day",
+        "FR": "New Year’s Day",
+        "ES": "New Year’s Day",
+        "IT": "New Year’s Day"
+      }
+    },
+    {
+      "id": "2014bec4-94a3-4fac-b872-1eac72242c4d",
+      "startDate": "2023-01-02",
+      "endDate": "2023-01-02",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Montag nach Neujahrstag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Montag nach Neujahrstag",
+        "EN": "New Year’s Day observed",
+        "FR": "New Year’s Day observed",
+        "ES": "New Year’s Day observed",
+        "IT": "New Year’s Day observed"
+      }
+    },
+    {
+      "id": "b620ba84-ef4e-4321-b812-37998e21fa65",
+      "startDate": "2023-03-21",
+      "endDate": "2023-03-21",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Tag der Menschenrechte"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Tag der Menschenrechte",
+        "EN": "Human Rights Day",
+        "FR": "Human Rights Day",
+        "ES": "Human Rights Day",
+        "IT": "Human Rights Day"
+      }
+    },
+    {
+      "id": "cc575856-a041-4584-b323-674405c53134",
+      "startDate": "2023-04-07",
+      "endDate": "2023-04-07",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Karfreitag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Karfreitag",
+        "EN": "Good Friday",
+        "FR": "Good Friday",
+        "ES": "Good Friday",
+        "IT": "Good Friday"
+      }
+    },
+    {
+      "id": "cb9eea15-d399-414f-83e8-5ea350557b6d",
+      "startDate": "2023-04-10",
+      "endDate": "2023-04-10",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Tag der Familie"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Tag der Familie",
+        "EN": "Family Day",
+        "FR": "Family Day",
+        "ES": "Family Day",
+        "IT": "Family Day"
+      }
+    },
+    {
+      "id": "16cc4446-6679-4d15-8b3b-3f3012afbd48",
+      "startDate": "2023-04-27",
+      "endDate": "2023-04-27",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Tag der Freiheit"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Tag der Freiheit",
+        "EN": "Freedom Day",
+        "FR": "Freedom Day",
+        "ES": "Freedom Day",
+        "IT": "Freedom Day"
+      }
+    },
+    {
+      "id": "732faf59-6ca5-4c15-a91b-8ae366498377",
+      "startDate": "2023-05-01",
+      "endDate": "2023-05-01",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Tag der Arbeit"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Tag der Arbeit",
+        "EN": "Workers' Day",
+        "FR": "Workers' Day",
+        "ES": "Workers' Day",
+        "IT": "Workers' Day"
+      }
+    },
+    {
+      "id": "f4c32572-4055-4519-8ad7-9c5af93b4c9d",
+      "startDate": "2023-06-16",
+      "endDate": "2023-06-16",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Tag der Jugend"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Tag der Jugend",
+        "EN": "Youth Day",
+        "FR": "Youth Day",
+        "ES": "Youth Day",
+        "IT": "Youth Day"
+      }
+    },
+    {
+      "id": "955d0c63-661c-4712-9734-dde31d3d7337",
+      "startDate": "2023-08-09",
+      "endDate": "2023-08-09",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Nationaler Frauentag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Nationaler Frauentag",
+        "EN": "National Women's Day",
+        "FR": "National Women's Day",
+        "ES": "National Women's Day",
+        "IT": "National Women's Day"
+      }
+    },
+    {
+      "id": "45d34574-5a04-4027-a205-846949c135e4",
+      "startDate": "2023-09-24",
+      "endDate": "2023-09-24",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Tag des Kulturerbes"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Tag des Kulturerbes",
+        "EN": "Heritage Day",
+        "FR": "Heritage Day",
+        "ES": "Heritage Day",
+        "IT": "Heritage Day"
+      }
+    },
+    {
+      "id": "935f42a9-3afd-42e0-bb14-390ab7657fac",
+      "startDate": "2023-09-25",
+      "endDate": "2023-09-25",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Montag nach Tag des Kulturerbes"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Montag nach Tag des Kulturerbes",
+        "EN": "Heritage Day observed",
+        "FR": "Heritage Day observed",
+        "ES": "Heritage Day observed",
+        "IT": "Heritage Day observed"
+      }
+    },
+    {
+      "id": "48bc6fcc-da59-4ca6-9231-e46361eb77e7",
+      "startDate": "2023-12-16",
+      "endDate": "2023-12-16",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Versöhnungstag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Versöhnungstag",
+        "EN": "Day of Reconciliation",
+        "FR": "Day of Reconciliation",
+        "ES": "Day of Reconciliation",
+        "IT": "Day of Reconciliation"
+      }
+    },
+    {
+      "id": "e414db68-c730-4861-88aa-15282f02e48c",
+      "startDate": "2023-12-25",
+      "endDate": "2023-12-25",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Weihnachtstag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Weihnachtstag",
+        "EN": "Christmas Day",
+        "FR": "Christmas Day",
+        "ES": "Christmas Day",
+        "IT": "Christmas Day"
+      }
+    },
+    {
+      "id": "a01f9799-39d5-4f67-8438-cda7362fcd6a",
+      "startDate": "2023-12-26",
+      "endDate": "2023-12-26",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Tag des gegenseitigen Verständnisses"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Tag des gegenseitigen Verständnisses",
+        "EN": "Day of Goodwill",
+        "FR": "Day of Goodwill",
+        "ES": "Day of Goodwill",
+        "IT": "Day of Goodwill"
+      }
+    },
+    {
+      "id": "3f5def54-5c7e-48ec-96cd-ab47caa692a9",
+      "startDate": "2024-01-01",
+      "endDate": "2024-01-01",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Neujahrstag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Neujahrstag",
+        "EN": "New Year’s Day",
+        "FR": "New Year’s Day",
+        "ES": "New Year’s Day",
+        "IT": "New Year’s Day"
+      }
+    },
+    {
+      "id": "f7aaaf71-675a-4997-a4fb-0f1e9dbae58f",
+      "startDate": "2024-03-21",
+      "endDate": "2024-03-21",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Tag der Menschenrechte"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Tag der Menschenrechte",
+        "EN": "Human Rights Day",
+        "FR": "Human Rights Day",
+        "ES": "Human Rights Day",
+        "IT": "Human Rights Day"
+      }
+    },
+    {
+      "id": "c9ca3d91-c685-4f5f-9757-5f97a1c35422",
+      "startDate": "2024-03-29",
+      "endDate": "2024-03-29",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Karfreitag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Karfreitag",
+        "EN": "Good Friday",
+        "FR": "Good Friday",
+        "ES": "Good Friday",
+        "IT": "Good Friday"
+      }
+    },
+    {
+      "id": "09b6275d-c408-43a9-975f-f9ed9acf5e0e",
+      "startDate": "2024-04-01",
+      "endDate": "2024-04-01",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Tag der Familie"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Tag der Familie",
+        "EN": "Family Day",
+        "FR": "Family Day",
+        "ES": "Family Day",
+        "IT": "Family Day"
+      }
+    },
+    {
+      "id": "2db21a3a-e7fc-4773-9e94-d1d1ccd05644",
+      "startDate": "2024-04-27",
+      "endDate": "2024-04-27",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Tag der Freiheit"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Tag der Freiheit",
+        "EN": "Freedom Day",
+        "FR": "Freedom Day",
+        "ES": "Freedom Day",
+        "IT": "Freedom Day"
+      }
+    },
+    {
+      "id": "fe382a40-486c-4718-bc5a-b80414a2341d",
+      "startDate": "2024-05-01",
+      "endDate": "2024-05-01",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Tag der Arbeit"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Tag der Arbeit",
+        "EN": "Workers' Day",
+        "FR": "Workers' Day",
+        "ES": "Workers' Day",
+        "IT": "Workers' Day"
+      }
+    },
+    {
+      "id": "d7183c22-77b6-4cae-addc-a9b5b33b2e37",
+      "startDate": "2024-06-16",
+      "endDate": "2024-06-16",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Tag der Jugend"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Tag der Jugend",
+        "EN": "Youth Day",
+        "FR": "Youth Day",
+        "ES": "Youth Day",
+        "IT": "Youth Day"
+      }
+    },
+    {
+      "id": "fde31c0f-9ef1-4540-ad82-cb0b71cef6da",
+      "startDate": "2024-06-17",
+      "endDate": "2024-06-17",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Montag nach Tag der Jugend"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Montag nach Tag der Jugend",
+        "EN": "Youth Day observed",
+        "FR": "Youth Day observed",
+        "ES": "Youth Day observed",
+        "IT": "Youth Day observed"
+      }
+    },
+    {
+      "id": "96e00b56-d49e-42a9-9fe5-310e0469db85",
+      "startDate": "2024-08-09",
+      "endDate": "2024-08-09",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Nationaler Frauentag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Nationaler Frauentag",
+        "EN": "National Women's Day",
+        "FR": "National Women's Day",
+        "ES": "National Women's Day",
+        "IT": "National Women's Day"
+      }
+    },
+    {
+      "id": "6dce2422-2131-45a3-aa6a-2ab4c2cbeccd",
+      "startDate": "2024-09-24",
+      "endDate": "2024-09-24",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Tag des Kulturerbes"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Tag des Kulturerbes",
+        "EN": "Heritage Day",
+        "FR": "Heritage Day",
+        "ES": "Heritage Day",
+        "IT": "Heritage Day"
+      }
+    },
+    {
+      "id": "3b94fcd3-36d2-478a-bdf6-2e22b9a2a39f",
+      "startDate": "2024-09-25",
+      "endDate": "2024-09-25",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Montag nach Tag des Kulturerbes"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Montag nach Tag des Kulturerbes",
+        "EN": "Heritage Day observed",
+        "FR": "Heritage Day observed",
+        "ES": "Heritage Day observed",
+        "IT": "Heritage Day observed"
+      }
+    },
+    {
+      "id": "0eb7e24c-9888-44d6-854e-ed97faae4d06",
+      "startDate": "2024-12-16",
+      "endDate": "2024-12-16",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Versöhnungstag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Versöhnungstag",
+        "EN": "Day of Reconciliation",
+        "FR": "Day of Reconciliation",
+        "ES": "Day of Reconciliation",
+        "IT": "Day of Reconciliation"
+      }
+    },
+    {
+      "id": "d7b6e66d-d238-423f-92bc-1be4b4a98b04",
+      "startDate": "2024-12-25",
+      "endDate": "2024-12-25",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Weihnachtstag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Weihnachtstag",
+        "EN": "Christmas Day",
+        "FR": "Christmas Day",
+        "ES": "Christmas Day",
+        "IT": "Christmas Day"
+      }
+    },
+    {
+      "id": "590459f9-628b-4570-9680-585f5fceb104",
+      "startDate": "2024-12-26",
+      "endDate": "2024-12-26",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Tag des gegenseitigen Verständnisses"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Tag des gegenseitigen Verständnisses",
+        "EN": "Day of Goodwill",
+        "FR": "Day of Goodwill",
+        "ES": "Day of Goodwill",
+        "IT": "Day of Goodwill"
+      }
+    },
+    {
+      "id": "b1c27ce8-2e8c-48d5-84b2-04b0bbc6678e",
+      "startDate": "2025-01-01",
+      "endDate": "2025-01-01",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Neujahrstag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Neujahrstag",
+        "EN": "New Year’s Day",
+        "FR": "New Year’s Day",
+        "ES": "New Year’s Day",
+        "IT": "New Year’s Day"
+      }
+    },
+    {
+      "id": "ed937614-43dd-4a49-99cb-743aa55c5296",
+      "startDate": "2025-03-21",
+      "endDate": "2025-03-21",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Tag der Menschenrechte"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Tag der Menschenrechte",
+        "EN": "Human Rights Day",
+        "FR": "Human Rights Day",
+        "ES": "Human Rights Day",
+        "IT": "Human Rights Day"
+      }
+    },
+    {
+      "id": "3d44ed21-00b1-4acd-b514-01e4a4d8f449",
+      "startDate": "2025-04-18",
+      "endDate": "2025-04-18",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Karfreitag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Karfreitag",
+        "EN": "Good Friday",
+        "FR": "Good Friday",
+        "ES": "Good Friday",
+        "IT": "Good Friday"
+      }
+    },
+    {
+      "id": "581273c6-12e8-4d08-ba63-5a1c2f8069b9",
+      "startDate": "2025-04-21",
+      "endDate": "2025-04-21",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Tag der Familie"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Tag der Familie",
+        "EN": "Family Day",
+        "FR": "Family Day",
+        "ES": "Family Day",
+        "IT": "Family Day"
+      }
+    },
+    {
+      "id": "95affbd2-5f5a-4087-9861-9b7e8c6708ee",
+      "startDate": "2025-04-27",
+      "endDate": "2025-04-27",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Tag der Freiheit"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Tag der Freiheit",
+        "EN": "Freedom Day",
+        "FR": "Freedom Day",
+        "ES": "Freedom Day",
+        "IT": "Freedom Day"
+      }
+    },
+    {
+      "id": "93b63afa-f874-49d2-81b5-527a8c6fb0c3",
+      "startDate": "2025-04-28",
+      "endDate": "2025-04-28",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Montag nach Tag der Freiheit"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Montag nach Tag der Freiheit",
+        "EN": "Freedom Day observed",
+        "FR": "Freedom Day observed",
+        "ES": "Freedom Day observed",
+        "IT": "Freedom Day observed"
+      }
+    },
+    {
+      "id": "bb94478d-cdad-48a3-a0ff-d0f27eb622db",
+      "startDate": "2025-05-01",
+      "endDate": "2025-05-01",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Tag der Arbeit"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Tag der Arbeit",
+        "EN": "Workers' Day",
+        "FR": "Workers' Day",
+        "ES": "Workers' Day",
+        "IT": "Workers' Day"
+      }
+    },
+    {
+      "id": "16a78fc8-eed4-44a3-8548-1f853a6df6eb",
+      "startDate": "2025-06-16",
+      "endDate": "2025-06-16",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Tag der Jugend"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Tag der Jugend",
+        "EN": "Youth Day",
+        "FR": "Youth Day",
+        "ES": "Youth Day",
+        "IT": "Youth Day"
+      }
+    },
+    {
+      "id": "ecd9541b-ee66-42c6-9d2b-be9122959404",
+      "startDate": "2025-08-09",
+      "endDate": "2025-08-09",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Nationaler Frauentag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Nationaler Frauentag",
+        "EN": "National Women's Day",
+        "FR": "National Women's Day",
+        "ES": "National Women's Day",
+        "IT": "National Women's Day"
+      }
+    },
+    {
+      "id": "75b2e34e-ce05-48ae-a7d2-c8afb52cc470",
+      "startDate": "2025-09-24",
+      "endDate": "2025-09-24",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Tag des Kulturerbes"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Tag des Kulturerbes",
+        "EN": "Heritage Day",
+        "FR": "Heritage Day",
+        "ES": "Heritage Day",
+        "IT": "Heritage Day"
+      }
+    },
+    {
+      "id": "8e41d93d-4514-45e3-ad99-508cd0cab2e0",
+      "startDate": "2025-12-16",
+      "endDate": "2025-12-16",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Versöhnungstag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Versöhnungstag",
+        "EN": "Day of Reconciliation",
+        "FR": "Day of Reconciliation",
+        "ES": "Day of Reconciliation",
+        "IT": "Day of Reconciliation"
+      }
+    },
+    {
+      "id": "a3fa910c-014b-4de0-895d-f499b1c471a6",
+      "startDate": "2025-12-25",
+      "endDate": "2025-12-25",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Weihnachtstag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Weihnachtstag",
+        "EN": "Christmas Day",
+        "FR": "Christmas Day",
+        "ES": "Christmas Day",
+        "IT": "Christmas Day"
+      }
+    },
+    {
+      "id": "308a343f-acc1-4d08-bb0d-172fd480fabf",
+      "startDate": "2025-12-26",
+      "endDate": "2025-12-26",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Tag des gegenseitigen Verständnisses"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Tag des gegenseitigen Verständnisses",
+        "EN": "Day of Goodwill",
+        "FR": "Day of Goodwill",
+        "ES": "Day of Goodwill",
+        "IT": "Day of Goodwill"
+      }
+    },
+    {
+      "id": "c07e4d86-d086-4a40-9893-2f62e8e61918",
+      "startDate": "2026-01-01",
+      "endDate": "2026-01-01",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Neujahrstag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Neujahrstag",
+        "EN": "New Year’s Day",
+        "FR": "New Year’s Day",
+        "ES": "New Year’s Day",
+        "IT": "New Year’s Day"
+      }
+    },
+    {
+      "id": "486a5e8a-29dd-4824-bb12-0e0ee3cbc53c",
+      "startDate": "2026-03-21",
+      "endDate": "2026-03-21",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Tag der Menschenrechte"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Tag der Menschenrechte",
+        "EN": "Human Rights Day",
+        "FR": "Human Rights Day",
+        "ES": "Human Rights Day",
+        "IT": "Human Rights Day"
+      }
+    },
+    {
+      "id": "7a910b39-b757-4305-8b4c-82f2c57334d5",
+      "startDate": "2026-04-03",
+      "endDate": "2026-04-03",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Karfreitag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Karfreitag",
+        "EN": "Good Friday",
+        "FR": "Good Friday",
+        "ES": "Good Friday",
+        "IT": "Good Friday"
+      }
+    },
+    {
+      "id": "96449bd5-0057-4341-9086-9edfc04d1433",
+      "startDate": "2026-04-06",
+      "endDate": "2026-04-06",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Tag der Familie"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Tag der Familie",
+        "EN": "Family Day",
+        "FR": "Family Day",
+        "ES": "Family Day",
+        "IT": "Family Day"
+      }
+    },
+    {
+      "id": "0cb198d1-24e2-49d2-aa33-70da5c170122",
+      "startDate": "2026-04-27",
+      "endDate": "2026-04-27",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Tag der Freiheit"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Tag der Freiheit",
+        "EN": "Freedom Day",
+        "FR": "Freedom Day",
+        "ES": "Freedom Day",
+        "IT": "Freedom Day"
+      }
+    },
+    {
+      "id": "96def55a-8b1d-4ee3-ac1c-500103033a35",
+      "startDate": "2026-05-01",
+      "endDate": "2026-05-01",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Tag der Arbeit"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Tag der Arbeit",
+        "EN": "Workers' Day",
+        "FR": "Workers' Day",
+        "ES": "Workers' Day",
+        "IT": "Workers' Day"
+      }
+    },
+    {
+      "id": "5e720c80-5de1-466d-90b9-bffce3d7a9a5",
+      "startDate": "2026-06-16",
+      "endDate": "2026-06-16",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Tag der Jugend"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Tag der Jugend",
+        "EN": "Youth Day",
+        "FR": "Youth Day",
+        "ES": "Youth Day",
+        "IT": "Youth Day"
+      }
+    },
+    {
+      "id": "6171da48-ea87-4ea3-8e40-2f5f0c3f9226",
+      "startDate": "2026-08-09",
+      "endDate": "2026-08-09",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Nationaler Frauentag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Nationaler Frauentag",
+        "EN": "National Women's Day",
+        "FR": "National Women's Day",
+        "ES": "National Women's Day",
+        "IT": "National Women's Day"
+      }
+    },
+    {
+      "id": "a0d1d820-0b1a-4c77-84b5-928ec7eb3180",
+      "startDate": "2026-08-10",
+      "endDate": "2026-08-10",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Montag nach Nationaler Frauentag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Montag nach Nationaler Frauentag",
+        "EN": "National Women's Day observed",
+        "FR": "National Women's Day observed",
+        "ES": "National Women's Day observed",
+        "IT": "National Women's Day observed"
+      }
+    },
+    {
+      "id": "1e541849-7257-4673-9e60-b721fd0e377c",
+      "startDate": "2026-09-24",
+      "endDate": "2026-09-24",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Tag des Kulturerbes"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Tag des Kulturerbes",
+        "EN": "Heritage Day",
+        "FR": "Heritage Day",
+        "ES": "Heritage Day",
+        "IT": "Heritage Day"
+      }
+    },
+    {
+      "id": "dc8e0dec-24fe-41ca-821c-c1ee9c5784b9",
+      "startDate": "2026-12-16",
+      "endDate": "2026-12-16",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Versöhnungstag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Versöhnungstag",
+        "EN": "Day of Reconciliation",
+        "FR": "Day of Reconciliation",
+        "ES": "Day of Reconciliation",
+        "IT": "Day of Reconciliation"
+      }
+    },
+    {
+      "id": "1810aeca-73ef-4863-b317-8c81fdecb058",
+      "startDate": "2026-12-25",
+      "endDate": "2026-12-25",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Weihnachtstag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Weihnachtstag",
+        "EN": "Christmas Day",
+        "FR": "Christmas Day",
+        "ES": "Christmas Day",
+        "IT": "Christmas Day"
+      }
+    },
+    {
+      "id": "bdc5440d-8a9f-4406-8215-2320b01276bf",
+      "startDate": "2026-12-26",
+      "endDate": "2026-12-26",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Tag des gegenseitigen Verständnisses"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Tag des gegenseitigen Verständnisses",
+        "EN": "Day of Goodwill",
+        "FR": "Day of Goodwill",
+        "ES": "Day of Goodwill",
+        "IT": "Day of Goodwill"
+      }
+    },
+    {
+      "id": "7d501a32-e0a0-40bc-966f-83781819ba98",
+      "startDate": "2027-01-01",
+      "endDate": "2027-01-01",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Neujahrstag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Neujahrstag",
+        "EN": "New Year’s Day",
+        "FR": "New Year’s Day",
+        "ES": "New Year’s Day",
+        "IT": "New Year’s Day"
+      }
+    },
+    {
+      "id": "e4acd030-dc2a-4379-a3eb-fdfbd18772fd",
+      "startDate": "2027-03-21",
+      "endDate": "2027-03-21",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Tag der Menschenrechte"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Tag der Menschenrechte",
+        "EN": "Human Rights Day",
+        "FR": "Human Rights Day",
+        "ES": "Human Rights Day",
+        "IT": "Human Rights Day"
+      }
+    },
+    {
+      "id": "6d0b245b-5836-4c81-9b95-5d8b7bf24516",
+      "startDate": "2027-03-22",
+      "endDate": "2027-03-22",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Montag nach Tag der Menschenrechte"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Montag nach Tag der Menschenrechte",
+        "EN": "Human Rights Day observed",
+        "FR": "Human Rights Day observed",
+        "ES": "Human Rights Day observed",
+        "IT": "Human Rights Day observed"
+      }
+    },
+    {
+      "id": "8d45c0c6-7892-4ed1-926d-aeeb4e1f6324",
+      "startDate": "2027-03-26",
+      "endDate": "2027-03-26",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Karfreitag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Karfreitag",
+        "EN": "Good Friday",
+        "FR": "Good Friday",
+        "ES": "Good Friday",
+        "IT": "Good Friday"
+      }
+    },
+    {
+      "id": "1f6a483a-1bfe-440c-a49e-47fc9f279094",
+      "startDate": "2027-03-29",
+      "endDate": "2027-03-29",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Tag der Familie"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Tag der Familie",
+        "EN": "Family Day",
+        "FR": "Family Day",
+        "ES": "Family Day",
+        "IT": "Family Day"
+      }
+    },
+    {
+      "id": "f88f2282-d76e-4eeb-ae89-c9442ccb8cad",
+      "startDate": "2027-04-27",
+      "endDate": "2027-04-27",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Tag der Freiheit"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Tag der Freiheit",
+        "EN": "Freedom Day",
+        "FR": "Freedom Day",
+        "ES": "Freedom Day",
+        "IT": "Freedom Day"
+      }
+    },
+    {
+      "id": "a078284d-221d-41fb-915b-a6ba6e60f0cb",
+      "startDate": "2027-05-01",
+      "endDate": "2027-05-01",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Tag der Arbeit"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Tag der Arbeit",
+        "EN": "Workers' Day",
+        "FR": "Workers' Day",
+        "ES": "Workers' Day",
+        "IT": "Workers' Day"
+      }
+    },
+    {
+      "id": "74d1c73b-1072-46f7-86c4-28219ee6199a",
+      "startDate": "2027-06-16",
+      "endDate": "2027-06-16",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Tag der Jugend"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Tag der Jugend",
+        "EN": "Youth Day",
+        "FR": "Youth Day",
+        "ES": "Youth Day",
+        "IT": "Youth Day"
+      }
+    },
+    {
+      "id": "cf7150f1-feda-4099-9a80-108a41bafca5",
+      "startDate": "2027-08-09",
+      "endDate": "2027-08-09",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Nationaler Frauentag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Nationaler Frauentag",
+        "EN": "National Women's Day",
+        "FR": "National Women's Day",
+        "ES": "National Women's Day",
+        "IT": "National Women's Day"
+      }
+    },
+    {
+      "id": "bbbbd065-c6ff-4f0b-a5b6-4d3172c78ac1",
+      "startDate": "2027-09-24",
+      "endDate": "2027-09-24",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Tag des Kulturerbes"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Tag des Kulturerbes",
+        "EN": "Heritage Day",
+        "FR": "Heritage Day",
+        "ES": "Heritage Day",
+        "IT": "Heritage Day"
+      }
+    },
+    {
+      "id": "f90c2f7b-e029-46c3-82a5-15b1e3eb386d",
+      "startDate": "2027-12-16",
+      "endDate": "2027-12-16",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Versöhnungstag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Versöhnungstag",
+        "EN": "Day of Reconciliation",
+        "FR": "Day of Reconciliation",
+        "ES": "Day of Reconciliation",
+        "IT": "Day of Reconciliation"
+      }
+    },
+    {
+      "id": "e2328eae-5289-411b-9b34-41aceacd448d",
+      "startDate": "2027-12-25",
+      "endDate": "2027-12-25",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Weihnachtstag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Weihnachtstag",
+        "EN": "Christmas Day",
+        "FR": "Christmas Day",
+        "ES": "Christmas Day",
+        "IT": "Christmas Day"
+      }
+    },
+    {
+      "id": "4b3588f4-a183-4d1f-8da8-875ee219a902",
+      "startDate": "2027-12-26",
+      "endDate": "2027-12-26",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Tag des gegenseitigen Verständnisses"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Tag des gegenseitigen Verständnisses",
+        "EN": "Day of Goodwill",
+        "FR": "Day of Goodwill",
+        "ES": "Day of Goodwill",
+        "IT": "Day of Goodwill"
+      }
+    },
+    {
+      "id": "70da6384-d01f-470f-840d-8bac073f763d",
+      "startDate": "2028-01-01",
+      "endDate": "2028-01-01",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Neujahrstag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Neujahrstag",
+        "EN": "New Year’s Day",
+        "FR": "New Year’s Day",
+        "ES": "New Year’s Day",
+        "IT": "New Year’s Day"
+      }
+    },
+    {
+      "id": "1cc4b4e7-dc7d-42a2-a32a-665ac9814486",
+      "startDate": "2028-03-21",
+      "endDate": "2028-03-21",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Tag der Menschenrechte"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Tag der Menschenrechte",
+        "EN": "Human Rights Day",
+        "FR": "Human Rights Day",
+        "ES": "Human Rights Day",
+        "IT": "Human Rights Day"
+      }
+    },
+    {
+      "id": "709f1a4a-f4d1-4930-b64d-1b8ac391ad7f",
+      "startDate": "2028-04-14",
+      "endDate": "2028-04-14",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Karfreitag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Karfreitag",
+        "EN": "Good Friday",
+        "FR": "Good Friday",
+        "ES": "Good Friday",
+        "IT": "Good Friday"
+      }
+    },
+    {
+      "id": "2c88e161-f94f-47a6-a7f7-b8c5d22f9931",
+      "startDate": "2028-04-17",
+      "endDate": "2028-04-17",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Tag der Familie"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Tag der Familie",
+        "EN": "Family Day",
+        "FR": "Family Day",
+        "ES": "Family Day",
+        "IT": "Family Day"
+      }
+    },
+    {
+      "id": "3eb80550-1048-4d79-b54c-365b8672edde",
+      "startDate": "2028-04-27",
+      "endDate": "2028-04-27",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Tag der Freiheit"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Tag der Freiheit",
+        "EN": "Freedom Day",
+        "FR": "Freedom Day",
+        "ES": "Freedom Day",
+        "IT": "Freedom Day"
+      }
+    },
+    {
+      "id": "ec5a6c89-c4d0-4a10-a8b6-2241e374aa40",
+      "startDate": "2028-05-01",
+      "endDate": "2028-05-01",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Tag der Arbeit"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Tag der Arbeit",
+        "EN": "Workers' Day",
+        "FR": "Workers' Day",
+        "ES": "Workers' Day",
+        "IT": "Workers' Day"
+      }
+    },
+    {
+      "id": "8d011207-efa1-4bfe-857f-f2bea3661231",
+      "startDate": "2028-06-16",
+      "endDate": "2028-06-16",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Tag der Jugend"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Tag der Jugend",
+        "EN": "Youth Day",
+        "FR": "Youth Day",
+        "ES": "Youth Day",
+        "IT": "Youth Day"
+      }
+    },
+    {
+      "id": "305dc009-b9dc-4225-851a-3c47e6aee79e",
+      "startDate": "2028-08-09",
+      "endDate": "2028-08-09",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Nationaler Frauentag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Nationaler Frauentag",
+        "EN": "National Women's Day",
+        "FR": "National Women's Day",
+        "ES": "National Women's Day",
+        "IT": "National Women's Day"
+      }
+    },
+    {
+      "id": "3de0482c-4e69-401f-a826-d13016a62037",
+      "startDate": "2028-09-24",
+      "endDate": "2028-09-24",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Tag des Kulturerbes"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Tag des Kulturerbes",
+        "EN": "Heritage Day",
+        "FR": "Heritage Day",
+        "ES": "Heritage Day",
+        "IT": "Heritage Day"
+      }
+    },
+    {
+      "id": "47ef322d-057c-45d5-af29-495a2f91be92",
+      "startDate": "2028-09-25",
+      "endDate": "2028-09-25",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Montag nach Tag des Kulturerbes"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Montag nach Tag des Kulturerbes",
+        "EN": "Heritage Day observed",
+        "FR": "Heritage Day observed",
+        "ES": "Heritage Day observed",
+        "IT": "Heritage Day observed"
+      }
+    },
+    {
+      "id": "2cf8668c-890d-4ffc-aebc-467fdb02b204",
+      "startDate": "2028-12-16",
+      "endDate": "2028-12-16",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Versöhnungstag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Versöhnungstag",
+        "EN": "Day of Reconciliation",
+        "FR": "Day of Reconciliation",
+        "ES": "Day of Reconciliation",
+        "IT": "Day of Reconciliation"
+      }
+    },
+    {
+      "id": "80116aca-ce43-442f-98d0-c2cdc29765af",
+      "startDate": "2028-12-25",
+      "endDate": "2028-12-25",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Weihnachtstag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Weihnachtstag",
+        "EN": "Christmas Day",
+        "FR": "Christmas Day",
+        "ES": "Christmas Day",
+        "IT": "Christmas Day"
+      }
+    },
+    {
+      "id": "cb56de31-aa16-4302-b0da-1c03ebb2c854",
+      "startDate": "2028-12-26",
+      "endDate": "2028-12-26",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Tag des gegenseitigen Verständnisses"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Tag des gegenseitigen Verständnisses",
+        "EN": "Day of Goodwill",
+        "FR": "Day of Goodwill",
+        "ES": "Day of Goodwill",
+        "IT": "Day of Goodwill"
+      }
+    },
+    {
+      "id": "a2fbd9f3-e731-4bf4-9342-d59700d36c7e",
+      "startDate": "2029-01-01",
+      "endDate": "2029-01-01",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Neujahrstag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Neujahrstag",
+        "EN": "New Year’s Day",
+        "FR": "New Year’s Day",
+        "ES": "New Year’s Day",
+        "IT": "New Year’s Day"
+      }
+    },
+    {
+      "id": "91b03e56-ab0b-42cc-8052-0b61001460ac",
+      "startDate": "2029-03-21",
+      "endDate": "2029-03-21",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Tag der Menschenrechte"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Tag der Menschenrechte",
+        "EN": "Human Rights Day",
+        "FR": "Human Rights Day",
+        "ES": "Human Rights Day",
+        "IT": "Human Rights Day"
+      }
+    },
+    {
+      "id": "412f20e9-a7d8-4fa3-9211-8af2830f6936",
+      "startDate": "2029-03-30",
+      "endDate": "2029-03-30",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Karfreitag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Karfreitag",
+        "EN": "Good Friday",
+        "FR": "Good Friday",
+        "ES": "Good Friday",
+        "IT": "Good Friday"
+      }
+    },
+    {
+      "id": "9020ce09-7f19-4de8-8f8b-c5777478556f",
+      "startDate": "2029-04-02",
+      "endDate": "2029-04-02",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Tag der Familie"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Tag der Familie",
+        "EN": "Family Day",
+        "FR": "Family Day",
+        "ES": "Family Day",
+        "IT": "Family Day"
+      }
+    },
+    {
+      "id": "ba203992-2a02-4780-8c4c-24a76c4bb296",
+      "startDate": "2029-04-27",
+      "endDate": "2029-04-27",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Tag der Freiheit"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Tag der Freiheit",
+        "EN": "Freedom Day",
+        "FR": "Freedom Day",
+        "ES": "Freedom Day",
+        "IT": "Freedom Day"
+      }
+    },
+    {
+      "id": "6db22ceb-11f3-4afb-a72f-9836f0d87e8e",
+      "startDate": "2029-05-01",
+      "endDate": "2029-05-01",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Tag der Arbeit"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Tag der Arbeit",
+        "EN": "Workers' Day",
+        "FR": "Workers' Day",
+        "ES": "Workers' Day",
+        "IT": "Workers' Day"
+      }
+    },
+    {
+      "id": "b29926a2-9c7f-42d5-b296-5d5e6dd5fceb",
+      "startDate": "2029-06-16",
+      "endDate": "2029-06-16",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Tag der Jugend"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Tag der Jugend",
+        "EN": "Youth Day",
+        "FR": "Youth Day",
+        "ES": "Youth Day",
+        "IT": "Youth Day"
+      }
+    },
+    {
+      "id": "2ec613be-4e34-4a40-ae43-1692ae89d9d9",
+      "startDate": "2029-08-09",
+      "endDate": "2029-08-09",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Nationaler Frauentag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Nationaler Frauentag",
+        "EN": "National Women's Day",
+        "FR": "National Women's Day",
+        "ES": "National Women's Day",
+        "IT": "National Women's Day"
+      }
+    },
+    {
+      "id": "0816fba8-28b6-4346-b423-ee380a641fc6",
+      "startDate": "2029-09-24",
+      "endDate": "2029-09-24",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Tag des Kulturerbes"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Tag des Kulturerbes",
+        "EN": "Heritage Day",
+        "FR": "Heritage Day",
+        "ES": "Heritage Day",
+        "IT": "Heritage Day"
+      }
+    },
+    {
+      "id": "5c448e50-70fe-4ea9-a064-34d91a65cf41",
+      "startDate": "2029-12-16",
+      "endDate": "2029-12-16",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Versöhnungstag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Versöhnungstag",
+        "EN": "Day of Reconciliation",
+        "FR": "Day of Reconciliation",
+        "ES": "Day of Reconciliation",
+        "IT": "Day of Reconciliation"
+      }
+    },
+    {
+      "id": "b894a734-3814-4221-84e3-f2e96c2ab280",
+      "startDate": "2029-12-17",
+      "endDate": "2029-12-17",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Montag nach Versöhnungstag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Montag nach Versöhnungstag",
+        "EN": "Day of Reconciliation observed",
+        "FR": "Day of Reconciliation observed",
+        "ES": "Day of Reconciliation observed",
+        "IT": "Day of Reconciliation observed"
+      }
+    },
+    {
+      "id": "2e55aefc-0b27-42f1-921a-a67492a7c75c",
+      "startDate": "2029-12-25",
+      "endDate": "2029-12-25",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Weihnachtstag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Weihnachtstag",
+        "EN": "Christmas Day",
+        "FR": "Christmas Day",
+        "ES": "Christmas Day",
+        "IT": "Christmas Day"
+      }
+    },
+    {
+      "id": "fdb7ad90-0cbd-43ef-9096-6a4bbcdfe070",
+      "startDate": "2029-12-26",
+      "endDate": "2029-12-26",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Tag des gegenseitigen Verständnisses"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Tag des gegenseitigen Verständnisses",
+        "EN": "Day of Goodwill",
+        "FR": "Day of Goodwill",
+        "ES": "Day of Goodwill",
+        "IT": "Day of Goodwill"
+      }
+    }
+  ],
+  "school_holidays": [
+    {
+      "id": "311dddd3-d893-41f2-a767-9131a9f53f3b",
+      "startDate": "2019-12-07",
+      "endDate": "2020-01-12",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Sommerferien"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Sommerferien",
+        "EN": "Summer Break",
+        "FR": "Summer Break",
+        "ES": "Summer Break",
+        "IT": "Summer Break"
+      }
+    },
+    {
+      "id": "38c399ec-5208-4014-811c-a8cf1afeadfd",
+      "startDate": "2020-03-19",
+      "endDate": "2020-05-31",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Herbstferien"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Herbstferien",
+        "EN": "Autumn Break",
+        "FR": "Autumn Break",
+        "ES": "Autumn Break",
+        "IT": "Autumn Break"
+      }
+    },
+    {
+      "id": "47d8634f-2727-4e90-8285-21893d764d03",
+      "startDate": "2020-08-11",
+      "endDate": "2020-08-11",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Winterferien"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Winterferien",
+        "EN": "Winter Break",
+        "FR": "Winter Break",
+        "ES": "Winter Break",
+        "IT": "Winter Break"
+      }
+    },
+    {
+      "id": "6c6f4c5a-a105-40c6-8629-bbc402c07a55",
+      "startDate": "2020-09-25",
+      "endDate": "2020-10-04",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Frühlingsferien"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Frühlingsferien",
+        "EN": "Spring Break",
+        "FR": "Spring Break",
+        "ES": "Spring Break",
+        "IT": "Spring Break"
+      }
+    },
+    {
+      "id": "10b85475-7fff-40e5-a364-cfc78f94579b",
+      "startDate": "2020-12-17",
+      "endDate": "2021-01-10",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Sommerferien"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Sommerferien",
+        "EN": "Summer Break",
+        "FR": "Summer Break",
+        "ES": "Summer Break",
+        "IT": "Summer Break"
+      }
+    },
+    {
+      "id": "16d1b89b-3a26-4434-8787-e267b9c46132",
+      "startDate": "2021-03-27",
+      "endDate": "2021-04-12",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Herbstferien"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Herbstferien",
+        "EN": "Autumn Break",
+        "FR": "Autumn Break",
+        "ES": "Autumn Break",
+        "IT": "Autumn Break"
+      }
+    },
+    {
+      "id": "9211338f-3e1e-4c75-8ffe-4b5d482c1742",
+      "startDate": "2021-04-26",
+      "endDate": "2021-04-26",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Schulfreier Tag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Schulfreier Tag",
+        "EN": "Special School Holiday",
+        "FR": "Special School Holiday",
+        "ES": "Special School Holiday",
+        "IT": "Special School Holiday"
+      }
+    },
+    {
+      "id": "12975fc9-2872-4607-af1c-041faca3ab5e",
+      "startDate": "2021-06-26",
+      "endDate": "2021-07-19",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Winterferien"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Winterferien",
+        "EN": "Winter Break",
+        "FR": "Winter Break",
+        "ES": "Winter Break",
+        "IT": "Winter Break"
+      }
+    },
+    {
+      "id": "f8c16b17-938e-42db-b0ba-a58b315d3334",
+      "startDate": "2021-10-02",
+      "endDate": "2021-10-11",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Frühlingsferien"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Frühlingsferien",
+        "EN": "Spring Break",
+        "FR": "Spring Break",
+        "ES": "Spring Break",
+        "IT": "Spring Break"
+      }
+    },
+    {
+      "id": "575ac7bc-50c5-4e20-b59e-e187eb9d5c01",
+      "startDate": "2021-12-11",
+      "endDate": "2022-01-09",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Sommerferien"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Sommerferien",
+        "EN": "Summer Break",
+        "FR": "Summer Break",
+        "ES": "Summer Break",
+        "IT": "Summer Break"
+      }
+    },
+    {
+      "id": "a1ef854e-e71f-4d39-89b8-efabf5474e4f",
+      "startDate": "2022-03-18",
+      "endDate": "2022-04-04",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Herbstferien"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Herbstferien",
+        "EN": "Autumn Break",
+        "FR": "Autumn Break",
+        "ES": "Autumn Break",
+        "IT": "Autumn Break"
+      }
+    },
+    {
+      "id": "9a537c2b-93ce-43c4-9285-171cb296ca9a",
+      "startDate": "2022-06-17",
+      "endDate": "2022-06-17",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Schulfreier Tag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Schulfreier Tag",
+        "EN": "Special School Holiday",
+        "FR": "Special School Holiday",
+        "ES": "Special School Holiday",
+        "IT": "Special School Holiday"
+      }
+    },
+    {
+      "id": "71b91949-a360-41e2-a7ce-7ab12fb0e9e9",
+      "startDate": "2022-06-25",
+      "endDate": "2022-07-18",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Winterferien"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Winterferien",
+        "EN": "Winter Break",
+        "FR": "Winter Break",
+        "ES": "Winter Break",
+        "IT": "Winter Break"
+      }
+    },
+    {
+      "id": "1901c4b5-029b-4fc9-b527-8cda96d1d9e8",
+      "startDate": "2022-08-08",
+      "endDate": "2022-08-08",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Schulfreier Tag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Schulfreier Tag",
+        "EN": "Special School Holiday",
+        "FR": "Special School Holiday",
+        "ES": "Special School Holiday",
+        "IT": "Special School Holiday"
+      }
+    },
+    {
+      "id": "3dd7f27d-764d-470b-b334-41dbcde95473",
+      "startDate": "2022-10-01",
+      "endDate": "2022-10-10",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Frühlingsferien"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Frühlingsferien",
+        "EN": "Spring Break",
+        "FR": "Spring Break",
+        "ES": "Spring Break",
+        "IT": "Spring Break"
+      }
+    },
+    {
+      "id": "978a9806-f707-4bc2-9023-204187671a6e",
+      "startDate": "2022-12-17",
+      "endDate": "2023-01-08",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Sommerferien"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Sommerferien",
+        "EN": "Summer Break",
+        "FR": "Summer Break",
+        "ES": "Summer Break",
+        "IT": "Summer Break"
+      }
+    },
+    {
+      "id": "a27d71c6-5ec0-439a-86bb-c217488b287a",
+      "startDate": "2023-03-20",
+      "endDate": "2023-03-20",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Schulfreier Tag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Schulfreier Tag",
+        "EN": "Special School Holiday",
+        "FR": "Special School Holiday",
+        "ES": "Special School Holiday",
+        "IT": "Special School Holiday"
+      }
+    },
+    {
+      "id": "a4cabea6-8d29-4894-8102-16dd2cf687d4",
+      "startDate": "2023-03-25",
+      "endDate": "2023-04-11",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Herbstferien"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Herbstferien",
+        "EN": "Autumn Break",
+        "FR": "Autumn Break",
+        "ES": "Autumn Break",
+        "IT": "Autumn Break"
+      }
+    },
+    {
+      "id": "8b422535-d89c-4a1e-b086-d785b34faf44",
+      "startDate": "2023-04-28",
+      "endDate": "2023-04-28",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Schulfreier Tag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Schulfreier Tag",
+        "EN": "Special School Holiday",
+        "FR": "Special School Holiday",
+        "ES": "Special School Holiday",
+        "IT": "Special School Holiday"
+      }
+    },
+    {
+      "id": "7cc0ea87-bc7c-4aae-9a06-4c10cfca3f10",
+      "startDate": "2023-06-24",
+      "endDate": "2023-07-17",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Winterferien"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Winterferien",
+        "EN": "Winter Break",
+        "FR": "Winter Break",
+        "ES": "Winter Break",
+        "IT": "Winter Break"
+      }
+    },
+    {
+      "id": "716933bf-0d0d-445f-bb1c-2aa4c8187b57",
+      "startDate": "2023-09-30",
+      "endDate": "2023-10-09",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Frühlingsferien"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Frühlingsferien",
+        "EN": "Spring Break",
+        "FR": "Spring Break",
+        "ES": "Spring Break",
+        "IT": "Spring Break"
+      }
+    },
+    {
+      "id": "84dc76ea-0cd3-4c14-82df-5c96137f0a65",
+      "startDate": "2023-12-16",
+      "endDate": "2024-01-14",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Sommerferien"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Sommerferien",
+        "EN": "Summer Break",
+        "FR": "Summer Break",
+        "ES": "Summer Break",
+        "IT": "Summer Break"
+      }
+    },
+    {
+      "id": "80bd85d5-ed52-4e06-8378-3c54997c57ea",
+      "startDate": "2024-03-22",
+      "endDate": "2024-04-02",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Herbstferien"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Herbstferien",
+        "EN": "Autumn Break",
+        "FR": "Autumn Break",
+        "ES": "Autumn Break",
+        "IT": "Autumn Break"
+      }
+    },
+    {
+      "id": "277e9bdb-d956-485c-a3ea-731288b8172c",
+      "startDate": "2024-04-26",
+      "endDate": "2024-04-26",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Schulfreier Tag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Schulfreier Tag",
+        "EN": "Special School Holiday",
+        "FR": "Special School Holiday",
+        "ES": "Special School Holiday",
+        "IT": "Special School Holiday"
+      }
+    },
+    {
+      "id": "8e20f940-7996-4c1d-8f91-bce21de70041",
+      "startDate": "2024-06-15",
+      "endDate": "2024-07-08",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Winterferien"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Winterferien",
+        "EN": "Winter Break",
+        "FR": "Winter Break",
+        "ES": "Winter Break",
+        "IT": "Winter Break"
+      }
+    },
+    {
+      "id": "50edabe4-daf0-4315-b81f-16d9a7f62dcf",
+      "startDate": "2024-09-21",
+      "endDate": "2024-09-30",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Frühlingsferien"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Frühlingsferien",
+        "EN": "Spring Break",
+        "FR": "Spring Break",
+        "ES": "Spring Break",
+        "IT": "Spring Break"
+      }
+    },
+    {
+      "id": "fac41a06-66b9-4052-842a-44c2beebc394",
+      "startDate": "2024-12-14",
+      "endDate": "2025-01-12",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Sommerferien"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Sommerferien",
+        "EN": "Summer Break",
+        "FR": "Summer Break",
+        "ES": "Summer Break",
+        "IT": "Summer Break"
+      }
+    },
+    {
+      "id": "9d128a30-0252-4c79-a1d1-58a36f2e8dc2",
+      "startDate": "2025-03-29",
+      "endDate": "2025-04-07",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Herbstferien"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Herbstferien",
+        "EN": "Autumn Break",
+        "FR": "Autumn Break",
+        "ES": "Autumn Break",
+        "IT": "Autumn Break"
+      }
+    },
+    {
+      "id": "8cd3b542-65d0-4814-9201-e3ee9de441b6",
+      "startDate": "2025-04-29",
+      "endDate": "2025-04-29",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Schulfreier Tag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Schulfreier Tag",
+        "EN": "Special School Holiday",
+        "FR": "Special School Holiday",
+        "ES": "Special School Holiday",
+        "IT": "Special School Holiday"
+      }
+    },
+    {
+      "id": "78cac1f4-9dd6-4ee5-af69-ce389b14ec52",
+      "startDate": "2025-04-30",
+      "endDate": "2025-04-30",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Schulfreier Tag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Schulfreier Tag",
+        "EN": "Special School Holiday",
+        "FR": "Special School Holiday",
+        "ES": "Special School Holiday",
+        "IT": "Special School Holiday"
+      }
+    },
+    {
+      "id": "a1e900f7-12e7-4dbd-b766-7b5170497b9a",
+      "startDate": "2025-06-02",
+      "endDate": "2025-06-02",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Schulfreier Tag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Schulfreier Tag",
+        "EN": "Special School Holiday",
+        "FR": "Special School Holiday",
+        "ES": "Special School Holiday",
+        "IT": "Special School Holiday"
+      }
+    },
+    {
+      "id": "b7520184-1087-493c-9e47-eeba3f989006",
+      "startDate": "2025-06-28",
+      "endDate": "2025-07-21",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Winterferien"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Winterferien",
+        "EN": "Winter Break",
+        "FR": "Winter Break",
+        "ES": "Winter Break",
+        "IT": "Winter Break"
+      }
+    },
+    {
+      "id": "46913ccf-9f08-41c8-a27e-60972a2d3bd0",
+      "startDate": "2025-10-04",
+      "endDate": "2025-10-12",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Frühlingsferien"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Frühlingsferien",
+        "EN": "Spring Break",
+        "FR": "Spring Break",
+        "ES": "Spring Break",
+        "IT": "Spring Break"
+      }
+    },
+    {
+      "id": "964df868-5fdc-4206-bfcc-16048c02ab3d",
+      "startDate": "2025-12-13",
+      "endDate": "2026-01-11",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Sommerferien"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Sommerferien",
+        "EN": "Summer Break",
+        "FR": "Summer Break",
+        "ES": "Summer Break",
+        "IT": "Summer Break"
+      }
+    },
+    {
+      "id": "37aa0d15-2729-465f-9907-8ab6483489de",
+      "startDate": "2026-03-28",
+      "endDate": "2026-04-07",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Herbstferien"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Herbstferien",
+        "EN": "Autumn Break",
+        "FR": "Autumn Break",
+        "ES": "Autumn Break",
+        "IT": "Autumn Break"
+      }
+    },
+    {
+      "id": "6c838c4f-021d-4b5f-bde4-d8ef35d6f544",
+      "startDate": "2026-06-15",
+      "endDate": "2026-06-15",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Schulfreier Tag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Schulfreier Tag",
+        "EN": "Special School Holiday",
+        "FR": "Special School Holiday",
+        "ES": "Special School Holiday",
+        "IT": "Special School Holiday"
+      }
+    },
+    {
+      "id": "6314f2fd-c992-437c-a15f-87d2e0ff7b28",
+      "startDate": "2026-06-27",
+      "endDate": "2026-07-20",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Winterferien"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Winterferien",
+        "EN": "Winter Break",
+        "FR": "Winter Break",
+        "ES": "Winter Break",
+        "IT": "Winter Break"
+      }
+    },
+    {
+      "id": "780c8f96-a285-4551-a3d6-d30077cf4086",
+      "startDate": "2026-09-25",
+      "endDate": "2026-09-25",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Schulfreier Tag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Schulfreier Tag",
+        "EN": "Special School Holiday",
+        "FR": "Special School Holiday",
+        "ES": "Special School Holiday",
+        "IT": "Special School Holiday"
+      }
+    },
+    {
+      "id": "cbb2e8bd-36d5-4792-b8fc-5b7938080286",
+      "startDate": "2026-10-03",
+      "endDate": "2026-10-12",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Frühlingsferien"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Frühlingsferien",
+        "EN": "Spring Break",
+        "FR": "Spring Break",
+        "ES": "Spring Break",
+        "IT": "Spring Break"
+      }
+    },
+    {
+      "id": "5f1af263-105c-4d11-a02c-37de2fab66dd",
+      "startDate": "2026-12-12",
+      "endDate": "2027-01-10",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Sommerferien"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Sommerferien",
+        "EN": "Summer Break",
+        "FR": "Summer Break",
+        "ES": "Summer Break",
+        "IT": "Summer Break"
+      }
+    },
+    {
+      "id": "907ffdfd-8bbf-40f3-8638-4c0f5dce5bef",
+      "startDate": "2027-03-20",
+      "endDate": "2027-04-05",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Herbstferien"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Herbstferien",
+        "EN": "Autumn Break",
+        "FR": "Autumn Break",
+        "ES": "Autumn Break",
+        "IT": "Autumn Break"
+      }
+    },
+    {
+      "id": "92139951-0433-4cdb-97c0-d1234aadcf07",
+      "startDate": "2027-04-26",
+      "endDate": "2027-04-26",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Schulfreier Tag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Schulfreier Tag",
+        "EN": "Special School Holiday",
+        "FR": "Special School Holiday",
+        "ES": "Special School Holiday",
+        "IT": "Special School Holiday"
+      }
+    },
+    {
+      "id": "221ff170-3986-4f0b-ad42-bba5bc71f6b7",
+      "startDate": "2027-06-26",
+      "endDate": "2027-07-19",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Winterferien"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Winterferien",
+        "EN": "Winter Break",
+        "FR": "Winter Break",
+        "ES": "Winter Break",
+        "IT": "Winter Break"
+      }
+    },
+    {
+      "id": "41450a01-656a-45c6-8856-883c628a9bd7",
+      "startDate": "2027-10-02",
+      "endDate": "2027-10-10",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Frühlingsferien"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Frühlingsferien",
+        "EN": "Spring Break",
+        "FR": "Spring Break",
+        "ES": "Spring Break",
+        "IT": "Spring Break"
+      }
+    },
+    {
+      "id": "50c1e169-f120-4896-8eb3-feeb6f9249ee",
+      "startDate": "2027-12-11",
+      "endDate": "2028-01-09",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Sommerferien"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Sommerferien",
+        "EN": "Summer Break",
+        "FR": "Summer Break",
+        "ES": "Summer Break",
+        "IT": "Summer Break"
+      }
+    }
+  ],
+  "fetched_at": "2026-01-03T19:19:34.092730"
+}

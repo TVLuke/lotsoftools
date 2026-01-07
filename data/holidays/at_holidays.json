@@ -1,0 +1,7204 @@
+{
+  "country": "AT",
+  "country_name": {
+    "name": "Österreich",
+    "name_en": "Austria"
+  },
+  "subdivisions": [
+    {
+      "code": "AT-BL",
+      "isoCode": "AT-1",
+      "shortName": "BL",
+      "category": [
+        {
+          "language": "DE",
+          "text": "Bundesland"
+        },
+        {
+          "language": "EN",
+          "text": "state"
+        }
+      ],
+      "name": [
+        {
+          "language": "DE",
+          "text": "Burgenland"
+        },
+        {
+          "language": "EN",
+          "text": "Burgenland"
+        }
+      ],
+      "officialLanguages": [
+        "DE"
+      ]
+    },
+    {
+      "code": "AT-KÄ",
+      "isoCode": "AT-2",
+      "shortName": "KÄ",
+      "category": [
+        {
+          "language": "DE",
+          "text": "Bundesland"
+        },
+        {
+          "language": "EN",
+          "text": "state"
+        }
+      ],
+      "name": [
+        {
+          "language": "DE",
+          "text": "Kärnten"
+        },
+        {
+          "language": "EN",
+          "text": "Carinthia"
+        }
+      ],
+      "officialLanguages": [
+        "DE"
+      ]
+    },
+    {
+      "code": "AT-NÖ",
+      "isoCode": "AT-3",
+      "shortName": "NÖ",
+      "category": [
+        {
+          "language": "DE",
+          "text": "Bundesland"
+        },
+        {
+          "language": "EN",
+          "text": "state"
+        }
+      ],
+      "name": [
+        {
+          "language": "DE",
+          "text": "Niederösterreich"
+        },
+        {
+          "language": "EN",
+          "text": "Lower Austria"
+        }
+      ],
+      "officialLanguages": [
+        "DE"
+      ]
+    },
+    {
+      "code": "AT-OÖ",
+      "isoCode": "AT-4",
+      "shortName": "OÖ",
+      "category": [
+        {
+          "language": "DE",
+          "text": "Bundesland"
+        },
+        {
+          "language": "EN",
+          "text": "state"
+        }
+      ],
+      "name": [
+        {
+          "language": "DE",
+          "text": "Oberösterreich"
+        },
+        {
+          "language": "EN",
+          "text": "Upper Austria"
+        }
+      ],
+      "officialLanguages": [
+        "DE"
+      ]
+    },
+    {
+      "code": "AT-SB",
+      "isoCode": "AT-5",
+      "shortName": "SB",
+      "category": [
+        {
+          "language": "DE",
+          "text": "Bundesland"
+        },
+        {
+          "language": "EN",
+          "text": "state"
+        }
+      ],
+      "name": [
+        {
+          "language": "DE",
+          "text": "Salzburg"
+        },
+        {
+          "language": "EN",
+          "text": "Salzburg"
+        }
+      ],
+      "officialLanguages": [
+        "DE"
+      ]
+    },
+    {
+      "code": "AT-SM",
+      "isoCode": "AT-6",
+      "shortName": "SM",
+      "category": [
+        {
+          "language": "DE",
+          "text": "Bundesland"
+        },
+        {
+          "language": "EN",
+          "text": "state"
+        }
+      ],
+      "name": [
+        {
+          "language": "DE",
+          "text": "Steiermark"
+        },
+        {
+          "language": "EN",
+          "text": "Styria"
+        }
+      ],
+      "officialLanguages": [
+        "DE"
+      ]
+    },
+    {
+      "code": "AT-TI",
+      "isoCode": "AT-7",
+      "shortName": "TI",
+      "category": [
+        {
+          "language": "DE",
+          "text": "Bundesland"
+        },
+        {
+          "language": "EN",
+          "text": "state"
+        }
+      ],
+      "name": [
+        {
+          "language": "DE",
+          "text": "Tirol"
+        },
+        {
+          "language": "EN",
+          "text": "Tyrol"
+        }
+      ],
+      "officialLanguages": [
+        "DE"
+      ]
+    },
+    {
+      "code": "AT-VA",
+      "isoCode": "AT-8",
+      "shortName": "VA",
+      "category": [
+        {
+          "language": "DE",
+          "text": "Bundesland"
+        },
+        {
+          "language": "EN",
+          "text": "state"
+        }
+      ],
+      "name": [
+        {
+          "language": "DE",
+          "text": "Vorarlberg"
+        },
+        {
+          "language": "EN",
+          "text": "Vorarlberg"
+        }
+      ],
+      "officialLanguages": [
+        "DE"
+      ]
+    },
+    {
+      "code": "AT-WI",
+      "isoCode": "AT-9",
+      "shortName": "WI",
+      "category": [
+        {
+          "language": "DE",
+          "text": "Bundesland"
+        },
+        {
+          "language": "EN",
+          "text": "state"
+        }
+      ],
+      "name": [
+        {
+          "language": "DE",
+          "text": "Wien"
+        },
+        {
+          "language": "EN",
+          "text": "Vienna"
+        }
+      ],
+      "officialLanguages": [
+        "DE"
+      ]
+    }
+  ],
+  "public_holidays": [
+    {
+      "id": "4db4b984-9de1-4ece-92c0-5d1941da3709",
+      "startDate": "2020-01-01",
+      "endDate": "2020-01-01",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Neujahr"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Neujahr",
+        "EN": "New Year's Day",
+        "FR": "New Year's Day",
+        "ES": "New Year's Day",
+        "IT": "New Year's Day"
+      }
+    },
+    {
+      "id": "27792ba0-ce59-43d9-a2ac-937fe7a1739a",
+      "startDate": "2020-01-06",
+      "endDate": "2020-01-06",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Heilige drei Könige"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Heilige drei Könige",
+        "EN": "Epiphany",
+        "FR": "Epiphany",
+        "ES": "Epiphany",
+        "IT": "Epiphany"
+      }
+    },
+    {
+      "id": "76fda190-a48a-4380-87c8-b11c363c2832",
+      "startDate": "2020-04-13",
+      "endDate": "2020-04-13",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Ostermontag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Ostermontag",
+        "EN": "Easter Monday",
+        "FR": "Easter Monday",
+        "ES": "Easter Monday",
+        "IT": "Easter Monday"
+      }
+    },
+    {
+      "id": "8b9d71ac-0b94-4cde-95eb-4facacb8b39c",
+      "startDate": "2020-05-01",
+      "endDate": "2020-05-01",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Staatsfeiertag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Staatsfeiertag",
+        "EN": "Labour Day",
+        "FR": "Labour Day",
+        "ES": "Labour Day",
+        "IT": "Labour Day"
+      }
+    },
+    {
+      "id": "f08cb0b9-e874-46c7-adb5-b91055b51ba5",
+      "startDate": "2020-05-21",
+      "endDate": "2020-05-21",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Christi Himmelfahrt"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Christi Himmelfahrt",
+        "EN": "Ascension Day",
+        "FR": "Ascension Day",
+        "ES": "Ascension Day",
+        "IT": "Ascension Day"
+      }
+    },
+    {
+      "id": "3c638954-82ed-475b-be09-51b1da5e9329",
+      "startDate": "2020-06-01",
+      "endDate": "2020-06-01",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Pfingstmontag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Pfingstmontag",
+        "EN": "Pentecost Monday",
+        "FR": "Pentecost Monday",
+        "ES": "Pentecost Monday",
+        "IT": "Pentecost Monday"
+      }
+    },
+    {
+      "id": "7cb84d17-1028-41c9-bca0-7706677383b4",
+      "startDate": "2020-06-11",
+      "endDate": "2020-06-11",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Fronleichnam"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Fronleichnam",
+        "EN": "Corpus Christi",
+        "FR": "Corpus Christi",
+        "ES": "Corpus Christi",
+        "IT": "Corpus Christi"
+      }
+    },
+    {
+      "id": "360ab63b-b076-4885-9a6a-f0df71cd2462",
+      "startDate": "2020-08-15",
+      "endDate": "2020-08-15",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Mariä Himmelfahrt"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Mariä Himmelfahrt",
+        "EN": "Assumption Day",
+        "FR": "Assumption Day",
+        "ES": "Assumption Day",
+        "IT": "Assumption Day"
+      }
+    },
+    {
+      "id": "cd16b6f6-be1e-425d-8def-5a03542b94dd",
+      "startDate": "2020-10-26",
+      "endDate": "2020-10-26",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Nationalfeiertag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Nationalfeiertag",
+        "EN": "National Day",
+        "FR": "National Day",
+        "ES": "National Day",
+        "IT": "National Day"
+      }
+    },
+    {
+      "id": "ef2e38e7-fddd-4d4a-a085-5979da6ef9f9",
+      "startDate": "2020-11-01",
+      "endDate": "2020-11-01",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Allerheiligen"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Allerheiligen",
+        "EN": "All Saints' Day",
+        "FR": "All Saints' Day",
+        "ES": "All Saints' Day",
+        "IT": "All Saints' Day"
+      }
+    },
+    {
+      "id": "0da4df5b-3e58-4d6e-a562-13a60ccd3050",
+      "startDate": "2020-12-08",
+      "endDate": "2020-12-08",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Mariä Empfängnis"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Mariä Empfängnis",
+        "EN": "Immaculate Conception",
+        "FR": "Immaculate Conception",
+        "ES": "Immaculate Conception",
+        "IT": "Immaculate Conception"
+      }
+    },
+    {
+      "id": "d3f57a19-215f-46a5-b4cf-e62a0e5987fb",
+      "startDate": "2020-12-25",
+      "endDate": "2020-12-25",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Christtag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Christtag",
+        "EN": "Christmas Day",
+        "FR": "Christmas Day",
+        "ES": "Christmas Day",
+        "IT": "Christmas Day"
+      }
+    },
+    {
+      "id": "80cf49a5-765c-4610-a242-f13ce086389e",
+      "startDate": "2020-12-26",
+      "endDate": "2020-12-26",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Stefanitag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Stefanitag",
+        "EN": "St Stephen's Day",
+        "FR": "St Stephen's Day",
+        "ES": "St Stephen's Day",
+        "IT": "St Stephen's Day"
+      }
+    },
+    {
+      "id": "6ca451d3-5d88-435e-b674-37fd72a2f17e",
+      "startDate": "2021-01-01",
+      "endDate": "2021-01-01",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Neujahr"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Neujahr",
+        "EN": "New Year's Day",
+        "FR": "New Year's Day",
+        "ES": "New Year's Day",
+        "IT": "New Year's Day"
+      }
+    },
+    {
+      "id": "9badbb6f-bb3d-47a0-a9ba-33a9152cac05",
+      "startDate": "2021-01-06",
+      "endDate": "2021-01-06",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Heilige drei Könige"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Heilige drei Könige",
+        "EN": "Epiphany",
+        "FR": "Epiphany",
+        "ES": "Epiphany",
+        "IT": "Epiphany"
+      }
+    },
+    {
+      "id": "da4bf2b0-8655-4e83-a042-43f20e5bcb15",
+      "startDate": "2021-04-05",
+      "endDate": "2021-04-05",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Ostermontag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Ostermontag",
+        "EN": "Easter Monday",
+        "FR": "Easter Monday",
+        "ES": "Easter Monday",
+        "IT": "Easter Monday"
+      }
+    },
+    {
+      "id": "c59321eb-b3f0-4c8d-8741-89a469b7a0a7",
+      "startDate": "2021-05-01",
+      "endDate": "2021-05-01",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Staatsfeiertag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Staatsfeiertag",
+        "EN": "Labour Day",
+        "FR": "Labour Day",
+        "ES": "Labour Day",
+        "IT": "Labour Day"
+      }
+    },
+    {
+      "id": "ab8f614b-288f-4692-ae6d-3d6d921e3fbb",
+      "startDate": "2021-05-13",
+      "endDate": "2021-05-13",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Christi Himmelfahrt"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Christi Himmelfahrt",
+        "EN": "Ascension Day",
+        "FR": "Ascension Day",
+        "ES": "Ascension Day",
+        "IT": "Ascension Day"
+      }
+    },
+    {
+      "id": "6ddffc41-02b3-498d-ba10-3fce099aedd7",
+      "startDate": "2021-05-24",
+      "endDate": "2021-05-24",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Pfingstmontag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Pfingstmontag",
+        "EN": "Pentecost Monday",
+        "FR": "Pentecost Monday",
+        "ES": "Pentecost Monday",
+        "IT": "Pentecost Monday"
+      }
+    },
+    {
+      "id": "d23f88bf-a386-47e0-b8a1-5742bc90caeb",
+      "startDate": "2021-06-03",
+      "endDate": "2021-06-03",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Fronleichnam"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Fronleichnam",
+        "EN": "Corpus Christi",
+        "FR": "Corpus Christi",
+        "ES": "Corpus Christi",
+        "IT": "Corpus Christi"
+      }
+    },
+    {
+      "id": "997052b6-d730-426f-83d4-a7350b7af3ce",
+      "startDate": "2021-08-15",
+      "endDate": "2021-08-15",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Mariä Himmelfahrt"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Mariä Himmelfahrt",
+        "EN": "Assumption Day",
+        "FR": "Assumption Day",
+        "ES": "Assumption Day",
+        "IT": "Assumption Day"
+      }
+    },
+    {
+      "id": "552fd3bc-58cb-4490-a1f5-46ee42987ab1",
+      "startDate": "2021-10-26",
+      "endDate": "2021-10-26",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Nationalfeiertag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Nationalfeiertag",
+        "EN": "National Day",
+        "FR": "National Day",
+        "ES": "National Day",
+        "IT": "National Day"
+      }
+    },
+    {
+      "id": "a3f50483-cb5a-4f0f-96e2-80a9b7da0791",
+      "startDate": "2021-11-01",
+      "endDate": "2021-11-01",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Allerheiligen"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Allerheiligen",
+        "EN": "All Saints' Day",
+        "FR": "All Saints' Day",
+        "ES": "All Saints' Day",
+        "IT": "All Saints' Day"
+      }
+    },
+    {
+      "id": "8e8b6a82-a5a9-47aa-a1b0-eb2b7b45232b",
+      "startDate": "2021-12-08",
+      "endDate": "2021-12-08",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Mariä Empfängnis"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Mariä Empfängnis",
+        "EN": "Immaculate Conception",
+        "FR": "Immaculate Conception",
+        "ES": "Immaculate Conception",
+        "IT": "Immaculate Conception"
+      }
+    },
+    {
+      "id": "5547451e-7b57-43fb-bdc2-72089ae5b946",
+      "startDate": "2021-12-25",
+      "endDate": "2021-12-25",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Christtag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Christtag",
+        "EN": "Christmas Day",
+        "FR": "Christmas Day",
+        "ES": "Christmas Day",
+        "IT": "Christmas Day"
+      }
+    },
+    {
+      "id": "6442856e-0953-41de-8f42-745b35d36bc5",
+      "startDate": "2021-12-26",
+      "endDate": "2021-12-26",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Stefanitag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Stefanitag",
+        "EN": "St Stephen's Day",
+        "FR": "St Stephen's Day",
+        "ES": "St Stephen's Day",
+        "IT": "St Stephen's Day"
+      }
+    },
+    {
+      "id": "dbe5d6a7-2526-4029-b6d6-9d56736c6d33",
+      "startDate": "2022-01-01",
+      "endDate": "2022-01-01",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Neujahr"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Neujahr",
+        "EN": "New Year's Day",
+        "FR": "New Year's Day",
+        "ES": "New Year's Day",
+        "IT": "New Year's Day"
+      }
+    },
+    {
+      "id": "5c12a37d-81f2-4b82-abc0-c7568fec2be4",
+      "startDate": "2022-01-06",
+      "endDate": "2022-01-06",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Heilige drei Könige"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Heilige drei Könige",
+        "EN": "Epiphany",
+        "FR": "Epiphany",
+        "ES": "Epiphany",
+        "IT": "Epiphany"
+      }
+    },
+    {
+      "id": "1763752a-b476-433b-b7b8-37f912d78a64",
+      "startDate": "2022-04-18",
+      "endDate": "2022-04-18",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Ostermontag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Ostermontag",
+        "EN": "Easter Monday",
+        "FR": "Easter Monday",
+        "ES": "Easter Monday",
+        "IT": "Easter Monday"
+      }
+    },
+    {
+      "id": "9e08ca01-025d-4612-8a69-938dd7b6a855",
+      "startDate": "2022-05-01",
+      "endDate": "2022-05-01",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Staatsfeiertag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Staatsfeiertag",
+        "EN": "Labour Day",
+        "FR": "Labour Day",
+        "ES": "Labour Day",
+        "IT": "Labour Day"
+      }
+    },
+    {
+      "id": "91d693c6-0596-4d6c-ae97-c81e66f9d6cf",
+      "startDate": "2022-05-26",
+      "endDate": "2022-05-26",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Christi Himmelfahrt"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Christi Himmelfahrt",
+        "EN": "Ascension Day",
+        "FR": "Ascension Day",
+        "ES": "Ascension Day",
+        "IT": "Ascension Day"
+      }
+    },
+    {
+      "id": "ba0ce895-d52f-42dd-8598-a97b8b02ea9f",
+      "startDate": "2022-06-06",
+      "endDate": "2022-06-06",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Pfingstmontag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Pfingstmontag",
+        "EN": "Pentecost Monday",
+        "FR": "Pentecost Monday",
+        "ES": "Pentecost Monday",
+        "IT": "Pentecost Monday"
+      }
+    },
+    {
+      "id": "cf2cde9c-d96e-49cd-9a78-fcde7d712618",
+      "startDate": "2022-06-16",
+      "endDate": "2022-06-16",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Fronleichnam"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Fronleichnam",
+        "EN": "Corpus Christi",
+        "FR": "Corpus Christi",
+        "ES": "Corpus Christi",
+        "IT": "Corpus Christi"
+      }
+    },
+    {
+      "id": "9f6e2a31-191b-413e-8f65-82586089aaf6",
+      "startDate": "2022-08-15",
+      "endDate": "2022-08-15",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Mariä Himmelfahrt"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Mariä Himmelfahrt",
+        "EN": "Assumption Day",
+        "FR": "Assumption Day",
+        "ES": "Assumption Day",
+        "IT": "Assumption Day"
+      }
+    },
+    {
+      "id": "3ae3d351-6887-4580-b376-949af2e573ff",
+      "startDate": "2022-10-26",
+      "endDate": "2022-10-26",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Nationalfeiertag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Nationalfeiertag",
+        "EN": "National Day",
+        "FR": "National Day",
+        "ES": "National Day",
+        "IT": "National Day"
+      }
+    },
+    {
+      "id": "8b13a4fe-0ec5-490a-9ada-f92dc2a1af37",
+      "startDate": "2022-11-01",
+      "endDate": "2022-11-01",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Allerheiligen"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Allerheiligen",
+        "EN": "All Saints' Day",
+        "FR": "All Saints' Day",
+        "ES": "All Saints' Day",
+        "IT": "All Saints' Day"
+      }
+    },
+    {
+      "id": "fac63448-d230-4a44-bde0-450763c685a8",
+      "startDate": "2022-12-08",
+      "endDate": "2022-12-08",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Mariä Empfängnis"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Mariä Empfängnis",
+        "EN": "Immaculate Conception",
+        "FR": "Immaculate Conception",
+        "ES": "Immaculate Conception",
+        "IT": "Immaculate Conception"
+      }
+    },
+    {
+      "id": "c9a97f7d-696c-47e8-b72e-d36586d0b35c",
+      "startDate": "2022-12-25",
+      "endDate": "2022-12-25",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Christtag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Christtag",
+        "EN": "Christmas Day",
+        "FR": "Christmas Day",
+        "ES": "Christmas Day",
+        "IT": "Christmas Day"
+      }
+    },
+    {
+      "id": "0620e029-2342-4bcf-b2f3-4b63220e5d5c",
+      "startDate": "2022-12-26",
+      "endDate": "2022-12-26",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Stefanitag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Stefanitag",
+        "EN": "St Stephen's Day",
+        "FR": "St Stephen's Day",
+        "ES": "St Stephen's Day",
+        "IT": "St Stephen's Day"
+      }
+    },
+    {
+      "id": "13f3463d-9e9f-4605-aeab-f4d9733d7bd7",
+      "startDate": "2023-01-01",
+      "endDate": "2023-01-01",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Neujahr"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Neujahr",
+        "EN": "New Year's Day",
+        "FR": "New Year's Day",
+        "ES": "New Year's Day",
+        "IT": "New Year's Day"
+      }
+    },
+    {
+      "id": "89cba73b-bb5d-44dd-b6ef-bead84113a54",
+      "startDate": "2023-01-06",
+      "endDate": "2023-01-06",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Heilige drei Könige"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Heilige drei Könige",
+        "EN": "Epiphany",
+        "FR": "Epiphany",
+        "ES": "Epiphany",
+        "IT": "Epiphany"
+      }
+    },
+    {
+      "id": "d7ae58b2-52dc-49ee-a28b-d7e466373b46",
+      "startDate": "2023-04-10",
+      "endDate": "2023-04-10",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Ostermontag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Ostermontag",
+        "EN": "Easter Monday",
+        "FR": "Easter Monday",
+        "ES": "Easter Monday",
+        "IT": "Easter Monday"
+      }
+    },
+    {
+      "id": "4f311896-f8c4-4a51-8ae7-9c44cce3aebd",
+      "startDate": "2023-05-01",
+      "endDate": "2023-05-01",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Staatsfeiertag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Staatsfeiertag",
+        "EN": "Labour Day",
+        "FR": "Labour Day",
+        "ES": "Labour Day",
+        "IT": "Labour Day"
+      }
+    },
+    {
+      "id": "edfb9aa1-d3d4-4254-8193-fbb5a3b128fe",
+      "startDate": "2023-05-18",
+      "endDate": "2023-05-18",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Christi Himmelfahrt"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Christi Himmelfahrt",
+        "EN": "Ascension Day",
+        "FR": "Ascension Day",
+        "ES": "Ascension Day",
+        "IT": "Ascension Day"
+      }
+    },
+    {
+      "id": "75752dda-09d2-49b1-8a32-1f58d5a6ba98",
+      "startDate": "2023-05-29",
+      "endDate": "2023-05-29",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Pfingstmontag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Pfingstmontag",
+        "EN": "Pentecost Monday",
+        "FR": "Pentecost Monday",
+        "ES": "Pentecost Monday",
+        "IT": "Pentecost Monday"
+      }
+    },
+    {
+      "id": "b8ab997a-3d53-4dd7-8ae9-70cfddd4a9b3",
+      "startDate": "2023-06-08",
+      "endDate": "2023-06-08",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Fronleichnam"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Fronleichnam",
+        "EN": "Corpus Christi",
+        "FR": "Corpus Christi",
+        "ES": "Corpus Christi",
+        "IT": "Corpus Christi"
+      }
+    },
+    {
+      "id": "df81ac6e-9121-45a3-9f8f-140a10e6d8af",
+      "startDate": "2023-08-15",
+      "endDate": "2023-08-15",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Mariä Himmelfahrt"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Mariä Himmelfahrt",
+        "EN": "Assumption Day",
+        "FR": "Assumption Day",
+        "ES": "Assumption Day",
+        "IT": "Assumption Day"
+      }
+    },
+    {
+      "id": "d3f24660-4d65-4eed-aedb-8dc999a4689f",
+      "startDate": "2023-10-26",
+      "endDate": "2023-10-26",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Nationalfeiertag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Nationalfeiertag",
+        "EN": "National Day",
+        "FR": "National Day",
+        "ES": "National Day",
+        "IT": "National Day"
+      }
+    },
+    {
+      "id": "bb943eee-7ee6-4db4-9068-9c25cde7df48",
+      "startDate": "2023-11-01",
+      "endDate": "2023-11-01",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Allerheiligen"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Allerheiligen",
+        "EN": "All Saints' Day",
+        "FR": "All Saints' Day",
+        "ES": "All Saints' Day",
+        "IT": "All Saints' Day"
+      }
+    },
+    {
+      "id": "0e060c5c-4452-4f5d-b5a1-9fc78fcf601e",
+      "startDate": "2023-12-08",
+      "endDate": "2023-12-08",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Mariä Empfängnis"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Mariä Empfängnis",
+        "EN": "Immaculate Conception",
+        "FR": "Immaculate Conception",
+        "ES": "Immaculate Conception",
+        "IT": "Immaculate Conception"
+      }
+    },
+    {
+      "id": "25f24e1d-6b6e-4595-bca0-d71fb09e93aa",
+      "startDate": "2023-12-25",
+      "endDate": "2023-12-25",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Christtag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Christtag",
+        "EN": "Christmas Day",
+        "FR": "Christmas Day",
+        "ES": "Christmas Day",
+        "IT": "Christmas Day"
+      }
+    },
+    {
+      "id": "343be03f-a32d-493d-8738-121c81d6a740",
+      "startDate": "2023-12-26",
+      "endDate": "2023-12-26",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Stefanitag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Stefanitag",
+        "EN": "St Stephen's Day",
+        "FR": "St Stephen's Day",
+        "ES": "St Stephen's Day",
+        "IT": "St Stephen's Day"
+      }
+    },
+    {
+      "id": "459b6476-390b-47d9-a7a3-b8ab6981c89c",
+      "startDate": "2024-01-01",
+      "endDate": "2024-01-01",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Neujahr"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Neujahr",
+        "EN": "New Year's Day",
+        "FR": "New Year's Day",
+        "ES": "New Year's Day",
+        "IT": "New Year's Day"
+      }
+    },
+    {
+      "id": "1fdcabcf-d0e5-4292-9c50-269212ae816f",
+      "startDate": "2024-01-06",
+      "endDate": "2024-01-06",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Heilige drei Könige"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Heilige drei Könige",
+        "EN": "Epiphany",
+        "FR": "Epiphany",
+        "ES": "Epiphany",
+        "IT": "Epiphany"
+      }
+    },
+    {
+      "id": "0af5ed5b-82b2-4dec-a9b1-ce7afb43ce70",
+      "startDate": "2024-04-01",
+      "endDate": "2024-04-01",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Ostermontag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Ostermontag",
+        "EN": "Easter Monday",
+        "FR": "Easter Monday",
+        "ES": "Easter Monday",
+        "IT": "Easter Monday"
+      }
+    },
+    {
+      "id": "0c4e6080-f370-48e8-b5bc-dd4e6c63afa8",
+      "startDate": "2024-05-01",
+      "endDate": "2024-05-01",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Staatsfeiertag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Staatsfeiertag",
+        "EN": "Labour Day",
+        "FR": "Labour Day",
+        "ES": "Labour Day",
+        "IT": "Labour Day"
+      }
+    },
+    {
+      "id": "3bbc4bc2-bd41-4106-a53e-b0f94feb3250",
+      "startDate": "2024-05-09",
+      "endDate": "2024-05-09",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Christi Himmelfahrt"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Christi Himmelfahrt",
+        "EN": "Ascension Day",
+        "FR": "Ascension Day",
+        "ES": "Ascension Day",
+        "IT": "Ascension Day"
+      }
+    },
+    {
+      "id": "24ec3138-a2ec-4a8c-ac5a-e9965335708f",
+      "startDate": "2024-05-20",
+      "endDate": "2024-05-20",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Pfingstmontag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Pfingstmontag",
+        "EN": "Pentecost Monday",
+        "FR": "Pentecost Monday",
+        "ES": "Pentecost Monday",
+        "IT": "Pentecost Monday"
+      }
+    },
+    {
+      "id": "4686e78e-48ee-49c5-9ee8-9993ec090af8",
+      "startDate": "2024-05-30",
+      "endDate": "2024-05-30",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Fronleichnam"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Fronleichnam",
+        "EN": "Corpus Christi",
+        "FR": "Corpus Christi",
+        "ES": "Corpus Christi",
+        "IT": "Corpus Christi"
+      }
+    },
+    {
+      "id": "07b5eebb-086e-4a39-80e2-863998e3222a",
+      "startDate": "2024-08-15",
+      "endDate": "2024-08-15",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Mariä Himmelfahrt"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Mariä Himmelfahrt",
+        "EN": "Assumption Day",
+        "FR": "Assumption Day",
+        "ES": "Assumption Day",
+        "IT": "Assumption Day"
+      }
+    },
+    {
+      "id": "2dab52d5-5616-48ec-951d-0487b327379c",
+      "startDate": "2024-10-26",
+      "endDate": "2024-10-26",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Nationalfeiertag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Nationalfeiertag",
+        "EN": "National Day",
+        "FR": "National Day",
+        "ES": "National Day",
+        "IT": "National Day"
+      }
+    },
+    {
+      "id": "d5911302-7987-429c-bfdc-7b35a9c220f2",
+      "startDate": "2024-11-01",
+      "endDate": "2024-11-01",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Allerheiligen"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Allerheiligen",
+        "EN": "All Saints' Day",
+        "FR": "All Saints' Day",
+        "ES": "All Saints' Day",
+        "IT": "All Saints' Day"
+      }
+    },
+    {
+      "id": "f201d2b8-94c8-4bdb-89b4-f771082a48e7",
+      "startDate": "2024-12-08",
+      "endDate": "2024-12-08",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Mariä Empfängnis"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Mariä Empfängnis",
+        "EN": "Immaculate Conception",
+        "FR": "Immaculate Conception",
+        "ES": "Immaculate Conception",
+        "IT": "Immaculate Conception"
+      }
+    },
+    {
+      "id": "16643be7-3aba-43db-a97c-51b90ab399c6",
+      "startDate": "2024-12-25",
+      "endDate": "2024-12-25",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Christtag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Christtag",
+        "EN": "Christmas Day",
+        "FR": "Christmas Day",
+        "ES": "Christmas Day",
+        "IT": "Christmas Day"
+      }
+    },
+    {
+      "id": "0ff5182c-0823-4ddf-a0cd-866316059862",
+      "startDate": "2024-12-26",
+      "endDate": "2024-12-26",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Stefanitag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Stefanitag",
+        "EN": "St Stephen's Day",
+        "FR": "St Stephen's Day",
+        "ES": "St Stephen's Day",
+        "IT": "St Stephen's Day"
+      }
+    },
+    {
+      "id": "cef22e93-5c4c-4642-a747-977488669701",
+      "startDate": "2025-01-01",
+      "endDate": "2025-01-01",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Neujahr"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Neujahr",
+        "EN": "New Year's Day",
+        "FR": "New Year's Day",
+        "ES": "New Year's Day",
+        "IT": "New Year's Day"
+      }
+    },
+    {
+      "id": "00ecd3bc-36e1-41fa-a63f-87bd77205857",
+      "startDate": "2025-01-06",
+      "endDate": "2025-01-06",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Heilige drei Könige"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Heilige drei Könige",
+        "EN": "Epiphany",
+        "FR": "Epiphany",
+        "ES": "Epiphany",
+        "IT": "Epiphany"
+      }
+    },
+    {
+      "id": "bd8dc862-9256-4024-a23e-0420acb32436",
+      "startDate": "2025-04-21",
+      "endDate": "2025-04-21",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Ostermontag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Ostermontag",
+        "EN": "Easter Monday",
+        "FR": "Easter Monday",
+        "ES": "Easter Monday",
+        "IT": "Easter Monday"
+      }
+    },
+    {
+      "id": "9f0c8a7c-8a0f-4c6e-b0dc-69c8b1bde915",
+      "startDate": "2025-05-01",
+      "endDate": "2025-05-01",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Staatsfeiertag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Staatsfeiertag",
+        "EN": "Labour Day",
+        "FR": "Labour Day",
+        "ES": "Labour Day",
+        "IT": "Labour Day"
+      }
+    },
+    {
+      "id": "78a625ae-df4a-4603-a05b-4368c1c2484e",
+      "startDate": "2025-05-29",
+      "endDate": "2025-05-29",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Christi Himmelfahrt"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Christi Himmelfahrt",
+        "EN": "Ascension Day",
+        "FR": "Ascension Day",
+        "ES": "Ascension Day",
+        "IT": "Ascension Day"
+      }
+    },
+    {
+      "id": "1989b6e5-0894-4be7-a4e0-a682cc63d638",
+      "startDate": "2025-06-09",
+      "endDate": "2025-06-09",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Pfingstmontag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Pfingstmontag",
+        "EN": "Pentecost Monday",
+        "FR": "Pentecost Monday",
+        "ES": "Pentecost Monday",
+        "IT": "Pentecost Monday"
+      }
+    },
+    {
+      "id": "596ab61d-6ce7-42a0-9b7f-437e7dcdcbcc",
+      "startDate": "2025-06-19",
+      "endDate": "2025-06-19",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Fronleichnam"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Fronleichnam",
+        "EN": "Corpus Christi",
+        "FR": "Corpus Christi",
+        "ES": "Corpus Christi",
+        "IT": "Corpus Christi"
+      }
+    },
+    {
+      "id": "b2e2683d-2965-482a-8a62-83f72d4bcd0f",
+      "startDate": "2025-08-15",
+      "endDate": "2025-08-15",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Mariä Himmelfahrt"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Mariä Himmelfahrt",
+        "EN": "Assumption Day",
+        "FR": "Assumption Day",
+        "ES": "Assumption Day",
+        "IT": "Assumption Day"
+      }
+    },
+    {
+      "id": "15309af7-875d-4487-bbf0-39c0aaba45af",
+      "startDate": "2025-10-26",
+      "endDate": "2025-10-26",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Nationalfeiertag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Nationalfeiertag",
+        "EN": "National Day",
+        "FR": "National Day",
+        "ES": "National Day",
+        "IT": "National Day"
+      }
+    },
+    {
+      "id": "13545866-19b2-4a20-8e8a-b4281bf66426",
+      "startDate": "2025-11-01",
+      "endDate": "2025-11-01",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Allerheiligen"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Allerheiligen",
+        "EN": "All Saints' Day",
+        "FR": "All Saints' Day",
+        "ES": "All Saints' Day",
+        "IT": "All Saints' Day"
+      }
+    },
+    {
+      "id": "8453792b-0a4a-4b34-ba8d-4e0d0f870473",
+      "startDate": "2025-12-08",
+      "endDate": "2025-12-08",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Mariä Empfängnis"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Mariä Empfängnis",
+        "EN": "Immaculate Conception",
+        "FR": "Immaculate Conception",
+        "ES": "Immaculate Conception",
+        "IT": "Immaculate Conception"
+      }
+    },
+    {
+      "id": "2ad705aa-662e-4c5c-8652-5632aa3e3a73",
+      "startDate": "2025-12-25",
+      "endDate": "2025-12-25",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Christtag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Christtag",
+        "EN": "Christmas Day",
+        "FR": "Christmas Day",
+        "ES": "Christmas Day",
+        "IT": "Christmas Day"
+      }
+    },
+    {
+      "id": "c3759a9f-3547-46d7-a816-cf105b579d5b",
+      "startDate": "2025-12-26",
+      "endDate": "2025-12-26",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Stefanitag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Stefanitag",
+        "EN": "St Stephen's Day",
+        "FR": "St Stephen's Day",
+        "ES": "St Stephen's Day",
+        "IT": "St Stephen's Day"
+      }
+    },
+    {
+      "id": "efbb30b0-dc2b-4811-be55-55f735ef327a",
+      "startDate": "2026-01-01",
+      "endDate": "2026-01-01",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Neujahr"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Neujahr",
+        "EN": "New Year's Day",
+        "FR": "New Year's Day",
+        "ES": "New Year's Day",
+        "IT": "New Year's Day"
+      }
+    },
+    {
+      "id": "ff1fffac-8032-49a7-b832-4027b2355a81",
+      "startDate": "2026-01-06",
+      "endDate": "2026-01-06",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Heilige drei Könige"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Heilige drei Könige",
+        "EN": "Epiphany",
+        "FR": "Epiphany",
+        "ES": "Epiphany",
+        "IT": "Epiphany"
+      }
+    },
+    {
+      "id": "7da0e458-e6cd-4ec1-841b-a4a3eab0156a",
+      "startDate": "2026-04-06",
+      "endDate": "2026-04-06",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Ostermontag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Ostermontag",
+        "EN": "Easter Monday",
+        "FR": "Easter Monday",
+        "ES": "Easter Monday",
+        "IT": "Easter Monday"
+      }
+    },
+    {
+      "id": "c46e6270-bac3-440d-a9e6-6084fdfec89e",
+      "startDate": "2026-05-01",
+      "endDate": "2026-05-01",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Staatsfeiertag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Staatsfeiertag",
+        "EN": "Labour Day",
+        "FR": "Labour Day",
+        "ES": "Labour Day",
+        "IT": "Labour Day"
+      }
+    },
+    {
+      "id": "dde92072-c4dc-4f81-8ed2-080f008a80ec",
+      "startDate": "2026-05-14",
+      "endDate": "2026-05-14",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Christi Himmelfahrt"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Christi Himmelfahrt",
+        "EN": "Ascension Day",
+        "FR": "Ascension Day",
+        "ES": "Ascension Day",
+        "IT": "Ascension Day"
+      }
+    },
+    {
+      "id": "64af6bc9-4b84-4dd5-9b34-71ffefd8fc1c",
+      "startDate": "2026-05-25",
+      "endDate": "2026-05-25",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Pfingstmontag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Pfingstmontag",
+        "EN": "Pentecost Monday",
+        "FR": "Pentecost Monday",
+        "ES": "Pentecost Monday",
+        "IT": "Pentecost Monday"
+      }
+    },
+    {
+      "id": "8cf41544-6f99-4aa3-8cda-46f7482d787f",
+      "startDate": "2026-06-04",
+      "endDate": "2026-06-04",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Fronleichnam"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Fronleichnam",
+        "EN": "Corpus Christi",
+        "FR": "Corpus Christi",
+        "ES": "Corpus Christi",
+        "IT": "Corpus Christi"
+      }
+    },
+    {
+      "id": "56d36bde-6797-44b6-8ae5-bc88976a777d",
+      "startDate": "2026-08-15",
+      "endDate": "2026-08-15",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Mariä Himmelfahrt"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Mariä Himmelfahrt",
+        "EN": "Assumption Day",
+        "FR": "Assumption Day",
+        "ES": "Assumption Day",
+        "IT": "Assumption Day"
+      }
+    },
+    {
+      "id": "51bc60e0-0af3-4472-8914-b91e523f2fde",
+      "startDate": "2026-10-26",
+      "endDate": "2026-10-26",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Nationalfeiertag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Nationalfeiertag",
+        "EN": "National Day",
+        "FR": "National Day",
+        "ES": "National Day",
+        "IT": "National Day"
+      }
+    },
+    {
+      "id": "7ac1b0bc-b055-4ab2-8475-bb7372df3209",
+      "startDate": "2026-11-01",
+      "endDate": "2026-11-01",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Allerheiligen"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Allerheiligen",
+        "EN": "All Saints' Day",
+        "FR": "All Saints' Day",
+        "ES": "All Saints' Day",
+        "IT": "All Saints' Day"
+      }
+    },
+    {
+      "id": "013361c4-75d8-44e8-87d6-557aa7cd789f",
+      "startDate": "2026-12-08",
+      "endDate": "2026-12-08",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Mariä Empfängnis"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Mariä Empfängnis",
+        "EN": "Immaculate Conception",
+        "FR": "Immaculate Conception",
+        "ES": "Immaculate Conception",
+        "IT": "Immaculate Conception"
+      }
+    },
+    {
+      "id": "c2d59f2d-d1bf-42b5-bb2b-6fb9ed915025",
+      "startDate": "2026-12-25",
+      "endDate": "2026-12-25",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Christtag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Christtag",
+        "EN": "Christmas Day",
+        "FR": "Christmas Day",
+        "ES": "Christmas Day",
+        "IT": "Christmas Day"
+      }
+    },
+    {
+      "id": "f4d2c08f-98f5-42fc-b538-1197f90d2291",
+      "startDate": "2026-12-26",
+      "endDate": "2026-12-26",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Stefanitag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Stefanitag",
+        "EN": "St Stephen's Day",
+        "FR": "St Stephen's Day",
+        "ES": "St Stephen's Day",
+        "IT": "St Stephen's Day"
+      }
+    },
+    {
+      "id": "a8827fbc-587a-48b6-8fc9-25a1c9cf2f25",
+      "startDate": "2027-01-01",
+      "endDate": "2027-01-01",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Neujahr"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Neujahr",
+        "EN": "New Year's Day",
+        "FR": "New Year's Day",
+        "ES": "New Year's Day",
+        "IT": "New Year's Day"
+      }
+    },
+    {
+      "id": "886497b4-fac6-4ba5-a125-5dc21722866c",
+      "startDate": "2027-01-06",
+      "endDate": "2027-01-06",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Heilige drei Könige"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Heilige drei Könige",
+        "EN": "Epiphany",
+        "FR": "Epiphany",
+        "ES": "Epiphany",
+        "IT": "Epiphany"
+      }
+    },
+    {
+      "id": "24aeeb53-cf6c-4dff-a037-a9e1b8e1dd17",
+      "startDate": "2027-03-29",
+      "endDate": "2027-03-29",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Ostermontag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Ostermontag",
+        "EN": "Easter Monday",
+        "FR": "Easter Monday",
+        "ES": "Easter Monday",
+        "IT": "Easter Monday"
+      }
+    },
+    {
+      "id": "36b1b0be-724d-48d6-859a-38a172d6d2d4",
+      "startDate": "2027-05-01",
+      "endDate": "2027-05-01",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Staatsfeiertag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Staatsfeiertag",
+        "EN": "Labour Day",
+        "FR": "Labour Day",
+        "ES": "Labour Day",
+        "IT": "Labour Day"
+      }
+    },
+    {
+      "id": "ac4284ad-3206-48cb-8210-3cabf0066c80",
+      "startDate": "2027-05-06",
+      "endDate": "2027-05-06",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Christi Himmelfahrt"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Christi Himmelfahrt",
+        "EN": "Ascension Day",
+        "FR": "Ascension Day",
+        "ES": "Ascension Day",
+        "IT": "Ascension Day"
+      }
+    },
+    {
+      "id": "7330c90c-2d91-4890-bdd8-9e629123a078",
+      "startDate": "2027-05-17",
+      "endDate": "2027-05-17",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Pfingstmontag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Pfingstmontag",
+        "EN": "Pentecost Monday",
+        "FR": "Pentecost Monday",
+        "ES": "Pentecost Monday",
+        "IT": "Pentecost Monday"
+      }
+    },
+    {
+      "id": "fffe381b-c3e8-49a7-8f4e-7e82f66e4542",
+      "startDate": "2027-05-27",
+      "endDate": "2027-05-27",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Fronleichnam"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Fronleichnam",
+        "EN": "Corpus Christi",
+        "FR": "Corpus Christi",
+        "ES": "Corpus Christi",
+        "IT": "Corpus Christi"
+      }
+    },
+    {
+      "id": "bbcfd76e-2f2a-4242-a8e9-45dc605f560c",
+      "startDate": "2027-08-15",
+      "endDate": "2027-08-15",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Mariä Himmelfahrt"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Mariä Himmelfahrt",
+        "EN": "Assumption Day",
+        "FR": "Assumption Day",
+        "ES": "Assumption Day",
+        "IT": "Assumption Day"
+      }
+    },
+    {
+      "id": "4a4acee4-50a5-4922-88ed-96b061dcadbe",
+      "startDate": "2027-10-26",
+      "endDate": "2027-10-26",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Nationalfeiertag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Nationalfeiertag",
+        "EN": "National Day",
+        "FR": "National Day",
+        "ES": "National Day",
+        "IT": "National Day"
+      }
+    },
+    {
+      "id": "4ec3e240-f7ee-45ac-a5d0-72150dce4f0d",
+      "startDate": "2027-11-01",
+      "endDate": "2027-11-01",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Allerheiligen"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Allerheiligen",
+        "EN": "All Saints' Day",
+        "FR": "All Saints' Day",
+        "ES": "All Saints' Day",
+        "IT": "All Saints' Day"
+      }
+    },
+    {
+      "id": "99c0bb93-f225-4820-80b0-db7987075a11",
+      "startDate": "2027-12-08",
+      "endDate": "2027-12-08",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Mariä Empfängnis"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Mariä Empfängnis",
+        "EN": "Immaculate Conception",
+        "FR": "Immaculate Conception",
+        "ES": "Immaculate Conception",
+        "IT": "Immaculate Conception"
+      }
+    },
+    {
+      "id": "8ceee611-65b7-44c5-b845-a53a6186c452",
+      "startDate": "2027-12-25",
+      "endDate": "2027-12-25",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Christtag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Christtag",
+        "EN": "Christmas Day",
+        "FR": "Christmas Day",
+        "ES": "Christmas Day",
+        "IT": "Christmas Day"
+      }
+    },
+    {
+      "id": "4a0be396-7658-4848-bc48-fcd4eac80f1b",
+      "startDate": "2027-12-26",
+      "endDate": "2027-12-26",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Stefanitag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Stefanitag",
+        "EN": "St Stephen's Day",
+        "FR": "St Stephen's Day",
+        "ES": "St Stephen's Day",
+        "IT": "St Stephen's Day"
+      }
+    },
+    {
+      "id": "59758ad8-eb61-4599-bbc4-917b5c4bc2b5",
+      "startDate": "2028-01-01",
+      "endDate": "2028-01-01",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Neujahr"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Neujahr",
+        "EN": "New Year's Day",
+        "FR": "New Year's Day",
+        "ES": "New Year's Day",
+        "IT": "New Year's Day"
+      }
+    },
+    {
+      "id": "ae3701d5-fb44-48c6-ad43-af11f6d7f28c",
+      "startDate": "2028-01-06",
+      "endDate": "2028-01-06",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Heilige drei Könige"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Heilige drei Könige",
+        "EN": "Epiphany",
+        "FR": "Epiphany",
+        "ES": "Epiphany",
+        "IT": "Epiphany"
+      }
+    },
+    {
+      "id": "cdf42f63-7d62-49bb-a9c7-87d66e5fb778",
+      "startDate": "2028-04-17",
+      "endDate": "2028-04-17",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Ostermontag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Ostermontag",
+        "EN": "Easter Monday",
+        "FR": "Easter Monday",
+        "ES": "Easter Monday",
+        "IT": "Easter Monday"
+      }
+    },
+    {
+      "id": "d755232c-843f-44e0-8cfd-959fe1bb2452",
+      "startDate": "2028-05-01",
+      "endDate": "2028-05-01",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Staatsfeiertag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Staatsfeiertag",
+        "EN": "Labour Day",
+        "FR": "Labour Day",
+        "ES": "Labour Day",
+        "IT": "Labour Day"
+      }
+    },
+    {
+      "id": "85fc8798-0593-4c13-a393-49cac7297359",
+      "startDate": "2028-05-25",
+      "endDate": "2028-05-25",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Christi Himmelfahrt"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Christi Himmelfahrt",
+        "EN": "Ascension Day",
+        "FR": "Ascension Day",
+        "ES": "Ascension Day",
+        "IT": "Ascension Day"
+      }
+    },
+    {
+      "id": "5b3c2676-b05d-4284-9897-6d55a47fc270",
+      "startDate": "2028-06-05",
+      "endDate": "2028-06-05",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Pfingstmontag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Pfingstmontag",
+        "EN": "Pentecost Monday",
+        "FR": "Pentecost Monday",
+        "ES": "Pentecost Monday",
+        "IT": "Pentecost Monday"
+      }
+    },
+    {
+      "id": "5301b9e6-d3e3-400d-912a-e3922e50fc34",
+      "startDate": "2028-06-15",
+      "endDate": "2028-06-15",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Fronleichnam"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Fronleichnam",
+        "EN": "Corpus Christi",
+        "FR": "Corpus Christi",
+        "ES": "Corpus Christi",
+        "IT": "Corpus Christi"
+      }
+    },
+    {
+      "id": "ec561351-67c1-4c7e-a8fe-1e9754f37ae6",
+      "startDate": "2028-08-15",
+      "endDate": "2028-08-15",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Mariä Himmelfahrt"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Mariä Himmelfahrt",
+        "EN": "Assumption Day",
+        "FR": "Assumption Day",
+        "ES": "Assumption Day",
+        "IT": "Assumption Day"
+      }
+    },
+    {
+      "id": "a66d2f14-7e4b-4c4f-94e7-ed19892cd849",
+      "startDate": "2028-10-26",
+      "endDate": "2028-10-26",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Nationalfeiertag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Nationalfeiertag",
+        "EN": "National Day",
+        "FR": "National Day",
+        "ES": "National Day",
+        "IT": "National Day"
+      }
+    },
+    {
+      "id": "539a9088-16f5-4e41-b6b1-56030cf542c1",
+      "startDate": "2028-11-01",
+      "endDate": "2028-11-01",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Allerheiligen"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Allerheiligen",
+        "EN": "All Saints' Day",
+        "FR": "All Saints' Day",
+        "ES": "All Saints' Day",
+        "IT": "All Saints' Day"
+      }
+    },
+    {
+      "id": "6f02f473-7fcf-48ab-9376-a269786f0cb4",
+      "startDate": "2028-12-08",
+      "endDate": "2028-12-08",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Mariä Empfängnis"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Mariä Empfängnis",
+        "EN": "Immaculate Conception",
+        "FR": "Immaculate Conception",
+        "ES": "Immaculate Conception",
+        "IT": "Immaculate Conception"
+      }
+    },
+    {
+      "id": "dd9e297f-57c5-4fb6-8d39-4b4a5c576a6d",
+      "startDate": "2028-12-25",
+      "endDate": "2028-12-25",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Christtag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Christtag",
+        "EN": "Christmas Day",
+        "FR": "Christmas Day",
+        "ES": "Christmas Day",
+        "IT": "Christmas Day"
+      }
+    },
+    {
+      "id": "02a3f49f-40d7-4317-a9d0-8de51e1ca344",
+      "startDate": "2028-12-26",
+      "endDate": "2028-12-26",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Stefanitag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Stefanitag",
+        "EN": "St Stephen's Day",
+        "FR": "St Stephen's Day",
+        "ES": "St Stephen's Day",
+        "IT": "St Stephen's Day"
+      }
+    },
+    {
+      "id": "8b5980ef-1895-4007-8963-6cf6d80eedb6",
+      "startDate": "2029-01-01",
+      "endDate": "2029-01-01",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Neujahr"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Neujahr",
+        "EN": "New Year's Day",
+        "FR": "New Year's Day",
+        "ES": "New Year's Day",
+        "IT": "New Year's Day"
+      }
+    },
+    {
+      "id": "dba076d1-2bfb-43b3-8f3f-ccfe90ea2116",
+      "startDate": "2029-01-06",
+      "endDate": "2029-01-06",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Heilige drei Könige"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Heilige drei Könige",
+        "EN": "Epiphany",
+        "FR": "Epiphany",
+        "ES": "Epiphany",
+        "IT": "Epiphany"
+      }
+    },
+    {
+      "id": "1f2cebbf-3bd0-4b8d-9758-78540a0b9a9b",
+      "startDate": "2029-04-02",
+      "endDate": "2029-04-02",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Ostermontag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Ostermontag",
+        "EN": "Easter Monday",
+        "FR": "Easter Monday",
+        "ES": "Easter Monday",
+        "IT": "Easter Monday"
+      }
+    },
+    {
+      "id": "e3a97a87-3785-486c-8753-9f3db71e6c86",
+      "startDate": "2029-05-01",
+      "endDate": "2029-05-01",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Staatsfeiertag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Staatsfeiertag",
+        "EN": "Labour Day",
+        "FR": "Labour Day",
+        "ES": "Labour Day",
+        "IT": "Labour Day"
+      }
+    },
+    {
+      "id": "e5b913cf-ae23-47d1-8ca5-db0b4aa37281",
+      "startDate": "2029-05-10",
+      "endDate": "2029-05-10",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Christi Himmelfahrt"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Christi Himmelfahrt",
+        "EN": "Ascension Day",
+        "FR": "Ascension Day",
+        "ES": "Ascension Day",
+        "IT": "Ascension Day"
+      }
+    },
+    {
+      "id": "350cdf4e-e7f5-4316-9bd6-2fce21df16d0",
+      "startDate": "2029-05-21",
+      "endDate": "2029-05-21",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Pfingstmontag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Pfingstmontag",
+        "EN": "Pentecost Monday",
+        "FR": "Pentecost Monday",
+        "ES": "Pentecost Monday",
+        "IT": "Pentecost Monday"
+      }
+    },
+    {
+      "id": "341d5ea1-af6d-4d77-8748-a8d65cedf73a",
+      "startDate": "2029-05-31",
+      "endDate": "2029-05-31",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Fronleichnam"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Fronleichnam",
+        "EN": "Corpus Christi",
+        "FR": "Corpus Christi",
+        "ES": "Corpus Christi",
+        "IT": "Corpus Christi"
+      }
+    },
+    {
+      "id": "b9770e9c-57bf-459e-8c7a-3b3378826446",
+      "startDate": "2029-08-15",
+      "endDate": "2029-08-15",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Mariä Himmelfahrt"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Mariä Himmelfahrt",
+        "EN": "Assumption Day",
+        "FR": "Assumption Day",
+        "ES": "Assumption Day",
+        "IT": "Assumption Day"
+      }
+    },
+    {
+      "id": "820fcecf-f610-44e5-89f2-aea6ecc35d9c",
+      "startDate": "2029-10-26",
+      "endDate": "2029-10-26",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Nationalfeiertag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Nationalfeiertag",
+        "EN": "National Day",
+        "FR": "National Day",
+        "ES": "National Day",
+        "IT": "National Day"
+      }
+    },
+    {
+      "id": "f3b8073e-540b-4244-b4f5-92fd2c5a6641",
+      "startDate": "2029-11-01",
+      "endDate": "2029-11-01",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Allerheiligen"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Allerheiligen",
+        "EN": "All Saints' Day",
+        "FR": "All Saints' Day",
+        "ES": "All Saints' Day",
+        "IT": "All Saints' Day"
+      }
+    },
+    {
+      "id": "69034948-bdaf-4cbe-83d8-6dc1efe710de",
+      "startDate": "2029-12-08",
+      "endDate": "2029-12-08",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Mariä Empfängnis"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Mariä Empfängnis",
+        "EN": "Immaculate Conception",
+        "FR": "Immaculate Conception",
+        "ES": "Immaculate Conception",
+        "IT": "Immaculate Conception"
+      }
+    },
+    {
+      "id": "4405ef3e-8b81-4446-97f0-11e835482e3b",
+      "startDate": "2029-12-25",
+      "endDate": "2029-12-25",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Christtag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Christtag",
+        "EN": "Christmas Day",
+        "FR": "Christmas Day",
+        "ES": "Christmas Day",
+        "IT": "Christmas Day"
+      }
+    },
+    {
+      "id": "bfb0cedd-3fb2-42b2-a001-d42457ce8150",
+      "startDate": "2029-12-26",
+      "endDate": "2029-12-26",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Stefanitag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Stefanitag",
+        "EN": "St Stephen's Day",
+        "FR": "St Stephen's Day",
+        "ES": "St Stephen's Day",
+        "IT": "St Stephen's Day"
+      }
+    }
+  ],
+  "school_holidays": [
+    {
+      "id": "26f6b53b-b5a8-46d2-8e85-cf99a3f9e7ac",
+      "startDate": "2019-12-23",
+      "endDate": "2020-01-06",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Weihnachtsferien"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Weihnachtsferien",
+        "EN": "Christmas Holidays",
+        "FR": "Christmas Holidays",
+        "ES": "Christmas Holidays",
+        "IT": "Christmas Holidays"
+      }
+    },
+    {
+      "id": "716ada6f-b2bc-4512-a11d-d2d76a82b915",
+      "startDate": "2020-02-03",
+      "endDate": "2020-02-08",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Semesterferien"
+        }
+      ],
+      "regionalScope": "Regional",
+      "temporalScope": "FullDay",
+      "nationwide": false,
+      "subdivisions": [
+        {
+          "code": "AT-WI",
+          "shortName": "WI"
+        },
+        {
+          "code": "AT-NÖ",
+          "shortName": "NÖ"
+        }
+      ],
+      "names": {
+        "DE": "Semesterferien",
+        "EN": "Semester Holidays",
+        "FR": "Semester Holidays",
+        "ES": "Semester Holidays",
+        "IT": "Semester Holidays"
+      }
+    },
+    {
+      "id": "518a3568-c37c-4102-bc20-1f6f3f5418a7",
+      "startDate": "2020-02-10",
+      "endDate": "2020-02-15",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Semesterferien"
+        }
+      ],
+      "regionalScope": "Regional",
+      "temporalScope": "FullDay",
+      "nationwide": false,
+      "subdivisions": [
+        {
+          "code": "AT-TI",
+          "shortName": "TI"
+        },
+        {
+          "code": "AT-VA",
+          "shortName": "VA"
+        },
+        {
+          "code": "AT-SB",
+          "shortName": "SB"
+        },
+        {
+          "code": "AT-BL",
+          "shortName": "BL"
+        },
+        {
+          "code": "AT-KÄ",
+          "shortName": "KÄ"
+        }
+      ],
+      "names": {
+        "DE": "Semesterferien",
+        "EN": "Semester Holidays",
+        "FR": "Semester Holidays",
+        "ES": "Semester Holidays",
+        "IT": "Semester Holidays"
+      }
+    },
+    {
+      "id": "5ad8e977-0da4-4011-b53f-0f2f548b5660",
+      "startDate": "2020-02-17",
+      "endDate": "2020-02-22",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Semesterferien"
+        }
+      ],
+      "regionalScope": "Regional",
+      "temporalScope": "FullDay",
+      "nationwide": false,
+      "subdivisions": [
+        {
+          "code": "AT-OÖ",
+          "shortName": "OÖ"
+        },
+        {
+          "code": "AT-SM",
+          "shortName": "SM"
+        }
+      ],
+      "names": {
+        "DE": "Semesterferien",
+        "EN": "Semester Holidays",
+        "FR": "Semester Holidays",
+        "ES": "Semester Holidays",
+        "IT": "Semester Holidays"
+      }
+    },
+    {
+      "id": "27150176-774b-45d8-8aba-d98eca756c46",
+      "startDate": "2020-03-19",
+      "endDate": "2020-03-19",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "St. Josef"
+        }
+      ],
+      "regionalScope": "Regional",
+      "temporalScope": "FullDay",
+      "nationwide": false,
+      "subdivisions": [
+        {
+          "code": "AT-TI",
+          "shortName": "TI"
+        },
+        {
+          "code": "AT-VA",
+          "shortName": "VA"
+        },
+        {
+          "code": "AT-KÄ",
+          "shortName": "KÄ"
+        },
+        {
+          "code": "AT-SM",
+          "shortName": "SM"
+        }
+      ],
+      "names": {
+        "DE": "St. Josef",
+        "EN": "Saint Joseph's Day",
+        "FR": "Saint Joseph's Day",
+        "ES": "Saint Joseph's Day",
+        "IT": "Saint Joseph's Day"
+      }
+    },
+    {
+      "id": "3f568fe4-2cbb-4837-83fb-2fd3fe81252a",
+      "startDate": "2020-04-04",
+      "endDate": "2020-04-14",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Osterferien"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Osterferien",
+        "EN": "Easter Holidays",
+        "FR": "Easter Holidays",
+        "ES": "Easter Holidays",
+        "IT": "Easter Holidays"
+      }
+    },
+    {
+      "id": "412b7f07-ef35-45cd-81ea-14d7031e725d",
+      "startDate": "2020-05-04",
+      "endDate": "2020-05-04",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "St. Florian"
+        }
+      ],
+      "regionalScope": "Regional",
+      "temporalScope": "FullDay",
+      "nationwide": false,
+      "subdivisions": [
+        {
+          "code": "AT-OÖ",
+          "shortName": "OÖ"
+        }
+      ],
+      "names": {
+        "DE": "St. Florian",
+        "EN": "Saint Florian's Day",
+        "FR": "Saint Florian's Day",
+        "ES": "Saint Florian's Day",
+        "IT": "Saint Florian's Day"
+      }
+    },
+    {
+      "id": "e0169c2f-c9b2-4881-a144-e9aff3c296d9",
+      "startDate": "2020-05-30",
+      "endDate": "2020-06-02",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Pfingstferien"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Pfingstferien",
+        "EN": "Pentecost Holidays",
+        "FR": "Pentecost Holidays",
+        "ES": "Pentecost Holidays",
+        "IT": "Pentecost Holidays"
+      }
+    },
+    {
+      "id": "4dd98ecf-1870-41f4-bae7-66c650b7fdb3",
+      "startDate": "2020-07-04",
+      "endDate": "2020-09-06",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Sommerferien"
+        }
+      ],
+      "regionalScope": "Regional",
+      "temporalScope": "FullDay",
+      "nationwide": false,
+      "subdivisions": [
+        {
+          "code": "AT-WI",
+          "shortName": "WI"
+        },
+        {
+          "code": "AT-BL",
+          "shortName": "BL"
+        },
+        {
+          "code": "AT-NÖ",
+          "shortName": "NÖ"
+        }
+      ],
+      "names": {
+        "DE": "Sommerferien",
+        "EN": "Summer Holidays",
+        "FR": "Summer Holidays",
+        "ES": "Summer Holidays",
+        "IT": "Summer Holidays"
+      }
+    },
+    {
+      "id": "c813da86-b7b3-481f-925a-46dfcbc469e0",
+      "startDate": "2020-07-11",
+      "endDate": "2020-09-13",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Sommerferien"
+        }
+      ],
+      "regionalScope": "Regional",
+      "temporalScope": "FullDay",
+      "nationwide": false,
+      "subdivisions": [
+        {
+          "code": "AT-TI",
+          "shortName": "TI"
+        },
+        {
+          "code": "AT-VA",
+          "shortName": "VA"
+        },
+        {
+          "code": "AT-SB",
+          "shortName": "SB"
+        },
+        {
+          "code": "AT-OÖ",
+          "shortName": "OÖ"
+        },
+        {
+          "code": "AT-KÄ",
+          "shortName": "KÄ"
+        },
+        {
+          "code": "AT-SM",
+          "shortName": "SM"
+        }
+      ],
+      "names": {
+        "DE": "Sommerferien",
+        "EN": "Summer Holidays",
+        "FR": "Summer Holidays",
+        "ES": "Summer Holidays",
+        "IT": "Summer Holidays"
+      }
+    },
+    {
+      "id": "44c2bc68-e02b-4bd2-88d0-446345c7abde",
+      "startDate": "2020-09-24",
+      "endDate": "2020-09-24",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "St. Rupert"
+        }
+      ],
+      "regionalScope": "Regional",
+      "temporalScope": "FullDay",
+      "nationwide": false,
+      "subdivisions": [
+        {
+          "code": "AT-SB",
+          "shortName": "SB"
+        }
+      ],
+      "names": {
+        "DE": "St. Rupert",
+        "EN": "Saint Rupert's Day",
+        "FR": "Saint Rupert's Day",
+        "ES": "Saint Rupert's Day",
+        "IT": "Saint Rupert's Day"
+      }
+    },
+    {
+      "id": "b6c1ab83-3a61-4171-a53e-4aa804a818c8",
+      "startDate": "2020-10-27",
+      "endDate": "2020-10-31",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Herbstferien"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Herbstferien",
+        "EN": "Autumn Holidays",
+        "FR": "Autumn Holidays",
+        "ES": "Autumn Holidays",
+        "IT": "Autumn Holidays"
+      }
+    },
+    {
+      "id": "3ae401ef-f425-4e7b-aa7a-15c240c1dba7",
+      "startDate": "2020-11-02",
+      "endDate": "2020-11-02",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Allerseelen"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Allerseelen",
+        "EN": "All Souls' Day",
+        "FR": "All Souls' Day",
+        "ES": "All Souls' Day",
+        "IT": "All Souls' Day"
+      }
+    },
+    {
+      "id": "ec19d194-8126-48c2-922e-26fef816311d",
+      "startDate": "2020-11-11",
+      "endDate": "2020-11-11",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "St. Martin"
+        }
+      ],
+      "regionalScope": "Regional",
+      "temporalScope": "FullDay",
+      "nationwide": false,
+      "subdivisions": [
+        {
+          "code": "AT-BL",
+          "shortName": "BL"
+        }
+      ],
+      "names": {
+        "DE": "St. Martin",
+        "EN": "Saint Martin's Day",
+        "FR": "Saint Martin's Day",
+        "ES": "Saint Martin's Day",
+        "IT": "Saint Martin's Day"
+      }
+    },
+    {
+      "id": "e43ff6fe-d82d-4e33-bf4b-60b0ace94f40",
+      "startDate": "2020-11-15",
+      "endDate": "2020-11-15",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "St. Leopold"
+        }
+      ],
+      "regionalScope": "Regional",
+      "temporalScope": "FullDay",
+      "nationwide": false,
+      "subdivisions": [
+        {
+          "code": "AT-WI",
+          "shortName": "WI"
+        },
+        {
+          "code": "AT-NÖ",
+          "shortName": "NÖ"
+        }
+      ],
+      "names": {
+        "DE": "St. Leopold",
+        "EN": "Saint Leopold's Day",
+        "FR": "Saint Leopold's Day",
+        "ES": "Saint Leopold's Day",
+        "IT": "Saint Leopold's Day"
+      }
+    },
+    {
+      "id": "d2b0c992-51c9-49f6-8dda-14a23fae0a0b",
+      "startDate": "2020-12-24",
+      "endDate": "2021-01-06",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Weihnachtsferien"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Weihnachtsferien",
+        "EN": "Christmas Holidays",
+        "FR": "Christmas Holidays",
+        "ES": "Christmas Holidays",
+        "IT": "Christmas Holidays"
+      }
+    },
+    {
+      "id": "bf7b2ac2-568a-4b0c-8b2b-321f019f02e4",
+      "startDate": "2021-02-01",
+      "endDate": "2021-02-06",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Semesterferien"
+        }
+      ],
+      "regionalScope": "Regional",
+      "temporalScope": "FullDay",
+      "nationwide": false,
+      "subdivisions": [
+        {
+          "code": "AT-WI",
+          "shortName": "WI"
+        },
+        {
+          "code": "AT-NÖ",
+          "shortName": "NÖ"
+        }
+      ],
+      "names": {
+        "DE": "Semesterferien",
+        "EN": "Semester Holidays",
+        "FR": "Semester Holidays",
+        "ES": "Semester Holidays",
+        "IT": "Semester Holidays"
+      }
+    },
+    {
+      "id": "4e2edbd3-e128-49a3-8872-975f8c6570cb",
+      "startDate": "2021-02-08",
+      "endDate": "2021-02-13",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Semesterferien"
+        }
+      ],
+      "regionalScope": "Regional",
+      "temporalScope": "FullDay",
+      "nationwide": false,
+      "subdivisions": [
+        {
+          "code": "AT-TI",
+          "shortName": "TI"
+        },
+        {
+          "code": "AT-VA",
+          "shortName": "VA"
+        },
+        {
+          "code": "AT-SB",
+          "shortName": "SB"
+        },
+        {
+          "code": "AT-BL",
+          "shortName": "BL"
+        },
+        {
+          "code": "AT-OÖ",
+          "shortName": "OÖ"
+        },
+        {
+          "code": "AT-KÄ",
+          "shortName": "KÄ"
+        },
+        {
+          "code": "AT-SM",
+          "shortName": "SM"
+        }
+      ],
+      "names": {
+        "DE": "Semesterferien",
+        "EN": "Semester Holidays",
+        "FR": "Semester Holidays",
+        "ES": "Semester Holidays",
+        "IT": "Semester Holidays"
+      }
+    },
+    {
+      "id": "e04de434-8f68-4861-b9f0-344780f56def",
+      "startDate": "2021-03-19",
+      "endDate": "2021-03-19",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "St. Josef"
+        }
+      ],
+      "regionalScope": "Regional",
+      "temporalScope": "FullDay",
+      "nationwide": false,
+      "subdivisions": [
+        {
+          "code": "AT-TI",
+          "shortName": "TI"
+        },
+        {
+          "code": "AT-VA",
+          "shortName": "VA"
+        },
+        {
+          "code": "AT-KÄ",
+          "shortName": "KÄ"
+        },
+        {
+          "code": "AT-SM",
+          "shortName": "SM"
+        }
+      ],
+      "names": {
+        "DE": "St. Josef",
+        "EN": "Saint Joseph's Day",
+        "FR": "Saint Joseph's Day",
+        "ES": "Saint Joseph's Day",
+        "IT": "Saint Joseph's Day"
+      }
+    },
+    {
+      "id": "49ca56ed-2965-40d3-a788-40c7e0127d4c",
+      "startDate": "2021-03-27",
+      "endDate": "2021-04-05",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Osterferien"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Osterferien",
+        "EN": "Easter Holidays",
+        "FR": "Easter Holidays",
+        "ES": "Easter Holidays",
+        "IT": "Easter Holidays"
+      }
+    },
+    {
+      "id": "228ff2ff-f098-4f14-b6ff-bf6ac354997e",
+      "startDate": "2021-05-04",
+      "endDate": "2021-05-04",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "St. Florian"
+        }
+      ],
+      "regionalScope": "Regional",
+      "temporalScope": "FullDay",
+      "nationwide": false,
+      "subdivisions": [
+        {
+          "code": "AT-OÖ",
+          "shortName": "OÖ"
+        }
+      ],
+      "names": {
+        "DE": "St. Florian",
+        "EN": "Saint Florian's Day",
+        "FR": "Saint Florian's Day",
+        "ES": "Saint Florian's Day",
+        "IT": "Saint Florian's Day"
+      }
+    },
+    {
+      "id": "7a3d2865-ccd4-47a2-8515-0ae28ab8d70a",
+      "startDate": "2021-05-22",
+      "endDate": "2021-05-24",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Pfingstferien"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Pfingstferien",
+        "EN": "Pentecost Holidays",
+        "FR": "Pentecost Holidays",
+        "ES": "Pentecost Holidays",
+        "IT": "Pentecost Holidays"
+      }
+    },
+    {
+      "id": "ee3935f4-50c6-4baa-8974-13bf9f22b517",
+      "startDate": "2021-07-03",
+      "endDate": "2021-09-05",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Sommerferien"
+        }
+      ],
+      "regionalScope": "Regional",
+      "temporalScope": "FullDay",
+      "nationwide": false,
+      "subdivisions": [
+        {
+          "code": "AT-WI",
+          "shortName": "WI"
+        },
+        {
+          "code": "AT-BL",
+          "shortName": "BL"
+        },
+        {
+          "code": "AT-NÖ",
+          "shortName": "NÖ"
+        }
+      ],
+      "names": {
+        "DE": "Sommerferien",
+        "EN": "Summer Holidays",
+        "FR": "Summer Holidays",
+        "ES": "Summer Holidays",
+        "IT": "Summer Holidays"
+      }
+    },
+    {
+      "id": "bf208f9f-8e57-44c1-bed0-dc1fe02c6e51",
+      "startDate": "2021-07-10",
+      "endDate": "2021-09-12",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Sommerferien"
+        }
+      ],
+      "regionalScope": "Regional",
+      "temporalScope": "FullDay",
+      "nationwide": false,
+      "subdivisions": [
+        {
+          "code": "AT-TI",
+          "shortName": "TI"
+        },
+        {
+          "code": "AT-VA",
+          "shortName": "VA"
+        },
+        {
+          "code": "AT-SB",
+          "shortName": "SB"
+        },
+        {
+          "code": "AT-OÖ",
+          "shortName": "OÖ"
+        },
+        {
+          "code": "AT-KÄ",
+          "shortName": "KÄ"
+        },
+        {
+          "code": "AT-SM",
+          "shortName": "SM"
+        }
+      ],
+      "names": {
+        "DE": "Sommerferien",
+        "EN": "Summer Holidays",
+        "FR": "Summer Holidays",
+        "ES": "Summer Holidays",
+        "IT": "Summer Holidays"
+      }
+    },
+    {
+      "id": "9248aad1-1685-46bf-9f97-70e488e0428e",
+      "startDate": "2021-09-24",
+      "endDate": "2021-09-24",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "St. Rupert"
+        }
+      ],
+      "regionalScope": "Regional",
+      "temporalScope": "FullDay",
+      "nationwide": false,
+      "subdivisions": [
+        {
+          "code": "AT-SB",
+          "shortName": "SB"
+        }
+      ],
+      "names": {
+        "DE": "St. Rupert",
+        "EN": "Saint Rupert's Day",
+        "FR": "Saint Rupert's Day",
+        "ES": "Saint Rupert's Day",
+        "IT": "Saint Rupert's Day"
+      }
+    },
+    {
+      "id": "33878b41-08cd-4bf8-ab9a-f6c9a2694378",
+      "startDate": "2021-10-27",
+      "endDate": "2021-10-31",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Herbstferien"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Herbstferien",
+        "EN": "Autumn Holidays",
+        "FR": "Autumn Holidays",
+        "ES": "Autumn Holidays",
+        "IT": "Autumn Holidays"
+      }
+    },
+    {
+      "id": "d534bfe4-dad5-4690-ac57-053dfd96f9d5",
+      "startDate": "2021-11-02",
+      "endDate": "2021-11-02",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Allerseelen"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Allerseelen",
+        "EN": "All Souls' Day",
+        "FR": "All Souls' Day",
+        "ES": "All Souls' Day",
+        "IT": "All Souls' Day"
+      }
+    },
+    {
+      "id": "c63b9b85-28df-4f1c-a79a-4259261aef84",
+      "startDate": "2021-11-11",
+      "endDate": "2021-11-11",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "St. Martin"
+        }
+      ],
+      "regionalScope": "Regional",
+      "temporalScope": "FullDay",
+      "nationwide": false,
+      "subdivisions": [
+        {
+          "code": "AT-BL",
+          "shortName": "BL"
+        }
+      ],
+      "names": {
+        "DE": "St. Martin",
+        "EN": "Saint Martin's Day",
+        "FR": "Saint Martin's Day",
+        "ES": "Saint Martin's Day",
+        "IT": "Saint Martin's Day"
+      }
+    },
+    {
+      "id": "4fa17876-a1c0-426c-a9f5-875e80e67154",
+      "startDate": "2021-11-15",
+      "endDate": "2021-11-15",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "St. Leopold"
+        }
+      ],
+      "regionalScope": "Regional",
+      "temporalScope": "FullDay",
+      "nationwide": false,
+      "subdivisions": [
+        {
+          "code": "AT-WI",
+          "shortName": "WI"
+        },
+        {
+          "code": "AT-NÖ",
+          "shortName": "NÖ"
+        }
+      ],
+      "names": {
+        "DE": "St. Leopold",
+        "EN": "Saint Leopold's Day",
+        "FR": "Saint Leopold's Day",
+        "ES": "Saint Leopold's Day",
+        "IT": "Saint Leopold's Day"
+      }
+    },
+    {
+      "id": "332e6a30-1496-452e-b7c7-0d8f4c3b23fa",
+      "startDate": "2021-12-24",
+      "endDate": "2022-01-06",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Weihnachtsferien"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Weihnachtsferien",
+        "EN": "Christmas Holidays",
+        "FR": "Christmas Holidays",
+        "ES": "Christmas Holidays",
+        "IT": "Christmas Holidays"
+      }
+    },
+    {
+      "id": "64e2fc97-19bd-4f32-ab4f-c005a90eacbb",
+      "startDate": "2022-02-07",
+      "endDate": "2022-02-12",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Semesterferien"
+        }
+      ],
+      "regionalScope": "Regional",
+      "temporalScope": "FullDay",
+      "nationwide": false,
+      "subdivisions": [
+        {
+          "code": "AT-WI",
+          "shortName": "WI"
+        },
+        {
+          "code": "AT-NÖ",
+          "shortName": "NÖ"
+        }
+      ],
+      "names": {
+        "DE": "Semesterferien",
+        "EN": "Semester Holidays",
+        "FR": "Semester Holidays",
+        "ES": "Semester Holidays",
+        "IT": "Semester Holidays"
+      }
+    },
+    {
+      "id": "8eb63e4e-796a-4106-9ca7-f754b2d3af5c",
+      "startDate": "2022-02-14",
+      "endDate": "2022-02-19",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Semesterferien"
+        }
+      ],
+      "regionalScope": "Regional",
+      "temporalScope": "FullDay",
+      "nationwide": false,
+      "subdivisions": [
+        {
+          "code": "AT-TI",
+          "shortName": "TI"
+        },
+        {
+          "code": "AT-VA",
+          "shortName": "VA"
+        },
+        {
+          "code": "AT-SB",
+          "shortName": "SB"
+        },
+        {
+          "code": "AT-BL",
+          "shortName": "BL"
+        },
+        {
+          "code": "AT-KÄ",
+          "shortName": "KÄ"
+        }
+      ],
+      "names": {
+        "DE": "Semesterferien",
+        "EN": "Semester Holidays",
+        "FR": "Semester Holidays",
+        "ES": "Semester Holidays",
+        "IT": "Semester Holidays"
+      }
+    },
+    {
+      "id": "e5b0b026-2c07-4a2b-876c-fe47bf0da2b8",
+      "startDate": "2022-02-21",
+      "endDate": "2022-02-26",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Semesterferien"
+        }
+      ],
+      "regionalScope": "Regional",
+      "temporalScope": "FullDay",
+      "nationwide": false,
+      "subdivisions": [
+        {
+          "code": "AT-OÖ",
+          "shortName": "OÖ"
+        },
+        {
+          "code": "AT-SM",
+          "shortName": "SM"
+        }
+      ],
+      "names": {
+        "DE": "Semesterferien",
+        "EN": "Semester Holidays",
+        "FR": "Semester Holidays",
+        "ES": "Semester Holidays",
+        "IT": "Semester Holidays"
+      }
+    },
+    {
+      "id": "bf60adcc-26a7-48bb-81e7-0d7850c1c110",
+      "startDate": "2022-03-19",
+      "endDate": "2022-03-19",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "St. Josef"
+        }
+      ],
+      "regionalScope": "Regional",
+      "temporalScope": "FullDay",
+      "nationwide": false,
+      "subdivisions": [
+        {
+          "code": "AT-TI",
+          "shortName": "TI"
+        },
+        {
+          "code": "AT-VA",
+          "shortName": "VA"
+        },
+        {
+          "code": "AT-KÄ",
+          "shortName": "KÄ"
+        },
+        {
+          "code": "AT-SM",
+          "shortName": "SM"
+        }
+      ],
+      "names": {
+        "DE": "St. Josef",
+        "EN": "Saint Joseph's Day",
+        "FR": "Saint Joseph's Day",
+        "ES": "Saint Joseph's Day",
+        "IT": "Saint Joseph's Day"
+      }
+    },
+    {
+      "id": "8eac1b8b-5879-4ca9-9711-7362e231ed0a",
+      "startDate": "2022-04-09",
+      "endDate": "2022-04-18",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Osterferien"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Osterferien",
+        "EN": "Easter Holidays",
+        "FR": "Easter Holidays",
+        "ES": "Easter Holidays",
+        "IT": "Easter Holidays"
+      }
+    },
+    {
+      "id": "4f650c37-6853-42d7-8f9b-809512e5345e",
+      "startDate": "2022-05-04",
+      "endDate": "2022-05-04",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "St. Florian"
+        }
+      ],
+      "regionalScope": "Regional",
+      "temporalScope": "FullDay",
+      "nationwide": false,
+      "subdivisions": [
+        {
+          "code": "AT-OÖ",
+          "shortName": "OÖ"
+        }
+      ],
+      "names": {
+        "DE": "St. Florian",
+        "EN": "Saint Florian's Day",
+        "FR": "Saint Florian's Day",
+        "ES": "Saint Florian's Day",
+        "IT": "Saint Florian's Day"
+      }
+    },
+    {
+      "id": "e1a6c8ee-a006-4f56-98e0-fa53ed92215a",
+      "startDate": "2022-06-04",
+      "endDate": "2022-06-06",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Pfingstferien"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Pfingstferien",
+        "EN": "Pentecost Holidays",
+        "FR": "Pentecost Holidays",
+        "ES": "Pentecost Holidays",
+        "IT": "Pentecost Holidays"
+      }
+    },
+    {
+      "id": "a6469539-77ee-49a6-bd03-177aebcd054a",
+      "startDate": "2022-07-02",
+      "endDate": "2022-09-04",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Sommerferien"
+        }
+      ],
+      "regionalScope": "Regional",
+      "temporalScope": "FullDay",
+      "nationwide": false,
+      "subdivisions": [
+        {
+          "code": "AT-WI",
+          "shortName": "WI"
+        },
+        {
+          "code": "AT-BL",
+          "shortName": "BL"
+        },
+        {
+          "code": "AT-NÖ",
+          "shortName": "NÖ"
+        }
+      ],
+      "names": {
+        "DE": "Sommerferien",
+        "EN": "Summer Holidays",
+        "FR": "Summer Holidays",
+        "ES": "Summer Holidays",
+        "IT": "Summer Holidays"
+      }
+    },
+    {
+      "id": "79a21696-d088-482d-b0d2-eec379f7f9da",
+      "startDate": "2022-07-09",
+      "endDate": "2022-09-11",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Sommerferien"
+        }
+      ],
+      "regionalScope": "Regional",
+      "temporalScope": "FullDay",
+      "nationwide": false,
+      "subdivisions": [
+        {
+          "code": "AT-TI",
+          "shortName": "TI"
+        },
+        {
+          "code": "AT-VA",
+          "shortName": "VA"
+        },
+        {
+          "code": "AT-SB",
+          "shortName": "SB"
+        },
+        {
+          "code": "AT-OÖ",
+          "shortName": "OÖ"
+        },
+        {
+          "code": "AT-KÄ",
+          "shortName": "KÄ"
+        },
+        {
+          "code": "AT-SM",
+          "shortName": "SM"
+        }
+      ],
+      "names": {
+        "DE": "Sommerferien",
+        "EN": "Summer Holidays",
+        "FR": "Summer Holidays",
+        "ES": "Summer Holidays",
+        "IT": "Summer Holidays"
+      }
+    },
+    {
+      "id": "6fa64ba9-ae84-41ff-a32d-d2e2491b4e70",
+      "startDate": "2022-09-24",
+      "endDate": "2022-09-24",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "St. Rupert"
+        }
+      ],
+      "regionalScope": "Regional",
+      "temporalScope": "FullDay",
+      "nationwide": false,
+      "subdivisions": [
+        {
+          "code": "AT-SB",
+          "shortName": "SB"
+        }
+      ],
+      "names": {
+        "DE": "St. Rupert",
+        "EN": "Saint Rupert's Day",
+        "FR": "Saint Rupert's Day",
+        "ES": "Saint Rupert's Day",
+        "IT": "Saint Rupert's Day"
+      }
+    },
+    {
+      "id": "99b40add-3c7d-440b-8a40-950f0253b9fd",
+      "startDate": "2022-10-27",
+      "endDate": "2022-10-31",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Herbstferien"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Herbstferien",
+        "EN": "Autumn Holidays",
+        "FR": "Autumn Holidays",
+        "ES": "Autumn Holidays",
+        "IT": "Autumn Holidays"
+      }
+    },
+    {
+      "id": "3951bda5-d0e7-49fd-99d4-9c8f343c1050",
+      "startDate": "2022-11-02",
+      "endDate": "2022-11-02",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Allerseelen"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Allerseelen",
+        "EN": "All Souls' Day",
+        "FR": "All Souls' Day",
+        "ES": "All Souls' Day",
+        "IT": "All Souls' Day"
+      }
+    },
+    {
+      "id": "21d54237-ca0a-4bc1-a946-c0159f575880",
+      "startDate": "2022-11-11",
+      "endDate": "2022-11-11",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "St. Martin"
+        }
+      ],
+      "regionalScope": "Regional",
+      "temporalScope": "FullDay",
+      "nationwide": false,
+      "subdivisions": [
+        {
+          "code": "AT-BL",
+          "shortName": "BL"
+        }
+      ],
+      "names": {
+        "DE": "St. Martin",
+        "EN": "Saint Martin's Day",
+        "FR": "Saint Martin's Day",
+        "ES": "Saint Martin's Day",
+        "IT": "Saint Martin's Day"
+      }
+    },
+    {
+      "id": "39932d2e-b35a-4a6f-b7e2-7323eb8b7d34",
+      "startDate": "2022-11-15",
+      "endDate": "2022-11-15",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "St. Leopold"
+        }
+      ],
+      "regionalScope": "Regional",
+      "temporalScope": "FullDay",
+      "nationwide": false,
+      "subdivisions": [
+        {
+          "code": "AT-WI",
+          "shortName": "WI"
+        },
+        {
+          "code": "AT-NÖ",
+          "shortName": "NÖ"
+        }
+      ],
+      "names": {
+        "DE": "St. Leopold",
+        "EN": "Saint Leopold's Day",
+        "FR": "Saint Leopold's Day",
+        "ES": "Saint Leopold's Day",
+        "IT": "Saint Leopold's Day"
+      }
+    },
+    {
+      "id": "a0c1fe95-4cdb-49d1-834e-5489c6c2dc69",
+      "startDate": "2022-12-24",
+      "endDate": "2023-01-06",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Weihnachtsferien"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Weihnachtsferien",
+        "EN": "Christmas Holidays",
+        "FR": "Christmas Holidays",
+        "ES": "Christmas Holidays",
+        "IT": "Christmas Holidays"
+      }
+    },
+    {
+      "id": "90f7264c-d029-48e9-a2a4-e29202150e33",
+      "startDate": "2023-02-06",
+      "endDate": "2023-02-11",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Semesterferien"
+        }
+      ],
+      "regionalScope": "Regional",
+      "temporalScope": "FullDay",
+      "nationwide": false,
+      "subdivisions": [
+        {
+          "code": "AT-WI",
+          "shortName": "WI"
+        },
+        {
+          "code": "AT-NÖ",
+          "shortName": "NÖ"
+        }
+      ],
+      "names": {
+        "DE": "Semesterferien",
+        "EN": "Semester Holidays",
+        "FR": "Semester Holidays",
+        "ES": "Semester Holidays",
+        "IT": "Semester Holidays"
+      }
+    },
+    {
+      "id": "9246ea6e-41c7-4875-a9f6-dd0ca12fa2f0",
+      "startDate": "2023-02-13",
+      "endDate": "2023-02-18",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Semesterferien"
+        }
+      ],
+      "regionalScope": "Regional",
+      "temporalScope": "FullDay",
+      "nationwide": false,
+      "subdivisions": [
+        {
+          "code": "AT-TI",
+          "shortName": "TI"
+        },
+        {
+          "code": "AT-VA",
+          "shortName": "VA"
+        },
+        {
+          "code": "AT-SB",
+          "shortName": "SB"
+        },
+        {
+          "code": "AT-BL",
+          "shortName": "BL"
+        },
+        {
+          "code": "AT-KÄ",
+          "shortName": "KÄ"
+        }
+      ],
+      "names": {
+        "DE": "Semesterferien",
+        "EN": "Semester Holidays",
+        "FR": "Semester Holidays",
+        "ES": "Semester Holidays",
+        "IT": "Semester Holidays"
+      }
+    },
+    {
+      "id": "5a92bff7-1869-42fd-a320-7001d6b6b7a3",
+      "startDate": "2023-02-20",
+      "endDate": "2023-02-25",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Semesterferien"
+        }
+      ],
+      "regionalScope": "Regional",
+      "temporalScope": "FullDay",
+      "nationwide": false,
+      "subdivisions": [
+        {
+          "code": "AT-OÖ",
+          "shortName": "OÖ"
+        },
+        {
+          "code": "AT-SM",
+          "shortName": "SM"
+        }
+      ],
+      "names": {
+        "DE": "Semesterferien",
+        "EN": "Semester Holidays",
+        "FR": "Semester Holidays",
+        "ES": "Semester Holidays",
+        "IT": "Semester Holidays"
+      }
+    },
+    {
+      "id": "271acad0-b991-4bc0-b637-a7bd608f1b91",
+      "startDate": "2023-03-19",
+      "endDate": "2023-03-19",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "St. Josef"
+        }
+      ],
+      "regionalScope": "Regional",
+      "temporalScope": "FullDay",
+      "nationwide": false,
+      "subdivisions": [
+        {
+          "code": "AT-TI",
+          "shortName": "TI"
+        },
+        {
+          "code": "AT-VA",
+          "shortName": "VA"
+        },
+        {
+          "code": "AT-KÄ",
+          "shortName": "KÄ"
+        },
+        {
+          "code": "AT-SM",
+          "shortName": "SM"
+        }
+      ],
+      "names": {
+        "DE": "St. Josef",
+        "EN": "Saint Joseph's Day",
+        "FR": "Saint Joseph's Day",
+        "ES": "Saint Joseph's Day",
+        "IT": "Saint Joseph's Day"
+      }
+    },
+    {
+      "id": "7063d406-2b4e-41c2-9c57-96cbf4e6433d",
+      "startDate": "2023-04-01",
+      "endDate": "2023-04-10",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Osterferien"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Osterferien",
+        "EN": "Easter Holidays",
+        "FR": "Easter Holidays",
+        "ES": "Easter Holidays",
+        "IT": "Easter Holidays"
+      }
+    },
+    {
+      "id": "4e2fdc01-2144-4b5e-b6ef-e86d62d64257",
+      "startDate": "2023-05-04",
+      "endDate": "2023-05-04",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "St. Florian"
+        }
+      ],
+      "regionalScope": "Regional",
+      "temporalScope": "FullDay",
+      "nationwide": false,
+      "subdivisions": [
+        {
+          "code": "AT-OÖ",
+          "shortName": "OÖ"
+        }
+      ],
+      "names": {
+        "DE": "St. Florian",
+        "EN": "Saint Florian's Day",
+        "FR": "Saint Florian's Day",
+        "ES": "Saint Florian's Day",
+        "IT": "Saint Florian's Day"
+      }
+    },
+    {
+      "id": "8d915572-6461-4119-813b-52e88f969b3e",
+      "startDate": "2023-05-27",
+      "endDate": "2023-05-29",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Pfingstferien"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Pfingstferien",
+        "EN": "Pentecost Holidays",
+        "FR": "Pentecost Holidays",
+        "ES": "Pentecost Holidays",
+        "IT": "Pentecost Holidays"
+      }
+    },
+    {
+      "id": "c9d64458-eb88-42ed-9ace-11ac45e4a992",
+      "startDate": "2023-07-01",
+      "endDate": "2023-09-03",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Sommerferien"
+        }
+      ],
+      "regionalScope": "Regional",
+      "temporalScope": "FullDay",
+      "nationwide": false,
+      "subdivisions": [
+        {
+          "code": "AT-WI",
+          "shortName": "WI"
+        },
+        {
+          "code": "AT-BL",
+          "shortName": "BL"
+        },
+        {
+          "code": "AT-NÖ",
+          "shortName": "NÖ"
+        }
+      ],
+      "names": {
+        "DE": "Sommerferien",
+        "EN": "Summer Holidays",
+        "FR": "Summer Holidays",
+        "ES": "Summer Holidays",
+        "IT": "Summer Holidays"
+      }
+    },
+    {
+      "id": "21a4e257-7dab-4833-b308-0ec5069ac158",
+      "startDate": "2023-07-08",
+      "endDate": "2023-09-10",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Sommerferien"
+        }
+      ],
+      "regionalScope": "Regional",
+      "temporalScope": "FullDay",
+      "nationwide": false,
+      "subdivisions": [
+        {
+          "code": "AT-TI",
+          "shortName": "TI"
+        },
+        {
+          "code": "AT-VA",
+          "shortName": "VA"
+        },
+        {
+          "code": "AT-SB",
+          "shortName": "SB"
+        },
+        {
+          "code": "AT-OÖ",
+          "shortName": "OÖ"
+        },
+        {
+          "code": "AT-KÄ",
+          "shortName": "KÄ"
+        },
+        {
+          "code": "AT-SM",
+          "shortName": "SM"
+        }
+      ],
+      "names": {
+        "DE": "Sommerferien",
+        "EN": "Summer Holidays",
+        "FR": "Summer Holidays",
+        "ES": "Summer Holidays",
+        "IT": "Summer Holidays"
+      }
+    },
+    {
+      "id": "a4f66787-7be4-489f-ad15-dc2aef121a01",
+      "startDate": "2023-09-24",
+      "endDate": "2023-09-24",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "St. Rupert"
+        }
+      ],
+      "regionalScope": "Regional",
+      "temporalScope": "FullDay",
+      "nationwide": false,
+      "subdivisions": [
+        {
+          "code": "AT-SB",
+          "shortName": "SB"
+        }
+      ],
+      "names": {
+        "DE": "St. Rupert",
+        "EN": "Saint Rupert's Day",
+        "FR": "Saint Rupert's Day",
+        "ES": "Saint Rupert's Day",
+        "IT": "Saint Rupert's Day"
+      }
+    },
+    {
+      "id": "035d1365-758e-49af-b8df-e9e28192999b",
+      "startDate": "2023-10-27",
+      "endDate": "2023-10-31",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Herbstferien"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Herbstferien",
+        "EN": "Autumn Holidays",
+        "FR": "Autumn Holidays",
+        "ES": "Autumn Holidays",
+        "IT": "Autumn Holidays"
+      }
+    },
+    {
+      "id": "58d68a7c-1546-46fc-811a-65183fc6491d",
+      "startDate": "2023-11-02",
+      "endDate": "2023-11-02",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Allerseelen"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Allerseelen",
+        "EN": "All Souls' Day",
+        "FR": "All Souls' Day",
+        "ES": "All Souls' Day",
+        "IT": "All Souls' Day"
+      }
+    },
+    {
+      "id": "86a66ece-e98f-4781-bc9d-3c28c5715c2c",
+      "startDate": "2023-11-11",
+      "endDate": "2023-11-11",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "St. Martin"
+        }
+      ],
+      "regionalScope": "Regional",
+      "temporalScope": "FullDay",
+      "nationwide": false,
+      "subdivisions": [
+        {
+          "code": "AT-BL",
+          "shortName": "BL"
+        }
+      ],
+      "names": {
+        "DE": "St. Martin",
+        "EN": "Saint Martin's Day",
+        "FR": "Saint Martin's Day",
+        "ES": "Saint Martin's Day",
+        "IT": "Saint Martin's Day"
+      }
+    },
+    {
+      "id": "9fcc9470-d612-405b-ab28-06f7aafc6a39",
+      "startDate": "2023-11-15",
+      "endDate": "2023-11-15",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "St. Leopold"
+        }
+      ],
+      "regionalScope": "Regional",
+      "temporalScope": "FullDay",
+      "nationwide": false,
+      "subdivisions": [
+        {
+          "code": "AT-WI",
+          "shortName": "WI"
+        },
+        {
+          "code": "AT-NÖ",
+          "shortName": "NÖ"
+        }
+      ],
+      "names": {
+        "DE": "St. Leopold",
+        "EN": "Saint Leopold's Day",
+        "FR": "Saint Leopold's Day",
+        "ES": "Saint Leopold's Day",
+        "IT": "Saint Leopold's Day"
+      }
+    },
+    {
+      "id": "c0a6ae60-9107-4168-8ee1-2ce46fa24097",
+      "startDate": "2023-12-23",
+      "endDate": "2024-01-06",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Weihnachtsferien"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Weihnachtsferien",
+        "EN": "Christmas Holidays",
+        "FR": "Christmas Holidays",
+        "ES": "Christmas Holidays",
+        "IT": "Christmas Holidays"
+      }
+    },
+    {
+      "id": "e83230fa-1dd6-4103-af9f-d38d1c7b2878",
+      "startDate": "2024-02-05",
+      "endDate": "2024-02-10",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Semesterferien"
+        }
+      ],
+      "regionalScope": "Regional",
+      "temporalScope": "FullDay",
+      "nationwide": false,
+      "subdivisions": [
+        {
+          "code": "AT-WI",
+          "shortName": "WI"
+        },
+        {
+          "code": "AT-VA",
+          "shortName": "VA"
+        },
+        {
+          "code": "AT-NÖ",
+          "shortName": "NÖ"
+        }
+      ],
+      "names": {
+        "DE": "Semesterferien",
+        "EN": "Semester Holidays",
+        "FR": "Semester Holidays",
+        "ES": "Semester Holidays",
+        "IT": "Semester Holidays"
+      }
+    },
+    {
+      "id": "330186d7-2213-4d2a-9f07-2b4c57dd5339",
+      "startDate": "2024-02-12",
+      "endDate": "2024-02-17",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Semesterferien"
+        }
+      ],
+      "regionalScope": "Regional",
+      "temporalScope": "FullDay",
+      "nationwide": false,
+      "subdivisions": [
+        {
+          "code": "AT-TI",
+          "shortName": "TI"
+        },
+        {
+          "code": "AT-SB",
+          "shortName": "SB"
+        },
+        {
+          "code": "AT-BL",
+          "shortName": "BL"
+        },
+        {
+          "code": "AT-KÄ",
+          "shortName": "KÄ"
+        }
+      ],
+      "names": {
+        "DE": "Semesterferien",
+        "EN": "Semester Holidays",
+        "FR": "Semester Holidays",
+        "ES": "Semester Holidays",
+        "IT": "Semester Holidays"
+      }
+    },
+    {
+      "id": "1040fa90-5ce5-4dd7-9c75-b2b29e1c149d",
+      "startDate": "2024-02-19",
+      "endDate": "2024-02-24",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Semesterferien"
+        }
+      ],
+      "regionalScope": "Regional",
+      "temporalScope": "FullDay",
+      "nationwide": false,
+      "subdivisions": [
+        {
+          "code": "AT-OÖ",
+          "shortName": "OÖ"
+        },
+        {
+          "code": "AT-SM",
+          "shortName": "SM"
+        }
+      ],
+      "names": {
+        "DE": "Semesterferien",
+        "EN": "Semester Holidays",
+        "FR": "Semester Holidays",
+        "ES": "Semester Holidays",
+        "IT": "Semester Holidays"
+      }
+    },
+    {
+      "id": "bb8e2e20-53a1-4b28-8b88-be32057d71bf",
+      "startDate": "2024-03-19",
+      "endDate": "2024-03-19",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "St. Josef"
+        }
+      ],
+      "regionalScope": "Regional",
+      "temporalScope": "FullDay",
+      "nationwide": false,
+      "subdivisions": [
+        {
+          "code": "AT-TI",
+          "shortName": "TI"
+        },
+        {
+          "code": "AT-VA",
+          "shortName": "VA"
+        },
+        {
+          "code": "AT-KÄ",
+          "shortName": "KÄ"
+        },
+        {
+          "code": "AT-SM",
+          "shortName": "SM"
+        }
+      ],
+      "names": {
+        "DE": "St. Josef",
+        "EN": "Saint Joseph's Day",
+        "FR": "Saint Joseph's Day",
+        "ES": "Saint Joseph's Day",
+        "IT": "Saint Joseph's Day"
+      }
+    },
+    {
+      "id": "cdd675eb-7a8c-4565-b8c1-01e82df25e42",
+      "startDate": "2024-03-23",
+      "endDate": "2024-04-01",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Osterferien"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Osterferien",
+        "EN": "Easter Holidays",
+        "FR": "Easter Holidays",
+        "ES": "Easter Holidays",
+        "IT": "Easter Holidays"
+      }
+    },
+    {
+      "id": "883490d3-0dfd-42cc-a8e4-7e6745417d51",
+      "startDate": "2024-05-04",
+      "endDate": "2024-05-04",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "St. Florian"
+        }
+      ],
+      "regionalScope": "Regional",
+      "temporalScope": "FullDay",
+      "nationwide": false,
+      "subdivisions": [
+        {
+          "code": "AT-OÖ",
+          "shortName": "OÖ"
+        }
+      ],
+      "names": {
+        "DE": "St. Florian",
+        "EN": "Saint Florian's Day",
+        "FR": "Saint Florian's Day",
+        "ES": "Saint Florian's Day",
+        "IT": "Saint Florian's Day"
+      }
+    },
+    {
+      "id": "c8b94578-3b53-4a86-8a8a-14843f73e798",
+      "startDate": "2024-05-18",
+      "endDate": "2024-05-20",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Pfingstferien"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Pfingstferien",
+        "EN": "Pentecost Holidays",
+        "FR": "Pentecost Holidays",
+        "ES": "Pentecost Holidays",
+        "IT": "Pentecost Holidays"
+      }
+    },
+    {
+      "id": "4d7f63e6-9cf9-42af-ad9f-5adecc861641",
+      "startDate": "2024-06-29",
+      "endDate": "2024-09-01",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Sommerferien"
+        }
+      ],
+      "regionalScope": "Regional",
+      "temporalScope": "FullDay",
+      "nationwide": false,
+      "subdivisions": [
+        {
+          "code": "AT-WI",
+          "shortName": "WI"
+        },
+        {
+          "code": "AT-BL",
+          "shortName": "BL"
+        },
+        {
+          "code": "AT-NÖ",
+          "shortName": "NÖ"
+        }
+      ],
+      "names": {
+        "DE": "Sommerferien",
+        "EN": "Summer Holidays",
+        "FR": "Summer Holidays",
+        "ES": "Summer Holidays",
+        "IT": "Summer Holidays"
+      }
+    },
+    {
+      "id": "de6d9550-6819-4bb2-8b8e-9c0697572c82",
+      "startDate": "2024-07-06",
+      "endDate": "2024-09-08",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Sommerferien"
+        }
+      ],
+      "regionalScope": "Regional",
+      "temporalScope": "FullDay",
+      "nationwide": false,
+      "subdivisions": [
+        {
+          "code": "AT-TI",
+          "shortName": "TI"
+        },
+        {
+          "code": "AT-VA",
+          "shortName": "VA"
+        },
+        {
+          "code": "AT-SB",
+          "shortName": "SB"
+        },
+        {
+          "code": "AT-OÖ",
+          "shortName": "OÖ"
+        },
+        {
+          "code": "AT-KÄ",
+          "shortName": "KÄ"
+        },
+        {
+          "code": "AT-SM",
+          "shortName": "SM"
+        }
+      ],
+      "names": {
+        "DE": "Sommerferien",
+        "EN": "Summer Holidays",
+        "FR": "Summer Holidays",
+        "ES": "Summer Holidays",
+        "IT": "Summer Holidays"
+      }
+    },
+    {
+      "id": "050dac48-126e-4473-929c-a169f6f35880",
+      "startDate": "2024-09-24",
+      "endDate": "2024-09-24",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "St. Rupert"
+        }
+      ],
+      "regionalScope": "Regional",
+      "temporalScope": "FullDay",
+      "nationwide": false,
+      "subdivisions": [
+        {
+          "code": "AT-SB",
+          "shortName": "SB"
+        }
+      ],
+      "names": {
+        "DE": "St. Rupert",
+        "EN": "Saint Rupert's Day",
+        "FR": "Saint Rupert's Day",
+        "ES": "Saint Rupert's Day",
+        "IT": "Saint Rupert's Day"
+      }
+    },
+    {
+      "id": "06fdc420-9efa-4751-accd-bd13d8e40278",
+      "startDate": "2024-10-27",
+      "endDate": "2024-10-31",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Herbstferien"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Herbstferien",
+        "EN": "Autumn Holidays",
+        "FR": "Autumn Holidays",
+        "ES": "Autumn Holidays",
+        "IT": "Autumn Holidays"
+      }
+    },
+    {
+      "id": "5bccc3bb-07a9-48ee-81e5-14e356a5f131",
+      "startDate": "2024-11-02",
+      "endDate": "2024-11-02",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Allerseelen"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Allerseelen",
+        "EN": "All Souls' Day",
+        "FR": "All Souls' Day",
+        "ES": "All Souls' Day",
+        "IT": "All Souls' Day"
+      }
+    },
+    {
+      "id": "902621a0-b4c2-4a3f-baa9-fcb8cff9e127",
+      "startDate": "2024-11-11",
+      "endDate": "2024-11-11",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "St. Martin"
+        }
+      ],
+      "regionalScope": "Regional",
+      "temporalScope": "FullDay",
+      "nationwide": false,
+      "subdivisions": [
+        {
+          "code": "AT-BL",
+          "shortName": "BL"
+        }
+      ],
+      "names": {
+        "DE": "St. Martin",
+        "EN": "Saint Martin's Day",
+        "FR": "Saint Martin's Day",
+        "ES": "Saint Martin's Day",
+        "IT": "Saint Martin's Day"
+      }
+    },
+    {
+      "id": "b3f77f3c-f4ba-4392-8552-01c2e6d7a27c",
+      "startDate": "2024-11-15",
+      "endDate": "2024-11-15",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "St. Leopold"
+        }
+      ],
+      "regionalScope": "Regional",
+      "temporalScope": "FullDay",
+      "nationwide": false,
+      "subdivisions": [
+        {
+          "code": "AT-WI",
+          "shortName": "WI"
+        },
+        {
+          "code": "AT-NÖ",
+          "shortName": "NÖ"
+        }
+      ],
+      "names": {
+        "DE": "St. Leopold",
+        "EN": "Saint Leopold's Day",
+        "FR": "Saint Leopold's Day",
+        "ES": "Saint Leopold's Day",
+        "IT": "Saint Leopold's Day"
+      }
+    },
+    {
+      "id": "e3d0a97e-de38-4e5a-bdf0-c8c1ba7a6119",
+      "startDate": "2024-12-24",
+      "endDate": "2025-01-06",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Weihnachtsferien"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Weihnachtsferien",
+        "EN": "Christmas Holidays",
+        "FR": "Christmas Holidays",
+        "ES": "Christmas Holidays",
+        "IT": "Christmas Holidays"
+      }
+    },
+    {
+      "id": "f819bb21-50a9-41da-8588-0d92b176e858",
+      "startDate": "2025-02-03",
+      "endDate": "2025-02-08",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Semesterferien"
+        }
+      ],
+      "regionalScope": "Regional",
+      "temporalScope": "FullDay",
+      "nationwide": false,
+      "subdivisions": [
+        {
+          "code": "AT-WI",
+          "shortName": "WI"
+        },
+        {
+          "code": "AT-NÖ",
+          "shortName": "NÖ"
+        }
+      ],
+      "names": {
+        "DE": "Semesterferien",
+        "EN": "Semester Holidays",
+        "FR": "Semester Holidays",
+        "ES": "Semester Holidays",
+        "IT": "Semester Holidays"
+      }
+    },
+    {
+      "id": "9346b0f5-74b0-489b-b719-fba6d87738df",
+      "startDate": "2025-02-10",
+      "endDate": "2025-02-15",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Semesterferien"
+        }
+      ],
+      "regionalScope": "Regional",
+      "temporalScope": "FullDay",
+      "nationwide": false,
+      "subdivisions": [
+        {
+          "code": "AT-TI",
+          "shortName": "TI"
+        },
+        {
+          "code": "AT-VA",
+          "shortName": "VA"
+        },
+        {
+          "code": "AT-SB",
+          "shortName": "SB"
+        },
+        {
+          "code": "AT-BL",
+          "shortName": "BL"
+        },
+        {
+          "code": "AT-KÄ",
+          "shortName": "KÄ"
+        }
+      ],
+      "names": {
+        "DE": "Semesterferien",
+        "EN": "Semester Holidays",
+        "FR": "Semester Holidays",
+        "ES": "Semester Holidays",
+        "IT": "Semester Holidays"
+      }
+    },
+    {
+      "id": "c50dd649-e285-45f9-b730-b9f6d49fa459",
+      "startDate": "2025-02-17",
+      "endDate": "2025-02-22",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Semesterferien"
+        }
+      ],
+      "regionalScope": "Regional",
+      "temporalScope": "FullDay",
+      "nationwide": false,
+      "subdivisions": [
+        {
+          "code": "AT-OÖ",
+          "shortName": "OÖ"
+        },
+        {
+          "code": "AT-SM",
+          "shortName": "SM"
+        }
+      ],
+      "names": {
+        "DE": "Semesterferien",
+        "EN": "Semester Holidays",
+        "FR": "Semester Holidays",
+        "ES": "Semester Holidays",
+        "IT": "Semester Holidays"
+      }
+    },
+    {
+      "id": "c795ba34-9346-4d77-956d-2bc4d36e4f15",
+      "startDate": "2025-03-19",
+      "endDate": "2025-03-19",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "St. Josef"
+        }
+      ],
+      "regionalScope": "Regional",
+      "temporalScope": "FullDay",
+      "nationwide": false,
+      "subdivisions": [
+        {
+          "code": "AT-TI",
+          "shortName": "TI"
+        },
+        {
+          "code": "AT-VA",
+          "shortName": "VA"
+        },
+        {
+          "code": "AT-KÄ",
+          "shortName": "KÄ"
+        },
+        {
+          "code": "AT-SM",
+          "shortName": "SM"
+        }
+      ],
+      "names": {
+        "DE": "St. Josef",
+        "EN": "Saint Joseph's Day",
+        "FR": "Saint Joseph's Day",
+        "ES": "Saint Joseph's Day",
+        "IT": "Saint Joseph's Day"
+      }
+    },
+    {
+      "id": "d97aa6f6-df49-45cd-9d3e-c030946169ce",
+      "startDate": "2025-04-12",
+      "endDate": "2025-04-21",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Osterferien"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Osterferien",
+        "EN": "Easter Holidays",
+        "FR": "Easter Holidays",
+        "ES": "Easter Holidays",
+        "IT": "Easter Holidays"
+      }
+    },
+    {
+      "id": "0faf2f84-674a-47fb-9717-3be0508f48a5",
+      "startDate": "2025-05-04",
+      "endDate": "2025-05-04",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "St. Florian"
+        }
+      ],
+      "regionalScope": "Regional",
+      "temporalScope": "FullDay",
+      "nationwide": false,
+      "subdivisions": [
+        {
+          "code": "AT-OÖ",
+          "shortName": "OÖ"
+        }
+      ],
+      "names": {
+        "DE": "St. Florian",
+        "EN": "Saint Florian's Day",
+        "FR": "Saint Florian's Day",
+        "ES": "Saint Florian's Day",
+        "IT": "Saint Florian's Day"
+      }
+    },
+    {
+      "id": "c0f9c1d2-3e2a-485c-9d3f-7a0cfe1f9b2c",
+      "startDate": "2025-05-30",
+      "endDate": "2025-05-30",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "schulfrei"
+        }
+      ],
+      "regionalScope": "Regional",
+      "temporalScope": "FullDay",
+      "nationwide": false,
+      "subdivisions": [
+        {
+          "code": "AT-TI",
+          "shortName": "TI"
+        }
+      ],
+      "names": {
+        "DE": "schulfrei",
+        "EN": "no school",
+        "FR": "no school",
+        "ES": "no school",
+        "IT": "no school"
+      }
+    },
+    {
+      "id": "7ac56699-10ec-47d3-8e9c-995da7730fd8",
+      "startDate": "2025-06-07",
+      "endDate": "2025-06-09",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Pfingstferien"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Pfingstferien",
+        "EN": "Pentecost Holidays",
+        "FR": "Pentecost Holidays",
+        "ES": "Pentecost Holidays",
+        "IT": "Pentecost Holidays"
+      }
+    },
+    {
+      "id": "c0f9c1d2-2e2a-485c-9f48-d33b99cd1eb5",
+      "startDate": "2025-06-20",
+      "endDate": "2025-06-20",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "schulfrei"
+        }
+      ],
+      "regionalScope": "Regional",
+      "temporalScope": "FullDay",
+      "nationwide": false,
+      "subdivisions": [
+        {
+          "code": "AT-TI",
+          "shortName": "TI"
+        }
+      ],
+      "names": {
+        "DE": "schulfrei",
+        "EN": "no school",
+        "FR": "no school",
+        "ES": "no school",
+        "IT": "no school"
+      }
+    },
+    {
+      "id": "ceb65273-e2c6-40bf-bc4b-f48f99746887",
+      "startDate": "2025-06-28",
+      "endDate": "2025-08-31",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Sommerferien"
+        }
+      ],
+      "regionalScope": "Regional",
+      "temporalScope": "FullDay",
+      "nationwide": false,
+      "subdivisions": [
+        {
+          "code": "AT-WI",
+          "shortName": "WI"
+        },
+        {
+          "code": "AT-BL",
+          "shortName": "BL"
+        },
+        {
+          "code": "AT-NÖ",
+          "shortName": "NÖ"
+        }
+      ],
+      "names": {
+        "DE": "Sommerferien",
+        "EN": "Summer Holidays",
+        "FR": "Summer Holidays",
+        "ES": "Summer Holidays",
+        "IT": "Summer Holidays"
+      }
+    },
+    {
+      "id": "cffb89a7-768c-456e-86fe-ec0590435fad",
+      "startDate": "2025-07-05",
+      "endDate": "2025-09-07",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Sommerferien"
+        }
+      ],
+      "regionalScope": "Regional",
+      "temporalScope": "FullDay",
+      "nationwide": false,
+      "subdivisions": [
+        {
+          "code": "AT-TI",
+          "shortName": "TI"
+        },
+        {
+          "code": "AT-VA",
+          "shortName": "VA"
+        },
+        {
+          "code": "AT-SB",
+          "shortName": "SB"
+        },
+        {
+          "code": "AT-OÖ",
+          "shortName": "OÖ"
+        },
+        {
+          "code": "AT-KÄ",
+          "shortName": "KÄ"
+        },
+        {
+          "code": "AT-SM",
+          "shortName": "SM"
+        }
+      ],
+      "names": {
+        "DE": "Sommerferien",
+        "EN": "Summer Holidays",
+        "FR": "Summer Holidays",
+        "ES": "Summer Holidays",
+        "IT": "Summer Holidays"
+      }
+    },
+    {
+      "id": "3db5772e-a9e6-42f2-9cf2-99e4c5ef1c79",
+      "startDate": "2025-09-24",
+      "endDate": "2025-09-24",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "St. Rupert"
+        }
+      ],
+      "regionalScope": "Regional",
+      "temporalScope": "FullDay",
+      "nationwide": false,
+      "subdivisions": [
+        {
+          "code": "AT-SB",
+          "shortName": "SB"
+        }
+      ],
+      "names": {
+        "DE": "St. Rupert",
+        "EN": "Saint Rupert's Day",
+        "FR": "Saint Rupert's Day",
+        "ES": "Saint Rupert's Day",
+        "IT": "Saint Rupert's Day"
+      }
+    },
+    {
+      "id": "76f3fc33-8afa-4e97-9f48-df0a109bcf8e",
+      "startDate": "2025-10-27",
+      "endDate": "2025-10-31",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Herbstferien"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Herbstferien",
+        "EN": "Autumn Holidays",
+        "FR": "Autumn Holidays",
+        "ES": "Autumn Holidays",
+        "IT": "Autumn Holidays"
+      }
+    },
+    {
+      "id": "e82945db-0512-4d8b-8da6-e9321f77fd67",
+      "startDate": "2025-11-02",
+      "endDate": "2025-11-02",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Allerseelen"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Allerseelen",
+        "EN": "All Souls' Day",
+        "FR": "All Souls' Day",
+        "ES": "All Souls' Day",
+        "IT": "All Souls' Day"
+      }
+    },
+    {
+      "id": "a927e523-1e7c-4c57-b886-d0937c620ea3",
+      "startDate": "2025-11-11",
+      "endDate": "2025-11-11",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "St. Martin"
+        }
+      ],
+      "regionalScope": "Regional",
+      "temporalScope": "FullDay",
+      "nationwide": false,
+      "subdivisions": [
+        {
+          "code": "AT-BL",
+          "shortName": "BL"
+        }
+      ],
+      "names": {
+        "DE": "St. Martin",
+        "EN": "Saint Martin's Day",
+        "FR": "Saint Martin's Day",
+        "ES": "Saint Martin's Day",
+        "IT": "Saint Martin's Day"
+      }
+    },
+    {
+      "id": "087f0a19-633f-4082-82e2-eb0e52e1cc8c",
+      "startDate": "2025-11-15",
+      "endDate": "2025-11-15",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "St. Leopold"
+        }
+      ],
+      "regionalScope": "Regional",
+      "temporalScope": "FullDay",
+      "nationwide": false,
+      "subdivisions": [
+        {
+          "code": "AT-WI",
+          "shortName": "WI"
+        },
+        {
+          "code": "AT-NÖ",
+          "shortName": "NÖ"
+        }
+      ],
+      "names": {
+        "DE": "St. Leopold",
+        "EN": "Saint Leopold's Day",
+        "FR": "Saint Leopold's Day",
+        "ES": "Saint Leopold's Day",
+        "IT": "Saint Leopold's Day"
+      }
+    },
+    {
+      "id": "7a034d2c-9044-44d6-956f-d9f6575480d0",
+      "startDate": "2025-12-24",
+      "endDate": "2026-01-06",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Weihnachtsferien"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Weihnachtsferien",
+        "EN": "Christmas Holidays",
+        "FR": "Christmas Holidays",
+        "ES": "Christmas Holidays",
+        "IT": "Christmas Holidays"
+      }
+    },
+    {
+      "id": "fb8316b8-b3ef-43b9-8927-5543582ababb",
+      "startDate": "2026-02-02",
+      "endDate": "2026-02-07",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Semesterferien"
+        }
+      ],
+      "regionalScope": "Regional",
+      "temporalScope": "FullDay",
+      "nationwide": false,
+      "subdivisions": [
+        {
+          "code": "AT-WI",
+          "shortName": "WI"
+        },
+        {
+          "code": "AT-NÖ",
+          "shortName": "NÖ"
+        }
+      ],
+      "names": {
+        "DE": "Semesterferien",
+        "EN": "Semester Holidays",
+        "FR": "Semester Holidays",
+        "ES": "Semester Holidays",
+        "IT": "Semester Holidays"
+      }
+    },
+    {
+      "id": "ae990287-bde4-47be-9860-0f601e7adf45",
+      "startDate": "2026-02-09",
+      "endDate": "2026-02-14",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Semesterferien"
+        }
+      ],
+      "regionalScope": "Regional",
+      "temporalScope": "FullDay",
+      "nationwide": false,
+      "subdivisions": [
+        {
+          "code": "AT-TI",
+          "shortName": "TI"
+        },
+        {
+          "code": "AT-VA",
+          "shortName": "VA"
+        },
+        {
+          "code": "AT-SB",
+          "shortName": "SB"
+        },
+        {
+          "code": "AT-BL",
+          "shortName": "BL"
+        },
+        {
+          "code": "AT-KÄ",
+          "shortName": "KÄ"
+        }
+      ],
+      "names": {
+        "DE": "Semesterferien",
+        "EN": "Semester Holidays",
+        "FR": "Semester Holidays",
+        "ES": "Semester Holidays",
+        "IT": "Semester Holidays"
+      }
+    },
+    {
+      "id": "0e524064-e102-4524-9d20-d33b9fcd1eb5",
+      "startDate": "2026-02-16",
+      "endDate": "2026-02-21",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Semesterferien"
+        }
+      ],
+      "regionalScope": "Regional",
+      "temporalScope": "FullDay",
+      "nationwide": false,
+      "subdivisions": [
+        {
+          "code": "AT-OÖ",
+          "shortName": "OÖ"
+        },
+        {
+          "code": "AT-SM",
+          "shortName": "SM"
+        }
+      ],
+      "names": {
+        "DE": "Semesterferien",
+        "EN": "Semester Holidays",
+        "FR": "Semester Holidays",
+        "ES": "Semester Holidays",
+        "IT": "Semester Holidays"
+      }
+    },
+    {
+      "id": "794a3f9c-b596-48d1-8833-e4bb6361cee4",
+      "startDate": "2026-03-19",
+      "endDate": "2026-03-19",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "St. Josef"
+        }
+      ],
+      "regionalScope": "Regional",
+      "temporalScope": "FullDay",
+      "nationwide": false,
+      "subdivisions": [
+        {
+          "code": "AT-TI",
+          "shortName": "TI"
+        },
+        {
+          "code": "AT-VA",
+          "shortName": "VA"
+        },
+        {
+          "code": "AT-KÄ",
+          "shortName": "KÄ"
+        },
+        {
+          "code": "AT-SM",
+          "shortName": "SM"
+        }
+      ],
+      "names": {
+        "DE": "St. Josef",
+        "EN": "Saint Joseph's Day",
+        "FR": "Saint Joseph's Day",
+        "ES": "Saint Joseph's Day",
+        "IT": "Saint Joseph's Day"
+      }
+    },
+    {
+      "id": "fd7ada74-ef0e-4713-b8d3-3227d1372061",
+      "startDate": "2026-03-28",
+      "endDate": "2026-04-06",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Osterferien"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Osterferien",
+        "EN": "Easter Holidays",
+        "FR": "Easter Holidays",
+        "ES": "Easter Holidays",
+        "IT": "Easter Holidays"
+      }
+    },
+    {
+      "id": "77cfee64-73bb-4ab7-ab03-bcc73f4e6fe2",
+      "startDate": "2026-05-04",
+      "endDate": "2026-05-04",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "St. Florian"
+        }
+      ],
+      "regionalScope": "Regional",
+      "temporalScope": "FullDay",
+      "nationwide": false,
+      "subdivisions": [
+        {
+          "code": "AT-OÖ",
+          "shortName": "OÖ"
+        }
+      ],
+      "names": {
+        "DE": "St. Florian",
+        "EN": "Saint Florian's Day",
+        "FR": "Saint Florian's Day",
+        "ES": "Saint Florian's Day",
+        "IT": "Saint Florian's Day"
+      }
+    },
+    {
+      "id": "65ce3d86-9eda-49d1-bef1-4c7816c1dc38",
+      "startDate": "2026-05-23",
+      "endDate": "2026-05-25",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Pfingstferien"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Pfingstferien",
+        "EN": "Pentecost Holidays",
+        "FR": "Pentecost Holidays",
+        "ES": "Pentecost Holidays",
+        "IT": "Pentecost Holidays"
+      }
+    },
+    {
+      "id": "23a1b4df-9a6f-42d3-87b9-6d3eb51992cf",
+      "startDate": "2026-07-04",
+      "endDate": "2026-09-06",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Sommerferien"
+        }
+      ],
+      "regionalScope": "Regional",
+      "temporalScope": "FullDay",
+      "nationwide": false,
+      "subdivisions": [
+        {
+          "code": "AT-WI",
+          "shortName": "WI"
+        },
+        {
+          "code": "AT-BL",
+          "shortName": "BL"
+        },
+        {
+          "code": "AT-NÖ",
+          "shortName": "NÖ"
+        }
+      ],
+      "names": {
+        "DE": "Sommerferien",
+        "EN": "Summer Holidays",
+        "FR": "Summer Holidays",
+        "ES": "Summer Holidays",
+        "IT": "Summer Holidays"
+      }
+    },
+    {
+      "id": "4414a62a-ea15-44ab-8105-1bb0db49187d",
+      "startDate": "2026-07-11",
+      "endDate": "2026-09-13",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Sommerferien"
+        }
+      ],
+      "regionalScope": "Regional",
+      "temporalScope": "FullDay",
+      "nationwide": false,
+      "subdivisions": [
+        {
+          "code": "AT-TI",
+          "shortName": "TI"
+        },
+        {
+          "code": "AT-VA",
+          "shortName": "VA"
+        },
+        {
+          "code": "AT-SB",
+          "shortName": "SB"
+        },
+        {
+          "code": "AT-OÖ",
+          "shortName": "OÖ"
+        },
+        {
+          "code": "AT-KÄ",
+          "shortName": "KÄ"
+        },
+        {
+          "code": "AT-SM",
+          "shortName": "SM"
+        }
+      ],
+      "names": {
+        "DE": "Sommerferien",
+        "EN": "Summer Holidays",
+        "FR": "Summer Holidays",
+        "ES": "Summer Holidays",
+        "IT": "Summer Holidays"
+      }
+    },
+    {
+      "id": "e4a58f13-ebe2-4b16-b09d-8c2cb5c487b7",
+      "startDate": "2026-10-27",
+      "endDate": "2026-10-31",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Herbstferien"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Herbstferien",
+        "EN": "Autumn Holidays",
+        "FR": "Autumn Holidays",
+        "ES": "Autumn Holidays",
+        "IT": "Autumn Holidays"
+      }
+    },
+    {
+      "id": "36ab14ad-27be-45f6-9f5e-ec47a76b04f6",
+      "startDate": "2026-11-02",
+      "endDate": "2026-11-02",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Allerseelen"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Allerseelen",
+        "EN": "All Souls' Day",
+        "FR": "All Souls' Day",
+        "ES": "All Souls' Day",
+        "IT": "All Souls' Day"
+      }
+    },
+    {
+      "id": "38c3ddb0-251c-499e-b75a-aaeee7658080",
+      "startDate": "2026-12-24",
+      "endDate": "2027-01-06",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Weihnachtsferien"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Weihnachtsferien",
+        "EN": "Christmas Holidays",
+        "FR": "Christmas Holidays",
+        "ES": "Christmas Holidays",
+        "IT": "Christmas Holidays"
+      }
+    },
+    {
+      "id": "9c8bb84f-2ddd-4cf6-bbb3-f5f9c0d233a6",
+      "startDate": "2027-01-30",
+      "endDate": "2027-02-06",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Semesterferien"
+        }
+      ],
+      "regionalScope": "Regional",
+      "temporalScope": "FullDay",
+      "nationwide": false,
+      "subdivisions": [
+        {
+          "code": "AT-WI",
+          "shortName": "WI"
+        },
+        {
+          "code": "AT-NÖ",
+          "shortName": "NÖ"
+        }
+      ],
+      "tags": [
+        "Provisional"
+      ],
+      "names": {
+        "DE": "Semesterferien",
+        "EN": "Semester Holidays",
+        "FR": "Semester Holidays",
+        "ES": "Semester Holidays",
+        "IT": "Semester Holidays"
+      }
+    },
+    {
+      "id": "fea5a95a-86f3-4fda-a997-167e905a412f",
+      "startDate": "2027-02-08",
+      "endDate": "2027-02-13",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Semesterferien"
+        }
+      ],
+      "regionalScope": "Regional",
+      "temporalScope": "FullDay",
+      "nationwide": false,
+      "subdivisions": [
+        {
+          "code": "AT-TI",
+          "shortName": "TI"
+        },
+        {
+          "code": "AT-VA",
+          "shortName": "VA"
+        },
+        {
+          "code": "AT-SB",
+          "shortName": "SB"
+        },
+        {
+          "code": "AT-BL",
+          "shortName": "BL"
+        },
+        {
+          "code": "AT-KÄ",
+          "shortName": "KÄ"
+        }
+      ],
+      "tags": [
+        "Provisional"
+      ],
+      "names": {
+        "DE": "Semesterferien",
+        "EN": "Semester Holidays",
+        "FR": "Semester Holidays",
+        "ES": "Semester Holidays",
+        "IT": "Semester Holidays"
+      }
+    },
+    {
+      "id": "f6475dd0-da11-4e96-a7f0-966fb18e3a1b",
+      "startDate": "2027-02-15",
+      "endDate": "2027-02-20",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Semesterferien"
+        }
+      ],
+      "regionalScope": "Regional",
+      "temporalScope": "FullDay",
+      "nationwide": false,
+      "subdivisions": [
+        {
+          "code": "AT-OÖ",
+          "shortName": "OÖ"
+        },
+        {
+          "code": "AT-SM",
+          "shortName": "SM"
+        }
+      ],
+      "tags": [
+        "Provisional"
+      ],
+      "names": {
+        "DE": "Semesterferien",
+        "EN": "Semester Holidays",
+        "FR": "Semester Holidays",
+        "ES": "Semester Holidays",
+        "IT": "Semester Holidays"
+      }
+    },
+    {
+      "id": "cfc36b9c-a13e-42fd-a848-ccd940b54c97",
+      "startDate": "2027-03-19",
+      "endDate": "2027-03-19",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "St. Josef"
+        }
+      ],
+      "regionalScope": "Regional",
+      "temporalScope": "FullDay",
+      "nationwide": false,
+      "subdivisions": [
+        {
+          "code": "AT-TI",
+          "shortName": "TI"
+        },
+        {
+          "code": "AT-VA",
+          "shortName": "VA"
+        },
+        {
+          "code": "AT-KÄ",
+          "shortName": "KÄ"
+        },
+        {
+          "code": "AT-SM",
+          "shortName": "SM"
+        }
+      ],
+      "names": {
+        "DE": "St. Josef",
+        "EN": "Saint Joseph's Day",
+        "FR": "Saint Joseph's Day",
+        "ES": "Saint Joseph's Day",
+        "IT": "Saint Joseph's Day"
+      }
+    },
+    {
+      "id": "1362d499-5a0d-415b-a139-7d7b1949b408",
+      "startDate": "2027-03-20",
+      "endDate": "2027-03-29",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Osterferien"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Osterferien",
+        "EN": "Easter Holidays",
+        "FR": "Easter Holidays",
+        "ES": "Easter Holidays",
+        "IT": "Easter Holidays"
+      }
+    },
+    {
+      "id": "66e3532b-4cd4-43cb-9f34-94ad52d72c51",
+      "startDate": "2027-05-04",
+      "endDate": "2027-05-04",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "St. Florian"
+        }
+      ],
+      "regionalScope": "Regional",
+      "temporalScope": "FullDay",
+      "nationwide": false,
+      "subdivisions": [
+        {
+          "code": "AT-OÖ",
+          "shortName": "OÖ"
+        }
+      ],
+      "names": {
+        "DE": "St. Florian",
+        "EN": "Saint Florian's Day",
+        "FR": "Saint Florian's Day",
+        "ES": "Saint Florian's Day",
+        "IT": "Saint Florian's Day"
+      }
+    },
+    {
+      "id": "8cfd7234-afa1-4569-93e0-0069a03b1bc0",
+      "startDate": "2027-05-15",
+      "endDate": "2027-05-17",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Pfingstferien"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Pfingstferien",
+        "EN": "Pentecost Holidays",
+        "FR": "Pentecost Holidays",
+        "ES": "Pentecost Holidays",
+        "IT": "Pentecost Holidays"
+      }
+    },
+    {
+      "id": "eed130d6-f19c-4daf-b2e8-da1fbbd05e55",
+      "startDate": "2027-07-03",
+      "endDate": "2027-09-05",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Sommerferien"
+        }
+      ],
+      "regionalScope": "Regional",
+      "temporalScope": "FullDay",
+      "nationwide": false,
+      "subdivisions": [
+        {
+          "code": "AT-WI",
+          "shortName": "WI"
+        },
+        {
+          "code": "AT-BL",
+          "shortName": "BL"
+        },
+        {
+          "code": "AT-NÖ",
+          "shortName": "NÖ"
+        }
+      ],
+      "tags": [
+        "Provisional"
+      ],
+      "names": {
+        "DE": "Sommerferien",
+        "EN": "Summer Holidays",
+        "FR": "Summer Holidays",
+        "ES": "Summer Holidays",
+        "IT": "Summer Holidays"
+      }
+    },
+    {
+      "id": "0dfd134f-4394-4ba0-af7a-5c658b9599aa",
+      "startDate": "2027-07-10",
+      "endDate": "2027-09-12",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Sommerferien"
+        }
+      ],
+      "regionalScope": "Regional",
+      "temporalScope": "FullDay",
+      "nationwide": false,
+      "subdivisions": [
+        {
+          "code": "AT-TI",
+          "shortName": "TI"
+        },
+        {
+          "code": "AT-VA",
+          "shortName": "VA"
+        },
+        {
+          "code": "AT-SB",
+          "shortName": "SB"
+        },
+        {
+          "code": "AT-OÖ",
+          "shortName": "OÖ"
+        },
+        {
+          "code": "AT-KÄ",
+          "shortName": "KÄ"
+        },
+        {
+          "code": "AT-SM",
+          "shortName": "SM"
+        }
+      ],
+      "tags": [
+        "Provisional"
+      ],
+      "names": {
+        "DE": "Sommerferien",
+        "EN": "Summer Holidays",
+        "FR": "Summer Holidays",
+        "ES": "Summer Holidays",
+        "IT": "Summer Holidays"
+      }
+    },
+    {
+      "id": "e9435852-aca8-4498-9cfe-700674ae403e",
+      "startDate": "2027-09-24",
+      "endDate": "2027-09-24",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "St. Rupert"
+        }
+      ],
+      "regionalScope": "Regional",
+      "temporalScope": "FullDay",
+      "nationwide": false,
+      "subdivisions": [
+        {
+          "code": "AT-SB",
+          "shortName": "SB"
+        }
+      ],
+      "names": {
+        "DE": "St. Rupert",
+        "EN": "Saint Rupert's Day",
+        "FR": "Saint Rupert's Day",
+        "ES": "Saint Rupert's Day",
+        "IT": "Saint Rupert's Day"
+      }
+    },
+    {
+      "id": "e01b8cae-db57-4a67-9d80-d578589ab6a2",
+      "startDate": "2027-10-27",
+      "endDate": "2027-10-31",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Herbstferien"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Herbstferien",
+        "EN": "Autumn Holidays",
+        "FR": "Autumn Holidays",
+        "ES": "Autumn Holidays",
+        "IT": "Autumn Holidays"
+      }
+    },
+    {
+      "id": "42d63b0f-b1b5-468f-b142-c496a14a106f",
+      "startDate": "2027-11-02",
+      "endDate": "2027-11-02",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Allerseelen"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Allerseelen",
+        "EN": "All Souls' Day",
+        "FR": "All Souls' Day",
+        "ES": "All Souls' Day",
+        "IT": "All Souls' Day"
+      }
+    },
+    {
+      "id": "b04aac99-4a8a-4685-ab93-58aa3b1154e5",
+      "startDate": "2027-11-11",
+      "endDate": "2027-11-11",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "St. Martin"
+        }
+      ],
+      "regionalScope": "Regional",
+      "temporalScope": "FullDay",
+      "nationwide": false,
+      "subdivisions": [
+        {
+          "code": "AT-BL",
+          "shortName": "BL"
+        }
+      ],
+      "names": {
+        "DE": "St. Martin",
+        "EN": "Saint Martin's Day",
+        "FR": "Saint Martin's Day",
+        "ES": "Saint Martin's Day",
+        "IT": "Saint Martin's Day"
+      }
+    },
+    {
+      "id": "51c3f837-2909-48b8-a81a-4aa8c61a03f7",
+      "startDate": "2027-11-15",
+      "endDate": "2027-11-15",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "St. Leopold"
+        }
+      ],
+      "regionalScope": "Regional",
+      "temporalScope": "FullDay",
+      "nationwide": false,
+      "subdivisions": [
+        {
+          "code": "AT-WI",
+          "shortName": "WI"
+        },
+        {
+          "code": "AT-NÖ",
+          "shortName": "NÖ"
+        }
+      ],
+      "names": {
+        "DE": "St. Leopold",
+        "EN": "Saint Leopold's Day",
+        "FR": "Saint Leopold's Day",
+        "ES": "Saint Leopold's Day",
+        "IT": "Saint Leopold's Day"
+      }
+    },
+    {
+      "id": "4203faf1-4379-4194-a1e5-ac52506b3bc8",
+      "startDate": "2027-12-24",
+      "endDate": "2028-01-06",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Weihnachtsferien"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Weihnachtsferien",
+        "EN": "Christmas Holidays",
+        "FR": "Christmas Holidays",
+        "ES": "Christmas Holidays",
+        "IT": "Christmas Holidays"
+      }
+    },
+    {
+      "id": "dfc50ca3-8312-4de7-a596-15390e9062d4",
+      "startDate": "2028-02-05",
+      "endDate": "2028-02-12",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Semesterferien"
+        }
+      ],
+      "regionalScope": "Regional",
+      "temporalScope": "FullDay",
+      "nationwide": false,
+      "subdivisions": [
+        {
+          "code": "AT-WI",
+          "shortName": "WI"
+        },
+        {
+          "code": "AT-NÖ",
+          "shortName": "NÖ"
+        }
+      ],
+      "tags": [
+        "Provisional"
+      ],
+      "names": {
+        "DE": "Semesterferien",
+        "EN": "Semester Holidays",
+        "FR": "Semester Holidays",
+        "ES": "Semester Holidays",
+        "IT": "Semester Holidays"
+      }
+    },
+    {
+      "id": "0edc227e-ce96-4132-bc2b-2b9c6542d2eb",
+      "startDate": "2028-02-14",
+      "endDate": "2028-02-19",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Semesterferien"
+        }
+      ],
+      "regionalScope": "Regional",
+      "temporalScope": "FullDay",
+      "nationwide": false,
+      "subdivisions": [
+        {
+          "code": "AT-TI",
+          "shortName": "TI"
+        },
+        {
+          "code": "AT-VA",
+          "shortName": "VA"
+        },
+        {
+          "code": "AT-SB",
+          "shortName": "SB"
+        },
+        {
+          "code": "AT-BL",
+          "shortName": "BL"
+        },
+        {
+          "code": "AT-KÄ",
+          "shortName": "KÄ"
+        }
+      ],
+      "tags": [
+        "Provisional"
+      ],
+      "names": {
+        "DE": "Semesterferien",
+        "EN": "Semester Holidays",
+        "FR": "Semester Holidays",
+        "ES": "Semester Holidays",
+        "IT": "Semester Holidays"
+      }
+    },
+    {
+      "id": "c0134816-b1f0-4aab-a407-155a17317cae",
+      "startDate": "2028-02-21",
+      "endDate": "2028-02-26",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Semesterferien"
+        }
+      ],
+      "regionalScope": "Regional",
+      "temporalScope": "FullDay",
+      "nationwide": false,
+      "subdivisions": [
+        {
+          "code": "AT-OÖ",
+          "shortName": "OÖ"
+        },
+        {
+          "code": "AT-SM",
+          "shortName": "SM"
+        }
+      ],
+      "tags": [
+        "Provisional"
+      ],
+      "names": {
+        "DE": "Semesterferien",
+        "EN": "Semester Holidays",
+        "FR": "Semester Holidays",
+        "ES": "Semester Holidays",
+        "IT": "Semester Holidays"
+      }
+    },
+    {
+      "id": "4119dc41-945d-494e-a389-e78d5d79b44d",
+      "startDate": "2028-04-08",
+      "endDate": "2028-04-17",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Osterferien"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Osterferien",
+        "EN": "Easter Holidays",
+        "FR": "Easter Holidays",
+        "ES": "Easter Holidays",
+        "IT": "Easter Holidays"
+      }
+    },
+    {
+      "id": "81d30666-2069-4c93-af1e-1de1a5a94197",
+      "startDate": "2028-05-04",
+      "endDate": "2028-05-04",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "St. Florian"
+        }
+      ],
+      "regionalScope": "Regional",
+      "temporalScope": "FullDay",
+      "nationwide": false,
+      "subdivisions": [
+        {
+          "code": "AT-OÖ",
+          "shortName": "OÖ"
+        }
+      ],
+      "names": {
+        "DE": "St. Florian",
+        "EN": "Saint Florian's Day",
+        "FR": "Saint Florian's Day",
+        "ES": "Saint Florian's Day",
+        "IT": "Saint Florian's Day"
+      }
+    },
+    {
+      "id": "b8b7752b-7754-4db6-991e-a5207fa6c84b",
+      "startDate": "2028-06-03",
+      "endDate": "2028-06-05",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Pfingstferien"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Pfingstferien",
+        "EN": "Pentecost Holidays",
+        "FR": "Pentecost Holidays",
+        "ES": "Pentecost Holidays",
+        "IT": "Pentecost Holidays"
+      }
+    },
+    {
+      "id": "03d8b0ca-7333-40c6-a61c-5404498deba4",
+      "startDate": "2028-07-01",
+      "endDate": "2028-09-03",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Sommerferien"
+        }
+      ],
+      "regionalScope": "Regional",
+      "temporalScope": "FullDay",
+      "nationwide": false,
+      "subdivisions": [
+        {
+          "code": "AT-WI",
+          "shortName": "WI"
+        },
+        {
+          "code": "AT-BL",
+          "shortName": "BL"
+        },
+        {
+          "code": "AT-NÖ",
+          "shortName": "NÖ"
+        }
+      ],
+      "tags": [
+        "Provisional"
+      ],
+      "names": {
+        "DE": "Sommerferien",
+        "EN": "Summer Holidays",
+        "FR": "Summer Holidays",
+        "ES": "Summer Holidays",
+        "IT": "Summer Holidays"
+      }
+    },
+    {
+      "id": "3cba7208-3dbe-4d3e-8732-e15aa249cab4",
+      "startDate": "2028-07-08",
+      "endDate": "2028-09-10",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Sommerferien"
+        }
+      ],
+      "regionalScope": "Regional",
+      "temporalScope": "FullDay",
+      "nationwide": false,
+      "subdivisions": [
+        {
+          "code": "AT-TI",
+          "shortName": "TI"
+        },
+        {
+          "code": "AT-VA",
+          "shortName": "VA"
+        },
+        {
+          "code": "AT-SB",
+          "shortName": "SB"
+        },
+        {
+          "code": "AT-OÖ",
+          "shortName": "OÖ"
+        },
+        {
+          "code": "AT-KÄ",
+          "shortName": "KÄ"
+        },
+        {
+          "code": "AT-SM",
+          "shortName": "SM"
+        }
+      ],
+      "tags": [
+        "Provisional"
+      ],
+      "names": {
+        "DE": "Sommerferien",
+        "EN": "Summer Holidays",
+        "FR": "Summer Holidays",
+        "ES": "Summer Holidays",
+        "IT": "Summer Holidays"
+      }
+    },
+    {
+      "id": "cf5a847c-58de-48f7-bceb-1c9298a46a1f",
+      "startDate": "2028-09-24",
+      "endDate": "2028-09-24",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "St. Rupert"
+        }
+      ],
+      "regionalScope": "Regional",
+      "temporalScope": "FullDay",
+      "nationwide": false,
+      "subdivisions": [
+        {
+          "code": "AT-SB",
+          "shortName": "SB"
+        }
+      ],
+      "names": {
+        "DE": "St. Rupert",
+        "EN": "Saint Rupert's Day",
+        "FR": "Saint Rupert's Day",
+        "ES": "Saint Rupert's Day",
+        "IT": "Saint Rupert's Day"
+      }
+    },
+    {
+      "id": "ef59d4e7-c275-43c6-9654-7ffbf1482a19",
+      "startDate": "2028-10-27",
+      "endDate": "2028-10-31",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Herbstferien"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Herbstferien",
+        "EN": "Autumn Holidays",
+        "FR": "Autumn Holidays",
+        "ES": "Autumn Holidays",
+        "IT": "Autumn Holidays"
+      }
+    },
+    {
+      "id": "d7ee5342-67fb-46aa-84fe-81bc2a1a6069",
+      "startDate": "2028-11-02",
+      "endDate": "2028-11-02",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Allerseelen"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Allerseelen",
+        "EN": "All Souls' Day",
+        "FR": "All Souls' Day",
+        "ES": "All Souls' Day",
+        "IT": "All Souls' Day"
+      }
+    },
+    {
+      "id": "496f9a94-07a6-471d-baf0-cd8d9cc1f891",
+      "startDate": "2028-11-11",
+      "endDate": "2028-11-11",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "St. Martin"
+        }
+      ],
+      "regionalScope": "Regional",
+      "temporalScope": "FullDay",
+      "nationwide": false,
+      "subdivisions": [
+        {
+          "code": "AT-BL",
+          "shortName": "BL"
+        }
+      ],
+      "names": {
+        "DE": "St. Martin",
+        "EN": "Saint Martin's Day",
+        "FR": "Saint Martin's Day",
+        "ES": "Saint Martin's Day",
+        "IT": "Saint Martin's Day"
+      }
+    },
+    {
+      "id": "ca4f9ad2-e756-4876-a0d6-588f822085a6",
+      "startDate": "2028-11-15",
+      "endDate": "2028-11-15",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "St. Leopold"
+        }
+      ],
+      "regionalScope": "Regional",
+      "temporalScope": "FullDay",
+      "nationwide": false,
+      "subdivisions": [
+        {
+          "code": "AT-WI",
+          "shortName": "WI"
+        },
+        {
+          "code": "AT-NÖ",
+          "shortName": "NÖ"
+        }
+      ],
+      "names": {
+        "DE": "St. Leopold",
+        "EN": "Saint Leopold's Day",
+        "FR": "Saint Leopold's Day",
+        "ES": "Saint Leopold's Day",
+        "IT": "Saint Leopold's Day"
+      }
+    },
+    {
+      "id": "501a386e-8d7f-4a8e-bcb6-703feae11478",
+      "startDate": "2028-12-24",
+      "endDate": "2029-01-06",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Weihnachtsferien"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Weihnachtsferien",
+        "EN": "Christmas Holidays",
+        "FR": "Christmas Holidays",
+        "ES": "Christmas Holidays",
+        "IT": "Christmas Holidays"
+      }
+    }
+  ],
+  "fetched_at": "2026-01-03T19:10:02.005944"
+}

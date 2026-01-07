@@ -1,6 +1,7 @@
 {
   "base_converter": {"active": true},
   "coordinate_converter": {"active": true},
+  "lastfm_export": {"active": true},
   "barcode_generator": {"active": true},
   "calendar": {"active": true},
   "color": {"active": true},

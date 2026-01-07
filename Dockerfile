@@ -1,7 +1,7 @@
 FROM python:3.11-slim
 
 # Version label - update this when making changes
-LABEL version="1.0.15"
+LABEL version="1.0.18"
 LABEL description="Usefull Tools Collection"
 
 WORKDIR /app

@@ -1,0 +1,3701 @@
+{
+  "country": "HR",
+  "country_name": {
+    "name": "Kroatien",
+    "name_en": "Croatia"
+  },
+  "subdivisions": [],
+  "public_holidays": [
+    {
+      "id": "e656b91a-dfce-4d8e-8f4c-e536da173bce",
+      "startDate": "2020-01-01",
+      "endDate": "2020-01-01",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Neujahr"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Neujahr",
+        "EN": "New Year's Day",
+        "FR": "New Year's Day",
+        "ES": "New Year's Day",
+        "IT": "New Year's Day"
+      }
+    },
+    {
+      "id": "da5faf30-471d-4a5d-97dd-3f49cc05b82a",
+      "startDate": "2020-01-06",
+      "endDate": "2020-01-06",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Heilige Drei Könige"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Heilige Drei Könige",
+        "EN": "Epiphany",
+        "FR": "Epiphany",
+        "ES": "Epiphany",
+        "IT": "Epiphany"
+      }
+    },
+    {
+      "id": "651ae42b-2b81-4b1f-bca4-da5b956d4edc",
+      "startDate": "2020-04-13",
+      "endDate": "2020-04-13",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Ostermontag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Ostermontag",
+        "EN": "Easter Monday",
+        "FR": "Easter Monday",
+        "ES": "Easter Monday",
+        "IT": "Easter Monday"
+      }
+    },
+    {
+      "id": "c4908875-dd7b-479a-9c10-ae1ab7d7ffc4",
+      "startDate": "2020-05-01",
+      "endDate": "2020-05-01",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Tag der Arbeit"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Tag der Arbeit",
+        "EN": "Labour Day",
+        "FR": "Labour Day",
+        "ES": "Labour Day",
+        "IT": "Labour Day"
+      }
+    },
+    {
+      "id": "260b1bd9-ef70-4977-a09a-dadf017b3d64",
+      "startDate": "2020-05-30",
+      "endDate": "2020-05-30",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Staatsfeiertag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Staatsfeiertag",
+        "EN": "Statehood Day",
+        "FR": "Statehood Day",
+        "ES": "Statehood Day",
+        "IT": "Statehood Day"
+      }
+    },
+    {
+      "id": "0ed56c3b-3acb-4df6-a988-5dd2a3146e65",
+      "startDate": "2020-06-11",
+      "endDate": "2020-06-11",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Fronleichnam"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Fronleichnam",
+        "EN": "Corpus Christi",
+        "FR": "Corpus Christi",
+        "ES": "Corpus Christi",
+        "IT": "Corpus Christi"
+      }
+    },
+    {
+      "id": "4df1a201-9ed8-4123-8786-588d571a3371",
+      "startDate": "2020-06-22",
+      "endDate": "2020-06-22",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Tag des antifaschistischen Kampfes"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Tag des antifaschistischen Kampfes",
+        "EN": "Anti-Fascist Struggle Day",
+        "FR": "Anti-Fascist Struggle Day",
+        "ES": "Anti-Fascist Struggle Day",
+        "IT": "Anti-Fascist Struggle Day"
+      }
+    },
+    {
+      "id": "9253d5dd-da53-43be-a2fb-566147ba7f90",
+      "startDate": "2020-08-05",
+      "endDate": "2020-08-05",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Tag des Sieges und der heimatlichen Dankbarkeit und Tag der kroatischen Verteidiger"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Tag des Sieges und der heimatlichen Dankbarkeit und Tag der kroatischen Verteidiger",
+        "EN": "Victory and Homeland Thanksgiving Day and the Day of Croatian Defenders",
+        "FR": "Victory and Homeland Thanksgiving Day and the Day of Croatian Defenders",
+        "ES": "Victory and Homeland Thanksgiving Day and the Day of Croatian Defenders",
+        "IT": "Victory and Homeland Thanksgiving Day and the Day of Croatian Defenders"
+      }
+    },
+    {
+      "id": "981e8913-75b2-4709-9504-dc5fa5cf1268",
+      "startDate": "2020-08-15",
+      "endDate": "2020-08-15",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Mariä Himmelfahrt"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Mariä Himmelfahrt",
+        "EN": "Assumption Day",
+        "FR": "Assumption Day",
+        "ES": "Assumption Day",
+        "IT": "Assumption Day"
+      }
+    },
+    {
+      "id": "634e7e32-1565-4945-960c-34b45a4443c0",
+      "startDate": "2020-11-01",
+      "endDate": "2020-11-01",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Allerheiligen"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Allerheiligen",
+        "EN": "All Saints' Day",
+        "FR": "All Saints' Day",
+        "ES": "All Saints' Day",
+        "IT": "All Saints' Day"
+      }
+    },
+    {
+      "id": "c1f4f81a-c487-485f-bb9c-52adf1ffa7b1",
+      "startDate": "2020-11-18",
+      "endDate": "2020-11-18",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Tag des Gedenkens"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Tag des Gedenkens",
+        "EN": "Remembrance Day",
+        "FR": "Remembrance Day",
+        "ES": "Remembrance Day",
+        "IT": "Remembrance Day"
+      }
+    },
+    {
+      "id": "10a69966-e761-47e4-9428-e6b496d83821",
+      "startDate": "2020-12-25",
+      "endDate": "2020-12-25",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Weihnachten"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Weihnachten",
+        "EN": "Christmas",
+        "FR": "Christmas",
+        "ES": "Christmas",
+        "IT": "Christmas"
+      }
+    },
+    {
+      "id": "9199eea1-2b8b-44b1-9cab-a49f829432be",
+      "startDate": "2020-12-26",
+      "endDate": "2020-12-26",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Weihnachten"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Weihnachten",
+        "EN": "Christmas",
+        "FR": "Christmas",
+        "ES": "Christmas",
+        "IT": "Christmas"
+      }
+    },
+    {
+      "id": "d0cbcf02-93ad-422c-a870-0afb6510e1d1",
+      "startDate": "2021-01-01",
+      "endDate": "2021-01-01",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Neujahr"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Neujahr",
+        "EN": "New Year's Day",
+        "FR": "New Year's Day",
+        "ES": "New Year's Day",
+        "IT": "New Year's Day"
+      }
+    },
+    {
+      "id": "950abf2c-6273-4a53-a7be-fbf5adbb1409",
+      "startDate": "2021-01-06",
+      "endDate": "2021-01-06",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Heilige Drei Könige"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Heilige Drei Könige",
+        "EN": "Epiphany",
+        "FR": "Epiphany",
+        "ES": "Epiphany",
+        "IT": "Epiphany"
+      }
+    },
+    {
+      "id": "fa7197e9-68db-49c7-8f9d-5ca9bb00ce93",
+      "startDate": "2021-04-05",
+      "endDate": "2021-04-05",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Ostermontag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Ostermontag",
+        "EN": "Easter Monday",
+        "FR": "Easter Monday",
+        "ES": "Easter Monday",
+        "IT": "Easter Monday"
+      }
+    },
+    {
+      "id": "408b4d90-2b20-4261-ac3c-c859f520d799",
+      "startDate": "2021-05-01",
+      "endDate": "2021-05-01",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Tag der Arbeit"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Tag der Arbeit",
+        "EN": "Labour Day",
+        "FR": "Labour Day",
+        "ES": "Labour Day",
+        "IT": "Labour Day"
+      }
+    },
+    {
+      "id": "8a8a3830-d05a-4fc0-8a28-b7466582b608",
+      "startDate": "2021-05-30",
+      "endDate": "2021-05-30",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Staatsfeiertag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Staatsfeiertag",
+        "EN": "Statehood Day",
+        "FR": "Statehood Day",
+        "ES": "Statehood Day",
+        "IT": "Statehood Day"
+      }
+    },
+    {
+      "id": "6863019c-7624-4084-aaa8-87f6c38fc219",
+      "startDate": "2021-06-03",
+      "endDate": "2021-06-03",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Fronleichnam"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Fronleichnam",
+        "EN": "Corpus Christi",
+        "FR": "Corpus Christi",
+        "ES": "Corpus Christi",
+        "IT": "Corpus Christi"
+      }
+    },
+    {
+      "id": "6e7aa86b-1cfd-4c32-b5d3-b02332c4e93a",
+      "startDate": "2021-06-22",
+      "endDate": "2021-06-22",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Tag des antifaschistischen Kampfes"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Tag des antifaschistischen Kampfes",
+        "EN": "Anti-Fascist Struggle Day",
+        "FR": "Anti-Fascist Struggle Day",
+        "ES": "Anti-Fascist Struggle Day",
+        "IT": "Anti-Fascist Struggle Day"
+      }
+    },
+    {
+      "id": "5ba43fdc-7093-470d-8329-08f00dc5e031",
+      "startDate": "2021-08-05",
+      "endDate": "2021-08-05",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Tag des Sieges und der heimatlichen Dankbarkeit und Tag der kroatischen Verteidiger"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Tag des Sieges und der heimatlichen Dankbarkeit und Tag der kroatischen Verteidiger",
+        "EN": "Victory and Homeland Thanksgiving Day and the Day of Croatian Defenders",
+        "FR": "Victory and Homeland Thanksgiving Day and the Day of Croatian Defenders",
+        "ES": "Victory and Homeland Thanksgiving Day and the Day of Croatian Defenders",
+        "IT": "Victory and Homeland Thanksgiving Day and the Day of Croatian Defenders"
+      }
+    },
+    {
+      "id": "0a9c525f-e573-48e4-8732-6e0693e3e30a",
+      "startDate": "2021-08-15",
+      "endDate": "2021-08-15",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Mariä Himmelfahrt"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Mariä Himmelfahrt",
+        "EN": "Assumption Day",
+        "FR": "Assumption Day",
+        "ES": "Assumption Day",
+        "IT": "Assumption Day"
+      }
+    },
+    {
+      "id": "9a7d8ba0-799c-4ca6-b300-46ce2e3cc595",
+      "startDate": "2021-11-01",
+      "endDate": "2021-11-01",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Allerheiligen"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Allerheiligen",
+        "EN": "All Saints' Day",
+        "FR": "All Saints' Day",
+        "ES": "All Saints' Day",
+        "IT": "All Saints' Day"
+      }
+    },
+    {
+      "id": "54df6315-4a72-41f2-ba81-45045bde8d4c",
+      "startDate": "2021-11-18",
+      "endDate": "2021-11-18",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Tag des Gedenkens"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Tag des Gedenkens",
+        "EN": "Remembrance Day",
+        "FR": "Remembrance Day",
+        "ES": "Remembrance Day",
+        "IT": "Remembrance Day"
+      }
+    },
+    {
+      "id": "d4588d3c-a41d-4287-b105-a1e86e9e4caa",
+      "startDate": "2021-12-25",
+      "endDate": "2021-12-25",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Weihnachten"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Weihnachten",
+        "EN": "Christmas",
+        "FR": "Christmas",
+        "ES": "Christmas",
+        "IT": "Christmas"
+      }
+    },
+    {
+      "id": "c11033ce-a8bb-44c6-80d7-aea32ea4939e",
+      "startDate": "2021-12-26",
+      "endDate": "2021-12-26",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Weihnachten"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Weihnachten",
+        "EN": "Christmas",
+        "FR": "Christmas",
+        "ES": "Christmas",
+        "IT": "Christmas"
+      }
+    },
+    {
+      "id": "92bd75a3-0361-4ffb-aa62-89a8c4cf4fcd",
+      "startDate": "2022-01-01",
+      "endDate": "2022-01-01",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Neujahr"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Neujahr",
+        "EN": "New Year's Day",
+        "FR": "New Year's Day",
+        "ES": "New Year's Day",
+        "IT": "New Year's Day"
+      }
+    },
+    {
+      "id": "d2513532-a8d5-4a2f-a0b0-5838127e9d01",
+      "startDate": "2022-01-06",
+      "endDate": "2022-01-06",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Heilige Drei Könige"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Heilige Drei Könige",
+        "EN": "Epiphany",
+        "FR": "Epiphany",
+        "ES": "Epiphany",
+        "IT": "Epiphany"
+      }
+    },
+    {
+      "id": "843374e9-29ad-47bb-b688-a537ea293386",
+      "startDate": "2022-04-18",
+      "endDate": "2022-04-18",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Ostermontag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Ostermontag",
+        "EN": "Easter Monday",
+        "FR": "Easter Monday",
+        "ES": "Easter Monday",
+        "IT": "Easter Monday"
+      }
+    },
+    {
+      "id": "08d250d7-ce61-46ba-ad36-8c6a6e7576b0",
+      "startDate": "2022-05-01",
+      "endDate": "2022-05-01",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Tag der Arbeit"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Tag der Arbeit",
+        "EN": "Labour Day",
+        "FR": "Labour Day",
+        "ES": "Labour Day",
+        "IT": "Labour Day"
+      }
+    },
+    {
+      "id": "a4b0c787-0edd-4db9-84e2-a531b2d1d975",
+      "startDate": "2022-05-30",
+      "endDate": "2022-05-30",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Staatsfeiertag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Staatsfeiertag",
+        "EN": "Statehood Day",
+        "FR": "Statehood Day",
+        "ES": "Statehood Day",
+        "IT": "Statehood Day"
+      }
+    },
+    {
+      "id": "535bb18f-f8b5-4b21-bedd-40910a2e9ede",
+      "startDate": "2022-06-16",
+      "endDate": "2022-06-16",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Fronleichnam"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Fronleichnam",
+        "EN": "Corpus Christi",
+        "FR": "Corpus Christi",
+        "ES": "Corpus Christi",
+        "IT": "Corpus Christi"
+      }
+    },
+    {
+      "id": "777f0dd9-d5ee-48aa-8f3d-bb42903c3a77",
+      "startDate": "2022-06-22",
+      "endDate": "2022-06-22",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Tag des antifaschistischen Kampfes"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Tag des antifaschistischen Kampfes",
+        "EN": "Anti-Fascist Struggle Day",
+        "FR": "Anti-Fascist Struggle Day",
+        "ES": "Anti-Fascist Struggle Day",
+        "IT": "Anti-Fascist Struggle Day"
+      }
+    },
+    {
+      "id": "6e02537c-4e75-4aef-87fb-b9bce8942133",
+      "startDate": "2022-08-05",
+      "endDate": "2022-08-05",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Tag des Sieges und der heimatlichen Dankbarkeit und Tag der kroatischen Verteidiger"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Tag des Sieges und der heimatlichen Dankbarkeit und Tag der kroatischen Verteidiger",
+        "EN": "Victory and Homeland Thanksgiving Day and the Day of Croatian Defenders",
+        "FR": "Victory and Homeland Thanksgiving Day and the Day of Croatian Defenders",
+        "ES": "Victory and Homeland Thanksgiving Day and the Day of Croatian Defenders",
+        "IT": "Victory and Homeland Thanksgiving Day and the Day of Croatian Defenders"
+      }
+    },
+    {
+      "id": "76e29157-0f4d-4b86-be06-fce3b7750c83",
+      "startDate": "2022-08-15",
+      "endDate": "2022-08-15",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Mariä Himmelfahrt"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Mariä Himmelfahrt",
+        "EN": "Assumption Day",
+        "FR": "Assumption Day",
+        "ES": "Assumption Day",
+        "IT": "Assumption Day"
+      }
+    },
+    {
+      "id": "f3a33c3f-8cf2-4fc3-9038-8298d36fdc3d",
+      "startDate": "2022-11-01",
+      "endDate": "2022-11-01",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Allerheiligen"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Allerheiligen",
+        "EN": "All Saints' Day",
+        "FR": "All Saints' Day",
+        "ES": "All Saints' Day",
+        "IT": "All Saints' Day"
+      }
+    },
+    {
+      "id": "24138255-1d5b-43f8-a70a-49e66337c4a1",
+      "startDate": "2022-11-18",
+      "endDate": "2022-11-18",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Tag des Gedenkens"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Tag des Gedenkens",
+        "EN": "Remembrance Day",
+        "FR": "Remembrance Day",
+        "ES": "Remembrance Day",
+        "IT": "Remembrance Day"
+      }
+    },
+    {
+      "id": "ae2ed755-c677-4f02-b40c-7d1715429255",
+      "startDate": "2022-12-25",
+      "endDate": "2022-12-25",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Weihnachten"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Weihnachten",
+        "EN": "Christmas",
+        "FR": "Christmas",
+        "ES": "Christmas",
+        "IT": "Christmas"
+      }
+    },
+    {
+      "id": "19d99191-6fe7-43f3-8111-f60d47a4c065",
+      "startDate": "2022-12-26",
+      "endDate": "2022-12-26",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Weihnachten"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Weihnachten",
+        "EN": "Christmas",
+        "FR": "Christmas",
+        "ES": "Christmas",
+        "IT": "Christmas"
+      }
+    },
+    {
+      "id": "1bf363af-3d04-43e4-a6ba-507605ba9364",
+      "startDate": "2023-01-01",
+      "endDate": "2023-01-01",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Neujahr"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Neujahr",
+        "EN": "New Year's Day",
+        "FR": "New Year's Day",
+        "ES": "New Year's Day",
+        "IT": "New Year's Day"
+      }
+    },
+    {
+      "id": "a6424cb8-d132-424b-a85a-87a4a286a079",
+      "startDate": "2023-01-06",
+      "endDate": "2023-01-06",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Heilige Drei Könige"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Heilige Drei Könige",
+        "EN": "Epiphany",
+        "FR": "Epiphany",
+        "ES": "Epiphany",
+        "IT": "Epiphany"
+      }
+    },
+    {
+      "id": "c72ae593-70f1-482d-a892-b69ed97d8ebd",
+      "startDate": "2023-04-10",
+      "endDate": "2023-04-10",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Ostermontag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Ostermontag",
+        "EN": "Easter Monday",
+        "FR": "Easter Monday",
+        "ES": "Easter Monday",
+        "IT": "Easter Monday"
+      }
+    },
+    {
+      "id": "ab38b415-5d08-47b4-a16f-65c686786351",
+      "startDate": "2023-05-01",
+      "endDate": "2023-05-01",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Tag der Arbeit"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Tag der Arbeit",
+        "EN": "Labour Day",
+        "FR": "Labour Day",
+        "ES": "Labour Day",
+        "IT": "Labour Day"
+      }
+    },
+    {
+      "id": "c59f410a-ea53-453d-8f61-a870b2534f10",
+      "startDate": "2023-05-30",
+      "endDate": "2023-05-30",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Staatsfeiertag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Staatsfeiertag",
+        "EN": "Statehood Day",
+        "FR": "Statehood Day",
+        "ES": "Statehood Day",
+        "IT": "Statehood Day"
+      }
+    },
+    {
+      "id": "51b66812-1970-47c3-b9b1-3cb11ab0ea1e",
+      "startDate": "2023-06-08",
+      "endDate": "2023-06-08",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Fronleichnam"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Fronleichnam",
+        "EN": "Corpus Christi",
+        "FR": "Corpus Christi",
+        "ES": "Corpus Christi",
+        "IT": "Corpus Christi"
+      }
+    },
+    {
+      "id": "5bce1362-5f9f-49d4-873a-17f2067ecde4",
+      "startDate": "2023-06-22",
+      "endDate": "2023-06-22",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Tag des antifaschistischen Kampfes"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Tag des antifaschistischen Kampfes",
+        "EN": "Anti-Fascist Struggle Day",
+        "FR": "Anti-Fascist Struggle Day",
+        "ES": "Anti-Fascist Struggle Day",
+        "IT": "Anti-Fascist Struggle Day"
+      }
+    },
+    {
+      "id": "c80a1070-336d-4a1c-a62d-ae3ccaa1794e",
+      "startDate": "2023-08-05",
+      "endDate": "2023-08-05",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Tag des Sieges und der heimatlichen Dankbarkeit und Tag der kroatischen Verteidiger"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Tag des Sieges und der heimatlichen Dankbarkeit und Tag der kroatischen Verteidiger",
+        "EN": "Victory and Homeland Thanksgiving Day and the Day of Croatian Defenders",
+        "FR": "Victory and Homeland Thanksgiving Day and the Day of Croatian Defenders",
+        "ES": "Victory and Homeland Thanksgiving Day and the Day of Croatian Defenders",
+        "IT": "Victory and Homeland Thanksgiving Day and the Day of Croatian Defenders"
+      }
+    },
+    {
+      "id": "bf52f293-d7b0-4c6e-89a9-c82a29a89a09",
+      "startDate": "2023-08-15",
+      "endDate": "2023-08-15",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Mariä Himmelfahrt"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Mariä Himmelfahrt",
+        "EN": "Assumption Day",
+        "FR": "Assumption Day",
+        "ES": "Assumption Day",
+        "IT": "Assumption Day"
+      }
+    },
+    {
+      "id": "d3d109bc-8940-4a7e-b683-d089dd46f98c",
+      "startDate": "2023-11-01",
+      "endDate": "2023-11-01",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Allerheiligen"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Allerheiligen",
+        "EN": "All Saints' Day",
+        "FR": "All Saints' Day",
+        "ES": "All Saints' Day",
+        "IT": "All Saints' Day"
+      }
+    },
+    {
+      "id": "4ee302ee-9538-4f1e-aa1f-b7ccadf5aa8e",
+      "startDate": "2023-11-18",
+      "endDate": "2023-11-18",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Tag des Gedenkens"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Tag des Gedenkens",
+        "EN": "Remembrance Day",
+        "FR": "Remembrance Day",
+        "ES": "Remembrance Day",
+        "IT": "Remembrance Day"
+      }
+    },
+    {
+      "id": "284e745b-9bb6-4f5d-a7b6-9415b4684d6a",
+      "startDate": "2023-12-25",
+      "endDate": "2023-12-25",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Weihnachten"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Weihnachten",
+        "EN": "Christmas",
+        "FR": "Christmas",
+        "ES": "Christmas",
+        "IT": "Christmas"
+      }
+    },
+    {
+      "id": "b1807496-666e-4c22-9927-960c70108281",
+      "startDate": "2023-12-26",
+      "endDate": "2023-12-26",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Weihnachten"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Weihnachten",
+        "EN": "Christmas",
+        "FR": "Christmas",
+        "ES": "Christmas",
+        "IT": "Christmas"
+      }
+    },
+    {
+      "id": "5832121e-d195-4147-9e52-d3e16b04b2a1",
+      "startDate": "2024-01-01",
+      "endDate": "2024-01-01",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Neujahr"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Neujahr",
+        "EN": "New Year's Day",
+        "FR": "New Year's Day",
+        "ES": "New Year's Day",
+        "IT": "New Year's Day"
+      }
+    },
+    {
+      "id": "5b319f77-1bf3-4403-ac8a-5e9123d615e0",
+      "startDate": "2024-01-06",
+      "endDate": "2024-01-06",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Heilige Drei Könige"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Heilige Drei Könige",
+        "EN": "Epiphany",
+        "FR": "Epiphany",
+        "ES": "Epiphany",
+        "IT": "Epiphany"
+      }
+    },
+    {
+      "id": "8045b258-ea3c-4453-a3eb-4a6406854959",
+      "startDate": "2024-04-01",
+      "endDate": "2024-04-01",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Ostermontag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Ostermontag",
+        "EN": "Easter Monday",
+        "FR": "Easter Monday",
+        "ES": "Easter Monday",
+        "IT": "Easter Monday"
+      }
+    },
+    {
+      "id": "816f988a-b7b2-4ef8-9962-2d76a538c523",
+      "startDate": "2024-04-17",
+      "endDate": "2024-04-17",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Wahltag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Wahltag",
+        "EN": "Election Day",
+        "FR": "Election Day",
+        "ES": "Election Day",
+        "IT": "Election Day"
+      }
+    },
+    {
+      "id": "7c81e7f8-bc84-43b1-91f7-6e1804368f7f",
+      "startDate": "2024-05-01",
+      "endDate": "2024-05-01",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Tag der Arbeit"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Tag der Arbeit",
+        "EN": "Labour Day",
+        "FR": "Labour Day",
+        "ES": "Labour Day",
+        "IT": "Labour Day"
+      }
+    },
+    {
+      "id": "19897533-07e6-407a-808a-2b094cde2280",
+      "startDate": "2024-05-30",
+      "endDate": "2024-05-30",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Staatsfeiertag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Staatsfeiertag",
+        "EN": "Corpus Christi",
+        "FR": "Corpus Christi",
+        "ES": "Corpus Christi",
+        "IT": "Corpus Christi"
+      }
+    },
+    {
+      "id": "7ed0e5c6-e824-4bf7-a327-21c896261734",
+      "startDate": "2024-05-30",
+      "endDate": "2024-05-30",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Fronleichnam"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Fronleichnam",
+        "EN": "Corpus Christi",
+        "FR": "Corpus Christi",
+        "ES": "Corpus Christi",
+        "IT": "Corpus Christi"
+      }
+    },
+    {
+      "id": "26d65c55-21de-4c5b-aca5-b68956a9a8c0",
+      "startDate": "2024-06-22",
+      "endDate": "2024-06-22",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Tag des antifaschistischen Kampfes"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Tag des antifaschistischen Kampfes",
+        "EN": "Anti-Fascist Struggle Day",
+        "FR": "Anti-Fascist Struggle Day",
+        "ES": "Anti-Fascist Struggle Day",
+        "IT": "Anti-Fascist Struggle Day"
+      }
+    },
+    {
+      "id": "fe7cbda9-8d2a-461d-b63b-c6cc89be8056",
+      "startDate": "2024-08-05",
+      "endDate": "2024-08-05",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Tag des Sieges und der heimatlichen Dankbarkeit und Tag der kroatischen Verteidiger"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Tag des Sieges und der heimatlichen Dankbarkeit und Tag der kroatischen Verteidiger",
+        "EN": "Victory and Homeland Thanksgiving Day and the Day of Croatian Defenders",
+        "FR": "Victory and Homeland Thanksgiving Day and the Day of Croatian Defenders",
+        "ES": "Victory and Homeland Thanksgiving Day and the Day of Croatian Defenders",
+        "IT": "Victory and Homeland Thanksgiving Day and the Day of Croatian Defenders"
+      }
+    },
+    {
+      "id": "1f7606ef-db25-4b3d-9c11-75a25508efd6",
+      "startDate": "2024-08-15",
+      "endDate": "2024-08-15",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Mariä Himmelfahrt"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Mariä Himmelfahrt",
+        "EN": "Assumption Day",
+        "FR": "Assumption Day",
+        "ES": "Assumption Day",
+        "IT": "Assumption Day"
+      }
+    },
+    {
+      "id": "8b0906d6-4ee9-4cc4-8332-74b37f9ca561",
+      "startDate": "2024-11-01",
+      "endDate": "2024-11-01",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Allerheiligen"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Allerheiligen",
+        "EN": "All Saints' Day",
+        "FR": "All Saints' Day",
+        "ES": "All Saints' Day",
+        "IT": "All Saints' Day"
+      }
+    },
+    {
+      "id": "374bf4d5-45a3-4277-9942-80ab6082b30f",
+      "startDate": "2024-11-18",
+      "endDate": "2024-11-18",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Tag des Gedenkens"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Tag des Gedenkens",
+        "EN": "Remembrance Day",
+        "FR": "Remembrance Day",
+        "ES": "Remembrance Day",
+        "IT": "Remembrance Day"
+      }
+    },
+    {
+      "id": "d85697b3-470d-42bd-ad78-5be5c746b701",
+      "startDate": "2024-12-25",
+      "endDate": "2024-12-25",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Weihnachten"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Weihnachten",
+        "EN": "Christmas",
+        "FR": "Christmas",
+        "ES": "Christmas",
+        "IT": "Christmas"
+      }
+    },
+    {
+      "id": "95cc5876-575d-46e7-8c44-44c4108e95c1",
+      "startDate": "2024-12-26",
+      "endDate": "2024-12-26",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Weihnachten"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Weihnachten",
+        "EN": "Christmas",
+        "FR": "Christmas",
+        "ES": "Christmas",
+        "IT": "Christmas"
+      }
+    },
+    {
+      "id": "d3f5bd43-592c-40b1-9275-e2b318bacd04",
+      "startDate": "2025-01-01",
+      "endDate": "2025-01-01",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Neujahr"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Neujahr",
+        "EN": "New Year's Day",
+        "FR": "New Year's Day",
+        "ES": "New Year's Day",
+        "IT": "New Year's Day"
+      }
+    },
+    {
+      "id": "cc71bd7c-b668-408a-8da1-fae79fc3bbc4",
+      "startDate": "2025-01-06",
+      "endDate": "2025-01-06",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Heilige Drei Könige"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Heilige Drei Könige",
+        "EN": "Epiphany",
+        "FR": "Epiphany",
+        "ES": "Epiphany",
+        "IT": "Epiphany"
+      }
+    },
+    {
+      "id": "86eeb902-6c28-4a6b-a9f7-8a4a700e0527",
+      "startDate": "2025-04-21",
+      "endDate": "2025-04-21",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Ostermontag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Ostermontag",
+        "EN": "Easter Monday",
+        "FR": "Easter Monday",
+        "ES": "Easter Monday",
+        "IT": "Easter Monday"
+      }
+    },
+    {
+      "id": "71f2f807-41cd-4692-bfb2-fa6e92192f2a",
+      "startDate": "2025-05-01",
+      "endDate": "2025-05-01",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Tag der Arbeit"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Tag der Arbeit",
+        "EN": "Labour Day",
+        "FR": "Labour Day",
+        "ES": "Labour Day",
+        "IT": "Labour Day"
+      }
+    },
+    {
+      "id": "2eaa211e-cbd8-424c-b55b-314b3e187300",
+      "startDate": "2025-05-30",
+      "endDate": "2025-05-30",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Staatsfeiertag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Staatsfeiertag",
+        "EN": "Statehood Day",
+        "FR": "Statehood Day",
+        "ES": "Statehood Day",
+        "IT": "Statehood Day"
+      }
+    },
+    {
+      "id": "42a3d92b-31a0-4d05-a612-0f466d34a696",
+      "startDate": "2025-06-19",
+      "endDate": "2025-06-19",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Fronleichnam"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Fronleichnam",
+        "EN": "Corpus Christi",
+        "FR": "Corpus Christi",
+        "ES": "Corpus Christi",
+        "IT": "Corpus Christi"
+      }
+    },
+    {
+      "id": "352d8c55-fe68-44c8-8291-b03b12cc61a9",
+      "startDate": "2025-06-22",
+      "endDate": "2025-06-22",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Tag des antifaschistischen Kampfes"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Tag des antifaschistischen Kampfes",
+        "EN": "Anti-Fascist Struggle Day",
+        "FR": "Anti-Fascist Struggle Day",
+        "ES": "Anti-Fascist Struggle Day",
+        "IT": "Anti-Fascist Struggle Day"
+      }
+    },
+    {
+      "id": "02d77a95-dc71-4d21-8af6-f4dae108a261",
+      "startDate": "2025-08-05",
+      "endDate": "2025-08-05",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Tag des Sieges und der heimatlichen Dankbarkeit und Tag der kroatischen Verteidiger"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Tag des Sieges und der heimatlichen Dankbarkeit und Tag der kroatischen Verteidiger",
+        "EN": "Victory and Homeland Thanksgiving Day and the Day of Croatian Defenders",
+        "FR": "Victory and Homeland Thanksgiving Day and the Day of Croatian Defenders",
+        "ES": "Victory and Homeland Thanksgiving Day and the Day of Croatian Defenders",
+        "IT": "Victory and Homeland Thanksgiving Day and the Day of Croatian Defenders"
+      }
+    },
+    {
+      "id": "9b9c890d-4967-4375-9470-edc4f186aa2f",
+      "startDate": "2025-08-15",
+      "endDate": "2025-08-15",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Mariä Himmelfahrt"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Mariä Himmelfahrt",
+        "EN": "Assumption Day",
+        "FR": "Assumption Day",
+        "ES": "Assumption Day",
+        "IT": "Assumption Day"
+      }
+    },
+    {
+      "id": "84054ec6-25a5-4c85-ad99-2b3e14efd8ea",
+      "startDate": "2025-11-01",
+      "endDate": "2025-11-01",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Allerheiligen"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Allerheiligen",
+        "EN": "All Saints' Day",
+        "FR": "All Saints' Day",
+        "ES": "All Saints' Day",
+        "IT": "All Saints' Day"
+      }
+    },
+    {
+      "id": "2aa0114a-2c1a-4c71-9d28-65ce33d62d93",
+      "startDate": "2025-11-18",
+      "endDate": "2025-11-18",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Tag des Gedenkens"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Tag des Gedenkens",
+        "EN": "Remembrance Day",
+        "FR": "Remembrance Day",
+        "ES": "Remembrance Day",
+        "IT": "Remembrance Day"
+      }
+    },
+    {
+      "id": "3a479031-cdc0-4620-8998-a204db9b8e46",
+      "startDate": "2025-12-25",
+      "endDate": "2025-12-25",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Weihnachten"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Weihnachten",
+        "EN": "Christmas",
+        "FR": "Christmas",
+        "ES": "Christmas",
+        "IT": "Christmas"
+      }
+    },
+    {
+      "id": "b08dfe44-8015-4bda-906b-7557abf07af5",
+      "startDate": "2025-12-26",
+      "endDate": "2025-12-26",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Weihnachten"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Weihnachten",
+        "EN": "Christmas",
+        "FR": "Christmas",
+        "ES": "Christmas",
+        "IT": "Christmas"
+      }
+    },
+    {
+      "id": "aa5421c6-3ec3-4190-bc21-d9711767a74f",
+      "startDate": "2026-01-01",
+      "endDate": "2026-01-01",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Neujahr"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Neujahr",
+        "EN": "New Year's Day",
+        "FR": "New Year's Day",
+        "ES": "New Year's Day",
+        "IT": "New Year's Day"
+      }
+    },
+    {
+      "id": "565bb356-dcc4-414d-8338-e9ddbe9edd75",
+      "startDate": "2026-01-06",
+      "endDate": "2026-01-06",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Heilige Drei Könige"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Heilige Drei Könige",
+        "EN": "Epiphany",
+        "FR": "Epiphany",
+        "ES": "Epiphany",
+        "IT": "Epiphany"
+      }
+    },
+    {
+      "id": "8ba4829e-8378-4e3f-bcdc-cc4992bccc8c",
+      "startDate": "2026-04-06",
+      "endDate": "2026-04-06",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Ostermontag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Ostermontag",
+        "EN": "Easter Monday",
+        "FR": "Easter Monday",
+        "ES": "Easter Monday",
+        "IT": "Easter Monday"
+      }
+    },
+    {
+      "id": "5a8bece7-73ad-43fa-8060-14a59b2732d0",
+      "startDate": "2026-05-01",
+      "endDate": "2026-05-01",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Tag der Arbeit"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Tag der Arbeit",
+        "EN": "Labour Day",
+        "FR": "Labour Day",
+        "ES": "Labour Day",
+        "IT": "Labour Day"
+      }
+    },
+    {
+      "id": "03c97229-2ead-4029-b8ee-f24134334e3f",
+      "startDate": "2026-05-30",
+      "endDate": "2026-05-30",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Staatsfeiertag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Staatsfeiertag",
+        "EN": "Statehood Day",
+        "FR": "Statehood Day",
+        "ES": "Statehood Day",
+        "IT": "Statehood Day"
+      }
+    },
+    {
+      "id": "bcb06cfd-f75a-4685-a7d7-c1103fc0d234",
+      "startDate": "2026-06-04",
+      "endDate": "2026-06-04",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Fronleichnam"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Fronleichnam",
+        "EN": "Corpus Christi",
+        "FR": "Corpus Christi",
+        "ES": "Corpus Christi",
+        "IT": "Corpus Christi"
+      }
+    },
+    {
+      "id": "f31b83cb-96a5-4ce3-891e-a352e1851eeb",
+      "startDate": "2026-06-22",
+      "endDate": "2026-06-22",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Tag des antifaschistischen Kampfes"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Tag des antifaschistischen Kampfes",
+        "EN": "Anti-Fascist Struggle Day",
+        "FR": "Anti-Fascist Struggle Day",
+        "ES": "Anti-Fascist Struggle Day",
+        "IT": "Anti-Fascist Struggle Day"
+      }
+    },
+    {
+      "id": "840fa7f9-5b3d-4c1a-8faf-a7098ff91a0c",
+      "startDate": "2026-08-05",
+      "endDate": "2026-08-05",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Tag des Sieges und der heimatlichen Dankbarkeit und Tag der kroatischen Verteidiger"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Tag des Sieges und der heimatlichen Dankbarkeit und Tag der kroatischen Verteidiger",
+        "EN": "Victory and Homeland Thanksgiving Day and the Day of Croatian Defenders",
+        "FR": "Victory and Homeland Thanksgiving Day and the Day of Croatian Defenders",
+        "ES": "Victory and Homeland Thanksgiving Day and the Day of Croatian Defenders",
+        "IT": "Victory and Homeland Thanksgiving Day and the Day of Croatian Defenders"
+      }
+    },
+    {
+      "id": "1e9faf6e-6af5-45a1-bd1d-1c7740fccdfc",
+      "startDate": "2026-08-15",
+      "endDate": "2026-08-15",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Mariä Himmelfahrt"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Mariä Himmelfahrt",
+        "EN": "Assumption Day",
+        "FR": "Assumption Day",
+        "ES": "Assumption Day",
+        "IT": "Assumption Day"
+      }
+    },
+    {
+      "id": "4dca24c6-cc58-412d-9a33-d643f0e6cdce",
+      "startDate": "2026-11-01",
+      "endDate": "2026-11-01",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Allerheiligen"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Allerheiligen",
+        "EN": "All Saints' Day",
+        "FR": "All Saints' Day",
+        "ES": "All Saints' Day",
+        "IT": "All Saints' Day"
+      }
+    },
+    {
+      "id": "e7e681c3-77f8-42f3-8e47-1ce63e3d7e36",
+      "startDate": "2026-11-18",
+      "endDate": "2026-11-18",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Tag des Gedenkens"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Tag des Gedenkens",
+        "EN": "Remembrance Day",
+        "FR": "Remembrance Day",
+        "ES": "Remembrance Day",
+        "IT": "Remembrance Day"
+      }
+    },
+    {
+      "id": "9130bfc1-745d-4555-9cad-a23de9261c25",
+      "startDate": "2026-12-25",
+      "endDate": "2026-12-25",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Weihnachten"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Weihnachten",
+        "EN": "Christmas",
+        "FR": "Christmas",
+        "ES": "Christmas",
+        "IT": "Christmas"
+      }
+    },
+    {
+      "id": "af07dc8d-4965-400e-b4bb-c5c51a8ed9a4",
+      "startDate": "2026-12-26",
+      "endDate": "2026-12-26",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Weihnachten"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Weihnachten",
+        "EN": "Christmas",
+        "FR": "Christmas",
+        "ES": "Christmas",
+        "IT": "Christmas"
+      }
+    },
+    {
+      "id": "fffe6a54-9a25-409a-bb8f-ba92caeb30e7",
+      "startDate": "2027-01-01",
+      "endDate": "2027-01-01",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Neujahr"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Neujahr",
+        "EN": "New Year's Day",
+        "FR": "New Year's Day",
+        "ES": "New Year's Day",
+        "IT": "New Year's Day"
+      }
+    },
+    {
+      "id": "ab5b5e21-0d3d-43ce-8de9-d01d6b11cbf7",
+      "startDate": "2027-01-06",
+      "endDate": "2027-01-06",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Heilige Drei Könige"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Heilige Drei Könige",
+        "EN": "Epiphany",
+        "FR": "Epiphany",
+        "ES": "Epiphany",
+        "IT": "Epiphany"
+      }
+    },
+    {
+      "id": "4620a4c7-cfe4-4879-b61e-04225fefe666",
+      "startDate": "2027-03-29",
+      "endDate": "2027-03-29",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Ostermontag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Ostermontag",
+        "EN": "Easter Monday",
+        "FR": "Easter Monday",
+        "ES": "Easter Monday",
+        "IT": "Easter Monday"
+      }
+    },
+    {
+      "id": "ab422b56-14c2-4476-a5ec-c3d5a3522f8e",
+      "startDate": "2027-05-01",
+      "endDate": "2027-05-01",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Tag der Arbeit"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Tag der Arbeit",
+        "EN": "Labour Day",
+        "FR": "Labour Day",
+        "ES": "Labour Day",
+        "IT": "Labour Day"
+      }
+    },
+    {
+      "id": "d4ec804e-88fb-4dcc-8c30-f17af80d6b96",
+      "startDate": "2027-05-27",
+      "endDate": "2027-05-27",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Fronleichnam"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Fronleichnam",
+        "EN": "Corpus Christi",
+        "FR": "Corpus Christi",
+        "ES": "Corpus Christi",
+        "IT": "Corpus Christi"
+      }
+    },
+    {
+      "id": "330dace4-6c79-4f64-a548-6c822f410721",
+      "startDate": "2027-05-30",
+      "endDate": "2027-05-30",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Staatsfeiertag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Staatsfeiertag",
+        "EN": "Statehood Day",
+        "FR": "Statehood Day",
+        "ES": "Statehood Day",
+        "IT": "Statehood Day"
+      }
+    },
+    {
+      "id": "dd1533f4-5716-41bb-b903-dc80931c39f7",
+      "startDate": "2027-06-22",
+      "endDate": "2027-06-22",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Tag des antifaschistischen Kampfes"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Tag des antifaschistischen Kampfes",
+        "EN": "Anti-Fascist Struggle Day",
+        "FR": "Anti-Fascist Struggle Day",
+        "ES": "Anti-Fascist Struggle Day",
+        "IT": "Anti-Fascist Struggle Day"
+      }
+    },
+    {
+      "id": "caa9e274-bcd9-452a-b23c-9b6b14bd763a",
+      "startDate": "2027-08-05",
+      "endDate": "2027-08-05",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Tag des Sieges und der heimatlichen Dankbarkeit und Tag der kroatischen Verteidiger"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Tag des Sieges und der heimatlichen Dankbarkeit und Tag der kroatischen Verteidiger",
+        "EN": "Victory and Homeland Thanksgiving Day and the Day of Croatian Defenders",
+        "FR": "Victory and Homeland Thanksgiving Day and the Day of Croatian Defenders",
+        "ES": "Victory and Homeland Thanksgiving Day and the Day of Croatian Defenders",
+        "IT": "Victory and Homeland Thanksgiving Day and the Day of Croatian Defenders"
+      }
+    },
+    {
+      "id": "c0b99be3-3a8d-4c74-90ab-c138dceae4ff",
+      "startDate": "2027-08-15",
+      "endDate": "2027-08-15",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Mariä Himmelfahrt"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Mariä Himmelfahrt",
+        "EN": "Assumption Day",
+        "FR": "Assumption Day",
+        "ES": "Assumption Day",
+        "IT": "Assumption Day"
+      }
+    },
+    {
+      "id": "3541a512-0215-4231-9f38-85c5ceb92783",
+      "startDate": "2027-11-01",
+      "endDate": "2027-11-01",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Allerheiligen"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Allerheiligen",
+        "EN": "All Saints' Day",
+        "FR": "All Saints' Day",
+        "ES": "All Saints' Day",
+        "IT": "All Saints' Day"
+      }
+    },
+    {
+      "id": "17f1708e-a81f-4704-a81d-8d54cc989d35",
+      "startDate": "2027-11-18",
+      "endDate": "2027-11-18",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Tag des Gedenkens"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Tag des Gedenkens",
+        "EN": "Remembrance Day",
+        "FR": "Remembrance Day",
+        "ES": "Remembrance Day",
+        "IT": "Remembrance Day"
+      }
+    },
+    {
+      "id": "964a4ec6-5774-4077-854f-cb69a270d126",
+      "startDate": "2027-12-25",
+      "endDate": "2027-12-25",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Weihnachten"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Weihnachten",
+        "EN": "Christmas",
+        "FR": "Christmas",
+        "ES": "Christmas",
+        "IT": "Christmas"
+      }
+    },
+    {
+      "id": "0baf6543-2d13-4df7-a09d-ae256789face",
+      "startDate": "2027-12-26",
+      "endDate": "2027-12-26",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Weihnachten"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Weihnachten",
+        "EN": "Christmas",
+        "FR": "Christmas",
+        "ES": "Christmas",
+        "IT": "Christmas"
+      }
+    },
+    {
+      "id": "f2036966-2589-4c8d-9c43-60c1e1f3732f",
+      "startDate": "2028-01-01",
+      "endDate": "2028-01-01",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Neujahr"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Neujahr",
+        "EN": "New Year's Day",
+        "FR": "New Year's Day",
+        "ES": "New Year's Day",
+        "IT": "New Year's Day"
+      }
+    },
+    {
+      "id": "e489e449-9219-423e-a7bf-233e31891681",
+      "startDate": "2028-01-06",
+      "endDate": "2028-01-06",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Heilige Drei Könige"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Heilige Drei Könige",
+        "EN": "Epiphany",
+        "FR": "Epiphany",
+        "ES": "Epiphany",
+        "IT": "Epiphany"
+      }
+    },
+    {
+      "id": "92a71071-e431-4627-ac5a-fe5be2f0fe39",
+      "startDate": "2028-04-17",
+      "endDate": "2028-04-17",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Ostermontag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Ostermontag",
+        "EN": "Easter Monday",
+        "FR": "Easter Monday",
+        "ES": "Easter Monday",
+        "IT": "Easter Monday"
+      }
+    },
+    {
+      "id": "78e909d5-4c65-4a30-bd55-1a1e825f8e2d",
+      "startDate": "2028-05-01",
+      "endDate": "2028-05-01",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Tag der Arbeit"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Tag der Arbeit",
+        "EN": "Labour Day",
+        "FR": "Labour Day",
+        "ES": "Labour Day",
+        "IT": "Labour Day"
+      }
+    },
+    {
+      "id": "4850018b-81dd-48a1-9e09-e5bdedd0c3ba",
+      "startDate": "2028-05-30",
+      "endDate": "2028-05-30",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Staatsfeiertag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Staatsfeiertag",
+        "EN": "Statehood Day",
+        "FR": "Statehood Day",
+        "ES": "Statehood Day",
+        "IT": "Statehood Day"
+      }
+    },
+    {
+      "id": "11e2536f-2999-45bd-9c01-7114e755f554",
+      "startDate": "2028-06-15",
+      "endDate": "2028-06-15",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Fronleichnam"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Fronleichnam",
+        "EN": "Corpus Christi",
+        "FR": "Corpus Christi",
+        "ES": "Corpus Christi",
+        "IT": "Corpus Christi"
+      }
+    },
+    {
+      "id": "fc8f03aa-4d9f-4ce6-a5cc-d189170d14a8",
+      "startDate": "2028-06-22",
+      "endDate": "2028-06-22",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Tag des antifaschistischen Kampfes"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Tag des antifaschistischen Kampfes",
+        "EN": "Anti-Fascist Struggle Day",
+        "FR": "Anti-Fascist Struggle Day",
+        "ES": "Anti-Fascist Struggle Day",
+        "IT": "Anti-Fascist Struggle Day"
+      }
+    },
+    {
+      "id": "058b85ab-ddd4-474d-b3dc-b3dfc1943973",
+      "startDate": "2028-08-05",
+      "endDate": "2028-08-05",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Tag des Sieges und der heimatlichen Dankbarkeit und Tag der kroatischen Verteidiger"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Tag des Sieges und der heimatlichen Dankbarkeit und Tag der kroatischen Verteidiger",
+        "EN": "Victory and Homeland Thanksgiving Day and the Day of Croatian Defenders",
+        "FR": "Victory and Homeland Thanksgiving Day and the Day of Croatian Defenders",
+        "ES": "Victory and Homeland Thanksgiving Day and the Day of Croatian Defenders",
+        "IT": "Victory and Homeland Thanksgiving Day and the Day of Croatian Defenders"
+      }
+    },
+    {
+      "id": "b1405b28-d5c5-4743-b63a-4fc75327318e",
+      "startDate": "2028-08-15",
+      "endDate": "2028-08-15",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Mariä Himmelfahrt"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Mariä Himmelfahrt",
+        "EN": "Assumption Day",
+        "FR": "Assumption Day",
+        "ES": "Assumption Day",
+        "IT": "Assumption Day"
+      }
+    },
+    {
+      "id": "7e4de20b-e4dc-40a4-86dd-e594b397215b",
+      "startDate": "2028-11-01",
+      "endDate": "2028-11-01",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Allerheiligen"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Allerheiligen",
+        "EN": "All Saints' Day",
+        "FR": "All Saints' Day",
+        "ES": "All Saints' Day",
+        "IT": "All Saints' Day"
+      }
+    },
+    {
+      "id": "104beded-422d-4386-aff5-001557d5e455",
+      "startDate": "2028-11-18",
+      "endDate": "2028-11-18",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Tag des Gedenkens"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Tag des Gedenkens",
+        "EN": "Remembrance Day",
+        "FR": "Remembrance Day",
+        "ES": "Remembrance Day",
+        "IT": "Remembrance Day"
+      }
+    },
+    {
+      "id": "8d1aaf1e-61a8-4e5c-8f2e-d5a0be6d28f3",
+      "startDate": "2028-12-25",
+      "endDate": "2028-12-25",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Weihnachten"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Weihnachten",
+        "EN": "Christmas",
+        "FR": "Christmas",
+        "ES": "Christmas",
+        "IT": "Christmas"
+      }
+    },
+    {
+      "id": "20a9afcd-9591-4e1a-b448-91b41f5d00ff",
+      "startDate": "2028-12-26",
+      "endDate": "2028-12-26",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Weihnachten"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Weihnachten",
+        "EN": "Christmas",
+        "FR": "Christmas",
+        "ES": "Christmas",
+        "IT": "Christmas"
+      }
+    },
+    {
+      "id": "69e5323f-7eeb-467a-b24d-cc5b8ee5c82e",
+      "startDate": "2029-01-01",
+      "endDate": "2029-01-01",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Neujahr"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Neujahr",
+        "EN": "New Year's Day",
+        "FR": "New Year's Day",
+        "ES": "New Year's Day",
+        "IT": "New Year's Day"
+      }
+    },
+    {
+      "id": "575ba1a4-89f3-4188-9b96-754ff37f6f87",
+      "startDate": "2029-01-06",
+      "endDate": "2029-01-06",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Heilige Drei Könige"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Heilige Drei Könige",
+        "EN": "Epiphany",
+        "FR": "Epiphany",
+        "ES": "Epiphany",
+        "IT": "Epiphany"
+      }
+    },
+    {
+      "id": "03addfee-24fe-4fcb-aba6-d77196cf55f3",
+      "startDate": "2029-04-02",
+      "endDate": "2029-04-02",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Ostermontag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Ostermontag",
+        "EN": "Easter Monday",
+        "FR": "Easter Monday",
+        "ES": "Easter Monday",
+        "IT": "Easter Monday"
+      }
+    },
+    {
+      "id": "ad4e2057-5be5-4a53-b901-52ee637e5b68",
+      "startDate": "2029-05-01",
+      "endDate": "2029-05-01",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Tag der Arbeit"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Tag der Arbeit",
+        "EN": "Labour Day",
+        "FR": "Labour Day",
+        "ES": "Labour Day",
+        "IT": "Labour Day"
+      }
+    },
+    {
+      "id": "ad158339-c828-42fb-8dee-d596a368192b",
+      "startDate": "2029-05-30",
+      "endDate": "2029-05-30",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Staatsfeiertag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Staatsfeiertag",
+        "EN": "Statehood Day",
+        "FR": "Statehood Day",
+        "ES": "Statehood Day",
+        "IT": "Statehood Day"
+      }
+    },
+    {
+      "id": "ee72acef-273c-4e69-bca6-f7904a8ab43c",
+      "startDate": "2029-05-31",
+      "endDate": "2029-05-31",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Fronleichnam"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Fronleichnam",
+        "EN": "Corpus Christi",
+        "FR": "Corpus Christi",
+        "ES": "Corpus Christi",
+        "IT": "Corpus Christi"
+      }
+    },
+    {
+      "id": "74fd2f1b-8377-43c3-a83c-e445c4dbe55c",
+      "startDate": "2029-06-22",
+      "endDate": "2029-06-22",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Tag des antifaschistischen Kampfes"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Tag des antifaschistischen Kampfes",
+        "EN": "Anti-Fascist Struggle Day",
+        "FR": "Anti-Fascist Struggle Day",
+        "ES": "Anti-Fascist Struggle Day",
+        "IT": "Anti-Fascist Struggle Day"
+      }
+    },
+    {
+      "id": "d8472dbb-732e-4eaa-ba73-b2bf64e4e005",
+      "startDate": "2029-08-05",
+      "endDate": "2029-08-05",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Tag des Sieges und der heimatlichen Dankbarkeit und Tag der kroatischen Verteidiger"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Tag des Sieges und der heimatlichen Dankbarkeit und Tag der kroatischen Verteidiger",
+        "EN": "Victory and Homeland Thanksgiving Day and the Day of Croatian Defenders",
+        "FR": "Victory and Homeland Thanksgiving Day and the Day of Croatian Defenders",
+        "ES": "Victory and Homeland Thanksgiving Day and the Day of Croatian Defenders",
+        "IT": "Victory and Homeland Thanksgiving Day and the Day of Croatian Defenders"
+      }
+    },
+    {
+      "id": "a1cadbfe-f2cd-4f58-93c7-4f3cead14cee",
+      "startDate": "2029-08-15",
+      "endDate": "2029-08-15",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Mariä Himmelfahrt"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Mariä Himmelfahrt",
+        "EN": "Assumption Day",
+        "FR": "Assumption Day",
+        "ES": "Assumption Day",
+        "IT": "Assumption Day"
+      }
+    },
+    {
+      "id": "268cbeea-c169-41e9-9807-902d8ce0379e",
+      "startDate": "2029-11-01",
+      "endDate": "2029-11-01",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Allerheiligen"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Allerheiligen",
+        "EN": "All Saints' Day",
+        "FR": "All Saints' Day",
+        "ES": "All Saints' Day",
+        "IT": "All Saints' Day"
+      }
+    },
+    {
+      "id": "3c032287-2282-4fba-a29b-fc9eb3fd2708",
+      "startDate": "2029-11-18",
+      "endDate": "2029-11-18",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Tag des Gedenkens"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Tag des Gedenkens",
+        "EN": "Remembrance Day",
+        "FR": "Remembrance Day",
+        "ES": "Remembrance Day",
+        "IT": "Remembrance Day"
+      }
+    },
+    {
+      "id": "29b07981-558a-450f-8ddf-db433ab1eafd",
+      "startDate": "2029-12-25",
+      "endDate": "2029-12-25",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Weihnachten"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Weihnachten",
+        "EN": "Christmas",
+        "FR": "Christmas",
+        "ES": "Christmas",
+        "IT": "Christmas"
+      }
+    },
+    {
+      "id": "3b8d8b76-86b2-4fda-8c91-637c699ae250",
+      "startDate": "2029-12-26",
+      "endDate": "2029-12-26",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Weihnachten"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Weihnachten",
+        "EN": "Christmas",
+        "FR": "Christmas",
+        "ES": "Christmas",
+        "IT": "Christmas"
+      }
+    }
+  ],
+  "school_holidays": [
+    {
+      "id": "556a8554-b857-4c83-b933-d276c40482df",
+      "startDate": "2019-12-23",
+      "endDate": "2020-01-03",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Winterferien (1. Teil)"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "comment": [
+        {
+          "language": "DE",
+          "text": "Option IV für die Verteilung der Feiertage"
+        }
+      ],
+      "names": {
+        "DE": "Winterferien (1. Teil)",
+        "EN": "Winter holidays",
+        "FR": "Winter holidays",
+        "ES": "Winter holidays",
+        "IT": "Winter holidays"
+      }
+    },
+    {
+      "id": "8a7375cf-0340-49a9-88d0-2ec310fad116",
+      "startDate": "2019-12-23",
+      "endDate": "2020-01-10",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Winterferien"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "comment": [
+        {
+          "language": "DE",
+          "text": "Option I und III für die Verteilung der Feiertage"
+        }
+      ],
+      "names": {
+        "DE": "Winterferien",
+        "EN": "Winter holidays",
+        "FR": "Winter holidays",
+        "ES": "Winter holidays",
+        "IT": "Winter holidays"
+      }
+    },
+    {
+      "id": "a38c2a6f-04b3-43cf-a70e-6b8baaab3c94",
+      "startDate": "2019-12-23",
+      "endDate": "2020-01-03",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Winterferien"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "comment": [
+        {
+          "language": "DE",
+          "text": "Option II für die Verteilung der Feiertage"
+        }
+      ],
+      "names": {
+        "DE": "Winterferien",
+        "EN": "Winter holidays",
+        "FR": "Winter holidays",
+        "ES": "Winter holidays",
+        "IT": "Winter holidays"
+      }
+    },
+    {
+      "id": "6b2ee43d-d99d-486e-8c5e-0288a6a3ea10",
+      "startDate": "2020-02-24",
+      "endDate": "2020-02-28",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Winterferien (2. Teil)"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "comment": [
+        {
+          "language": "DE",
+          "text": "Option IV für die Verteilung der Feiertage"
+        }
+      ],
+      "names": {
+        "DE": "Winterferien (2. Teil)",
+        "EN": "Winter holidays (second part)",
+        "FR": "Winter holidays (second part)",
+        "ES": "Winter holidays (second part)",
+        "IT": "Winter holidays (second part)"
+      }
+    },
+    {
+      "id": "51563360-633d-4584-b763-bf32a5fee851",
+      "startDate": "2020-04-09",
+      "endDate": "2020-04-10",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Frühlingsferien"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "comment": [
+        {
+          "language": "DE",
+          "text": "Option III und IV für die Verteilung der Feiertage"
+        }
+      ],
+      "names": {
+        "DE": "Frühlingsferien",
+        "EN": "Spring holidays",
+        "FR": "Spring holidays",
+        "ES": "Spring holidays",
+        "IT": "Spring holidays"
+      }
+    },
+    {
+      "id": "5ff84527-54e2-4336-b81b-7823594b9b83",
+      "startDate": "2020-04-10",
+      "endDate": "2020-04-17",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Frühlingsferien"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "comment": [
+        {
+          "language": "DE",
+          "text": "Option I und II für die Verteilung der Feiertage"
+        }
+      ],
+      "names": {
+        "DE": "Frühlingsferien",
+        "EN": "Spring holidays",
+        "FR": "Spring holidays",
+        "ES": "Spring holidays",
+        "IT": "Spring holidays"
+      }
+    },
+    {
+      "id": "54b657cb-4dc0-492d-9abc-22eefc2edf6d",
+      "startDate": "2020-06-18",
+      "endDate": "2020-09-06",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Sommerferien"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Sommerferien",
+        "EN": "Summer holidays",
+        "FR": "Summer holidays",
+        "ES": "Summer holidays",
+        "IT": "Summer holidays"
+      }
+    },
+    {
+      "id": "07f2ada8-96e8-419f-8719-3cd3ba5c8a9e",
+      "startDate": "2020-11-02",
+      "endDate": "2020-11-03",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Herbstferien"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Herbstferien",
+        "EN": "Autumn holidays",
+        "FR": "Autumn holidays",
+        "ES": "Autumn holidays",
+        "IT": "Autumn holidays"
+      }
+    },
+    {
+      "id": "7d6dad7e-5d04-46e5-a814-b050c9ef2da7",
+      "startDate": "2020-12-24",
+      "endDate": "2021-01-08",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Winterferien (Teil 1)"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Winterferien (Teil 1)",
+        "EN": "Winter holidays (part 2)",
+        "FR": "Winter holidays (part 2)",
+        "ES": "Winter holidays (part 2)",
+        "IT": "Winter holidays (part 2)"
+      }
+    },
+    {
+      "id": "7e11859c-2d29-4175-8751-86e1c8b6905f",
+      "startDate": "2021-02-23",
+      "endDate": "2021-02-26",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Winterferien (Teil 2)"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Winterferien (Teil 2)",
+        "EN": "Winter holidays (part 2)",
+        "FR": "Winter holidays (part 2)",
+        "ES": "Winter holidays (part 2)",
+        "IT": "Winter holidays (part 2)"
+      }
+    },
+    {
+      "id": "5c087e97-1788-4892-aebd-e732bf27cb08",
+      "startDate": "2021-04-02",
+      "endDate": "2021-04-09",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Frühlingsferien"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Frühlingsferien",
+        "EN": "Spring holidays",
+        "FR": "Spring holidays",
+        "ES": "Spring holidays",
+        "IT": "Spring holidays"
+      }
+    },
+    {
+      "id": "e7ac8f53-8638-441e-914d-afb555cdb24c",
+      "startDate": "2021-06-21",
+      "endDate": "2021-09-05",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Sommerferien"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Sommerferien",
+        "EN": "Summer holidays",
+        "FR": "Summer holidays",
+        "ES": "Summer holidays",
+        "IT": "Summer holidays"
+      }
+    },
+    {
+      "id": "a7ac47f9-eb0a-4766-a8a4-1d29aba04f89",
+      "startDate": "2021-11-02",
+      "endDate": "2021-11-03",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Herbstferien"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Herbstferien",
+        "EN": "Autumn holidays",
+        "FR": "Autumn holidays",
+        "ES": "Autumn holidays",
+        "IT": "Autumn holidays"
+      }
+    },
+    {
+      "id": "c5b344a2-acf6-4e0c-a73d-826d61541f9c",
+      "startDate": "2021-12-24",
+      "endDate": "2022-01-07",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Winterferien (Teil 1)"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Winterferien (Teil 1)",
+        "EN": "Winter holidays (part 2)",
+        "FR": "Winter holidays (part 2)",
+        "ES": "Winter holidays (part 2)",
+        "IT": "Winter holidays (part 2)"
+      }
+    },
+    {
+      "id": "b16f7a27-e530-4be2-a417-63fbec2940b9",
+      "startDate": "2022-02-21",
+      "endDate": "2022-02-25",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Winterferien (Teil 2)"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Winterferien (Teil 2)",
+        "EN": "Winter holidays (part 2)",
+        "FR": "Winter holidays (part 2)",
+        "ES": "Winter holidays (part 2)",
+        "IT": "Winter holidays (part 2)"
+      }
+    },
+    {
+      "id": "d35b882c-97c6-4f40-97ec-935072bb36cf",
+      "startDate": "2022-04-14",
+      "endDate": "2022-04-22",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Frühlingsferien"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Frühlingsferien",
+        "EN": "Spring holidays",
+        "FR": "Spring holidays",
+        "ES": "Spring holidays",
+        "IT": "Spring holidays"
+      }
+    },
+    {
+      "id": "d3f448e9-0451-4c17-a931-1a86560034b5",
+      "startDate": "2022-06-23",
+      "endDate": "2022-09-04",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Sommerferien"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Sommerferien",
+        "EN": "Summer holidays",
+        "FR": "Summer holidays",
+        "ES": "Summer holidays",
+        "IT": "Summer holidays"
+      }
+    },
+    {
+      "id": "fdf8eed0-08b4-48d6-a81a-b662d8e83da1",
+      "startDate": "2022-10-31",
+      "endDate": "2022-11-01",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Herbstferien"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Herbstferien",
+        "EN": "Autumn holidays",
+        "FR": "Autumn holidays",
+        "ES": "Autumn holidays",
+        "IT": "Autumn holidays"
+      }
+    },
+    {
+      "id": "0ebd234f-1da8-4f83-abbd-088792073423",
+      "startDate": "2022-12-27",
+      "endDate": "2023-01-05",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Winterferien (Teil 1)"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Winterferien (Teil 1)",
+        "EN": "Winter holidays (part 2)",
+        "FR": "Winter holidays (part 2)",
+        "ES": "Winter holidays (part 2)",
+        "IT": "Winter holidays (part 2)"
+      }
+    },
+    {
+      "id": "093cbc08-02f3-45e3-ba2c-bcf143c418f5",
+      "startDate": "2023-02-20",
+      "endDate": "2023-02-24",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Winterferien (Teil 2)"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Winterferien (Teil 2)",
+        "EN": "Winter holidays (part 2)",
+        "FR": "Winter holidays (part 2)",
+        "ES": "Winter holidays (part 2)",
+        "IT": "Winter holidays (part 2)"
+      }
+    },
+    {
+      "id": "d5d12065-03ec-4a20-a743-8721b1fa7d50",
+      "startDate": "2023-04-06",
+      "endDate": "2023-04-14",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Frühlingsferien"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Frühlingsferien",
+        "EN": "Spring holidays",
+        "FR": "Spring holidays",
+        "ES": "Spring holidays",
+        "IT": "Spring holidays"
+      }
+    },
+    {
+      "id": "1b3a55c3-b0d3-4903-9b5e-f31f0cfa12b1",
+      "startDate": "2023-06-23",
+      "endDate": "2023-09-03",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Sommerferien"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Sommerferien",
+        "EN": "Summer holidays",
+        "FR": "Summer holidays",
+        "ES": "Summer holidays",
+        "IT": "Summer holidays"
+      }
+    },
+    {
+      "id": "4e24de34-b24f-4c50-a35c-5566bd74f3d0",
+      "startDate": "2023-10-30",
+      "endDate": "2023-11-01",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Herbstferien"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Herbstferien",
+        "EN": "Autumn holidays",
+        "FR": "Autumn holidays",
+        "ES": "Autumn holidays",
+        "IT": "Autumn holidays"
+      }
+    },
+    {
+      "id": "218f18da-0bcc-4a24-a413-a4f3efce4895",
+      "startDate": "2023-12-27",
+      "endDate": "2024-01-05",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Winterferien (Teil 1)"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Winterferien (Teil 1)",
+        "EN": "Winter holidays (part 2)",
+        "FR": "Winter holidays (part 2)",
+        "ES": "Winter holidays (part 2)",
+        "IT": "Winter holidays (part 2)"
+      }
+    },
+    {
+      "id": "bb56c393-1536-4bb9-8d64-a39164015ca5",
+      "startDate": "2024-02-19",
+      "endDate": "2024-02-23",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Winterferien (Teil 2)"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Winterferien (Teil 2)",
+        "EN": "Winter holidays (part 2)",
+        "FR": "Winter holidays (part 2)",
+        "ES": "Winter holidays (part 2)",
+        "IT": "Winter holidays (part 2)"
+      }
+    },
+    {
+      "id": "f25a586d-3c70-4c95-8d91-9ff04e31452d",
+      "startDate": "2024-03-28",
+      "endDate": "2024-04-05",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Frühlingsferien"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Frühlingsferien",
+        "EN": "Spring holidays",
+        "FR": "Spring holidays",
+        "ES": "Spring holidays",
+        "IT": "Spring holidays"
+      }
+    },
+    {
+      "id": "68af71cf-d1df-4250-b90e-0e618c9aaef2",
+      "startDate": "2024-06-24",
+      "endDate": "2024-09-01",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Sommerferien"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Sommerferien",
+        "EN": "Summer holidays",
+        "FR": "Summer holidays",
+        "ES": "Summer holidays",
+        "IT": "Summer holidays"
+      }
+    },
+    {
+      "id": "c24118ce-64bc-4514-b67f-fd5051a6feba",
+      "startDate": "2024-10-31",
+      "endDate": "2024-11-01",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Herbstferien"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Herbstferien",
+        "EN": "Autumn holidays",
+        "FR": "Autumn holidays",
+        "ES": "Autumn holidays",
+        "IT": "Autumn holidays"
+      }
+    },
+    {
+      "id": "eda431ee-3212-4dbe-8473-aecc2bd66d04",
+      "startDate": "2024-12-23",
+      "endDate": "2025-01-06",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Winterferien (Teil 1)"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Winterferien (Teil 1)",
+        "EN": "Winter holidays (part 2)",
+        "FR": "Winter holidays (part 2)",
+        "ES": "Winter holidays (part 2)",
+        "IT": "Winter holidays (part 2)"
+      }
+    },
+    {
+      "id": "b33ee7f1-bcf7-4a90-95e9-7bb6d2fe090c",
+      "startDate": "2025-02-24",
+      "endDate": "2025-02-28",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Winterferien (Teil 2)"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Winterferien (Teil 2)",
+        "EN": "Winter holidays (part 2)",
+        "FR": "Winter holidays (part 2)",
+        "ES": "Winter holidays (part 2)",
+        "IT": "Winter holidays (part 2)"
+      }
+    },
+    {
+      "id": "88df1262-9bd5-41c0-804f-b91fea1caaf8",
+      "startDate": "2025-04-17",
+      "endDate": "2025-04-25",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Frühlingsferien"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Frühlingsferien",
+        "EN": "Spring holidays",
+        "FR": "Spring holidays",
+        "ES": "Spring holidays",
+        "IT": "Spring holidays"
+      }
+    },
+    {
+      "id": "74931481-9e8c-4f0e-b94b-9e64ebae9d3a",
+      "startDate": "2025-06-19",
+      "endDate": "2025-08-31",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Sommerferien"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Sommerferien",
+        "EN": "Summer holidays",
+        "FR": "Summer holidays",
+        "ES": "Summer holidays",
+        "IT": "Summer holidays"
+      }
+    },
+    {
+      "id": "eaa42c45-7f8a-4a16-9f2b-0bf76e407f02",
+      "startDate": "2025-12-24",
+      "endDate": "2026-01-09",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Winterferien"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Winterferien",
+        "EN": "Winter holidays",
+        "FR": "Winter holidays",
+        "ES": "Winter holidays",
+        "IT": "Winter holidays"
+      }
+    },
+    {
+      "id": "a7322c0a-5616-48fd-9e5e-1e86cf956506",
+      "startDate": "2026-03-30",
+      "endDate": "2026-04-06",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Frühlingsferien"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Frühlingsferien",
+        "EN": "Spring holidays",
+        "FR": "Spring holidays",
+        "ES": "Spring holidays",
+        "IT": "Spring holidays"
+      }
+    },
+    {
+      "id": "59c608ae-6510-4acf-bbe5-e91ea7e704a6",
+      "startDate": "2026-06-15",
+      "endDate": "2026-08-31",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Sommerferien"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Sommerferien",
+        "EN": "Summer holidays",
+        "FR": "Summer holidays",
+        "ES": "Summer holidays",
+        "IT": "Summer holidays"
+      }
+    }
+  ],
+  "fetched_at": "2026-01-03T19:17:04.309458"
+}

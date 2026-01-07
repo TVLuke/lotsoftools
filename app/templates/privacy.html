@@ -1,0 +1,98 @@
+{% extends 'base.html' %}
+
+{% block title %}{% if current_lang == 'de' %}Datenschutzerklärung{% else %}Privacy Policy{% endif %} - Lots of Tools{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h1 class="mb-4">{% if current_lang == 'de' %}Datenschutzerklärung{% else %}Privacy Policy{% endif %}</h1>
+    
+    <div class="mb-5">
+        <p class="text-muted">
+            {% if current_lang == 'de' %}
+            <!-- Platzhalter für allgemeine Datenschutzinformationen -->
+            {% else %}
+            <!-- Placeholder for general privacy information -->
+            {% endif %}
+        </p>
+    </div>
+    
+    <h2 class="mb-4">{% if current_lang == 'de' %}Datenschutz pro Werkzeug{% else %}Privacy by Tool{% endif %}</h2>
+    
+    <div class="table-responsive">
+        <table class="table table-hover">
+            <thead class="table-dark">
+                <tr>
+                    <th>{% if current_lang == 'de' %}Werkzeug{% else %}Tool{% endif %}</th>
+                    <th>{% if current_lang == 'de' %}Verarbeitung{% else %}Processing{% endif %}</th>
+                    <th>{% if current_lang == 'de' %}Externe Dienste{% else %}External Services{% endif %}</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for tool in tools %}
+                <tr>
+                    <td>
+                        <a href="{{ tool.url }}">{{ tool.name }}</a>
+                    </td>
+                    <td>
+                        {% if tool.frontend_only %}
+                            <span class="badge bg-success">
+                                <i class="fas fa-lock me-1"></i>
+                                {% if current_lang == 'de' %}Nur im Browser{% else %}Browser only{% endif %}
+                            </span>
+                        {% else %}
+                            <span class="badge bg-warning text-dark">
+                                <i class="fas fa-server me-1"></i>
+                                {% if current_lang == 'de' %}Server-Verarbeitung{% else %}Server processing{% endif %}
+                            </span>
+                        {% endif %}
+                    </td>
+                    <td>
+                        {% if tool.uses_external_service %}
+                            <span class="badge bg-danger">
+                                <i class="fas fa-external-link-alt me-1"></i>
+                                {% if current_lang == 'de' %}Ja{% else %}Yes{% endif %}
+                            </span>
+                        {% else %}
+                            <span class="badge bg-success">
+                                <i class="fas fa-check me-1"></i>
+                                {% if current_lang == 'de' %}Nein{% else %}No{% endif %}
+                            </span>
+                        {% endif %}
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    
+    <div class="mt-4">
+        <h3>{% if current_lang == 'de' %}Legende{% else %}Legend{% endif %}</h3>
+        <ul class="list-unstyled">
+            <li class="mb-2">
+                <span class="badge bg-success"><i class="fas fa-lock me-1"></i>{% if current_lang == 'de' %}Nur im Browser{% else %}Browser only{% endif %}</span>
+                {% if current_lang == 'de' %}
+                - Alle Daten werden ausschließlich in Ihrem Browser verarbeitet. Keine Daten verlassen Ihr Gerät.
+                {% else %}
+                - All data is processed entirely in your browser. No data leaves your device.
+                {% endif %}
+            </li>
+            <li class="mb-2">
+                <span class="badge bg-warning text-dark"><i class="fas fa-server me-1"></i>{% if current_lang == 'de' %}Server-Verarbeitung{% else %}Server processing{% endif %}</span>
+                {% if current_lang == 'de' %}
+                - Daten werden zur Verarbeitung an unseren Server gesendet, aber nicht gespeichert.
+                {% else %}
+                - Data is sent to our server for processing but is not stored.
+                {% endif %}
+            </li>
+            <li class="mb-2">
+                <span class="badge bg-danger"><i class="fas fa-external-link-alt me-1"></i>{% if current_lang == 'de' %}Externe Dienste{% else %}External Services{% endif %}</span>
+                {% if current_lang == 'de' %}
+                - Dieses Werkzeug sendet Daten an einen externen Dienst (z.B. API). Bitte beachten Sie die Datenschutzrichtlinien des jeweiligen Dienstes.
+                {% else %}
+                - This tool sends data to an external service (e.g., API). Please review the privacy policy of the respective service.
+                {% endif %}
+            </li>
+        </ul>
+    </div>
+</div>
+{% endblock %}

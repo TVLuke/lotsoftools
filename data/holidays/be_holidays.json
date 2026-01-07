@@ -1,0 +1,5929 @@
+{
+  "country": "BE",
+  "country_name": {
+    "name": "Belgien",
+    "name_en": "Belgium"
+  },
+  "subdivisions": [],
+  "public_holidays": [
+    {
+      "id": "78465c35-9dbd-458b-bd38-ea8105d9d9d0",
+      "startDate": "2020-01-01",
+      "endDate": "2020-01-01",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Neujahrstag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Neujahrstag",
+        "EN": "New Year's Day",
+        "FR": "Jour de l'an",
+        "ES": "New Year's Day",
+        "IT": "New Year's Day"
+      }
+    },
+    {
+      "id": "a5f2914b-a5d2-4883-a576-893a1f4e194d",
+      "startDate": "2020-04-12",
+      "endDate": "2020-04-12",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Ostern"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Ostern",
+        "EN": "Easter",
+        "FR": "Pâques",
+        "ES": "Easter",
+        "IT": "Easter"
+      }
+    },
+    {
+      "id": "b171e19e-24b4-4a06-9072-a8d2867a46f9",
+      "startDate": "2020-04-13",
+      "endDate": "2020-04-13",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Ostermontag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Ostermontag",
+        "EN": "Easter Monday",
+        "FR": "Lundi de Pâques",
+        "ES": "Easter Monday",
+        "IT": "Easter Monday"
+      }
+    },
+    {
+      "id": "53c077ec-4b89-4c7e-9122-4d0d386dda84",
+      "startDate": "2020-05-01",
+      "endDate": "2020-05-01",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Tag der Arbeit"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Tag der Arbeit",
+        "EN": "Labour Day",
+        "FR": "Fête du Travail",
+        "ES": "Labour Day",
+        "IT": "Labour Day"
+      }
+    },
+    {
+      "id": "7b7802d7-7176-4145-929e-b83496da5a6b",
+      "startDate": "2020-05-21",
+      "endDate": "2020-05-21",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Christi Himmelfahrt"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Christi Himmelfahrt",
+        "EN": "Ascension Day",
+        "FR": "Ascension",
+        "ES": "Ascension Day",
+        "IT": "Ascension Day"
+      }
+    },
+    {
+      "id": "a5fe22f6-fa91-464b-845d-c4431a3eef24",
+      "startDate": "2020-05-31",
+      "endDate": "2020-05-31",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Pfingsten"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Pfingsten",
+        "EN": "Pentecost",
+        "FR": "Pentecôte",
+        "ES": "Pentecost",
+        "IT": "Pentecost"
+      }
+    },
+    {
+      "id": "f4039a1b-540b-42fb-8951-05d918f0c865",
+      "startDate": "2020-06-01",
+      "endDate": "2020-06-01",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Pfingstmontag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Pfingstmontag",
+        "EN": "Pentecost Monday",
+        "FR": "Lundi de Pentecôte",
+        "ES": "Pentecost Monday",
+        "IT": "Pentecost Monday"
+      }
+    },
+    {
+      "id": "98c46766-79a3-413b-8366-e64e32b697e6",
+      "startDate": "2020-07-21",
+      "endDate": "2020-07-21",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Nationalfeiertag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Nationalfeiertag",
+        "EN": "National Day",
+        "FR": "Fête nationale",
+        "ES": "National Day",
+        "IT": "National Day"
+      }
+    },
+    {
+      "id": "4ce82711-6790-4f7d-a3c9-fdef48fe2757",
+      "startDate": "2020-08-15",
+      "endDate": "2020-08-15",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Mariä Himmelfahrt"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Mariä Himmelfahrt",
+        "EN": "Assumption Day",
+        "FR": "Assomption",
+        "ES": "Assumption Day",
+        "IT": "Assumption Day"
+      }
+    },
+    {
+      "id": "10887848-eafb-4106-8d1f-68d20eb477a6",
+      "startDate": "2020-11-01",
+      "endDate": "2020-11-01",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Allerheiligen"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Allerheiligen",
+        "EN": "All Saints Day",
+        "FR": "Toussaint",
+        "ES": "All Saints Day",
+        "IT": "All Saints Day"
+      }
+    },
+    {
+      "id": "64b8f5e0-76a8-4283-9a4d-02a8b58deb8d",
+      "startDate": "2020-11-11",
+      "endDate": "2020-11-11",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Waffenstillstand"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Waffenstillstand",
+        "EN": "Armistice Day",
+        "FR": "Armistice de 1918",
+        "ES": "Armistice Day",
+        "IT": "Armistice Day"
+      }
+    },
+    {
+      "id": "085f1c2c-1a6a-438c-afb7-23205dafb49d",
+      "startDate": "2020-12-25",
+      "endDate": "2020-12-25",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Weihnachten"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Weihnachten",
+        "EN": "Christmas Day",
+        "FR": "Noël",
+        "ES": "Christmas Day",
+        "IT": "Christmas Day"
+      }
+    },
+    {
+      "id": "dd0eca69-299b-40a8-b934-139a68a35330",
+      "startDate": "2021-01-01",
+      "endDate": "2021-01-01",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Neujahrstag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Neujahrstag",
+        "EN": "New Year's Day",
+        "FR": "Jour de l'an",
+        "ES": "New Year's Day",
+        "IT": "New Year's Day"
+      }
+    },
+    {
+      "id": "05689c65-734d-400d-bfb8-08713109cfe3",
+      "startDate": "2021-04-04",
+      "endDate": "2021-04-04",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Ostern"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Ostern",
+        "EN": "Easter",
+        "FR": "Pâques",
+        "ES": "Easter",
+        "IT": "Easter"
+      }
+    },
+    {
+      "id": "06cf2264-4976-467c-b29c-3369a63b7b03",
+      "startDate": "2021-04-05",
+      "endDate": "2021-04-05",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Ostermontag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Ostermontag",
+        "EN": "Easter Monday",
+        "FR": "Lundi de Pâques",
+        "ES": "Easter Monday",
+        "IT": "Easter Monday"
+      }
+    },
+    {
+      "id": "ac9977af-a22e-43b2-a64a-ac05860ef29e",
+      "startDate": "2021-05-01",
+      "endDate": "2021-05-01",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Tag der Arbeit"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Tag der Arbeit",
+        "EN": "Labour Day",
+        "FR": "Fête du Travail",
+        "ES": "Labour Day",
+        "IT": "Labour Day"
+      }
+    },
+    {
+      "id": "55183618-a396-4afa-88ba-6a1c52514cb2",
+      "startDate": "2021-05-13",
+      "endDate": "2021-05-13",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Christi Himmelfahrt"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Christi Himmelfahrt",
+        "EN": "Ascension Day",
+        "FR": "Ascension",
+        "ES": "Ascension Day",
+        "IT": "Ascension Day"
+      }
+    },
+    {
+      "id": "f7765a92-a05b-477c-9a7f-8cca7cd7aeb0",
+      "startDate": "2021-05-23",
+      "endDate": "2021-05-23",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Pfingsten"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Pfingsten",
+        "EN": "Pentecost",
+        "FR": "Pentecôte",
+        "ES": "Pentecost",
+        "IT": "Pentecost"
+      }
+    },
+    {
+      "id": "d33b72f3-3a7a-46cc-84d5-7c8769a81cc1",
+      "startDate": "2021-05-24",
+      "endDate": "2021-05-24",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Pfingstmontag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Pfingstmontag",
+        "EN": "Pentecost Monday",
+        "FR": "Lundi de Pentecôte",
+        "ES": "Pentecost Monday",
+        "IT": "Pentecost Monday"
+      }
+    },
+    {
+      "id": "8914b784-9206-4651-9f83-c1e6f18e761a",
+      "startDate": "2021-07-21",
+      "endDate": "2021-07-21",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Nationalfeiertag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Nationalfeiertag",
+        "EN": "National Day",
+        "FR": "Fête nationale",
+        "ES": "National Day",
+        "IT": "National Day"
+      }
+    },
+    {
+      "id": "3edbeb56-7527-4891-9ac7-84dda9884fac",
+      "startDate": "2021-08-15",
+      "endDate": "2021-08-15",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Mariä Himmelfahrt"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Mariä Himmelfahrt",
+        "EN": "Assumption Day",
+        "FR": "Assomption",
+        "ES": "Assumption Day",
+        "IT": "Assumption Day"
+      }
+    },
+    {
+      "id": "2a00c7b6-9f52-4650-915f-82e4289001ff",
+      "startDate": "2021-11-01",
+      "endDate": "2021-11-01",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Allerheiligen"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Allerheiligen",
+        "EN": "All Saints Day",
+        "FR": "Toussaint",
+        "ES": "All Saints Day",
+        "IT": "All Saints Day"
+      }
+    },
+    {
+      "id": "82da511f-7b72-47dc-82ee-9754e506a490",
+      "startDate": "2021-11-11",
+      "endDate": "2021-11-11",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Waffenstillstand"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Waffenstillstand",
+        "EN": "Armistice Day",
+        "FR": "Armistice de 1918",
+        "ES": "Armistice Day",
+        "IT": "Armistice Day"
+      }
+    },
+    {
+      "id": "833b3227-64a3-470f-9512-7ec3506675e4",
+      "startDate": "2021-12-25",
+      "endDate": "2021-12-25",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Weihnachten"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Weihnachten",
+        "EN": "Christmas Day",
+        "FR": "Noël",
+        "ES": "Christmas Day",
+        "IT": "Christmas Day"
+      }
+    },
+    {
+      "id": "d92c2b46-e752-455d-9f7b-d6332b39bce6",
+      "startDate": "2022-01-01",
+      "endDate": "2022-01-01",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Neujahrstag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Neujahrstag",
+        "EN": "New Year's Day",
+        "FR": "Jour de l'an",
+        "ES": "New Year's Day",
+        "IT": "New Year's Day"
+      }
+    },
+    {
+      "id": "908d2be5-e592-4479-9f92-19e2c1d22854",
+      "startDate": "2022-04-17",
+      "endDate": "2022-04-17",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Ostern"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Ostern",
+        "EN": "Easter",
+        "FR": "Pâques",
+        "ES": "Easter",
+        "IT": "Easter"
+      }
+    },
+    {
+      "id": "34b47e4e-b51f-4399-b92f-0fa12b9260e7",
+      "startDate": "2022-04-18",
+      "endDate": "2022-04-18",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Ostermontag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Ostermontag",
+        "EN": "Easter Monday",
+        "FR": "Lundi de Pâques",
+        "ES": "Easter Monday",
+        "IT": "Easter Monday"
+      }
+    },
+    {
+      "id": "98aa516f-47d5-4e9d-a370-7ce34b07076f",
+      "startDate": "2022-05-01",
+      "endDate": "2022-05-01",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Tag der Arbeit"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Tag der Arbeit",
+        "EN": "Labour Day",
+        "FR": "Fête du Travail",
+        "ES": "Labour Day",
+        "IT": "Labour Day"
+      }
+    },
+    {
+      "id": "526c2211-6a71-414d-9a63-a2b5859bf943",
+      "startDate": "2022-05-26",
+      "endDate": "2022-05-26",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Christi Himmelfahrt"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Christi Himmelfahrt",
+        "EN": "Ascension Day",
+        "FR": "Ascension",
+        "ES": "Ascension Day",
+        "IT": "Ascension Day"
+      }
+    },
+    {
+      "id": "2a09f6bd-2fc6-46f4-aec8-c010d881ec5c",
+      "startDate": "2022-06-05",
+      "endDate": "2022-06-05",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Pfingsten"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Pfingsten",
+        "EN": "Pentecost",
+        "FR": "Pentecôte",
+        "ES": "Pentecost",
+        "IT": "Pentecost"
+      }
+    },
+    {
+      "id": "76c8aa9c-778f-4096-9f52-47c7ccbee128",
+      "startDate": "2022-06-06",
+      "endDate": "2022-06-06",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Pfingstmontag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Pfingstmontag",
+        "EN": "Pentecost Monday",
+        "FR": "Lundi de Pentecôte",
+        "ES": "Pentecost Monday",
+        "IT": "Pentecost Monday"
+      }
+    },
+    {
+      "id": "ebde0b4c-6df2-4344-88fc-0841948f161a",
+      "startDate": "2022-07-21",
+      "endDate": "2022-07-21",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Nationalfeiertag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Nationalfeiertag",
+        "EN": "National Day",
+        "FR": "Fête nationale",
+        "ES": "National Day",
+        "IT": "National Day"
+      }
+    },
+    {
+      "id": "3bb25711-a3e6-44f3-b12a-adc6460b2ea8",
+      "startDate": "2022-08-15",
+      "endDate": "2022-08-15",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Mariä Himmelfahrt"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Mariä Himmelfahrt",
+        "EN": "Assumption Day",
+        "FR": "Assomption",
+        "ES": "Assumption Day",
+        "IT": "Assumption Day"
+      }
+    },
+    {
+      "id": "5dc5ec78-1767-4935-b996-4c114f8be4c8",
+      "startDate": "2022-11-01",
+      "endDate": "2022-11-01",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Allerheiligen"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Allerheiligen",
+        "EN": "All Saints Day",
+        "FR": "Toussaint",
+        "ES": "All Saints Day",
+        "IT": "All Saints Day"
+      }
+    },
+    {
+      "id": "7b7467c2-6f2d-43ea-9175-095ae60a1a2d",
+      "startDate": "2022-11-11",
+      "endDate": "2022-11-11",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Waffenstillstand"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Waffenstillstand",
+        "EN": "Armistice Day",
+        "FR": "Armistice de 1918",
+        "ES": "Armistice Day",
+        "IT": "Armistice Day"
+      }
+    },
+    {
+      "id": "e1d34f1d-bb63-4b6d-be64-f91ff705d0bd",
+      "startDate": "2022-12-25",
+      "endDate": "2022-12-25",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Weihnachten"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Weihnachten",
+        "EN": "Christmas Day",
+        "FR": "Noël",
+        "ES": "Christmas Day",
+        "IT": "Christmas Day"
+      }
+    },
+    {
+      "id": "3d3fdf44-4e12-4a22-8c2a-943293871031",
+      "startDate": "2023-01-01",
+      "endDate": "2023-01-01",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Neujahrstag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Neujahrstag",
+        "EN": "New Year's Day",
+        "FR": "Jour de l'an",
+        "ES": "New Year's Day",
+        "IT": "New Year's Day"
+      }
+    },
+    {
+      "id": "cc4bbf3a-e9fb-4a07-a3a5-32ed1a992f4e",
+      "startDate": "2023-04-09",
+      "endDate": "2023-04-09",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Ostern"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Ostern",
+        "EN": "Easter",
+        "FR": "Pâques",
+        "ES": "Easter",
+        "IT": "Easter"
+      }
+    },
+    {
+      "id": "9d1a20b9-5ae8-4f45-9473-d59622e9327e",
+      "startDate": "2023-04-10",
+      "endDate": "2023-04-10",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Ostermontag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Ostermontag",
+        "EN": "Easter Monday",
+        "FR": "Lundi de Pâques",
+        "ES": "Easter Monday",
+        "IT": "Easter Monday"
+      }
+    },
+    {
+      "id": "f9bc61d2-2f79-4aab-a4a0-44d984e03a6b",
+      "startDate": "2023-05-01",
+      "endDate": "2023-05-01",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Tag der Arbeit"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Tag der Arbeit",
+        "EN": "Labour Day",
+        "FR": "Fête du Travail",
+        "ES": "Labour Day",
+        "IT": "Labour Day"
+      }
+    },
+    {
+      "id": "34fe79fb-d513-42d0-8141-7bdf4e23a1ea",
+      "startDate": "2023-05-18",
+      "endDate": "2023-05-18",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Christi Himmelfahrt"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Christi Himmelfahrt",
+        "EN": "Ascension Day",
+        "FR": "Ascension",
+        "ES": "Ascension Day",
+        "IT": "Ascension Day"
+      }
+    },
+    {
+      "id": "427ebbbd-67f1-4b22-a7b6-2feb1f0d3935",
+      "startDate": "2023-05-28",
+      "endDate": "2023-05-28",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Pfingsten"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Pfingsten",
+        "EN": "Pentecost",
+        "FR": "Pentecôte",
+        "ES": "Pentecost",
+        "IT": "Pentecost"
+      }
+    },
+    {
+      "id": "b839037a-2587-4271-895f-56b356f0f73b",
+      "startDate": "2023-05-29",
+      "endDate": "2023-05-29",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Pfingstmontag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Pfingstmontag",
+        "EN": "Pentecost Monday",
+        "FR": "Lundi de Pentecôte",
+        "ES": "Pentecost Monday",
+        "IT": "Pentecost Monday"
+      }
+    },
+    {
+      "id": "0fd14f87-fe8f-45c8-a3b5-fa01145bfb2b",
+      "startDate": "2023-07-21",
+      "endDate": "2023-07-21",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Nationalfeiertag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Nationalfeiertag",
+        "EN": "National Day",
+        "FR": "Fête nationale",
+        "ES": "National Day",
+        "IT": "National Day"
+      }
+    },
+    {
+      "id": "4760c29d-01e1-4e04-9063-fe8d47ba4761",
+      "startDate": "2023-08-15",
+      "endDate": "2023-08-15",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Mariä Himmelfahrt"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Mariä Himmelfahrt",
+        "EN": "Assumption Day",
+        "FR": "Assomption",
+        "ES": "Assumption Day",
+        "IT": "Assumption Day"
+      }
+    },
+    {
+      "id": "f0733c4b-b4a2-4d1b-bfca-60778732875f",
+      "startDate": "2023-11-01",
+      "endDate": "2023-11-01",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Allerheiligen"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Allerheiligen",
+        "EN": "All Saints Day",
+        "FR": "Toussaint",
+        "ES": "All Saints Day",
+        "IT": "All Saints Day"
+      }
+    },
+    {
+      "id": "5c4cd8de-08fa-4ec0-9461-9309e50d8c6d",
+      "startDate": "2023-11-11",
+      "endDate": "2023-11-11",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Waffenstillstand"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Waffenstillstand",
+        "EN": "Armistice Day",
+        "FR": "Armistice de 1918",
+        "ES": "Armistice Day",
+        "IT": "Armistice Day"
+      }
+    },
+    {
+      "id": "bc1f0bcb-4956-459b-920a-2eae2b2ae5d8",
+      "startDate": "2023-12-25",
+      "endDate": "2023-12-25",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Weihnachten"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Weihnachten",
+        "EN": "Christmas Day",
+        "FR": "Noël",
+        "ES": "Christmas Day",
+        "IT": "Christmas Day"
+      }
+    },
+    {
+      "id": "d3571b8a-8d12-42b7-9fd8-34ab6ba29af4",
+      "startDate": "2024-01-01",
+      "endDate": "2024-01-01",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Neujahrstag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Neujahrstag",
+        "EN": "New Year's Day",
+        "FR": "Jour de l'an",
+        "ES": "New Year's Day",
+        "IT": "New Year's Day"
+      }
+    },
+    {
+      "id": "fc163490-cfaa-4dff-aada-a2dfffd80d40",
+      "startDate": "2024-03-31",
+      "endDate": "2024-03-31",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Ostern"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Ostern",
+        "EN": "Easter",
+        "FR": "Pâques",
+        "ES": "Easter",
+        "IT": "Easter"
+      }
+    },
+    {
+      "id": "a353d8d7-5927-4992-8553-d16589803c54",
+      "startDate": "2024-04-01",
+      "endDate": "2024-04-01",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Ostermontag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Ostermontag",
+        "EN": "Easter Monday",
+        "FR": "Lundi de Pâques",
+        "ES": "Easter Monday",
+        "IT": "Easter Monday"
+      }
+    },
+    {
+      "id": "f7f764d2-8291-4f8a-82c3-887891e58cf9",
+      "startDate": "2024-05-01",
+      "endDate": "2024-05-01",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Tag der Arbeit"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Tag der Arbeit",
+        "EN": "Labour Day",
+        "FR": "Fête du Travail",
+        "ES": "Labour Day",
+        "IT": "Labour Day"
+      }
+    },
+    {
+      "id": "ff3b1823-3b95-4f3b-a5e3-80f4bbd270d0",
+      "startDate": "2024-05-09",
+      "endDate": "2024-05-09",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Christi Himmelfahrt"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Christi Himmelfahrt",
+        "EN": "Ascension Day",
+        "FR": "Ascension",
+        "ES": "Ascension Day",
+        "IT": "Ascension Day"
+      }
+    },
+    {
+      "id": "f7caeb89-3411-4c73-90fb-4e94948ab004",
+      "startDate": "2024-05-19",
+      "endDate": "2024-05-19",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Pfingsten"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Pfingsten",
+        "EN": "Pentecost",
+        "FR": "Pentecôte",
+        "ES": "Pentecost",
+        "IT": "Pentecost"
+      }
+    },
+    {
+      "id": "cdbcac62-e2b7-41f3-83e0-b0db65cb982e",
+      "startDate": "2024-05-20",
+      "endDate": "2024-05-20",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Pfingstmontag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Pfingstmontag",
+        "EN": "Pentecost Monday",
+        "FR": "Lundi de Pentecôte",
+        "ES": "Pentecost Monday",
+        "IT": "Pentecost Monday"
+      }
+    },
+    {
+      "id": "3e119382-f32d-40db-b432-8ed9bfa0f914",
+      "startDate": "2024-07-21",
+      "endDate": "2024-07-21",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Nationalfeiertag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Nationalfeiertag",
+        "EN": "National Day",
+        "FR": "Fête nationale",
+        "ES": "National Day",
+        "IT": "National Day"
+      }
+    },
+    {
+      "id": "84be67b7-5928-45bd-a9bb-617301ff6977",
+      "startDate": "2024-08-15",
+      "endDate": "2024-08-15",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Mariä Himmelfahrt"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Mariä Himmelfahrt",
+        "EN": "Assumption Day",
+        "FR": "Assomption",
+        "ES": "Assumption Day",
+        "IT": "Assumption Day"
+      }
+    },
+    {
+      "id": "988e1912-aac4-4448-ba39-449626fc3efc",
+      "startDate": "2024-11-01",
+      "endDate": "2024-11-01",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Allerheiligen"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Allerheiligen",
+        "EN": "All Saints Day",
+        "FR": "Toussaint",
+        "ES": "All Saints Day",
+        "IT": "All Saints Day"
+      }
+    },
+    {
+      "id": "59e5de5f-ddb8-4c7d-bc48-b5c19f6d8c61",
+      "startDate": "2024-11-11",
+      "endDate": "2024-11-11",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Waffenstillstand"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Waffenstillstand",
+        "EN": "Armistice Day",
+        "FR": "Armistice de 1918",
+        "ES": "Armistice Day",
+        "IT": "Armistice Day"
+      }
+    },
+    {
+      "id": "0e4856e0-9bc8-4e2a-b1d5-9df666569fdf",
+      "startDate": "2024-12-25",
+      "endDate": "2024-12-25",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Weihnachten"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Weihnachten",
+        "EN": "Christmas Day",
+        "FR": "Noël",
+        "ES": "Christmas Day",
+        "IT": "Christmas Day"
+      }
+    },
+    {
+      "id": "ce86dab3-99dd-404b-b874-c572914bf7f8",
+      "startDate": "2025-01-01",
+      "endDate": "2025-01-01",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Neujahrstag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Neujahrstag",
+        "EN": "New Year's Day",
+        "FR": "Jour de l'an",
+        "ES": "New Year's Day",
+        "IT": "New Year's Day"
+      }
+    },
+    {
+      "id": "a75afd22-8aed-49bd-9b55-04666d454fe0",
+      "startDate": "2025-04-20",
+      "endDate": "2025-04-20",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Ostern"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Ostern",
+        "EN": "Easter",
+        "FR": "Pâques",
+        "ES": "Easter",
+        "IT": "Easter"
+      }
+    },
+    {
+      "id": "bf2b1518-6be2-4b61-b387-bc5d72e3c2fe",
+      "startDate": "2025-04-21",
+      "endDate": "2025-04-21",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Ostermontag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Ostermontag",
+        "EN": "Easter Monday",
+        "FR": "Lundi de Pâques",
+        "ES": "Easter Monday",
+        "IT": "Easter Monday"
+      }
+    },
+    {
+      "id": "2dae2e0c-bf77-4b6d-9956-a88e400ac504",
+      "startDate": "2025-05-01",
+      "endDate": "2025-05-01",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Tag der Arbeit"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Tag der Arbeit",
+        "EN": "Labour Day",
+        "FR": "Fête du Travail",
+        "ES": "Labour Day",
+        "IT": "Labour Day"
+      }
+    },
+    {
+      "id": "e2c5baff-1c75-4604-8413-b694a53459d8",
+      "startDate": "2025-05-29",
+      "endDate": "2025-05-29",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Christi Himmelfahrt"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Christi Himmelfahrt",
+        "EN": "Ascension Day",
+        "FR": "Ascension",
+        "ES": "Ascension Day",
+        "IT": "Ascension Day"
+      }
+    },
+    {
+      "id": "ae6f662f-ed24-461b-9617-fea2ff906d45",
+      "startDate": "2025-06-08",
+      "endDate": "2025-06-08",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Pfingsten"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Pfingsten",
+        "EN": "Pentecost",
+        "FR": "Pentecôte",
+        "ES": "Pentecost",
+        "IT": "Pentecost"
+      }
+    },
+    {
+      "id": "eab43344-466e-4e19-8886-3013bb77821a",
+      "startDate": "2025-06-09",
+      "endDate": "2025-06-09",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Pfingstmontag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Pfingstmontag",
+        "EN": "Pentecost Monday",
+        "FR": "Lundi de Pentecôte",
+        "ES": "Pentecost Monday",
+        "IT": "Pentecost Monday"
+      }
+    },
+    {
+      "id": "22bc516a-0b83-454a-9fb8-71f6799d1f8e",
+      "startDate": "2025-07-21",
+      "endDate": "2025-07-21",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Nationalfeiertag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Nationalfeiertag",
+        "EN": "National Day",
+        "FR": "Fête nationale",
+        "ES": "National Day",
+        "IT": "National Day"
+      }
+    },
+    {
+      "id": "6c1155ac-5e3b-4d82-9f91-93eb7fa2977f",
+      "startDate": "2025-08-15",
+      "endDate": "2025-08-15",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Mariä Himmelfahrt"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Mariä Himmelfahrt",
+        "EN": "Assumption Day",
+        "FR": "Assomption",
+        "ES": "Assumption Day",
+        "IT": "Assumption Day"
+      }
+    },
+    {
+      "id": "78116c36-63ae-4320-a4cd-605cea760a59",
+      "startDate": "2025-11-01",
+      "endDate": "2025-11-01",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Allerheiligen"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Allerheiligen",
+        "EN": "All Saints Day",
+        "FR": "Toussaint",
+        "ES": "All Saints Day",
+        "IT": "All Saints Day"
+      }
+    },
+    {
+      "id": "adebe2b2-2a40-42b1-861f-f112e46f42b3",
+      "startDate": "2025-11-11",
+      "endDate": "2025-11-11",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Waffenstillstand"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Waffenstillstand",
+        "EN": "Armistice Day",
+        "FR": "Armistice de 1918",
+        "ES": "Armistice Day",
+        "IT": "Armistice Day"
+      }
+    },
+    {
+      "id": "cbb3e717-90bc-4df1-8b72-e86f370f1284",
+      "startDate": "2025-12-25",
+      "endDate": "2025-12-25",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Weihnachten"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Weihnachten",
+        "EN": "Christmas Day",
+        "FR": "Noël",
+        "ES": "Christmas Day",
+        "IT": "Christmas Day"
+      }
+    },
+    {
+      "id": "ed5688ab-e8f6-48e5-ba56-505962770355",
+      "startDate": "2026-01-01",
+      "endDate": "2026-01-01",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Neujahrstag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Neujahrstag",
+        "EN": "New Year's Day",
+        "FR": "Jour de l'an",
+        "ES": "New Year's Day",
+        "IT": "New Year's Day"
+      }
+    },
+    {
+      "id": "54ce9b56-55bf-4a92-9134-c111bcbd1abf",
+      "startDate": "2026-04-05",
+      "endDate": "2026-04-05",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Ostern"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Ostern",
+        "EN": "Easter",
+        "FR": "Pâques",
+        "ES": "Easter",
+        "IT": "Easter"
+      }
+    },
+    {
+      "id": "63ef9e69-f2d3-4165-9bc4-6bcf5e32a6a0",
+      "startDate": "2026-04-06",
+      "endDate": "2026-04-06",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Ostermontag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Ostermontag",
+        "EN": "Easter Monday",
+        "FR": "Lundi de Pâques",
+        "ES": "Easter Monday",
+        "IT": "Easter Monday"
+      }
+    },
+    {
+      "id": "baa20ef3-b64a-417f-b42d-2cef313b2ef1",
+      "startDate": "2026-05-01",
+      "endDate": "2026-05-01",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Tag der Arbeit"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Tag der Arbeit",
+        "EN": "Labour Day",
+        "FR": "Fête du Travail",
+        "ES": "Labour Day",
+        "IT": "Labour Day"
+      }
+    },
+    {
+      "id": "ce16ed86-4327-42ea-b165-9f787258934b",
+      "startDate": "2026-05-14",
+      "endDate": "2026-05-14",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Christi Himmelfahrt"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Christi Himmelfahrt",
+        "EN": "Ascension Day",
+        "FR": "Ascension",
+        "ES": "Ascension Day",
+        "IT": "Ascension Day"
+      }
+    },
+    {
+      "id": "48a27bde-b58d-4d42-bca5-7175db5dfe30",
+      "startDate": "2026-05-24",
+      "endDate": "2026-05-24",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Pfingsten"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Pfingsten",
+        "EN": "Pentecost",
+        "FR": "Pentecôte",
+        "ES": "Pentecost",
+        "IT": "Pentecost"
+      }
+    },
+    {
+      "id": "fbaf2bb4-46fb-4320-8cf4-30b63744382a",
+      "startDate": "2026-05-25",
+      "endDate": "2026-05-25",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Pfingstmontag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Pfingstmontag",
+        "EN": "Pentecost Monday",
+        "FR": "Lundi de Pentecôte",
+        "ES": "Pentecost Monday",
+        "IT": "Pentecost Monday"
+      }
+    },
+    {
+      "id": "f28f2051-d438-4a0f-952e-656bce7d984f",
+      "startDate": "2026-07-21",
+      "endDate": "2026-07-21",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Nationalfeiertag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Nationalfeiertag",
+        "EN": "National Day",
+        "FR": "Fête nationale",
+        "ES": "National Day",
+        "IT": "National Day"
+      }
+    },
+    {
+      "id": "a13dcc3e-2f9a-4752-af93-f2ba4715e8a5",
+      "startDate": "2026-08-15",
+      "endDate": "2026-08-15",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Mariä Himmelfahrt"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Mariä Himmelfahrt",
+        "EN": "Assumption Day",
+        "FR": "Assomption",
+        "ES": "Assumption Day",
+        "IT": "Assumption Day"
+      }
+    },
+    {
+      "id": "0fad0035-6b77-404a-953d-c66dac014483",
+      "startDate": "2026-11-01",
+      "endDate": "2026-11-01",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Allerheiligen"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Allerheiligen",
+        "EN": "All Saints Day",
+        "FR": "Toussaint",
+        "ES": "All Saints Day",
+        "IT": "All Saints Day"
+      }
+    },
+    {
+      "id": "b1c5d2c0-edfb-4ec7-b81c-68b485497792",
+      "startDate": "2026-11-11",
+      "endDate": "2026-11-11",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Waffenstillstand"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Waffenstillstand",
+        "EN": "Armistice Day",
+        "FR": "Armistice de 1918",
+        "ES": "Armistice Day",
+        "IT": "Armistice Day"
+      }
+    },
+    {
+      "id": "d90e5f53-bc92-4860-bdae-f7e75935848d",
+      "startDate": "2026-12-25",
+      "endDate": "2026-12-25",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Weihnachten"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Weihnachten",
+        "EN": "Christmas Day",
+        "FR": "Noël",
+        "ES": "Christmas Day",
+        "IT": "Christmas Day"
+      }
+    },
+    {
+      "id": "50263674-342f-40a2-b766-04838785bef2",
+      "startDate": "2027-01-01",
+      "endDate": "2027-01-01",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Neujahrstag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Neujahrstag",
+        "EN": "New Year's Day",
+        "FR": "Jour de l'an",
+        "ES": "New Year's Day",
+        "IT": "New Year's Day"
+      }
+    },
+    {
+      "id": "fa2d43d6-cb04-4038-b58b-e24d05c55db7",
+      "startDate": "2027-03-28",
+      "endDate": "2027-03-28",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Ostern"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Ostern",
+        "EN": "Easter",
+        "FR": "Pâques",
+        "ES": "Easter",
+        "IT": "Easter"
+      }
+    },
+    {
+      "id": "3276cc7a-461c-4e1f-82c2-62fc030dc88e",
+      "startDate": "2027-03-29",
+      "endDate": "2027-03-29",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Ostermontag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Ostermontag",
+        "EN": "Easter Monday",
+        "FR": "Lundi de Pâques",
+        "ES": "Easter Monday",
+        "IT": "Easter Monday"
+      }
+    },
+    {
+      "id": "5778ed93-f03f-427b-a93c-2b1d45f52fff",
+      "startDate": "2027-05-01",
+      "endDate": "2027-05-01",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Tag der Arbeit"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Tag der Arbeit",
+        "EN": "Labour Day",
+        "FR": "Fête du Travail",
+        "ES": "Labour Day",
+        "IT": "Labour Day"
+      }
+    },
+    {
+      "id": "62d379f8-32f2-4e89-a4de-8e6201fb2c98",
+      "startDate": "2027-05-06",
+      "endDate": "2027-05-06",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Christi Himmelfahrt"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Christi Himmelfahrt",
+        "EN": "Ascension Day",
+        "FR": "Ascension",
+        "ES": "Ascension Day",
+        "IT": "Ascension Day"
+      }
+    },
+    {
+      "id": "0a43f66e-b2e4-43ef-9b4d-ee554ae05674",
+      "startDate": "2027-05-16",
+      "endDate": "2027-05-16",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Pfingsten"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Pfingsten",
+        "EN": "Pentecost",
+        "FR": "Pentecôte",
+        "ES": "Pentecost",
+        "IT": "Pentecost"
+      }
+    },
+    {
+      "id": "54323103-a61c-4bec-a8a0-5fc2dce02bf9",
+      "startDate": "2027-05-17",
+      "endDate": "2027-05-17",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Pfingstmontag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Pfingstmontag",
+        "EN": "Pentecost Monday",
+        "FR": "Lundi de Pentecôte",
+        "ES": "Pentecost Monday",
+        "IT": "Pentecost Monday"
+      }
+    },
+    {
+      "id": "a568cedc-09ca-498c-8b17-cadf99447681",
+      "startDate": "2027-07-21",
+      "endDate": "2027-07-21",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Nationalfeiertag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Nationalfeiertag",
+        "EN": "National Day",
+        "FR": "Fête nationale",
+        "ES": "National Day",
+        "IT": "National Day"
+      }
+    },
+    {
+      "id": "b7175c3c-2357-4f50-a388-7db50e3f7e3c",
+      "startDate": "2027-08-15",
+      "endDate": "2027-08-15",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Mariä Himmelfahrt"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Mariä Himmelfahrt",
+        "EN": "Assumption Day",
+        "FR": "Assomption",
+        "ES": "Assumption Day",
+        "IT": "Assumption Day"
+      }
+    },
+    {
+      "id": "617a34fa-20e4-4a1b-a395-40b086410472",
+      "startDate": "2027-11-01",
+      "endDate": "2027-11-01",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Allerheiligen"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Allerheiligen",
+        "EN": "All Saints Day",
+        "FR": "Toussaint",
+        "ES": "All Saints Day",
+        "IT": "All Saints Day"
+      }
+    },
+    {
+      "id": "96cfade2-b8b3-4178-95c0-0b0864005185",
+      "startDate": "2027-11-11",
+      "endDate": "2027-11-11",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Waffenstillstand"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Waffenstillstand",
+        "EN": "Armistice Day",
+        "FR": "Armistice de 1918",
+        "ES": "Armistice Day",
+        "IT": "Armistice Day"
+      }
+    },
+    {
+      "id": "ab2fcc8b-e597-4e22-b56f-61dba8876f14",
+      "startDate": "2027-12-25",
+      "endDate": "2027-12-25",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Weihnachten"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Weihnachten",
+        "EN": "Christmas Day",
+        "FR": "Noël",
+        "ES": "Christmas Day",
+        "IT": "Christmas Day"
+      }
+    },
+    {
+      "id": "95f58102-4ac1-4c2c-9945-e3ca937c966f",
+      "startDate": "2028-01-01",
+      "endDate": "2028-01-01",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Neujahrstag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Neujahrstag",
+        "EN": "New Year's Day",
+        "FR": "Jour de l'an",
+        "ES": "New Year's Day",
+        "IT": "New Year's Day"
+      }
+    },
+    {
+      "id": "93ad0bd1-9784-42ef-bb54-09f478bd7874",
+      "startDate": "2028-04-16",
+      "endDate": "2028-04-16",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Ostern"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Ostern",
+        "EN": "Easter",
+        "FR": "Pâques",
+        "ES": "Easter",
+        "IT": "Easter"
+      }
+    },
+    {
+      "id": "e2d5b785-2e4d-4b50-86f5-431a02059aea",
+      "startDate": "2028-04-17",
+      "endDate": "2028-04-17",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Ostermontag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Ostermontag",
+        "EN": "Easter Monday",
+        "FR": "Lundi de Pâques",
+        "ES": "Easter Monday",
+        "IT": "Easter Monday"
+      }
+    },
+    {
+      "id": "6a0ebaea-7428-4123-9443-17ae7cd4dea1",
+      "startDate": "2028-05-01",
+      "endDate": "2028-05-01",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Tag der Arbeit"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Tag der Arbeit",
+        "EN": "Labour Day",
+        "FR": "Fête du Travail",
+        "ES": "Labour Day",
+        "IT": "Labour Day"
+      }
+    },
+    {
+      "id": "177b7a10-f1c4-4ccf-9f15-e3503a76c443",
+      "startDate": "2028-05-25",
+      "endDate": "2028-05-25",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Christi Himmelfahrt"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Christi Himmelfahrt",
+        "EN": "Ascension Day",
+        "FR": "Ascension",
+        "ES": "Ascension Day",
+        "IT": "Ascension Day"
+      }
+    },
+    {
+      "id": "4d2e87cb-3342-48d2-a612-912a3a4681e9",
+      "startDate": "2028-06-04",
+      "endDate": "2028-06-04",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Pfingsten"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Pfingsten",
+        "EN": "Pentecost",
+        "FR": "Pentecôte",
+        "ES": "Pentecost",
+        "IT": "Pentecost"
+      }
+    },
+    {
+      "id": "a207572b-f29c-4f61-a61f-a4cd0ec2cd52",
+      "startDate": "2028-06-05",
+      "endDate": "2028-06-05",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Pfingstmontag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Pfingstmontag",
+        "EN": "Pentecost Monday",
+        "FR": "Lundi de Pentecôte",
+        "ES": "Pentecost Monday",
+        "IT": "Pentecost Monday"
+      }
+    },
+    {
+      "id": "52b49760-cbb4-4e2d-a55b-46b07d91db68",
+      "startDate": "2028-07-21",
+      "endDate": "2028-07-21",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Nationalfeiertag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Nationalfeiertag",
+        "EN": "National Day",
+        "FR": "Fête nationale",
+        "ES": "National Day",
+        "IT": "National Day"
+      }
+    },
+    {
+      "id": "7dd6cb21-5f10-4a9e-8dcd-ec5b14bf80ca",
+      "startDate": "2028-08-15",
+      "endDate": "2028-08-15",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Mariä Himmelfahrt"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Mariä Himmelfahrt",
+        "EN": "Assumption Day",
+        "FR": "Assomption",
+        "ES": "Assumption Day",
+        "IT": "Assumption Day"
+      }
+    },
+    {
+      "id": "010e0c06-0646-4303-96f6-26015d31cee9",
+      "startDate": "2028-11-01",
+      "endDate": "2028-11-01",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Allerheiligen"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Allerheiligen",
+        "EN": "All Saints Day",
+        "FR": "Toussaint",
+        "ES": "All Saints Day",
+        "IT": "All Saints Day"
+      }
+    },
+    {
+      "id": "199bdb30-7b97-444e-b894-80b578c8cf9c",
+      "startDate": "2028-11-11",
+      "endDate": "2028-11-11",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Waffenstillstand"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Waffenstillstand",
+        "EN": "Armistice Day",
+        "FR": "Armistice de 1918",
+        "ES": "Armistice Day",
+        "IT": "Armistice Day"
+      }
+    },
+    {
+      "id": "3aa6fbb5-acb7-4913-ac43-f983db4b886a",
+      "startDate": "2028-12-25",
+      "endDate": "2028-12-25",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Weihnachten"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Weihnachten",
+        "EN": "Christmas Day",
+        "FR": "Noël",
+        "ES": "Christmas Day",
+        "IT": "Christmas Day"
+      }
+    },
+    {
+      "id": "46341586-8dc9-43a1-a93b-82fcde9ec769",
+      "startDate": "2029-01-01",
+      "endDate": "2029-01-01",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Neujahrstag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Neujahrstag",
+        "EN": "New Year's Day",
+        "FR": "Jour de l'an",
+        "ES": "New Year's Day",
+        "IT": "New Year's Day"
+      }
+    },
+    {
+      "id": "e1f43758-2383-4d39-af73-618d72eb02c5",
+      "startDate": "2029-04-01",
+      "endDate": "2029-04-01",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Ostern"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Ostern",
+        "EN": "Easter",
+        "FR": "Pâques",
+        "ES": "Easter",
+        "IT": "Easter"
+      }
+    },
+    {
+      "id": "15e2d419-f199-4f96-b201-ee165b51fa68",
+      "startDate": "2029-04-02",
+      "endDate": "2029-04-02",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Ostermontag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Ostermontag",
+        "EN": "Easter Monday",
+        "FR": "Lundi de Pâques",
+        "ES": "Easter Monday",
+        "IT": "Easter Monday"
+      }
+    },
+    {
+      "id": "f06fa1dd-8b86-4f1d-a9dd-9bfb5a75a560",
+      "startDate": "2029-05-01",
+      "endDate": "2029-05-01",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Tag der Arbeit"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Tag der Arbeit",
+        "EN": "Labour Day",
+        "FR": "Fête du Travail",
+        "ES": "Labour Day",
+        "IT": "Labour Day"
+      }
+    },
+    {
+      "id": "d88932bc-092e-48a0-904a-3a7cb4ac7af9",
+      "startDate": "2029-05-10",
+      "endDate": "2029-05-10",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Christi Himmelfahrt"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Christi Himmelfahrt",
+        "EN": "Ascension Day",
+        "FR": "Ascension",
+        "ES": "Ascension Day",
+        "IT": "Ascension Day"
+      }
+    },
+    {
+      "id": "5aeafbde-9497-40f7-a135-7bae321a033b",
+      "startDate": "2029-05-20",
+      "endDate": "2029-05-20",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Pfingsten"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Pfingsten",
+        "EN": "Pentecost",
+        "FR": "Pentecôte",
+        "ES": "Pentecost",
+        "IT": "Pentecost"
+      }
+    },
+    {
+      "id": "8e1a0f00-7415-4379-82b3-8ac0f980b638",
+      "startDate": "2029-05-21",
+      "endDate": "2029-05-21",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Pfingstmontag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Pfingstmontag",
+        "EN": "Pentecost Monday",
+        "FR": "Lundi de Pentecôte",
+        "ES": "Pentecost Monday",
+        "IT": "Pentecost Monday"
+      }
+    },
+    {
+      "id": "98ce63f0-e22e-48df-a52d-699c02beb05f",
+      "startDate": "2029-07-21",
+      "endDate": "2029-07-21",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Nationalfeiertag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Nationalfeiertag",
+        "EN": "National Day",
+        "FR": "Fête nationale",
+        "ES": "National Day",
+        "IT": "National Day"
+      }
+    },
+    {
+      "id": "e67f61f1-0d6a-4185-9277-fba96c1ca17b",
+      "startDate": "2029-08-15",
+      "endDate": "2029-08-15",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Mariä Himmelfahrt"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Mariä Himmelfahrt",
+        "EN": "Assumption Day",
+        "FR": "Assomption",
+        "ES": "Assumption Day",
+        "IT": "Assumption Day"
+      }
+    },
+    {
+      "id": "6a422a7d-769f-4b76-888e-2717a87d7cd0",
+      "startDate": "2029-11-01",
+      "endDate": "2029-11-01",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Allerheiligen"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Allerheiligen",
+        "EN": "All Saints Day",
+        "FR": "Toussaint",
+        "ES": "All Saints Day",
+        "IT": "All Saints Day"
+      }
+    },
+    {
+      "id": "32ec5ca5-48b8-4dc1-898c-f5a0d1f64673",
+      "startDate": "2029-11-11",
+      "endDate": "2029-11-11",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Waffenstillstand"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Waffenstillstand",
+        "EN": "Armistice Day",
+        "FR": "Armistice de 1918",
+        "ES": "Armistice Day",
+        "IT": "Armistice Day"
+      }
+    },
+    {
+      "id": "1c129dfd-c260-440a-9aac-0d21d8e3b984",
+      "startDate": "2029-12-25",
+      "endDate": "2029-12-25",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Weihnachten"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Weihnachten",
+        "EN": "Christmas Day",
+        "FR": "Noël",
+        "ES": "Christmas Day",
+        "IT": "Christmas Day"
+      }
+    }
+  ],
+  "school_holidays": [
+    {
+      "id": "6d018395-d8d0-432d-bf07-f4871fe9d966",
+      "startDate": "2019-12-23",
+      "endDate": "2020-01-05",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Winterferien"
+        }
+      ],
+      "regionalScope": "Regional",
+      "temporalScope": "FullDay",
+      "nationwide": false,
+      "groups": [
+        {
+          "code": "BE-NL",
+          "shortName": "NL"
+        }
+      ],
+      "names": {
+        "DE": "Winterferien",
+        "EN": "Winter Holidays",
+        "FR": "Vacances d'hiver (Noël)",
+        "ES": "Winter Holidays",
+        "IT": "Winter Holidays"
+      }
+    },
+    {
+      "id": "dfba6b14-659f-470f-a319-a0a07ad7716f",
+      "startDate": "2019-12-23",
+      "endDate": "2020-01-03",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Weihnachtsferien"
+        }
+      ],
+      "regionalScope": "Regional",
+      "temporalScope": "FullDay",
+      "nationwide": false,
+      "groups": [
+        {
+          "code": "BE-DE",
+          "shortName": "DE"
+        }
+      ],
+      "names": {
+        "DE": "Weihnachtsferien",
+        "EN": "Winter Holidays",
+        "FR": "Vacances d'hiver (Noël)",
+        "ES": "Winter Holidays",
+        "IT": "Winter Holidays"
+      }
+    },
+    {
+      "id": "f47f8f20-a951-4859-a54e-b77e486fe17b",
+      "startDate": "2019-12-23",
+      "endDate": "2020-01-03",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Winterferien"
+        }
+      ],
+      "regionalScope": "Regional",
+      "temporalScope": "FullDay",
+      "nationwide": false,
+      "groups": [
+        {
+          "code": "BE-FR",
+          "shortName": "FR"
+        }
+      ],
+      "names": {
+        "DE": "Winterferien",
+        "EN": "Winter Holidays",
+        "FR": "Vacances d'hiver (Noël)",
+        "ES": "Winter Holidays",
+        "IT": "Winter Holidays"
+      }
+    },
+    {
+      "id": "b455d9a1-14b2-41af-b970-50ef56204d70",
+      "startDate": "2020-02-24",
+      "endDate": "2020-03-01",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Karnevalsferien"
+        }
+      ],
+      "regionalScope": "Regional",
+      "temporalScope": "FullDay",
+      "nationwide": false,
+      "groups": [
+        {
+          "code": "BE-NL",
+          "shortName": "NL"
+        }
+      ],
+      "names": {
+        "DE": "Karnevalsferien",
+        "EN": "Carnival Holidays",
+        "FR": "Congé de détente (Carnaval)",
+        "ES": "Carnival Holidays",
+        "IT": "Carnival Holidays"
+      }
+    },
+    {
+      "id": "d8ceec7d-f6d3-47fd-90b1-e574115aceb6",
+      "startDate": "2020-02-24",
+      "endDate": "2020-02-28",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Karnevalsferien"
+        }
+      ],
+      "regionalScope": "Regional",
+      "temporalScope": "FullDay",
+      "nationwide": false,
+      "groups": [
+        {
+          "code": "BE-DE",
+          "shortName": "DE"
+        }
+      ],
+      "names": {
+        "DE": "Karnevalsferien",
+        "EN": "Carnival Holidays",
+        "FR": "Congé de détente (Carnaval)",
+        "ES": "Carnival Holidays",
+        "IT": "Carnival Holidays"
+      }
+    },
+    {
+      "id": "496fd5c7-85b4-4fc9-8baa-269bf601cb0f",
+      "startDate": "2020-04-06",
+      "endDate": "2020-04-19",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Frühjahrsferien"
+        }
+      ],
+      "regionalScope": "Regional",
+      "temporalScope": "FullDay",
+      "nationwide": false,
+      "groups": [
+        {
+          "code": "BE-NL",
+          "shortName": "NL"
+        }
+      ],
+      "names": {
+        "DE": "Frühjahrsferien",
+        "EN": "Spring Holidays",
+        "FR": "Vacances de printemps (Pâques)",
+        "ES": "Spring Holidays",
+        "IT": "Spring Holidays"
+      }
+    },
+    {
+      "id": "76c72ab2-f45f-4f09-824b-a8b4f6731c87",
+      "startDate": "2020-04-06",
+      "endDate": "2020-04-17",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Frühjahrsferien"
+        }
+      ],
+      "regionalScope": "Regional",
+      "temporalScope": "FullDay",
+      "nationwide": false,
+      "groups": [
+        {
+          "code": "BE-FR",
+          "shortName": "FR"
+        }
+      ],
+      "names": {
+        "DE": "Frühjahrsferien",
+        "EN": "Spring Holidays",
+        "FR": "Vacances de printemps (Pâques)",
+        "ES": "Spring Holidays",
+        "IT": "Spring Holidays"
+      }
+    },
+    {
+      "id": "baa0abfa-e5fe-494c-b384-1cd9d84e1973",
+      "startDate": "2020-04-06",
+      "endDate": "2020-04-17",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Osterferien"
+        }
+      ],
+      "regionalScope": "Regional",
+      "temporalScope": "FullDay",
+      "nationwide": false,
+      "groups": [
+        {
+          "code": "BE-DE",
+          "shortName": "DE"
+        }
+      ],
+      "names": {
+        "DE": "Osterferien",
+        "EN": "Spring Holidays",
+        "FR": "Vacances de printemps (Pâques)",
+        "ES": "Spring Holidays",
+        "IT": "Spring Holidays"
+      }
+    },
+    {
+      "id": "03c13e8f-118e-493f-9771-225abd19a463",
+      "startDate": "2020-07-01",
+      "endDate": "2020-08-31",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Sommerferien"
+        }
+      ],
+      "regionalScope": "Regional",
+      "temporalScope": "FullDay",
+      "nationwide": false,
+      "groups": [
+        {
+          "code": "BE-FR",
+          "shortName": "FR"
+        }
+      ],
+      "names": {
+        "DE": "Sommerferien",
+        "EN": "Summer Holidays",
+        "FR": "Vacances d'été",
+        "ES": "Summer Holidays",
+        "IT": "Summer Holidays"
+      }
+    },
+    {
+      "id": "3641e30b-9ad5-4025-9aec-ad66fc2783d4",
+      "startDate": "2020-07-01",
+      "endDate": "2020-08-30",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Sommerferien"
+        }
+      ],
+      "regionalScope": "Regional",
+      "temporalScope": "FullDay",
+      "nationwide": false,
+      "groups": [
+        {
+          "code": "BE-DE",
+          "shortName": "DE"
+        }
+      ],
+      "names": {
+        "DE": "Sommerferien",
+        "EN": "Summer Holidays",
+        "FR": "Vacances d'été",
+        "ES": "Summer Holidays",
+        "IT": "Summer Holidays"
+      }
+    },
+    {
+      "id": "8a8e4a94-fe92-401d-9750-1ced7114a5d1",
+      "startDate": "2020-09-27",
+      "endDate": "2020-09-27",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Tag der Französischsprachigen Gemeinschaft"
+        }
+      ],
+      "regionalScope": "Regional",
+      "temporalScope": "FullDay",
+      "nationwide": false,
+      "groups": [
+        {
+          "code": "BE-FR",
+          "shortName": "FR"
+        }
+      ],
+      "names": {
+        "DE": "Tag der Französischsprachigen Gemeinschaft",
+        "EN": "Day of the French-speaking Community",
+        "FR": "Fête de la Communauté française",
+        "ES": "Day of the French-speaking Community",
+        "IT": "Day of the French-speaking Community"
+      }
+    },
+    {
+      "id": "56d19234-74f2-46fd-be32-531134f2a05d",
+      "startDate": "2020-11-02",
+      "endDate": "2020-11-15",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Allerheiligenferien"
+        }
+      ],
+      "regionalScope": "Regional",
+      "temporalScope": "FullDay",
+      "nationwide": false,
+      "groups": [
+        {
+          "code": "BE-NL",
+          "shortName": "NL"
+        }
+      ],
+      "names": {
+        "DE": "Allerheiligenferien",
+        "EN": "All Saints Holidays",
+        "FR": "Congé d'automne (Toussaint)",
+        "ES": "All Saints Holidays",
+        "IT": "All Saints Holidays"
+      }
+    },
+    {
+      "id": "924854d7-c56c-4614-8c0c-8d67e2af67d3",
+      "startDate": "2020-11-02",
+      "endDate": "2020-11-06",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Allerheiligenferien"
+        }
+      ],
+      "regionalScope": "Regional",
+      "temporalScope": "FullDay",
+      "nationwide": false,
+      "groups": [
+        {
+          "code": "BE-DE",
+          "shortName": "DE"
+        }
+      ],
+      "names": {
+        "DE": "Allerheiligenferien",
+        "EN": "All Saints Holidays",
+        "FR": "Congé d'automne (Toussaint)",
+        "ES": "All Saints Holidays",
+        "IT": "All Saints Holidays"
+      }
+    },
+    {
+      "id": "e39e8580-2ce1-4eb5-9eb1-da63921a11fa",
+      "startDate": "2020-11-15",
+      "endDate": "2020-11-15",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Tag der Deutschsprachigen Gemeinschaft"
+        }
+      ],
+      "regionalScope": "Regional",
+      "temporalScope": "FullDay",
+      "nationwide": false,
+      "groups": [
+        {
+          "code": "BE-DE",
+          "shortName": "DE"
+        }
+      ],
+      "names": {
+        "DE": "Tag der Deutschsprachigen Gemeinschaft",
+        "EN": "Day of the German-speaking Community",
+        "FR": "Jour de la Communauté Germanophone",
+        "ES": "Day of the German-speaking Community",
+        "IT": "Day of the German-speaking Community"
+      }
+    },
+    {
+      "id": "0014afe1-4321-41dc-97e2-e05d3f0b3b2f",
+      "startDate": "2020-12-21",
+      "endDate": "2021-01-03",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Winterferien"
+        }
+      ],
+      "regionalScope": "Regional",
+      "temporalScope": "FullDay",
+      "nationwide": false,
+      "groups": [
+        {
+          "code": "BE-NL",
+          "shortName": "NL"
+        }
+      ],
+      "names": {
+        "DE": "Winterferien",
+        "EN": "Winter Holidays",
+        "FR": "Vacances d'hiver (Noël)",
+        "ES": "Winter Holidays",
+        "IT": "Winter Holidays"
+      }
+    },
+    {
+      "id": "95b2f5f8-675b-4909-9b98-2c8e2537812a",
+      "startDate": "2020-12-21",
+      "endDate": "2021-01-01",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Weihnachtsferien"
+        }
+      ],
+      "regionalScope": "Regional",
+      "temporalScope": "FullDay",
+      "nationwide": false,
+      "groups": [
+        {
+          "code": "BE-DE",
+          "shortName": "DE"
+        }
+      ],
+      "names": {
+        "DE": "Weihnachtsferien",
+        "EN": "Winter Holidays",
+        "FR": "Vacances d'hiver (Noël)",
+        "ES": "Winter Holidays",
+        "IT": "Winter Holidays"
+      }
+    },
+    {
+      "id": "b6d31dd6-c038-49bb-a97d-70944c4ec88e",
+      "startDate": "2020-12-21",
+      "endDate": "2021-01-01",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Winterferien"
+        }
+      ],
+      "regionalScope": "Regional",
+      "temporalScope": "FullDay",
+      "nationwide": false,
+      "groups": [
+        {
+          "code": "BE-FR",
+          "shortName": "FR"
+        }
+      ],
+      "names": {
+        "DE": "Winterferien",
+        "EN": "Winter Holidays",
+        "FR": "Vacances d'hiver (Noël)",
+        "ES": "Winter Holidays",
+        "IT": "Winter Holidays"
+      }
+    },
+    {
+      "id": "094f56b2-73a7-47e5-97b1-f3330db06f0d",
+      "startDate": "2021-02-15",
+      "endDate": "2021-02-21",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Karnevalsferien"
+        }
+      ],
+      "regionalScope": "Regional",
+      "temporalScope": "FullDay",
+      "nationwide": false,
+      "groups": [
+        {
+          "code": "BE-NL",
+          "shortName": "NL"
+        }
+      ],
+      "names": {
+        "DE": "Karnevalsferien",
+        "EN": "Carnival Holidays",
+        "FR": "Congé de détente (Carnaval)",
+        "ES": "Carnival Holidays",
+        "IT": "Carnival Holidays"
+      }
+    },
+    {
+      "id": "86e5be4e-5a9b-448e-bec0-ef6040bd6801",
+      "startDate": "2021-02-15",
+      "endDate": "2021-02-19",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Karnevalsferien"
+        }
+      ],
+      "regionalScope": "Regional",
+      "temporalScope": "FullDay",
+      "nationwide": false,
+      "groups": [
+        {
+          "code": "BE-FR",
+          "shortName": "FR"
+        }
+      ],
+      "names": {
+        "DE": "Karnevalsferien",
+        "EN": "Carnival Holidays",
+        "FR": "Congé de détente (Carnaval)",
+        "ES": "Carnival Holidays",
+        "IT": "Carnival Holidays"
+      }
+    },
+    {
+      "id": "4092cbf8-98e3-4e66-8d11-46fcd1434558",
+      "startDate": "2021-04-05",
+      "endDate": "2021-04-18",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Frühjahrsferien"
+        }
+      ],
+      "regionalScope": "Regional",
+      "temporalScope": "FullDay",
+      "nationwide": false,
+      "groups": [
+        {
+          "code": "BE-NL",
+          "shortName": "NL"
+        }
+      ],
+      "names": {
+        "DE": "Frühjahrsferien",
+        "EN": "Spring Holidays",
+        "FR": "Vacances de printemps (Pâques)",
+        "ES": "Spring Holidays",
+        "IT": "Spring Holidays"
+      }
+    },
+    {
+      "id": "80fd72bf-9a5f-4a4c-9e87-196e3c66c6bc",
+      "startDate": "2021-04-05",
+      "endDate": "2021-04-16",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Frühjahrsferien"
+        }
+      ],
+      "regionalScope": "Regional",
+      "temporalScope": "FullDay",
+      "nationwide": false,
+      "groups": [
+        {
+          "code": "BE-FR",
+          "shortName": "FR"
+        }
+      ],
+      "names": {
+        "DE": "Frühjahrsferien",
+        "EN": "Spring Holidays",
+        "FR": "Vacances de printemps (Pâques)",
+        "ES": "Spring Holidays",
+        "IT": "Spring Holidays"
+      }
+    },
+    {
+      "id": "54dabd37-e2d0-4c5d-8db7-c5f551e5c29a",
+      "startDate": "2021-04-06",
+      "endDate": "2021-04-16",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Osterferien"
+        }
+      ],
+      "regionalScope": "Regional",
+      "temporalScope": "FullDay",
+      "nationwide": false,
+      "groups": [
+        {
+          "code": "BE-DE",
+          "shortName": "DE"
+        }
+      ],
+      "names": {
+        "DE": "Osterferien",
+        "EN": "Spring Holidays",
+        "FR": "Vacances de printemps (Pâques)",
+        "ES": "Spring Holidays",
+        "IT": "Spring Holidays"
+      }
+    },
+    {
+      "id": "231c1fe4-2fad-40e2-b3a0-5e3a3d11b1ae",
+      "startDate": "2021-07-01",
+      "endDate": "2021-08-31",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Sommerferien"
+        }
+      ],
+      "regionalScope": "Regional",
+      "temporalScope": "FullDay",
+      "nationwide": false,
+      "groups": [
+        {
+          "code": "BE-DE",
+          "shortName": "DE"
+        }
+      ],
+      "names": {
+        "DE": "Sommerferien",
+        "EN": "Summer Holidays",
+        "FR": "Vacances d'été",
+        "ES": "Summer Holidays",
+        "IT": "Summer Holidays"
+      }
+    },
+    {
+      "id": "60604493-13cf-43d8-95fd-a233f4ab1eab",
+      "startDate": "2021-09-27",
+      "endDate": "2021-09-27",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Tag der Französischsprachigen Gemeinschaft"
+        }
+      ],
+      "regionalScope": "Regional",
+      "temporalScope": "FullDay",
+      "nationwide": false,
+      "groups": [
+        {
+          "code": "BE-FR",
+          "shortName": "FR"
+        }
+      ],
+      "names": {
+        "DE": "Tag der Französischsprachigen Gemeinschaft",
+        "EN": "Day of the French-speaking Community",
+        "FR": "Fête de la Communauté française",
+        "ES": "Day of the French-speaking Community",
+        "IT": "Day of the French-speaking Community"
+      }
+    },
+    {
+      "id": "1ac8936c-d74b-42bb-ab59-47bd2f3ae401",
+      "startDate": "2021-11-01",
+      "endDate": "2021-11-05",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Allerheiligenferien"
+        }
+      ],
+      "regionalScope": "Regional",
+      "temporalScope": "FullDay",
+      "nationwide": false,
+      "groups": [
+        {
+          "code": "BE-FR",
+          "shortName": "FR"
+        }
+      ],
+      "names": {
+        "DE": "Allerheiligenferien",
+        "EN": "All Saints Holidays",
+        "FR": "Congé d'automne (Toussaint)",
+        "ES": "All Saints Holidays",
+        "IT": "All Saints Holidays"
+      }
+    },
+    {
+      "id": "8002d38e-f087-452f-a17e-b7afd760b935",
+      "startDate": "2021-11-01",
+      "endDate": "2021-11-07",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Allerheiligenferien"
+        }
+      ],
+      "regionalScope": "Regional",
+      "temporalScope": "FullDay",
+      "nationwide": false,
+      "groups": [
+        {
+          "code": "BE-NL",
+          "shortName": "NL"
+        }
+      ],
+      "names": {
+        "DE": "Allerheiligenferien",
+        "EN": "All Saints Holidays",
+        "FR": "Congé d'automne (Toussaint)",
+        "ES": "All Saints Holidays",
+        "IT": "All Saints Holidays"
+      }
+    },
+    {
+      "id": "65a3b743-be98-4328-a573-a678c3fa6be6",
+      "startDate": "2021-11-15",
+      "endDate": "2021-11-15",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Tag der Deutschsprachigen Gemeinschaft"
+        }
+      ],
+      "regionalScope": "Regional",
+      "temporalScope": "FullDay",
+      "nationwide": false,
+      "groups": [
+        {
+          "code": "BE-DE",
+          "shortName": "DE"
+        }
+      ],
+      "names": {
+        "DE": "Tag der Deutschsprachigen Gemeinschaft",
+        "EN": "Day of the German-speaking Community",
+        "FR": "Jour de la Communauté Germanophone",
+        "ES": "Day of the German-speaking Community",
+        "IT": "Day of the German-speaking Community"
+      }
+    },
+    {
+      "id": "79936f70-8370-4172-b634-944ce2e4e2fa",
+      "startDate": "2021-12-24",
+      "endDate": "2022-01-09",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Winterferien"
+        }
+      ],
+      "regionalScope": "Regional",
+      "temporalScope": "FullDay",
+      "nationwide": false,
+      "groups": [
+        {
+          "code": "BE-NL",
+          "shortName": "NL"
+        }
+      ],
+      "names": {
+        "DE": "Winterferien",
+        "EN": "Winter Holidays",
+        "FR": "Vacances d'hiver (Noël)",
+        "ES": "Winter Holidays",
+        "IT": "Winter Holidays"
+      }
+    },
+    {
+      "id": "b0377d53-4cf1-4086-a621-e7d38b2a8356",
+      "startDate": "2021-12-27",
+      "endDate": "2022-01-07",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Weihnachtsferien"
+        }
+      ],
+      "regionalScope": "Regional",
+      "temporalScope": "FullDay",
+      "nationwide": false,
+      "groups": [
+        {
+          "code": "BE-DE",
+          "shortName": "DE"
+        }
+      ],
+      "names": {
+        "DE": "Weihnachtsferien",
+        "EN": "Winter Holidays",
+        "FR": "Vacances d'hiver (Noël)",
+        "ES": "Winter Holidays",
+        "IT": "Winter Holidays"
+      }
+    },
+    {
+      "id": "b7e11df5-579b-471b-bcf8-cd0dce7d26a1",
+      "startDate": "2021-12-27",
+      "endDate": "2022-01-09",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Winterferien"
+        }
+      ],
+      "regionalScope": "Regional",
+      "temporalScope": "FullDay",
+      "nationwide": false,
+      "groups": [
+        {
+          "code": "BE-FR",
+          "shortName": "FR"
+        }
+      ],
+      "names": {
+        "DE": "Winterferien",
+        "EN": "Winter Holidays",
+        "FR": "Vacances d'hiver (Noël)",
+        "ES": "Winter Holidays",
+        "IT": "Winter Holidays"
+      }
+    },
+    {
+      "id": "2db655c9-6ff6-45cd-bf32-ffa94b6aab56",
+      "startDate": "2022-02-28",
+      "endDate": "2022-03-06",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Karnevalsferien"
+        }
+      ],
+      "regionalScope": "Regional",
+      "temporalScope": "FullDay",
+      "nationwide": false,
+      "groups": [
+        {
+          "code": "BE-NL",
+          "shortName": "NL"
+        }
+      ],
+      "names": {
+        "DE": "Karnevalsferien",
+        "EN": "Carnival Holidays",
+        "FR": "Congé de détente (Carnaval)",
+        "ES": "Carnival Holidays",
+        "IT": "Carnival Holidays"
+      }
+    },
+    {
+      "id": "8c039672-d15f-49a4-81f4-ff180f9ffd34",
+      "startDate": "2022-02-28",
+      "endDate": "2022-03-04",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Karnevalsferien"
+        }
+      ],
+      "regionalScope": "Regional",
+      "temporalScope": "FullDay",
+      "nationwide": false,
+      "groups": [
+        {
+          "code": "BE-FR",
+          "shortName": "FR"
+        }
+      ],
+      "names": {
+        "DE": "Karnevalsferien",
+        "EN": "Carnival Holidays",
+        "FR": "Congé de détente (Carnaval)",
+        "ES": "Carnival Holidays",
+        "IT": "Carnival Holidays"
+      }
+    },
+    {
+      "id": "3bb37b15-1fc0-4eb5-9fe4-37a49a0a4f0e",
+      "startDate": "2022-04-04",
+      "endDate": "2022-04-15",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Osterferien"
+        }
+      ],
+      "regionalScope": "Regional",
+      "temporalScope": "FullDay",
+      "nationwide": false,
+      "groups": [
+        {
+          "code": "BE-DE",
+          "shortName": "DE"
+        }
+      ],
+      "names": {
+        "DE": "Osterferien",
+        "EN": "Spring Holidays",
+        "FR": "Vacances de printemps (Pâques)",
+        "ES": "Spring Holidays",
+        "IT": "Spring Holidays"
+      }
+    },
+    {
+      "id": "43e3942c-d459-4b1f-ad2f-a41b3efe2041",
+      "startDate": "2022-04-04",
+      "endDate": "2022-04-15",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Frühjahrsferien"
+        }
+      ],
+      "regionalScope": "Regional",
+      "temporalScope": "FullDay",
+      "nationwide": false,
+      "groups": [
+        {
+          "code": "BE-FR",
+          "shortName": "FR"
+        }
+      ],
+      "names": {
+        "DE": "Frühjahrsferien",
+        "EN": "Spring Holidays",
+        "FR": "Vacances de printemps (Pâques)",
+        "ES": "Spring Holidays",
+        "IT": "Spring Holidays"
+      }
+    },
+    {
+      "id": "51eee07b-b1eb-4ea2-807c-4d148e073dfd",
+      "startDate": "2022-04-04",
+      "endDate": "2022-04-18",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Frühjahrsferien"
+        }
+      ],
+      "regionalScope": "Regional",
+      "temporalScope": "FullDay",
+      "nationwide": false,
+      "groups": [
+        {
+          "code": "BE-NL",
+          "shortName": "NL"
+        }
+      ],
+      "names": {
+        "DE": "Frühjahrsferien",
+        "EN": "Spring Holidays",
+        "FR": "Vacances de printemps (Pâques)",
+        "ES": "Spring Holidays",
+        "IT": "Spring Holidays"
+      }
+    },
+    {
+      "id": "47817b89-3767-46bc-8f78-6e24119742e6",
+      "startDate": "2022-07-01",
+      "endDate": "2022-08-31",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Sommerferien"
+        }
+      ],
+      "regionalScope": "Regional",
+      "temporalScope": "FullDay",
+      "nationwide": false,
+      "groups": [
+        {
+          "code": "BE-DE",
+          "shortName": "DE"
+        }
+      ],
+      "names": {
+        "DE": "Sommerferien",
+        "EN": "Summer Holidays",
+        "FR": "Vacances d'été",
+        "ES": "Summer Holidays",
+        "IT": "Summer Holidays"
+      }
+    },
+    {
+      "id": "f9a31448-a3f8-49d3-b46b-db200dc98f7a",
+      "startDate": "2022-07-01",
+      "endDate": "2022-08-28",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Sommerferien"
+        }
+      ],
+      "regionalScope": "Regional",
+      "temporalScope": "FullDay",
+      "nationwide": false,
+      "groups": [
+        {
+          "code": "BE-FR",
+          "shortName": "FR"
+        }
+      ],
+      "names": {
+        "DE": "Sommerferien",
+        "EN": "Summer Holidays",
+        "FR": "Vacances d'été",
+        "ES": "Summer Holidays",
+        "IT": "Summer Holidays"
+      }
+    },
+    {
+      "id": "07b51fac-63a4-4849-bbec-59ca8f1c49a3",
+      "startDate": "2022-09-27",
+      "endDate": "2022-09-27",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Tag der Französischsprachigen Gemeinschaft"
+        }
+      ],
+      "regionalScope": "Regional",
+      "temporalScope": "FullDay",
+      "nationwide": false,
+      "groups": [
+        {
+          "code": "BE-FR",
+          "shortName": "FR"
+        }
+      ],
+      "names": {
+        "DE": "Tag der Französischsprachigen Gemeinschaft",
+        "EN": "Day of the French-speaking Community",
+        "FR": "Fête de la Communauté française",
+        "ES": "Day of the French-speaking Community",
+        "IT": "Day of the French-speaking Community"
+      }
+    },
+    {
+      "id": "7a6be322-2c1c-4827-b69f-2ffb3098aeba",
+      "startDate": "2022-10-24",
+      "endDate": "2022-11-04",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Allerheiligenferien"
+        }
+      ],
+      "regionalScope": "Regional",
+      "temporalScope": "FullDay",
+      "nationwide": false,
+      "groups": [
+        {
+          "code": "BE-FR",
+          "shortName": "FR"
+        }
+      ],
+      "names": {
+        "DE": "Allerheiligenferien",
+        "EN": "All Saints Holidays",
+        "FR": "Congé d'automne (Toussaint)",
+        "ES": "All Saints Holidays",
+        "IT": "All Saints Holidays"
+      }
+    },
+    {
+      "id": "72c71a8c-2664-4783-996f-c803b9bee472",
+      "startDate": "2022-10-31",
+      "endDate": "2022-11-06",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Allerheiligenferien"
+        }
+      ],
+      "regionalScope": "Regional",
+      "temporalScope": "FullDay",
+      "nationwide": false,
+      "groups": [
+        {
+          "code": "BE-DE",
+          "shortName": "DE"
+        }
+      ],
+      "names": {
+        "DE": "Allerheiligenferien",
+        "EN": "All Saints Holidays",
+        "FR": "Congé d'automne (Toussaint)",
+        "ES": "All Saints Holidays",
+        "IT": "All Saints Holidays"
+      }
+    },
+    {
+      "id": "f357b3f1-9b31-4722-bc26-04d78e45f80e",
+      "startDate": "2022-11-15",
+      "endDate": "2022-11-15",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Tag der Deutschsprachigen Gemeinschaft"
+        }
+      ],
+      "regionalScope": "Regional",
+      "temporalScope": "FullDay",
+      "nationwide": false,
+      "groups": [
+        {
+          "code": "BE-DE",
+          "shortName": "DE"
+        }
+      ],
+      "names": {
+        "DE": "Tag der Deutschsprachigen Gemeinschaft",
+        "EN": "Day of the German-speaking Community",
+        "FR": "Jour de la Communauté Germanophone",
+        "ES": "Day of the German-speaking Community",
+        "IT": "Day of the German-speaking Community"
+      }
+    },
+    {
+      "id": "6632adf0-8ffa-4315-8038-f3abc5e5905e",
+      "startDate": "2022-12-26",
+      "endDate": "2023-01-08",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Winterferien"
+        }
+      ],
+      "regionalScope": "Regional",
+      "temporalScope": "FullDay",
+      "nationwide": false,
+      "groups": [
+        {
+          "code": "BE-NL",
+          "shortName": "NL"
+        }
+      ],
+      "names": {
+        "DE": "Winterferien",
+        "EN": "Winter Holidays",
+        "FR": "Vacances d'hiver (Noël)",
+        "ES": "Winter Holidays",
+        "IT": "Winter Holidays"
+      }
+    },
+    {
+      "id": "c082ea5e-6026-4799-817f-430c588d9f6c",
+      "startDate": "2022-12-26",
+      "endDate": "2023-01-08",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Weihnachtsferien"
+        }
+      ],
+      "regionalScope": "Regional",
+      "temporalScope": "FullDay",
+      "nationwide": false,
+      "groups": [
+        {
+          "code": "BE-DE",
+          "shortName": "DE"
+        }
+      ],
+      "names": {
+        "DE": "Weihnachtsferien",
+        "EN": "Winter Holidays",
+        "FR": "Vacances d'hiver (Noël)",
+        "ES": "Winter Holidays",
+        "IT": "Winter Holidays"
+      }
+    },
+    {
+      "id": "e6b7d59c-7d0e-455f-953b-9fdb4036385c",
+      "startDate": "2022-12-26",
+      "endDate": "2023-01-06",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Winterferien"
+        }
+      ],
+      "regionalScope": "Regional",
+      "temporalScope": "FullDay",
+      "nationwide": false,
+      "groups": [
+        {
+          "code": "BE-FR",
+          "shortName": "FR"
+        }
+      ],
+      "names": {
+        "DE": "Winterferien",
+        "EN": "Winter Holidays",
+        "FR": "Vacances d'hiver (Noël)",
+        "ES": "Winter Holidays",
+        "IT": "Winter Holidays"
+      }
+    },
+    {
+      "id": "0dae1086-6f1a-46e3-aa0b-cf1f9ab3e96b",
+      "startDate": "2023-02-20",
+      "endDate": "2023-03-03",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Karnevalsferien"
+        }
+      ],
+      "regionalScope": "Regional",
+      "temporalScope": "FullDay",
+      "nationwide": false,
+      "groups": [
+        {
+          "code": "BE-FR",
+          "shortName": "FR"
+        }
+      ],
+      "names": {
+        "DE": "Karnevalsferien",
+        "EN": "Carnival Holidays",
+        "FR": "Congé de détente (Carnaval)",
+        "ES": "Carnival Holidays",
+        "IT": "Carnival Holidays"
+      }
+    },
+    {
+      "id": "779229e6-bbb1-43ea-93a8-5a7f3418e3e1",
+      "startDate": "2023-02-20",
+      "endDate": "2023-02-26",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Karnevalsferien"
+        }
+      ],
+      "regionalScope": "Regional",
+      "temporalScope": "FullDay",
+      "nationwide": false,
+      "groups": [
+        {
+          "code": "BE-DE",
+          "shortName": "DE"
+        }
+      ],
+      "names": {
+        "DE": "Karnevalsferien",
+        "EN": "Carnival Holidays",
+        "FR": "Congé de détente (Carnaval)",
+        "ES": "Carnival Holidays",
+        "IT": "Carnival Holidays"
+      }
+    },
+    {
+      "id": "05b574c2-9e3f-45c5-814b-5ccc150a4e99",
+      "startDate": "2023-04-03",
+      "endDate": "2023-04-16",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Frühjahrsferien"
+        }
+      ],
+      "regionalScope": "Regional",
+      "temporalScope": "FullDay",
+      "nationwide": false,
+      "groups": [
+        {
+          "code": "BE-NL",
+          "shortName": "NL"
+        }
+      ],
+      "names": {
+        "DE": "Frühjahrsferien",
+        "EN": "Spring Holidays",
+        "FR": "Vacances de printemps (Pâques)",
+        "ES": "Spring Holidays",
+        "IT": "Spring Holidays"
+      }
+    },
+    {
+      "id": "570b27f9-c6bc-45f2-940a-dd7c866b60f9",
+      "startDate": "2023-04-03",
+      "endDate": "2023-04-16",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Osterferien"
+        }
+      ],
+      "regionalScope": "Regional",
+      "temporalScope": "FullDay",
+      "nationwide": false,
+      "groups": [
+        {
+          "code": "BE-DE",
+          "shortName": "DE"
+        }
+      ],
+      "names": {
+        "DE": "Osterferien",
+        "EN": "Spring Holidays",
+        "FR": "Vacances de printemps (Pâques)",
+        "ES": "Spring Holidays",
+        "IT": "Spring Holidays"
+      }
+    },
+    {
+      "id": "d7a1cdb0-7717-4fc9-8199-ca1368cd51b9",
+      "startDate": "2023-05-01",
+      "endDate": "2023-05-12",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Frühjahrsferien"
+        }
+      ],
+      "regionalScope": "Regional",
+      "temporalScope": "FullDay",
+      "nationwide": false,
+      "groups": [
+        {
+          "code": "BE-FR",
+          "shortName": "FR"
+        }
+      ],
+      "names": {
+        "DE": "Frühjahrsferien",
+        "EN": "Spring Holidays",
+        "FR": "Vacances de printemps (Pâques)",
+        "ES": "Spring Holidays",
+        "IT": "Spring Holidays"
+      }
+    },
+    {
+      "id": "3ee26ec9-432d-4eb4-bc3d-8b339b466471",
+      "startDate": "2023-07-01",
+      "endDate": "2023-08-31",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Sommerferien"
+        }
+      ],
+      "regionalScope": "Regional",
+      "temporalScope": "FullDay",
+      "nationwide": false,
+      "groups": [
+        {
+          "code": "BE-NL",
+          "shortName": "NL"
+        }
+      ],
+      "names": {
+        "DE": "Sommerferien",
+        "EN": "Summer Holidays",
+        "FR": "Vacances d'été",
+        "ES": "Summer Holidays",
+        "IT": "Summer Holidays"
+      }
+    },
+    {
+      "id": "e774eaa8-3de2-4d84-9690-4154e75a0e41",
+      "startDate": "2023-07-08",
+      "endDate": "2023-08-27",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Sommerferien"
+        }
+      ],
+      "regionalScope": "Regional",
+      "temporalScope": "FullDay",
+      "nationwide": false,
+      "groups": [
+        {
+          "code": "BE-FR",
+          "shortName": "FR"
+        }
+      ],
+      "names": {
+        "DE": "Sommerferien",
+        "EN": "Summer Holidays",
+        "FR": "Vacances d'été",
+        "ES": "Summer Holidays",
+        "IT": "Summer Holidays"
+      }
+    },
+    {
+      "id": "8214949c-efa8-46f9-9ba6-087331a2ee61",
+      "startDate": "2023-09-27",
+      "endDate": "2023-09-27",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Tag der Französischsprachigen Gemeinschaft"
+        }
+      ],
+      "regionalScope": "Regional",
+      "temporalScope": "FullDay",
+      "nationwide": false,
+      "groups": [
+        {
+          "code": "BE-FR",
+          "shortName": "FR"
+        }
+      ],
+      "names": {
+        "DE": "Tag der Französischsprachigen Gemeinschaft",
+        "EN": "Day of the French-speaking Community",
+        "FR": "Fête de la Communauté française",
+        "ES": "Day of the French-speaking Community",
+        "IT": "Day of the French-speaking Community"
+      }
+    },
+    {
+      "id": "2b4473eb-381d-418d-8bcb-cb14c2edf653",
+      "startDate": "2023-10-23",
+      "endDate": "2023-11-03",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Allerheiligenferien"
+        }
+      ],
+      "regionalScope": "Regional",
+      "temporalScope": "FullDay",
+      "nationwide": false,
+      "groups": [
+        {
+          "code": "BE-FR",
+          "shortName": "FR"
+        }
+      ],
+      "names": {
+        "DE": "Allerheiligenferien",
+        "EN": "All Saints Holidays",
+        "FR": "Congé d'automne (Toussaint)",
+        "ES": "All Saints Holidays",
+        "IT": "All Saints Holidays"
+      }
+    },
+    {
+      "id": "764a28f6-6a7e-4289-96bc-48217adc971d",
+      "startDate": "2023-10-30",
+      "endDate": "2023-11-05",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Allerheiligenferien"
+        }
+      ],
+      "regionalScope": "Regional",
+      "temporalScope": "FullDay",
+      "nationwide": false,
+      "groups": [
+        {
+          "code": "BE-NL",
+          "shortName": "NL"
+        }
+      ],
+      "names": {
+        "DE": "Allerheiligenferien",
+        "EN": "All Saints Holidays",
+        "FR": "Congé d'automne (Toussaint)",
+        "ES": "All Saints Holidays",
+        "IT": "All Saints Holidays"
+      }
+    },
+    {
+      "id": "fa4b690f-bbb9-4411-b288-c465050e3270",
+      "startDate": "2023-10-30",
+      "endDate": "2023-11-04",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Allerheiligenferien"
+        }
+      ],
+      "regionalScope": "Regional",
+      "temporalScope": "FullDay",
+      "nationwide": false,
+      "groups": [
+        {
+          "code": "BE-DE",
+          "shortName": "DE"
+        }
+      ],
+      "names": {
+        "DE": "Allerheiligenferien",
+        "EN": "All Saints Holidays",
+        "FR": "Congé d'automne (Toussaint)",
+        "ES": "All Saints Holidays",
+        "IT": "All Saints Holidays"
+      }
+    },
+    {
+      "id": "9843e219-1651-4642-8260-519f957f55de",
+      "startDate": "2023-11-15",
+      "endDate": "2023-11-15",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Tag der Deutschsprachigen Gemeinschaft"
+        }
+      ],
+      "regionalScope": "Regional",
+      "temporalScope": "FullDay",
+      "nationwide": false,
+      "groups": [
+        {
+          "code": "BE-DE",
+          "shortName": "DE"
+        }
+      ],
+      "names": {
+        "DE": "Tag der Deutschsprachigen Gemeinschaft",
+        "EN": "Day of the German-speaking Community",
+        "FR": "Jour de la Communauté Germanophone",
+        "ES": "Day of the German-speaking Community",
+        "IT": "Day of the German-speaking Community"
+      }
+    },
+    {
+      "id": "0a3cb299-37e9-4d33-b05f-e5fbe158853f",
+      "startDate": "2023-12-25",
+      "endDate": "2024-01-07",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Winterferien"
+        }
+      ],
+      "regionalScope": "Regional",
+      "temporalScope": "FullDay",
+      "nationwide": false,
+      "groups": [
+        {
+          "code": "BE-NL",
+          "shortName": "NL"
+        }
+      ],
+      "names": {
+        "DE": "Winterferien",
+        "EN": "Winter Holidays",
+        "FR": "Vacances d'hiver (Noël)",
+        "ES": "Winter Holidays",
+        "IT": "Winter Holidays"
+      }
+    },
+    {
+      "id": "a3c4d894-6b44-4bd1-b899-c0bc41422733",
+      "startDate": "2023-12-25",
+      "endDate": "2024-01-06",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Weihnachtsferien"
+        }
+      ],
+      "regionalScope": "Regional",
+      "temporalScope": "FullDay",
+      "nationwide": false,
+      "groups": [
+        {
+          "code": "BE-DE",
+          "shortName": "DE"
+        }
+      ],
+      "names": {
+        "DE": "Weihnachtsferien",
+        "EN": "Winter Holidays",
+        "FR": "Vacances d'hiver (Noël)",
+        "ES": "Winter Holidays",
+        "IT": "Winter Holidays"
+      }
+    },
+    {
+      "id": "c2082a1a-0430-4728-8b1d-3b36cb23ee93",
+      "startDate": "2023-12-25",
+      "endDate": "2024-01-05",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Winterferien"
+        }
+      ],
+      "regionalScope": "Regional",
+      "temporalScope": "FullDay",
+      "nationwide": false,
+      "groups": [
+        {
+          "code": "BE-FR",
+          "shortName": "FR"
+        }
+      ],
+      "names": {
+        "DE": "Winterferien",
+        "EN": "Winter Holidays",
+        "FR": "Vacances d'hiver (Noël)",
+        "ES": "Winter Holidays",
+        "IT": "Winter Holidays"
+      }
+    },
+    {
+      "id": "53554d19-3c21-4fc6-9b73-9508314dafdb",
+      "startDate": "2024-02-12",
+      "endDate": "2024-02-17",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Karnevalsferien"
+        }
+      ],
+      "regionalScope": "Regional",
+      "temporalScope": "FullDay",
+      "nationwide": false,
+      "groups": [
+        {
+          "code": "BE-DE",
+          "shortName": "DE"
+        }
+      ],
+      "names": {
+        "DE": "Karnevalsferien",
+        "EN": "Carnival Holidays",
+        "FR": "Congé de détente (Carnaval)",
+        "ES": "Carnival Holidays",
+        "IT": "Carnival Holidays"
+      }
+    },
+    {
+      "id": "b79b67d3-33de-42e9-8eb0-f9dd5b2035e9",
+      "startDate": "2024-02-12",
+      "endDate": "2024-02-18",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Karnevalsferien"
+        }
+      ],
+      "regionalScope": "Regional",
+      "temporalScope": "FullDay",
+      "nationwide": false,
+      "groups": [
+        {
+          "code": "BE-NL",
+          "shortName": "NL"
+        }
+      ],
+      "names": {
+        "DE": "Karnevalsferien",
+        "EN": "Carnival Holidays",
+        "FR": "Congé de détente (Carnaval)",
+        "ES": "Carnival Holidays",
+        "IT": "Carnival Holidays"
+      }
+    },
+    {
+      "id": "4a04ab04-0eff-4578-a76d-be518a6b217a",
+      "startDate": "2024-02-26",
+      "endDate": "2024-03-08",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Karnevalsferien"
+        }
+      ],
+      "regionalScope": "Regional",
+      "temporalScope": "FullDay",
+      "nationwide": false,
+      "groups": [
+        {
+          "code": "BE-FR",
+          "shortName": "FR"
+        }
+      ],
+      "names": {
+        "DE": "Karnevalsferien",
+        "EN": "Carnival Holidays",
+        "FR": "Congé de détente (Carnaval)",
+        "ES": "Carnival Holidays",
+        "IT": "Carnival Holidays"
+      }
+    },
+    {
+      "id": "0df67eb3-9d49-4131-aca4-002aaa713060",
+      "startDate": "2024-04-01",
+      "endDate": "2024-04-13",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Osterferien"
+        }
+      ],
+      "regionalScope": "Regional",
+      "temporalScope": "FullDay",
+      "nationwide": false,
+      "groups": [
+        {
+          "code": "BE-DE",
+          "shortName": "DE"
+        }
+      ],
+      "names": {
+        "DE": "Osterferien",
+        "EN": "Spring Holidays",
+        "FR": "Vacances de printemps (Pâques)",
+        "ES": "Spring Holidays",
+        "IT": "Spring Holidays"
+      }
+    },
+    {
+      "id": "185d1971-55d9-4e32-9338-ee08f5167aa4",
+      "startDate": "2024-04-01",
+      "endDate": "2024-04-14",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Frühjahrsferien"
+        }
+      ],
+      "regionalScope": "Regional",
+      "temporalScope": "FullDay",
+      "nationwide": false,
+      "groups": [
+        {
+          "code": "BE-NL",
+          "shortName": "NL"
+        }
+      ],
+      "names": {
+        "DE": "Frühjahrsferien",
+        "EN": "Spring Holidays",
+        "FR": "Vacances de printemps (Pâques)",
+        "ES": "Spring Holidays",
+        "IT": "Spring Holidays"
+      }
+    },
+    {
+      "id": "3ae2036f-292a-4884-b2f5-90d010784f7b",
+      "startDate": "2024-04-29",
+      "endDate": "2024-05-10",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Frühjahrsferien"
+        }
+      ],
+      "regionalScope": "Regional",
+      "temporalScope": "FullDay",
+      "nationwide": false,
+      "groups": [
+        {
+          "code": "BE-FR",
+          "shortName": "FR"
+        }
+      ],
+      "names": {
+        "DE": "Frühjahrsferien",
+        "EN": "Spring Holidays",
+        "FR": "Vacances de printemps (Pâques)",
+        "ES": "Spring Holidays",
+        "IT": "Spring Holidays"
+      }
+    },
+    {
+      "id": "1297be5b-dff0-404a-919c-433030628b91",
+      "startDate": "2024-06-29",
+      "endDate": "2024-08-31",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Sommerferien"
+        }
+      ],
+      "regionalScope": "Regional",
+      "temporalScope": "FullDay",
+      "nationwide": false,
+      "groups": [
+        {
+          "code": "BE-DE",
+          "shortName": "DE"
+        }
+      ],
+      "names": {
+        "DE": "Sommerferien",
+        "EN": "Summer Holidays",
+        "FR": "Vacances d'été",
+        "ES": "Summer Holidays",
+        "IT": "Summer Holidays"
+      }
+    },
+    {
+      "id": "ddef1d51-1b5b-421c-bc8c-6ce58aeaaa8e",
+      "startDate": "2024-07-01",
+      "endDate": "2024-08-31",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Sommerferien"
+        }
+      ],
+      "regionalScope": "Regional",
+      "temporalScope": "FullDay",
+      "nationwide": false,
+      "groups": [
+        {
+          "code": "BE-NL",
+          "shortName": "NL"
+        }
+      ],
+      "names": {
+        "DE": "Sommerferien",
+        "EN": "Summer Holidays",
+        "FR": "Vacances d'été",
+        "ES": "Summer Holidays",
+        "IT": "Summer Holidays"
+      }
+    },
+    {
+      "id": "4ed897cd-dd3c-4b7d-bed0-ccf75dc66715",
+      "startDate": "2024-07-06",
+      "endDate": "2024-08-25",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Sommerferien"
+        }
+      ],
+      "regionalScope": "Regional",
+      "temporalScope": "FullDay",
+      "nationwide": false,
+      "groups": [
+        {
+          "code": "BE-FR",
+          "shortName": "FR"
+        }
+      ],
+      "names": {
+        "DE": "Sommerferien",
+        "EN": "Summer Holidays",
+        "FR": "Vacances d'été",
+        "ES": "Summer Holidays",
+        "IT": "Summer Holidays"
+      }
+    },
+    {
+      "id": "73ca7b3b-41d3-4b2d-8923-62337f86bd49",
+      "startDate": "2024-09-27",
+      "endDate": "2024-09-27",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Tag der Französischsprachigen Gemeinschaft"
+        }
+      ],
+      "regionalScope": "Regional",
+      "temporalScope": "FullDay",
+      "nationwide": false,
+      "groups": [
+        {
+          "code": "BE-FR",
+          "shortName": "FR"
+        }
+      ],
+      "names": {
+        "DE": "Tag der Französischsprachigen Gemeinschaft",
+        "EN": "Day of the French-speaking Community",
+        "FR": "Fête de la Communauté française",
+        "ES": "Day of the French-speaking Community",
+        "IT": "Day of the French-speaking Community"
+      }
+    },
+    {
+      "id": "f00e0677-eb02-41d1-b617-81a5a408bc21",
+      "startDate": "2024-10-21",
+      "endDate": "2024-11-03",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Allerheiligenferien"
+        }
+      ],
+      "regionalScope": "Regional",
+      "temporalScope": "FullDay",
+      "nationwide": false,
+      "groups": [
+        {
+          "code": "BE-FR",
+          "shortName": "FR"
+        }
+      ],
+      "names": {
+        "DE": "Allerheiligenferien",
+        "EN": "All Saints Holidays",
+        "FR": "Congé d'automne (Toussaint)",
+        "ES": "All Saints Holidays",
+        "IT": "All Saints Holidays"
+      }
+    },
+    {
+      "id": "2d6d486c-4702-4dce-a89a-5189110ede33",
+      "startDate": "2024-10-28",
+      "endDate": "2024-11-03",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Allerheiligenferien"
+        }
+      ],
+      "regionalScope": "Regional",
+      "temporalScope": "FullDay",
+      "nationwide": false,
+      "groups": [
+        {
+          "code": "BE-NL",
+          "shortName": "NL"
+        }
+      ],
+      "names": {
+        "DE": "Allerheiligenferien",
+        "EN": "All Saints Holidays",
+        "FR": "Congé d'automne (Toussaint)",
+        "ES": "All Saints Holidays",
+        "IT": "All Saints Holidays"
+      }
+    },
+    {
+      "id": "53945148-da00-4a74-80e7-4da3b4480a14",
+      "startDate": "2024-10-28",
+      "endDate": "2024-11-02",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Allerheiligenferien"
+        }
+      ],
+      "regionalScope": "Regional",
+      "temporalScope": "FullDay",
+      "nationwide": false,
+      "groups": [
+        {
+          "code": "BE-DE",
+          "shortName": "DE"
+        }
+      ],
+      "names": {
+        "DE": "Allerheiligenferien",
+        "EN": "All Saints Holidays",
+        "FR": "Congé d'automne (Toussaint)",
+        "ES": "All Saints Holidays",
+        "IT": "All Saints Holidays"
+      }
+    },
+    {
+      "id": "e08e0e04-9ba9-4360-ab60-fa61ac75311b",
+      "startDate": "2024-11-15",
+      "endDate": "2024-11-15",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Tag der Deutschsprachigen Gemeinschaft"
+        }
+      ],
+      "regionalScope": "Regional",
+      "temporalScope": "FullDay",
+      "nationwide": false,
+      "groups": [
+        {
+          "code": "BE-DE",
+          "shortName": "DE"
+        }
+      ],
+      "names": {
+        "DE": "Tag der Deutschsprachigen Gemeinschaft",
+        "EN": "Day of the German-speaking Community",
+        "FR": "Jour de la Communauté Germanophone",
+        "ES": "Day of the German-speaking Community",
+        "IT": "Day of the German-speaking Community"
+      }
+    },
+    {
+      "id": "6e3cce21-acfb-4793-9f9d-94384b179957",
+      "startDate": "2024-12-23",
+      "endDate": "2025-01-05",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Winterferien"
+        }
+      ],
+      "regionalScope": "Regional",
+      "temporalScope": "FullDay",
+      "nationwide": false,
+      "groups": [
+        {
+          "code": "BE-NL",
+          "shortName": "NL"
+        }
+      ],
+      "names": {
+        "DE": "Winterferien",
+        "EN": "Winter Holidays",
+        "FR": "Vacances d'hiver (Noël)",
+        "ES": "Winter Holidays",
+        "IT": "Winter Holidays"
+      }
+    },
+    {
+      "id": "af6453b3-118b-477d-810e-0a4e6c519e3d",
+      "startDate": "2024-12-23",
+      "endDate": "2025-01-04",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Weihnachtsferien"
+        }
+      ],
+      "regionalScope": "Regional",
+      "temporalScope": "FullDay",
+      "nationwide": false,
+      "groups": [
+        {
+          "code": "BE-DE",
+          "shortName": "DE"
+        }
+      ],
+      "names": {
+        "DE": "Weihnachtsferien",
+        "EN": "Winter Holidays",
+        "FR": "Vacances d'hiver (Noël)",
+        "ES": "Winter Holidays",
+        "IT": "Winter Holidays"
+      }
+    },
+    {
+      "id": "5717f165-f823-4099-bed7-4b93fd6f4c67",
+      "startDate": "2025-02-24",
+      "endDate": "2025-03-09",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Karnevalsferien"
+        }
+      ],
+      "regionalScope": "Regional",
+      "temporalScope": "FullDay",
+      "nationwide": false,
+      "groups": [
+        {
+          "code": "BE-FR",
+          "shortName": "FR"
+        }
+      ],
+      "names": {
+        "DE": "Karnevalsferien",
+        "EN": "Carnival Holidays",
+        "FR": "Congé de détente (Carnaval)",
+        "ES": "Carnival Holidays",
+        "IT": "Carnival Holidays"
+      }
+    },
+    {
+      "id": "25b5f7fc-fdc2-4ef1-917d-be0e92a062ff",
+      "startDate": "2025-03-03",
+      "endDate": "2025-03-09",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Karnevalsferien"
+        }
+      ],
+      "regionalScope": "Regional",
+      "temporalScope": "FullDay",
+      "nationwide": false,
+      "groups": [
+        {
+          "code": "BE-NL",
+          "shortName": "NL"
+        }
+      ],
+      "names": {
+        "DE": "Karnevalsferien",
+        "EN": "Carnival Holidays",
+        "FR": "Congé de détente (Carnaval)",
+        "ES": "Carnival Holidays",
+        "IT": "Carnival Holidays"
+      }
+    },
+    {
+      "id": "c62dde1e-be71-476f-9ecf-6abb1e73306b",
+      "startDate": "2025-03-03",
+      "endDate": "2025-03-08",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Karnevalsferien"
+        }
+      ],
+      "regionalScope": "Regional",
+      "temporalScope": "FullDay",
+      "nationwide": false,
+      "groups": [
+        {
+          "code": "BE-DE",
+          "shortName": "DE"
+        }
+      ],
+      "names": {
+        "DE": "Karnevalsferien",
+        "EN": "Carnival Holidays",
+        "FR": "Congé de détente (Carnaval)",
+        "ES": "Carnival Holidays",
+        "IT": "Carnival Holidays"
+      }
+    },
+    {
+      "id": "93ea7c9c-c3e4-4384-9c46-7cd3567f34f4",
+      "startDate": "2025-04-07",
+      "endDate": "2025-04-21",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Frühjahrsferien"
+        }
+      ],
+      "regionalScope": "Regional",
+      "temporalScope": "FullDay",
+      "nationwide": false,
+      "groups": [
+        {
+          "code": "BE-NL",
+          "shortName": "NL"
+        }
+      ],
+      "names": {
+        "DE": "Frühjahrsferien",
+        "EN": "Spring Holidays",
+        "FR": "Vacances de printemps (Pâques)",
+        "ES": "Spring Holidays",
+        "IT": "Spring Holidays"
+      }
+    },
+    {
+      "id": "b648c425-33c1-41f4-a399-fb6b0775dafe",
+      "startDate": "2025-04-21",
+      "endDate": "2025-05-03",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Osterferien"
+        }
+      ],
+      "regionalScope": "Regional",
+      "temporalScope": "FullDay",
+      "nationwide": false,
+      "groups": [
+        {
+          "code": "BE-DE",
+          "shortName": "DE"
+        }
+      ],
+      "names": {
+        "DE": "Osterferien",
+        "EN": "Spring Holidays",
+        "FR": "Vacances de printemps (Pâques)",
+        "ES": "Spring Holidays",
+        "IT": "Spring Holidays"
+      }
+    },
+    {
+      "id": "374b8c60-0cad-417f-9107-da66c3631573",
+      "startDate": "2025-04-28",
+      "endDate": "2025-05-11",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Frühjahrsferien"
+        }
+      ],
+      "regionalScope": "Regional",
+      "temporalScope": "FullDay",
+      "nationwide": false,
+      "groups": [
+        {
+          "code": "BE-FR",
+          "shortName": "FR"
+        }
+      ],
+      "names": {
+        "DE": "Frühjahrsferien",
+        "EN": "Spring Holidays",
+        "FR": "Vacances de printemps (Pâques)",
+        "ES": "Spring Holidays",
+        "IT": "Spring Holidays"
+      }
+    },
+    {
+      "id": "0c9782d3-ccea-4202-aba9-a3928ab54a16",
+      "startDate": "2025-07-01",
+      "endDate": "2025-08-31",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Sommerferien"
+        }
+      ],
+      "regionalScope": "Regional",
+      "temporalScope": "FullDay",
+      "nationwide": false,
+      "groups": [
+        {
+          "code": "BE-NL",
+          "shortName": "NL"
+        }
+      ],
+      "names": {
+        "DE": "Sommerferien",
+        "EN": "Summer Holidays",
+        "FR": "Vacances d'été",
+        "ES": "Summer Holidays",
+        "IT": "Summer Holidays"
+      }
+    },
+    {
+      "id": "fffc53ac-184b-46e9-8e64-e250ecc9e68a",
+      "startDate": "2025-07-05",
+      "endDate": "2025-08-24",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Sommerferien"
+        }
+      ],
+      "regionalScope": "Regional",
+      "temporalScope": "FullDay",
+      "nationwide": false,
+      "groups": [
+        {
+          "code": "BE-FR",
+          "shortName": "FR"
+        }
+      ],
+      "names": {
+        "DE": "Sommerferien",
+        "EN": "Summer Holidays",
+        "FR": "Vacances d'été",
+        "ES": "Summer Holidays",
+        "IT": "Summer Holidays"
+      }
+    },
+    {
+      "id": "af6e58c4-9e66-4b9a-a2b8-1a2aa2277036",
+      "startDate": "2025-09-27",
+      "endDate": "2025-09-27",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Tag der Französischsprachigen Gemeinschaft"
+        }
+      ],
+      "regionalScope": "Regional",
+      "temporalScope": "FullDay",
+      "nationwide": false,
+      "groups": [
+        {
+          "code": "BE-FR",
+          "shortName": "FR"
+        }
+      ],
+      "names": {
+        "DE": "Tag der Französischsprachigen Gemeinschaft",
+        "EN": "Day of the French-speaking Community",
+        "FR": "Fête de la Communauté française",
+        "ES": "Day of the French-speaking Community",
+        "IT": "Day of the French-speaking Community"
+      }
+    },
+    {
+      "id": "29e6b72e-8386-41cc-8a26-d92d26c3cd5c",
+      "startDate": "2025-10-20",
+      "endDate": "2025-11-02",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Allerheiligenferien"
+        }
+      ],
+      "regionalScope": "Regional",
+      "temporalScope": "FullDay",
+      "nationwide": false,
+      "groups": [
+        {
+          "code": "BE-FR",
+          "shortName": "FR"
+        }
+      ],
+      "names": {
+        "DE": "Allerheiligenferien",
+        "EN": "All Saints Holidays",
+        "FR": "Congé d'automne (Toussaint)",
+        "ES": "All Saints Holidays",
+        "IT": "All Saints Holidays"
+      }
+    },
+    {
+      "id": "d8751ed7-45cc-4a21-87ed-355cc82de70c",
+      "startDate": "2025-10-27",
+      "endDate": "2025-11-01",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Allerheiligenferien"
+        }
+      ],
+      "regionalScope": "Regional",
+      "temporalScope": "FullDay",
+      "nationwide": false,
+      "groups": [
+        {
+          "code": "BE-DE",
+          "shortName": "DE"
+        }
+      ],
+      "names": {
+        "DE": "Allerheiligenferien",
+        "EN": "All Saints Holidays",
+        "FR": "Congé d'automne (Toussaint)",
+        "ES": "All Saints Holidays",
+        "IT": "All Saints Holidays"
+      }
+    },
+    {
+      "id": "f90cf312-5617-4ef7-8717-2a402265709a",
+      "startDate": "2025-10-27",
+      "endDate": "2025-11-02",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Allerheiligenferien"
+        }
+      ],
+      "regionalScope": "Regional",
+      "temporalScope": "FullDay",
+      "nationwide": false,
+      "groups": [
+        {
+          "code": "BE-NL",
+          "shortName": "NL"
+        }
+      ],
+      "names": {
+        "DE": "Allerheiligenferien",
+        "EN": "All Saints Holidays",
+        "FR": "Congé d'automne (Toussaint)",
+        "ES": "All Saints Holidays",
+        "IT": "All Saints Holidays"
+      }
+    },
+    {
+      "id": "eabe6428-fa34-4305-b337-815965fce3fd",
+      "startDate": "2025-11-15",
+      "endDate": "2025-11-15",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Tag der Deutschsprachigen Gemeinschaft"
+        }
+      ],
+      "regionalScope": "Regional",
+      "temporalScope": "FullDay",
+      "nationwide": false,
+      "groups": [
+        {
+          "code": "BE-DE",
+          "shortName": "DE"
+        }
+      ],
+      "names": {
+        "DE": "Tag der Deutschsprachigen Gemeinschaft",
+        "EN": "Day of the German-speaking Community",
+        "FR": "Jour de la Communauté Germanophone",
+        "ES": "Day of the German-speaking Community",
+        "IT": "Day of the German-speaking Community"
+      }
+    },
+    {
+      "id": "9f0a15f7-5904-42f0-b125-2864aa822a1b",
+      "startDate": "2025-12-22",
+      "endDate": "2026-01-03",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Weihnachtsferien"
+        }
+      ],
+      "regionalScope": "Regional",
+      "temporalScope": "FullDay",
+      "nationwide": false,
+      "groups": [
+        {
+          "code": "BE-DE",
+          "shortName": "DE"
+        }
+      ],
+      "names": {
+        "DE": "Weihnachtsferien",
+        "EN": "Winter Holidays",
+        "FR": "Vacances d'hiver (Noël)",
+        "ES": "Winter Holidays",
+        "IT": "Winter Holidays"
+      }
+    },
+    {
+      "id": "ba3be867-fcb7-4831-8bc7-bd99f3e6662b",
+      "startDate": "2025-12-22",
+      "endDate": "2026-01-04",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Winterferien"
+        }
+      ],
+      "regionalScope": "Regional",
+      "temporalScope": "FullDay",
+      "nationwide": false,
+      "groups": [
+        {
+          "code": "BE-NL",
+          "shortName": "NL"
+        }
+      ],
+      "names": {
+        "DE": "Winterferien",
+        "EN": "Winter Holidays",
+        "FR": "Vacances d'hiver (Noël)",
+        "ES": "Winter Holidays",
+        "IT": "Winter Holidays"
+      }
+    },
+    {
+      "id": "31d3c123-6cba-47ed-9de7-a95338d39489",
+      "startDate": "2026-02-16",
+      "endDate": "2026-02-22",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Karnevalsferien"
+        }
+      ],
+      "regionalScope": "Regional",
+      "temporalScope": "FullDay",
+      "nationwide": false,
+      "groups": [
+        {
+          "code": "BE-NL",
+          "shortName": "NL"
+        }
+      ],
+      "names": {
+        "DE": "Karnevalsferien",
+        "EN": "Carnival Holidays",
+        "FR": "Congé de détente (Carnaval)",
+        "ES": "Carnival Holidays",
+        "IT": "Carnival Holidays"
+      }
+    },
+    {
+      "id": "b4a98912-e118-4090-877c-682086df4ebe",
+      "startDate": "2026-02-16",
+      "endDate": "2026-02-21",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Karnevalsferien"
+        }
+      ],
+      "regionalScope": "Regional",
+      "temporalScope": "FullDay",
+      "nationwide": false,
+      "groups": [
+        {
+          "code": "BE-DE",
+          "shortName": "DE"
+        }
+      ],
+      "names": {
+        "DE": "Karnevalsferien",
+        "EN": "Carnival Holidays",
+        "FR": "Congé de détente (Carnaval)",
+        "ES": "Carnival Holidays",
+        "IT": "Carnival Holidays"
+      }
+    },
+    {
+      "id": "fccb17bd-aeac-4211-9b72-8db4f69aa4c3",
+      "startDate": "2026-02-16",
+      "endDate": "2026-03-01",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Karnevalsferien"
+        }
+      ],
+      "regionalScope": "Regional",
+      "temporalScope": "FullDay",
+      "nationwide": false,
+      "groups": [
+        {
+          "code": "BE-FR",
+          "shortName": "FR"
+        }
+      ],
+      "names": {
+        "DE": "Karnevalsferien",
+        "EN": "Carnival Holidays",
+        "FR": "Congé de détente (Carnaval)",
+        "ES": "Carnival Holidays",
+        "IT": "Carnival Holidays"
+      }
+    },
+    {
+      "id": "3b35acc8-1d1f-4291-a07f-3f181852afd2",
+      "startDate": "2026-04-06",
+      "endDate": "2026-04-19",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Frühjahrsferien"
+        }
+      ],
+      "regionalScope": "Regional",
+      "temporalScope": "FullDay",
+      "nationwide": false,
+      "groups": [
+        {
+          "code": "BE-NL",
+          "shortName": "NL"
+        }
+      ],
+      "names": {
+        "DE": "Frühjahrsferien",
+        "EN": "Spring Holidays",
+        "FR": "Vacances de printemps (Pâques)",
+        "ES": "Spring Holidays",
+        "IT": "Spring Holidays"
+      }
+    },
+    {
+      "id": "d76adc18-3e8f-4a6d-ac9e-2a9b0e4db5f8",
+      "startDate": "2026-04-06",
+      "endDate": "2026-04-18",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Osterferien"
+        }
+      ],
+      "regionalScope": "Regional",
+      "temporalScope": "FullDay",
+      "nationwide": false,
+      "groups": [
+        {
+          "code": "BE-DE",
+          "shortName": "DE"
+        }
+      ],
+      "names": {
+        "DE": "Osterferien",
+        "EN": "Spring Holidays",
+        "FR": "Vacances de printemps (Pâques)",
+        "ES": "Spring Holidays",
+        "IT": "Spring Holidays"
+      }
+    },
+    {
+      "id": "7d2ac181-f590-4d26-9d6d-97090b7be7f4",
+      "startDate": "2026-04-27",
+      "endDate": "2026-05-10",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Frühjahrsferien"
+        }
+      ],
+      "regionalScope": "Regional",
+      "temporalScope": "FullDay",
+      "nationwide": false,
+      "groups": [
+        {
+          "code": "BE-FR",
+          "shortName": "FR"
+        }
+      ],
+      "names": {
+        "DE": "Frühjahrsferien",
+        "EN": "Spring Holidays",
+        "FR": "Vacances de printemps (Pâques)",
+        "ES": "Spring Holidays",
+        "IT": "Spring Holidays"
+      }
+    },
+    {
+      "id": "632ce97e-c83b-40e2-9a94-e40591059511",
+      "startDate": "2026-07-01",
+      "endDate": "2026-08-31",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Sommerferien"
+        }
+      ],
+      "regionalScope": "Regional",
+      "temporalScope": "FullDay",
+      "nationwide": false,
+      "groups": [
+        {
+          "code": "BE-NL",
+          "shortName": "NL"
+        }
+      ],
+      "names": {
+        "DE": "Sommerferien",
+        "EN": "Summer Holidays",
+        "FR": "Vacances d'été",
+        "ES": "Summer Holidays",
+        "IT": "Summer Holidays"
+      }
+    },
+    {
+      "id": "c7fd44bc-e2d4-4f69-bde7-83c1f624cdce",
+      "startDate": "2026-07-04",
+      "endDate": "2026-08-23",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Sommerferien"
+        }
+      ],
+      "regionalScope": "Regional",
+      "temporalScope": "FullDay",
+      "nationwide": false,
+      "groups": [
+        {
+          "code": "BE-FR",
+          "shortName": "FR"
+        }
+      ],
+      "names": {
+        "DE": "Sommerferien",
+        "EN": "Summer Holidays",
+        "FR": "Vacances d'été",
+        "ES": "Summer Holidays",
+        "IT": "Summer Holidays"
+      }
+    },
+    {
+      "id": "7da2bda5-00b0-4204-a264-98d85bf8cd97",
+      "startDate": "2026-10-19",
+      "endDate": "2026-11-01",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Allerheiligenferien"
+        }
+      ],
+      "regionalScope": "Regional",
+      "temporalScope": "FullDay",
+      "nationwide": false,
+      "groups": [
+        {
+          "code": "BE-FR",
+          "shortName": "FR"
+        }
+      ],
+      "names": {
+        "DE": "Allerheiligenferien",
+        "EN": "All Saints Holidays",
+        "FR": "Congé d'automne (Toussaint)",
+        "ES": "All Saints Holidays",
+        "IT": "All Saints Holidays"
+      }
+    },
+    {
+      "id": "b09d0c83-0cba-4f60-81db-e93ca7254ab7",
+      "startDate": "2026-11-02",
+      "endDate": "2026-11-08",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Allerheiligenferien"
+        }
+      ],
+      "regionalScope": "Regional",
+      "temporalScope": "FullDay",
+      "nationwide": false,
+      "groups": [
+        {
+          "code": "BE-NL",
+          "shortName": "NL"
+        }
+      ],
+      "names": {
+        "DE": "Allerheiligenferien",
+        "EN": "All Saints Holidays",
+        "FR": "Congé d'automne (Toussaint)",
+        "ES": "All Saints Holidays",
+        "IT": "All Saints Holidays"
+      }
+    },
+    {
+      "id": "4f04cd58-75c6-48b9-a478-cd69cfe70471",
+      "startDate": "2026-12-21",
+      "endDate": "2027-01-03",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Winterferien"
+        }
+      ],
+      "regionalScope": "Regional",
+      "temporalScope": "FullDay",
+      "nationwide": false,
+      "groups": [
+        {
+          "code": "BE-FR",
+          "shortName": "FR"
+        }
+      ],
+      "names": {
+        "DE": "Winterferien",
+        "EN": "Winter Holidays",
+        "FR": "Vacances d'hiver (Noël)",
+        "ES": "Winter Holidays",
+        "IT": "Winter Holidays"
+      }
+    },
+    {
+      "id": "71154e3f-3088-4d4d-8f98-47c3dfeffb05",
+      "startDate": "2027-02-08",
+      "endDate": "2027-02-14",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Karnevalsferien"
+        }
+      ],
+      "regionalScope": "Regional",
+      "temporalScope": "FullDay",
+      "nationwide": false,
+      "groups": [
+        {
+          "code": "BE-NL",
+          "shortName": "NL"
+        }
+      ],
+      "names": {
+        "DE": "Karnevalsferien",
+        "EN": "Carnival Holidays",
+        "FR": "Congé de détente (Carnaval)",
+        "ES": "Carnival Holidays",
+        "IT": "Carnival Holidays"
+      }
+    },
+    {
+      "id": "d1032b6c-17f5-40d6-9821-b75edc4a200d",
+      "startDate": "2027-02-22",
+      "endDate": "2027-03-07",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Karnevalsferien"
+        }
+      ],
+      "regionalScope": "Regional",
+      "temporalScope": "FullDay",
+      "nationwide": false,
+      "groups": [
+        {
+          "code": "BE-FR",
+          "shortName": "FR"
+        }
+      ],
+      "names": {
+        "DE": "Karnevalsferien",
+        "EN": "Carnival Holidays",
+        "FR": "Congé de détente (Carnaval)",
+        "ES": "Carnival Holidays",
+        "IT": "Carnival Holidays"
+      }
+    },
+    {
+      "id": "82513b7a-ce4f-4aa3-85b9-92dc2af9265a",
+      "startDate": "2027-03-29",
+      "endDate": "2027-04-11",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Frühjahrsferien"
+        }
+      ],
+      "regionalScope": "Regional",
+      "temporalScope": "FullDay",
+      "nationwide": false,
+      "groups": [
+        {
+          "code": "BE-NL",
+          "shortName": "NL"
+        }
+      ],
+      "names": {
+        "DE": "Frühjahrsferien",
+        "EN": "Spring Holidays",
+        "FR": "Vacances de printemps (Pâques)",
+        "ES": "Spring Holidays",
+        "IT": "Spring Holidays"
+      }
+    },
+    {
+      "id": "11b9d34b-6857-4aac-b7af-04278bb01103",
+      "startDate": "2027-04-26",
+      "endDate": "2027-05-09",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Frühjahrsferien"
+        }
+      ],
+      "regionalScope": "Regional",
+      "temporalScope": "FullDay",
+      "nationwide": false,
+      "groups": [
+        {
+          "code": "BE-FR",
+          "shortName": "FR"
+        }
+      ],
+      "names": {
+        "DE": "Frühjahrsferien",
+        "EN": "Spring Holidays",
+        "FR": "Vacances de printemps (Pâques)",
+        "ES": "Spring Holidays",
+        "IT": "Spring Holidays"
+      }
+    },
+    {
+      "id": "e5d81422-0c77-4331-8683-22b8dc0a3cad",
+      "startDate": "2027-07-01",
+      "endDate": "2027-08-31",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Sommerferien"
+        }
+      ],
+      "regionalScope": "Regional",
+      "temporalScope": "FullDay",
+      "nationwide": false,
+      "groups": [
+        {
+          "code": "BE-NL",
+          "shortName": "NL"
+        }
+      ],
+      "names": {
+        "DE": "Sommerferien",
+        "EN": "Summer Holidays",
+        "FR": "Vacances d'été",
+        "ES": "Summer Holidays",
+        "IT": "Summer Holidays"
+      }
+    },
+    {
+      "id": "dde6fa26-f916-4785-bf15-341b17029416",
+      "startDate": "2027-07-03",
+      "endDate": "2027-07-03",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Beginn der Sommerferien"
+        }
+      ],
+      "regionalScope": "Regional",
+      "temporalScope": "FullDay",
+      "nationwide": false,
+      "groups": [
+        {
+          "code": "BE-FR",
+          "shortName": "FR"
+        }
+      ],
+      "names": {
+        "DE": "Beginn der Sommerferien",
+        "EN": "Start of Summer Holidays",
+        "FR": "Début des vacances d'été",
+        "ES": "Start of Summer Holidays",
+        "IT": "Start of Summer Holidays"
+      }
+    },
+    {
+      "id": "79b23b1e-c9ef-49d1-be8a-a089d9130a81",
+      "startDate": "2027-11-01",
+      "endDate": "2027-11-07",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Allerheiligenferien"
+        }
+      ],
+      "regionalScope": "Regional",
+      "temporalScope": "FullDay",
+      "nationwide": false,
+      "groups": [
+        {
+          "code": "BE-NL",
+          "shortName": "NL"
+        }
+      ],
+      "names": {
+        "DE": "Allerheiligenferien",
+        "EN": "All Saints Holidays",
+        "FR": "Congé d'automne (Toussaint)",
+        "ES": "All Saints Holidays",
+        "IT": "All Saints Holidays"
+      }
+    },
+    {
+      "id": "ab2612ad-6f9e-4531-ae06-5a6b2ca91086",
+      "startDate": "2027-12-27",
+      "endDate": "2028-01-09",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Winterferien"
+        }
+      ],
+      "regionalScope": "Regional",
+      "temporalScope": "FullDay",
+      "nationwide": false,
+      "groups": [
+        {
+          "code": "BE-NL",
+          "shortName": "NL"
+        }
+      ],
+      "names": {
+        "DE": "Winterferien",
+        "EN": "Winter Holidays",
+        "FR": "Vacances d'hiver (Noël)",
+        "ES": "Winter Holidays",
+        "IT": "Winter Holidays"
+      }
+    },
+    {
+      "id": "b1e331bf-b4c0-4b24-beb3-bc4ea7b88a9b",
+      "startDate": "2028-02-28",
+      "endDate": "2028-03-05",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Karnevalsferien"
+        }
+      ],
+      "regionalScope": "Regional",
+      "temporalScope": "FullDay",
+      "nationwide": false,
+      "groups": [
+        {
+          "code": "BE-NL",
+          "shortName": "NL"
+        }
+      ],
+      "names": {
+        "DE": "Karnevalsferien",
+        "EN": "Carnival Holidays",
+        "FR": "Congé de détente (Carnaval)",
+        "ES": "Carnival Holidays",
+        "IT": "Carnival Holidays"
+      }
+    },
+    {
+      "id": "7a607720-302e-4f62-9274-29aa00dc40d9",
+      "startDate": "2028-04-03",
+      "endDate": "2028-04-17",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Frühjahrsferien"
+        }
+      ],
+      "regionalScope": "Regional",
+      "temporalScope": "FullDay",
+      "nationwide": false,
+      "groups": [
+        {
+          "code": "BE-NL",
+          "shortName": "NL"
+        }
+      ],
+      "names": {
+        "DE": "Frühjahrsferien",
+        "EN": "Spring Holidays",
+        "FR": "Vacances de printemps (Pâques)",
+        "ES": "Spring Holidays",
+        "IT": "Spring Holidays"
+      }
+    },
+    {
+      "id": "6bc6c587-bdfc-4c70-b0f2-4e0d6b01fc98",
+      "startDate": "2028-07-01",
+      "endDate": "2028-08-31",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Sommerferien"
+        }
+      ],
+      "regionalScope": "Regional",
+      "temporalScope": "FullDay",
+      "nationwide": false,
+      "groups": [
+        {
+          "code": "BE-NL",
+          "shortName": "NL"
+        }
+      ],
+      "names": {
+        "DE": "Sommerferien",
+        "EN": "Summer Holidays",
+        "FR": "Vacances d'été",
+        "ES": "Summer Holidays",
+        "IT": "Summer Holidays"
+      }
+    },
+    {
+      "id": "ec1c4c8b-44f6-49dd-87dd-54219ffc96c2",
+      "startDate": "2028-10-30",
+      "endDate": "2028-11-05",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Allerheiligenferien"
+        }
+      ],
+      "regionalScope": "Regional",
+      "temporalScope": "FullDay",
+      "nationwide": false,
+      "groups": [
+        {
+          "code": "BE-NL",
+          "shortName": "NL"
+        }
+      ],
+      "names": {
+        "DE": "Allerheiligenferien",
+        "EN": "All Saints Holidays",
+        "FR": "Congé d'automne (Toussaint)",
+        "ES": "All Saints Holidays",
+        "IT": "All Saints Holidays"
+      }
+    },
+    {
+      "id": "16294ec1-0553-4bd9-ab1a-32cc8b43ade7",
+      "startDate": "2028-12-25",
+      "endDate": "2029-01-07",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Winterferien"
+        }
+      ],
+      "regionalScope": "Regional",
+      "temporalScope": "FullDay",
+      "nationwide": false,
+      "groups": [
+        {
+          "code": "BE-NL",
+          "shortName": "NL"
+        }
+      ],
+      "names": {
+        "DE": "Winterferien",
+        "EN": "Winter Holidays",
+        "FR": "Vacances d'hiver (Noël)",
+        "ES": "Winter Holidays",
+        "IT": "Winter Holidays"
+      }
+    },
+    {
+      "id": "3a47d9ba-66b5-4f75-ac11-0a0956f8b6a5",
+      "startDate": "2029-02-12",
+      "endDate": "2029-02-18",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Karnevalsferien"
+        }
+      ],
+      "regionalScope": "Regional",
+      "temporalScope": "FullDay",
+      "nationwide": false,
+      "groups": [
+        {
+          "code": "BE-NL",
+          "shortName": "NL"
+        }
+      ],
+      "names": {
+        "DE": "Karnevalsferien",
+        "EN": "Carnival Holidays",
+        "FR": "Congé de détente (Carnaval)",
+        "ES": "Carnival Holidays",
+        "IT": "Carnival Holidays"
+      }
+    },
+    {
+      "id": "73e950c3-3c94-4e35-b24f-7756885b3c54",
+      "startDate": "2029-04-02",
+      "endDate": "2029-04-15",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Frühjahrsferien"
+        }
+      ],
+      "regionalScope": "Regional",
+      "temporalScope": "FullDay",
+      "nationwide": false,
+      "groups": [
+        {
+          "code": "BE-NL",
+          "shortName": "NL"
+        }
+      ],
+      "names": {
+        "DE": "Frühjahrsferien",
+        "EN": "Spring Holidays",
+        "FR": "Vacances de printemps (Pâques)",
+        "ES": "Spring Holidays",
+        "IT": "Spring Holidays"
+      }
+    },
+    {
+      "id": "32b837f9-3b31-49aa-8204-c2adb302c754",
+      "startDate": "2029-07-01",
+      "endDate": "2029-08-31",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Sommerferien"
+        }
+      ],
+      "regionalScope": "Regional",
+      "temporalScope": "FullDay",
+      "nationwide": false,
+      "groups": [
+        {
+          "code": "BE-NL",
+          "shortName": "NL"
+        }
+      ],
+      "names": {
+        "DE": "Sommerferien",
+        "EN": "Summer Holidays",
+        "FR": "Vacances d'été",
+        "ES": "Summer Holidays",
+        "IT": "Summer Holidays"
+      }
+    }
+  ],
+  "fetched_at": "2026-01-03T19:10:35.011113"
+}

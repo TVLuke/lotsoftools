@@ -1,0 +1,2872 @@
+{
+  "country": "SE",
+  "country_name": {
+    "name": "Schweden",
+    "name_en": "Sweden"
+  },
+  "subdivisions": [],
+  "public_holidays": [
+    {
+      "id": "aa01b665-0a9f-48c0-a655-9853fb4eb5af",
+      "startDate": "2020-01-01",
+      "endDate": "2020-01-01",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Neujahr"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Neujahr",
+        "EN": "New Year's Day",
+        "FR": "New Year's Day",
+        "ES": "New Year's Day",
+        "IT": "New Year's Day"
+      }
+    },
+    {
+      "id": "57a6f1e9-0757-4ff5-a49d-6d72a2124f51",
+      "startDate": "2020-01-06",
+      "endDate": "2020-01-06",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Dreikönigsfest"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Dreikönigsfest",
+        "EN": "Epiphany",
+        "FR": "Epiphany",
+        "ES": "Epiphany",
+        "IT": "Epiphany"
+      }
+    },
+    {
+      "id": "0b4f9c8e-d3ea-44ec-8fe4-61711c2aeeb5",
+      "startDate": "2020-04-10",
+      "endDate": "2020-04-10",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Karfreitag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Karfreitag",
+        "EN": "Good Friday",
+        "FR": "Good Friday",
+        "ES": "Good Friday",
+        "IT": "Good Friday"
+      }
+    },
+    {
+      "id": "909d932c-5eff-4dce-890d-421529ed1016",
+      "startDate": "2020-04-12",
+      "endDate": "2020-04-12",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Ostersonntag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Ostersonntag",
+        "EN": "Easter Sunday",
+        "FR": "Easter Sunday",
+        "ES": "Easter Sunday",
+        "IT": "Easter Sunday"
+      }
+    },
+    {
+      "id": "123a2c9c-490e-4bbf-8153-4d97191e5cc6",
+      "startDate": "2020-04-13",
+      "endDate": "2020-04-13",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Ostermontag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Ostermontag",
+        "EN": "Easter Monday",
+        "FR": "Easter Monday",
+        "ES": "Easter Monday",
+        "IT": "Easter Monday"
+      }
+    },
+    {
+      "id": "5e6600f0-3058-4966-8dde-77ae1303ab48",
+      "startDate": "2020-05-01",
+      "endDate": "2020-05-01",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Tag der Arbeit"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Tag der Arbeit",
+        "EN": "Labour Day",
+        "FR": "Labour Day",
+        "ES": "Labour Day",
+        "IT": "Labour Day"
+      }
+    },
+    {
+      "id": "bbecf665-5693-4f0f-b34d-961c028ff9bd",
+      "startDate": "2020-05-21",
+      "endDate": "2020-05-21",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Himmelfahrt"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Himmelfahrt",
+        "EN": "Ascension Day",
+        "FR": "Ascension Day",
+        "ES": "Ascension Day",
+        "IT": "Ascension Day"
+      }
+    },
+    {
+      "id": "86643225-a750-4490-92f1-22b0810f8e77",
+      "startDate": "2020-05-31",
+      "endDate": "2020-05-31",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Pfingstsonntag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Pfingstsonntag",
+        "EN": "Whit Sunday",
+        "FR": "Whit Sunday",
+        "ES": "Whit Sunday",
+        "IT": "Whit Sunday"
+      }
+    },
+    {
+      "id": "be8bd581-2075-4d27-95af-cf6c49f40e24",
+      "startDate": "2020-06-06",
+      "endDate": "2020-06-06",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Nationalfeiertag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Nationalfeiertag",
+        "EN": "National Day",
+        "FR": "National Day",
+        "ES": "National Day",
+        "IT": "National Day"
+      }
+    },
+    {
+      "id": "45d03d84-a89e-499f-8795-1b9feaa22709",
+      "startDate": "2020-06-20",
+      "endDate": "2020-06-20",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Mittsommer"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Mittsommer",
+        "EN": "Midsummer Day",
+        "FR": "Midsummer Day",
+        "ES": "Midsummer Day",
+        "IT": "Midsummer Day"
+      }
+    },
+    {
+      "id": "2ad2b2bd-756e-4f2e-9e20-4a906fba3583",
+      "startDate": "2020-10-31",
+      "endDate": "2020-10-31",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Allerheiligen"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Allerheiligen",
+        "EN": "All Saints' Day",
+        "FR": "All Saints' Day",
+        "ES": "All Saints' Day",
+        "IT": "All Saints' Day"
+      }
+    },
+    {
+      "id": "4cacf042-6b34-4146-b539-671d6e9ce181",
+      "startDate": "2020-12-25",
+      "endDate": "2020-12-25",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "1. Weihnachtsfeiertag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "1. Weihnachtsfeiertag",
+        "EN": "Christmas Day",
+        "FR": "Christmas Day",
+        "ES": "Christmas Day",
+        "IT": "Christmas Day"
+      }
+    },
+    {
+      "id": "2ee6b5d5-1ab9-42b1-9fcd-3ea71961447d",
+      "startDate": "2020-12-26",
+      "endDate": "2020-12-26",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "2. Weihnachtsfeiertag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "2. Weihnachtsfeiertag",
+        "EN": "Boxing Day",
+        "FR": "Boxing Day",
+        "ES": "Boxing Day",
+        "IT": "Boxing Day"
+      }
+    },
+    {
+      "id": "1d393028-f860-4187-b8be-a762e61f97c8",
+      "startDate": "2021-01-01",
+      "endDate": "2021-01-01",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Neujahr"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Neujahr",
+        "EN": "New Year's Day",
+        "FR": "New Year's Day",
+        "ES": "New Year's Day",
+        "IT": "New Year's Day"
+      }
+    },
+    {
+      "id": "08f8504c-9a54-47c5-aff1-f248f0621c11",
+      "startDate": "2021-01-06",
+      "endDate": "2021-01-06",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Dreikönigsfest"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Dreikönigsfest",
+        "EN": "Epiphany",
+        "FR": "Epiphany",
+        "ES": "Epiphany",
+        "IT": "Epiphany"
+      }
+    },
+    {
+      "id": "edb8df36-f978-4aca-af0e-b2d1627fd3be",
+      "startDate": "2021-04-02",
+      "endDate": "2021-04-02",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Karfreitag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Karfreitag",
+        "EN": "Good Friday",
+        "FR": "Good Friday",
+        "ES": "Good Friday",
+        "IT": "Good Friday"
+      }
+    },
+    {
+      "id": "ad14072d-ef72-4e50-82e7-f91e7e892f5e",
+      "startDate": "2021-04-04",
+      "endDate": "2021-04-04",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Ostersonntag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Ostersonntag",
+        "EN": "Easter Sunday",
+        "FR": "Easter Sunday",
+        "ES": "Easter Sunday",
+        "IT": "Easter Sunday"
+      }
+    },
+    {
+      "id": "7cc0aa80-b9c8-4118-a8cf-a93560412a66",
+      "startDate": "2021-04-05",
+      "endDate": "2021-04-05",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Ostermontag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Ostermontag",
+        "EN": "Easter Monday",
+        "FR": "Easter Monday",
+        "ES": "Easter Monday",
+        "IT": "Easter Monday"
+      }
+    },
+    {
+      "id": "100eacfe-2f77-4aab-b215-5505254f0e3f",
+      "startDate": "2021-05-01",
+      "endDate": "2021-05-01",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Tag der Arbeit"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Tag der Arbeit",
+        "EN": "Labour Day",
+        "FR": "Labour Day",
+        "ES": "Labour Day",
+        "IT": "Labour Day"
+      }
+    },
+    {
+      "id": "76e881ec-cab6-48c4-982a-fb1251a57c26",
+      "startDate": "2021-05-13",
+      "endDate": "2021-05-13",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Himmelfahrt"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Himmelfahrt",
+        "EN": "Ascension Day",
+        "FR": "Ascension Day",
+        "ES": "Ascension Day",
+        "IT": "Ascension Day"
+      }
+    },
+    {
+      "id": "27c1f864-d7f9-4327-a672-7a92d347ccdc",
+      "startDate": "2021-05-23",
+      "endDate": "2021-05-23",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Pfingstsonntag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Pfingstsonntag",
+        "EN": "Whit Sunday",
+        "FR": "Whit Sunday",
+        "ES": "Whit Sunday",
+        "IT": "Whit Sunday"
+      }
+    },
+    {
+      "id": "003257b6-565a-45b4-9051-6b0551240ec3",
+      "startDate": "2021-06-06",
+      "endDate": "2021-06-06",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Nationalfeiertag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Nationalfeiertag",
+        "EN": "National Day",
+        "FR": "National Day",
+        "ES": "National Day",
+        "IT": "National Day"
+      }
+    },
+    {
+      "id": "56f65cef-83a9-48cd-9a1a-e1c9d5afe720",
+      "startDate": "2021-06-26",
+      "endDate": "2021-06-26",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Mittsommer"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Mittsommer",
+        "EN": "Midsummer Day",
+        "FR": "Midsummer Day",
+        "ES": "Midsummer Day",
+        "IT": "Midsummer Day"
+      }
+    },
+    {
+      "id": "8e0c888f-0034-4f9e-af0f-8bc72d8563ab",
+      "startDate": "2021-11-06",
+      "endDate": "2021-11-06",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Allerheiligen"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Allerheiligen",
+        "EN": "All Saints' Day",
+        "FR": "All Saints' Day",
+        "ES": "All Saints' Day",
+        "IT": "All Saints' Day"
+      }
+    },
+    {
+      "id": "e48bd623-1216-48be-a1c6-aedfca3a1432",
+      "startDate": "2021-12-25",
+      "endDate": "2021-12-25",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "1. Weihnachtsfeiertag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "1. Weihnachtsfeiertag",
+        "EN": "Christmas Day",
+        "FR": "Christmas Day",
+        "ES": "Christmas Day",
+        "IT": "Christmas Day"
+      }
+    },
+    {
+      "id": "3825e080-51b3-4532-9856-6ab69cd33372",
+      "startDate": "2021-12-26",
+      "endDate": "2021-12-26",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "2. Weihnachtsfeiertag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "2. Weihnachtsfeiertag",
+        "EN": "Boxing Day",
+        "FR": "Boxing Day",
+        "ES": "Boxing Day",
+        "IT": "Boxing Day"
+      }
+    },
+    {
+      "id": "c2d193d2-e3cf-45a5-aae5-2845823b3f5e",
+      "startDate": "2022-01-01",
+      "endDate": "2022-01-01",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Neujahr"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Neujahr",
+        "EN": "New Year's Day",
+        "FR": "New Year's Day",
+        "ES": "New Year's Day",
+        "IT": "New Year's Day"
+      }
+    },
+    {
+      "id": "c184b0ae-15c8-49b1-8294-e15ffd6f7209",
+      "startDate": "2022-01-06",
+      "endDate": "2022-01-06",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Dreikönigsfest"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Dreikönigsfest",
+        "EN": "Epiphany",
+        "FR": "Epiphany",
+        "ES": "Epiphany",
+        "IT": "Epiphany"
+      }
+    },
+    {
+      "id": "8f2f79c9-b221-411b-a08d-a51ec403012f",
+      "startDate": "2022-04-15",
+      "endDate": "2022-04-15",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Karfreitag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Karfreitag",
+        "EN": "Good Friday",
+        "FR": "Good Friday",
+        "ES": "Good Friday",
+        "IT": "Good Friday"
+      }
+    },
+    {
+      "id": "7ba7be25-f1d7-42d7-ab05-e4dcd640d71c",
+      "startDate": "2022-04-17",
+      "endDate": "2022-04-17",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Ostersonntag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Ostersonntag",
+        "EN": "Easter Sunday",
+        "FR": "Easter Sunday",
+        "ES": "Easter Sunday",
+        "IT": "Easter Sunday"
+      }
+    },
+    {
+      "id": "8cd6d773-50e6-4bb2-a379-014aa56daed3",
+      "startDate": "2022-04-18",
+      "endDate": "2022-04-18",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Ostermontag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Ostermontag",
+        "EN": "Easter Monday",
+        "FR": "Easter Monday",
+        "ES": "Easter Monday",
+        "IT": "Easter Monday"
+      }
+    },
+    {
+      "id": "8db3819f-14e7-4150-9073-c47ceacb5619",
+      "startDate": "2022-05-01",
+      "endDate": "2022-05-01",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Tag der Arbeit"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Tag der Arbeit",
+        "EN": "Labour Day",
+        "FR": "Labour Day",
+        "ES": "Labour Day",
+        "IT": "Labour Day"
+      }
+    },
+    {
+      "id": "a0e4fbb6-6db4-4a92-9c71-740c42295855",
+      "startDate": "2022-05-26",
+      "endDate": "2022-05-26",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Himmelfahrt"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Himmelfahrt",
+        "EN": "Ascension Day",
+        "FR": "Ascension Day",
+        "ES": "Ascension Day",
+        "IT": "Ascension Day"
+      }
+    },
+    {
+      "id": "a1f7bb14-5dd3-4067-b0d2-d91666463957",
+      "startDate": "2022-06-05",
+      "endDate": "2022-06-05",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Pfingstsonntag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Pfingstsonntag",
+        "EN": "Whit Sunday",
+        "FR": "Whit Sunday",
+        "ES": "Whit Sunday",
+        "IT": "Whit Sunday"
+      }
+    },
+    {
+      "id": "be21f81b-de01-4414-b37c-f259e5d035ba",
+      "startDate": "2022-06-06",
+      "endDate": "2022-06-06",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Nationalfeiertag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Nationalfeiertag",
+        "EN": "National Day",
+        "FR": "National Day",
+        "ES": "National Day",
+        "IT": "National Day"
+      }
+    },
+    {
+      "id": "a94b3657-e444-4783-a332-c0a4a43d8c1d",
+      "startDate": "2022-06-25",
+      "endDate": "2022-06-25",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Mittsommer"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Mittsommer",
+        "EN": "Midsummer Day",
+        "FR": "Midsummer Day",
+        "ES": "Midsummer Day",
+        "IT": "Midsummer Day"
+      }
+    },
+    {
+      "id": "b4154126-a4b1-4a06-a71c-49adb0ea31c9",
+      "startDate": "2022-11-05",
+      "endDate": "2022-11-05",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Allerheiligen"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Allerheiligen",
+        "EN": "All Saints' Day",
+        "FR": "All Saints' Day",
+        "ES": "All Saints' Day",
+        "IT": "All Saints' Day"
+      }
+    },
+    {
+      "id": "14d26645-1277-446e-af28-9c1d71e03f57",
+      "startDate": "2022-12-25",
+      "endDate": "2022-12-25",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "1. Weihnachtsfeiertag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "1. Weihnachtsfeiertag",
+        "EN": "Christmas Day",
+        "FR": "Christmas Day",
+        "ES": "Christmas Day",
+        "IT": "Christmas Day"
+      }
+    },
+    {
+      "id": "084a9194-fc9a-4b8e-a4b5-c5c445294462",
+      "startDate": "2022-12-26",
+      "endDate": "2022-12-26",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "2. Weihnachtsfeiertag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "2. Weihnachtsfeiertag",
+        "EN": "Boxing Day",
+        "FR": "Boxing Day",
+        "ES": "Boxing Day",
+        "IT": "Boxing Day"
+      }
+    },
+    {
+      "id": "6b82a526-711f-4a41-b68b-b68ddb3bdc8c",
+      "startDate": "2023-01-01",
+      "endDate": "2023-01-01",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Neujahr"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Neujahr",
+        "EN": "New Year's Day",
+        "FR": "New Year's Day",
+        "ES": "New Year's Day",
+        "IT": "New Year's Day"
+      }
+    },
+    {
+      "id": "78389eca-8f9c-4e90-889b-17eb2c40c5ab",
+      "startDate": "2023-01-06",
+      "endDate": "2023-01-06",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Dreikönigsfest"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Dreikönigsfest",
+        "EN": "Epiphany",
+        "FR": "Epiphany",
+        "ES": "Epiphany",
+        "IT": "Epiphany"
+      }
+    },
+    {
+      "id": "4e51dab5-c2c4-4e06-a417-4a866b8faebb",
+      "startDate": "2023-04-07",
+      "endDate": "2023-04-07",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Karfreitag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Karfreitag",
+        "EN": "Good Friday",
+        "FR": "Good Friday",
+        "ES": "Good Friday",
+        "IT": "Good Friday"
+      }
+    },
+    {
+      "id": "eb83d587-e44a-48c6-bd9e-0f1340808f8d",
+      "startDate": "2023-04-09",
+      "endDate": "2023-04-09",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Ostersonntag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Ostersonntag",
+        "EN": "Easter Sunday",
+        "FR": "Easter Sunday",
+        "ES": "Easter Sunday",
+        "IT": "Easter Sunday"
+      }
+    },
+    {
+      "id": "66a3da32-8493-4147-88ec-00afe89f7447",
+      "startDate": "2023-04-10",
+      "endDate": "2023-04-10",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Ostermontag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Ostermontag",
+        "EN": "Easter Monday",
+        "FR": "Easter Monday",
+        "ES": "Easter Monday",
+        "IT": "Easter Monday"
+      }
+    },
+    {
+      "id": "d75433ff-4587-40ea-b32a-eedf47d22b28",
+      "startDate": "2023-05-01",
+      "endDate": "2023-05-01",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Tag der Arbeit"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Tag der Arbeit",
+        "EN": "Labour Day",
+        "FR": "Labour Day",
+        "ES": "Labour Day",
+        "IT": "Labour Day"
+      }
+    },
+    {
+      "id": "f237bb04-483f-4ff4-84e4-e101cbed4ec7",
+      "startDate": "2023-05-18",
+      "endDate": "2023-05-18",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Himmelfahrt"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Himmelfahrt",
+        "EN": "Ascension Day",
+        "FR": "Ascension Day",
+        "ES": "Ascension Day",
+        "IT": "Ascension Day"
+      }
+    },
+    {
+      "id": "dadb4436-68c6-4656-a21b-4f76c1c7c74c",
+      "startDate": "2023-05-28",
+      "endDate": "2023-05-28",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Pfingstsonntag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Pfingstsonntag",
+        "EN": "Whit Sunday",
+        "FR": "Whit Sunday",
+        "ES": "Whit Sunday",
+        "IT": "Whit Sunday"
+      }
+    },
+    {
+      "id": "9f4a01f2-8499-4370-8272-abc1a2571c5c",
+      "startDate": "2023-06-06",
+      "endDate": "2023-06-06",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Nationalfeiertag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Nationalfeiertag",
+        "EN": "National Day",
+        "FR": "National Day",
+        "ES": "National Day",
+        "IT": "National Day"
+      }
+    },
+    {
+      "id": "1172baf6-dc73-48d6-ae28-8ca72d7823be",
+      "startDate": "2023-06-24",
+      "endDate": "2023-06-24",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Mittsommer"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Mittsommer",
+        "EN": "Midsummer Day",
+        "FR": "Midsummer Day",
+        "ES": "Midsummer Day",
+        "IT": "Midsummer Day"
+      }
+    },
+    {
+      "id": "7fa9d08a-31d2-46df-8cdc-b42b22010efa",
+      "startDate": "2023-11-04",
+      "endDate": "2023-11-04",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Allerheiligen"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Allerheiligen",
+        "EN": "All Saints' Day",
+        "FR": "All Saints' Day",
+        "ES": "All Saints' Day",
+        "IT": "All Saints' Day"
+      }
+    },
+    {
+      "id": "0c8899b0-6daa-4393-af7b-4bcb14836d09",
+      "startDate": "2023-12-25",
+      "endDate": "2023-12-25",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "1. Weihnachtsfeiertag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "1. Weihnachtsfeiertag",
+        "EN": "Christmas Day",
+        "FR": "Christmas Day",
+        "ES": "Christmas Day",
+        "IT": "Christmas Day"
+      }
+    },
+    {
+      "id": "01ade76a-82e5-4a52-8648-050f538f31de",
+      "startDate": "2023-12-26",
+      "endDate": "2023-12-26",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "2. Weihnachtsfeiertag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "2. Weihnachtsfeiertag",
+        "EN": "Boxing Day",
+        "FR": "Boxing Day",
+        "ES": "Boxing Day",
+        "IT": "Boxing Day"
+      }
+    },
+    {
+      "id": "d303dbcd-1e73-46b5-adfe-42053ef0a095",
+      "startDate": "2024-01-01",
+      "endDate": "2024-01-01",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Neujahr"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Neujahr",
+        "EN": "New Year's Day",
+        "FR": "New Year's Day",
+        "ES": "New Year's Day",
+        "IT": "New Year's Day"
+      }
+    },
+    {
+      "id": "2621d001-e6e3-4a4c-9578-4c247aa5902d",
+      "startDate": "2024-01-06",
+      "endDate": "2024-01-06",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Dreikönigsfest"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Dreikönigsfest",
+        "EN": "Epiphany",
+        "FR": "Epiphany",
+        "ES": "Epiphany",
+        "IT": "Epiphany"
+      }
+    },
+    {
+      "id": "a082b311-21c5-4d1c-83da-b952838fee57",
+      "startDate": "2024-03-29",
+      "endDate": "2024-03-29",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Karfreitag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Karfreitag",
+        "EN": "Good Friday",
+        "FR": "Good Friday",
+        "ES": "Good Friday",
+        "IT": "Good Friday"
+      }
+    },
+    {
+      "id": "b950d1e9-b19e-4f79-b7fe-467cecde8e0a",
+      "startDate": "2024-03-31",
+      "endDate": "2024-03-31",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Ostersonntag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Ostersonntag",
+        "EN": "Easter Sunday",
+        "FR": "Easter Sunday",
+        "ES": "Easter Sunday",
+        "IT": "Easter Sunday"
+      }
+    },
+    {
+      "id": "810f017b-65ca-47d3-9328-83ba411e6f85",
+      "startDate": "2024-04-01",
+      "endDate": "2024-04-01",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Ostermontag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Ostermontag",
+        "EN": "Easter Monday",
+        "FR": "Easter Monday",
+        "ES": "Easter Monday",
+        "IT": "Easter Monday"
+      }
+    },
+    {
+      "id": "d00454d5-afbe-420f-ab30-1a77d49a7d0d",
+      "startDate": "2024-05-01",
+      "endDate": "2024-05-01",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Tag der Arbeit"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Tag der Arbeit",
+        "EN": "Labour Day",
+        "FR": "Labour Day",
+        "ES": "Labour Day",
+        "IT": "Labour Day"
+      }
+    },
+    {
+      "id": "f3594532-6568-44eb-8cbf-07a9e0fee312",
+      "startDate": "2024-05-09",
+      "endDate": "2024-05-09",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Himmelfahrt"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Himmelfahrt",
+        "EN": "Ascension Day",
+        "FR": "Ascension Day",
+        "ES": "Ascension Day",
+        "IT": "Ascension Day"
+      }
+    },
+    {
+      "id": "f3d20b09-fa5d-4784-af34-ef3107640b95",
+      "startDate": "2024-05-19",
+      "endDate": "2024-05-19",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Pfingstsonntag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Pfingstsonntag",
+        "EN": "Whit Sunday",
+        "FR": "Whit Sunday",
+        "ES": "Whit Sunday",
+        "IT": "Whit Sunday"
+      }
+    },
+    {
+      "id": "5def3009-653d-4cb5-a698-32a06b0f62b1",
+      "startDate": "2024-06-06",
+      "endDate": "2024-06-06",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Nationalfeiertag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Nationalfeiertag",
+        "EN": "National Day",
+        "FR": "National Day",
+        "ES": "National Day",
+        "IT": "National Day"
+      }
+    },
+    {
+      "id": "c83ba6b3-531f-4e27-ba69-0f20ec3194b3",
+      "startDate": "2024-06-22",
+      "endDate": "2024-06-22",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Mittsommer"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Mittsommer",
+        "EN": "Midsummer Day",
+        "FR": "Midsummer Day",
+        "ES": "Midsummer Day",
+        "IT": "Midsummer Day"
+      }
+    },
+    {
+      "id": "b43307a3-c467-4971-8544-1bad19874240",
+      "startDate": "2024-11-02",
+      "endDate": "2024-11-02",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Allerheiligen"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Allerheiligen",
+        "EN": "All Saints' Day",
+        "FR": "All Saints' Day",
+        "ES": "All Saints' Day",
+        "IT": "All Saints' Day"
+      }
+    },
+    {
+      "id": "a45c7b75-eb71-47b9-adbb-dd8631f9ccd0",
+      "startDate": "2024-12-25",
+      "endDate": "2024-12-25",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "1. Weihnachtsfeiertag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "1. Weihnachtsfeiertag",
+        "EN": "Christmas Day",
+        "FR": "Christmas Day",
+        "ES": "Christmas Day",
+        "IT": "Christmas Day"
+      }
+    },
+    {
+      "id": "94d55d12-7f13-4270-853b-dc4f5f01765e",
+      "startDate": "2024-12-26",
+      "endDate": "2024-12-26",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "2. Weihnachtsfeiertag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "2. Weihnachtsfeiertag",
+        "EN": "Boxing Day",
+        "FR": "Boxing Day",
+        "ES": "Boxing Day",
+        "IT": "Boxing Day"
+      }
+    },
+    {
+      "id": "61ba2496-1aaa-4a4f-b9d5-4fd4e54a20d6",
+      "startDate": "2025-01-01",
+      "endDate": "2025-01-01",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Neujahr"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Neujahr",
+        "EN": "New Year's Day",
+        "FR": "New Year's Day",
+        "ES": "New Year's Day",
+        "IT": "New Year's Day"
+      }
+    },
+    {
+      "id": "340ef90d-3d10-4be2-b059-1a74f7d73e99",
+      "startDate": "2025-01-06",
+      "endDate": "2025-01-06",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Dreikönigsfest"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Dreikönigsfest",
+        "EN": "Epiphany",
+        "FR": "Epiphany",
+        "ES": "Epiphany",
+        "IT": "Epiphany"
+      }
+    },
+    {
+      "id": "a9dd2888-8ea8-4730-9a78-b6dee4dd4011",
+      "startDate": "2025-04-18",
+      "endDate": "2025-04-18",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Karfreitag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Karfreitag",
+        "EN": "Good Friday",
+        "FR": "Good Friday",
+        "ES": "Good Friday",
+        "IT": "Good Friday"
+      }
+    },
+    {
+      "id": "90e1d903-8ec0-4965-8b3c-fbb1ec826f73",
+      "startDate": "2025-04-20",
+      "endDate": "2025-04-20",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Ostersonntag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Ostersonntag",
+        "EN": "Easter Sunday",
+        "FR": "Easter Sunday",
+        "ES": "Easter Sunday",
+        "IT": "Easter Sunday"
+      }
+    },
+    {
+      "id": "3cce529e-831b-4f01-b228-60382c89b7ff",
+      "startDate": "2025-04-21",
+      "endDate": "2025-04-21",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Ostermontag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Ostermontag",
+        "EN": "Easter Monday",
+        "FR": "Easter Monday",
+        "ES": "Easter Monday",
+        "IT": "Easter Monday"
+      }
+    },
+    {
+      "id": "78403552-e5bb-4ee9-9c24-352380279a8f",
+      "startDate": "2025-05-01",
+      "endDate": "2025-05-01",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Tag der Arbeit"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Tag der Arbeit",
+        "EN": "Labour Day",
+        "FR": "Labour Day",
+        "ES": "Labour Day",
+        "IT": "Labour Day"
+      }
+    },
+    {
+      "id": "f9c7a8ea-795f-4f5a-bd30-72951f0bef53",
+      "startDate": "2025-05-29",
+      "endDate": "2025-05-29",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Himmelfahrt"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Himmelfahrt",
+        "EN": "Ascension Day",
+        "FR": "Ascension Day",
+        "ES": "Ascension Day",
+        "IT": "Ascension Day"
+      }
+    },
+    {
+      "id": "6f232c9f-30cd-4df1-bd11-2e60f02a7904",
+      "startDate": "2025-06-06",
+      "endDate": "2025-06-06",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Nationalfeiertag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Nationalfeiertag",
+        "EN": "National Day",
+        "FR": "National Day",
+        "ES": "National Day",
+        "IT": "National Day"
+      }
+    },
+    {
+      "id": "4a526565-0b6c-4df5-9f2c-0c690afce2c0",
+      "startDate": "2025-06-08",
+      "endDate": "2025-06-08",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Pfingstsonntag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Pfingstsonntag",
+        "EN": "Whit Sunday",
+        "FR": "Whit Sunday",
+        "ES": "Whit Sunday",
+        "IT": "Whit Sunday"
+      }
+    },
+    {
+      "id": "c957e41e-4e5b-452b-a1fa-265a429cb45c",
+      "startDate": "2025-06-21",
+      "endDate": "2025-06-21",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Mittsommer"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Mittsommer",
+        "EN": "Midsummer Day",
+        "FR": "Midsummer Day",
+        "ES": "Midsummer Day",
+        "IT": "Midsummer Day"
+      }
+    },
+    {
+      "id": "a782e52d-52c7-42ca-8b0e-30a2db6fa991",
+      "startDate": "2025-11-01",
+      "endDate": "2025-11-01",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Allerheiligen"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Allerheiligen",
+        "EN": "All Saints' Day",
+        "FR": "All Saints' Day",
+        "ES": "All Saints' Day",
+        "IT": "All Saints' Day"
+      }
+    },
+    {
+      "id": "12c674c3-9286-4864-ae5a-e5335ceeed0b",
+      "startDate": "2025-12-25",
+      "endDate": "2025-12-25",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "1. Weihnachtsfeiertag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "1. Weihnachtsfeiertag",
+        "EN": "Christmas Day",
+        "FR": "Christmas Day",
+        "ES": "Christmas Day",
+        "IT": "Christmas Day"
+      }
+    },
+    {
+      "id": "0409eac2-c135-4473-93fe-b4390a0a90cf",
+      "startDate": "2025-12-26",
+      "endDate": "2025-12-26",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "2. Weihnachtsfeiertag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "2. Weihnachtsfeiertag",
+        "EN": "Boxing Day",
+        "FR": "Boxing Day",
+        "ES": "Boxing Day",
+        "IT": "Boxing Day"
+      }
+    },
+    {
+      "id": "a25bab03-df30-45ed-97f5-b734dd3fd3c5",
+      "startDate": "2026-01-01",
+      "endDate": "2026-01-01",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Neujahr"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Neujahr",
+        "EN": "New Year's Day",
+        "FR": "New Year's Day",
+        "ES": "New Year's Day",
+        "IT": "New Year's Day"
+      }
+    },
+    {
+      "id": "78dc72e3-97c1-41ae-bbb3-ac52f21f7e94",
+      "startDate": "2026-01-06",
+      "endDate": "2026-01-06",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Dreikönigsfest"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Dreikönigsfest",
+        "EN": "Epiphany",
+        "FR": "Epiphany",
+        "ES": "Epiphany",
+        "IT": "Epiphany"
+      }
+    },
+    {
+      "id": "cf363fbc-55df-465c-a322-c146a660522e",
+      "startDate": "2026-04-03",
+      "endDate": "2026-04-03",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Karfreitag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Karfreitag",
+        "EN": "Good Friday",
+        "FR": "Good Friday",
+        "ES": "Good Friday",
+        "IT": "Good Friday"
+      }
+    },
+    {
+      "id": "ba6d376a-201d-4d0d-abfe-2ecd321f2571",
+      "startDate": "2026-04-05",
+      "endDate": "2026-04-05",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Ostersonntag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Ostersonntag",
+        "EN": "Easter Sunday",
+        "FR": "Easter Sunday",
+        "ES": "Easter Sunday",
+        "IT": "Easter Sunday"
+      }
+    },
+    {
+      "id": "ffb9746f-9740-42d2-a846-34e33ff9aac8",
+      "startDate": "2026-04-06",
+      "endDate": "2026-04-06",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Ostermontag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Ostermontag",
+        "EN": "Easter Monday",
+        "FR": "Easter Monday",
+        "ES": "Easter Monday",
+        "IT": "Easter Monday"
+      }
+    },
+    {
+      "id": "92cd3125-9b09-4f80-ab3d-719fc041a1b8",
+      "startDate": "2026-05-01",
+      "endDate": "2026-05-01",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Tag der Arbeit"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Tag der Arbeit",
+        "EN": "Labour Day",
+        "FR": "Labour Day",
+        "ES": "Labour Day",
+        "IT": "Labour Day"
+      }
+    },
+    {
+      "id": "8de790ae-4db2-4293-b82a-74403e2dc368",
+      "startDate": "2026-05-14",
+      "endDate": "2026-05-14",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Himmelfahrt"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Himmelfahrt",
+        "EN": "Ascension Day",
+        "FR": "Ascension Day",
+        "ES": "Ascension Day",
+        "IT": "Ascension Day"
+      }
+    },
+    {
+      "id": "7ba894e6-d895-4dc1-93ee-adf613845b51",
+      "startDate": "2026-05-24",
+      "endDate": "2026-05-24",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Pfingstsonntag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Pfingstsonntag",
+        "EN": "Whit Sunday",
+        "FR": "Whit Sunday",
+        "ES": "Whit Sunday",
+        "IT": "Whit Sunday"
+      }
+    },
+    {
+      "id": "6320f58a-d61c-481a-82b2-df04da6898b9",
+      "startDate": "2026-06-06",
+      "endDate": "2026-06-06",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Nationalfeiertag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Nationalfeiertag",
+        "EN": "National Day",
+        "FR": "National Day",
+        "ES": "National Day",
+        "IT": "National Day"
+      }
+    },
+    {
+      "id": "a08e2933-331e-49a7-80e1-2bf3ce6d2436",
+      "startDate": "2026-06-20",
+      "endDate": "2026-06-20",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Mittsommer"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Mittsommer",
+        "EN": "Midsummer Day",
+        "FR": "Midsummer Day",
+        "ES": "Midsummer Day",
+        "IT": "Midsummer Day"
+      }
+    },
+    {
+      "id": "36d76fab-9828-415c-b273-5d4a61f69c7d",
+      "startDate": "2026-10-31",
+      "endDate": "2026-10-31",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Allerheiligen"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Allerheiligen",
+        "EN": "All Saints' Day",
+        "FR": "All Saints' Day",
+        "ES": "All Saints' Day",
+        "IT": "All Saints' Day"
+      }
+    },
+    {
+      "id": "c01c27f5-b7f8-4b33-8d51-04a580dcbbd8",
+      "startDate": "2026-12-25",
+      "endDate": "2026-12-25",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "1. Weihnachtsfeiertag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "1. Weihnachtsfeiertag",
+        "EN": "Christmas Day",
+        "FR": "Christmas Day",
+        "ES": "Christmas Day",
+        "IT": "Christmas Day"
+      }
+    },
+    {
+      "id": "72510eea-ee7e-44e4-a466-77d8efd1e18a",
+      "startDate": "2026-12-26",
+      "endDate": "2026-12-26",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "2. Weihnachtsfeiertag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "2. Weihnachtsfeiertag",
+        "EN": "Boxing Day",
+        "FR": "Boxing Day",
+        "ES": "Boxing Day",
+        "IT": "Boxing Day"
+      }
+    },
+    {
+      "id": "986bcf7f-6452-443b-888e-c0a0b2f03124",
+      "startDate": "2027-01-01",
+      "endDate": "2027-01-01",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Neujahr"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Neujahr",
+        "EN": "New Year's Day",
+        "FR": "New Year's Day",
+        "ES": "New Year's Day",
+        "IT": "New Year's Day"
+      }
+    },
+    {
+      "id": "a3332b09-6c0a-4083-87c0-d317d32bfcc5",
+      "startDate": "2027-01-06",
+      "endDate": "2027-01-06",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Dreikönigsfest"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Dreikönigsfest",
+        "EN": "Epiphany",
+        "FR": "Epiphany",
+        "ES": "Epiphany",
+        "IT": "Epiphany"
+      }
+    },
+    {
+      "id": "4cc91f7b-14a6-44a8-b07c-04abfc848a8e",
+      "startDate": "2027-03-26",
+      "endDate": "2027-03-26",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Karfreitag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Karfreitag",
+        "EN": "Good Friday",
+        "FR": "Good Friday",
+        "ES": "Good Friday",
+        "IT": "Good Friday"
+      }
+    },
+    {
+      "id": "e0662704-0f04-48df-a65f-8ece89f34e79",
+      "startDate": "2027-03-28",
+      "endDate": "2027-03-28",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Ostersonntag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Ostersonntag",
+        "EN": "Easter Sunday",
+        "FR": "Easter Sunday",
+        "ES": "Easter Sunday",
+        "IT": "Easter Sunday"
+      }
+    },
+    {
+      "id": "395a4540-7ee6-490a-95eb-65d18206a765",
+      "startDate": "2027-03-29",
+      "endDate": "2027-03-29",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Ostermontag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Ostermontag",
+        "EN": "Easter Monday",
+        "FR": "Easter Monday",
+        "ES": "Easter Monday",
+        "IT": "Easter Monday"
+      }
+    },
+    {
+      "id": "aa21ee2f-2cd3-4de4-84b3-c697992a31fd",
+      "startDate": "2027-05-01",
+      "endDate": "2027-05-01",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Tag der Arbeit"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Tag der Arbeit",
+        "EN": "Labour Day",
+        "FR": "Labour Day",
+        "ES": "Labour Day",
+        "IT": "Labour Day"
+      }
+    },
+    {
+      "id": "bf29018c-f339-4685-990c-d489ddafaa74",
+      "startDate": "2027-05-06",
+      "endDate": "2027-05-06",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Himmelfahrt"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Himmelfahrt",
+        "EN": "Ascension Day",
+        "FR": "Ascension Day",
+        "ES": "Ascension Day",
+        "IT": "Ascension Day"
+      }
+    },
+    {
+      "id": "bc342aa1-8448-4f87-bb5c-a4db4ef38346",
+      "startDate": "2027-05-16",
+      "endDate": "2027-05-16",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Pfingstsonntag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Pfingstsonntag",
+        "EN": "Whit Sunday",
+        "FR": "Whit Sunday",
+        "ES": "Whit Sunday",
+        "IT": "Whit Sunday"
+      }
+    },
+    {
+      "id": "980ce671-010e-40e0-94fd-14630b4abf09",
+      "startDate": "2027-06-06",
+      "endDate": "2027-06-06",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Nationalfeiertag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Nationalfeiertag",
+        "EN": "National Day",
+        "FR": "National Day",
+        "ES": "National Day",
+        "IT": "National Day"
+      }
+    },
+    {
+      "id": "e8eed3b7-3f3b-4393-81da-799785442815",
+      "startDate": "2027-06-26",
+      "endDate": "2027-06-26",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Mittsommer"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Mittsommer",
+        "EN": "Midsummer Day",
+        "FR": "Midsummer Day",
+        "ES": "Midsummer Day",
+        "IT": "Midsummer Day"
+      }
+    },
+    {
+      "id": "496da2be-539c-430e-86a9-995f0b4b99c2",
+      "startDate": "2027-11-06",
+      "endDate": "2027-11-06",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Allerheiligen"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Allerheiligen",
+        "EN": "All Saints' Day",
+        "FR": "All Saints' Day",
+        "ES": "All Saints' Day",
+        "IT": "All Saints' Day"
+      }
+    },
+    {
+      "id": "91482391-7f1b-4355-98a5-99badbe02c95",
+      "startDate": "2027-12-25",
+      "endDate": "2027-12-25",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "1. Weihnachtsfeiertag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "1. Weihnachtsfeiertag",
+        "EN": "Christmas Day",
+        "FR": "Christmas Day",
+        "ES": "Christmas Day",
+        "IT": "Christmas Day"
+      }
+    },
+    {
+      "id": "9621b072-eff2-416b-ad3b-3289f0ad801a",
+      "startDate": "2027-12-26",
+      "endDate": "2027-12-26",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "2. Weihnachtsfeiertag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "2. Weihnachtsfeiertag",
+        "EN": "Boxing Day",
+        "FR": "Boxing Day",
+        "ES": "Boxing Day",
+        "IT": "Boxing Day"
+      }
+    },
+    {
+      "id": "bbf25532-c027-4f20-b6dc-0fcd3901e30c",
+      "startDate": "2028-01-01",
+      "endDate": "2028-01-01",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Neujahr"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Neujahr",
+        "EN": "New Year's Day",
+        "FR": "New Year's Day",
+        "ES": "New Year's Day",
+        "IT": "New Year's Day"
+      }
+    },
+    {
+      "id": "8002f740-a0e5-49d0-9c63-120815a4205a",
+      "startDate": "2028-01-06",
+      "endDate": "2028-01-06",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Dreikönigsfest"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Dreikönigsfest",
+        "EN": "Epiphany",
+        "FR": "Epiphany",
+        "ES": "Epiphany",
+        "IT": "Epiphany"
+      }
+    },
+    {
+      "id": "1f8dd264-ec74-46b7-847c-dfe67d37b4e3",
+      "startDate": "2028-04-14",
+      "endDate": "2028-04-14",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Karfreitag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Karfreitag",
+        "EN": "Good Friday",
+        "FR": "Good Friday",
+        "ES": "Good Friday",
+        "IT": "Good Friday"
+      }
+    },
+    {
+      "id": "c6b3093a-dd83-463d-b5ca-06ccf2ac9be4",
+      "startDate": "2028-04-16",
+      "endDate": "2028-04-16",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Ostersonntag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Ostersonntag",
+        "EN": "Easter Sunday",
+        "FR": "Easter Sunday",
+        "ES": "Easter Sunday",
+        "IT": "Easter Sunday"
+      }
+    },
+    {
+      "id": "4dd83191-5848-4a1c-be7e-ee6fba02a973",
+      "startDate": "2028-04-17",
+      "endDate": "2028-04-17",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Ostermontag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Ostermontag",
+        "EN": "Easter Monday",
+        "FR": "Easter Monday",
+        "ES": "Easter Monday",
+        "IT": "Easter Monday"
+      }
+    },
+    {
+      "id": "40de8852-de19-46ce-a3b8-4be6130f3f8c",
+      "startDate": "2028-05-01",
+      "endDate": "2028-05-01",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Tag der Arbeit"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Tag der Arbeit",
+        "EN": "Labour Day",
+        "FR": "Labour Day",
+        "ES": "Labour Day",
+        "IT": "Labour Day"
+      }
+    },
+    {
+      "id": "26e5bf51-25b7-4f24-8625-c19d43f07fcf",
+      "startDate": "2028-05-25",
+      "endDate": "2028-05-25",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Himmelfahrt"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Himmelfahrt",
+        "EN": "Ascension Day",
+        "FR": "Ascension Day",
+        "ES": "Ascension Day",
+        "IT": "Ascension Day"
+      }
+    },
+    {
+      "id": "6c634040-d6b4-464b-91c8-a1df41b45ef7",
+      "startDate": "2028-06-04",
+      "endDate": "2028-06-04",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Pfingstsonntag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Pfingstsonntag",
+        "EN": "Whit Sunday",
+        "FR": "Whit Sunday",
+        "ES": "Whit Sunday",
+        "IT": "Whit Sunday"
+      }
+    },
+    {
+      "id": "4103ec4a-006a-468f-b703-b162764765b2",
+      "startDate": "2028-06-06",
+      "endDate": "2028-06-06",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Nationalfeiertag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Nationalfeiertag",
+        "EN": "National Day",
+        "FR": "National Day",
+        "ES": "National Day",
+        "IT": "National Day"
+      }
+    },
+    {
+      "id": "3fed9f05-19f1-49db-9eab-f297ba02a158",
+      "startDate": "2028-06-24",
+      "endDate": "2028-06-24",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Mittsommer"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Mittsommer",
+        "EN": "Midsummer Day",
+        "FR": "Midsummer Day",
+        "ES": "Midsummer Day",
+        "IT": "Midsummer Day"
+      }
+    },
+    {
+      "id": "1b31fed9-f1c0-47a6-8e52-bb47935b2f65",
+      "startDate": "2028-11-04",
+      "endDate": "2028-11-04",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Allerheiligen"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Allerheiligen",
+        "EN": "All Saints' Day",
+        "FR": "All Saints' Day",
+        "ES": "All Saints' Day",
+        "IT": "All Saints' Day"
+      }
+    },
+    {
+      "id": "102283b9-0956-40f4-83ff-e065eb3538c9",
+      "startDate": "2028-12-25",
+      "endDate": "2028-12-25",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "1. Weihnachtsfeiertag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "1. Weihnachtsfeiertag",
+        "EN": "Christmas Day",
+        "FR": "Christmas Day",
+        "ES": "Christmas Day",
+        "IT": "Christmas Day"
+      }
+    },
+    {
+      "id": "617dd41c-5602-426d-9b8f-74e6a43f3a20",
+      "startDate": "2028-12-26",
+      "endDate": "2028-12-26",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "2. Weihnachtsfeiertag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "2. Weihnachtsfeiertag",
+        "EN": "Boxing Day",
+        "FR": "Boxing Day",
+        "ES": "Boxing Day",
+        "IT": "Boxing Day"
+      }
+    },
+    {
+      "id": "8d51e50c-0c70-407b-8d39-6bfa9a7cf2a6",
+      "startDate": "2029-01-01",
+      "endDate": "2029-01-01",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Neujahr"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Neujahr",
+        "EN": "New Year's Day",
+        "FR": "New Year's Day",
+        "ES": "New Year's Day",
+        "IT": "New Year's Day"
+      }
+    },
+    {
+      "id": "0a52b3d3-f3c5-4bf8-8911-574e9a9c6f73",
+      "startDate": "2029-01-06",
+      "endDate": "2029-01-06",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Dreikönigsfest"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Dreikönigsfest",
+        "EN": "Epiphany",
+        "FR": "Epiphany",
+        "ES": "Epiphany",
+        "IT": "Epiphany"
+      }
+    },
+    {
+      "id": "e0bd5003-1e48-4a5c-a441-d1114c4ce002",
+      "startDate": "2029-03-30",
+      "endDate": "2029-03-30",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Karfreitag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Karfreitag",
+        "EN": "Good Friday",
+        "FR": "Good Friday",
+        "ES": "Good Friday",
+        "IT": "Good Friday"
+      }
+    },
+    {
+      "id": "47ec5455-d1c3-4fd0-8ae1-a78940e63fce",
+      "startDate": "2029-04-01",
+      "endDate": "2029-04-01",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Ostersonntag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Ostersonntag",
+        "EN": "Easter Sunday",
+        "FR": "Easter Sunday",
+        "ES": "Easter Sunday",
+        "IT": "Easter Sunday"
+      }
+    },
+    {
+      "id": "ab3144f9-ac3a-47db-9ff2-c6d60f262f0a",
+      "startDate": "2029-04-02",
+      "endDate": "2029-04-02",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Ostermontag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Ostermontag",
+        "EN": "Easter Monday",
+        "FR": "Easter Monday",
+        "ES": "Easter Monday",
+        "IT": "Easter Monday"
+      }
+    },
+    {
+      "id": "5df8394e-f362-49f4-8349-c0f08efe89a2",
+      "startDate": "2029-05-01",
+      "endDate": "2029-05-01",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Tag der Arbeit"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Tag der Arbeit",
+        "EN": "Labour Day",
+        "FR": "Labour Day",
+        "ES": "Labour Day",
+        "IT": "Labour Day"
+      }
+    },
+    {
+      "id": "d9b00a90-d596-4e0c-84fa-109460d56730",
+      "startDate": "2029-05-10",
+      "endDate": "2029-05-10",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Himmelfahrt"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Himmelfahrt",
+        "EN": "Ascension Day",
+        "FR": "Ascension Day",
+        "ES": "Ascension Day",
+        "IT": "Ascension Day"
+      }
+    },
+    {
+      "id": "cbfa42a7-5e4d-4d9e-96d1-0c80a8c5ad05",
+      "startDate": "2029-05-20",
+      "endDate": "2029-05-20",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Pfingstsonntag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Pfingstsonntag",
+        "EN": "Whit Sunday",
+        "FR": "Whit Sunday",
+        "ES": "Whit Sunday",
+        "IT": "Whit Sunday"
+      }
+    },
+    {
+      "id": "c922d9d7-a95a-43e3-afca-21d48d254653",
+      "startDate": "2029-06-06",
+      "endDate": "2029-06-06",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Nationalfeiertag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Nationalfeiertag",
+        "EN": "National Day",
+        "FR": "National Day",
+        "ES": "National Day",
+        "IT": "National Day"
+      }
+    },
+    {
+      "id": "1f140760-2740-4fe5-9be8-840555ef3283",
+      "startDate": "2029-06-23",
+      "endDate": "2029-06-23",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Mittsommer"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Mittsommer",
+        "EN": "Midsummer Day",
+        "FR": "Midsummer Day",
+        "ES": "Midsummer Day",
+        "IT": "Midsummer Day"
+      }
+    },
+    {
+      "id": "bf348995-2539-4eda-98f3-8d52e31ba9cc",
+      "startDate": "2029-11-03",
+      "endDate": "2029-11-03",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Allerheiligen"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Allerheiligen",
+        "EN": "All Saints' Day",
+        "FR": "All Saints' Day",
+        "ES": "All Saints' Day",
+        "IT": "All Saints' Day"
+      }
+    },
+    {
+      "id": "ae4be02d-ab3d-41da-837f-56fc41e5396b",
+      "startDate": "2029-12-25",
+      "endDate": "2029-12-25",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "1. Weihnachtsfeiertag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "1. Weihnachtsfeiertag",
+        "EN": "Christmas Day",
+        "FR": "Christmas Day",
+        "ES": "Christmas Day",
+        "IT": "Christmas Day"
+      }
+    },
+    {
+      "id": "b8daa394-ca9e-4889-b915-e685b4ec3d01",
+      "startDate": "2029-12-26",
+      "endDate": "2029-12-26",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "2. Weihnachtsfeiertag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "2. Weihnachtsfeiertag",
+        "EN": "Boxing Day",
+        "FR": "Boxing Day",
+        "ES": "Boxing Day",
+        "IT": "Boxing Day"
+      }
+    }
+  ],
+  "school_holidays": [],
+  "fetched_at": "2026-01-03T19:14:35.211502"
+}

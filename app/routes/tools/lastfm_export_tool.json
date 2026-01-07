@@ -1,0 +1,72 @@
+{
+  "route": "/tools/lastfm-export",
+  "img": "fas fa-music",
+  "name": {
+    "en": "Last.fm Export",
+    "de": "Last.fm Export"
+  },
+  "description": {
+    "en": "Download your last.fm listening history as CSV",
+    "de": "Lade deinen Last.fm Hörverlauf als CSV herunter"
+  },
+  "tags": ["music", "export", "converter"],
+  "new_window": false,
+  "frontend_only": false,
+  "uses_external_service": true,
+  "seo": {
+    "title": {
+      "en": "Last.fm Export - Download Your Listening History as CSV",
+      "de": "Last.fm Export - Hörverlauf als CSV herunterladen"
+    },
+    "meta_description": {
+      "en": "Export your complete last.fm scrobble history to CSV. Download all your listened tracks with artist, album, and date information.",
+      "de": "Exportiere deinen kompletten Last.fm Scrobble-Verlauf als CSV. Lade alle gehörten Tracks mit Künstler, Album und Datum herunter."
+    }
+  },
+  "ui": {
+    "api_key_label": {
+      "en": "Last.fm API Key",
+      "de": "Last.fm API-Schlüssel"
+    },
+    "api_key_help": {
+      "en": "Get your API key at <a href=\"https://www.last.fm/api/account/create\" target=\"_blank\">last.fm/api</a>",
+      "de": "Hole dir deinen API-Schlüssel bei <a href=\"https://www.last.fm/api/account/create\" target=\"_blank\">last.fm/api</a>"
+    },
+    "username_label": {
+      "en": "Last.fm Username",
+      "de": "Last.fm Benutzername"
+    },
+    "fetch_info": {
+      "en": "Get Info",
+      "de": "Info abrufen"
+    },
+    "start_export": {
+      "en": "Start Export",
+      "de": "Export starten"
+    },
+    "download_csv": {
+      "en": "Download CSV",
+      "de": "CSV herunterladen"
+    },
+    "total_tracks": {
+      "en": "Total tracks",
+      "de": "Tracks gesamt"
+    },
+    "progress": {
+      "en": "Progress",
+      "de": "Fortschritt"
+    },
+    "fetching_page": {
+      "en": "Fetching page",
+      "de": "Lade Seite"
+    },
+    "complete": {
+      "en": "Export complete!",
+      "de": "Export abgeschlossen!"
+    },
+    "privacy_note": {
+      "en": "Your API key and username are sent to our server to fetch data from last.fm. We do not store any of your data.",
+      "de": "Dein API-Schlüssel und Benutzername werden an unseren Server gesendet, um Daten von Last.fm abzurufen. Wir speichern keine deiner Daten."
+    }
+  }
+}

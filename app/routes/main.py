@@ -98,3 +98,28 @@ def stats():
 @main_bp.route('/about')
 def about():
     return render_template('about.html')
+
+@main_bp.route('/privacy')
+@main_bp.route('/datenschutz')
+def privacy():
+    """Privacy policy page with tool-specific privacy information."""
+    from app.models import Link
+    
+    lang = session.get('lang', 'en')
+    
+    # Get all active links with privacy info
+    links = Link.query.order_by(Link._name).all()
+    
+    tools_privacy = []
+    for link in links:
+        tools_privacy.append({
+            'name': link.get_name(lang),
+            'url': link.url,
+            'frontend_only': link.frontend_only,
+            'uses_external_service': link.uses_external_service
+        })
+    
+    # Sort by name
+    tools_privacy.sort(key=lambda x: x['name'].lower())
+    
+    return render_template('privacy.html', tools=tools_privacy)

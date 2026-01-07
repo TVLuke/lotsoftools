@@ -5,11 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="{% block meta_description %}Free online tools for developers and designers: JSON formatter, UUID generator, color tools, hash generator, calendar, and more. No registration required.{% endblock %}">
     <meta name="keywords" content="{% block meta_keywords %}online tools, developer tools, JSON formatter, UUID generator, color picker, hash generator, QR code generator, text tools, free tools{% endblock %}">
-    <meta name="author" content="usefull">
-    <meta property="og:title" content="{% block og_title %}usefull - Free Online Developer Tools{% endblock %}">
+    <meta name="author" content="Lots of Tools">
+    <meta property="og:title" content="{% block og_title %}Lots of Tools - Free Online Developer Tools{% endblock %}">
     <meta property="og:description" content="{% block og_description %}Collection of free online tools for developers and designers. No registration required.{% endblock %}">
     <meta property="og:type" content="website">
-    <title>{% block title %}usefull{% endblock %}</title>
+    <title>{% block title %}Lots of Tools{% endblock %}</title>
     {% include 'components/imports/bootstrap.html' %}
     {% include 'components/imports/fontawesome.html' %}
     <link rel="stylesheet" href="{{ url_for('static', filename='css/custom.css') }}?v=5">
@@ -26,7 +26,7 @@
         <div class="container-fluid">
             <a class="navbar-brand" href="{{ url_for('main.index') }}">
                 <i class="fas fa-tools me-2"></i>
-                <span class="d-none d-md-inline">usefull</span>
+                <span class="d-none d-md-inline">Lots of Tools</span>
             </a>
             
             <div class="ms-auto d-flex align-items-center">
@@ -78,10 +78,12 @@
     </main>
 
     <footer class="text-center py-4 mt-5">
-        <p class="text-muted mb-1"><strong>usefull</strong> - Full of tools to use</p>
+        <p class="text-muted mb-1"><strong>Lots of Tools</strong> - Your privacy-friendly toolkit</p>
         <p class="text-muted small mb-0">Ad-free, no third-party cookies, privacy-friendly solutions.</p>
         <p class="mt-2">
             <a href="/about" class="text-muted small">{% if current_lang == 'de' %}Über diesen Dienst{% else %}About{% endif %}</a>
+            <span class="text-muted small mx-2">|</span>
+            <a href="/privacy" class="text-muted small">{% if current_lang == 'de' %}Datenschutz{% else %}Privacy{% endif %}</a>
             <span class="text-muted small mx-2">|</span>
             <a href="/sitemap" class="text-muted small">{% if current_lang == 'de' %}Seitenübersicht{% else %}Sitemap{% endif %}</a>
         </p>

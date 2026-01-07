@@ -1,0 +1,4435 @@
+{
+  "country": "SM",
+  "country_name": {
+    "name": "San Marino",
+    "name_en": "San Marino"
+  },
+  "subdivisions": [],
+  "public_holidays": [
+    {
+      "id": "79c5c5ea-f297-48ba-9cd9-385a668a3d30",
+      "startDate": "2020-01-01",
+      "endDate": "2020-01-01",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Maria, heiligste Mutter Gottes"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Maria, heiligste Mutter Gottes",
+        "EN": "Solemnity of Mary, the Holy Mother of God",
+        "FR": "Solemnity of Mary, the Holy Mother of God",
+        "ES": "Solemnity of Mary, the Holy Mother of God",
+        "IT": "Maria Santissima Madre di Dio"
+      }
+    },
+    {
+      "id": "1e2907ab-204a-4457-bcda-ef42309770ec",
+      "startDate": "2020-01-06",
+      "endDate": "2020-01-06",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Dreikönigsfest"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Dreikönigsfest",
+        "EN": "Epiphany",
+        "FR": "Epiphany",
+        "ES": "Epiphany",
+        "IT": "Epifania del Signore"
+      }
+    },
+    {
+      "id": "a805d466-e654-480f-8605-369d09f7c3cd",
+      "startDate": "2020-02-05",
+      "endDate": "2020-02-05",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Tag der Hl. Agatha von Catania"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Tag der Hl. Agatha von Catania",
+        "EN": "Saint Agatha's Day",
+        "FR": "Saint Agatha's Day",
+        "ES": "Saint Agatha's Day",
+        "IT": "Sant'Agata / Compatrona della Repubblica"
+      }
+    },
+    {
+      "id": "6f58ca47-1a2e-4104-8dd7-251d25c658c6",
+      "startDate": "2020-03-25",
+      "endDate": "2020-03-25",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Jahrestag von Arengo"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Jahrestag von Arengo",
+        "EN": "Anniversary of the 1906 Arengo and commemoration of the Militia",
+        "FR": "Anniversary of the 1906 Arengo and commemoration of the Militia",
+        "ES": "Anniversary of the 1906 Arengo and commemoration of the Militia",
+        "IT": "Anniversario dell’Arengo"
+      }
+    },
+    {
+      "id": "2664146f-a876-45ea-a652-8587b9ed1ad8",
+      "startDate": "2020-04-01",
+      "endDate": "2020-04-01",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Amsteinführung der Staatsoberhäupter"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Amsteinführung der Staatsoberhäupter",
+        "EN": "Investiture of the Captains Regent (Heads of State)",
+        "FR": "Investiture of the Captains Regent (Heads of State)",
+        "ES": "Investiture of the Captains Regent (Heads of State)",
+        "IT": "Investitura Capitani Reggenti"
+      }
+    },
+    {
+      "id": "95f4b6f7-79a1-4152-a31f-5808354a0296",
+      "startDate": "2020-04-12",
+      "endDate": "2020-04-12",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Ostern"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Ostern",
+        "EN": "Easter",
+        "FR": "Easter",
+        "ES": "Easter",
+        "IT": "Pasqua"
+      }
+    },
+    {
+      "id": "b0ecbf02-ae1b-4fed-ad1f-4a4a92228457",
+      "startDate": "2020-04-13",
+      "endDate": "2020-04-13",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Ostermontag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Ostermontag",
+        "EN": "Easter Monday",
+        "FR": "Easter Monday",
+        "ES": "Easter Monday",
+        "IT": "Lunedì di Pasqua"
+      }
+    },
+    {
+      "id": "835e5eda-f6ed-4896-a0c2-52a0cf8445dc",
+      "startDate": "2020-05-01",
+      "endDate": "2020-05-01",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Tag der Arbeit"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Tag der Arbeit",
+        "EN": "Labour Day",
+        "FR": "Labour Day",
+        "ES": "Labour Day",
+        "IT": "Festa dei lavoratori"
+      }
+    },
+    {
+      "id": "d496c9f2-6519-40c2-a087-c3fd1a53ccd6",
+      "startDate": "2020-06-11",
+      "endDate": "2020-06-11",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Fronleichnam"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Fronleichnam",
+        "EN": "Corpus Christi",
+        "FR": "Corpus Christi",
+        "ES": "Corpus Christi",
+        "IT": "Corpus Domini"
+      }
+    },
+    {
+      "id": "eed0e00f-747a-4267-90ff-e572becc7d64",
+      "startDate": "2020-07-28",
+      "endDate": "2020-07-28",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Jahrestag des Sturzes des Faschismus"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Jahrestag des Sturzes des Faschismus",
+        "EN": "Anniversary of the Fall of Fascism and Day of Freedom",
+        "FR": "Anniversary of the Fall of Fascism and Day of Freedom",
+        "ES": "Anniversary of the Fall of Fascism and Day of Freedom",
+        "IT": "Anniversario della Caduta del Fascismo e Festa della Libertà"
+      }
+    },
+    {
+      "id": "0a33b367-1b6b-4005-9efc-9401b9a03557",
+      "startDate": "2020-08-15",
+      "endDate": "2020-08-15",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Mariä Himmelfahrt"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Mariä Himmelfahrt",
+        "EN": "Assumption of the Virgin Day",
+        "FR": "Assumption of the Virgin Day",
+        "ES": "Assumption of the Virgin Day",
+        "IT": "Assunzione della Beata Vergine Maria"
+      }
+    },
+    {
+      "id": "361a42da-f5dd-4078-b5f5-0e5d36acb984",
+      "startDate": "2020-09-03",
+      "endDate": "2020-09-03",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "San Marino-Tag / Gründung der Republik"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "San Marino-Tag / Gründung der Republik",
+        "EN": "San Marino National Holiday / Foundation of the Republic (301 A.D.)",
+        "FR": "San Marino National Holiday / Foundation of the Republic (301 A.D.)",
+        "ES": "San Marino National Holiday / Foundation of the Republic (301 A.D.)",
+        "IT": "San Marino / Patrono e Fondatore della Repubblica"
+      }
+    },
+    {
+      "id": "bc8540a7-3639-4db6-bb5b-c3fb7695fa7d",
+      "startDate": "2020-10-01",
+      "endDate": "2020-10-01",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Amsteinführung der Staatsoberhäupter"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Amsteinführung der Staatsoberhäupter",
+        "EN": "Investiture of the Captains Regent (Heads of State)",
+        "FR": "Investiture of the Captains Regent (Heads of State)",
+        "ES": "Investiture of the Captains Regent (Heads of State)",
+        "IT": "Investitura Capitani Reggenti"
+      }
+    },
+    {
+      "id": "ee84450e-c429-4c4a-b06e-354aa36f71a8",
+      "startDate": "2020-11-01",
+      "endDate": "2020-11-01",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Allerheiligen"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Allerheiligen",
+        "EN": "All Saints' Day",
+        "FR": "All Saints' Day",
+        "ES": "All Saints' Day",
+        "IT": "Tutti i Santi"
+      }
+    },
+    {
+      "id": "c3264b45-73f2-41f8-820c-7707aa7161ee",
+      "startDate": "2020-11-02",
+      "endDate": "2020-11-02",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Allerseelen"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Allerseelen",
+        "EN": "All Souls' Day",
+        "FR": "All Souls' Day",
+        "ES": "All Souls' Day",
+        "IT": "Commemorazione dei defunti"
+      }
+    },
+    {
+      "id": "c47d66c1-e89f-44f0-937c-3b1efd1985a1",
+      "startDate": "2020-12-08",
+      "endDate": "2020-12-08",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Mariä Empfängnis"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Mariä Empfängnis",
+        "EN": "Immaculate Conception",
+        "FR": "Immaculate Conception",
+        "ES": "Immaculate Conception",
+        "IT": "Immacolata Concezione della Beata Vergine Maria"
+      }
+    },
+    {
+      "id": "b3525a9a-e41e-45d2-ba7c-62bc4ab1696a",
+      "startDate": "2020-12-25",
+      "endDate": "2020-12-25",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Weihnachten"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Weihnachten",
+        "EN": "Christmas Day",
+        "FR": "Christmas Day",
+        "ES": "Christmas Day",
+        "IT": "Natale del Signore"
+      }
+    },
+    {
+      "id": "ba01c728-6673-42d1-95a2-05d93f043326",
+      "startDate": "2020-12-26",
+      "endDate": "2020-12-26",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Stefanitag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Stefanitag",
+        "EN": "Saint Stephen’s Day",
+        "FR": "Saint Stephen’s Day",
+        "ES": "Saint Stephen’s Day",
+        "IT": "Santo Stefano"
+      }
+    },
+    {
+      "id": "af37c597-65e4-4c4c-9250-3de3fa7c7dcd",
+      "startDate": "2021-01-01",
+      "endDate": "2021-01-01",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Maria, heiligste Mutter Gottes"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Maria, heiligste Mutter Gottes",
+        "EN": "Solemnity of Mary, the Holy Mother of God",
+        "FR": "Solemnity of Mary, the Holy Mother of God",
+        "ES": "Solemnity of Mary, the Holy Mother of God",
+        "IT": "Maria Santissima Madre di Dio"
+      }
+    },
+    {
+      "id": "80dc74ff-9202-4715-a8fd-8a5540d6cf0b",
+      "startDate": "2021-01-06",
+      "endDate": "2021-01-06",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Dreikönigsfest"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Dreikönigsfest",
+        "EN": "Epiphany",
+        "FR": "Epiphany",
+        "ES": "Epiphany",
+        "IT": "Epifania del Signore"
+      }
+    },
+    {
+      "id": "7ef4df27-6a29-4c3e-a6ae-7e3541b38a75",
+      "startDate": "2021-02-05",
+      "endDate": "2021-02-05",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Tag der Hl. Agatha von Catania"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Tag der Hl. Agatha von Catania",
+        "EN": "Saint Agatha's Day",
+        "FR": "Saint Agatha's Day",
+        "ES": "Saint Agatha's Day",
+        "IT": "Sant'Agata / Compatrona della Repubblica"
+      }
+    },
+    {
+      "id": "9a6fe74c-d0f3-48e4-a7b8-80e71bd33d8b",
+      "startDate": "2021-03-25",
+      "endDate": "2021-03-25",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Jahrestag von Arengo"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Jahrestag von Arengo",
+        "EN": "Anniversary of the 1906 Arengo and commemoration of the Militia",
+        "FR": "Anniversary of the 1906 Arengo and commemoration of the Militia",
+        "ES": "Anniversary of the 1906 Arengo and commemoration of the Militia",
+        "IT": "Anniversario dell’Arengo"
+      }
+    },
+    {
+      "id": "b09631be-c2f1-4b9a-a41c-f4278a3fa9ec",
+      "startDate": "2021-04-01",
+      "endDate": "2021-04-01",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Amsteinführung der Staatsoberhäupter"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Amsteinführung der Staatsoberhäupter",
+        "EN": "Investiture of the Captains Regent (Heads of State)",
+        "FR": "Investiture of the Captains Regent (Heads of State)",
+        "ES": "Investiture of the Captains Regent (Heads of State)",
+        "IT": "Investitura Capitani Reggenti"
+      }
+    },
+    {
+      "id": "ff6f0632-2712-420a-b170-afe870bf4d79",
+      "startDate": "2021-04-04",
+      "endDate": "2021-04-04",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Ostern"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Ostern",
+        "EN": "Easter",
+        "FR": "Easter",
+        "ES": "Easter",
+        "IT": "Pasqua"
+      }
+    },
+    {
+      "id": "0c14c2a9-fc7b-41e8-b223-09439f32c78f",
+      "startDate": "2021-04-05",
+      "endDate": "2021-04-05",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Ostermontag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Ostermontag",
+        "EN": "Easter Monday",
+        "FR": "Easter Monday",
+        "ES": "Easter Monday",
+        "IT": "Lunedì di Pasqua"
+      }
+    },
+    {
+      "id": "2b011856-161b-4873-843e-a8b776ee13de",
+      "startDate": "2021-05-01",
+      "endDate": "2021-05-01",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Tag der Arbeit"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Tag der Arbeit",
+        "EN": "Labour Day",
+        "FR": "Labour Day",
+        "ES": "Labour Day",
+        "IT": "Festa dei lavoratori"
+      }
+    },
+    {
+      "id": "9ac0143b-bf53-4c78-9dd3-c88a7240af61",
+      "startDate": "2021-06-03",
+      "endDate": "2021-06-03",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Fronleichnam"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Fronleichnam",
+        "EN": "Corpus Christi",
+        "FR": "Corpus Christi",
+        "ES": "Corpus Christi",
+        "IT": "Corpus Domini"
+      }
+    },
+    {
+      "id": "5d95535d-db7b-4c5e-8c46-43cd62ff6326",
+      "startDate": "2021-07-28",
+      "endDate": "2021-07-28",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Jahrestag des Sturzes des Faschismus"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Jahrestag des Sturzes des Faschismus",
+        "EN": "Anniversary of the Fall of Fascism and Day of Freedom",
+        "FR": "Anniversary of the Fall of Fascism and Day of Freedom",
+        "ES": "Anniversary of the Fall of Fascism and Day of Freedom",
+        "IT": "Anniversario della Caduta del Fascismo e Festa della Libertà"
+      }
+    },
+    {
+      "id": "cfa85092-cf49-42d1-ab79-8ee566b98007",
+      "startDate": "2021-08-15",
+      "endDate": "2021-08-15",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Mariä Himmelfahrt"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Mariä Himmelfahrt",
+        "EN": "Assumption of the Virgin Day",
+        "FR": "Assumption of the Virgin Day",
+        "ES": "Assumption of the Virgin Day",
+        "IT": "Assunzione della Beata Vergine Maria"
+      }
+    },
+    {
+      "id": "68b32b4e-a885-49ba-8e63-2e9121e60e0d",
+      "startDate": "2021-09-03",
+      "endDate": "2021-09-03",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "San Marino-Tag / Gründung der Republik"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "San Marino-Tag / Gründung der Republik",
+        "EN": "San Marino National Holiday / Foundation of the Republic (301 A.D.)",
+        "FR": "San Marino National Holiday / Foundation of the Republic (301 A.D.)",
+        "ES": "San Marino National Holiday / Foundation of the Republic (301 A.D.)",
+        "IT": "San Marino / Patrono e Fondatore della Repubblica"
+      }
+    },
+    {
+      "id": "b6c2134a-7c71-4c2d-93e0-f90eb2599ee2",
+      "startDate": "2021-10-01",
+      "endDate": "2021-10-01",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Amsteinführung der Staatsoberhäupter"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Amsteinführung der Staatsoberhäupter",
+        "EN": "Investiture of the Captains Regent (Heads of State)",
+        "FR": "Investiture of the Captains Regent (Heads of State)",
+        "ES": "Investiture of the Captains Regent (Heads of State)",
+        "IT": "Investitura Capitani Reggenti"
+      }
+    },
+    {
+      "id": "d02e8d6d-5ee3-4190-bdb1-82d10ecce7cc",
+      "startDate": "2021-11-01",
+      "endDate": "2021-11-01",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Allerheiligen"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Allerheiligen",
+        "EN": "All Saints' Day",
+        "FR": "All Saints' Day",
+        "ES": "All Saints' Day",
+        "IT": "Tutti i Santi"
+      }
+    },
+    {
+      "id": "9650ff80-7e18-42f4-b596-2cc8dacefa81",
+      "startDate": "2021-11-02",
+      "endDate": "2021-11-02",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Allerseelen"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Allerseelen",
+        "EN": "All Souls' Day",
+        "FR": "All Souls' Day",
+        "ES": "All Souls' Day",
+        "IT": "Commemorazione dei defunti"
+      }
+    },
+    {
+      "id": "37e661a3-395d-41a4-b90a-7125fb089b96",
+      "startDate": "2021-12-08",
+      "endDate": "2021-12-08",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Mariä Empfängnis"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Mariä Empfängnis",
+        "EN": "Immaculate Conception",
+        "FR": "Immaculate Conception",
+        "ES": "Immaculate Conception",
+        "IT": "Immacolata Concezione della Beata Vergine Maria"
+      }
+    },
+    {
+      "id": "051f45db-b29f-4083-91e2-ca284d41e3e0",
+      "startDate": "2021-12-25",
+      "endDate": "2021-12-25",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Weihnachten"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Weihnachten",
+        "EN": "Christmas Day",
+        "FR": "Christmas Day",
+        "ES": "Christmas Day",
+        "IT": "Natale del Signore"
+      }
+    },
+    {
+      "id": "f1b2e578-919e-47cc-a60a-25a4f40e5324",
+      "startDate": "2021-12-26",
+      "endDate": "2021-12-26",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Stefanitag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Stefanitag",
+        "EN": "Saint Stephen’s Day",
+        "FR": "Saint Stephen’s Day",
+        "ES": "Saint Stephen’s Day",
+        "IT": "Santo Stefano"
+      }
+    },
+    {
+      "id": "19feb704-a029-42ab-bcb2-2d1c98ff34a5",
+      "startDate": "2022-01-01",
+      "endDate": "2022-01-01",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Maria, heiligste Mutter Gottes"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Maria, heiligste Mutter Gottes",
+        "EN": "Solemnity of Mary, the Holy Mother of God",
+        "FR": "Solemnity of Mary, the Holy Mother of God",
+        "ES": "Solemnity of Mary, the Holy Mother of God",
+        "IT": "Maria Santissima Madre di Dio"
+      }
+    },
+    {
+      "id": "e7c9df55-db08-485d-b63d-ce079b128b84",
+      "startDate": "2022-01-06",
+      "endDate": "2022-01-06",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Dreikönigsfest"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Dreikönigsfest",
+        "EN": "Epiphany",
+        "FR": "Epiphany",
+        "ES": "Epiphany",
+        "IT": "Epifania del Signore"
+      }
+    },
+    {
+      "id": "0bd27ba5-15de-41ea-a0e1-85ed1c470c2f",
+      "startDate": "2022-02-05",
+      "endDate": "2022-02-05",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Tag der Hl. Agatha von Catania"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Tag der Hl. Agatha von Catania",
+        "EN": "Saint Agatha's Day",
+        "FR": "Saint Agatha's Day",
+        "ES": "Saint Agatha's Day",
+        "IT": "Sant'Agata / Compatrona della Repubblica"
+      }
+    },
+    {
+      "id": "5a0ab9eb-0b6c-4f85-b436-031deee18f05",
+      "startDate": "2022-03-25",
+      "endDate": "2022-03-25",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Jahrestag von Arengo"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Jahrestag von Arengo",
+        "EN": "Anniversary of the 1906 Arengo and commemoration of the Militia",
+        "FR": "Anniversary of the 1906 Arengo and commemoration of the Militia",
+        "ES": "Anniversary of the 1906 Arengo and commemoration of the Militia",
+        "IT": "Anniversario dell’Arengo"
+      }
+    },
+    {
+      "id": "79c6f66d-22e9-44de-97cb-22eb8fa2c051",
+      "startDate": "2022-04-01",
+      "endDate": "2022-04-01",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Amsteinführung der Staatsoberhäupter"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Amsteinführung der Staatsoberhäupter",
+        "EN": "Investiture of the Captains Regent (Heads of State)",
+        "FR": "Investiture of the Captains Regent (Heads of State)",
+        "ES": "Investiture of the Captains Regent (Heads of State)",
+        "IT": "Investitura Capitani Reggenti"
+      }
+    },
+    {
+      "id": "ca539f95-d99b-48a5-909e-5e7ff9c3a3e5",
+      "startDate": "2022-04-17",
+      "endDate": "2022-04-17",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Ostern"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Ostern",
+        "EN": "Easter",
+        "FR": "Easter",
+        "ES": "Easter",
+        "IT": "Pasqua"
+      }
+    },
+    {
+      "id": "58b7da3e-34de-4688-a997-6036cb457e33",
+      "startDate": "2022-04-18",
+      "endDate": "2022-04-18",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Ostermontag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Ostermontag",
+        "EN": "Easter Monday",
+        "FR": "Easter Monday",
+        "ES": "Easter Monday",
+        "IT": "Lunedì di Pasqua"
+      }
+    },
+    {
+      "id": "aca36011-2cee-4f67-bbf4-d616892fefd7",
+      "startDate": "2022-05-01",
+      "endDate": "2022-05-01",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Tag der Arbeit"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Tag der Arbeit",
+        "EN": "Labour Day",
+        "FR": "Labour Day",
+        "ES": "Labour Day",
+        "IT": "Festa dei lavoratori"
+      }
+    },
+    {
+      "id": "e9354c25-27a7-4d9a-b592-71c02afbc281",
+      "startDate": "2022-06-16",
+      "endDate": "2022-06-16",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Fronleichnam"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Fronleichnam",
+        "EN": "Corpus Christi",
+        "FR": "Corpus Christi",
+        "ES": "Corpus Christi",
+        "IT": "Corpus Domini"
+      }
+    },
+    {
+      "id": "695dc65b-b495-4cc1-9d2e-d626c4237c07",
+      "startDate": "2022-07-28",
+      "endDate": "2022-07-28",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Jahrestag des Sturzes des Faschismus"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Jahrestag des Sturzes des Faschismus",
+        "EN": "Anniversary of the Fall of Fascism and Day of Freedom",
+        "FR": "Anniversary of the Fall of Fascism and Day of Freedom",
+        "ES": "Anniversary of the Fall of Fascism and Day of Freedom",
+        "IT": "Anniversario della Caduta del Fascismo e Festa della Libertà"
+      }
+    },
+    {
+      "id": "dd4daeed-1c38-442f-a1d8-73640acbd0e4",
+      "startDate": "2022-08-15",
+      "endDate": "2022-08-15",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Mariä Himmelfahrt"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Mariä Himmelfahrt",
+        "EN": "Assumption of the Virgin Day",
+        "FR": "Assumption of the Virgin Day",
+        "ES": "Assumption of the Virgin Day",
+        "IT": "Assunzione della Beata Vergine Maria"
+      }
+    },
+    {
+      "id": "ec00a277-26dc-473b-a2e7-90a7ebda4b1f",
+      "startDate": "2022-09-03",
+      "endDate": "2022-09-03",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "San Marino-Tag / Gründung der Republik"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "San Marino-Tag / Gründung der Republik",
+        "EN": "San Marino National Holiday / Foundation of the Republic (301 A.D.)",
+        "FR": "San Marino National Holiday / Foundation of the Republic (301 A.D.)",
+        "ES": "San Marino National Holiday / Foundation of the Republic (301 A.D.)",
+        "IT": "San Marino / Patrono e Fondatore della Repubblica"
+      }
+    },
+    {
+      "id": "5dc3f14f-a6b1-4ed3-9837-adbaa33f23c4",
+      "startDate": "2022-10-01",
+      "endDate": "2022-10-01",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Amsteinführung der Staatsoberhäupter"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Amsteinführung der Staatsoberhäupter",
+        "EN": "Investiture of the Captains Regent (Heads of State)",
+        "FR": "Investiture of the Captains Regent (Heads of State)",
+        "ES": "Investiture of the Captains Regent (Heads of State)",
+        "IT": "Investitura Capitani Reggenti"
+      }
+    },
+    {
+      "id": "be4ee7ec-726c-40ec-83b8-b26670578b9d",
+      "startDate": "2022-11-01",
+      "endDate": "2022-11-01",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Allerheiligen"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Allerheiligen",
+        "EN": "All Saints' Day",
+        "FR": "All Saints' Day",
+        "ES": "All Saints' Day",
+        "IT": "Tutti i Santi"
+      }
+    },
+    {
+      "id": "426b1ed8-96cf-4646-ba9d-ce83c8c6a980",
+      "startDate": "2022-11-02",
+      "endDate": "2022-11-02",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Allerseelen"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Allerseelen",
+        "EN": "All Souls' Day",
+        "FR": "All Souls' Day",
+        "ES": "All Souls' Day",
+        "IT": "Commemorazione dei defunti"
+      }
+    },
+    {
+      "id": "14890a12-876e-4f32-87c2-f7d1710b8fb3",
+      "startDate": "2022-12-08",
+      "endDate": "2022-12-08",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Mariä Empfängnis"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Mariä Empfängnis",
+        "EN": "Immaculate Conception",
+        "FR": "Immaculate Conception",
+        "ES": "Immaculate Conception",
+        "IT": "Immacolata Concezione della Beata Vergine Maria"
+      }
+    },
+    {
+      "id": "71d4e9d3-6183-45a4-8d1a-b082080f5265",
+      "startDate": "2022-12-25",
+      "endDate": "2022-12-25",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Weihnachten"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Weihnachten",
+        "EN": "Christmas Day",
+        "FR": "Christmas Day",
+        "ES": "Christmas Day",
+        "IT": "Natale del Signore"
+      }
+    },
+    {
+      "id": "8ab6c39c-458c-420d-90af-14ae5422bd1a",
+      "startDate": "2022-12-26",
+      "endDate": "2022-12-26",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Stefanitag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Stefanitag",
+        "EN": "Saint Stephen’s Day",
+        "FR": "Saint Stephen’s Day",
+        "ES": "Saint Stephen’s Day",
+        "IT": "Santo Stefano"
+      }
+    },
+    {
+      "id": "23505e71-8df6-46ff-b960-6a1114f35ab4",
+      "startDate": "2023-01-01",
+      "endDate": "2023-01-01",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Maria, heiligste Mutter Gottes"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Maria, heiligste Mutter Gottes",
+        "EN": "Solemnity of Mary, the Holy Mother of God",
+        "FR": "Solemnity of Mary, the Holy Mother of God",
+        "ES": "Solemnity of Mary, the Holy Mother of God",
+        "IT": "Maria Santissima Madre di Dio"
+      }
+    },
+    {
+      "id": "a1bb6ee7-e796-4f7e-9cc9-95538dce2067",
+      "startDate": "2023-01-06",
+      "endDate": "2023-01-06",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Dreikönigsfest"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Dreikönigsfest",
+        "EN": "Epiphany",
+        "FR": "Epiphany",
+        "ES": "Epiphany",
+        "IT": "Epifania del Signore"
+      }
+    },
+    {
+      "id": "1ce15d73-c472-4a54-a500-a8cfb05523e6",
+      "startDate": "2023-02-05",
+      "endDate": "2023-02-05",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Tag der Hl. Agatha von Catania"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Tag der Hl. Agatha von Catania",
+        "EN": "Saint Agatha's Day",
+        "FR": "Saint Agatha's Day",
+        "ES": "Saint Agatha's Day",
+        "IT": "Sant'Agata / Compatrona della Repubblica"
+      }
+    },
+    {
+      "id": "6b4c17fb-2bc4-4720-b8d2-8b686d3dfef7",
+      "startDate": "2023-03-25",
+      "endDate": "2023-03-25",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Jahrestag von Arengo"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Jahrestag von Arengo",
+        "EN": "Anniversary of the 1906 Arengo and commemoration of the Militia",
+        "FR": "Anniversary of the 1906 Arengo and commemoration of the Militia",
+        "ES": "Anniversary of the 1906 Arengo and commemoration of the Militia",
+        "IT": "Anniversario dell’Arengo"
+      }
+    },
+    {
+      "id": "7b210840-9689-48b8-8b24-635d0e884ddf",
+      "startDate": "2023-04-01",
+      "endDate": "2023-04-01",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Amsteinführung der Staatsoberhäupter"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Amsteinführung der Staatsoberhäupter",
+        "EN": "Investiture of the Captains Regent (Heads of State)",
+        "FR": "Investiture of the Captains Regent (Heads of State)",
+        "ES": "Investiture of the Captains Regent (Heads of State)",
+        "IT": "Investitura Capitani Reggenti"
+      }
+    },
+    {
+      "id": "76d2fa9f-9008-4fc1-94de-bce428eebd04",
+      "startDate": "2023-04-09",
+      "endDate": "2023-04-09",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Ostern"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Ostern",
+        "EN": "Easter",
+        "FR": "Easter",
+        "ES": "Easter",
+        "IT": "Pasqua"
+      }
+    },
+    {
+      "id": "4cb0c621-11e6-437e-a33e-8b1f92c4fe1b",
+      "startDate": "2023-04-10",
+      "endDate": "2023-04-10",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Ostermontag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Ostermontag",
+        "EN": "Easter Monday",
+        "FR": "Easter Monday",
+        "ES": "Easter Monday",
+        "IT": "Lunedì di Pasqua"
+      }
+    },
+    {
+      "id": "9cd8648a-95f7-4477-ac7d-76537686405d",
+      "startDate": "2023-05-01",
+      "endDate": "2023-05-01",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Tag der Arbeit"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Tag der Arbeit",
+        "EN": "Labour Day",
+        "FR": "Labour Day",
+        "ES": "Labour Day",
+        "IT": "Festa dei lavoratori"
+      }
+    },
+    {
+      "id": "41ce627b-33e0-419a-962e-a85c67b9d14f",
+      "startDate": "2023-06-08",
+      "endDate": "2023-06-08",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Fronleichnam"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Fronleichnam",
+        "EN": "Corpus Christi",
+        "FR": "Corpus Christi",
+        "ES": "Corpus Christi",
+        "IT": "Corpus Domini"
+      }
+    },
+    {
+      "id": "9942e0a0-7d76-4cb0-aaf4-622802a5db43",
+      "startDate": "2023-07-28",
+      "endDate": "2023-07-28",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Jahrestag des Sturzes des Faschismus"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Jahrestag des Sturzes des Faschismus",
+        "EN": "Anniversary of the Fall of Fascism and Day of Freedom",
+        "FR": "Anniversary of the Fall of Fascism and Day of Freedom",
+        "ES": "Anniversary of the Fall of Fascism and Day of Freedom",
+        "IT": "Anniversario della Caduta del Fascismo e Festa della Libertà"
+      }
+    },
+    {
+      "id": "59639c1a-b9fc-4b91-878c-955a52b68425",
+      "startDate": "2023-08-15",
+      "endDate": "2023-08-15",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Mariä Himmelfahrt"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Mariä Himmelfahrt",
+        "EN": "Assumption of the Virgin Day",
+        "FR": "Assumption of the Virgin Day",
+        "ES": "Assumption of the Virgin Day",
+        "IT": "Assunzione della Beata Vergine Maria"
+      }
+    },
+    {
+      "id": "da150baa-c4f6-48d5-a3b7-f9ca50eb0978",
+      "startDate": "2023-09-03",
+      "endDate": "2023-09-03",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "San Marino-Tag / Gründung der Republik"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "San Marino-Tag / Gründung der Republik",
+        "EN": "San Marino National Holiday / Foundation of the Republic (301 A.D.)",
+        "FR": "San Marino National Holiday / Foundation of the Republic (301 A.D.)",
+        "ES": "San Marino National Holiday / Foundation of the Republic (301 A.D.)",
+        "IT": "San Marino / Patrono e Fondatore della Repubblica"
+      }
+    },
+    {
+      "id": "f55a21e4-0a33-4d30-951a-82b80bdd6539",
+      "startDate": "2023-10-01",
+      "endDate": "2023-10-01",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Amsteinführung der Staatsoberhäupter"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Amsteinführung der Staatsoberhäupter",
+        "EN": "Investiture of the Captains Regent (Heads of State)",
+        "FR": "Investiture of the Captains Regent (Heads of State)",
+        "ES": "Investiture of the Captains Regent (Heads of State)",
+        "IT": "Investitura Capitani Reggenti"
+      }
+    },
+    {
+      "id": "efc413b4-a638-4944-825b-45d2524b6a74",
+      "startDate": "2023-11-01",
+      "endDate": "2023-11-01",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Allerheiligen"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Allerheiligen",
+        "EN": "All Saints' Day",
+        "FR": "All Saints' Day",
+        "ES": "All Saints' Day",
+        "IT": "Tutti i Santi"
+      }
+    },
+    {
+      "id": "55d62ad4-dd4d-4aaf-962f-d3e1fcaf3519",
+      "startDate": "2023-11-02",
+      "endDate": "2023-11-02",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Allerseelen"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Allerseelen",
+        "EN": "All Souls' Day",
+        "FR": "All Souls' Day",
+        "ES": "All Souls' Day",
+        "IT": "Commemorazione dei defunti"
+      }
+    },
+    {
+      "id": "d43d2449-e0f7-4cb3-8c7b-34c86c049dce",
+      "startDate": "2023-12-08",
+      "endDate": "2023-12-08",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Mariä Empfängnis"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Mariä Empfängnis",
+        "EN": "Immaculate Conception",
+        "FR": "Immaculate Conception",
+        "ES": "Immaculate Conception",
+        "IT": "Immacolata Concezione della Beata Vergine Maria"
+      }
+    },
+    {
+      "id": "3be0149d-7ceb-433e-8222-40bb57d6933e",
+      "startDate": "2023-12-25",
+      "endDate": "2023-12-25",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Weihnachten"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Weihnachten",
+        "EN": "Christmas Day",
+        "FR": "Christmas Day",
+        "ES": "Christmas Day",
+        "IT": "Natale del Signore"
+      }
+    },
+    {
+      "id": "694fc9dc-90b9-4008-9a51-0b1957264ec8",
+      "startDate": "2023-12-26",
+      "endDate": "2023-12-26",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Stefanitag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Stefanitag",
+        "EN": "Saint Stephen’s Day",
+        "FR": "Saint Stephen’s Day",
+        "ES": "Saint Stephen’s Day",
+        "IT": "Santo Stefano"
+      }
+    },
+    {
+      "id": "9d623cf6-3f9f-492a-8021-39197ade64c8",
+      "startDate": "2024-01-01",
+      "endDate": "2024-01-01",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Maria, heiligste Mutter Gottes"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Maria, heiligste Mutter Gottes",
+        "EN": "Solemnity of Mary, the Holy Mother of God",
+        "FR": "Solemnity of Mary, the Holy Mother of God",
+        "ES": "Solemnity of Mary, the Holy Mother of God",
+        "IT": "Maria Santissima Madre di Dio"
+      }
+    },
+    {
+      "id": "c6ccd9bf-1fb8-419e-833b-0b6ba8742c08",
+      "startDate": "2024-01-06",
+      "endDate": "2024-01-06",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Dreikönigsfest"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Dreikönigsfest",
+        "EN": "Epiphany",
+        "FR": "Epiphany",
+        "ES": "Epiphany",
+        "IT": "Epifania del Signore"
+      }
+    },
+    {
+      "id": "3987202f-82ce-42ac-8f2f-ef74b1ef465a",
+      "startDate": "2024-02-05",
+      "endDate": "2024-02-05",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Tag der Hl. Agatha von Catania"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Tag der Hl. Agatha von Catania",
+        "EN": "Saint Agatha's Day",
+        "FR": "Saint Agatha's Day",
+        "ES": "Saint Agatha's Day",
+        "IT": "Sant'Agata / Compatrona della Repubblica"
+      }
+    },
+    {
+      "id": "bf774694-e666-4f64-b076-119db66452b0",
+      "startDate": "2024-03-25",
+      "endDate": "2024-03-25",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Jahrestag von Arengo"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Jahrestag von Arengo",
+        "EN": "Anniversary of the 1906 Arengo and commemoration of the Militia",
+        "FR": "Anniversary of the 1906 Arengo and commemoration of the Militia",
+        "ES": "Anniversary of the 1906 Arengo and commemoration of the Militia",
+        "IT": "Anniversario dell’Arengo"
+      }
+    },
+    {
+      "id": "6f252660-2b79-42ab-81f3-eea670b6b667",
+      "startDate": "2024-03-31",
+      "endDate": "2024-03-31",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Ostern"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Ostern",
+        "EN": "Easter",
+        "FR": "Easter",
+        "ES": "Easter",
+        "IT": "Pasqua"
+      }
+    },
+    {
+      "id": "0de2be8c-907e-4b83-a474-6d1ef5abe2c6",
+      "startDate": "2024-04-01",
+      "endDate": "2024-04-01",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Ostermontag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Ostermontag",
+        "EN": "Investiture of the Captains Regent (Heads of State)",
+        "FR": "Investiture of the Captains Regent (Heads of State)",
+        "ES": "Investiture of the Captains Regent (Heads of State)",
+        "IT": "Investitura Capitani Reggenti"
+      }
+    },
+    {
+      "id": "12ebac20-894f-4535-bbf0-a980c6701518",
+      "startDate": "2024-04-01",
+      "endDate": "2024-04-01",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Amsteinführung der Staatsoberhäupter"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Amsteinführung der Staatsoberhäupter",
+        "EN": "Investiture of the Captains Regent (Heads of State)",
+        "FR": "Investiture of the Captains Regent (Heads of State)",
+        "ES": "Investiture of the Captains Regent (Heads of State)",
+        "IT": "Investitura Capitani Reggenti"
+      }
+    },
+    {
+      "id": "e175dd99-32bf-431f-93c6-a511949efc52",
+      "startDate": "2024-05-01",
+      "endDate": "2024-05-01",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Tag der Arbeit"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Tag der Arbeit",
+        "EN": "Labour Day",
+        "FR": "Labour Day",
+        "ES": "Labour Day",
+        "IT": "Festa dei lavoratori"
+      }
+    },
+    {
+      "id": "f6cca561-ef6e-40ad-9851-e3d93ce112bc",
+      "startDate": "2024-05-30",
+      "endDate": "2024-05-30",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Fronleichnam"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Fronleichnam",
+        "EN": "Corpus Christi",
+        "FR": "Corpus Christi",
+        "ES": "Corpus Christi",
+        "IT": "Corpus Domini"
+      }
+    },
+    {
+      "id": "94e0c6a5-25a4-4203-b183-d37601a8328b",
+      "startDate": "2024-07-28",
+      "endDate": "2024-07-28",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Jahrestag des Sturzes des Faschismus"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Jahrestag des Sturzes des Faschismus",
+        "EN": "Anniversary of the Fall of Fascism and Day of Freedom",
+        "FR": "Anniversary of the Fall of Fascism and Day of Freedom",
+        "ES": "Anniversary of the Fall of Fascism and Day of Freedom",
+        "IT": "Anniversario della Caduta del Fascismo e Festa della Libertà"
+      }
+    },
+    {
+      "id": "cc08e394-cabd-47a2-8ddc-1cbdd038a943",
+      "startDate": "2024-08-15",
+      "endDate": "2024-08-15",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Mariä Himmelfahrt"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Mariä Himmelfahrt",
+        "EN": "Assumption of the Virgin Day",
+        "FR": "Assumption of the Virgin Day",
+        "ES": "Assumption of the Virgin Day",
+        "IT": "Assunzione della Beata Vergine Maria"
+      }
+    },
+    {
+      "id": "08eade4e-cabc-442c-bd04-656299fc35bf",
+      "startDate": "2024-09-03",
+      "endDate": "2024-09-03",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "San Marino-Tag / Gründung der Republik"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "San Marino-Tag / Gründung der Republik",
+        "EN": "San Marino National Holiday / Foundation of the Republic (301 A.D.)",
+        "FR": "San Marino National Holiday / Foundation of the Republic (301 A.D.)",
+        "ES": "San Marino National Holiday / Foundation of the Republic (301 A.D.)",
+        "IT": "San Marino / Patrono e Fondatore della Repubblica"
+      }
+    },
+    {
+      "id": "131d6ac7-90a6-4a9e-9d98-671a5d0c270b",
+      "startDate": "2024-10-01",
+      "endDate": "2024-10-01",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Amsteinführung der Staatsoberhäupter"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Amsteinführung der Staatsoberhäupter",
+        "EN": "Investiture of the Captains Regent (Heads of State)",
+        "FR": "Investiture of the Captains Regent (Heads of State)",
+        "ES": "Investiture of the Captains Regent (Heads of State)",
+        "IT": "Investitura Capitani Reggenti"
+      }
+    },
+    {
+      "id": "9690df99-1718-4ba4-ab46-5c4dae1775e5",
+      "startDate": "2024-11-01",
+      "endDate": "2024-11-01",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Allerheiligen"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Allerheiligen",
+        "EN": "All Saints' Day",
+        "FR": "All Saints' Day",
+        "ES": "All Saints' Day",
+        "IT": "Tutti i Santi"
+      }
+    },
+    {
+      "id": "fb7ea66a-83c2-41c7-a35e-50762b2bedf5",
+      "startDate": "2024-11-02",
+      "endDate": "2024-11-02",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Allerseelen"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Allerseelen",
+        "EN": "All Souls' Day",
+        "FR": "All Souls' Day",
+        "ES": "All Souls' Day",
+        "IT": "Commemorazione dei defunti"
+      }
+    },
+    {
+      "id": "54a93b99-08ae-484d-94d1-08bb9ef0c368",
+      "startDate": "2024-12-08",
+      "endDate": "2024-12-08",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Mariä Empfängnis"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Mariä Empfängnis",
+        "EN": "Immaculate Conception",
+        "FR": "Immaculate Conception",
+        "ES": "Immaculate Conception",
+        "IT": "Immacolata Concezione della Beata Vergine Maria"
+      }
+    },
+    {
+      "id": "7dcddebb-931a-41bb-9004-7fec26fec4db",
+      "startDate": "2024-12-25",
+      "endDate": "2024-12-25",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Weihnachten"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Weihnachten",
+        "EN": "Christmas Day",
+        "FR": "Christmas Day",
+        "ES": "Christmas Day",
+        "IT": "Natale del Signore"
+      }
+    },
+    {
+      "id": "4aac1609-7ebd-4de5-a296-8b4193ea6cc5",
+      "startDate": "2024-12-26",
+      "endDate": "2024-12-26",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Stefanitag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Stefanitag",
+        "EN": "Saint Stephen’s Day",
+        "FR": "Saint Stephen’s Day",
+        "ES": "Saint Stephen’s Day",
+        "IT": "Santo Stefano"
+      }
+    },
+    {
+      "id": "295d041c-d019-47e7-b1d1-b223ec5f9c91",
+      "startDate": "2025-01-01",
+      "endDate": "2025-01-01",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Maria, heiligste Mutter Gottes"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Maria, heiligste Mutter Gottes",
+        "EN": "Solemnity of Mary, the Holy Mother of God",
+        "FR": "Solemnity of Mary, the Holy Mother of God",
+        "ES": "Solemnity of Mary, the Holy Mother of God",
+        "IT": "Maria Santissima Madre di Dio"
+      }
+    },
+    {
+      "id": "6960c2fb-f74f-4245-8b51-967846fa14bd",
+      "startDate": "2025-01-06",
+      "endDate": "2025-01-06",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Dreikönigsfest"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Dreikönigsfest",
+        "EN": "Epiphany",
+        "FR": "Epiphany",
+        "ES": "Epiphany",
+        "IT": "Epifania del Signore"
+      }
+    },
+    {
+      "id": "7b3140c2-8a57-4f17-b9ca-9fe0a6945ef6",
+      "startDate": "2025-02-05",
+      "endDate": "2025-02-05",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Tag der Hl. Agatha von Catania"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Tag der Hl. Agatha von Catania",
+        "EN": "Saint Agatha's Day",
+        "FR": "Saint Agatha's Day",
+        "ES": "Saint Agatha's Day",
+        "IT": "Sant'Agata / Compatrona della Repubblica"
+      }
+    },
+    {
+      "id": "cc7f1c64-6000-4c9d-a964-5eda939ef267",
+      "startDate": "2025-03-25",
+      "endDate": "2025-03-25",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Jahrestag von Arengo"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Jahrestag von Arengo",
+        "EN": "Anniversary of the 1906 Arengo and commemoration of the Militia",
+        "FR": "Anniversary of the 1906 Arengo and commemoration of the Militia",
+        "ES": "Anniversary of the 1906 Arengo and commemoration of the Militia",
+        "IT": "Anniversario dell’Arengo"
+      }
+    },
+    {
+      "id": "7214adea-623a-4c66-aefe-4f8d940d5a3d",
+      "startDate": "2025-04-01",
+      "endDate": "2025-04-01",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Amsteinführung der Staatsoberhäupter"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Amsteinführung der Staatsoberhäupter",
+        "EN": "Investiture of the Captains Regent (Heads of State)",
+        "FR": "Investiture of the Captains Regent (Heads of State)",
+        "ES": "Investiture of the Captains Regent (Heads of State)",
+        "IT": "Investitura Capitani Reggenti"
+      }
+    },
+    {
+      "id": "53c23748-6a85-42d0-80b8-36c726397748",
+      "startDate": "2025-04-20",
+      "endDate": "2025-04-20",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Ostern"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Ostern",
+        "EN": "Easter",
+        "FR": "Easter",
+        "ES": "Easter",
+        "IT": "Pasqua"
+      }
+    },
+    {
+      "id": "5cd13cc8-7389-4cb5-a302-e980d1dac6fb",
+      "startDate": "2025-04-21",
+      "endDate": "2025-04-21",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Ostermontag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Ostermontag",
+        "EN": "Easter Monday",
+        "FR": "Easter Monday",
+        "ES": "Easter Monday",
+        "IT": "Lunedì di Pasqua"
+      }
+    },
+    {
+      "id": "707433be-8820-4952-b2ba-fff034cbd535",
+      "startDate": "2025-05-01",
+      "endDate": "2025-05-01",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Tag der Arbeit"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Tag der Arbeit",
+        "EN": "Labour Day",
+        "FR": "Labour Day",
+        "ES": "Labour Day",
+        "IT": "Festa dei lavoratori"
+      }
+    },
+    {
+      "id": "873d35d5-4c18-467b-9172-ad484130ed28",
+      "startDate": "2025-06-19",
+      "endDate": "2025-06-19",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Fronleichnam"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Fronleichnam",
+        "EN": "Corpus Christi",
+        "FR": "Corpus Christi",
+        "ES": "Corpus Christi",
+        "IT": "Corpus Domini"
+      }
+    },
+    {
+      "id": "69e5dd1b-f58a-412d-a591-b1258c3008da",
+      "startDate": "2025-07-28",
+      "endDate": "2025-07-28",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Jahrestag des Sturzes des Faschismus"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Jahrestag des Sturzes des Faschismus",
+        "EN": "Anniversary of the Fall of Fascism and Day of Freedom",
+        "FR": "Anniversary of the Fall of Fascism and Day of Freedom",
+        "ES": "Anniversary of the Fall of Fascism and Day of Freedom",
+        "IT": "Anniversario della Caduta del Fascismo e Festa della Libertà"
+      }
+    },
+    {
+      "id": "9f2c124c-7b88-4848-b05f-f721a9f59c3a",
+      "startDate": "2025-08-15",
+      "endDate": "2025-08-15",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Mariä Himmelfahrt"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Mariä Himmelfahrt",
+        "EN": "Assumption of the Virgin Day",
+        "FR": "Assumption of the Virgin Day",
+        "ES": "Assumption of the Virgin Day",
+        "IT": "Assunzione della Beata Vergine Maria"
+      }
+    },
+    {
+      "id": "5ee32554-e67b-4895-92dd-76666f9802cb",
+      "startDate": "2025-09-03",
+      "endDate": "2025-09-03",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "San Marino-Tag / Gründung der Republik"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "San Marino-Tag / Gründung der Republik",
+        "EN": "San Marino National Holiday / Foundation of the Republic (301 A.D.)",
+        "FR": "San Marino National Holiday / Foundation of the Republic (301 A.D.)",
+        "ES": "San Marino National Holiday / Foundation of the Republic (301 A.D.)",
+        "IT": "San Marino / Patrono e Fondatore della Repubblica"
+      }
+    },
+    {
+      "id": "cf5148fe-32a1-457b-a00a-6e0287373b71",
+      "startDate": "2025-10-01",
+      "endDate": "2025-10-01",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Amsteinführung der Staatsoberhäupter"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Amsteinführung der Staatsoberhäupter",
+        "EN": "Investiture of the Captains Regent (Heads of State)",
+        "FR": "Investiture of the Captains Regent (Heads of State)",
+        "ES": "Investiture of the Captains Regent (Heads of State)",
+        "IT": "Investitura Capitani Reggenti"
+      }
+    },
+    {
+      "id": "a96bb88f-9923-4cf0-b288-b11224ef62d8",
+      "startDate": "2025-11-01",
+      "endDate": "2025-11-01",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Allerheiligen"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Allerheiligen",
+        "EN": "All Saints' Day",
+        "FR": "All Saints' Day",
+        "ES": "All Saints' Day",
+        "IT": "Tutti i Santi"
+      }
+    },
+    {
+      "id": "4466dc11-432e-4c18-bb21-0ae971d36fc5",
+      "startDate": "2025-11-02",
+      "endDate": "2025-11-02",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Allerseelen"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Allerseelen",
+        "EN": "All Souls' Day",
+        "FR": "All Souls' Day",
+        "ES": "All Souls' Day",
+        "IT": "Commemorazione dei defunti"
+      }
+    },
+    {
+      "id": "faf96576-866b-4e7a-ad45-e0e1bef7c151",
+      "startDate": "2025-12-08",
+      "endDate": "2025-12-08",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Mariä Empfängnis"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Mariä Empfängnis",
+        "EN": "Immaculate Conception",
+        "FR": "Immaculate Conception",
+        "ES": "Immaculate Conception",
+        "IT": "Immacolata Concezione della Beata Vergine Maria"
+      }
+    },
+    {
+      "id": "832a62b0-bafe-488e-b210-ff7521740acb",
+      "startDate": "2025-12-25",
+      "endDate": "2025-12-25",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Weihnachten"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Weihnachten",
+        "EN": "Christmas Day",
+        "FR": "Christmas Day",
+        "ES": "Christmas Day",
+        "IT": "Natale del Signore"
+      }
+    },
+    {
+      "id": "7a68d809-6ff5-4aab-a6b6-26fa0a06e658",
+      "startDate": "2025-12-26",
+      "endDate": "2025-12-26",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Stefanitag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Stefanitag",
+        "EN": "Saint Stephen’s Day",
+        "FR": "Saint Stephen’s Day",
+        "ES": "Saint Stephen’s Day",
+        "IT": "Santo Stefano"
+      }
+    },
+    {
+      "id": "b386e0f4-05ab-4641-ad71-cdbcea8db022",
+      "startDate": "2026-01-01",
+      "endDate": "2026-01-01",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Maria, heiligste Mutter Gottes"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Maria, heiligste Mutter Gottes",
+        "EN": "Solemnity of Mary, the Holy Mother of God",
+        "FR": "Solemnity of Mary, the Holy Mother of God",
+        "ES": "Solemnity of Mary, the Holy Mother of God",
+        "IT": "Maria Santissima Madre di Dio"
+      }
+    },
+    {
+      "id": "1498de4c-6d63-4cbb-bfca-17181fc2151f",
+      "startDate": "2026-01-06",
+      "endDate": "2026-01-06",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Dreikönigsfest"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Dreikönigsfest",
+        "EN": "Epiphany",
+        "FR": "Epiphany",
+        "ES": "Epiphany",
+        "IT": "Epifania del Signore"
+      }
+    },
+    {
+      "id": "bd958515-b4f9-4f52-b12c-17985944cb58",
+      "startDate": "2026-02-05",
+      "endDate": "2026-02-05",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Tag der Hl. Agatha von Catania"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Tag der Hl. Agatha von Catania",
+        "EN": "Saint Agatha's Day",
+        "FR": "Saint Agatha's Day",
+        "ES": "Saint Agatha's Day",
+        "IT": "Sant'Agata / Compatrona della Repubblica"
+      }
+    },
+    {
+      "id": "b20a9cb5-4f4c-49cc-8a37-1d59760c688e",
+      "startDate": "2026-03-25",
+      "endDate": "2026-03-25",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Jahrestag von Arengo"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Jahrestag von Arengo",
+        "EN": "Anniversary of the 1906 Arengo and commemoration of the Militia",
+        "FR": "Anniversary of the 1906 Arengo and commemoration of the Militia",
+        "ES": "Anniversary of the 1906 Arengo and commemoration of the Militia",
+        "IT": "Anniversario dell’Arengo"
+      }
+    },
+    {
+      "id": "7b5136cb-43f0-4061-b347-21ba56b88d83",
+      "startDate": "2026-04-01",
+      "endDate": "2026-04-01",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Amsteinführung der Staatsoberhäupter"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Amsteinführung der Staatsoberhäupter",
+        "EN": "Investiture of the Captains Regent (Heads of State)",
+        "FR": "Investiture of the Captains Regent (Heads of State)",
+        "ES": "Investiture of the Captains Regent (Heads of State)",
+        "IT": "Investitura Capitani Reggenti"
+      }
+    },
+    {
+      "id": "8f2f4dbd-4e08-4a7f-9f58-4f4dae41386a",
+      "startDate": "2026-04-05",
+      "endDate": "2026-04-05",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Ostern"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Ostern",
+        "EN": "Easter",
+        "FR": "Easter",
+        "ES": "Easter",
+        "IT": "Pasqua"
+      }
+    },
+    {
+      "id": "6dd806c6-ca79-4cd2-bb35-057cd967cbf9",
+      "startDate": "2026-04-06",
+      "endDate": "2026-04-06",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Ostermontag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Ostermontag",
+        "EN": "Easter Monday",
+        "FR": "Easter Monday",
+        "ES": "Easter Monday",
+        "IT": "Lunedì di Pasqua"
+      }
+    },
+    {
+      "id": "bff7a86a-a334-487c-b55a-3d0b243540b9",
+      "startDate": "2026-05-01",
+      "endDate": "2026-05-01",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Tag der Arbeit"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Tag der Arbeit",
+        "EN": "Labour Day",
+        "FR": "Labour Day",
+        "ES": "Labour Day",
+        "IT": "Festa dei lavoratori"
+      }
+    },
+    {
+      "id": "32b618b8-5b90-4501-b666-0ca06d9edf9c",
+      "startDate": "2026-06-04",
+      "endDate": "2026-06-04",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Fronleichnam"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Fronleichnam",
+        "EN": "Corpus Christi",
+        "FR": "Corpus Christi",
+        "ES": "Corpus Christi",
+        "IT": "Corpus Domini"
+      }
+    },
+    {
+      "id": "5eaee80b-5849-4327-bcdb-08f57cb9c44a",
+      "startDate": "2026-07-28",
+      "endDate": "2026-07-28",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Jahrestag des Sturzes des Faschismus"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Jahrestag des Sturzes des Faschismus",
+        "EN": "Anniversary of the Fall of Fascism and Day of Freedom",
+        "FR": "Anniversary of the Fall of Fascism and Day of Freedom",
+        "ES": "Anniversary of the Fall of Fascism and Day of Freedom",
+        "IT": "Anniversario della Caduta del Fascismo e Festa della Libertà"
+      }
+    },
+    {
+      "id": "03a2417c-5322-4225-9c36-082eccfc350d",
+      "startDate": "2026-08-15",
+      "endDate": "2026-08-15",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Mariä Himmelfahrt"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Mariä Himmelfahrt",
+        "EN": "Assumption of the Virgin Day",
+        "FR": "Assumption of the Virgin Day",
+        "ES": "Assumption of the Virgin Day",
+        "IT": "Assunzione della Beata Vergine Maria"
+      }
+    },
+    {
+      "id": "02d6cae2-aefa-4892-9208-0f7e2e6540fa",
+      "startDate": "2026-09-03",
+      "endDate": "2026-09-03",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "San Marino-Tag / Gründung der Republik"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "San Marino-Tag / Gründung der Republik",
+        "EN": "San Marino National Holiday / Foundation of the Republic (301 A.D.)",
+        "FR": "San Marino National Holiday / Foundation of the Republic (301 A.D.)",
+        "ES": "San Marino National Holiday / Foundation of the Republic (301 A.D.)",
+        "IT": "San Marino / Patrono e Fondatore della Repubblica"
+      }
+    },
+    {
+      "id": "d2b08ddf-4c18-4e78-8c5b-026eb9496825",
+      "startDate": "2026-10-01",
+      "endDate": "2026-10-01",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Amsteinführung der Staatsoberhäupter"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Amsteinführung der Staatsoberhäupter",
+        "EN": "Investiture of the Captains Regent (Heads of State)",
+        "FR": "Investiture of the Captains Regent (Heads of State)",
+        "ES": "Investiture of the Captains Regent (Heads of State)",
+        "IT": "Investitura Capitani Reggenti"
+      }
+    },
+    {
+      "id": "e09ed457-bb66-4ff7-b18e-e54a4d43f0a0",
+      "startDate": "2026-11-01",
+      "endDate": "2026-11-01",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Allerheiligen"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Allerheiligen",
+        "EN": "All Saints' Day",
+        "FR": "All Saints' Day",
+        "ES": "All Saints' Day",
+        "IT": "Tutti i Santi"
+      }
+    },
+    {
+      "id": "e0ae28f6-0189-4cc2-9715-60e64d9bf8c9",
+      "startDate": "2026-11-02",
+      "endDate": "2026-11-02",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Allerseelen"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Allerseelen",
+        "EN": "All Souls' Day",
+        "FR": "All Souls' Day",
+        "ES": "All Souls' Day",
+        "IT": "Commemorazione dei defunti"
+      }
+    },
+    {
+      "id": "9df64dea-03a9-40d9-9afa-6bcf82c6d1e6",
+      "startDate": "2026-12-08",
+      "endDate": "2026-12-08",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Mariä Empfängnis"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Mariä Empfängnis",
+        "EN": "Immaculate Conception",
+        "FR": "Immaculate Conception",
+        "ES": "Immaculate Conception",
+        "IT": "Immacolata Concezione della Beata Vergine Maria"
+      }
+    },
+    {
+      "id": "68948148-7d79-4dea-969a-ff86f68c4eb4",
+      "startDate": "2026-12-25",
+      "endDate": "2026-12-25",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Weihnachten"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Weihnachten",
+        "EN": "Christmas Day",
+        "FR": "Christmas Day",
+        "ES": "Christmas Day",
+        "IT": "Natale del Signore"
+      }
+    },
+    {
+      "id": "6a411e36-f436-4162-80d4-35a69a6a9018",
+      "startDate": "2026-12-26",
+      "endDate": "2026-12-26",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Stefanitag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Stefanitag",
+        "EN": "Saint Stephen’s Day",
+        "FR": "Saint Stephen’s Day",
+        "ES": "Saint Stephen’s Day",
+        "IT": "Santo Stefano"
+      }
+    },
+    {
+      "id": "65807bb4-615f-490a-a8c9-469631dc6050",
+      "startDate": "2027-01-01",
+      "endDate": "2027-01-01",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Maria, heiligste Mutter Gottes"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Maria, heiligste Mutter Gottes",
+        "EN": "Solemnity of Mary, the Holy Mother of God",
+        "FR": "Solemnity of Mary, the Holy Mother of God",
+        "ES": "Solemnity of Mary, the Holy Mother of God",
+        "IT": "Maria Santissima Madre di Dio"
+      }
+    },
+    {
+      "id": "b0705ad5-66c0-45ee-942a-2210756010cb",
+      "startDate": "2027-01-06",
+      "endDate": "2027-01-06",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Dreikönigsfest"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Dreikönigsfest",
+        "EN": "Epiphany",
+        "FR": "Epiphany",
+        "ES": "Epiphany",
+        "IT": "Epifania del Signore"
+      }
+    },
+    {
+      "id": "f09f1798-9f3e-4500-80c8-2ee905651533",
+      "startDate": "2027-02-05",
+      "endDate": "2027-02-05",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Tag der Hl. Agatha von Catania"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Tag der Hl. Agatha von Catania",
+        "EN": "Saint Agatha's Day",
+        "FR": "Saint Agatha's Day",
+        "ES": "Saint Agatha's Day",
+        "IT": "Sant'Agata / Compatrona della Repubblica"
+      }
+    },
+    {
+      "id": "6e78cff1-9708-44d1-ad76-3b274420b7f4",
+      "startDate": "2027-03-25",
+      "endDate": "2027-03-25",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Jahrestag von Arengo"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Jahrestag von Arengo",
+        "EN": "Anniversary of the 1906 Arengo and commemoration of the Militia",
+        "FR": "Anniversary of the 1906 Arengo and commemoration of the Militia",
+        "ES": "Anniversary of the 1906 Arengo and commemoration of the Militia",
+        "IT": "Anniversario dell’Arengo"
+      }
+    },
+    {
+      "id": "bfab6bae-db5a-402d-b985-08e27c2fc50e",
+      "startDate": "2027-03-28",
+      "endDate": "2027-03-28",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Ostern"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Ostern",
+        "EN": "Easter",
+        "FR": "Easter",
+        "ES": "Easter",
+        "IT": "Pasqua"
+      }
+    },
+    {
+      "id": "951ee5a1-90b9-458d-b18c-ba0f00e6b66b",
+      "startDate": "2027-03-29",
+      "endDate": "2027-03-29",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Ostermontag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Ostermontag",
+        "EN": "Easter Monday",
+        "FR": "Easter Monday",
+        "ES": "Easter Monday",
+        "IT": "Lunedì di Pasqua"
+      }
+    },
+    {
+      "id": "7e3c21b8-7e35-4a61-91e5-1e4ca91d4d4a",
+      "startDate": "2027-04-01",
+      "endDate": "2027-04-01",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Amsteinführung der Staatsoberhäupter"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Amsteinführung der Staatsoberhäupter",
+        "EN": "Investiture of the Captains Regent (Heads of State)",
+        "FR": "Investiture of the Captains Regent (Heads of State)",
+        "ES": "Investiture of the Captains Regent (Heads of State)",
+        "IT": "Investitura Capitani Reggenti"
+      }
+    },
+    {
+      "id": "b8fc93a7-16c2-4e60-a7a3-ff493819d851",
+      "startDate": "2027-05-01",
+      "endDate": "2027-05-01",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Tag der Arbeit"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Tag der Arbeit",
+        "EN": "Labour Day",
+        "FR": "Labour Day",
+        "ES": "Labour Day",
+        "IT": "Festa dei lavoratori"
+      }
+    },
+    {
+      "id": "06ca71a5-8ff5-47aa-a75e-286f62ced518",
+      "startDate": "2027-05-27",
+      "endDate": "2027-05-27",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Fronleichnam"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Fronleichnam",
+        "EN": "Corpus Christi",
+        "FR": "Corpus Christi",
+        "ES": "Corpus Christi",
+        "IT": "Corpus Domini"
+      }
+    },
+    {
+      "id": "26703cdf-31f3-41ad-93e3-f4faf39c960d",
+      "startDate": "2027-07-28",
+      "endDate": "2027-07-28",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Jahrestag des Sturzes des Faschismus"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Jahrestag des Sturzes des Faschismus",
+        "EN": "Anniversary of the Fall of Fascism and Day of Freedom",
+        "FR": "Anniversary of the Fall of Fascism and Day of Freedom",
+        "ES": "Anniversary of the Fall of Fascism and Day of Freedom",
+        "IT": "Anniversario della Caduta del Fascismo e Festa della Libertà"
+      }
+    },
+    {
+      "id": "7b8ee1ef-7954-4fa8-8009-defc5bccd062",
+      "startDate": "2027-08-15",
+      "endDate": "2027-08-15",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Mariä Himmelfahrt"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Mariä Himmelfahrt",
+        "EN": "Assumption of the Virgin Day",
+        "FR": "Assumption of the Virgin Day",
+        "ES": "Assumption of the Virgin Day",
+        "IT": "Assunzione della Beata Vergine Maria"
+      }
+    },
+    {
+      "id": "de30d4ce-303b-4381-a9f6-ee4b0ad84ce5",
+      "startDate": "2027-09-03",
+      "endDate": "2027-09-03",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "San Marino-Tag / Gründung der Republik"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "San Marino-Tag / Gründung der Republik",
+        "EN": "San Marino National Holiday / Foundation of the Republic (301 A.D.)",
+        "FR": "San Marino National Holiday / Foundation of the Republic (301 A.D.)",
+        "ES": "San Marino National Holiday / Foundation of the Republic (301 A.D.)",
+        "IT": "San Marino / Patrono e Fondatore della Repubblica"
+      }
+    },
+    {
+      "id": "b353d780-df5a-4857-ab2f-4b3fe1914269",
+      "startDate": "2027-10-01",
+      "endDate": "2027-10-01",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Amsteinführung der Staatsoberhäupter"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Amsteinführung der Staatsoberhäupter",
+        "EN": "Investiture of the Captains Regent (Heads of State)",
+        "FR": "Investiture of the Captains Regent (Heads of State)",
+        "ES": "Investiture of the Captains Regent (Heads of State)",
+        "IT": "Investitura Capitani Reggenti"
+      }
+    },
+    {
+      "id": "237752eb-74a9-4cd3-83a2-fb6fb2cbf615",
+      "startDate": "2027-11-01",
+      "endDate": "2027-11-01",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Allerheiligen"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Allerheiligen",
+        "EN": "All Saints' Day",
+        "FR": "All Saints' Day",
+        "ES": "All Saints' Day",
+        "IT": "Tutti i Santi"
+      }
+    },
+    {
+      "id": "2c9811a0-fec5-4c22-8db9-4d9f88851090",
+      "startDate": "2027-11-02",
+      "endDate": "2027-11-02",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Allerseelen"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Allerseelen",
+        "EN": "All Souls' Day",
+        "FR": "All Souls' Day",
+        "ES": "All Souls' Day",
+        "IT": "Commemorazione dei defunti"
+      }
+    },
+    {
+      "id": "7fcd613b-572a-45b6-a1dd-a2cd7633c67e",
+      "startDate": "2027-12-08",
+      "endDate": "2027-12-08",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Mariä Empfängnis"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Mariä Empfängnis",
+        "EN": "Immaculate Conception",
+        "FR": "Immaculate Conception",
+        "ES": "Immaculate Conception",
+        "IT": "Immacolata Concezione della Beata Vergine Maria"
+      }
+    },
+    {
+      "id": "47fbfbde-7dcb-4924-ad1e-ace88caa6b22",
+      "startDate": "2027-12-25",
+      "endDate": "2027-12-25",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Weihnachten"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Weihnachten",
+        "EN": "Christmas Day",
+        "FR": "Christmas Day",
+        "ES": "Christmas Day",
+        "IT": "Natale del Signore"
+      }
+    },
+    {
+      "id": "55679530-54db-454a-9eee-54aabdc8628a",
+      "startDate": "2027-12-26",
+      "endDate": "2027-12-26",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Stefanitag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Stefanitag",
+        "EN": "Saint Stephen’s Day",
+        "FR": "Saint Stephen’s Day",
+        "ES": "Saint Stephen’s Day",
+        "IT": "Santo Stefano"
+      }
+    },
+    {
+      "id": "9e71138f-94bb-4d0f-aeb9-41d83f842eee",
+      "startDate": "2028-01-01",
+      "endDate": "2028-01-01",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Maria, heiligste Mutter Gottes"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Maria, heiligste Mutter Gottes",
+        "EN": "Solemnity of Mary, the Holy Mother of God",
+        "FR": "Solemnity of Mary, the Holy Mother of God",
+        "ES": "Solemnity of Mary, the Holy Mother of God",
+        "IT": "Maria Santissima Madre di Dio"
+      }
+    },
+    {
+      "id": "7cb55aae-cf57-4dbf-b485-143f7cd95da5",
+      "startDate": "2028-01-06",
+      "endDate": "2028-01-06",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Dreikönigsfest"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Dreikönigsfest",
+        "EN": "Epiphany",
+        "FR": "Epiphany",
+        "ES": "Epiphany",
+        "IT": "Epifania del Signore"
+      }
+    },
+    {
+      "id": "9b18b88b-1fa6-4116-8a0d-b31c297dde8a",
+      "startDate": "2028-02-05",
+      "endDate": "2028-02-05",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Tag der Hl. Agatha von Catania"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Tag der Hl. Agatha von Catania",
+        "EN": "Saint Agatha's Day",
+        "FR": "Saint Agatha's Day",
+        "ES": "Saint Agatha's Day",
+        "IT": "Sant'Agata / Compatrona della Repubblica"
+      }
+    },
+    {
+      "id": "fbaf235a-ff62-48be-aade-8fe745cce166",
+      "startDate": "2028-03-25",
+      "endDate": "2028-03-25",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Jahrestag von Arengo"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Jahrestag von Arengo",
+        "EN": "Anniversary of the 1906 Arengo and commemoration of the Militia",
+        "FR": "Anniversary of the 1906 Arengo and commemoration of the Militia",
+        "ES": "Anniversary of the 1906 Arengo and commemoration of the Militia",
+        "IT": "Anniversario dell’Arengo"
+      }
+    },
+    {
+      "id": "bc6a631b-5541-4e3a-8053-f95b6d7a50f5",
+      "startDate": "2028-04-01",
+      "endDate": "2028-04-01",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Amsteinführung der Staatsoberhäupter"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Amsteinführung der Staatsoberhäupter",
+        "EN": "Investiture of the Captains Regent (Heads of State)",
+        "FR": "Investiture of the Captains Regent (Heads of State)",
+        "ES": "Investiture of the Captains Regent (Heads of State)",
+        "IT": "Investitura Capitani Reggenti"
+      }
+    },
+    {
+      "id": "65949586-cb1e-45eb-bcbc-4fcc7e29ba12",
+      "startDate": "2028-04-16",
+      "endDate": "2028-04-16",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Ostern"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Ostern",
+        "EN": "Easter",
+        "FR": "Easter",
+        "ES": "Easter",
+        "IT": "Pasqua"
+      }
+    },
+    {
+      "id": "11a165bc-e47e-482f-9c29-3caefc7a2a1f",
+      "startDate": "2028-04-17",
+      "endDate": "2028-04-17",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Ostermontag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Ostermontag",
+        "EN": "Easter Monday",
+        "FR": "Easter Monday",
+        "ES": "Easter Monday",
+        "IT": "Lunedì di Pasqua"
+      }
+    },
+    {
+      "id": "1bc4c55c-80b4-4001-8710-29e93af564bd",
+      "startDate": "2028-05-01",
+      "endDate": "2028-05-01",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Tag der Arbeit"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Tag der Arbeit",
+        "EN": "Labour Day",
+        "FR": "Labour Day",
+        "ES": "Labour Day",
+        "IT": "Festa dei lavoratori"
+      }
+    },
+    {
+      "id": "9d9af8b0-d6d1-4d0b-ba6f-1ec6756d9256",
+      "startDate": "2028-06-15",
+      "endDate": "2028-06-15",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Fronleichnam"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Fronleichnam",
+        "EN": "Corpus Christi",
+        "FR": "Corpus Christi",
+        "ES": "Corpus Christi",
+        "IT": "Corpus Domini"
+      }
+    },
+    {
+      "id": "e7e178ff-1cc9-4c9b-a18a-3984547b3060",
+      "startDate": "2028-07-28",
+      "endDate": "2028-07-28",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Jahrestag des Sturzes des Faschismus"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Jahrestag des Sturzes des Faschismus",
+        "EN": "Anniversary of the Fall of Fascism and Day of Freedom",
+        "FR": "Anniversary of the Fall of Fascism and Day of Freedom",
+        "ES": "Anniversary of the Fall of Fascism and Day of Freedom",
+        "IT": "Anniversario della Caduta del Fascismo e Festa della Libertà"
+      }
+    },
+    {
+      "id": "f7df8f03-c477-406c-aec7-16d5938672dc",
+      "startDate": "2028-08-15",
+      "endDate": "2028-08-15",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Mariä Himmelfahrt"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Mariä Himmelfahrt",
+        "EN": "Assumption of the Virgin Day",
+        "FR": "Assumption of the Virgin Day",
+        "ES": "Assumption of the Virgin Day",
+        "IT": "Assunzione della Beata Vergine Maria"
+      }
+    },
+    {
+      "id": "add60108-633a-4454-b04a-e23bea3aa731",
+      "startDate": "2028-09-03",
+      "endDate": "2028-09-03",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "San Marino-Tag / Gründung der Republik"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "San Marino-Tag / Gründung der Republik",
+        "EN": "San Marino National Holiday / Foundation of the Republic (301 A.D.)",
+        "FR": "San Marino National Holiday / Foundation of the Republic (301 A.D.)",
+        "ES": "San Marino National Holiday / Foundation of the Republic (301 A.D.)",
+        "IT": "San Marino / Patrono e Fondatore della Repubblica"
+      }
+    },
+    {
+      "id": "f85ba3b7-5588-4730-9334-9991ae55a726",
+      "startDate": "2028-10-01",
+      "endDate": "2028-10-01",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Amsteinführung der Staatsoberhäupter"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Amsteinführung der Staatsoberhäupter",
+        "EN": "Investiture of the Captains Regent (Heads of State)",
+        "FR": "Investiture of the Captains Regent (Heads of State)",
+        "ES": "Investiture of the Captains Regent (Heads of State)",
+        "IT": "Investitura Capitani Reggenti"
+      }
+    },
+    {
+      "id": "8b3bd130-858d-4690-b3d4-5cf2f585d20a",
+      "startDate": "2028-11-01",
+      "endDate": "2028-11-01",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Allerheiligen"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Allerheiligen",
+        "EN": "All Saints' Day",
+        "FR": "All Saints' Day",
+        "ES": "All Saints' Day",
+        "IT": "Tutti i Santi"
+      }
+    },
+    {
+      "id": "8af5422c-2198-49f9-b1a5-1575a68c6132",
+      "startDate": "2028-11-02",
+      "endDate": "2028-11-02",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Allerseelen"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Allerseelen",
+        "EN": "All Souls' Day",
+        "FR": "All Souls' Day",
+        "ES": "All Souls' Day",
+        "IT": "Commemorazione dei defunti"
+      }
+    },
+    {
+      "id": "3d7f4b53-d5a1-47f3-b6ab-74553a2099bc",
+      "startDate": "2028-12-08",
+      "endDate": "2028-12-08",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Mariä Empfängnis"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Mariä Empfängnis",
+        "EN": "Immaculate Conception",
+        "FR": "Immaculate Conception",
+        "ES": "Immaculate Conception",
+        "IT": "Immacolata Concezione della Beata Vergine Maria"
+      }
+    },
+    {
+      "id": "87c936b4-5e22-4003-a3ee-ea71a80daff5",
+      "startDate": "2028-12-25",
+      "endDate": "2028-12-25",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Weihnachten"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Weihnachten",
+        "EN": "Christmas Day",
+        "FR": "Christmas Day",
+        "ES": "Christmas Day",
+        "IT": "Natale del Signore"
+      }
+    },
+    {
+      "id": "108adb2f-d622-4cc3-97bf-02ef0a17ec0f",
+      "startDate": "2028-12-26",
+      "endDate": "2028-12-26",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Stefanitag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Stefanitag",
+        "EN": "Saint Stephen’s Day",
+        "FR": "Saint Stephen’s Day",
+        "ES": "Saint Stephen’s Day",
+        "IT": "Santo Stefano"
+      }
+    },
+    {
+      "id": "0150da0b-15b7-4c03-b1aa-156aad8343d3",
+      "startDate": "2029-01-01",
+      "endDate": "2029-01-01",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Maria, heiligste Mutter Gottes"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Maria, heiligste Mutter Gottes",
+        "EN": "Solemnity of Mary, the Holy Mother of God",
+        "FR": "Solemnity of Mary, the Holy Mother of God",
+        "ES": "Solemnity of Mary, the Holy Mother of God",
+        "IT": "Maria Santissima Madre di Dio"
+      }
+    },
+    {
+      "id": "a5779116-24e3-434b-b463-de800e822143",
+      "startDate": "2029-01-06",
+      "endDate": "2029-01-06",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Dreikönigsfest"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Dreikönigsfest",
+        "EN": "Epiphany",
+        "FR": "Epiphany",
+        "ES": "Epiphany",
+        "IT": "Epifania del Signore"
+      }
+    },
+    {
+      "id": "7c156c05-22f1-4bfc-8004-925ba7dd9bed",
+      "startDate": "2029-02-05",
+      "endDate": "2029-02-05",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Tag der Hl. Agatha von Catania"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Tag der Hl. Agatha von Catania",
+        "EN": "Saint Agatha's Day",
+        "FR": "Saint Agatha's Day",
+        "ES": "Saint Agatha's Day",
+        "IT": "Sant'Agata / Compatrona della Repubblica"
+      }
+    },
+    {
+      "id": "959b2f96-1706-40d8-9a4d-85ec6c2d7bb9",
+      "startDate": "2029-03-25",
+      "endDate": "2029-03-25",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Jahrestag von Arengo"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Jahrestag von Arengo",
+        "EN": "Anniversary of the 1906 Arengo and commemoration of the Militia",
+        "FR": "Anniversary of the 1906 Arengo and commemoration of the Militia",
+        "ES": "Anniversary of the 1906 Arengo and commemoration of the Militia",
+        "IT": "Anniversario dell’Arengo"
+      }
+    },
+    {
+      "id": "5ec80232-5023-4b50-8363-2808571fcd62",
+      "startDate": "2029-04-01",
+      "endDate": "2029-04-01",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Amsteinführung der Staatsoberhäupter"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Amsteinführung der Staatsoberhäupter",
+        "EN": "Easter",
+        "FR": "Easter",
+        "ES": "Easter",
+        "IT": "Pasqua"
+      }
+    },
+    {
+      "id": "fc6751de-6176-4444-9320-e3403a5264b9",
+      "startDate": "2029-04-01",
+      "endDate": "2029-04-01",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Ostern"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Ostern",
+        "EN": "Easter",
+        "FR": "Easter",
+        "ES": "Easter",
+        "IT": "Pasqua"
+      }
+    },
+    {
+      "id": "84018394-39a3-4ae1-915f-f8ddf3b59d44",
+      "startDate": "2029-04-02",
+      "endDate": "2029-04-02",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Ostermontag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Ostermontag",
+        "EN": "Easter Monday",
+        "FR": "Easter Monday",
+        "ES": "Easter Monday",
+        "IT": "Lunedì di Pasqua"
+      }
+    },
+    {
+      "id": "25315b8b-adbe-4e31-b3b6-4f2f5fd7f93d",
+      "startDate": "2029-05-01",
+      "endDate": "2029-05-01",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Tag der Arbeit"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Tag der Arbeit",
+        "EN": "Labour Day",
+        "FR": "Labour Day",
+        "ES": "Labour Day",
+        "IT": "Festa dei lavoratori"
+      }
+    },
+    {
+      "id": "4a1f103f-62bd-488f-9790-3d195f15642e",
+      "startDate": "2029-05-31",
+      "endDate": "2029-05-31",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Fronleichnam"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Fronleichnam",
+        "EN": "Corpus Christi",
+        "FR": "Corpus Christi",
+        "ES": "Corpus Christi",
+        "IT": "Corpus Domini"
+      }
+    },
+    {
+      "id": "dd8bad97-7808-42a5-af98-298d7a384e71",
+      "startDate": "2029-07-28",
+      "endDate": "2029-07-28",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Jahrestag des Sturzes des Faschismus"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Jahrestag des Sturzes des Faschismus",
+        "EN": "Anniversary of the Fall of Fascism and Day of Freedom",
+        "FR": "Anniversary of the Fall of Fascism and Day of Freedom",
+        "ES": "Anniversary of the Fall of Fascism and Day of Freedom",
+        "IT": "Anniversario della Caduta del Fascismo e Festa della Libertà"
+      }
+    },
+    {
+      "id": "c686500a-f7dd-42e0-82ee-0dc071bcdede",
+      "startDate": "2029-08-15",
+      "endDate": "2029-08-15",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Mariä Himmelfahrt"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Mariä Himmelfahrt",
+        "EN": "Assumption of the Virgin Day",
+        "FR": "Assumption of the Virgin Day",
+        "ES": "Assumption of the Virgin Day",
+        "IT": "Assunzione della Beata Vergine Maria"
+      }
+    },
+    {
+      "id": "20f1158c-a6df-410a-949f-3bd026334893",
+      "startDate": "2029-09-03",
+      "endDate": "2029-09-03",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "San Marino-Tag / Gründung der Republik"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "San Marino-Tag / Gründung der Republik",
+        "EN": "San Marino National Holiday / Foundation of the Republic (301 A.D.)",
+        "FR": "San Marino National Holiday / Foundation of the Republic (301 A.D.)",
+        "ES": "San Marino National Holiday / Foundation of the Republic (301 A.D.)",
+        "IT": "San Marino / Patrono e Fondatore della Repubblica"
+      }
+    },
+    {
+      "id": "1955d669-1618-40e0-b2cc-8c2a616d9d37",
+      "startDate": "2029-10-01",
+      "endDate": "2029-10-01",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Amsteinführung der Staatsoberhäupter"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Amsteinführung der Staatsoberhäupter",
+        "EN": "Investiture of the Captains Regent (Heads of State)",
+        "FR": "Investiture of the Captains Regent (Heads of State)",
+        "ES": "Investiture of the Captains Regent (Heads of State)",
+        "IT": "Investitura Capitani Reggenti"
+      }
+    },
+    {
+      "id": "f38ebd01-5e8c-4231-b784-d20ee5115419",
+      "startDate": "2029-11-01",
+      "endDate": "2029-11-01",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Allerheiligen"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Allerheiligen",
+        "EN": "All Saints' Day",
+        "FR": "All Saints' Day",
+        "ES": "All Saints' Day",
+        "IT": "Tutti i Santi"
+      }
+    },
+    {
+      "id": "50590a35-aa2d-4358-b6cc-ef8543e4d287",
+      "startDate": "2029-11-02",
+      "endDate": "2029-11-02",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Allerseelen"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Allerseelen",
+        "EN": "All Souls' Day",
+        "FR": "All Souls' Day",
+        "ES": "All Souls' Day",
+        "IT": "Commemorazione dei defunti"
+      }
+    },
+    {
+      "id": "1b5310ca-f6a0-4a0b-9b53-b87524fd94af",
+      "startDate": "2029-12-08",
+      "endDate": "2029-12-08",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Mariä Empfängnis"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Mariä Empfängnis",
+        "EN": "Immaculate Conception",
+        "FR": "Immaculate Conception",
+        "ES": "Immaculate Conception",
+        "IT": "Immacolata Concezione della Beata Vergine Maria"
+      }
+    },
+    {
+      "id": "d7038fa8-85a7-4846-b5ca-501557c870d9",
+      "startDate": "2029-12-25",
+      "endDate": "2029-12-25",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Weihnachten"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Weihnachten",
+        "EN": "Christmas Day",
+        "FR": "Christmas Day",
+        "ES": "Christmas Day",
+        "IT": "Natale del Signore"
+      }
+    },
+    {
+      "id": "3717dc4f-3215-4af6-90e6-ae8d094a90c2",
+      "startDate": "2029-12-26",
+      "endDate": "2029-12-26",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Stefanitag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Stefanitag",
+        "EN": "Saint Stephen’s Day",
+        "FR": "Saint Stephen’s Day",
+        "ES": "Saint Stephen’s Day",
+        "IT": "Santo Stefano"
+      }
+    }
+  ],
+  "school_holidays": [
+    {
+      "id": "cb161889-c923-4ba4-9c83-13d6518d8cbf",
+      "startDate": "2019-12-24",
+      "endDate": "2020-01-04",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Weihnachtsfeiertag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Weihnachtsfeiertag",
+        "EN": "Christmas Holidays",
+        "FR": "Christmas Holidays",
+        "ES": "Christmas Holidays",
+        "IT": "Vacanze Natalizie"
+      }
+    },
+    {
+      "id": "27d80b11-5b81-47bd-9313-5dfc8af1fb59",
+      "startDate": "2020-04-09",
+      "endDate": "2020-04-14",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Osterferien"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Osterferien",
+        "EN": "Eastern Holidays",
+        "FR": "Eastern Holidays",
+        "ES": "Eastern Holidays",
+        "IT": "Vacanze Pasquali"
+      }
+    },
+    {
+      "id": "fc849c89-96c5-425e-bdab-001370c79455",
+      "startDate": "2020-06-11",
+      "endDate": "2020-09-06",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Sommerferien"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Sommerferien",
+        "EN": "Summer Holidays",
+        "FR": "Summer Holidays",
+        "ES": "Summer Holidays",
+        "IT": "Vacanze Estive"
+      }
+    },
+    {
+      "id": "63f0f3bf-25ec-4a58-a3f7-510c686ffc60",
+      "startDate": "2020-12-24",
+      "endDate": "2021-01-05",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Weihnachtsfeiertag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Weihnachtsfeiertag",
+        "EN": "Christmas Holidays",
+        "FR": "Christmas Holidays",
+        "ES": "Christmas Holidays",
+        "IT": "Vacanze Natalizie"
+      }
+    },
+    {
+      "id": "2baf8084-3633-4227-8401-3b932bfe3bef",
+      "startDate": "2021-04-02",
+      "endDate": "2021-04-06",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Osterferien"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Osterferien",
+        "EN": "Eastern Holidays",
+        "FR": "Eastern Holidays",
+        "ES": "Eastern Holidays",
+        "IT": "Vacanze Pasquali"
+      }
+    },
+    {
+      "id": "1d11ba80-8386-4e20-9cb9-706be4149bed",
+      "startDate": "2021-06-12",
+      "endDate": "2021-09-12",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Sommerferien"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Sommerferien",
+        "EN": "Summer Holidays",
+        "FR": "Summer Holidays",
+        "ES": "Summer Holidays",
+        "IT": "Vacanze Estive"
+      }
+    },
+    {
+      "id": "62520e7e-bc32-4fd1-bc5f-73761684622f",
+      "startDate": "2021-12-24",
+      "endDate": "2022-01-05",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Weihnachtsfeiertag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Weihnachtsfeiertag",
+        "EN": "Christmas Holidays",
+        "FR": "Christmas Holidays",
+        "ES": "Christmas Holidays",
+        "IT": "Vacanze Natalizie"
+      }
+    },
+    {
+      "id": "1657adcc-e7bb-44b0-8561-5b0dcfa8cb24",
+      "startDate": "2022-04-14",
+      "endDate": "2022-04-19",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Osterferien"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Osterferien",
+        "EN": "Eastern Holidays",
+        "FR": "Eastern Holidays",
+        "ES": "Eastern Holidays",
+        "IT": "Vacanze Pasquali"
+      }
+    },
+    {
+      "id": "c0f2fcd2-215c-4602-a0f9-523c5a9f65c9",
+      "startDate": "2022-06-12",
+      "endDate": "2022-09-14",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Sommerferien"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Sommerferien",
+        "EN": "Summer Holidays",
+        "FR": "Summer Holidays",
+        "ES": "Summer Holidays",
+        "IT": "Vacanze Estive"
+      }
+    },
+    {
+      "id": "850f789a-e25a-4f7c-b68e-e8aad77abe4b",
+      "startDate": "2022-12-24",
+      "endDate": "2023-01-07",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Weihnachtsfeiertag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Weihnachtsfeiertag",
+        "EN": "Christmas Holidays",
+        "FR": "Christmas Holidays",
+        "ES": "Christmas Holidays",
+        "IT": "Vacanze Natalizie"
+      }
+    },
+    {
+      "id": "df1002c8-f47d-45f1-8309-c317ad2a9cae",
+      "startDate": "2023-04-03",
+      "endDate": "2023-04-10",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Osterferien"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Osterferien",
+        "EN": "Eastern Holidays",
+        "FR": "Eastern Holidays",
+        "ES": "Eastern Holidays",
+        "IT": "Vacanze Pasquali"
+      }
+    },
+    {
+      "id": "a5038b2f-a052-4fa7-81dd-dfc24b41dd8d",
+      "startDate": "2023-06-08",
+      "endDate": "2023-09-17",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Sommerferien"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Sommerferien",
+        "EN": "Summer Holidays",
+        "FR": "Summer Holidays",
+        "ES": "Summer Holidays",
+        "IT": "Vacanze Estive"
+      }
+    },
+    {
+      "id": "46cb6477-0a37-4cf2-a30c-1cd28d676627",
+      "startDate": "2023-12-24",
+      "endDate": "2024-01-05",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Weihnachtsfeiertag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Weihnachtsfeiertag",
+        "EN": "Christmas Holidays",
+        "FR": "Christmas Holidays",
+        "ES": "Christmas Holidays",
+        "IT": "Vacanze Natalizie"
+      }
+    },
+    {
+      "id": "66c60050-6fb1-495d-8580-5449e910bcfa",
+      "startDate": "2024-03-26",
+      "endDate": "2024-04-01",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Osterferien"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Osterferien",
+        "EN": "Eastern Holidays",
+        "FR": "Eastern Holidays",
+        "ES": "Eastern Holidays",
+        "IT": "Vacanze Pasquali"
+      }
+    },
+    {
+      "id": "ab7f0d76-0aa6-4924-9aa2-01006edd1ac2",
+      "startDate": "2024-06-08",
+      "endDate": "2024-09-17",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Sommerferien"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Sommerferien",
+        "EN": "Summer Holidays",
+        "FR": "Summer Holidays",
+        "ES": "Summer Holidays",
+        "IT": "Vacanze Estive"
+      }
+    },
+    {
+      "id": "7244675e-c956-4d8f-8ee5-1f1afd23f8f0",
+      "startDate": "2024-12-23",
+      "endDate": "2025-01-05",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Weihnachtsfeiertag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Weihnachtsfeiertag",
+        "EN": "Christmas Holidays",
+        "FR": "Christmas Holidays",
+        "ES": "Christmas Holidays",
+        "IT": "Vacanze Natalizie"
+      }
+    },
+    {
+      "id": "35bf93fe-b414-46e7-959d-f218b7aeef64",
+      "startDate": "2025-04-17",
+      "endDate": "2025-04-22",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Osterferien"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Osterferien",
+        "EN": "Eastern Holidays",
+        "FR": "Eastern Holidays",
+        "ES": "Eastern Holidays",
+        "IT": "Vacanze Pasquali"
+      }
+    },
+    {
+      "id": "59377195-3279-4ffc-8f57-d107bd7c2d13",
+      "startDate": "2025-06-11",
+      "endDate": "2025-09-14",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Sommerferien"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Sommerferien",
+        "EN": "Summer Holidays",
+        "FR": "Summer Holidays",
+        "ES": "Summer Holidays",
+        "IT": "Vacanze Estive"
+      }
+    },
+    {
+      "id": "69637832-d890-4572-bb82-f5d1426fe9ea",
+      "startDate": "2025-12-24",
+      "endDate": "2026-01-05",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Weihnachtsfeiertag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Weihnachtsfeiertag",
+        "EN": "Christmas Holidays",
+        "FR": "Christmas Holidays",
+        "ES": "Christmas Holidays",
+        "IT": "Vacanze Natalizie"
+      }
+    },
+    {
+      "id": "2a7da015-e7ee-49bb-b162-b1bc70815b8c",
+      "startDate": "2026-04-02",
+      "endDate": "2026-04-07",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Osterferien"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Osterferien",
+        "EN": "Eastern Holidays",
+        "FR": "Eastern Holidays",
+        "ES": "Eastern Holidays",
+        "IT": "Vacanze Pasquali"
+      }
+    },
+    {
+      "id": "3d9f8169-164a-4534-8749-7b31b14b6fb5",
+      "startDate": "2026-06-17",
+      "endDate": "2026-06-17",
+      "type": "EndOfLessons",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Unterrichtsende"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Unterrichtsende",
+        "EN": "End of lessons",
+        "FR": "End of lessons",
+        "ES": "End of lessons",
+        "IT": "Termine lezioni"
+      }
+    }
+  ],
+  "fetched_at": "2026-01-03T19:13:45.893900"
+}

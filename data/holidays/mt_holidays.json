@@ -1,0 +1,4149 @@
+{
+  "country": "MT",
+  "country_name": {
+    "name": "Malta",
+    "name_en": "Malta"
+  },
+  "subdivisions": [],
+  "public_holidays": [
+    {
+      "id": "31c8edbe-12b5-4f6d-9861-f1e795aae552",
+      "startDate": "2020-01-01",
+      "endDate": "2020-01-01",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Neujahr"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Neujahr",
+        "EN": "New Year's Day",
+        "FR": "New Year's Day",
+        "ES": "New Year's Day",
+        "IT": "New Year's Day"
+      }
+    },
+    {
+      "id": "e5bbe75e-aa73-48c2-815d-f40c841aca97",
+      "startDate": "2020-02-10",
+      "endDate": "2020-02-10",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Feier des Schiffswracks des Apostels Paulus"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Feier des Schiffswracks des Apostels Paulus",
+        "EN": "Feast of St. Paul's Shipwreck",
+        "FR": "Feast of St. Paul's Shipwreck",
+        "ES": "Feast of St. Paul's Shipwreck",
+        "IT": "Feast of St. Paul's Shipwreck"
+      }
+    },
+    {
+      "id": "b9b896e6-e03e-46d2-90f3-f2220111ee89",
+      "startDate": "2020-03-19",
+      "endDate": "2020-03-19",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Josefstag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Josefstag",
+        "EN": "Feast of St. Joseph",
+        "FR": "Feast of St. Joseph",
+        "ES": "Feast of St. Joseph",
+        "IT": "Feast of St. Joseph"
+      }
+    },
+    {
+      "id": "20c47a39-110d-429d-9c81-ae669772088a",
+      "startDate": "2020-03-31",
+      "endDate": "2020-03-31",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Tag der Freiheit"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Tag der Freiheit",
+        "EN": "Freedom Day",
+        "FR": "Freedom Day",
+        "ES": "Freedom Day",
+        "IT": "Freedom Day"
+      }
+    },
+    {
+      "id": "de8210d5-61b6-459f-934f-a44aa4c05a88",
+      "startDate": "2020-04-10",
+      "endDate": "2020-04-10",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Karfreitag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Karfreitag",
+        "EN": "Good Friday",
+        "FR": "Good Friday",
+        "ES": "Good Friday",
+        "IT": "Good Friday"
+      }
+    },
+    {
+      "id": "ed759424-8dc5-473b-95e9-81ab17435746",
+      "startDate": "2020-05-01",
+      "endDate": "2020-05-01",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Tag der Arbeit"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Tag der Arbeit",
+        "EN": "Worker's Day",
+        "FR": "Worker's Day",
+        "ES": "Worker's Day",
+        "IT": "Worker's Day"
+      }
+    },
+    {
+      "id": "12db9e67-d9ef-4387-a15a-f6f6df348fbe",
+      "startDate": "2020-06-07",
+      "endDate": "2020-06-07",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Siebter Juni"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Siebter Juni",
+        "EN": "​Sette Giugno",
+        "FR": "​Sette Giugno",
+        "ES": "​Sette Giugno",
+        "IT": "​Sette Giugno"
+      }
+    },
+    {
+      "id": "f3458f0f-a722-482e-a2de-e1a5dc787a35",
+      "startDate": "2020-06-29",
+      "endDate": "2020-06-29",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Peter und Paul"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Peter und Paul",
+        "EN": "​​​Feast of St.Peter and St.Paul",
+        "FR": "​​​Feast of St.Peter and St.Paul",
+        "ES": "​​​Feast of St.Peter and St.Paul",
+        "IT": "​​​Feast of St.Peter and St.Paul"
+      }
+    },
+    {
+      "id": "a87e5406-c4f2-4e9c-b6b7-85505322f7fb",
+      "startDate": "2020-08-15",
+      "endDate": "2020-08-15",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Mariä Himmelfahrt"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Mariä Himmelfahrt",
+        "EN": "​​​Feast of the Assumption",
+        "FR": "​​​Feast of the Assumption",
+        "ES": "​​​Feast of the Assumption",
+        "IT": "​​​Feast of the Assumption"
+      }
+    },
+    {
+      "id": "e1beac12-6bc6-434c-84a6-bf4f52c5882e",
+      "startDate": "2020-09-08",
+      "endDate": "2020-09-08",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Maria vom Siege"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Maria vom Siege",
+        "EN": "​​​Feast of Our Lady of Victories",
+        "FR": "​​​Feast of Our Lady of Victories",
+        "ES": "​​​Feast of Our Lady of Victories",
+        "IT": "​​​Feast of Our Lady of Victories"
+      }
+    },
+    {
+      "id": "085f550f-1cf9-41ed-a131-70d3da102679",
+      "startDate": "2020-09-21",
+      "endDate": "2020-09-21",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Unabhängigkeitstag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Unabhängigkeitstag",
+        "EN": "​​​Independence Day",
+        "FR": "​​​Independence Day",
+        "ES": "​​​Independence Day",
+        "IT": "​​​Independence Day"
+      }
+    },
+    {
+      "id": "dea03c5c-d3c0-43d0-8b77-bd36b6fec832",
+      "startDate": "2020-12-08",
+      "endDate": "2020-12-08",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Mariä Empfängnis"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Mariä Empfängnis",
+        "EN": "​Feast of the Immaculate Conception",
+        "FR": "​Feast of the Immaculate Conception",
+        "ES": "​Feast of the Immaculate Conception",
+        "IT": "​Feast of the Immaculate Conception"
+      }
+    },
+    {
+      "id": "e603cd7f-f0fc-4816-ba87-5154b64de797",
+      "startDate": "2020-12-13",
+      "endDate": "2020-12-13",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Tag der Republik"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Tag der Republik",
+        "EN": "​​​Republic Day",
+        "FR": "​​​Republic Day",
+        "ES": "​​​Republic Day",
+        "IT": "​​​Republic Day"
+      }
+    },
+    {
+      "id": "14596bcc-6fd5-4d13-bcf2-85cc3e2075ce",
+      "startDate": "2020-12-25",
+      "endDate": "2020-12-25",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Weihnachten"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Weihnachten",
+        "EN": "​​​​Christmas Day",
+        "FR": "​​​​Christmas Day",
+        "ES": "​​​​Christmas Day",
+        "IT": "​​​​Christmas Day"
+      }
+    },
+    {
+      "id": "23bac93d-fe51-45f9-b273-b697c84e3ba3",
+      "startDate": "2021-01-01",
+      "endDate": "2021-01-01",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Neujahr"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Neujahr",
+        "EN": "New Year's Day",
+        "FR": "New Year's Day",
+        "ES": "New Year's Day",
+        "IT": "New Year's Day"
+      }
+    },
+    {
+      "id": "1544b6ca-cf7f-4d3c-a4b6-b647757ee67b",
+      "startDate": "2021-02-10",
+      "endDate": "2021-02-10",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Feier des Schiffswracks des Apostels Paulus"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Feier des Schiffswracks des Apostels Paulus",
+        "EN": "Feast of St. Paul's Shipwreck",
+        "FR": "Feast of St. Paul's Shipwreck",
+        "ES": "Feast of St. Paul's Shipwreck",
+        "IT": "Feast of St. Paul's Shipwreck"
+      }
+    },
+    {
+      "id": "0cbabc86-a31f-4341-9142-6486575ac68e",
+      "startDate": "2021-03-19",
+      "endDate": "2021-03-19",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Josefstag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Josefstag",
+        "EN": "Feast of St. Joseph",
+        "FR": "Feast of St. Joseph",
+        "ES": "Feast of St. Joseph",
+        "IT": "Feast of St. Joseph"
+      }
+    },
+    {
+      "id": "745d14b4-e396-4c7b-885d-64826e8a541e",
+      "startDate": "2021-03-31",
+      "endDate": "2021-03-31",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Tag der Freiheit"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Tag der Freiheit",
+        "EN": "Freedom Day",
+        "FR": "Freedom Day",
+        "ES": "Freedom Day",
+        "IT": "Freedom Day"
+      }
+    },
+    {
+      "id": "d469e787-7eff-4fba-aa2c-5b5270c54f31",
+      "startDate": "2021-04-02",
+      "endDate": "2021-04-02",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Karfreitag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Karfreitag",
+        "EN": "Good Friday",
+        "FR": "Good Friday",
+        "ES": "Good Friday",
+        "IT": "Good Friday"
+      }
+    },
+    {
+      "id": "81167807-4244-45d1-9425-d7c72015d6e3",
+      "startDate": "2021-05-01",
+      "endDate": "2021-05-01",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Tag der Arbeit"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Tag der Arbeit",
+        "EN": "Worker's Day",
+        "FR": "Worker's Day",
+        "ES": "Worker's Day",
+        "IT": "Worker's Day"
+      }
+    },
+    {
+      "id": "a2ff03d0-d967-428c-9458-43445ee02a4f",
+      "startDate": "2021-06-07",
+      "endDate": "2021-06-07",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Siebter Juni"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Siebter Juni",
+        "EN": "​Sette Giugno",
+        "FR": "​Sette Giugno",
+        "ES": "​Sette Giugno",
+        "IT": "​Sette Giugno"
+      }
+    },
+    {
+      "id": "892cd451-0831-44d2-a601-765243f42937",
+      "startDate": "2021-06-29",
+      "endDate": "2021-06-29",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Peter und Paul"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Peter und Paul",
+        "EN": "​​​Feast of St.Peter and St.Paul",
+        "FR": "​​​Feast of St.Peter and St.Paul",
+        "ES": "​​​Feast of St.Peter and St.Paul",
+        "IT": "​​​Feast of St.Peter and St.Paul"
+      }
+    },
+    {
+      "id": "2a732d14-3afa-4ee8-b19d-7b0bab0553eb",
+      "startDate": "2021-08-15",
+      "endDate": "2021-08-15",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Mariä Himmelfahrt"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Mariä Himmelfahrt",
+        "EN": "​​​Feast of the Assumption",
+        "FR": "​​​Feast of the Assumption",
+        "ES": "​​​Feast of the Assumption",
+        "IT": "​​​Feast of the Assumption"
+      }
+    },
+    {
+      "id": "197a3f74-b02d-4dc3-92ca-43ec736029a0",
+      "startDate": "2021-09-08",
+      "endDate": "2021-09-08",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Maria vom Siege"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Maria vom Siege",
+        "EN": "​​​Feast of Our Lady of Victories",
+        "FR": "​​​Feast of Our Lady of Victories",
+        "ES": "​​​Feast of Our Lady of Victories",
+        "IT": "​​​Feast of Our Lady of Victories"
+      }
+    },
+    {
+      "id": "0a3db26d-013f-471f-baef-7b0008904f92",
+      "startDate": "2021-09-21",
+      "endDate": "2021-09-21",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Unabhängigkeitstag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Unabhängigkeitstag",
+        "EN": "​​​Independence Day",
+        "FR": "​​​Independence Day",
+        "ES": "​​​Independence Day",
+        "IT": "​​​Independence Day"
+      }
+    },
+    {
+      "id": "a8d2c394-e86a-47a3-acf7-d3c902af2c7e",
+      "startDate": "2021-12-08",
+      "endDate": "2021-12-08",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Mariä Empfängnis"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Mariä Empfängnis",
+        "EN": "​Feast of the Immaculate Conception",
+        "FR": "​Feast of the Immaculate Conception",
+        "ES": "​Feast of the Immaculate Conception",
+        "IT": "​Feast of the Immaculate Conception"
+      }
+    },
+    {
+      "id": "56a7dff4-171b-4fd5-8711-fd67cd957f6a",
+      "startDate": "2021-12-13",
+      "endDate": "2021-12-13",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Tag der Republik"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Tag der Republik",
+        "EN": "​​​Republic Day",
+        "FR": "​​​Republic Day",
+        "ES": "​​​Republic Day",
+        "IT": "​​​Republic Day"
+      }
+    },
+    {
+      "id": "8a1093a6-9b74-4a98-9c40-73a75fc82d37",
+      "startDate": "2021-12-25",
+      "endDate": "2021-12-25",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Weihnachten"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Weihnachten",
+        "EN": "​​​​Christmas Day",
+        "FR": "​​​​Christmas Day",
+        "ES": "​​​​Christmas Day",
+        "IT": "​​​​Christmas Day"
+      }
+    },
+    {
+      "id": "81fa75a0-5870-4d11-bfa2-0cffddab38d3",
+      "startDate": "2022-01-01",
+      "endDate": "2022-01-01",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Neujahr"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Neujahr",
+        "EN": "New Year's Day",
+        "FR": "New Year's Day",
+        "ES": "New Year's Day",
+        "IT": "New Year's Day"
+      }
+    },
+    {
+      "id": "37d74636-dc0b-49eb-b435-9131455e1808",
+      "startDate": "2022-02-10",
+      "endDate": "2022-02-10",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Feier des Schiffswracks des Apostels Paulus"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Feier des Schiffswracks des Apostels Paulus",
+        "EN": "Feast of St. Paul's Shipwreck",
+        "FR": "Feast of St. Paul's Shipwreck",
+        "ES": "Feast of St. Paul's Shipwreck",
+        "IT": "Feast of St. Paul's Shipwreck"
+      }
+    },
+    {
+      "id": "5847af2a-f763-4d23-b627-82082f7ac3a1",
+      "startDate": "2022-03-19",
+      "endDate": "2022-03-19",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Josefstag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Josefstag",
+        "EN": "Feast of St. Joseph",
+        "FR": "Feast of St. Joseph",
+        "ES": "Feast of St. Joseph",
+        "IT": "Feast of St. Joseph"
+      }
+    },
+    {
+      "id": "190a540d-8e56-4d5e-9536-cab34cc86d0b",
+      "startDate": "2022-03-31",
+      "endDate": "2022-03-31",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Tag der Freiheit"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Tag der Freiheit",
+        "EN": "Freedom Day",
+        "FR": "Freedom Day",
+        "ES": "Freedom Day",
+        "IT": "Freedom Day"
+      }
+    },
+    {
+      "id": "b52a01e6-ce33-4682-bdd7-6eb05806687c",
+      "startDate": "2022-04-15",
+      "endDate": "2022-04-15",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Karfreitag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Karfreitag",
+        "EN": "Good Friday",
+        "FR": "Good Friday",
+        "ES": "Good Friday",
+        "IT": "Good Friday"
+      }
+    },
+    {
+      "id": "e912d328-120a-418c-85d8-a8dc57b28acf",
+      "startDate": "2022-05-01",
+      "endDate": "2022-05-01",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Tag der Arbeit"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Tag der Arbeit",
+        "EN": "Worker's Day",
+        "FR": "Worker's Day",
+        "ES": "Worker's Day",
+        "IT": "Worker's Day"
+      }
+    },
+    {
+      "id": "d906d531-eafe-4676-a220-3db131d0251d",
+      "startDate": "2022-06-07",
+      "endDate": "2022-06-07",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Siebter Juni"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Siebter Juni",
+        "EN": "​Sette Giugno",
+        "FR": "​Sette Giugno",
+        "ES": "​Sette Giugno",
+        "IT": "​Sette Giugno"
+      }
+    },
+    {
+      "id": "ab1b933b-1f15-4961-bbb6-25a0dcce1454",
+      "startDate": "2022-06-29",
+      "endDate": "2022-06-29",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Peter und Paul"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Peter und Paul",
+        "EN": "​​​Feast of St.Peter and St.Paul",
+        "FR": "​​​Feast of St.Peter and St.Paul",
+        "ES": "​​​Feast of St.Peter and St.Paul",
+        "IT": "​​​Feast of St.Peter and St.Paul"
+      }
+    },
+    {
+      "id": "72eb7ccc-f8b9-4fac-816c-552f3f75e4ae",
+      "startDate": "2022-08-15",
+      "endDate": "2022-08-15",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Mariä Himmelfahrt"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Mariä Himmelfahrt",
+        "EN": "​​​Feast of the Assumption",
+        "FR": "​​​Feast of the Assumption",
+        "ES": "​​​Feast of the Assumption",
+        "IT": "​​​Feast of the Assumption"
+      }
+    },
+    {
+      "id": "b17935d7-450e-42e9-9457-e3529ed93180",
+      "startDate": "2022-09-08",
+      "endDate": "2022-09-08",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Maria vom Siege"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Maria vom Siege",
+        "EN": "​​​Feast of Our Lady of Victories",
+        "FR": "​​​Feast of Our Lady of Victories",
+        "ES": "​​​Feast of Our Lady of Victories",
+        "IT": "​​​Feast of Our Lady of Victories"
+      }
+    },
+    {
+      "id": "a344d3eb-e07f-4ffa-bab1-1c0de1b7be27",
+      "startDate": "2022-09-21",
+      "endDate": "2022-09-21",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Unabhängigkeitstag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Unabhängigkeitstag",
+        "EN": "​​​Independence Day",
+        "FR": "​​​Independence Day",
+        "ES": "​​​Independence Day",
+        "IT": "​​​Independence Day"
+      }
+    },
+    {
+      "id": "64d07211-b4cf-4c88-9339-66e583a2acdb",
+      "startDate": "2022-12-08",
+      "endDate": "2022-12-08",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Mariä Empfängnis"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Mariä Empfängnis",
+        "EN": "​Feast of the Immaculate Conception",
+        "FR": "​Feast of the Immaculate Conception",
+        "ES": "​Feast of the Immaculate Conception",
+        "IT": "​Feast of the Immaculate Conception"
+      }
+    },
+    {
+      "id": "27df2d28-91a8-4b59-93f6-48e2f32a1dc1",
+      "startDate": "2022-12-13",
+      "endDate": "2022-12-13",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Tag der Republik"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Tag der Republik",
+        "EN": "​​​Republic Day",
+        "FR": "​​​Republic Day",
+        "ES": "​​​Republic Day",
+        "IT": "​​​Republic Day"
+      }
+    },
+    {
+      "id": "5d93063b-e527-4ee2-97dc-926faf244709",
+      "startDate": "2022-12-25",
+      "endDate": "2022-12-25",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Weihnachten"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Weihnachten",
+        "EN": "​​​​Christmas Day",
+        "FR": "​​​​Christmas Day",
+        "ES": "​​​​Christmas Day",
+        "IT": "​​​​Christmas Day"
+      }
+    },
+    {
+      "id": "6f8ef88d-990d-4498-acf3-e562c0bc5199",
+      "startDate": "2023-01-01",
+      "endDate": "2023-01-01",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Neujahr"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Neujahr",
+        "EN": "New Year's Day",
+        "FR": "New Year's Day",
+        "ES": "New Year's Day",
+        "IT": "New Year's Day"
+      }
+    },
+    {
+      "id": "fde798b5-b7d0-4164-9482-45d7c8a11c89",
+      "startDate": "2023-02-10",
+      "endDate": "2023-02-10",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Feier des Schiffswracks des Apostels Paulus"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Feier des Schiffswracks des Apostels Paulus",
+        "EN": "Feast of St. Paul's Shipwreck",
+        "FR": "Feast of St. Paul's Shipwreck",
+        "ES": "Feast of St. Paul's Shipwreck",
+        "IT": "Feast of St. Paul's Shipwreck"
+      }
+    },
+    {
+      "id": "96211f84-4d65-4ea2-8996-679c900cf5f5",
+      "startDate": "2023-03-19",
+      "endDate": "2023-03-19",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Josefstag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Josefstag",
+        "EN": "Feast of St. Joseph",
+        "FR": "Feast of St. Joseph",
+        "ES": "Feast of St. Joseph",
+        "IT": "Feast of St. Joseph"
+      }
+    },
+    {
+      "id": "d3767ec2-84a5-4385-be33-bd37cd2d7479",
+      "startDate": "2023-03-31",
+      "endDate": "2023-03-31",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Tag der Freiheit"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Tag der Freiheit",
+        "EN": "Freedom Day",
+        "FR": "Freedom Day",
+        "ES": "Freedom Day",
+        "IT": "Freedom Day"
+      }
+    },
+    {
+      "id": "6c64f913-a595-4902-8964-0fe6791df6ab",
+      "startDate": "2023-04-07",
+      "endDate": "2023-04-07",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Karfreitag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Karfreitag",
+        "EN": "Good Friday",
+        "FR": "Good Friday",
+        "ES": "Good Friday",
+        "IT": "Good Friday"
+      }
+    },
+    {
+      "id": "0aed537b-3e64-4a7d-8663-bb1f8dfc3091",
+      "startDate": "2023-05-01",
+      "endDate": "2023-05-01",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Tag der Arbeit"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Tag der Arbeit",
+        "EN": "Worker's Day",
+        "FR": "Worker's Day",
+        "ES": "Worker's Day",
+        "IT": "Worker's Day"
+      }
+    },
+    {
+      "id": "ad31ff7e-d795-4c10-b4b7-984444b71e16",
+      "startDate": "2023-06-07",
+      "endDate": "2023-06-07",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Siebter Juni"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Siebter Juni",
+        "EN": "​Sette Giugno",
+        "FR": "​Sette Giugno",
+        "ES": "​Sette Giugno",
+        "IT": "​Sette Giugno"
+      }
+    },
+    {
+      "id": "51c1b651-5961-4ca4-8f78-622f0f3df0d0",
+      "startDate": "2023-06-29",
+      "endDate": "2023-06-29",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Peter und Paul"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Peter und Paul",
+        "EN": "​​​Feast of St.Peter and St.Paul",
+        "FR": "​​​Feast of St.Peter and St.Paul",
+        "ES": "​​​Feast of St.Peter and St.Paul",
+        "IT": "​​​Feast of St.Peter and St.Paul"
+      }
+    },
+    {
+      "id": "59f6b119-e09e-403e-bdc4-c4b0b70fa32d",
+      "startDate": "2023-08-15",
+      "endDate": "2023-08-15",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Mariä Himmelfahrt"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Mariä Himmelfahrt",
+        "EN": "​​​Feast of the Assumption",
+        "FR": "​​​Feast of the Assumption",
+        "ES": "​​​Feast of the Assumption",
+        "IT": "​​​Feast of the Assumption"
+      }
+    },
+    {
+      "id": "9c66f3a3-4822-4cf9-9103-0377553ec59e",
+      "startDate": "2023-09-08",
+      "endDate": "2023-09-08",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Maria vom Siege"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Maria vom Siege",
+        "EN": "​​​Feast of Our Lady of Victories",
+        "FR": "​​​Feast of Our Lady of Victories",
+        "ES": "​​​Feast of Our Lady of Victories",
+        "IT": "​​​Feast of Our Lady of Victories"
+      }
+    },
+    {
+      "id": "7a15871d-c90b-4176-a668-db59e8635a70",
+      "startDate": "2023-09-21",
+      "endDate": "2023-09-21",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Unabhängigkeitstag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Unabhängigkeitstag",
+        "EN": "​​​Independence Day",
+        "FR": "​​​Independence Day",
+        "ES": "​​​Independence Day",
+        "IT": "​​​Independence Day"
+      }
+    },
+    {
+      "id": "87838851-3c80-4793-944a-0b95bd071eea",
+      "startDate": "2023-12-08",
+      "endDate": "2023-12-08",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Mariä Empfängnis"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Mariä Empfängnis",
+        "EN": "​Feast of the Immaculate Conception",
+        "FR": "​Feast of the Immaculate Conception",
+        "ES": "​Feast of the Immaculate Conception",
+        "IT": "​Feast of the Immaculate Conception"
+      }
+    },
+    {
+      "id": "463cac0f-aa6b-4f11-961b-cc55108233b8",
+      "startDate": "2023-12-13",
+      "endDate": "2023-12-13",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Tag der Republik"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Tag der Republik",
+        "EN": "​​​Republic Day",
+        "FR": "​​​Republic Day",
+        "ES": "​​​Republic Day",
+        "IT": "​​​Republic Day"
+      }
+    },
+    {
+      "id": "d5174243-d303-44f8-97bb-40618b12a1c9",
+      "startDate": "2023-12-25",
+      "endDate": "2023-12-25",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Weihnachten"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Weihnachten",
+        "EN": "​​​​Christmas Day",
+        "FR": "​​​​Christmas Day",
+        "ES": "​​​​Christmas Day",
+        "IT": "​​​​Christmas Day"
+      }
+    },
+    {
+      "id": "4e72d24a-4bd4-43ef-a5fd-b638b15a62c9",
+      "startDate": "2024-01-01",
+      "endDate": "2024-01-01",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Neujahr"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Neujahr",
+        "EN": "New Year's Day",
+        "FR": "New Year's Day",
+        "ES": "New Year's Day",
+        "IT": "New Year's Day"
+      }
+    },
+    {
+      "id": "c9eab4e9-ca09-445d-8d37-42d18cd2d99d",
+      "startDate": "2024-02-10",
+      "endDate": "2024-02-10",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Feier des Schiffswracks des Apostels Paulus"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Feier des Schiffswracks des Apostels Paulus",
+        "EN": "Feast of St. Paul's Shipwreck",
+        "FR": "Feast of St. Paul's Shipwreck",
+        "ES": "Feast of St. Paul's Shipwreck",
+        "IT": "Feast of St. Paul's Shipwreck"
+      }
+    },
+    {
+      "id": "b0645aba-88fe-4abe-ad84-4505c77c3080",
+      "startDate": "2024-03-19",
+      "endDate": "2024-03-19",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Josefstag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Josefstag",
+        "EN": "Feast of St. Joseph",
+        "FR": "Feast of St. Joseph",
+        "ES": "Feast of St. Joseph",
+        "IT": "Feast of St. Joseph"
+      }
+    },
+    {
+      "id": "d393b92b-364d-494b-abf2-d8f0942a374a",
+      "startDate": "2024-03-29",
+      "endDate": "2024-03-29",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Karfreitag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Karfreitag",
+        "EN": "Good Friday",
+        "FR": "Good Friday",
+        "ES": "Good Friday",
+        "IT": "Good Friday"
+      }
+    },
+    {
+      "id": "5a044ba2-33b1-4732-b664-e1e7849085a9",
+      "startDate": "2024-03-31",
+      "endDate": "2024-03-31",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Tag der Freiheit"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Tag der Freiheit",
+        "EN": "Freedom Day",
+        "FR": "Freedom Day",
+        "ES": "Freedom Day",
+        "IT": "Freedom Day"
+      }
+    },
+    {
+      "id": "2f4bfd15-725f-4296-8f55-7a64a4a87ca6",
+      "startDate": "2024-05-01",
+      "endDate": "2024-05-01",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Tag der Arbeit"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Tag der Arbeit",
+        "EN": "Worker's Day",
+        "FR": "Worker's Day",
+        "ES": "Worker's Day",
+        "IT": "Worker's Day"
+      }
+    },
+    {
+      "id": "13d0e21d-0958-416c-9ada-8f977312c12b",
+      "startDate": "2024-06-07",
+      "endDate": "2024-06-07",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Siebter Juni"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Siebter Juni",
+        "EN": "​Sette Giugno",
+        "FR": "​Sette Giugno",
+        "ES": "​Sette Giugno",
+        "IT": "​Sette Giugno"
+      }
+    },
+    {
+      "id": "6739a737-1d89-4fca-9e80-37539d10cce9",
+      "startDate": "2024-06-29",
+      "endDate": "2024-06-29",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Peter und Paul"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Peter und Paul",
+        "EN": "​​​Feast of St.Peter and St.Paul",
+        "FR": "​​​Feast of St.Peter and St.Paul",
+        "ES": "​​​Feast of St.Peter and St.Paul",
+        "IT": "​​​Feast of St.Peter and St.Paul"
+      }
+    },
+    {
+      "id": "a7a67976-3f47-4b09-8106-632e31297996",
+      "startDate": "2024-08-15",
+      "endDate": "2024-08-15",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Mariä Himmelfahrt"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Mariä Himmelfahrt",
+        "EN": "​​​Feast of the Assumption",
+        "FR": "​​​Feast of the Assumption",
+        "ES": "​​​Feast of the Assumption",
+        "IT": "​​​Feast of the Assumption"
+      }
+    },
+    {
+      "id": "73895b0c-cd65-4206-a0b4-0ced547732f2",
+      "startDate": "2024-09-08",
+      "endDate": "2024-09-08",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Maria vom Siege"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Maria vom Siege",
+        "EN": "​​​Feast of Our Lady of Victories",
+        "FR": "​​​Feast of Our Lady of Victories",
+        "ES": "​​​Feast of Our Lady of Victories",
+        "IT": "​​​Feast of Our Lady of Victories"
+      }
+    },
+    {
+      "id": "208e4aa8-c5e9-495c-9fc7-6ec2ef200880",
+      "startDate": "2024-09-21",
+      "endDate": "2024-09-21",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Unabhängigkeitstag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Unabhängigkeitstag",
+        "EN": "​​​Independence Day",
+        "FR": "​​​Independence Day",
+        "ES": "​​​Independence Day",
+        "IT": "​​​Independence Day"
+      }
+    },
+    {
+      "id": "ede2c72f-5603-4277-936f-3a4111c044cb",
+      "startDate": "2024-12-08",
+      "endDate": "2024-12-08",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Mariä Empfängnis"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Mariä Empfängnis",
+        "EN": "​Feast of the Immaculate Conception",
+        "FR": "​Feast of the Immaculate Conception",
+        "ES": "​Feast of the Immaculate Conception",
+        "IT": "​Feast of the Immaculate Conception"
+      }
+    },
+    {
+      "id": "be517f97-7350-4e2e-ab7a-bae01aa44450",
+      "startDate": "2024-12-13",
+      "endDate": "2024-12-13",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Tag der Republik"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Tag der Republik",
+        "EN": "​​​Republic Day",
+        "FR": "​​​Republic Day",
+        "ES": "​​​Republic Day",
+        "IT": "​​​Republic Day"
+      }
+    },
+    {
+      "id": "b5b7bbaf-57c0-4075-a790-db49502c6131",
+      "startDate": "2024-12-25",
+      "endDate": "2024-12-25",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Weihnachten"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Weihnachten",
+        "EN": "​​​​Christmas Day",
+        "FR": "​​​​Christmas Day",
+        "ES": "​​​​Christmas Day",
+        "IT": "​​​​Christmas Day"
+      }
+    },
+    {
+      "id": "a2382949-30ae-4536-b4e8-0aa130dc1114",
+      "startDate": "2025-01-01",
+      "endDate": "2025-01-01",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Neujahr"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Neujahr",
+        "EN": "New Year's Day",
+        "FR": "New Year's Day",
+        "ES": "New Year's Day",
+        "IT": "New Year's Day"
+      }
+    },
+    {
+      "id": "7e822dbb-90b6-4271-8fa7-27ac83ed2d9f",
+      "startDate": "2025-02-10",
+      "endDate": "2025-02-10",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Feier des Schiffswracks des Apostels Paulus"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Feier des Schiffswracks des Apostels Paulus",
+        "EN": "Feast of St. Paul's Shipwreck",
+        "FR": "Feast of St. Paul's Shipwreck",
+        "ES": "Feast of St. Paul's Shipwreck",
+        "IT": "Feast of St. Paul's Shipwreck"
+      }
+    },
+    {
+      "id": "2b01068a-ecea-4d22-a5d8-5cbdf77170f3",
+      "startDate": "2025-03-19",
+      "endDate": "2025-03-19",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Josefstag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Josefstag",
+        "EN": "Feast of St. Joseph",
+        "FR": "Feast of St. Joseph",
+        "ES": "Feast of St. Joseph",
+        "IT": "Feast of St. Joseph"
+      }
+    },
+    {
+      "id": "1f706c2d-1b78-4f7b-82ca-87433093225f",
+      "startDate": "2025-03-31",
+      "endDate": "2025-03-31",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Tag der Freiheit"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Tag der Freiheit",
+        "EN": "Freedom Day",
+        "FR": "Freedom Day",
+        "ES": "Freedom Day",
+        "IT": "Freedom Day"
+      }
+    },
+    {
+      "id": "232f499c-6430-4b9e-b2b0-e3aa8e739b95",
+      "startDate": "2025-04-18",
+      "endDate": "2025-04-18",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Karfreitag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Karfreitag",
+        "EN": "Good Friday",
+        "FR": "Good Friday",
+        "ES": "Good Friday",
+        "IT": "Good Friday"
+      }
+    },
+    {
+      "id": "5ac3efc0-b5c8-4a4b-89ae-6afefff4dba6",
+      "startDate": "2025-05-01",
+      "endDate": "2025-05-01",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Tag der Arbeit"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Tag der Arbeit",
+        "EN": "Worker's Day",
+        "FR": "Worker's Day",
+        "ES": "Worker's Day",
+        "IT": "Worker's Day"
+      }
+    },
+    {
+      "id": "af7de2c5-2e59-478d-8764-e97d859b8abe",
+      "startDate": "2025-06-07",
+      "endDate": "2025-06-07",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Siebter Juni"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Siebter Juni",
+        "EN": "​Sette Giugno",
+        "FR": "​Sette Giugno",
+        "ES": "​Sette Giugno",
+        "IT": "​Sette Giugno"
+      }
+    },
+    {
+      "id": "e1e0ff2a-5db8-42b5-8e06-571e46d47651",
+      "startDate": "2025-06-29",
+      "endDate": "2025-06-29",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Peter und Paul"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Peter und Paul",
+        "EN": "​​​Feast of St.Peter and St.Paul",
+        "FR": "​​​Feast of St.Peter and St.Paul",
+        "ES": "​​​Feast of St.Peter and St.Paul",
+        "IT": "​​​Feast of St.Peter and St.Paul"
+      }
+    },
+    {
+      "id": "4a56062d-fda8-4753-97b0-aff9bbbe0165",
+      "startDate": "2025-08-15",
+      "endDate": "2025-08-15",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Mariä Himmelfahrt"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Mariä Himmelfahrt",
+        "EN": "​​​Feast of the Assumption",
+        "FR": "​​​Feast of the Assumption",
+        "ES": "​​​Feast of the Assumption",
+        "IT": "​​​Feast of the Assumption"
+      }
+    },
+    {
+      "id": "439019f2-f337-4757-8ba3-0d7cb223d0f5",
+      "startDate": "2025-09-08",
+      "endDate": "2025-09-08",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Maria vom Siege"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Maria vom Siege",
+        "EN": "​​​Feast of Our Lady of Victories",
+        "FR": "​​​Feast of Our Lady of Victories",
+        "ES": "​​​Feast of Our Lady of Victories",
+        "IT": "​​​Feast of Our Lady of Victories"
+      }
+    },
+    {
+      "id": "84972219-33af-4765-9ece-ddd19bee94ad",
+      "startDate": "2025-09-21",
+      "endDate": "2025-09-21",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Unabhängigkeitstag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Unabhängigkeitstag",
+        "EN": "​​​Independence Day",
+        "FR": "​​​Independence Day",
+        "ES": "​​​Independence Day",
+        "IT": "​​​Independence Day"
+      }
+    },
+    {
+      "id": "b6c659b2-e879-49a2-93cf-9f28d3c16f69",
+      "startDate": "2025-12-08",
+      "endDate": "2025-12-08",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Mariä Empfängnis"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Mariä Empfängnis",
+        "EN": "​Feast of the Immaculate Conception",
+        "FR": "​Feast of the Immaculate Conception",
+        "ES": "​Feast of the Immaculate Conception",
+        "IT": "​Feast of the Immaculate Conception"
+      }
+    },
+    {
+      "id": "b0f4745e-3210-45c2-982a-78e459568737",
+      "startDate": "2025-12-13",
+      "endDate": "2025-12-13",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Tag der Republik"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Tag der Republik",
+        "EN": "​​​Republic Day",
+        "FR": "​​​Republic Day",
+        "ES": "​​​Republic Day",
+        "IT": "​​​Republic Day"
+      }
+    },
+    {
+      "id": "aab97b1f-3841-4b74-a6ca-d7066b2f88c8",
+      "startDate": "2025-12-25",
+      "endDate": "2025-12-25",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Weihnachten"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Weihnachten",
+        "EN": "​​​​Christmas Day",
+        "FR": "​​​​Christmas Day",
+        "ES": "​​​​Christmas Day",
+        "IT": "​​​​Christmas Day"
+      }
+    },
+    {
+      "id": "196c0589-5eee-4367-a59b-92000dbbdc9e",
+      "startDate": "2026-01-01",
+      "endDate": "2026-01-01",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Neujahr"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Neujahr",
+        "EN": "New Year's Day",
+        "FR": "New Year's Day",
+        "ES": "New Year's Day",
+        "IT": "New Year's Day"
+      }
+    },
+    {
+      "id": "ea1adb42-b2ae-473b-ad70-72e276796a5f",
+      "startDate": "2026-02-10",
+      "endDate": "2026-02-10",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Feier des Schiffswracks des Apostels Paulus"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Feier des Schiffswracks des Apostels Paulus",
+        "EN": "Feast of St. Paul's Shipwreck",
+        "FR": "Feast of St. Paul's Shipwreck",
+        "ES": "Feast of St. Paul's Shipwreck",
+        "IT": "Feast of St. Paul's Shipwreck"
+      }
+    },
+    {
+      "id": "0dab3183-bf06-4596-a8b6-15ae10566397",
+      "startDate": "2026-03-19",
+      "endDate": "2026-03-19",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Josefstag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Josefstag",
+        "EN": "Feast of St. Joseph",
+        "FR": "Feast of St. Joseph",
+        "ES": "Feast of St. Joseph",
+        "IT": "Feast of St. Joseph"
+      }
+    },
+    {
+      "id": "8d5dd25e-aaac-4d1c-b0a3-84414ba95866",
+      "startDate": "2026-03-31",
+      "endDate": "2026-03-31",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Tag der Freiheit"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Tag der Freiheit",
+        "EN": "Freedom Day",
+        "FR": "Freedom Day",
+        "ES": "Freedom Day",
+        "IT": "Freedom Day"
+      }
+    },
+    {
+      "id": "7a29a163-0390-478d-a2eb-6b3e81175c77",
+      "startDate": "2026-04-03",
+      "endDate": "2026-04-03",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Karfreitag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Karfreitag",
+        "EN": "Good Friday",
+        "FR": "Good Friday",
+        "ES": "Good Friday",
+        "IT": "Good Friday"
+      }
+    },
+    {
+      "id": "ec89cdaa-b217-48f3-9c90-eeedb6c23d73",
+      "startDate": "2026-05-01",
+      "endDate": "2026-05-01",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Tag der Arbeit"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Tag der Arbeit",
+        "EN": "Worker's Day",
+        "FR": "Worker's Day",
+        "ES": "Worker's Day",
+        "IT": "Worker's Day"
+      }
+    },
+    {
+      "id": "c136abb4-0d59-4a30-91a4-dad24e97df8a",
+      "startDate": "2026-06-07",
+      "endDate": "2026-06-07",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Siebter Juni"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Siebter Juni",
+        "EN": "​Sette Giugno",
+        "FR": "​Sette Giugno",
+        "ES": "​Sette Giugno",
+        "IT": "​Sette Giugno"
+      }
+    },
+    {
+      "id": "617da209-6507-4970-8ad2-69739b345487",
+      "startDate": "2026-06-29",
+      "endDate": "2026-06-29",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Peter und Paul"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Peter und Paul",
+        "EN": "​​​Feast of St.Peter and St.Paul",
+        "FR": "​​​Feast of St.Peter and St.Paul",
+        "ES": "​​​Feast of St.Peter and St.Paul",
+        "IT": "​​​Feast of St.Peter and St.Paul"
+      }
+    },
+    {
+      "id": "f88409a3-fcb4-463a-b24d-69d7cd39e748",
+      "startDate": "2026-08-15",
+      "endDate": "2026-08-15",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Mariä Himmelfahrt"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Mariä Himmelfahrt",
+        "EN": "​​​Feast of the Assumption",
+        "FR": "​​​Feast of the Assumption",
+        "ES": "​​​Feast of the Assumption",
+        "IT": "​​​Feast of the Assumption"
+      }
+    },
+    {
+      "id": "10181e7c-6af9-4f5f-a0f5-8e8ee8f794fa",
+      "startDate": "2026-09-08",
+      "endDate": "2026-09-08",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Maria vom Siege"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Maria vom Siege",
+        "EN": "​​​Feast of Our Lady of Victories",
+        "FR": "​​​Feast of Our Lady of Victories",
+        "ES": "​​​Feast of Our Lady of Victories",
+        "IT": "​​​Feast of Our Lady of Victories"
+      }
+    },
+    {
+      "id": "4033a5da-957f-433b-8008-81e76ba328f1",
+      "startDate": "2026-09-21",
+      "endDate": "2026-09-21",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Unabhängigkeitstag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Unabhängigkeitstag",
+        "EN": "​​​Independence Day",
+        "FR": "​​​Independence Day",
+        "ES": "​​​Independence Day",
+        "IT": "​​​Independence Day"
+      }
+    },
+    {
+      "id": "86379335-ffbc-4c2e-b78c-407acf1327de",
+      "startDate": "2026-12-08",
+      "endDate": "2026-12-08",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Mariä Empfängnis"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Mariä Empfängnis",
+        "EN": "​Feast of the Immaculate Conception",
+        "FR": "​Feast of the Immaculate Conception",
+        "ES": "​Feast of the Immaculate Conception",
+        "IT": "​Feast of the Immaculate Conception"
+      }
+    },
+    {
+      "id": "c362d161-0a26-452b-a949-a265a22b4f63",
+      "startDate": "2026-12-13",
+      "endDate": "2026-12-13",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Tag der Republik"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Tag der Republik",
+        "EN": "​​​Republic Day",
+        "FR": "​​​Republic Day",
+        "ES": "​​​Republic Day",
+        "IT": "​​​Republic Day"
+      }
+    },
+    {
+      "id": "70a132a8-9ccc-4388-8c8d-a85fd7cb1172",
+      "startDate": "2026-12-25",
+      "endDate": "2026-12-25",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Weihnachten"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Weihnachten",
+        "EN": "​​​​Christmas Day",
+        "FR": "​​​​Christmas Day",
+        "ES": "​​​​Christmas Day",
+        "IT": "​​​​Christmas Day"
+      }
+    },
+    {
+      "id": "ce455e9f-7e55-42ef-bc75-94a875e00f51",
+      "startDate": "2027-01-01",
+      "endDate": "2027-01-01",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Neujahr"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Neujahr",
+        "EN": "New Year's Day",
+        "FR": "New Year's Day",
+        "ES": "New Year's Day",
+        "IT": "New Year's Day"
+      }
+    },
+    {
+      "id": "b8185feb-9e7b-4ede-aa7c-906316d2c4f4",
+      "startDate": "2027-02-10",
+      "endDate": "2027-02-10",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Feier des Schiffswracks des Apostels Paulus"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Feier des Schiffswracks des Apostels Paulus",
+        "EN": "Feast of St. Paul's Shipwreck",
+        "FR": "Feast of St. Paul's Shipwreck",
+        "ES": "Feast of St. Paul's Shipwreck",
+        "IT": "Feast of St. Paul's Shipwreck"
+      }
+    },
+    {
+      "id": "95b73eba-162b-4880-84b1-05a1da8c46f9",
+      "startDate": "2027-03-19",
+      "endDate": "2027-03-19",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Josefstag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Josefstag",
+        "EN": "Feast of St. Joseph",
+        "FR": "Feast of St. Joseph",
+        "ES": "Feast of St. Joseph",
+        "IT": "Feast of St. Joseph"
+      }
+    },
+    {
+      "id": "98f79c87-4b1b-4420-94d9-82c267b080b7",
+      "startDate": "2027-03-26",
+      "endDate": "2027-03-26",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Karfreitag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Karfreitag",
+        "EN": "Good Friday",
+        "FR": "Good Friday",
+        "ES": "Good Friday",
+        "IT": "Good Friday"
+      }
+    },
+    {
+      "id": "ccdc1a66-bfb8-43b7-bd73-772faf22f91c",
+      "startDate": "2027-03-31",
+      "endDate": "2027-03-31",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Tag der Freiheit"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Tag der Freiheit",
+        "EN": "Freedom Day",
+        "FR": "Freedom Day",
+        "ES": "Freedom Day",
+        "IT": "Freedom Day"
+      }
+    },
+    {
+      "id": "cd8a7e8a-82d0-4bb8-a56a-115c02ccfa0d",
+      "startDate": "2027-05-01",
+      "endDate": "2027-05-01",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Tag der Arbeit"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Tag der Arbeit",
+        "EN": "Worker's Day",
+        "FR": "Worker's Day",
+        "ES": "Worker's Day",
+        "IT": "Worker's Day"
+      }
+    },
+    {
+      "id": "b5da78e6-5397-4131-ad47-7f844cdf7c05",
+      "startDate": "2027-06-07",
+      "endDate": "2027-06-07",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Siebter Juni"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Siebter Juni",
+        "EN": "​Sette Giugno",
+        "FR": "​Sette Giugno",
+        "ES": "​Sette Giugno",
+        "IT": "​Sette Giugno"
+      }
+    },
+    {
+      "id": "f08918f5-c54c-4a5b-b4aa-c1b52426149c",
+      "startDate": "2027-06-29",
+      "endDate": "2027-06-29",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Peter und Paul"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Peter und Paul",
+        "EN": "​​​Feast of St.Peter and St.Paul",
+        "FR": "​​​Feast of St.Peter and St.Paul",
+        "ES": "​​​Feast of St.Peter and St.Paul",
+        "IT": "​​​Feast of St.Peter and St.Paul"
+      }
+    },
+    {
+      "id": "8ae0619b-ee27-4d4b-aded-40d9ff9ee6e9",
+      "startDate": "2027-08-15",
+      "endDate": "2027-08-15",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Mariä Himmelfahrt"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Mariä Himmelfahrt",
+        "EN": "​​​Feast of the Assumption",
+        "FR": "​​​Feast of the Assumption",
+        "ES": "​​​Feast of the Assumption",
+        "IT": "​​​Feast of the Assumption"
+      }
+    },
+    {
+      "id": "990e30a1-a6ec-4efa-880e-cda130af6d02",
+      "startDate": "2027-09-08",
+      "endDate": "2027-09-08",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Maria vom Siege"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Maria vom Siege",
+        "EN": "​​​Feast of Our Lady of Victories",
+        "FR": "​​​Feast of Our Lady of Victories",
+        "ES": "​​​Feast of Our Lady of Victories",
+        "IT": "​​​Feast of Our Lady of Victories"
+      }
+    },
+    {
+      "id": "6c6d81cb-f816-412e-9467-0005f49f2f41",
+      "startDate": "2027-09-21",
+      "endDate": "2027-09-21",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Unabhängigkeitstag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Unabhängigkeitstag",
+        "EN": "​​​Independence Day",
+        "FR": "​​​Independence Day",
+        "ES": "​​​Independence Day",
+        "IT": "​​​Independence Day"
+      }
+    },
+    {
+      "id": "9b4f717e-5507-4bb3-966b-080ae96ddf82",
+      "startDate": "2027-12-08",
+      "endDate": "2027-12-08",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Mariä Empfängnis"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Mariä Empfängnis",
+        "EN": "​Feast of the Immaculate Conception",
+        "FR": "​Feast of the Immaculate Conception",
+        "ES": "​Feast of the Immaculate Conception",
+        "IT": "​Feast of the Immaculate Conception"
+      }
+    },
+    {
+      "id": "4a50de9f-9ddb-4d77-8935-c2ec71acb310",
+      "startDate": "2027-12-13",
+      "endDate": "2027-12-13",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Tag der Republik"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Tag der Republik",
+        "EN": "​​​Republic Day",
+        "FR": "​​​Republic Day",
+        "ES": "​​​Republic Day",
+        "IT": "​​​Republic Day"
+      }
+    },
+    {
+      "id": "b576af17-61f1-4ef4-9d1b-ea852b47a01e",
+      "startDate": "2027-12-25",
+      "endDate": "2027-12-25",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Weihnachten"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Weihnachten",
+        "EN": "​​​​Christmas Day",
+        "FR": "​​​​Christmas Day",
+        "ES": "​​​​Christmas Day",
+        "IT": "​​​​Christmas Day"
+      }
+    },
+    {
+      "id": "261d8f3f-9e99-47fb-b385-d67c97c117c9",
+      "startDate": "2028-01-01",
+      "endDate": "2028-01-01",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Neujahr"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Neujahr",
+        "EN": "New Year's Day",
+        "FR": "New Year's Day",
+        "ES": "New Year's Day",
+        "IT": "New Year's Day"
+      }
+    },
+    {
+      "id": "62b24d5c-5006-408d-b78a-6bb20d1b9200",
+      "startDate": "2028-02-10",
+      "endDate": "2028-02-10",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Feier des Schiffswracks des Apostels Paulus"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Feier des Schiffswracks des Apostels Paulus",
+        "EN": "Feast of St. Paul's Shipwreck",
+        "FR": "Feast of St. Paul's Shipwreck",
+        "ES": "Feast of St. Paul's Shipwreck",
+        "IT": "Feast of St. Paul's Shipwreck"
+      }
+    },
+    {
+      "id": "a9465fea-eb8d-4ae4-9bbd-8997a74524f0",
+      "startDate": "2028-03-19",
+      "endDate": "2028-03-19",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Josefstag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Josefstag",
+        "EN": "Feast of St. Joseph",
+        "FR": "Feast of St. Joseph",
+        "ES": "Feast of St. Joseph",
+        "IT": "Feast of St. Joseph"
+      }
+    },
+    {
+      "id": "03e07291-6118-4b5c-abc0-0722cdb819b8",
+      "startDate": "2028-03-31",
+      "endDate": "2028-03-31",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Tag der Freiheit"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Tag der Freiheit",
+        "EN": "Freedom Day",
+        "FR": "Freedom Day",
+        "ES": "Freedom Day",
+        "IT": "Freedom Day"
+      }
+    },
+    {
+      "id": "3b38815c-6692-4462-a081-0eed80b0a417",
+      "startDate": "2028-04-14",
+      "endDate": "2028-04-14",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Karfreitag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Karfreitag",
+        "EN": "Good Friday",
+        "FR": "Good Friday",
+        "ES": "Good Friday",
+        "IT": "Good Friday"
+      }
+    },
+    {
+      "id": "28163e3a-9278-439d-b149-b4ca38b8428b",
+      "startDate": "2028-05-01",
+      "endDate": "2028-05-01",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Tag der Arbeit"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Tag der Arbeit",
+        "EN": "Worker's Day",
+        "FR": "Worker's Day",
+        "ES": "Worker's Day",
+        "IT": "Worker's Day"
+      }
+    },
+    {
+      "id": "e7e64926-bfd5-474e-911a-a14f3f02c692",
+      "startDate": "2028-06-07",
+      "endDate": "2028-06-07",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Siebter Juni"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Siebter Juni",
+        "EN": "​Sette Giugno",
+        "FR": "​Sette Giugno",
+        "ES": "​Sette Giugno",
+        "IT": "​Sette Giugno"
+      }
+    },
+    {
+      "id": "ddca3cc4-56ac-45d6-b144-283d6202b05f",
+      "startDate": "2028-06-29",
+      "endDate": "2028-06-29",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Peter und Paul"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Peter und Paul",
+        "EN": "​​​Feast of St.Peter and St.Paul",
+        "FR": "​​​Feast of St.Peter and St.Paul",
+        "ES": "​​​Feast of St.Peter and St.Paul",
+        "IT": "​​​Feast of St.Peter and St.Paul"
+      }
+    },
+    {
+      "id": "c707d616-4545-4492-9079-177c86896945",
+      "startDate": "2028-08-15",
+      "endDate": "2028-08-15",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Mariä Himmelfahrt"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Mariä Himmelfahrt",
+        "EN": "​​​Feast of the Assumption",
+        "FR": "​​​Feast of the Assumption",
+        "ES": "​​​Feast of the Assumption",
+        "IT": "​​​Feast of the Assumption"
+      }
+    },
+    {
+      "id": "5f1b08f0-2ecb-4c90-9805-c9fa4739b4ba",
+      "startDate": "2028-09-08",
+      "endDate": "2028-09-08",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Maria vom Siege"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Maria vom Siege",
+        "EN": "​​​Feast of Our Lady of Victories",
+        "FR": "​​​Feast of Our Lady of Victories",
+        "ES": "​​​Feast of Our Lady of Victories",
+        "IT": "​​​Feast of Our Lady of Victories"
+      }
+    },
+    {
+      "id": "76b939ea-fdf2-4f8f-a598-15c35a4e3afc",
+      "startDate": "2028-09-21",
+      "endDate": "2028-09-21",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Unabhängigkeitstag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Unabhängigkeitstag",
+        "EN": "​​​Independence Day",
+        "FR": "​​​Independence Day",
+        "ES": "​​​Independence Day",
+        "IT": "​​​Independence Day"
+      }
+    },
+    {
+      "id": "9cb5d1bc-e383-47fd-9746-cd65e9821bda",
+      "startDate": "2028-12-08",
+      "endDate": "2028-12-08",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Mariä Empfängnis"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Mariä Empfängnis",
+        "EN": "​Feast of the Immaculate Conception",
+        "FR": "​Feast of the Immaculate Conception",
+        "ES": "​Feast of the Immaculate Conception",
+        "IT": "​Feast of the Immaculate Conception"
+      }
+    },
+    {
+      "id": "9e6c5f59-f070-4ff7-8597-fbd8e5213c69",
+      "startDate": "2028-12-13",
+      "endDate": "2028-12-13",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Tag der Republik"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Tag der Republik",
+        "EN": "​​​Republic Day",
+        "FR": "​​​Republic Day",
+        "ES": "​​​Republic Day",
+        "IT": "​​​Republic Day"
+      }
+    },
+    {
+      "id": "9e2c64f8-4452-4b93-911d-fe39fc86b697",
+      "startDate": "2028-12-25",
+      "endDate": "2028-12-25",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Weihnachten"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Weihnachten",
+        "EN": "​​​​Christmas Day",
+        "FR": "​​​​Christmas Day",
+        "ES": "​​​​Christmas Day",
+        "IT": "​​​​Christmas Day"
+      }
+    },
+    {
+      "id": "95e2eb4e-f35a-4205-b824-c0266f581632",
+      "startDate": "2029-01-01",
+      "endDate": "2029-01-01",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Neujahr"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Neujahr",
+        "EN": "New Year's Day",
+        "FR": "New Year's Day",
+        "ES": "New Year's Day",
+        "IT": "New Year's Day"
+      }
+    },
+    {
+      "id": "876cda9a-2362-41d7-b97c-5cc3d0d43c11",
+      "startDate": "2029-02-10",
+      "endDate": "2029-02-10",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Feier des Schiffswracks des Apostels Paulus"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Feier des Schiffswracks des Apostels Paulus",
+        "EN": "Feast of St. Paul's Shipwreck",
+        "FR": "Feast of St. Paul's Shipwreck",
+        "ES": "Feast of St. Paul's Shipwreck",
+        "IT": "Feast of St. Paul's Shipwreck"
+      }
+    },
+    {
+      "id": "5ae40c96-2758-4ac2-a541-5ebebfea6aeb",
+      "startDate": "2029-03-19",
+      "endDate": "2029-03-19",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Josefstag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Josefstag",
+        "EN": "Feast of St. Joseph",
+        "FR": "Feast of St. Joseph",
+        "ES": "Feast of St. Joseph",
+        "IT": "Feast of St. Joseph"
+      }
+    },
+    {
+      "id": "78b084ad-7862-4b77-90b8-876bdc9ced5d",
+      "startDate": "2029-03-30",
+      "endDate": "2029-03-30",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Karfreitag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Karfreitag",
+        "EN": "Good Friday",
+        "FR": "Good Friday",
+        "ES": "Good Friday",
+        "IT": "Good Friday"
+      }
+    },
+    {
+      "id": "6f052421-63c1-4a10-a37d-87c3cbca2863",
+      "startDate": "2029-03-31",
+      "endDate": "2029-03-31",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Tag der Freiheit"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Tag der Freiheit",
+        "EN": "Freedom Day",
+        "FR": "Freedom Day",
+        "ES": "Freedom Day",
+        "IT": "Freedom Day"
+      }
+    },
+    {
+      "id": "464823a1-1ca5-4263-ba30-9dfbf37413de",
+      "startDate": "2029-05-01",
+      "endDate": "2029-05-01",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Tag der Arbeit"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Tag der Arbeit",
+        "EN": "Worker's Day",
+        "FR": "Worker's Day",
+        "ES": "Worker's Day",
+        "IT": "Worker's Day"
+      }
+    },
+    {
+      "id": "bd348b2d-d8e6-4f45-821b-8714d5e7f7df",
+      "startDate": "2029-06-07",
+      "endDate": "2029-06-07",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Siebter Juni"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Siebter Juni",
+        "EN": "​Sette Giugno",
+        "FR": "​Sette Giugno",
+        "ES": "​Sette Giugno",
+        "IT": "​Sette Giugno"
+      }
+    },
+    {
+      "id": "fb4545b2-610d-4a92-8b0e-43fcaf14d4ee",
+      "startDate": "2029-06-29",
+      "endDate": "2029-06-29",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Peter und Paul"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Peter und Paul",
+        "EN": "​​​Feast of St.Peter and St.Paul",
+        "FR": "​​​Feast of St.Peter and St.Paul",
+        "ES": "​​​Feast of St.Peter and St.Paul",
+        "IT": "​​​Feast of St.Peter and St.Paul"
+      }
+    },
+    {
+      "id": "5b4ee3b3-572b-4d49-b0b1-f11f8b495886",
+      "startDate": "2029-08-15",
+      "endDate": "2029-08-15",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Mariä Himmelfahrt"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Mariä Himmelfahrt",
+        "EN": "​​​Feast of the Assumption",
+        "FR": "​​​Feast of the Assumption",
+        "ES": "​​​Feast of the Assumption",
+        "IT": "​​​Feast of the Assumption"
+      }
+    },
+    {
+      "id": "259cb7a9-3779-431f-a992-61233a5a1cf3",
+      "startDate": "2029-09-08",
+      "endDate": "2029-09-08",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Maria vom Siege"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Maria vom Siege",
+        "EN": "​​​Feast of Our Lady of Victories",
+        "FR": "​​​Feast of Our Lady of Victories",
+        "ES": "​​​Feast of Our Lady of Victories",
+        "IT": "​​​Feast of Our Lady of Victories"
+      }
+    },
+    {
+      "id": "44d7eaf6-e61a-4574-b7dd-0cae1c9f4a7c",
+      "startDate": "2029-09-21",
+      "endDate": "2029-09-21",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Unabhängigkeitstag"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Unabhängigkeitstag",
+        "EN": "​​​Independence Day",
+        "FR": "​​​Independence Day",
+        "ES": "​​​Independence Day",
+        "IT": "​​​Independence Day"
+      }
+    },
+    {
+      "id": "a2859314-258e-4072-93f7-89c3db1c4b4c",
+      "startDate": "2029-12-08",
+      "endDate": "2029-12-08",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Mariä Empfängnis"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Mariä Empfängnis",
+        "EN": "​Feast of the Immaculate Conception",
+        "FR": "​Feast of the Immaculate Conception",
+        "ES": "​Feast of the Immaculate Conception",
+        "IT": "​Feast of the Immaculate Conception"
+      }
+    },
+    {
+      "id": "6013f099-412b-4221-83ba-1d64d430f5d1",
+      "startDate": "2029-12-13",
+      "endDate": "2029-12-13",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Tag der Republik"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Tag der Republik",
+        "EN": "​​​Republic Day",
+        "FR": "​​​Republic Day",
+        "ES": "​​​Republic Day",
+        "IT": "​​​Republic Day"
+      }
+    },
+    {
+      "id": "886837eb-766c-4894-ba79-e49db954ac81",
+      "startDate": "2029-12-25",
+      "endDate": "2029-12-25",
+      "type": "Public",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Weihnachten"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Weihnachten",
+        "EN": "​​​​Christmas Day",
+        "FR": "​​​​Christmas Day",
+        "ES": "​​​​Christmas Day",
+        "IT": "​​​​Christmas Day"
+      }
+    }
+  ],
+  "school_holidays": [
+    {
+      "id": "02127af6-9f7f-450a-a015-6ff3312352ff",
+      "startDate": "2019-12-23",
+      "endDate": "2020-01-06",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Weihnachtsferien"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Weihnachtsferien",
+        "EN": "Christmas holidays",
+        "FR": "Christmas holidays",
+        "ES": "Christmas holidays",
+        "IT": "Christmas holidays"
+      }
+    },
+    {
+      "id": "82801e76-b979-4e8f-ad27-b94ee82374ab",
+      "startDate": "2020-02-24",
+      "endDate": "2020-02-25",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Karnevalsferien"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Karnevalsferien",
+        "EN": "Carnival holidays",
+        "FR": "Carnival holidays",
+        "ES": "Carnival holidays",
+        "IT": "Carnival holidays"
+      }
+    },
+    {
+      "id": "27327392-c090-4aa7-b396-45687553db0a",
+      "startDate": "2020-04-08",
+      "endDate": "2020-04-15",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Osterferien"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Osterferien",
+        "EN": "Easter holidays",
+        "FR": "Easter holidays",
+        "ES": "Easter holidays",
+        "IT": "Easter holidays"
+      }
+    },
+    {
+      "id": "21aaa3e6-b227-4c15-b8b6-d7b9816bfd0c",
+      "startDate": "2020-04-16",
+      "endDate": "2020-04-17",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Entschädigung für Feiertage an Wochenenden"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Entschädigung für Feiertage an Wochenenden",
+        "EN": "Compensation for holidays at weekends",
+        "FR": "Compensation for holidays at weekends",
+        "ES": "Compensation for holidays at weekends",
+        "IT": "Compensation for holidays at weekends"
+      }
+    },
+    {
+      "id": "31501b56-551d-465e-bdc5-60d2b7efed6e",
+      "startDate": "2020-06-29",
+      "endDate": "2020-09-29",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Sommerferien"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Sommerferien",
+        "EN": "Summer holidays",
+        "FR": "Summer holidays",
+        "ES": "Summer holidays",
+        "IT": "Summer holidays"
+      }
+    },
+    {
+      "id": "6768825f-5ed6-4191-bf61-247fd1e0e1ca",
+      "startDate": "2020-11-02",
+      "endDate": "2020-11-04",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Semesterferien"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Semesterferien",
+        "EN": "Mid-Term holidays",
+        "FR": "Mid-Term holidays",
+        "ES": "Mid-Term holidays",
+        "IT": "Mid-Term holidays"
+      }
+    },
+    {
+      "id": "55f0d8c5-e0e6-4555-8b24-b9482d0b53a2",
+      "startDate": "2020-12-23",
+      "endDate": "2021-01-06",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Weihnachtsferien"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Weihnachtsferien",
+        "EN": "Christmas holidays",
+        "FR": "Christmas holidays",
+        "ES": "Christmas holidays",
+        "IT": "Christmas holidays"
+      }
+    },
+    {
+      "id": "57e2979d-30b9-4aeb-9d10-6b110b752e6b",
+      "startDate": "2021-02-15",
+      "endDate": "2021-02-17",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Karnevalsferien"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Karnevalsferien",
+        "EN": "Carnival holidays",
+        "FR": "Carnival holidays",
+        "ES": "Carnival holidays",
+        "IT": "Carnival holidays"
+      }
+    },
+    {
+      "id": "5ec37813-8dd0-4562-a492-39c6e383be55",
+      "startDate": "2021-03-31",
+      "endDate": "2021-04-07",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Osterferien"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Osterferien",
+        "EN": "Easter holidays",
+        "FR": "Easter holidays",
+        "ES": "Easter holidays",
+        "IT": "Easter holidays"
+      }
+    },
+    {
+      "id": "861ab323-1093-401e-b846-3fae03aa0a5a",
+      "startDate": "2021-04-08",
+      "endDate": "2021-04-09",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Entschädigung für Feiertage an Wochenenden"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Entschädigung für Feiertage an Wochenenden",
+        "EN": "Compensation for holidays at weekends",
+        "FR": "Compensation for holidays at weekends",
+        "ES": "Compensation for holidays at weekends",
+        "IT": "Compensation for holidays at weekends"
+      }
+    },
+    {
+      "id": "9e1f811c-e589-48eb-8b95-b65408c3ad41",
+      "startDate": "2021-06-29",
+      "endDate": "2021-09-28",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Sommerferien"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Sommerferien",
+        "EN": "Summer holidays",
+        "FR": "Summer holidays",
+        "ES": "Summer holidays",
+        "IT": "Summer holidays"
+      }
+    },
+    {
+      "id": "1cd27584-10ce-4b6c-9374-1a74d97385aa",
+      "startDate": "2021-11-01",
+      "endDate": "2021-11-03",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Semesterferien"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Semesterferien",
+        "EN": "Mid-Term holidays",
+        "FR": "Mid-Term holidays",
+        "ES": "Mid-Term holidays",
+        "IT": "Mid-Term holidays"
+      }
+    },
+    {
+      "id": "8e14001c-3f42-4245-bc88-1629e79b0e82",
+      "startDate": "2021-12-23",
+      "endDate": "2022-01-06",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Weihnachtsferien"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Weihnachtsferien",
+        "EN": "Christmas holidays",
+        "FR": "Christmas holidays",
+        "ES": "Christmas holidays",
+        "IT": "Christmas holidays"
+      }
+    },
+    {
+      "id": "07d6425f-0d0d-406b-86dd-6ed2a2552023",
+      "startDate": "2022-02-28",
+      "endDate": "2022-03-02",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Karnevalsferien"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Karnevalsferien",
+        "EN": "Carnival holidays",
+        "FR": "Carnival holidays",
+        "ES": "Carnival holidays",
+        "IT": "Carnival holidays"
+      }
+    },
+    {
+      "id": "099166c0-ad57-42dd-aeca-fa0c88d04c2a",
+      "startDate": "2022-04-13",
+      "endDate": "2022-04-20",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Osterferien"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Osterferien",
+        "EN": "Easter holidays",
+        "FR": "Easter holidays",
+        "ES": "Easter holidays",
+        "IT": "Easter holidays"
+      }
+    },
+    {
+      "id": "df9d43d7-78a4-4d78-9f97-e2264a2d3855",
+      "startDate": "2022-04-21",
+      "endDate": "2022-04-22",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Entschädigung für Feiertage an Wochenenden"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Entschädigung für Feiertage an Wochenenden",
+        "EN": "Compensation for holidays at weekends",
+        "FR": "Compensation for holidays at weekends",
+        "ES": "Compensation for holidays at weekends",
+        "IT": "Compensation for holidays at weekends"
+      }
+    },
+    {
+      "id": "6c720b5e-b3fc-4f6b-8a0c-292be78a7099",
+      "startDate": "2022-05-02",
+      "endDate": "2022-05-02",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Entschädigung für Feiertage an Wochenenden"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Entschädigung für Feiertage an Wochenenden",
+        "EN": "Compensation for holidays at weekends",
+        "FR": "Compensation for holidays at weekends",
+        "ES": "Compensation for holidays at weekends",
+        "IT": "Compensation for holidays at weekends"
+      }
+    },
+    {
+      "id": "c7510cd4-b8ef-415b-b909-28f0f537046d",
+      "startDate": "2022-06-30",
+      "endDate": "2022-09-27",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Sommerferien"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Sommerferien",
+        "EN": "Summer holidays",
+        "FR": "Summer holidays",
+        "ES": "Summer holidays",
+        "IT": "Summer holidays"
+      }
+    },
+    {
+      "id": "8d89dad6-09df-4b17-9687-b1655d540b40",
+      "startDate": "2022-10-31",
+      "endDate": "2022-11-02",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Semesterferien"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Semesterferien",
+        "EN": "Mid-Term holidays",
+        "FR": "Mid-Term holidays",
+        "ES": "Mid-Term holidays",
+        "IT": "Mid-Term holidays"
+      }
+    },
+    {
+      "id": "430edd02-2e55-4c93-9a5a-fd28d675818f",
+      "startDate": "2022-12-23",
+      "endDate": "2023-01-06",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Weihnachtsferien"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Weihnachtsferien",
+        "EN": "Christmas holidays",
+        "FR": "Christmas holidays",
+        "ES": "Christmas holidays",
+        "IT": "Christmas holidays"
+      }
+    },
+    {
+      "id": "ba5a1f42-2a87-4ffc-bb56-65601b18c70a",
+      "startDate": "2023-02-20",
+      "endDate": "2023-02-21",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Karnevalsferien"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Karnevalsferien",
+        "EN": "Carnival holidays",
+        "FR": "Carnival holidays",
+        "ES": "Carnival holidays",
+        "IT": "Carnival holidays"
+      }
+    },
+    {
+      "id": "d7456af4-4f7c-4763-866e-7a350f1f8e09",
+      "startDate": "2023-04-05",
+      "endDate": "2023-04-12",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Osterferien"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Osterferien",
+        "EN": "Easter holidays",
+        "FR": "Easter holidays",
+        "ES": "Easter holidays",
+        "IT": "Easter holidays"
+      }
+    },
+    {
+      "id": "5648edae-5253-4f7c-9a5e-140d72e74b98",
+      "startDate": "2023-04-13",
+      "endDate": "2023-04-14",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Entschädigung für Feiertage an Wochenenden"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Entschädigung für Feiertage an Wochenenden",
+        "EN": "Compensation for holidays at weekends",
+        "FR": "Compensation for holidays at weekends",
+        "ES": "Compensation for holidays at weekends",
+        "IT": "Compensation for holidays at weekends"
+      }
+    },
+    {
+      "id": "945bbd13-05a9-440a-aada-b920367e2a82",
+      "startDate": "2023-06-28",
+      "endDate": "2023-09-26",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Sommerferien"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Sommerferien",
+        "EN": "Summer holidays",
+        "FR": "Summer holidays",
+        "ES": "Summer holidays",
+        "IT": "Summer holidays"
+      }
+    },
+    {
+      "id": "75fcb2e6-3fa6-4714-95c1-155e26415279",
+      "startDate": "2023-11-01",
+      "endDate": "2023-11-03",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Semesterferien"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Semesterferien",
+        "EN": "Mid-Term holidays",
+        "FR": "Mid-Term holidays",
+        "ES": "Mid-Term holidays",
+        "IT": "Mid-Term holidays"
+      }
+    },
+    {
+      "id": "3646f52b-3be1-43ba-83bb-f3071f9b60f6",
+      "startDate": "2023-12-23",
+      "endDate": "2024-01-06",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Weihnachtsferien"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Weihnachtsferien",
+        "EN": "Christmas holidays",
+        "FR": "Christmas holidays",
+        "ES": "Christmas holidays",
+        "IT": "Christmas holidays"
+      }
+    },
+    {
+      "id": "4bdd860c-2e8f-4842-8305-68ec270d1391",
+      "startDate": "2024-02-12",
+      "endDate": "2024-02-14",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Karnevalsferien"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Karnevalsferien",
+        "EN": "Carnival holidays",
+        "FR": "Carnival holidays",
+        "ES": "Carnival holidays",
+        "IT": "Carnival holidays"
+      }
+    },
+    {
+      "id": "d6fc6962-1c1f-4594-af95-63b227800997",
+      "startDate": "2024-03-27",
+      "endDate": "2024-04-03",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Osterferien"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Osterferien",
+        "EN": "Easter holidays",
+        "FR": "Easter holidays",
+        "ES": "Easter holidays",
+        "IT": "Easter holidays"
+      }
+    },
+    {
+      "id": "cdeabbf0-1433-4d0a-ba94-eed214710e0f",
+      "startDate": "2024-04-04",
+      "endDate": "2024-04-05",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Entschädigung für Feiertage an Wochenenden"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Entschädigung für Feiertage an Wochenenden",
+        "EN": "Compensation for holidays at weekends",
+        "FR": "Compensation for holidays at weekends",
+        "ES": "Compensation for holidays at weekends",
+        "IT": "Compensation for holidays at weekends"
+      }
+    },
+    {
+      "id": "5433ab5e-b2f3-4b7c-ba79-9b46fd4d6349",
+      "startDate": "2024-05-31",
+      "endDate": "2024-05-31",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Entschädigung für Feiertage an Wochenenden"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Entschädigung für Feiertage an Wochenenden",
+        "EN": "Compensation for holidays at weekends",
+        "FR": "Compensation for holidays at weekends",
+        "ES": "Compensation for holidays at weekends",
+        "IT": "Compensation for holidays at weekends"
+      }
+    },
+    {
+      "id": "e0d49f41-c75c-47a9-a6e9-ff7dede4984d",
+      "startDate": "2024-06-28",
+      "endDate": "2024-09-24",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Sommerferien"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Sommerferien",
+        "EN": "Summer holidays",
+        "FR": "Summer holidays",
+        "ES": "Summer holidays",
+        "IT": "Summer holidays"
+      }
+    },
+    {
+      "id": "961bbe60-2575-42b2-a93b-3d586d49f576",
+      "startDate": "2024-11-01",
+      "endDate": "2024-11-05",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Semesterferien"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Semesterferien",
+        "EN": "Mid-Term holidays",
+        "FR": "Mid-Term holidays",
+        "ES": "Mid-Term holidays",
+        "IT": "Mid-Term holidays"
+      }
+    },
+    {
+      "id": "62cd4e5e-2273-470e-be12-b34220e5c1c4",
+      "startDate": "2024-11-06",
+      "endDate": "2024-11-06",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Entschädigung für Feiertage an Wochenenden"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Entschädigung für Feiertage an Wochenenden",
+        "EN": "Compensation for holidays at weekends",
+        "FR": "Compensation for holidays at weekends",
+        "ES": "Compensation for holidays at weekends",
+        "IT": "Compensation for holidays at weekends"
+      }
+    },
+    {
+      "id": "702756e6-38c8-4274-a6ac-216c02574d43",
+      "startDate": "2024-12-12",
+      "endDate": "2024-12-12",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Entschädigung für Feiertage an Wochenenden"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Entschädigung für Feiertage an Wochenenden",
+        "EN": "Compensation for holidays at weekends",
+        "FR": "Compensation for holidays at weekends",
+        "ES": "Compensation for holidays at weekends",
+        "IT": "Compensation for holidays at weekends"
+      }
+    },
+    {
+      "id": "9ef87e2e-c15e-4689-8daa-3005beca505f",
+      "startDate": "2024-12-23",
+      "endDate": "2025-01-06",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Weihnachtsferien"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Weihnachtsferien",
+        "EN": "Christmas holidays",
+        "FR": "Christmas holidays",
+        "ES": "Christmas holidays",
+        "IT": "Christmas holidays"
+      }
+    },
+    {
+      "id": "1f2a2adc-1114-4480-95b6-205a8d46eaea",
+      "startDate": "2025-03-01",
+      "endDate": "2025-03-04",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Karnevalsferien"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Karnevalsferien",
+        "EN": "Carnival holidays",
+        "FR": "Carnival holidays",
+        "ES": "Carnival holidays",
+        "IT": "Carnival holidays"
+      }
+    },
+    {
+      "id": "5561989f-ce00-4715-b2f9-42c295ef01ec",
+      "startDate": "2025-03-05",
+      "endDate": "2025-03-05",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Entschädigung für Feiertage an Wochenenden"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Entschädigung für Feiertage an Wochenenden",
+        "EN": "Compensation for holidays at weekends",
+        "FR": "Compensation for holidays at weekends",
+        "ES": "Compensation for holidays at weekends",
+        "IT": "Compensation for holidays at weekends"
+      }
+    },
+    {
+      "id": "fc020370-ef1a-475e-8878-8fbc06b295a6",
+      "startDate": "2025-04-16",
+      "endDate": "2025-04-23",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Osterferien"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Osterferien",
+        "EN": "Easter holidays",
+        "FR": "Easter holidays",
+        "ES": "Easter holidays",
+        "IT": "Easter holidays"
+      }
+    },
+    {
+      "id": "b51910ff-e3e4-47d7-95d9-e4aaad164b4c",
+      "startDate": "2025-04-24",
+      "endDate": "2025-04-25",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Entschädigung für Feiertage an Wochenenden"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Entschädigung für Feiertage an Wochenenden",
+        "EN": "Compensation for holidays at weekends",
+        "FR": "Compensation for holidays at weekends",
+        "ES": "Compensation for holidays at weekends",
+        "IT": "Compensation for holidays at weekends"
+      }
+    },
+    {
+      "id": "f5843aa0-4c64-434a-a3ba-d3aacbb4b850",
+      "startDate": "2025-05-30",
+      "endDate": "2025-05-30",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Entschädigung für Feiertage an Wochenenden"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Entschädigung für Feiertage an Wochenenden",
+        "EN": "Compensation for holidays at weekends",
+        "FR": "Compensation for holidays at weekends",
+        "ES": "Compensation for holidays at weekends",
+        "IT": "Compensation for holidays at weekends"
+      }
+    },
+    {
+      "id": "50fe06d0-6f43-4ccf-a2eb-0cc0ec5a384d",
+      "startDate": "2025-06-27",
+      "endDate": "2025-09-23",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Sommerferien"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Sommerferien",
+        "EN": "Summer holidays",
+        "FR": "Summer holidays",
+        "ES": "Summer holidays",
+        "IT": "Summer holidays"
+      }
+    },
+    {
+      "id": "77f56467-38d0-4fb9-97c8-788f4a3ac496",
+      "startDate": "2025-11-03",
+      "endDate": "2025-11-05",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Semesterferien"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Semesterferien",
+        "EN": "Mid-Term holidays",
+        "FR": "Mid-Term holidays",
+        "ES": "Mid-Term holidays",
+        "IT": "Mid-Term holidays"
+      }
+    },
+    {
+      "id": "39605d96-f652-403f-8846-6889fafc5584",
+      "startDate": "2025-12-23",
+      "endDate": "2026-01-06",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Weihnachtsferien"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Weihnachtsferien",
+        "EN": "Christmas holidays",
+        "FR": "Christmas holidays",
+        "ES": "Christmas holidays",
+        "IT": "Christmas holidays"
+      }
+    },
+    {
+      "id": "ce94e5ea-bbd3-4726-9dc1-a76e98d49ff8",
+      "startDate": "2026-02-16",
+      "endDate": "2026-02-17",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Karnevalsferien"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Karnevalsferien",
+        "EN": "Carnival holidays",
+        "FR": "Carnival holidays",
+        "ES": "Carnival holidays",
+        "IT": "Carnival holidays"
+      }
+    },
+    {
+      "id": "0f551e4f-1fab-4a61-8937-9a6cebdfa90f",
+      "startDate": "2026-02-18",
+      "endDate": "2026-02-18",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Entschädigung für Feiertage an Wochenenden"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Entschädigung für Feiertage an Wochenenden",
+        "EN": "Compensation for holidays at weekends",
+        "FR": "Compensation for holidays at weekends",
+        "ES": "Compensation for holidays at weekends",
+        "IT": "Compensation for holidays at weekends"
+      }
+    },
+    {
+      "id": "33014867-d4eb-4129-b6d4-9fb426d6482a",
+      "startDate": "2026-04-01",
+      "endDate": "2026-04-08",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Osterferien"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Osterferien",
+        "EN": "Easter holidays",
+        "FR": "Easter holidays",
+        "ES": "Easter holidays",
+        "IT": "Easter holidays"
+      }
+    },
+    {
+      "id": "329b840c-98e0-4b66-8297-ac58a9e24738",
+      "startDate": "2026-04-09",
+      "endDate": "2026-04-10",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Entschädigung für Feiertage an Wochenenden"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Entschädigung für Feiertage an Wochenenden",
+        "EN": "Compensation for holidays at weekends",
+        "FR": "Compensation for holidays at weekends",
+        "ES": "Compensation for holidays at weekends",
+        "IT": "Compensation for holidays at weekends"
+      }
+    },
+    {
+      "id": "2e4cc5be-d094-40ab-ba97-3b1f4804d701",
+      "startDate": "2026-07-01",
+      "endDate": "2026-09-29",
+      "type": "School",
+      "name": [
+        {
+          "language": "DE",
+          "text": "Sommerferien"
+        }
+      ],
+      "regionalScope": "National",
+      "temporalScope": "FullDay",
+      "nationwide": true,
+      "names": {
+        "DE": "Sommerferien",
+        "EN": "Summer holidays",
+        "FR": "Summer holidays",
+        "ES": "Summer holidays",
+        "IT": "Summer holidays"
+      }
+    }
+  ],
+  "fetched_at": "2026-01-03T19:13:29.377428"
+}

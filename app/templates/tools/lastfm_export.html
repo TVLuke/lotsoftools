@@ -1,0 +1,263 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ tool_data.seo.title[current_lang] }} - Lots of Tools{% endblock %}
+
+{% block meta_description %}{{ tool_data.seo.meta_description[current_lang] }}{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h1 class="mb-3">
+        <i class="fas fa-music me-2"></i>
+        {{ tool_data.name[current_lang] }}
+    </h1>
+    <p class="lead mb-4">{{ tool_data.description[current_lang] }}</p>
+    
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="card mb-4">
+                <div class="card-body">
+                    {% if not api_configured %}
+                    <div class="alert alert-warning">
+                        <i class="fas fa-exclamation-triangle me-2"></i>
+                        {% if current_lang == 'de' %}
+                        Last.fm API ist nicht konfiguriert. Bitte den Administrator kontaktieren.
+                        {% else %}
+                        Last.fm API is not configured. Please contact the administrator.
+                        {% endif %}
+                    </div>
+                    {% endif %}
+                    
+                    <div class="mb-3">
+                        <label for="username" class="form-label">{{ tool_data.ui.username_label[current_lang] }}</label>
+                        <input type="text" class="form-control" id="username" placeholder="{% if current_lang == 'de' %}Dein Last.fm Benutzername{% else %}Your Last.fm username{% endif %}">
+                    </div>
+                    
+                    <div class="d-grid gap-2">
+                        <button class="btn btn-primary" id="btnGetInfo" onclick="getInfo()" {% if not api_configured %}disabled{% endif %}>
+                            <i class="fas fa-info-circle me-2"></i>{{ tool_data.ui.fetch_info[current_lang] }}
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card mb-4" id="infoCard" style="display: none;">
+                <div class="card-body">
+                    <h5 class="card-title">
+                        <i class="fas fa-chart-bar me-2"></i>{{ tool_data.ui.total_tracks[current_lang] }}: <span id="totalTracks">0</span>
+                    </h5>
+                    <p class="text-muted mb-3">
+                        <span id="totalPages">0</span> {% if current_lang == 'de' %}Seiten{% else %}pages{% endif %}
+                    </p>
+                    
+                    <div class="d-grid gap-2">
+                        <button class="btn btn-success" id="btnExport" onclick="startExport()">
+                            <i class="fas fa-download me-2"></i>{{ tool_data.ui.start_export[current_lang] }}
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card mb-4" id="progressCard" style="display: none;">
+                <div class="card-body">
+                    <h5 class="card-title">{{ tool_data.ui.progress[current_lang] }}</h5>
+                    <div class="progress mb-3" style="height: 25px;">
+                        <div class="progress-bar progress-bar-striped progress-bar-animated" id="progressBar" role="progressbar" style="width: 0%;">0%</div>
+                    </div>
+                    <p class="text-muted" id="progressText">{{ tool_data.ui.fetching_page[current_lang] }} 0 / 0</p>
+                </div>
+            </div>
+            
+            <div class="card mb-4" id="downloadCard" style="display: none;">
+                <div class="card-body text-center">
+                    <h5 class="card-title text-success">
+                        <i class="fas fa-check-circle me-2"></i>{{ tool_data.ui.complete[current_lang] }}
+                    </h5>
+                    <p class="mb-3"><span id="exportedCount">0</span> {% if current_lang == 'de' %}Tracks exportiert{% else %}tracks exported{% endif %}</p>
+                    <button class="btn btn-primary btn-lg" onclick="downloadCSV()">
+                        <i class="fas fa-file-csv me-2"></i>{{ tool_data.ui.download_csv[current_lang] }}
+                    </button>
+                </div>
+            </div>
+            
+            <div class="alert alert-info">
+                <i class="fas fa-shield-alt me-2"></i>
+                {% if current_lang == 'de' %}
+                Dein Benutzername wird an unseren Server gesendet, um Daten von Last.fm abzurufen. Wir speichern keine deiner Daten.
+                {% else %}
+                Your username is sent to our server to fetch data from Last.fm. We do not store any of your data.
+                {% endif %}
+            </div>
+        </div>
+        
+        <div class="col-lg-6">
+            <div class="card">
+                <div class="card-header">
+                    <i class="fas fa-question-circle me-2"></i>
+                    {% if current_lang == 'de' %}Anleitung{% else %}Instructions{% endif %}
+                </div>
+                <div class="card-body">
+                    <ol>
+                        {% if current_lang == 'de' %}
+                        <li class="mb-2">Gib deinen Last.fm Benutzernamen ein</li>
+                        <li class="mb-2">Klicke auf "Info abrufen" um die Anzahl deiner Tracks zu sehen</li>
+                        <li class="mb-2">Klicke auf "Export starten" um alle Tracks zu laden</li>
+                        <li class="mb-2">Lade die CSV-Datei herunter</li>
+                        {% else %}
+                        <li class="mb-2">Enter your Last.fm username</li>
+                        <li class="mb-2">Click "Get Info" to see your total track count</li>
+                        <li class="mb-2">Click "Start Export" to fetch all tracks</li>
+                        <li class="mb-2">Download the CSV file</li>
+                        {% endif %}
+                    </ol>
+                    
+                    <hr>
+                    
+                    <p class="text-muted small mb-0">
+                        {% if current_lang == 'de' %}
+                        Die CSV-Datei enthält: Künstler, Album, Track-Name, Datum (4 Spalten, keine Kopfzeile).
+                        {% else %}
+                        The CSV file contains: Artist, Album, Track Name, Date (4 columns, no header).
+                        {% endif %}
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+let allTracks = [];
+let totalPages = 0;
+let currentUsername = '';
+
+async function getInfo() {
+    const username = document.getElementById('username').value.trim();
+    
+    if (!username) {
+        alert('{% if current_lang == "de" %}Bitte Benutzername eingeben{% else %}Please enter username{% endif %}');
+        return;
+    }
+    
+    const btn = document.getElementById('btnGetInfo');
+    btn.disabled = true;
+    btn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>Loading...';
+    
+    try {
+        const response = await fetch('/tools/lastfm-export/info', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ username: username })
+        });
+        
+        const data = await response.json();
+        
+        if (data.error) {
+            alert(data.error);
+            return;
+        }
+        
+        document.getElementById('totalTracks').textContent = data.total_tracks.toLocaleString();
+        document.getElementById('totalPages').textContent = data.total_pages.toLocaleString();
+        totalPages = data.total_pages;
+        currentUsername = username;
+        
+        document.getElementById('infoCard').style.display = 'block';
+        document.getElementById('downloadCard').style.display = 'none';
+        document.getElementById('progressCard').style.display = 'none';
+        
+    } catch (error) {
+        alert('Error: ' + error.message);
+    } finally {
+        btn.disabled = false;
+        btn.innerHTML = '<i class="fas fa-info-circle me-2"></i>{{ tool_data.ui.fetch_info[current_lang] }}';
+    }
+}
+
+async function startExport() {
+    const username = document.getElementById('username').value.trim();
+    
+    if (!username || totalPages === 0) {
+        alert('{% if current_lang == "de" %}Bitte zuerst Info abrufen{% else %}Please get info first{% endif %}');
+        return;
+    }
+    
+    allTracks = [];
+    document.getElementById('btnExport').disabled = true;
+    document.getElementById('progressCard').style.display = 'block';
+    document.getElementById('downloadCard').style.display = 'none';
+    
+    const progressBar = document.getElementById('progressBar');
+    const progressText = document.getElementById('progressText');
+    
+    for (let page = 1; page <= totalPages; page++) {
+        progressText.textContent = `{{ tool_data.ui.fetching_page[current_lang] }} ${page} / ${totalPages}`;
+        
+        try {
+            const response = await fetch('/tools/lastfm-export/fetch', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ username: username, page: page })
+            });
+            
+            const data = await response.json();
+            
+            if (data.error) {
+                console.error('Error on page', page, data.error);
+                continue;
+            }
+            
+            allTracks = allTracks.concat(data.tracks);
+            
+        } catch (error) {
+            console.error('Error fetching page', page, error);
+        }
+        
+        const percent = Math.round((page / totalPages) * 100);
+        progressBar.style.width = percent + '%';
+        progressBar.textContent = percent + '%';
+        
+        // Small delay to avoid rate limiting
+        if (page < totalPages) {
+            await new Promise(resolve => setTimeout(resolve, 200));
+        }
+    }
+    
+    document.getElementById('exportedCount').textContent = allTracks.length.toLocaleString();
+    document.getElementById('progressCard').style.display = 'none';
+    document.getElementById('downloadCard').style.display = 'block';
+    document.getElementById('btnExport').disabled = false;
+}
+
+async function downloadCSV() {
+    if (allTracks.length === 0) {
+        alert('{% if current_lang == "de" %}Keine Tracks zum Herunterladen{% else %}No tracks to download{% endif %}');
+        return;
+    }
+    
+    try {
+        const response = await fetch('/tools/lastfm-export/download', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ tracks: allTracks, username: currentUsername })
+        });
+        
+        if (!response.ok) {
+            throw new Error('Download failed');
+        }
+        
+        const blob = await response.blob();
+        const url = window.URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = `${currentUsername}_lastfm_history.csv`;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        window.URL.revokeObjectURL(url);
+        
+    } catch (error) {
+        alert('Error: ' + error.message);
+    }
+}
+</script>
+{% endblock %}
