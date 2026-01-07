@@ -10,5 +10,5 @@ else
 fi
 
 # Start gunicorn
-echo "Starting Lots of Tools v1.0.18"
+echo "Starting Lots of Tools v1.0.19"
 exec gunicorn --bind 0.0.0.0:5000 --workers 2 --timeout 1500 --preload wsgi:application
