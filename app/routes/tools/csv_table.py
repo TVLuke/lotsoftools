@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, request, g
+from flask import Blueprint, render_template, request, session
 from app.services.link_service import increment_click_count
 import json
 import os
@@ -14,7 +14,7 @@ def load_tool_data():
 def index():
     increment_click_count(request.path)
     tool_data = load_tool_data()
-    current_lang = g.get('lang', 'en')
+    current_lang = session.get('lang', 'en')
     return render_template('tools/csv_table.html', 
                           tool_data=tool_data,
                           current_lang=current_lang)

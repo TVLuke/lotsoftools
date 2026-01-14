@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, g
+from flask import Blueprint, render_template, session
 from app.services.link_service import increment_click_count
 import json
 import os
@@ -15,7 +15,7 @@ def ascii_table():
     increment_click_count('/tools/ascii')
     
     tool_data = load_tool_data()
-    current_lang = g.get('lang', 'en')
+    current_lang = session.get('lang', 'en')
     
     return render_template('tools/ascii_table.html', 
                           tool_data=tool_data,
