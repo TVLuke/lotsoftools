@@ -9,7 +9,7 @@
     "en": "Search all emojis by name, shortcode, character, or Unicode codepoint. No ads, no trackers.",
     "de": "Alle Emojis nach Name, Shortcode, Zeichen oder Unicode-Codepoint durchsuchen. Ohne Werbung, ohne Tracking."
   },
-  "tags": ["text tools", "search"],
+  "tags": ["text"],
   "new_window": false,
   "frontend_only": false,
   "seo": {

@@ -9,7 +9,7 @@
     "en": "Query DNS records from multiple servers",
     "de": "DNS-Einträge von mehreren Servern abfragen"
   },
-  "tags": ["network", "lookup"],
+  "tags": ["network"],
   "new_window": false,
   "frontend_only": false,
   "seo": {

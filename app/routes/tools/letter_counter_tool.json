@@ -9,7 +9,7 @@
     "en": "Count characters, words, and analyze character frequency",
     "de": "Zeichen, Wörter zählen und Zeichenhäufigkeit analysieren"
   },
-  "tags": ["text tools"],
+  "tags": ["text"],
   "new_window": false,
   "frontend_only": true,
   "seo": {

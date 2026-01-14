@@ -9,7 +9,7 @@
         "en": "Calculate how much time remains until a specific date",
         "de": "Berechne wie viel Zeit bis zu einem bestimmten Datum verbleibt"
     },
-    "tags": ["time", "date", "calculator", "zeit"],
+    "tags": ["time"],
     "new_window": false,
     "frontend_only": true,
     "uses_external_service": false,

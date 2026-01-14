@@ -9,7 +9,7 @@
         "en": "Encode text to Base64 or decode Base64 to text",
         "de": "Text zu Base64 kodieren oder Base64 zu Text dekodieren"
     },
-    "tags": ["base64", "encode", "decode", "converter", "text", "utility"],
+    "tags": ["text", "converter"],
     "new_window": false,
     "frontend_only": true,
     "ui": {

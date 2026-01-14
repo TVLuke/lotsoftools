@@ -9,7 +9,7 @@
     "en": "Generate placeholder text for your designs and mockups",
     "de": "Platzhaltertext für Designs und Mockups generieren"
   },
-  "tags": ["text", "generator"],
+  "tags": ["generator", "text"],
   "new_window": false,
   "frontend_only": true,
   "seo": {

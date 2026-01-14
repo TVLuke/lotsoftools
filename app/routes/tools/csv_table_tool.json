@@ -9,7 +9,7 @@
     "en": "Visualize CSV data as a formatted table with color coding",
     "de": "CSV-Daten als formatierte Tabelle mit Farbcodierung visualisieren"
   },
-  "tags": ["text tools", "formatter", "CSV"],
+  "tags": ["text"],
   "new_window": false,
   "frontend_only": true,
   "seo": {

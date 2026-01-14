@@ -9,7 +9,7 @@
     "en": "Convert subtitle files between different formats (SRT, ASS, VTT, TTML, and more)",
     "de": "Konvertieren Sie Untertiteldateien zwischen verschiedenen Formaten (SRT, ASS, VTT, TTML und mehr)"
   },
-  "tags": ["converter", "video"],
+  "tags": ["converter", "media"],
   "new_window": false,
   "frontend_only": false,
   "seo": {

@@ -9,7 +9,7 @@
     "en": "Compare two texts and see the differences",
     "de": "Zwei Texte vergleichen und Unterschiede anzeigen"
   },
-  "tags": ["text", "comparison"],
+  "tags": ["text"],
   "new_window": false,
   "frontend_only": true,
   "seo": {

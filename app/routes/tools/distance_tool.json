@@ -9,7 +9,7 @@
     "en": "Calculate distance between two points on a map",
     "de": "Entfernung zwischen zwei Punkten auf einer Karte berechnen"
   },
-  "tags": ["map", "geography", "jetlag"],
+  "tags": ["map"],
   "new_window": false,
   "frontend_only": true,
   "seo": {

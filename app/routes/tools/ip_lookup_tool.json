@@ -9,7 +9,7 @@
     "en": "Get geolocation and network information for any IP address. No data stored, completely private.",
     "de": "Geolokalisierung und Netzwerkinformationen für jede IP-Adresse abrufen. Keine Datenspeicherung, vollständig privat."
   },
-  "tags": ["network", "lookup"],
+  "tags": ["network"],
   "new_window": false,
   "frontend_only": false,
   "seo": {

@@ -9,7 +9,7 @@
     "en": "Generate UUIDs in various formats",
     "de": "UUIDs in verschiedenen Formaten generieren"
   },
-  "tags": ["generator", "random"],
+  "tags": ["generator"],
   "new_window": false,
   "frontend_only": true,
   "seo": {

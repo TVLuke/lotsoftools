@@ -9,7 +9,7 @@
     "en": "Simulate movement on a map using keyboard controls",
     "de": "Simulieren Sie Bewegung auf einer Karte mit Tastatursteuerung"
   },
-  "tags": ["map", "geography", "jetlag"],
+  "tags": ["map"],
   "new_window": false,
   "frontend_only": true,
   "seo": {

@@ -9,7 +9,7 @@
     "en": "Convert numbers between different bases (binary, octal, decimal, hexadecimal, custom)",
     "de": "Zahlen zwischen verschiedenen Basen umrechnen (binär, oktal, dezimal, hexadezimal, benutzerdefiniert)"
   },
-  "tags": ["converter", "math"],
+  "tags": ["converter"],
   "new_window": false,
   "frontend_only": true,
   "seo": {

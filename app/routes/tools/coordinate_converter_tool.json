@@ -9,7 +9,7 @@
     "en": "Convert between decimal coordinates and degrees/minutes/seconds (DMS)",
     "de": "Umrechnung zwischen Dezimalkoordinaten und Grad/Minuten/Sekunden (GMS)"
   },
-  "tags": ["coordinates", "gps", "map", "geography", "conversion"],
+  "tags": ["converter", "map"],
   "new_window": false,
   "frontend_only": true,
   "uses_external_service": false,

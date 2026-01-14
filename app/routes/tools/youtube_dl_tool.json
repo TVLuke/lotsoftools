@@ -9,7 +9,7 @@
     "en": "Download YouTube videos or extract audio",
     "de": "YouTube-Videos herunterladen oder Audio extrahieren"
   },
-  "tags": ["media", "converter"],
+  "tags": ["converter", "media"],
   "new_window": false,
   "frontend_only": false,
   "seo": {

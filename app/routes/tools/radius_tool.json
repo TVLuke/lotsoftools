@@ -9,7 +9,7 @@
     "en": "Show a radius around a point on the map",
     "de": "Zeige einen Radius um einen Punkt auf der Karte"
   },
-  "tags": ["map", "geography", "jetlag"],
+  "tags": ["map"],
   "new_window": false,
   "frontend_only": true,
   "seo": {

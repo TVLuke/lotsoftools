@@ -9,7 +9,7 @@
     "en": "Generate MD5, SHA-1, SHA-256, SHA-384, and SHA-512 hashes for text",
     "de": "Generiere MD5, SHA-1, SHA-256, SHA-384 und SHA-512 Hashes für Text"
   },
-  "tags": ["text", "security", "catalogue"],
+  "tags": ["generator", "reference"],
   "new_window": false,
   "frontend_only": true,
   "seo": {

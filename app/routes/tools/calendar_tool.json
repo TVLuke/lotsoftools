@@ -9,7 +9,7 @@
     "en": "View calendar with week numbers and customizable first day of week",
     "de": "Kalender mit Wochennummern und anpassbarem ersten Wochentag anzeigen"
   },
-  "tags": ["calendar", "catalogue"],
+  "tags": ["time"],
   "new_window": false,
   "frontend_only": true,
   "seo": {

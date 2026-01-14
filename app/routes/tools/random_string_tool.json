@@ -9,7 +9,7 @@
     "en": "Generate random strings with custom length and character sets",
     "de": "Generiere zufällige Zeichenketten mit anpassbarer Länge und Zeichensätzen"
   },
-  "tags": ["generator", "random"],
+  "tags": ["generator"],
   "new_window": false,
   "frontend_only": true,
   "seo": {

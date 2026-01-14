@@ -9,7 +9,7 @@
     "en": "Display scrolling text for presentations and speeches with countdown and mirror mode",
     "de": "Scrollender Text für Präsentationen und Reden mit Countdown und Spiegelmodus"
   },
-  "tags": ["presentation", "speech", "text", "video", "productivity"],
+  "tags": ["media", "utility"],
   "new_window": false,
   "frontend_only": true,
   "ui": {

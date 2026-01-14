@@ -9,7 +9,7 @@
     "en": "View and export school holidays and bank holidays for multiple countries",
     "de": "Schulferien und Feiertage für verschiedene Länder anzeigen und exportieren"
   },
-  "tags": ["calendar", "holidays"],
+  "tags": ["time"],
   "new_window": false,
   "frontend_only": false,
   "uses_external_service": false,

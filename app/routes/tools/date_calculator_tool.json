@@ -9,7 +9,7 @@
         "en": "Calculate how much time has passed since a specific date",
         "de": "Berechne wie viel Zeit seit einem bestimmten Datum vergangen ist"
     },
-    "tags": ["time", "date", "calculator", "zeit"],
+    "tags": ["time"],
     "new_window": false,
     "frontend_only": true,
     "uses_external_service": false,

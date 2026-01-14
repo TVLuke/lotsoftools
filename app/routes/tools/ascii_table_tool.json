@@ -9,7 +9,7 @@
         "en": "Interactive ASCII table with search and filter functionality",
         "de": "Interaktive ASCII-Tabelle mit Such- und Filterfunktion"
     },
-    "tags": ["ascii", "table", "characters", "encoding", "reference", "utility"],
+    "tags": ["text", "reference"],
      "new_window": false, 
     "frontend_only": true,
     "ui": {

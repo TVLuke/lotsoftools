@@ -9,7 +9,7 @@
     "en": "Draw lines on a map and measure the total distance",
     "de": "Zeichnen Sie Linien auf einer Karte und messen Sie die Gesamtentfernung"
   },
-  "tags": ["map", "geography", "jetlag"],
+  "tags": ["map"],
   "new_window": false,
   "frontend_only": true,
   "seo": {

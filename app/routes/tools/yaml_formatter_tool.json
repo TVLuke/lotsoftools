@@ -9,7 +9,7 @@
     "en": "Format and validate YAML (YML) data",
     "de": "YAML (YML) Daten formatieren und validieren"
   },
-  "tags": ["text tools", "formatter", "validator"],
+  "tags": ["text"],
   "new_window": false,
   "frontend_only": true,
   "seo": {

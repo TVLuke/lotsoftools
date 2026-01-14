@@ -2,17 +2,6 @@
 
 A collection of privacy-friendly utility tools. All processing happens client-side or on your own server - no data is sent to third parties.
 
-## Features
-
-- **Text Tools**: Letter counter, JSON/XML/YAML formatter, CSV table viewer, diff tool
-- **Generators**: QR codes, UUIDs, random strings, barcodes, Lorem ipsum
-- **Converters**: Base converter, unit converter, coordinate converter, Base64, subtitle formats
-- **Color Tools**: Color picker, color palettes, colorblind simulator
-- **Date/Time**: Calendar, date calculator, holiday calendar, clock
-- **Network**: IP lookup, DNS lookup, speed test
-- **Media**: Image cropper, favicon generator, YouTube downloader
-- **Other**: Hash generator, IBAN validator, ASCII table, emoji search, teleprompter
-
 ## Quick Start with Docker
 
 ### Using Docker Compose (recommended)

@@ -9,7 +9,7 @@
     "en": "Format, validate and minify XML data",
     "de": "XML-Daten formatieren, validieren und minimieren"
   },
-  "tags": ["text tools", "formatter", "validator"],
+  "tags": ["text"],
   "new_window": false,
   "frontend_only": true,
   "seo": {

@@ -9,7 +9,7 @@
         "en": "Generate white, pink, or brown noise for relaxation, focus, or sleep",
         "de": "Erzeuge weißes, rosa oder braunes Rauschen zur Entspannung, Konzentration oder zum Schlafen"
     },
-    "tags": ["audio", "relaxation", "focus", "sleep", "meditation"],
+    "tags": ["generator", "media"],
     "new_window": false,
     "frontend_only": true,
     "ui": {

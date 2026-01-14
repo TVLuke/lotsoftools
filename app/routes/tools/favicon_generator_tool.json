@@ -9,7 +9,7 @@
     "en": "Generate favicon files from an image",
     "de": "Favicon-Dateien aus einem Bild generieren"
   },
-  "tags": ["generator"],
+  "tags": ["generator", "design"],
   "new_window": false,
   "frontend_only": false,
   "seo": {

@@ -9,7 +9,7 @@
     "en": "Validate IBAN numbers and get bank information",
     "de": "IBAN-Nummern validieren und Bankinformationen abrufen"
   },
-  "tags": ["validator", "finance"],
+  "tags": ["utility"],
   "new_window": false,
   "frontend_only": true,
   "uses_external_service": true,

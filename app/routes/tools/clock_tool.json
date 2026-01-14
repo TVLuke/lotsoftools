@@ -11,7 +11,7 @@
         "en": "Display the current time in analog or digital format with timezone support",
         "de": "Zeige die aktuelle Uhrzeit in analoger oder digitaler Darstellung mit Zeitzonenunterstützung"
     },
-    "tags": ["time", "clock", "timezone", "utility"],
+    "tags": ["time"],
     "ui": {
         "local_time": { "en": "Local Time", "de": "Lokale Zeit" },
         "analog": { "en": "Analog", "de": "Analog" },

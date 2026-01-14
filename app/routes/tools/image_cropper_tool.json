@@ -9,7 +9,7 @@
     "en": "Crop images locally in your browser. No upload.",
     "de": "Bilder lokal im Browser zuschneiden. Kein Upload."
   },
-  "tags": ["image", "editor"],
+  "tags": ["media"],
   "new_window": false,
   "frontend_only": true,
   "seo": {

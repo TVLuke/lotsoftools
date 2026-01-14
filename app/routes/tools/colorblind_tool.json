@@ -9,7 +9,7 @@
     "en": "Simulate how colors appear with different types of color blindness",
     "de": "Simuliere wie Farben bei verschiedenen Arten von Farbenblindheit erscheinen"
   },
-  "tags": ["color", "accessibility"],
+  "tags": ["design"],
   "new_window": false,
   "frontend_only": true,
   "seo": {
