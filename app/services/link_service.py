@@ -17,6 +17,11 @@ def increment_click_count(url):
         return True
     return False
 
+def get_links_stats():
+    """Get all links with stats, ordered by click count descending."""
+    links = Link.query.order_by(Link.click_count.desc()).all()
+    return [{'name': link.name, 'url': link.url, 'click_count': link.click_count or 0} for link in links]
+
 def get_links_by_category(lang=None):
     if lang is None:
         lang = session.get('lang', 'en')

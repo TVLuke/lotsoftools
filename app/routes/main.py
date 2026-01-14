@@ -1,5 +1,7 @@
 from flask import Blueprint, render_template, request, make_response, jsonify, session
 from app import db
+import csv
+import io
 from app.services import link_service
 
 main_bp = Blueprint('main', __name__)
@@ -91,9 +93,24 @@ def sitemap():
 
 @main_bp.route('/stats')
 def stats():
-    from app.models import Link
-    links = Link.query.order_by(Link.click_count.desc()).all()
+    links = link_service.get_links_stats()
     return render_template('stats.html', links=links)
+
+@main_bp.route('/stats.csv')
+def stats_csv():
+    links = link_service.get_links_stats()
+    
+    output = io.StringIO()
+    writer = csv.writer(output)
+    writer.writerow(['name', 'url', 'click_count'])
+    
+    for link in links:
+        writer.writerow([link['name'], link['url'], link['click_count']])
+    
+    response = make_response(output.getvalue())
+    response.headers['Content-Type'] = 'text/csv'
+    response.headers['Content-Disposition'] = 'attachment; filename=stats.csv'
+    return response
 
 @main_bp.route('/about')
 def about():
