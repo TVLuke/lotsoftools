@@ -99,9 +99,6 @@
                 <div class="card-body">
                     <div class="distance-display" id="distanceDisplay">0 m</div>
                     <div class="distance-detail" id="distanceDetail"></div>
-                    <div class="points-count text-center mt-2" id="pointsCount">
-                        0 {% if current_lang == 'de' %}Punkte{% else %}points{% endif %}
-                    </div>
                 </div>
             </div>
             
@@ -205,8 +202,6 @@
 document.addEventListener('DOMContentLoaded', function() {
     const lang = '{{ current_lang }}';
     const i18n = {
-        points: lang === 'de' ? 'Punkte' : 'points',
-        point: lang === 'de' ? 'Punkt' : 'point',
         locationError: lang === 'de' ? 'Standort konnte nicht ermittelt werden' : 'Could not get location',
         locationDenied: lang === 'de' ? 'Standortzugriff verweigert' : 'Location access denied',
         navigateHint: lang === 'de' ? 'Karte verschieben und zoomen' : 'Pan and zoom the map',
@@ -224,7 +219,6 @@ document.addEventListener('DOMContentLoaded', function() {
     // Elements
     const distanceDisplayEl = document.getElementById('distanceDisplay');
     const distanceDetailEl = document.getElementById('distanceDetail');
-    const pointsCountEl = document.getElementById('pointsCount');
     const clearBtn = document.getElementById('clearBtn');
     const exportWithMapBtn = document.getElementById('exportWithMapBtn');
     const exportLineOnlyBtn = document.getElementById('exportLineOnlyBtn');
@@ -322,9 +316,6 @@ document.addEventListener('DOMContentLoaded', function() {
         distanceDisplayEl.textContent = formatted.main;
         distanceDetailEl.textContent = formatted.detail;
         
-        // Update points count
-        const count = points.length;
-        pointsCountEl.textContent = `${count} ${count === 1 ? i18n.point : i18n.points}`;
         
         // Update polyline
         updatePolyline();
