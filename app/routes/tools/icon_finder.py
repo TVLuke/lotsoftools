@@ -2,10 +2,12 @@ from flask import Blueprint, render_template, request
 import json
 import os
 from app.services.link_service import increment_click_count
+from app.utils import require_tool_active
 
 icon_finder_bp = Blueprint('icon_finder', __name__, url_prefix='/tools')
 
 @icon_finder_bp.route('/icon-finder')
+@require_tool_active('icon_finder')
 def index():
     increment_click_count(request.path)
     

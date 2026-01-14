@@ -9,6 +9,7 @@ import time
 import yt_dlp
 from werkzeug.utils import secure_filename
 from app.services.link_service import increment_click_count
+from app.utils import require_tool_active
 
 youtube_dl_bp = Blueprint('youtube_dl', __name__, url_prefix='/tools')
 
@@ -59,6 +60,7 @@ def cleanup_file(filepath, delay):
     thread.start()
 
 @youtube_dl_bp.route('/youtube-dl')
+@require_tool_active('youtube_dl')
 def index():
     increment_click_count(request.path)
     
@@ -69,6 +71,7 @@ def index():
     return render_template('tools/youtube_dl.html', tool_data=tool_data)
 
 @youtube_dl_bp.route('/youtube-dl/download', methods=['POST'])
+@require_tool_active('youtube_dl')
 def download():
     """Download YouTube video or audio"""
     ensure_temp_dir()
@@ -239,6 +242,7 @@ def download():
         return jsonify({'error': f'Download failed: {str(e)}'}), 500
 
 @youtube_dl_bp.route('/youtube-dl/get/<filename>')
+@require_tool_active('youtube_dl')
 def get_file(filename):
     """Serve the downloaded file"""
     file_path = os.path.join(TEMP_DIR, filename)

@@ -3,6 +3,7 @@ import json
 import os
 import time
 from app.services.link_service import increment_click_count
+from app.utils import require_tool_active
 
 speed_test_bp = Blueprint('speed_test', __name__, url_prefix='/tools')
 
@@ -20,6 +21,7 @@ def _clamp_int(value, default, min_value, max_value):
 
 
 @speed_test_bp.route('/speed-test')
+@require_tool_active('speed_test')
 def index():
     increment_click_count(request.path)
 
@@ -31,11 +33,13 @@ def index():
 
 
 @speed_test_bp.route('/speed-test/ping')
+@require_tool_active('speed_test')
 def ping():
     return jsonify({'ok': True, 'ts': time.time()})
 
 
 @speed_test_bp.route('/speed-test/download')
+@require_tool_active('speed_test')
 def download():
     total_bytes = DOWNLOAD_BYTES
     chunk_size = CHUNK_SIZE
@@ -65,6 +69,7 @@ def download():
 
 
 @speed_test_bp.route('/speed-test/upload', methods=['POST'])
+@require_tool_active('speed_test')
 def upload():
     max_bytes = UPLOAD_BYTES
     chunk_size = CHUNK_SIZE

@@ -4,12 +4,14 @@ import os
 
 from app.services.emoji_search import SUPPORTED_LANGS, search_emojis
 from app.services.link_service import increment_click_count
+from app.utils import require_tool_active
 
 
 emoji_search_bp = Blueprint('emoji_search', __name__, url_prefix='/tools')
 
 
 @emoji_search_bp.route('/emoji-search')
+@require_tool_active('emoji_search')
 def index():
     increment_click_count(request.path)
 
@@ -25,6 +27,7 @@ def index():
 
 
 @emoji_search_bp.route('/emoji-search/query', methods=['POST'])
+@require_tool_active('emoji_search')
 def query():
     data = request.get_json(silent=True) or {}
 
