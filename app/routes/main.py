@@ -104,8 +104,12 @@ def about():
 def privacy():
     """Privacy policy page with tool-specific privacy information."""
     from app.models import Link
+    from app.services.privacy_content import load_privacy_content
     
     lang = session.get('lang', 'en')
+    
+    # Load custom privacy content
+    privacy_content = load_privacy_content(lang)
     
     # Get all active links with privacy info
     links = Link.query.order_by(Link._name).all()
@@ -122,4 +126,4 @@ def privacy():
     # Sort by name
     tools_privacy.sort(key=lambda x: x['name'].lower())
     
-    return render_template('privacy.html', tools=tools_privacy)
+    return render_template('privacy.html', tools=tools_privacy, privacy_content=privacy_content)

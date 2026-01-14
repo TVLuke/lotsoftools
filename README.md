@@ -93,6 +93,15 @@ To add custom support/donation links, create `app/config/support_config.json`:
 }
 ```
 
+### Optional: Privacy Policy Content
+
+To add your own privacy policy text, create HTML files in `app/config/`:
+
+- `privacy_content.en.html` - English content
+- `privacy_content.de.html` - German content
+
+See `privacy_content.example.en.html` and `privacy_content.example.de.html` for examples. The content supports full HTML formatting with headings, paragraphs, lists, and links.
+
 ## Project Structure
 
 ```
