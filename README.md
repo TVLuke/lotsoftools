@@ -8,7 +8,7 @@ Sure, there are some very good ones out there. But the overall state of these "s
 
 So I decided: whenever I was about to type something like "qr-code generator" or "uuid generator" or "map calculate distance" into a search engine, I would instead just build my own.
 
-This is that growing collection of tools. Privacy-friendly, no tracking, no ads — wherever possible, processing happens client-side. If data is send to the service this is indicated by a color in the icon and staed in the description. If data is send anywhere else this is clearly stated as well. 
+This is that growing collection of tools. Privacy-friendly, no tracking, no ads — wherever possible, processing happens client-side. If data is send to the service this is indicated by a color in the icon and stated in the description. If data is send anywhere else this is clearly stated as well. 
 
 If these tools are of any help to you, great. You can run your own instance if you want. I am running an instance at [lotsof.tools](https://lotsof.tools).
 
