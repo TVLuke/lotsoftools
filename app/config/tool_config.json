@@ -14,7 +14,7 @@
   "diff": {"active": true},
   "distance": {"active": true},
   "dns_lookup": {"active": true},
-  "emoji_search": {"active": false},
+  "emoji_search": {"active": true},
   "favicon_generator": {"active": true},
   "hash_generator": {"active": true},
   "holiday_calendar": {"active": true},
