@@ -1,6 +1,16 @@
 # Usefull
 
-A collection of privacy-friendly utility tools. All processing happens client-side or on your own server - no data is sent to third parties.
+I got fed up.
+
+Fed up with all these single-purpose websites full of tracking cookies, commercials, pop-ups, and shady buttons that serve you malware. You know the ones — they're always the first results in Google, not because they're good, but because they've SEO'd and paid their way to the top. They're infested with ads, harvest your data, and make you click through five screens just to convert a UUID or generate a QR code.
+
+Sure, there are some very good ones out there. But the overall state of these "simple online tools" is horrible.
+
+So I decided: whenever I was about to type something like "qr-code generator" or "uuid generator" or "map calculate distance" into a search engine, I would instead just build my own.
+
+This is that growing collection of tools. Privacy-friendly, no tracking, no ads — wherever possible, processing happens client-side or on the server. If data is send anywhere this is clearly stated. 
+
+If these tools are of any help to you, great. You can run your own instance if you want.
 
 ## Quick Start with Docker
 
