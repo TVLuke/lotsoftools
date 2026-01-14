@@ -10,7 +10,7 @@ So I decided: whenever I was about to type something like "qr-code generator" or
 
 This is that growing collection of tools. Privacy-friendly, no tracking, no ads — wherever possible, processing happens client-side or on the server. If data is send anywhere this is clearly stated. 
 
-If these tools are of any help to you, great. You can run your own instance if you want or try lotsof.tools.
+If these tools are of any help to you, great. You can run your own instance if you want. I am running an instance at [lotsof.tools](https://lotsof.tools).
 
 ## Quick Start with Docker
 
