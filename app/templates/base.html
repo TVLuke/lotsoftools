@@ -10,6 +10,7 @@
     <meta property="og:description" content="{% block og_description %}Collection of free online tools for developers and designers. No registration required.{% endblock %}">
     <meta property="og:type" content="website">
     <title>{% block title %}Lots of Tools{% endblock %}</title>
+    <link rel="icon" type="image/svg+xml" href="{{ url_for('static', filename='favicon.svg') }}">
     {% include 'components/imports/bootstrap.html' %}
     {% include 'components/imports/fontawesome.html' %}
     <link rel="stylesheet" href="{{ url_for('static', filename='css/custom.css') }}?v=5">
