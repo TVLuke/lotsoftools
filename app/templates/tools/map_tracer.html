@@ -1,0 +1,716 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ tool_data.seo.title[current_lang] }} - Lots of Tools{% endblock %}
+
+{% block meta_description %}{{ tool_data.seo.meta_description[current_lang] }}{% endblock %}
+{% block meta_keywords %}{{ tool_data.seo.keywords[current_lang] }}{% endblock %}
+{% block og_title %}{{ tool_data.seo.title[current_lang] }}{% endblock %}
+{% block og_description %}{{ tool_data.seo.meta_description[current_lang] }}{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
+<style>
+#map {
+    height: 500px;
+    width: 100%;
+    border-radius: 0.375rem;
+}
+
+#map.navigate-mode {
+    cursor: grab;
+}
+
+#map.navigate-mode:active {
+    cursor: grabbing;
+}
+
+#map.draw-mode {
+    cursor: crosshair;
+}
+
+.distance-display {
+    font-size: 1.75rem;
+    font-weight: bold;
+    text-align: center;
+    padding: 0.5rem;
+}
+
+.distance-detail {
+    text-align: center;
+    color: var(--bs-secondary);
+}
+
+.marker-user {
+    background-color: #6c757d;
+    border: 3px solid white;
+    border-radius: 50%;
+    width: 16px;
+    height: 16px;
+    box-shadow: 0 0 0 2px #6c757d, 0 2px 5px rgba(0,0,0,0.3);
+}
+
+.mode-btn.active {
+    pointer-events: none;
+}
+
+.mode-indicator {
+    font-size: 0.85rem;
+    padding: 0.5rem;
+    border-radius: 0.375rem;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.mode-indicator.navigate {
+    background-color: #e7f1ff;
+    color: #0d6efd;
+    border: 1px solid #b6d4fe;
+}
+
+.mode-indicator.draw {
+    background-color: #d1e7dd;
+    color: #198754;
+    border: 1px solid #badbcc;
+}
+
+#exportCanvas {
+    display: none;
+}
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h1 class="mb-3">
+        <i class="{{ tool_data.img }} me-2"></i>{{ tool_data.name[current_lang] }}
+    </h1>
+    <p class="lead mb-4">{{ tool_data.description[current_lang] }}</p>
+    
+    <div class="row">
+        <div class="col-lg-4 mb-4">
+            <!-- Distance Display -->
+            <div class="card mb-3">
+                <div class="card-header">
+                    <h5 class="mb-0">
+                        <i class="fas fa-ruler me-2"></i>
+                        {% if current_lang == 'de' %}Gesamtlänge{% else %}Total Length{% endif %}
+                    </h5>
+                </div>
+                <div class="card-body">
+                    <div class="distance-display" id="distanceDisplay">0 m</div>
+                    <div class="distance-detail" id="distanceDetail"></div>
+                    <div class="points-count text-center mt-2" id="pointsCount">
+                        0 {% if current_lang == 'de' %}Punkte{% else %}points{% endif %}
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Mode Selection -->
+            <div class="card mb-3">
+                <div class="card-header">
+                    <h5 class="mb-0">
+                        <i class="fas fa-mouse-pointer me-2"></i>
+                        {% if current_lang == 'de' %}Modus{% else %}Mode{% endif %}
+                    </h5>
+                </div>
+                <div class="card-body">
+                    <div class="btn-group w-100 mb-3" role="group">
+                        <button class="btn btn-primary mode-btn active" id="navigateModeBtn">
+                            <i class="fas fa-arrows-alt me-1"></i>
+                            {% if current_lang == 'de' %}Navigieren{% else %}Navigate{% endif %}
+                        </button>
+                        <button class="btn btn-outline-success mode-btn" id="drawModeBtn">
+                            <i class="fas fa-pencil-alt me-1"></i>
+                            {% if current_lang == 'de' %}Zeichnen{% else %}Draw{% endif %}
+                        </button>
+                    </div>
+                    <div class="mode-indicator navigate" id="modeIndicator">
+                        <i class="fas fa-info-circle me-1"></i>
+                        <span id="modeText">
+                            {% if current_lang == 'de' %}Karte verschieben und zoomen{% else %}Pan and zoom the map{% endif %}
+                        </span>
+                    </div>
+                    <div class="btn-group-vertical w-100" role="group">
+                        <button class="btn btn-danger" id="clearBtn">
+                            <i class="fas fa-redo me-1"></i>
+                            {% if current_lang == 'de' %}Zurücksetzen{% else %}Reset{% endif %}
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Export Section -->
+            <div class="card mb-3">
+                <div class="card-header">
+                    <h5 class="mb-0">
+                        <i class="fas fa-download me-2"></i>
+                        {% if current_lang == 'de' %}Exportieren{% else %}Export{% endif %}
+                    </h5>
+                </div>
+                <div class="card-body">
+                    <div class="btn-group-vertical w-100" role="group">
+                        <button class="btn btn-primary" id="exportWithMapBtn" disabled>
+                            <i class="fas fa-map me-1"></i>
+                            {% if current_lang == 'de' %}Mit Karte exportieren{% else %}Export with Map{% endif %}
+                        </button>
+                        <button class="btn btn-outline-primary" id="exportLineOnlyBtn" disabled>
+                            <i class="fas fa-project-diagram me-1"></i>
+                            {% if current_lang == 'de' %}Nur Linie exportieren{% else %}Export Line Only{% endif %}
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Show My Location -->
+            <div class="card mb-3">
+                <div class="card-body">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="showMyLocation">
+                        <label class="form-check-label" for="showMyLocation">
+                            <i class="fas fa-location-arrow me-1"></i>
+                            {% if current_lang == 'de' %}Meinen Standort anzeigen{% else %}Show my location{% endif %}
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Map -->
+        <div class="col-lg-8 mb-4">
+            <div class="card h-100">
+                <div class="card-header">
+                    <h5 class="mb-0">
+                        <i class="fas fa-map me-2"></i>
+                        {% if current_lang == 'de' %}Karte{% else %}Map{% endif %}
+                    </h5>
+                </div>
+                <div class="card-body p-0">
+                    <div id="map"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Hidden canvas for export -->
+    <canvas id="exportCanvas"></canvas>
+    
+    {% include 'components/seo_content.html' %}
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+<script src="https://unpkg.com/leaflet-simple-map-screenshoter@0.4.5/dist/leaflet-simple-map-screenshoter.min.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const lang = '{{ current_lang }}';
+    const i18n = {
+        points: lang === 'de' ? 'Punkte' : 'points',
+        point: lang === 'de' ? 'Punkt' : 'point',
+        locationError: lang === 'de' ? 'Standort konnte nicht ermittelt werden' : 'Could not get location',
+        locationDenied: lang === 'de' ? 'Standortzugriff verweigert' : 'Location access denied',
+        navigateHint: lang === 'de' ? 'Karte verschieben und zoomen' : 'Pan and zoom the map',
+        drawHint: lang === 'de' ? 'Zeichnen Sie auf der Karte' : 'Draw on the map'
+    };
+    
+    // State
+    let points = [];  // Array of {lat, lng}
+    let userLocation = null;
+    let markerUser = null;
+    let polyline = null;
+    let isDrawing = false;
+    let currentMode = 'navigate';  // 'navigate' or 'draw'
+    
+    // Elements
+    const distanceDisplayEl = document.getElementById('distanceDisplay');
+    const distanceDetailEl = document.getElementById('distanceDetail');
+    const pointsCountEl = document.getElementById('pointsCount');
+    const clearBtn = document.getElementById('clearBtn');
+    const exportWithMapBtn = document.getElementById('exportWithMapBtn');
+    const exportLineOnlyBtn = document.getElementById('exportLineOnlyBtn');
+    const navigateModeBtn = document.getElementById('navigateModeBtn');
+    const drawModeBtn = document.getElementById('drawModeBtn');
+    const modeIndicator = document.getElementById('modeIndicator');
+    const modeText = document.getElementById('modeText');
+    const mapContainer = document.getElementById('map');
+    
+    // Initialize map (centered on Europe)
+    const map = L.map('map', {
+        dragging: true,
+        touchZoom: true,
+        scrollWheelZoom: true,
+        doubleClickZoom: true
+    }).setView([50.0, 10.0], 4);
+    
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(map);
+    
+    // Set initial mode
+    mapContainer.classList.add('navigate-mode');
+    
+    const iconUser = L.divIcon({
+        className: 'custom-marker',
+        html: '<div class="marker-user"></div>',
+        iconSize: [16, 16],
+        iconAnchor: [8, 8]
+    });
+    
+    // Haversine distance calculation
+    function calculateDistance(lat1, lon1, lat2, lon2) {
+        const R = 6371000; // Earth's radius in meters
+        const dLat = (lat2 - lat1) * Math.PI / 180;
+        const dLon = (lon2 - lon1) * Math.PI / 180;
+        const a = Math.sin(dLat/2) * Math.sin(dLat/2) +
+                  Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) *
+                  Math.sin(dLon/2) * Math.sin(dLon/2);
+        const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+        return R * c;
+    }
+    
+    function getTotalDistance() {
+        let total = 0;
+        for (let i = 1; i < points.length; i++) {
+            total += calculateDistance(
+                points[i-1].lat, points[i-1].lng,
+                points[i].lat, points[i].lng
+            );
+        }
+        return total;
+    }
+    
+    function formatDistance(meters) {
+        if (meters >= 1000) {
+            const km = meters / 1000;
+            const miles = km * 0.621371;
+            return {
+                main: `${km.toFixed(2)} km`,
+                detail: `${miles.toFixed(2)} mi / ${Math.round(meters)} m`
+            };
+        } else {
+            const feet = meters * 3.28084;
+            return {
+                main: `${Math.round(meters)} m`,
+                detail: `${Math.round(feet)} ft`
+            };
+        }
+    }
+    
+    function updatePolyline() {
+        if (points.length >= 2) {
+            const latlngs = points.map(p => [p.lat, p.lng]);
+            if (polyline) {
+                polyline.setLatLngs(latlngs);
+            } else {
+                polyline = L.polyline(latlngs, {
+                    color: '#0d6efd',
+                    weight: 4,
+                    lineCap: 'round',
+                    lineJoin: 'round'
+                }).addTo(map);
+            }
+        } else if (polyline) {
+            map.removeLayer(polyline);
+            polyline = null;
+        }
+    }
+    
+    function updateUI() {
+        // Update distance display
+        const totalMeters = getTotalDistance();
+        const formatted = formatDistance(totalMeters);
+        distanceDisplayEl.textContent = formatted.main;
+        distanceDetailEl.textContent = formatted.detail;
+        
+        // Update points count
+        const count = points.length;
+        pointsCountEl.textContent = `${count} ${count === 1 ? i18n.point : i18n.points}`;
+        
+        // Update polyline
+        updatePolyline();
+        
+        // Update button states
+        clearBtn.disabled = points.length === 0;
+        exportWithMapBtn.disabled = points.length < 2;
+        exportLineOnlyBtn.disabled = points.length < 2;
+    }
+    
+    function setMode(mode) {
+        currentMode = mode;
+        
+        if (mode === 'navigate') {
+            // Enable map interactions
+            map.dragging.enable();
+            map.touchZoom.enable();
+            map.doubleClickZoom.enable();
+            map.scrollWheelZoom.enable();
+            
+            // Update UI
+            mapContainer.classList.remove('draw-mode');
+            mapContainer.classList.add('navigate-mode');
+            navigateModeBtn.classList.remove('btn-outline-primary');
+            navigateModeBtn.classList.add('btn-primary', 'active');
+            drawModeBtn.classList.remove('btn-success', 'active');
+            drawModeBtn.classList.add('btn-outline-success');
+            modeIndicator.classList.remove('draw');
+            modeIndicator.classList.add('navigate');
+            modeText.textContent = i18n.navigateHint;
+        } else {
+            // Disable map interactions for drawing
+            map.dragging.disable();
+            map.touchZoom.disable();
+            map.doubleClickZoom.disable();
+            map.scrollWheelZoom.disable();
+            
+            // Update UI
+            mapContainer.classList.remove('navigate-mode');
+            mapContainer.classList.add('draw-mode');
+            navigateModeBtn.classList.remove('btn-primary', 'active');
+            navigateModeBtn.classList.add('btn-outline-primary');
+            drawModeBtn.classList.remove('btn-outline-success');
+            drawModeBtn.classList.add('btn-success', 'active');
+            modeIndicator.classList.remove('navigate');
+            modeIndicator.classList.add('draw');
+            modeText.textContent = i18n.drawHint;
+        }
+    }
+    
+    function addPoint(lat, lng) {
+        points.push({lat, lng});
+        updatePolyline();
+    }
+    
+    function clearAllPoints() {
+        points = [];
+        updateUI();
+    }
+    
+    function getUserLocation(callback) {
+        if (!navigator.geolocation) {
+            alert(i18n.locationError);
+            return;
+        }
+        
+        navigator.geolocation.getCurrentPosition(
+            function(position) {
+                userLocation = {
+                    lat: position.coords.latitude,
+                    lng: position.coords.longitude
+                };
+                callback(userLocation);
+            },
+            function(error) {
+                if (error.code === error.PERMISSION_DENIED) {
+                    alert(i18n.locationDenied);
+                } else {
+                    alert(i18n.locationError);
+                }
+            },
+            {enableHighAccuracy: true, timeout: 10000}
+        );
+    }
+    
+    function updateUserLocationMarker() {
+        const showMyLocation = document.getElementById('showMyLocation');
+        if (showMyLocation.checked && userLocation) {
+            if (markerUser) {
+                markerUser.setLatLng([userLocation.lat, userLocation.lng]);
+            } else {
+                markerUser = L.marker([userLocation.lat, userLocation.lng], {icon: iconUser}).addTo(map);
+            }
+        } else if (markerUser) {
+            map.removeLayer(markerUser);
+            markerUser = null;
+        }
+    }
+    
+    // Export with map background using html2canvas approach
+    async function exportWithMap() {
+        if (points.length < 2) return;
+        
+        // Use leaflet-simple-map-screenshoter if available, otherwise fallback
+        try {
+            const mapContainer = document.getElementById('map');
+            const rect = mapContainer.getBoundingClientRect();
+            
+            // Create canvas from map tiles + overlay
+            const canvas = document.createElement('canvas');
+            canvas.width = rect.width * 2;
+            canvas.height = rect.height * 2;
+            const ctx = canvas.getContext('2d');
+            ctx.scale(2, 2);
+            
+            // Draw white background first
+            ctx.fillStyle = '#ffffff';
+            ctx.fillRect(0, 0, rect.width, rect.height);
+            
+            // Get all tile images and draw them
+            const tiles = mapContainer.querySelectorAll('.leaflet-tile');
+            const tilePromises = [];
+            
+            tiles.forEach(tile => {
+                if (tile.complete && tile.naturalWidth > 0) {
+                    const tileRect = tile.getBoundingClientRect();
+                    const x = tileRect.left - rect.left;
+                    const y = tileRect.top - rect.top;
+                    ctx.drawImage(tile, x, y, tile.width, tile.height);
+                }
+            });
+            
+            // Draw the polyline
+            if (points.length >= 2) {
+                ctx.strokeStyle = '#0d6efd';
+                ctx.lineWidth = 3;
+                ctx.lineCap = 'round';
+                ctx.lineJoin = 'round';
+                ctx.beginPath();
+                
+                points.forEach((point, index) => {
+                    const pixel = map.latLngToContainerPoint([point.lat, point.lng]);
+                    if (index === 0) {
+                        ctx.moveTo(pixel.x, pixel.y);
+                    } else {
+                        ctx.lineTo(pixel.x, pixel.y);
+                    }
+                });
+                ctx.stroke();
+                
+                // Draw points
+                points.forEach((point, index) => {
+                    const pixel = map.latLngToContainerPoint([point.lat, point.lng]);
+                    ctx.beginPath();
+                    
+                    if (index === 0) {
+                        ctx.fillStyle = '#198754';
+                        ctx.arc(pixel.x, pixel.y, 8, 0, 2 * Math.PI);
+                    } else if (index === points.length - 1) {
+                        ctx.fillStyle = '#dc3545';
+                        ctx.arc(pixel.x, pixel.y, 8, 0, 2 * Math.PI);
+                    } else {
+                        ctx.fillStyle = '#0d6efd';
+                        ctx.arc(pixel.x, pixel.y, 6, 0, 2 * Math.PI);
+                    }
+                    ctx.fill();
+                    ctx.strokeStyle = '#ffffff';
+                    ctx.lineWidth = 2;
+                    ctx.stroke();
+                });
+            }
+            
+            // Download
+            canvas.toBlob(function(blob) {
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = 'map-trace.png';
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+                URL.revokeObjectURL(url);
+                
+                if (typeof window.showSupportOnAction === 'function') {
+                    window.showSupportOnAction(30000);
+                }
+            }, 'image/png');
+            
+        } catch (error) {
+            console.error('Export failed:', error);
+            alert('Export failed. Please try again.');
+        }
+    }
+    
+    function exportLineOnly() {
+        if (points.length < 2) return;
+        
+        // Calculate bounds of the line
+        let minLat = Infinity, maxLat = -Infinity;
+        let minLng = Infinity, maxLng = -Infinity;
+        
+        points.forEach(point => {
+            minLat = Math.min(minLat, point.lat);
+            maxLat = Math.max(maxLat, point.lat);
+            minLng = Math.min(minLng, point.lng);
+            maxLng = Math.max(maxLng, point.lng);
+        });
+        
+        // Add padding
+        const latPadding = (maxLat - minLat) * 0.1 || 0.01;
+        const lngPadding = (maxLng - minLng) * 0.1 || 0.01;
+        minLat -= latPadding;
+        maxLat += latPadding;
+        minLng -= lngPadding;
+        maxLng += lngPadding;
+        
+        // Create canvas
+        const canvas = document.createElement('canvas');
+        const size = 800;
+        canvas.width = size;
+        canvas.height = size;
+        const ctx = canvas.getContext('2d');
+        
+        // White background
+        ctx.fillStyle = '#ffffff';
+        ctx.fillRect(0, 0, size, size);
+        
+        // Calculate scale
+        const latRange = maxLat - minLat;
+        const lngRange = maxLng - minLng;
+        const scale = (size - 40) / Math.max(latRange, lngRange);
+        
+        // Transform function
+        function toCanvas(lat, lng) {
+            const x = 20 + (lng - minLng) * scale * (size - 40) / (lngRange * scale);
+            const y = 20 + (maxLat - lat) * scale * (size - 40) / (latRange * scale);
+            return {x, y};
+        }
+        
+        // Draw line
+        ctx.strokeStyle = '#0d6efd';
+        ctx.lineWidth = 4;
+        ctx.lineCap = 'round';
+        ctx.lineJoin = 'round';
+        ctx.beginPath();
+        
+        points.forEach((point, index) => {
+            const pos = toCanvas(point.lat, point.lng);
+            if (index === 0) {
+                ctx.moveTo(pos.x, pos.y);
+            } else {
+                ctx.lineTo(pos.x, pos.y);
+            }
+        });
+        ctx.stroke();
+        
+        // Draw points
+        points.forEach((point, index) => {
+            const pos = toCanvas(point.lat, point.lng);
+            ctx.beginPath();
+            
+            if (index === 0) {
+                ctx.fillStyle = '#198754';
+                ctx.arc(pos.x, pos.y, 10, 0, 2 * Math.PI);
+            } else if (index === points.length - 1) {
+                ctx.fillStyle = '#dc3545';
+                ctx.arc(pos.x, pos.y, 10, 0, 2 * Math.PI);
+            } else {
+                ctx.fillStyle = '#0d6efd';
+                ctx.arc(pos.x, pos.y, 6, 0, 2 * Math.PI);
+            }
+            ctx.fill();
+            ctx.strokeStyle = '#ffffff';
+            ctx.lineWidth = 2;
+            ctx.stroke();
+        });
+        
+        // Download
+        canvas.toBlob(function(blob) {
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'trace-line.png';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+            
+            if (typeof window.showSupportOnAction === 'function') {
+                window.showSupportOnAction(30000);
+            }
+        }, 'image/png');
+    }
+    
+    // Freehand drawing event handlers
+    function onMouseDown(e) {
+        if (currentMode !== 'draw') return;
+        isDrawing = true;
+        // Start new drawing or continue
+        addPoint(e.latlng.lat, e.latlng.lng);
+    }
+    
+    function onMouseMove(e) {
+        if (currentMode !== 'draw' || !isDrawing) return;
+        addPoint(e.latlng.lat, e.latlng.lng);
+        updateUI();
+    }
+    
+    function onMouseUp(e) {
+        if (currentMode !== 'draw') return;
+        isDrawing = false;
+        updateUI();
+    }
+    
+    // Map event listeners for drawing
+    map.on('mousedown', onMouseDown);
+    map.on('mousemove', onMouseMove);
+    map.on('mouseup', onMouseUp);
+    map.on('mouseout', onMouseUp);
+    
+    // Touch support for drawing
+    map.on('touchstart', function(e) {
+        if (currentMode !== 'draw') return;
+        isDrawing = true;
+        const touch = e.touches ? e.touches[0] : e;
+        if (e.latlng) {
+            addPoint(e.latlng.lat, e.latlng.lng);
+        }
+    });
+    
+    map.on('touchmove', function(e) {
+        if (currentMode !== 'draw' || !isDrawing) return;
+        if (e.latlng) {
+            addPoint(e.latlng.lat, e.latlng.lng);
+            updateUI();
+        }
+    });
+    
+    map.on('touchend', function(e) {
+        if (currentMode !== 'draw') return;
+        isDrawing = false;
+        updateUI();
+    });
+    
+    // Mode buttons
+    navigateModeBtn.addEventListener('click', function() {
+        setMode('navigate');
+    });
+    
+    drawModeBtn.addEventListener('click', function() {
+        setMode('draw');
+    });
+    
+    clearBtn.addEventListener('click', clearAllPoints);
+    exportWithMapBtn.addEventListener('click', exportWithMap);
+    exportLineOnlyBtn.addEventListener('click', exportLineOnly);
+    
+    document.getElementById('showMyLocation').addEventListener('change', function() {
+        if (this.checked && !userLocation) {
+            getUserLocation(function(loc) {
+                updateUserLocationMarker();
+            });
+        } else {
+            updateUserLocationMarker();
+        }
+    });
+    
+    // Try to get user location on load
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(
+            function(position) {
+                userLocation = {
+                    lat: position.coords.latitude,
+                    lng: position.coords.longitude
+                };
+                map.setView([userLocation.lat, userLocation.lng], 15);
+            },
+            function(error) {
+                // Location denied, stay at default view
+            },
+            {enableHighAccuracy: true, timeout: 5000}
+        );
+    }
+    
+    // Initial UI update
+    updateUI();
+});
+</script>
+{% endblock %}

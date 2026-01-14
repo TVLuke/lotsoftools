@@ -1,0 +1,95 @@
+{
+  "route": "/tools/map-tracer",
+  "img": "fas fa-route",
+  "name": {
+    "en": "Map Tracer",
+    "de": "Karten-Zeichner"
+  },
+  "description": {
+    "en": "Draw lines on a map and measure the total distance",
+    "de": "Zeichnen Sie Linien auf einer Karte und messen Sie die Gesamtentfernung"
+  },
+  "tags": ["map", "geography", "jetlag"],
+  "new_window": false,
+  "frontend_only": true,
+  "seo": {
+    "title": {
+      "en": "Map Tracer - Draw and Measure Routes on Map",
+      "de": "Karten-Zeichner - Routen auf der Karte zeichnen und messen"
+    },
+    "meta_description": {
+      "en": "Draw lines and routes on an interactive map and measure the total distance. Export your traced path as an image with or without the map background. Privacy-friendly, browser-based.",
+      "de": "Zeichnen Sie Linien und Routen auf einer interaktiven Karte und messen Sie die Gesamtentfernung. Exportieren Sie Ihren gezeichneten Pfad als Bild mit oder ohne Kartenhintergrund. Datenschutzfreundlich, browserbasiert."
+    },
+    "keywords": {
+      "en": "map tracer, draw route, measure distance, trace path, route drawing, map export, distance measurement, OSM map",
+      "de": "Karten-Zeichner, Route zeichnen, Entfernung messen, Pfad verfolgen, Routen-Zeichnung, Karten-Export, Entfernungsmessung, OSM-Karte"
+    },
+    "content": {
+      "heading": {
+        "en": "About This Map Tracer Tool",
+        "de": "Über dieses Karten-Zeichner-Tool"
+      },
+      "intro": {
+        "en": "This browser-based tool lets you draw lines and routes on an interactive OpenStreetMap. Click to add points and create a path, then see the total distance measured in real-time. Export your traced route as an image with the map background or as a clean line on white.",
+        "de": "Dieses browserbasierte Tool ermöglicht es Ihnen, Linien und Routen auf einer interaktiven OpenStreetMap zu zeichnen. Klicken Sie, um Punkte hinzuzufügen und einen Pfad zu erstellen, dann sehen Sie die Gesamtentfernung in Echtzeit. Exportieren Sie Ihre gezeichnete Route als Bild mit Kartenhintergrund oder als saubere Linie auf Weiß."
+      },
+      "features": {
+        "heading": {
+          "en": "Key Features:",
+          "de": "Hauptfunktionen:"
+        },
+        "items": [
+          {
+            "en": "<strong>Draw Routes:</strong> Click on the map to add points and create a connected path",
+            "de": "<strong>Routen zeichnen:</strong> Klicken Sie auf die Karte, um Punkte hinzuzufügen und einen verbundenen Pfad zu erstellen"
+          },
+          {
+            "en": "<strong>Real-time Distance:</strong> See the total distance update as you draw",
+            "de": "<strong>Echtzeit-Entfernung:</strong> Sehen Sie die Gesamtentfernung während des Zeichnens aktualisiert"
+          },
+          {
+            "en": "<strong>Export with Map:</strong> Save your route as an image with the map background",
+            "de": "<strong>Export mit Karte:</strong> Speichern Sie Ihre Route als Bild mit Kartenhintergrund"
+          },
+          {
+            "en": "<strong>Export Line Only:</strong> Save just the traced line on a white background",
+            "de": "<strong>Nur Linie exportieren:</strong> Speichern Sie nur die gezeichnete Linie auf weißem Hintergrund"
+          },
+          {
+            "en": "<strong>Undo Points:</strong> Remove the last point if you make a mistake",
+            "de": "<strong>Punkte rückgängig:</strong> Entfernen Sie den letzten Punkt bei einem Fehler"
+          }
+        ]
+      },
+      "use_cases": {
+        "heading": {
+          "en": "Use Cases:",
+          "de": "Anwendungsfälle:"
+        },
+        "items": [
+          {
+            "en": "Plan and measure hiking or running routes",
+            "de": "Wander- oder Laufrouten planen und messen"
+          },
+          {
+            "en": "Create route illustrations for presentations",
+            "de": "Routen-Illustrationen für Präsentationen erstellen"
+          },
+          {
+            "en": "Measure distances along roads or paths",
+            "de": "Entfernungen entlang von Straßen oder Wegen messen"
+          },
+          {
+            "en": "Document travel routes",
+            "de": "Reiserouten dokumentieren"
+          }
+        ]
+      },
+      "privacy_note": {
+        "en": "🔒 Privacy-Friendly: All drawing and calculations happen in your browser. Your location and routes are never sent to our servers.",
+        "de": "🔒 Datenschutzfreundlich: Alle Zeichnungen und Berechnungen erfolgen in Ihrem Browser. Ihr Standort und Ihre Routen werden nie an unsere Server gesendet."
+      }
+    }
+  }
+}

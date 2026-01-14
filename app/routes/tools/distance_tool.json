@@ -1,0 +1,95 @@
+{
+  "route": "/tools/distance",
+  "img": "fas fa-ruler",
+  "name": {
+    "en": "Distance Calculator",
+    "de": "Entfernungsrechner"
+  },
+  "description": {
+    "en": "Calculate distance between two points on a map",
+    "de": "Entfernung zwischen zwei Punkten auf einer Karte berechnen"
+  },
+  "tags": ["map", "geography", "jetlag"],
+  "new_window": false,
+  "frontend_only": true,
+  "seo": {
+    "title": {
+      "en": "Distance Calculator - Measure Distance Between Two Points on Map",
+      "de": "Entfernungsrechner - Entfernung zwischen zwei Punkten auf der Karte messen"
+    },
+    "meta_description": {
+      "en": "Calculate the distance between two locations on an interactive map. Use your current location or click to set points. Share distance links with others. Privacy-friendly, browser-based.",
+      "de": "Berechnen Sie die Entfernung zwischen zwei Orten auf einer interaktiven Karte. Nutzen Sie Ihren aktuellen Standort oder klicken Sie, um Punkte zu setzen. Teilen Sie Entfernungs-Links. Datenschutzfreundlich, browserbasiert."
+    },
+    "keywords": {
+      "en": "distance calculator, map distance, measure distance, point to point distance, geolocation, OSM map, share location, distance between places",
+      "de": "Entfernungsrechner, Kartenentfernung, Entfernung messen, Punkt-zu-Punkt-Entfernung, Geolokalisierung, OSM-Karte, Standort teilen, Entfernung zwischen Orten"
+    },
+    "content": {
+      "heading": {
+        "en": "About This Distance Calculator",
+        "de": "Über diesen Entfernungsrechner"
+      },
+      "intro": {
+        "en": "This browser-based distance calculator lets you measure the distance between any two points on an interactive OpenStreetMap. Click on the map to set locations or use your current position. All calculations happen locally in your browser.",
+        "de": "Dieser browserbasierte Entfernungsrechner ermöglicht es Ihnen, die Entfernung zwischen zwei beliebigen Punkten auf einer interaktiven OpenStreetMap zu messen. Klicken Sie auf die Karte, um Orte festzulegen, oder nutzen Sie Ihre aktuelle Position. Alle Berechnungen erfolgen lokal in Ihrem Browser."
+      },
+      "features": {
+        "heading": {
+          "en": "Key Features:",
+          "de": "Hauptfunktionen:"
+        },
+        "items": [
+          {
+            "en": "<strong>Interactive Map:</strong> Click anywhere on the OpenStreetMap to set your two points",
+            "de": "<strong>Interaktive Karte:</strong> Klicken Sie irgendwo auf die OpenStreetMap, um Ihre zwei Punkte zu setzen"
+          },
+          {
+            "en": "<strong>Geolocation:</strong> Use your current location as a starting point",
+            "de": "<strong>Geolokalisierung:</strong> Nutzen Sie Ihren aktuellen Standort als Ausgangspunkt"
+          },
+          {
+            "en": "<strong>Shareable Links:</strong> Share distance configurations with others via URL",
+            "de": "<strong>Teilbare Links:</strong> Teilen Sie Entfernungskonfigurationen mit anderen über URL"
+          },
+          {
+            "en": "<strong>Dynamic Location:</strong> Share links where the recipient's location is used automatically",
+            "de": "<strong>Dynamischer Standort:</strong> Teilen Sie Links, bei denen der Standort des Empfängers automatisch verwendet wird"
+          },
+          {
+            "en": "<strong>Accurate Calculation:</strong> Uses the Haversine formula for precise distance measurement",
+            "de": "<strong>Genaue Berechnung:</strong> Verwendet die Haversine-Formel für präzise Entfernungsmessung"
+          }
+        ]
+      },
+      "use_cases": {
+        "heading": {
+          "en": "Use Cases:",
+          "de": "Anwendungsfälle:"
+        },
+        "items": [
+          {
+            "en": "Plan trips and estimate travel distances",
+            "de": "Reisen planen und Reiseentfernungen schätzen"
+          },
+          {
+            "en": "Share \"how far is it from you\" links with friends",
+            "de": "\"Wie weit ist es von dir\" Links mit Freunden teilen"
+          },
+          {
+            "en": "Measure distances for outdoor activities",
+            "de": "Entfernungen für Outdoor-Aktivitäten messen"
+          },
+          {
+            "en": "Compare distances between different locations",
+            "de": "Entfernungen zwischen verschiedenen Orten vergleichen"
+          }
+        ]
+      },
+      "privacy_note": {
+        "en": "🔒 Privacy-Friendly: All distance calculations happen in your browser. Your location is only used locally and never sent to our servers.",
+        "de": "🔒 Datenschutzfreundlich: Alle Entfernungsberechnungen erfolgen in Ihrem Browser. Ihr Standort wird nur lokal verwendet und nie an unsere Server gesendet."
+      }
+    }
+  }
+}

@@ -1,0 +1,95 @@
+{
+  "route": "/tools/radius",
+  "img": "fas fa-circle-notch",
+  "name": {
+    "en": "Radius Map",
+    "de": "Radius-Karte"
+  },
+  "description": {
+    "en": "Show a radius around a point on the map",
+    "de": "Zeige einen Radius um einen Punkt auf der Karte"
+  },
+  "tags": ["map", "geography", "jetlag"],
+  "new_window": false,
+  "frontend_only": true,
+  "seo": {
+    "title": {
+      "en": "Radius Map - Draw Circle Around Location on Map",
+      "de": "Radius-Karte - Kreis um Standort auf Karte zeichnen"
+    },
+    "meta_description": {
+      "en": "Draw a radius circle around any location on an interactive map. Visualize distances from a point. Use your current location or click to set. Share radius links. Privacy-friendly.",
+      "de": "Zeichnen Sie einen Radius-Kreis um jeden Ort auf einer interaktiven Karte. Visualisieren Sie Entfernungen von einem Punkt. Nutzen Sie Ihren Standort oder klicken Sie. Teilen Sie Radius-Links. Datenschutzfreundlich."
+    },
+    "keywords": {
+      "en": "radius map, circle on map, distance radius, location radius, draw circle, OSM map, share radius, visualize distance",
+      "de": "Radius-Karte, Kreis auf Karte, Entfernungsradius, Standort-Radius, Kreis zeichnen, OSM-Karte, Radius teilen, Entfernung visualisieren"
+    },
+    "content": {
+      "heading": {
+        "en": "About This Radius Map Tool",
+        "de": "Über dieses Radius-Karten-Tool"
+      },
+      "intro": {
+        "en": "This browser-based tool lets you draw a radius circle around any point on an interactive OpenStreetMap. Set a center point and enter a distance to visualize the area within that radius. Perfect for understanding distances and coverage areas.",
+        "de": "Dieses browserbasierte Tool ermöglicht es Ihnen, einen Radius-Kreis um jeden Punkt auf einer interaktiven OpenStreetMap zu zeichnen. Setzen Sie einen Mittelpunkt und geben Sie eine Entfernung ein, um den Bereich innerhalb dieses Radius zu visualisieren."
+      },
+      "features": {
+        "heading": {
+          "en": "Key Features:",
+          "de": "Hauptfunktionen:"
+        },
+        "items": [
+          {
+            "en": "<strong>Interactive Map:</strong> Click anywhere on the map to set your center point",
+            "de": "<strong>Interaktive Karte:</strong> Klicken Sie irgendwo auf die Karte, um Ihren Mittelpunkt zu setzen"
+          },
+          {
+            "en": "<strong>Custom Radius:</strong> Enter any distance in kilometers or miles",
+            "de": "<strong>Benutzerdefinierter Radius:</strong> Geben Sie eine beliebige Entfernung in Kilometern oder Meilen ein"
+          },
+          {
+            "en": "<strong>Geolocation:</strong> Use your current location as the center point",
+            "de": "<strong>Geolokalisierung:</strong> Nutzen Sie Ihren aktuellen Standort als Mittelpunkt"
+          },
+          {
+            "en": "<strong>Shareable Links:</strong> Share your radius configuration with others via URL",
+            "de": "<strong>Teilbare Links:</strong> Teilen Sie Ihre Radius-Konfiguration mit anderen über URL"
+          },
+          {
+            "en": "<strong>Visual Circle:</strong> See the radius area clearly highlighted on the map",
+            "de": "<strong>Visueller Kreis:</strong> Sehen Sie den Radius-Bereich deutlich auf der Karte hervorgehoben"
+          }
+        ]
+      },
+      "use_cases": {
+        "heading": {
+          "en": "Use Cases:",
+          "de": "Anwendungsfälle:"
+        },
+        "items": [
+          {
+            "en": "Find what's within walking or driving distance",
+            "de": "Finden Sie, was in Geh- oder Fahrentfernung liegt"
+          },
+          {
+            "en": "Visualize service or delivery areas",
+            "de": "Visualisieren Sie Service- oder Liefergebiete"
+          },
+          {
+            "en": "Plan activities within a certain range",
+            "de": "Planen Sie Aktivitäten innerhalb einer bestimmten Reichweite"
+          },
+          {
+            "en": "Understand geographic coverage areas",
+            "de": "Verstehen Sie geografische Abdeckungsbereiche"
+          }
+        ]
+      },
+      "privacy_note": {
+        "en": "🔒 Privacy-Friendly: All calculations happen in your browser. Your location is only used locally and never sent to our servers.",
+        "de": "🔒 Datenschutzfreundlich: Alle Berechnungen erfolgen in Ihrem Browser. Ihr Standort wird nur lokal verwendet und nie an unsere Server gesendet."
+      }
+    }
+  }
+}

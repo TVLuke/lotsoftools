@@ -1,0 +1,712 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ tool_data.seo.title[current_lang] }} - Lots of Tools{% endblock %}
+
+{% block meta_description %}{{ tool_data.seo.meta_description[current_lang] }}{% endblock %}
+{% block meta_keywords %}{{ tool_data.seo.keywords[current_lang] }}{% endblock %}
+{% block og_title %}{{ tool_data.seo.title[current_lang] }}{% endblock %}
+{% block og_description %}{{ tool_data.seo.meta_description[current_lang] }}{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
+<style>
+#map {
+    height: 500px;
+    width: 100%;
+    border-radius: 0.375rem;
+}
+
+.speed-display {
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+}
+
+.speed-unit {
+    font-size: 1rem;
+    color: var(--bs-secondary);
+}
+
+.coords-display {
+    font-family: 'Courier New', monospace;
+    font-size: 0.9rem;
+    text-align: center;
+    padding: 0.5rem;
+    background-color: var(--bs-light);
+    border-radius: 0.375rem;
+}
+
+.key-hint {
+    display: inline-block;
+    width: 32px;
+    height: 32px;
+    line-height: 32px;
+    text-align: center;
+    background-color: var(--bs-light);
+    border: 1px solid var(--bs-border-color);
+    border-radius: 4px;
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+.key-hint.active {
+    background-color: var(--bs-primary);
+    color: white;
+    border-color: var(--bs-primary);
+}
+
+.controls-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 40px);
+    grid-template-rows: repeat(3, 40px);
+    gap: 4px;
+    justify-content: center;
+    margin: 1rem 0;
+}
+
+.controls-grid .key-hint {
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+}
+
+.direction-marker {
+    width: 40px;
+    height: 40px;
+    position: relative;
+}
+
+.direction-marker .dot {
+    width: 20px;
+    height: 20px;
+    background-color: #0d6efd;
+    border: 3px solid white;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+}
+
+.direction-marker .arrow {
+    width: 0;
+    height: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-bottom: 16px solid #0d6efd;
+    position: absolute;
+    top: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    transform-origin: center bottom;
+    opacity: 0;
+    transition: opacity 0.2s;
+}
+
+.direction-marker.moving .arrow {
+    opacity: 1;
+}
+
+.status-indicator {
+    padding: 0.5rem 1rem;
+    border-radius: 0.375rem;
+    text-align: center;
+    font-weight: 500;
+}
+
+.status-indicator.idle {
+    background-color: #e9ecef;
+    color: #6c757d;
+}
+
+.status-indicator.moving {
+    background-color: #d1e7dd;
+    color: #198754;
+}
+
+.marker-user {
+    background-color: #6c757d;
+    border: 3px solid white;
+    border-radius: 50%;
+    width: 16px;
+    height: 16px;
+    box-shadow: 0 0 0 2px #6c757d, 0 2px 5px rgba(0,0,0,0.3);
+}
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h1 class="mb-3">
+        <i class="{{ tool_data.img }} me-2"></i>{{ tool_data.name[current_lang] }}
+    </h1>
+    <p class="lead mb-4">{{ tool_data.description[current_lang] }}</p>
+    
+    <div class="row">
+        <div class="col-lg-4 mb-4">
+            <!-- Speed Display -->
+            <div class="card mb-3">
+                <div class="card-header">
+                    <h5 class="mb-0">
+                        <i class="fas fa-tachometer-alt me-2"></i>
+                        {% if current_lang == 'de' %}Geschwindigkeit{% else %}Speed{% endif %}
+                    </h5>
+                </div>
+                <div class="card-body">
+                    <div class="speed-display">
+                        <span id="speedValue">5.0</span>
+                        <span class="speed-unit">km/h</span>
+                    </div>
+                    <div class="text-center text-muted small mt-2">
+                        <i class="fas fa-arrow-up me-1"></i>/<i class="fas fa-arrow-down ms-1"></i>
+                        {% if current_lang == 'de' %}zum Anpassen{% else %}to adjust{% endif %}
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Controls -->
+            <div class="card mb-3">
+                <div class="card-header">
+                    <h5 class="mb-0">
+                        <i class="fas fa-keyboard me-2"></i>
+                        {% if current_lang == 'de' %}Steuerung{% else %}Controls{% endif %}
+                    </h5>
+                </div>
+                <div class="card-body">
+                    <div class="mb-3">
+                        <select class="form-select form-select-sm" id="controlScheme">
+                            <option value="wes3">3-W-E-S ({% if current_lang == 'de' %}Standard{% else %}Default{% endif %})</option>
+                            <option value="wasd">W-A-S-D</option>
+                        </select>
+                    </div>
+                    <div class="controls-grid" id="controlsGrid3WES">
+                        <div></div>
+                        <div class="key-hint" id="key3">3</div>
+                        <div></div>
+                        <div class="key-hint" id="keyW">W</div>
+                        <div></div>
+                        <div class="key-hint" id="keyE">E</div>
+                        <div></div>
+                        <div class="key-hint" id="keyS">S</div>
+                        <div></div>
+                    </div>
+                    <div class="controls-grid" id="controlsGridWASD" style="display: none;">
+                        <div></div>
+                        <div class="key-hint" id="keyW2">W</div>
+                        <div></div>
+                        <div class="key-hint" id="keyA">A</div>
+                        <div></div>
+                        <div class="key-hint" id="keyD">D</div>
+                        <div></div>
+                        <div class="key-hint" id="keyS2">S</div>
+                        <div></div>
+                    </div>
+                    <div class="text-center text-muted small" id="controlsHint3WES">
+                        <strong>3</strong> = {% if current_lang == 'de' %}Nord{% else %}North{% endif %},
+                        <strong>W</strong> = {% if current_lang == 'de' %}West{% else %}West{% endif %},
+                        <strong>E</strong> = {% if current_lang == 'de' %}Ost{% else %}East{% endif %},
+                        <strong>S</strong> = {% if current_lang == 'de' %}Süd{% else %}South{% endif %}
+                    </div>
+                    <div class="text-center text-muted small" id="controlsHintWASD" style="display: none;">
+                        <strong>W</strong> = {% if current_lang == 'de' %}Nord{% else %}North{% endif %},
+                        <strong>A</strong> = {% if current_lang == 'de' %}West{% else %}West{% endif %},
+                        <strong>S</strong> = {% if current_lang == 'de' %}Süd{% else %}South{% endif %},
+                        <strong>D</strong> = {% if current_lang == 'de' %}Ost{% else %}East{% endif %}
+                    </div>
+                    <hr>
+                    <div class="text-center text-muted small">
+                        <span class="key-hint" style="width: auto; padding: 0 8px;">+</span> / 
+                        <span class="key-hint" style="width: auto; padding: 0 8px;">-</span>
+                        {% if current_lang == 'de' %}Zoom{% else %}Zoom{% endif %}
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Status -->
+            <div class="card mb-3">
+                <div class="card-header">
+                    <h5 class="mb-0">
+                        <i class="fas fa-info-circle me-2"></i>
+                        {% if current_lang == 'de' %}Status{% else %}Status{% endif %}
+                    </h5>
+                </div>
+                <div class="card-body">
+                    <div class="status-indicator idle" id="statusIndicator">
+                        <i class="fas fa-pause me-1"></i>
+                        <span id="statusText">{% if current_lang == 'de' %}Bereit{% else %}Idle{% endif %}</span>
+                    </div>
+                    <div class="coords-display mt-3" id="coordsDisplay">
+                        0.000000, 0.000000
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Show My Location -->
+            <div class="card mb-3">
+                <div class="card-body">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="showMyLocation">
+                        <label class="form-check-label" for="showMyLocation">
+                            <i class="fas fa-location-arrow me-1"></i>
+                            {% if current_lang == 'de' %}Meinen Standort anzeigen{% else %}Show my location{% endif %}
+                        </label>
+                    </div>
+                    <button class="btn btn-outline-primary btn-sm w-100 mt-2" id="goToMyLocation">
+                        <i class="fas fa-crosshairs me-1"></i>
+                        {% if current_lang == 'de' %}Zu meinem Standort{% else %}Go to my location{% endif %}
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Map -->
+        <div class="col-lg-8 mb-4">
+            <div class="card h-100">
+                <div class="card-header">
+                    <h5 class="mb-0">
+                        <i class="fas fa-map me-2"></i>
+                        {% if current_lang == 'de' %}Karte{% else %}Map{% endif %}
+                    </h5>
+                </div>
+                <div class="card-body p-0">
+                    <div id="map"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    {% include 'components/seo_content.html' %}
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const lang = '{{ current_lang }}';
+    const i18n = {
+        idle: lang === 'de' ? 'Bereit' : 'Idle',
+        moving: lang === 'de' ? 'Bewegt sich' : 'Moving',
+        locationError: lang === 'de' ? 'Standort konnte nicht ermittelt werden' : 'Could not get location',
+        locationDenied: lang === 'de' ? 'Standortzugriff verweigert' : 'Location access denied'
+    };
+    
+    // State
+    let position = { lat: 50.0, lng: 10.0 };  // Current simulated position
+    let speed = 5.0;  // km/h
+    let direction = 0;  // degrees, 0 = North
+    let isMoving = false;
+    let userLocation = null;
+    let markerUser = null;
+    let controlScheme = 'wes3';  // 'wes3' (default) or 'wasd'
+    
+    // Keys currently pressed (direction-based, not key-based)
+    const keysPressed = {
+        north: false,
+        west: false,
+        south: false,
+        east: false
+    };
+    
+    // Elements
+    const speedValueEl = document.getElementById('speedValue');
+    const coordsDisplayEl = document.getElementById('coordsDisplay');
+    const statusIndicator = document.getElementById('statusIndicator');
+    const statusText = document.getElementById('statusText');
+    
+    // Initialize map
+    const map = L.map('map', {
+        keyboard: false,  // Disable default keyboard navigation
+        zoomControl: true
+    }).setView([position.lat, position.lng], 18);
+    
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(map);
+    
+    // Custom marker with direction arrow
+    const markerIcon = L.divIcon({
+        className: 'direction-marker-container',
+        html: `<div class="direction-marker" id="directionMarker">
+            <div class="arrow" id="directionArrow"></div>
+            <div class="dot"></div>
+        </div>`,
+        iconSize: [40, 40],
+        iconAnchor: [20, 20]
+    });
+    
+    const marker = L.marker([position.lat, position.lng], {
+        icon: markerIcon,
+        interactive: false
+    }).addTo(map);
+    
+    const iconUser = L.divIcon({
+        className: 'custom-marker',
+        html: '<div class="marker-user"></div>',
+        iconSize: [16, 16],
+        iconAnchor: [8, 8]
+    });
+    
+    // Movement calculation
+    function calculateNewPosition(lat, lng, bearingDeg, distanceKm) {
+        const R = 6371; // Earth's radius in km
+        const bearing = bearingDeg * Math.PI / 180;
+        const lat1 = lat * Math.PI / 180;
+        const lng1 = lng * Math.PI / 180;
+        const d = distanceKm / R;
+        
+        const lat2 = Math.asin(
+            Math.sin(lat1) * Math.cos(d) +
+            Math.cos(lat1) * Math.sin(d) * Math.cos(bearing)
+        );
+        
+        const lng2 = lng1 + Math.atan2(
+            Math.sin(bearing) * Math.sin(d) * Math.cos(lat1),
+            Math.cos(d) - Math.sin(lat1) * Math.sin(lat2)
+        );
+        
+        return {
+            lat: lat2 * 180 / Math.PI,
+            lng: lng2 * 180 / Math.PI
+        };
+    }
+    
+    function getMovementDirection() {
+        const north = keysPressed.north;
+        const south = keysPressed.south;
+        const west = keysPressed.west;
+        const east = keysPressed.east;
+        
+        // Cancel out opposing directions
+        const ns = north && !south ? -1 : (!north && south ? 1 : 0);
+        const ew = east && !west ? 1 : (!east && west ? -1 : 0);
+        
+        if (ns === 0 && ew === 0) return null;
+        
+        // Calculate bearing
+        // 0 = North, 90 = East, 180 = South, 270 = West
+        let bearing = 0;
+        
+        if (ns === -1 && ew === 0) bearing = 0;      // North
+        else if (ns === -1 && ew === 1) bearing = 45;  // NE
+        else if (ns === 0 && ew === 1) bearing = 90;   // East
+        else if (ns === 1 && ew === 1) bearing = 135;  // SE
+        else if (ns === 1 && ew === 0) bearing = 180;  // South
+        else if (ns === 1 && ew === -1) bearing = 225; // SW
+        else if (ns === 0 && ew === -1) bearing = 270; // West
+        else if (ns === -1 && ew === -1) bearing = 315; // NW
+        
+        return bearing;
+    }
+    
+    function updateUI() {
+        // Update coordinates display
+        coordsDisplayEl.textContent = `${position.lat.toFixed(6)}, ${position.lng.toFixed(6)}`;
+        
+        // Update speed display
+        speedValueEl.textContent = speed.toFixed(1);
+        
+        // Update key highlights based on control scheme
+        if (controlScheme === 'wes3') {
+            document.getElementById('key3').classList.toggle('active', keysPressed.north);
+            document.getElementById('keyW').classList.toggle('active', keysPressed.west);
+            document.getElementById('keyE').classList.toggle('active', keysPressed.east);
+            document.getElementById('keyS').classList.toggle('active', keysPressed.south);
+        } else {
+            document.getElementById('keyW2').classList.toggle('active', keysPressed.north);
+            document.getElementById('keyA').classList.toggle('active', keysPressed.west);
+            document.getElementById('keyS2').classList.toggle('active', keysPressed.south);
+            document.getElementById('keyD').classList.toggle('active', keysPressed.east);
+        }
+        
+        // Update status
+        const dir = getMovementDirection();
+        isMoving = dir !== null;
+        
+        if (isMoving) {
+            statusIndicator.classList.remove('idle');
+            statusIndicator.classList.add('moving');
+            statusText.innerHTML = `<i class="fas fa-walking me-1"></i>${i18n.moving}`;
+            direction = dir;
+        } else {
+            statusIndicator.classList.remove('moving');
+            statusIndicator.classList.add('idle');
+            statusText.innerHTML = `<i class="fas fa-pause me-1"></i>${i18n.idle}`;
+        }
+        
+        // Update direction arrow
+        const markerEl = document.getElementById('directionMarker');
+        const arrowEl = document.getElementById('directionArrow');
+        if (markerEl && arrowEl) {
+            if (isMoving) {
+                markerEl.classList.add('moving');
+                arrowEl.style.transform = `translateX(-50%) rotate(${direction}deg)`;
+            } else {
+                markerEl.classList.remove('moving');
+            }
+        }
+    }
+    
+    // Movement loop
+    let lastTime = performance.now();
+    
+    function gameLoop(currentTime) {
+        const deltaTime = (currentTime - lastTime) / 1000; // seconds
+        lastTime = currentTime;
+        
+        const dir = getMovementDirection();
+        
+        if (dir !== null) {
+            // Calculate distance traveled in this frame
+            const distanceKm = (speed / 3600) * deltaTime; // km per second * seconds
+            
+            // Calculate new position
+            const newPos = calculateNewPosition(position.lat, position.lng, dir, distanceKm);
+            position = newPos;
+            
+            // Update marker and center map
+            marker.setLatLng([position.lat, position.lng]);
+            map.setView([position.lat, position.lng], map.getZoom(), { animate: false });
+            
+            updateUI();
+        }
+        
+        requestAnimationFrame(gameLoop);
+    }
+    
+    // Start game loop
+    requestAnimationFrame(gameLoop);
+    
+    // Control scheme switcher
+    document.getElementById('controlScheme').addEventListener('change', function() {
+        controlScheme = this.value;
+        
+        // Reset all keys
+        keysPressed.north = false;
+        keysPressed.west = false;
+        keysPressed.south = false;
+        keysPressed.east = false;
+        
+        // Toggle visibility of control grids
+        if (controlScheme === 'wes3') {
+            document.getElementById('controlsGrid3WES').style.display = 'grid';
+            document.getElementById('controlsGridWASD').style.display = 'none';
+            document.getElementById('controlsHint3WES').style.display = 'block';
+            document.getElementById('controlsHintWASD').style.display = 'none';
+        } else {
+            document.getElementById('controlsGrid3WES').style.display = 'none';
+            document.getElementById('controlsGridWASD').style.display = 'grid';
+            document.getElementById('controlsHint3WES').style.display = 'none';
+            document.getElementById('controlsHintWASD').style.display = 'block';
+        }
+        
+        updateUI();
+    });
+    
+    // Keyboard event handlers
+    document.addEventListener('keydown', function(e) {
+        const key = e.key.toLowerCase();
+        
+        // Movement keys based on control scheme
+        if (controlScheme === 'wes3') {
+            // 3-W-E-S scheme: 3=North, W=West, E=East, S=South
+            if (key === '3') {
+                keysPressed.north = true;
+                updateUI();
+            }
+            if (key === 'w') {
+                keysPressed.west = true;
+                updateUI();
+            }
+            if (key === 'e') {
+                keysPressed.east = true;
+                updateUI();
+            }
+            if (key === 's' && !e.ctrlKey && !e.metaKey) {
+                keysPressed.south = true;
+                updateUI();
+                e.preventDefault();
+            }
+        } else {
+            // WASD scheme: W=North, A=West, S=South, D=East
+            if (key === 'w') {
+                keysPressed.north = true;
+                updateUI();
+            }
+            if (key === 'a') {
+                keysPressed.west = true;
+                updateUI();
+            }
+            if (key === 's' && !e.ctrlKey && !e.metaKey) {
+                keysPressed.south = true;
+                updateUI();
+                e.preventDefault();
+            }
+            if (key === 'd') {
+                keysPressed.east = true;
+                updateUI();
+            }
+        }
+        
+        // Speed control with arrow keys
+        if (key === 'arrowup') {
+            speed = Math.min(speed + 1, 100);
+            updateUI();
+            e.preventDefault();
+        }
+        if (key === 'arrowdown') {
+            speed = Math.max(speed - 1, 1);
+            updateUI();
+            e.preventDefault();
+        }
+        
+        // Zoom control
+        if (key === '+' || key === '=' || (key === '+' && e.shiftKey)) {
+            map.zoomIn();
+            e.preventDefault();
+        }
+        if (key === '-' || key === '_') {
+            map.zoomOut();
+            e.preventDefault();
+        }
+    });
+    
+    document.addEventListener('keyup', function(e) {
+        const key = e.key.toLowerCase();
+        
+        if (controlScheme === 'wes3') {
+            // 3-W-E-S scheme
+            if (key === '3') {
+                keysPressed.north = false;
+                updateUI();
+            }
+            if (key === 'w') {
+                keysPressed.west = false;
+                updateUI();
+            }
+            if (key === 'e') {
+                keysPressed.east = false;
+                updateUI();
+            }
+            if (key === 's') {
+                keysPressed.south = false;
+                updateUI();
+            }
+        } else {
+            // WASD scheme
+            if (key === 'w') {
+                keysPressed.north = false;
+                updateUI();
+            }
+            if (key === 'a') {
+                keysPressed.west = false;
+                updateUI();
+            }
+            if (key === 's') {
+                keysPressed.south = false;
+                updateUI();
+            }
+            if (key === 'd') {
+                keysPressed.east = false;
+                updateUI();
+            }
+        }
+    });
+    
+    // Prevent keys from triggering when typing in inputs
+    document.querySelectorAll('input, textarea, select').forEach(el => {
+        el.addEventListener('focus', () => {
+            keysPressed.north = false;
+            keysPressed.west = false;
+            keysPressed.south = false;
+            keysPressed.east = false;
+            updateUI();
+        });
+    });
+    
+    // User location functions
+    function getUserLocation(callback) {
+        if (!navigator.geolocation) {
+            alert(i18n.locationError);
+            return;
+        }
+        
+        navigator.geolocation.getCurrentPosition(
+            function(pos) {
+                userLocation = {
+                    lat: pos.coords.latitude,
+                    lng: pos.coords.longitude
+                };
+                callback(userLocation);
+            },
+            function(error) {
+                if (error.code === error.PERMISSION_DENIED) {
+                    alert(i18n.locationDenied);
+                } else {
+                    alert(i18n.locationError);
+                }
+            },
+            {enableHighAccuracy: true, timeout: 10000}
+        );
+    }
+    
+    function updateUserLocationMarker() {
+        const showMyLocation = document.getElementById('showMyLocation');
+        if (showMyLocation.checked && userLocation) {
+            if (markerUser) {
+                markerUser.setLatLng([userLocation.lat, userLocation.lng]);
+            } else {
+                markerUser = L.marker([userLocation.lat, userLocation.lng], {icon: iconUser}).addTo(map);
+            }
+        } else if (markerUser) {
+            map.removeLayer(markerUser);
+            markerUser = null;
+        }
+    }
+    
+    // Event listeners
+    document.getElementById('showMyLocation').addEventListener('change', function() {
+        if (this.checked && !userLocation) {
+            getUserLocation(function(loc) {
+                updateUserLocationMarker();
+            });
+        } else {
+            updateUserLocationMarker();
+        }
+    });
+    
+    document.getElementById('goToMyLocation').addEventListener('click', function() {
+        getUserLocation(function(loc) {
+            position = { lat: loc.lat, lng: loc.lng };
+            marker.setLatLng([position.lat, position.lng]);
+            map.setView([position.lat, position.lng], 18);
+            updateUI();
+        });
+    });
+    
+    // Try to get user location on load and set as starting position
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(
+            function(pos) {
+                userLocation = {
+                    lat: pos.coords.latitude,
+                    lng: pos.coords.longitude
+                };
+                position = { lat: userLocation.lat, lng: userLocation.lng };
+                marker.setLatLng([position.lat, position.lng]);
+                map.setView([position.lat, position.lng], 18);
+                updateUI();
+            },
+            function(error) {
+                // Location denied, stay at default view
+            },
+            {enableHighAccuracy: true, timeout: 5000}
+        );
+    }
+    
+    // Initial UI update
+    updateUI();
+});
+</script>
+{% endblock %}

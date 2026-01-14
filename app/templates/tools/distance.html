@@ -1,0 +1,762 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ tool_data.seo.title[current_lang] }} - Lots of Tools{% endblock %}
+
+{% block meta_description %}{{ tool_data.seo.meta_description[current_lang] }}{% endblock %}
+{% block meta_keywords %}{{ tool_data.seo.keywords[current_lang] }}{% endblock %}
+{% block og_title %}{{ tool_data.seo.title[current_lang] }}{% endblock %}
+{% block og_description %}{{ tool_data.seo.meta_description[current_lang] }}{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
+<style>
+#map {
+    height: 500px;
+    width: 100%;
+    border-radius: 0.375rem;
+    cursor: crosshair;
+}
+
+.distance-display {
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+    padding: 1rem;
+}
+
+.location-card {
+    border-left: 4px solid var(--bs-primary);
+}
+
+.location-card.point-a {
+    border-left-color: #198754;
+}
+
+.location-card.point-b {
+    border-left-color: #dc3545;
+}
+
+.marker-a {
+    background-color: #198754;
+    border: 2px solid white;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+    font-size: 14px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+}
+
+.marker-b {
+    background-color: #dc3545;
+    border: 2px solid white;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+    font-size: 14px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+}
+
+.coordinate-display {
+    font-family: 'Courier New', monospace;
+    font-size: 0.85rem;
+}
+
+.btn-location {
+    white-space: nowrap;
+}
+
+.share-options {
+    display: none;
+}
+
+.share-options.show {
+    display: block;
+}
+
+.mylocation-notice {
+    background-color: #fff3cd;
+    border: 1px solid #ffc107;
+    border-radius: 0.375rem;
+    padding: 1rem;
+    margin-bottom: 1rem;
+}
+
+.distance-line {
+    stroke: #0d6efd;
+    stroke-width: 3;
+    stroke-dasharray: 10, 5;
+}
+
+.marker-user {
+    background-color: #0d6efd;
+    border: 3px solid white;
+    border-radius: 50%;
+    width: 16px;
+    height: 16px;
+    box-shadow: 0 0 0 2px #0d6efd, 0 2px 5px rgba(0,0,0,0.3);
+}
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h1 class="mb-3">
+        <i class="{{ tool_data.img }} me-2"></i>{{ tool_data.name[current_lang] }}
+    </h1>
+    <p class="lead mb-4">{{ tool_data.description[current_lang] }}</p>
+    
+    <!-- MyLocation Notice (shown when URL contains mylocation parameter) -->
+    <div class="mylocation-notice" id="mylocationNotice" style="display: none;">
+        <i class="fas fa-info-circle me-2"></i>
+        <span id="mylocationMessage">
+            {% if current_lang == 'de' %}
+                Dieser Link verwendet Ihren Standort. Bitte erlauben Sie den Standortzugriff oder klicken Sie auf die Karte, um Ihren Standort festzulegen.
+            {% else %}
+                This link uses your location. Please allow location access or click on the map to set your location.
+            {% endif %}
+        </span>
+    </div>
+    
+    <div class="row">
+        <div class="col-lg-4 mb-4">
+            <!-- Point A -->
+            <div class="card location-card point-a mb-3">
+                <div class="card-header d-flex justify-content-between align-items-center">
+                    <h5 class="mb-0">
+                        <span class="badge bg-success me-2">A</span>
+                        {% if current_lang == 'de' %}Startpunkt{% else %}Start Point{% endif %}
+                    </h5>
+                </div>
+                <div class="card-body">
+                    <div class="coordinate-display mb-2" id="pointACoords">
+                        {% if current_lang == 'de' %}Nicht gesetzt{% else %}Not set{% endif %}
+                    </div>
+                    <div class="btn-group-vertical w-100" role="group">
+                        <button class="btn btn-outline-success btn-sm" id="setPointALocation">
+                            <i class="fas fa-location-arrow me-1"></i>
+                            {% if current_lang == 'de' %}Meinen Standort verwenden{% else %}Use my location{% endif %}
+                        </button>
+                        <button class="btn btn-outline-secondary btn-sm" id="setPointAClick">
+                            <i class="fas fa-mouse-pointer me-1"></i>
+                            {% if current_lang == 'de' %}Auf Karte klicken{% else %}Click on map{% endif %}
+                        </button>
+                        <button class="btn btn-outline-danger btn-sm" id="clearPointA">
+                            <i class="fas fa-times me-1"></i>
+                            {% if current_lang == 'de' %}Löschen{% else %}Clear{% endif %}
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Point B -->
+            <div class="card location-card point-b mb-3">
+                <div class="card-header d-flex justify-content-between align-items-center">
+                    <h5 class="mb-0">
+                        <span class="badge bg-danger me-2">B</span>
+                        {% if current_lang == 'de' %}Endpunkt{% else %}End Point{% endif %}
+                    </h5>
+                </div>
+                <div class="card-body">
+                    <div class="coordinate-display mb-2" id="pointBCoords">
+                        {% if current_lang == 'de' %}Nicht gesetzt{% else %}Not set{% endif %}
+                    </div>
+                    <div class="btn-group-vertical w-100" role="group">
+                        <button class="btn btn-outline-danger btn-sm" id="setPointBLocation">
+                            <i class="fas fa-location-arrow me-1"></i>
+                            {% if current_lang == 'de' %}Meinen Standort verwenden{% else %}Use my location{% endif %}
+                        </button>
+                        <button class="btn btn-outline-secondary btn-sm" id="setPointBClick">
+                            <i class="fas fa-mouse-pointer me-1"></i>
+                            {% if current_lang == 'de' %}Auf Karte klicken{% else %}Click on map{% endif %}
+                        </button>
+                        <button class="btn btn-outline-danger btn-sm" id="clearPointB">
+                            <i class="fas fa-times me-1"></i>
+                            {% if current_lang == 'de' %}Löschen{% else %}Clear{% endif %}
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Distance Display -->
+            <div class="card mb-3">
+                <div class="card-header">
+                    <h5 class="mb-0">
+                        <i class="fas fa-ruler me-2"></i>
+                        {% if current_lang == 'de' %}Entfernung{% else %}Distance{% endif %}
+                    </h5>
+                </div>
+                <div class="card-body">
+                    <div class="distance-display" id="distanceDisplay">
+                        --
+                    </div>
+                    <div class="text-center text-muted" id="distanceDetails"></div>
+                </div>
+            </div>
+            
+            <!-- Share Section -->
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="mb-0">
+                        <i class="fas fa-share-alt me-2"></i>
+                        {% if current_lang == 'de' %}Teilen{% else %}Share{% endif %}
+                    </h5>
+                </div>
+                <div class="card-body">
+                    <button class="btn btn-primary w-100 mb-2" id="shareBtn" disabled>
+                        <i class="fas fa-link me-1"></i>
+                        {% if current_lang == 'de' %}Link kopieren{% else %}Copy Link{% endif %}
+                    </button>
+                    
+                    <div class="share-options" id="shareOptions">
+                        <hr>
+                        <p class="small text-muted mb-2">
+                            {% if current_lang == 'de' %}
+                                Ersetze einen Punkt mit dem Standort des Empfängers:
+                            {% else %}
+                                Replace a point with recipient's location:
+                            {% endif %}
+                        </p>
+                        <div class="btn-group w-100" role="group">
+                            <button class="btn btn-outline-success btn-sm" id="shareWithMyLocationA">
+                                <i class="fas fa-user-location me-1"></i>A
+                            </button>
+                            <button class="btn btn-outline-danger btn-sm" id="shareWithMyLocationB">
+                                <i class="fas fa-user-location me-1"></i>B
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="text-success text-center mt-2" id="copiedMsg" style="display: none;">
+                        <i class="fas fa-check me-1"></i>
+                        {% if current_lang == 'de' %}Kopiert!{% else %}Copied!{% endif %}
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Show My Location -->
+            <div class="card mb-3">
+                <div class="card-body">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="showMyLocation">
+                        <label class="form-check-label" for="showMyLocation">
+                            <i class="fas fa-location-arrow me-1"></i>
+                            {% if current_lang == 'de' %}Meinen Standort anzeigen{% else %}Show my location{% endif %}
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Map -->
+        <div class="col-lg-8 mb-4">
+            <div class="card h-100">
+                <div class="card-header d-flex justify-content-between align-items-center">
+                    <h5 class="mb-0">
+                        <i class="fas fa-map me-2"></i>
+                        {% if current_lang == 'de' %}Karte{% else %}Map{% endif %}
+                    </h5>
+                    <span class="badge bg-secondary" id="clickModeIndicator" style="display: none;">
+                        {% if current_lang == 'de' %}Klicken Sie, um Punkt zu setzen{% else %}Click to set point{% endif %}
+                    </span>
+                </div>
+                <div class="card-body p-0">
+                    <div id="map"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    {% include 'components/seo_content.html' %}
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const lang = '{{ current_lang }}';
+    const i18n = {
+        notSet: lang === 'de' ? 'Nicht gesetzt' : 'Not set',
+        km: 'km',
+        m: 'm',
+        miles: lang === 'de' ? 'Meilen' : 'miles',
+        locationError: lang === 'de' ? 'Standort konnte nicht ermittelt werden' : 'Could not get location',
+        locationDenied: lang === 'de' ? 'Standortzugriff verweigert' : 'Location access denied',
+        clickMapForA: lang === 'de' ? 'Klicken Sie auf die Karte für Punkt A' : 'Click on map for point A',
+        clickMapForB: lang === 'de' ? 'Klicken Sie auf die Karte für Punkt B' : 'Click on map for point B',
+        copied: lang === 'de' ? 'Kopiert!' : 'Copied!'
+    };
+    
+    // State
+    let pointA = null;  // {lat, lng}
+    let pointB = null;
+    let userLocation = null;
+    let clickMode = null;  // 'A', 'B', or null
+    let markerA = null;
+    let markerB = null;
+    let markerUser = null;
+    let polyline = null;
+    let waitingForMyLocation = null;  // 'A' or 'B' when URL has mylocation
+    
+    // Elements
+    const pointACoordsEl = document.getElementById('pointACoords');
+    const pointBCoordsEl = document.getElementById('pointBCoords');
+    const distanceDisplayEl = document.getElementById('distanceDisplay');
+    const distanceDetailsEl = document.getElementById('distanceDetails');
+    const shareBtn = document.getElementById('shareBtn');
+    const shareOptions = document.getElementById('shareOptions');
+    const copiedMsg = document.getElementById('copiedMsg');
+    const clickModeIndicator = document.getElementById('clickModeIndicator');
+    const mylocationNotice = document.getElementById('mylocationNotice');
+    
+    // Initialize map (centered on Europe)
+    const map = L.map('map').setView([50.0, 10.0], 4);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(map);
+    
+    // Custom marker icons
+    const iconA = L.divIcon({
+        className: 'custom-marker',
+        html: '<div class="marker-a">A</div>',
+        iconSize: [24, 24],
+        iconAnchor: [12, 12]
+    });
+    
+    const iconB = L.divIcon({
+        className: 'custom-marker',
+        html: '<div class="marker-b">B</div>',
+        iconSize: [24, 24],
+        iconAnchor: [12, 12]
+    });
+    
+    const iconUser = L.divIcon({
+        className: 'custom-marker',
+        html: '<div class="marker-user"></div>',
+        iconSize: [16, 16],
+        iconAnchor: [8, 8]
+    });
+    
+    // Haversine distance calculation
+    function calculateDistance(lat1, lon1, lat2, lon2) {
+        const R = 6371; // Earth's radius in km
+        const dLat = (lat2 - lat1) * Math.PI / 180;
+        const dLon = (lon2 - lon1) * Math.PI / 180;
+        const a = Math.sin(dLat/2) * Math.sin(dLat/2) +
+                  Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) *
+                  Math.sin(dLon/2) * Math.sin(dLon/2);
+        const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+        return R * c;
+    }
+    
+    function formatCoords(point) {
+        if (!point) return i18n.notSet;
+        return `${point.lat.toFixed(6)}, ${point.lng.toFixed(6)}`;
+    }
+    
+    function formatDistance(km) {
+        if (km >= 1) {
+            const miles = km * 0.621371;
+            return {
+                main: `${km.toFixed(2)} ${i18n.km}`,
+                detail: `${miles.toFixed(2)} ${i18n.miles} / ${(km * 1000).toFixed(0)} ${i18n.m}`
+            };
+        } else {
+            const meters = km * 1000;
+            const feet = meters * 3.28084;
+            return {
+                main: `${meters.toFixed(0)} ${i18n.m}`,
+                detail: `${feet.toFixed(0)} ft`
+            };
+        }
+    }
+    
+    function updateMarkers() {
+        // Update marker A
+        if (pointA) {
+            if (markerA) {
+                markerA.setLatLng([pointA.lat, pointA.lng]);
+            } else {
+                markerA = L.marker([pointA.lat, pointA.lng], {icon: iconA, draggable: true}).addTo(map);
+                markerA.on('dragend', function(e) {
+                    pointA = {lat: e.target.getLatLng().lat, lng: e.target.getLatLng().lng};
+                    updateUI();
+                });
+            }
+        } else if (markerA) {
+            map.removeLayer(markerA);
+            markerA = null;
+        }
+        
+        // Update marker B
+        if (pointB) {
+            if (markerB) {
+                markerB.setLatLng([pointB.lat, pointB.lng]);
+            } else {
+                markerB = L.marker([pointB.lat, pointB.lng], {icon: iconB, draggable: true}).addTo(map);
+                markerB.on('dragend', function(e) {
+                    pointB = {lat: e.target.getLatLng().lat, lng: e.target.getLatLng().lng};
+                    updateUI();
+                });
+            }
+        } else if (markerB) {
+            map.removeLayer(markerB);
+            markerB = null;
+        }
+        
+        // Update line between points
+        if (pointA && pointB) {
+            const latlngs = [[pointA.lat, pointA.lng], [pointB.lat, pointB.lng]];
+            if (polyline) {
+                polyline.setLatLngs(latlngs);
+            } else {
+                polyline = L.polyline(latlngs, {
+                    color: '#0d6efd',
+                    weight: 3,
+                    dashArray: '10, 5'
+                }).addTo(map);
+            }
+        } else if (polyline) {
+            map.removeLayer(polyline);
+            polyline = null;
+        }
+    }
+    
+    function updateUI() {
+        // Update coordinate displays
+        pointACoordsEl.textContent = formatCoords(pointA);
+        pointBCoordsEl.textContent = formatCoords(pointB);
+        
+        // Update markers on map
+        updateMarkers();
+        
+        // Update distance
+        if (pointA && pointB) {
+            const distance = calculateDistance(pointA.lat, pointA.lng, pointB.lat, pointB.lng);
+            const formatted = formatDistance(distance);
+            distanceDisplayEl.textContent = formatted.main;
+            distanceDetailsEl.textContent = formatted.detail;
+            
+            // Fit map to show both points
+            const bounds = L.latLngBounds([
+                [pointA.lat, pointA.lng],
+                [pointB.lat, pointB.lng]
+            ]);
+            map.fitBounds(bounds, {padding: [50, 50]});
+            
+            // Enable share button and show options
+            shareBtn.disabled = false;
+            shareOptions.classList.add('show');
+        } else {
+            distanceDisplayEl.textContent = '--';
+            distanceDetailsEl.textContent = '';
+            shareBtn.disabled = true;
+            shareOptions.classList.remove('show');
+        }
+        
+        // Update URL
+        updateUrl();
+    }
+    
+    function updateUrl() {
+        const url = new URL(window.location.href);
+        url.search = '';
+        
+        if (pointA) {
+            url.searchParams.set('a', `${pointA.lat.toFixed(6)},${pointA.lng.toFixed(6)}`);
+        }
+        if (pointB) {
+            url.searchParams.set('b', `${pointB.lat.toFixed(6)},${pointB.lng.toFixed(6)}`);
+        }
+        
+        window.history.replaceState({}, '', url.toString());
+    }
+    
+    function getShareUrl(myLocationPoint = null) {
+        const url = new URL(window.location.origin + window.location.pathname);
+        
+        if (myLocationPoint === 'A') {
+            url.searchParams.set('a', 'mylocation');
+            if (pointB) {
+                url.searchParams.set('b', `${pointB.lat.toFixed(6)},${pointB.lng.toFixed(6)}`);
+            }
+        } else if (myLocationPoint === 'B') {
+            if (pointA) {
+                url.searchParams.set('a', `${pointA.lat.toFixed(6)},${pointA.lng.toFixed(6)}`);
+            }
+            url.searchParams.set('b', 'mylocation');
+        } else {
+            if (pointA) {
+                url.searchParams.set('a', `${pointA.lat.toFixed(6)},${pointA.lng.toFixed(6)}`);
+            }
+            if (pointB) {
+                url.searchParams.set('b', `${pointB.lat.toFixed(6)},${pointB.lng.toFixed(6)}`);
+            }
+        }
+        
+        return url.toString();
+    }
+    
+    function copyToClipboard(text) {
+        navigator.clipboard.writeText(text).then(function() {
+            copiedMsg.style.display = 'block';
+            setTimeout(function() {
+                copiedMsg.style.display = 'none';
+            }, 2000);
+            
+            if (typeof window.showSupportOnAction === 'function') {
+                window.showSupportOnAction(30000);
+            }
+        });
+    }
+    
+    function getUserLocation(callback) {
+        if (!navigator.geolocation) {
+            alert(i18n.locationError);
+            return;
+        }
+        
+        navigator.geolocation.getCurrentPosition(
+            function(position) {
+                userLocation = {
+                    lat: position.coords.latitude,
+                    lng: position.coords.longitude
+                };
+                callback(userLocation);
+            },
+            function(error) {
+                if (error.code === error.PERMISSION_DENIED) {
+                    alert(i18n.locationDenied);
+                } else {
+                    alert(i18n.locationError);
+                }
+            },
+            {enableHighAccuracy: true, timeout: 10000}
+        );
+    }
+    
+    function setClickMode(mode) {
+        clickMode = mode;
+        if (mode) {
+            clickModeIndicator.textContent = mode === 'A' ? i18n.clickMapForA : i18n.clickMapForB;
+            clickModeIndicator.style.display = 'inline';
+            map.getContainer().style.cursor = 'crosshair';
+        } else {
+            clickModeIndicator.style.display = 'none';
+            map.getContainer().style.cursor = '';
+        }
+    }
+    
+    function updateUserLocationMarker() {
+        const showMyLocation = document.getElementById('showMyLocation');
+        if (showMyLocation.checked && userLocation) {
+            if (markerUser) {
+                markerUser.setLatLng([userLocation.lat, userLocation.lng]);
+            } else {
+                markerUser = L.marker([userLocation.lat, userLocation.lng], {icon: iconUser}).addTo(map);
+            }
+        } else if (markerUser) {
+            map.removeLayer(markerUser);
+            markerUser = null;
+        }
+    }
+    
+    function parseCoordParam(param) {
+        if (!param) return null;
+        if (param === 'mylocation') return 'mylocation';
+        
+        const parts = param.split(',');
+        if (parts.length !== 2) return null;
+        
+        const lat = parseFloat(parts[0]);
+        const lng = parseFloat(parts[1]);
+        
+        if (isNaN(lat) || isNaN(lng)) return null;
+        if (lat < -90 || lat > 90 || lng < -180 || lng > 180) return null;
+        
+        return {lat, lng};
+    }
+    
+    // Event listeners
+    document.getElementById('setPointALocation').addEventListener('click', function() {
+        getUserLocation(function(loc) {
+            pointA = loc;
+            updateUI();
+        });
+    });
+    
+    document.getElementById('setPointBLocation').addEventListener('click', function() {
+        getUserLocation(function(loc) {
+            pointB = loc;
+            updateUI();
+        });
+    });
+    
+    document.getElementById('setPointAClick').addEventListener('click', function() {
+        setClickMode('A');
+    });
+    
+    document.getElementById('setPointBClick').addEventListener('click', function() {
+        setClickMode('B');
+    });
+    
+    document.getElementById('showMyLocation').addEventListener('change', function() {
+        if (this.checked && !userLocation) {
+            getUserLocation(function(loc) {
+                updateUserLocationMarker();
+            });
+        } else {
+            updateUserLocationMarker();
+        }
+    });
+    
+    document.getElementById('clearPointA').addEventListener('click', function() {
+        pointA = null;
+        updateUI();
+    });
+    
+    document.getElementById('clearPointB').addEventListener('click', function() {
+        pointB = null;
+        updateUI();
+    });
+    
+    shareBtn.addEventListener('click', function() {
+        copyToClipboard(getShareUrl());
+    });
+    
+    document.getElementById('shareWithMyLocationA').addEventListener('click', function() {
+        copyToClipboard(getShareUrl('A'));
+    });
+    
+    document.getElementById('shareWithMyLocationB').addEventListener('click', function() {
+        copyToClipboard(getShareUrl('B'));
+    });
+    
+    // Map click handler
+    map.on('click', function(e) {
+        if (clickMode === 'A') {
+            pointA = {lat: e.latlng.lat, lng: e.latlng.lng};
+            setClickMode(null);
+            updateUI();
+        } else if (clickMode === 'B') {
+            pointB = {lat: e.latlng.lat, lng: e.latlng.lng};
+            setClickMode(null);
+            updateUI();
+        } else if (waitingForMyLocation) {
+            // User is clicking to set their location for mylocation parameter
+            if (waitingForMyLocation === 'A') {
+                pointA = {lat: e.latlng.lat, lng: e.latlng.lng};
+            } else {
+                pointB = {lat: e.latlng.lat, lng: e.latlng.lng};
+            }
+            waitingForMyLocation = null;
+            mylocationNotice.style.display = 'none';
+            setClickMode(null);
+            updateUI();
+        } else if (!pointA) {
+            // Auto-set point A if not set
+            pointA = {lat: e.latlng.lat, lng: e.latlng.lng};
+            updateUI();
+        } else if (!pointB) {
+            // Auto-set point B if A is set but B is not
+            pointB = {lat: e.latlng.lat, lng: e.latlng.lng};
+            updateUI();
+        }
+    });
+    
+    // Load from URL parameters
+    function loadFromUrl() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const paramA = urlParams.get('a');
+        const paramB = urlParams.get('b');
+        
+        const parsedA = parseCoordParam(paramA);
+        const parsedB = parseCoordParam(paramB);
+        
+        // Check for mylocation parameters
+        const hasMyLocationA = parsedA === 'mylocation';
+        const hasMyLocationB = parsedB === 'mylocation';
+        
+        // Set fixed points
+        if (parsedA && parsedA !== 'mylocation') {
+            pointA = parsedA;
+        }
+        if (parsedB && parsedB !== 'mylocation') {
+            pointB = parsedB;
+        }
+        
+        // Handle mylocation
+        if (hasMyLocationA || hasMyLocationB) {
+            mylocationNotice.style.display = 'block';
+            waitingForMyLocation = hasMyLocationA ? 'A' : 'B';
+            
+            // Try to get user location
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(
+                    function(position) {
+                        const loc = {
+                            lat: position.coords.latitude,
+                            lng: position.coords.longitude
+                        };
+                        userLocation = loc;
+                        
+                        if (hasMyLocationA) {
+                            pointA = loc;
+                        } else {
+                            pointB = loc;
+                        }
+                        
+                        waitingForMyLocation = null;
+                        mylocationNotice.style.display = 'none';
+                        updateUI();
+                    },
+                    function(error) {
+                        // Location failed, user needs to click on map
+                        setClickMode(waitingForMyLocation);
+                    },
+                    {enableHighAccuracy: true, timeout: 10000}
+                );
+            }
+        }
+        
+        updateUI();
+    }
+    
+    // Initial load - try to get user location for first point if no URL params
+    const urlParams = new URLSearchParams(window.location.search);
+    if (!urlParams.has('a') && !urlParams.has('b')) {
+        // No URL params, ask for location to set as first point
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(
+                function(position) {
+                    userLocation = {
+                        lat: position.coords.latitude,
+                        lng: position.coords.longitude
+                    };
+                    pointA = userLocation;
+                    map.setView([userLocation.lat, userLocation.lng], 10);
+                    updateUI();
+                },
+                function(error) {
+                    // Location denied or failed, that's ok
+                    updateUI();
+                },
+                {enableHighAccuracy: true, timeout: 5000}
+            );
+        }
+    } else {
+        loadFromUrl();
+    }
+});
+</script>
+{% endblock %}

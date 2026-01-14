@@ -1,0 +1,95 @@
+{
+  "route": "/tools/simulate-location",
+  "img": "fas fa-walking",
+  "name": {
+    "en": "Location Simulator",
+    "de": "Standort-Simulator"
+  },
+  "description": {
+    "en": "Simulate movement on a map using keyboard controls",
+    "de": "Simulieren Sie Bewegung auf einer Karte mit Tastatursteuerung"
+  },
+  "tags": ["map", "geography", "jetlag"],
+  "new_window": false,
+  "frontend_only": true,
+  "seo": {
+    "title": {
+      "en": "Location Simulator - Virtual Movement on Map",
+      "de": "Standort-Simulator - Virtuelle Bewegung auf der Karte"
+    },
+    "meta_description": {
+      "en": "Simulate walking or moving on a map using keyboard controls. Set your speed, direction, and explore any location virtually. Privacy-friendly, browser-based.",
+      "de": "Simulieren Sie Gehen oder Bewegung auf einer Karte mit Tastatursteuerung. Stellen Sie Geschwindigkeit und Richtung ein und erkunden Sie jeden Ort virtuell. Datenschutzfreundlich, browserbasiert."
+    },
+    "keywords": {
+      "en": "location simulator, virtual movement, map navigation, keyboard controls, simulate walking, explore map, GPS simulator",
+      "de": "Standort-Simulator, virtuelle Bewegung, Kartennavigation, Tastatursteuerung, Gehen simulieren, Karte erkunden, GPS-Simulator"
+    },
+    "content": {
+      "heading": {
+        "en": "About This Location Simulator",
+        "de": "Über diesen Standort-Simulator"
+      },
+      "intro": {
+        "en": "This browser-based tool lets you simulate movement on a map using your keyboard. Navigate in any direction, adjust your speed, and explore locations virtually as if you were walking or running there.",
+        "de": "Dieses browserbasierte Tool ermöglicht es Ihnen, Bewegung auf einer Karte mit Ihrer Tastatur zu simulieren. Navigieren Sie in jede Richtung, passen Sie Ihre Geschwindigkeit an und erkunden Sie Orte virtuell, als ob Sie dort gehen oder laufen würden."
+      },
+      "features": {
+        "heading": {
+          "en": "Key Features:",
+          "de": "Hauptfunktionen:"
+        },
+        "items": [
+          {
+            "en": "<strong>Keyboard Controls:</strong> Use W/E/S/D keys for directional movement (N/E/S/W)",
+            "de": "<strong>Tastatursteuerung:</strong> Verwenden Sie W/E/S/D-Tasten für Richtungsbewegung (N/O/S/W)"
+          },
+          {
+            "en": "<strong>Diagonal Movement:</strong> Press two direction keys for 45° movement",
+            "de": "<strong>Diagonale Bewegung:</strong> Drücken Sie zwei Richtungstasten für 45°-Bewegung"
+          },
+          {
+            "en": "<strong>Speed Control:</strong> Adjust speed with arrow keys (default 5 km/h)",
+            "de": "<strong>Geschwindigkeitsregelung:</strong> Passen Sie die Geschwindigkeit mit Pfeiltasten an (Standard 5 km/h)"
+          },
+          {
+            "en": "<strong>Direction Indicator:</strong> Arrow shows current movement direction",
+            "de": "<strong>Richtungsanzeige:</strong> Pfeil zeigt aktuelle Bewegungsrichtung"
+          },
+          {
+            "en": "<strong>Zoom Control:</strong> Use +/- keys to zoom in and out",
+            "de": "<strong>Zoom-Steuerung:</strong> Verwenden Sie +/- Tasten zum Vergrößern und Verkleinern"
+          }
+        ]
+      },
+      "use_cases": {
+        "heading": {
+          "en": "Use Cases:",
+          "de": "Anwendungsfälle:"
+        },
+        "items": [
+          {
+            "en": "Explore unfamiliar areas virtually",
+            "de": "Unbekannte Gebiete virtuell erkunden"
+          },
+          {
+            "en": "Plan walking routes and estimate travel times",
+            "de": "Wanderrouten planen und Reisezeiten schätzen"
+          },
+          {
+            "en": "Test location-based applications",
+            "de": "Standortbasierte Anwendungen testen"
+          },
+          {
+            "en": "Educational tool for geography",
+            "de": "Bildungswerkzeug für Geografie"
+          }
+        ]
+      },
+      "privacy_note": {
+        "en": "🔒 Privacy-Friendly: All simulation happens in your browser. No location data is sent to any server.",
+        "de": "🔒 Datenschutzfreundlich: Die gesamte Simulation erfolgt in Ihrem Browser. Es werden keine Standortdaten an einen Server gesendet."
+      }
+    }
+  }
+}

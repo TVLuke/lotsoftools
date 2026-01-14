@@ -81,6 +81,10 @@ def create_app(config_class=Config):
     from app.routes.tools.coordinate_converter import coordinate_converter_bp
     from app.routes.tools.teleprompter import teleprompter_bp
     from app.routes.tools.lastfm_export import lastfm_export_bp
+    from app.routes.tools.distance import distance_bp
+    from app.routes.tools.radius import radius_bp
+    from app.routes.tools.map_tracer import map_tracer_bp
+    from app.routes.tools.simulate_location import simulate_location_bp
     from app.routes.icon_cache import icon_cache_bp
     
     app.register_blueprint(main_bp)
@@ -120,6 +124,10 @@ def create_app(config_class=Config):
     app.register_blueprint(coordinate_converter_bp)
     app.register_blueprint(teleprompter_bp)
     app.register_blueprint(lastfm_export_bp)
+    app.register_blueprint(distance_bp)
+    app.register_blueprint(radius_bp)
+    app.register_blueprint(map_tracer_bp)
+    app.register_blueprint(simulate_location_bp)
     app.register_blueprint(icon_cache_bp)
     
     with app.app_context():
