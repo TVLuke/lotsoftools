@@ -745,6 +745,11 @@ document.addEventListener('DOMContentLoaded', function() {
         if (getSelectedView() === 'calendar') loadAllHolidays();
         updatePageTitle();
         updateUrl();
+        
+        // Show support hint when a specific region is selected
+        if (subdivisionSelect.value !== 'all' && typeof window.showSupportOnAction === 'function') {
+            window.showSupportOnAction(30000);
+        }
     });
     langRadios.forEach(radio => radio.addEventListener('change', () => {
         loadHolidays();
