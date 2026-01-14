@@ -99,30 +99,28 @@
 
 <!-- Fullscreen Teleprompter Overlay -->
 <div id="teleprompterOverlay" class="teleprompter-overlay">
-    <div class="teleprompter-scroll-wrapper" id="scrollWrapper">
-        <button class="teleprompter-close" id="closeBtn" title="{% if current_lang == 'de' %}Schließen (ESC){% else %}Close (ESC){% endif %}">
-            <i class="fas fa-times"></i>
-        </button>
-        
-        <div class="teleprompter-countdown" id="countdownDisplay"></div>
-        
-        <div class="teleprompter-marker" id="markerLine"></div>
-        
-        <div class="teleprompter-content" id="teleprompterContent"></div>
-        
-        <div class="teleprompter-pause-indicator" id="pauseIndicator">
+    <button class="teleprompter-close" id="closeBtn" title="{% if current_lang == 'de' %}Schließen (ESC){% else %}Close (ESC){% endif %}">
+        <i class="fas fa-times"></i>
+    </button>
+    
+    <div class="teleprompter-countdown" id="countdownDisplay"></div>
+    
+    <div class="teleprompter-marker" id="markerLine"></div>
+    
+    <div class="teleprompter-content" id="teleprompterContent"></div>
+    
+    <div class="teleprompter-pause-indicator" id="pauseIndicator">
         <i class="fas fa-pause-circle"></i>
         <span id="pauseCountdown"></span>
     </div>
     
-        <div class="teleprompter-nav-buttons">
-            <button class="teleprompter-nav-btn" id="prevBreakBtn" title="{% if current_lang == 'de' %}Vorheriger Abschnitt{% else %}Previous section{% endif %}">
-                <i class="fas fa-chevron-up"></i>
-            </button>
-            <button class="teleprompter-nav-btn" id="nextBreakBtn" title="{% if current_lang == 'de' %}Nächster Abschnitt{% else %}Next section{% endif %}">
-                <i class="fas fa-chevron-down"></i>
-            </button>
-        </div>
+    <div class="teleprompter-nav-buttons">
+        <button class="teleprompter-nav-btn" id="prevBreakBtn" title="{% if current_lang == 'de' %}Vorheriger Abschnitt{% else %}Previous section{% endif %}">
+            <i class="fas fa-chevron-up"></i>
+        </button>
+        <button class="teleprompter-nav-btn" id="nextBreakBtn" title="{% if current_lang == 'de' %}Nächster Abschnitt{% else %}Next section{% endif %}">
+            <i class="fas fa-chevron-down"></i>
+        </button>
     </div>
 </div>
 {% endblock %}
@@ -138,17 +136,6 @@
     height: 100vh;
     z-index: 9999;
     overflow: hidden;
-}
-
-.teleprompter-scroll-wrapper {
-    width: 100%;
-    height: 100%;
-    overflow-y: auto;
-    overflow-x: hidden;
-    -webkit-overflow-scrolling: touch;
-    position: relative;
-    background: inherit;
-    color: inherit;
 }
 
 .teleprompter-overlay.active {
@@ -211,6 +198,7 @@
     padding-bottom: 50vh;
     z-index: 9999;
     color: inherit !important;
+    will-change: transform;
 }
 
 .teleprompter-content.mirrored {
@@ -318,7 +306,6 @@ const startBtn = document.getElementById('startBtn');
 const closeBtn = document.getElementById('closeBtn');
 
 const overlay = document.getElementById('teleprompterOverlay');
-const scrollWrapper = document.getElementById('scrollWrapper');
 const countdownDisplay = document.getElementById('countdownDisplay');
 const markerLine = document.getElementById('markerLine');
 const teleprompterContent = document.getElementById('teleprompterContent');
@@ -328,6 +315,16 @@ const pauseCountdown = document.getElementById('pauseCountdown');
 let scrollInterval = null;
 let isPaused = false;
 let currentPauseTimeout = null;
+let currentOffset = 0;
+let isMirrored = false;
+
+function updateTransform() {
+    if (isMirrored) {
+        teleprompterContent.style.transform = `scaleX(-1) translateY(-${currentOffset}px)`;
+    } else {
+        teleprompterContent.style.transform = `translateY(-${currentOffset}px)`;
+    }
+}
 
 function parseScript(text) {
     const markerPattern = /<<(\d+|break)>>/gi;
@@ -404,11 +401,8 @@ function startTeleprompter() {
     markerLine.style.backgroundColor = markerColor;
     markerLine.style.height = `${fontSize * 1.6}px`;
     
-    if (mirrored) {
-        teleprompterContent.classList.add('mirrored');
-    } else {
-        teleprompterContent.classList.remove('mirrored');
-    }
+    isMirrored = mirrored;
+    teleprompterContent.classList.remove('mirrored');
     
     const segments = parseScript(script);
     teleprompterContent.innerHTML = renderContent(segments);
@@ -416,13 +410,14 @@ function startTeleprompter() {
     overlay.classList.add('active');
     document.body.style.overflow = 'hidden';
     
-    scrollWrapper.scrollTop = 0;
+    currentOffset = 0;
+    updateTransform();
     
     // Collect break positions
     breakPositions = [];
     const breakMarkers = teleprompterContent.querySelectorAll('.break-marker');
     breakMarkers.forEach(marker => {
-        breakPositions.push(marker.offsetTop - scrollWrapper.clientHeight / 2);
+        breakPositions.push(marker.offsetTop - overlay.clientHeight / 2);
     });
     
     if (countdownSeconds > 0) {
@@ -461,32 +456,32 @@ function startScrolling(speed) {
     
     pauseMarkers.forEach(marker => {
         pausePositions.push({
-            position: marker.offsetTop - scrollWrapper.clientHeight / 2,
+            position: marker.offsetTop - overlay.clientHeight / 2,
             duration: parseInt(marker.dataset.pause, 10),
             triggered: false
         });
     });
     
+    const maxOffset = teleprompterContent.offsetHeight - overlay.clientHeight;
+    
     scrollInterval = setInterval(() => {
         if (isPaused) return;
         
-        const currentScroll = scrollWrapper.scrollTop;
-        const maxScroll = scrollWrapper.scrollHeight - scrollWrapper.clientHeight;
-        
         for (const pause of pausePositions) {
-            if (!pause.triggered && currentScroll >= pause.position - 10 && currentScroll <= pause.position + 10) {
+            if (!pause.triggered && currentOffset >= pause.position - 10 && currentOffset <= pause.position + 10) {
                 pause.triggered = true;
                 triggerPause(pause.duration);
                 return;
             }
         }
         
-        if (currentScroll >= maxScroll) {
+        if (currentOffset >= maxOffset) {
             stopTeleprompter();
             return;
         }
         
-        scrollWrapper.scrollTop += pixelsPerFrame;
+        currentOffset += pixelsPerFrame;
+        updateTransform();
     }, frameInterval);
 }
 
@@ -524,6 +519,9 @@ function stopTeleprompter() {
     countdownDisplay.classList.remove('active');
     overlay.classList.remove('active');
     document.body.style.overflow = '';
+    currentOffset = 0;
+    isMirrored = false;
+    teleprompterContent.style.transform = '';
 }
 
 startBtn.addEventListener('click', startTeleprompter);
@@ -534,10 +532,10 @@ const nextBreakBtn = document.getElementById('nextBreakBtn');
 
 function jumpToNextBreak() {
     if (!overlay.classList.contains('active') || breakPositions.length === 0) return;
-    const currentScroll = scrollWrapper.scrollTop;
     for (const pos of breakPositions) {
-        if (pos > currentScroll + 10) {
-            scrollWrapper.scrollTop = pos;
+        if (pos > currentOffset + 10) {
+            currentOffset = pos;
+            updateTransform();
             return;
         }
     }
@@ -545,14 +543,15 @@ function jumpToNextBreak() {
 
 function jumpToPrevBreak() {
     if (!overlay.classList.contains('active') || breakPositions.length === 0) return;
-    const currentScroll = scrollWrapper.scrollTop;
     for (let i = breakPositions.length - 1; i >= 0; i--) {
-        if (breakPositions[i] < currentScroll - 10) {
-            scrollWrapper.scrollTop = breakPositions[i];
+        if (breakPositions[i] < currentOffset - 10) {
+            currentOffset = breakPositions[i];
+            updateTransform();
             return;
         }
     }
-    scrollWrapper.scrollTop = 0;
+    currentOffset = 0;
+    updateTransform();
 }
 
 prevBreakBtn.addEventListener('click', jumpToPrevBreak);
