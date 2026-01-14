@@ -97,7 +97,10 @@ def stats():
 
 @main_bp.route('/about')
 def about():
-    return render_template('about.html')
+    from app.services.about_content import load_about_content
+    lang = session.get('lang', 'en')
+    about_content = load_about_content(lang)
+    return render_template('about.html', about_content=about_content)
 
 @main_bp.route('/privacy')
 @main_bp.route('/datenschutz')

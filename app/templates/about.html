@@ -1,10 +1,15 @@
 {% extends 'base.html' %}
 
-{% block title %}About - Lots of Tools{% endblock %}
+{% block title %}{% if current_lang == 'de' %}Über uns{% else %}About{% endif %} - Lots of Tools{% endblock %}
 
 {% block content %}
 <div class="container mt-4">
-    <h1>About</h1>
+    <h1>{% if current_lang == 'de' %}Über diesen Dienst{% else %}About{% endif %}</h1>
     
+    {% if about_content %}
+    <div class="about-content">
+        {{ about_content|safe }}
+    </div>
+    {% endif %}
 </div>
 {% endblock %}
