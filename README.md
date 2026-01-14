@@ -2,7 +2,7 @@
 
 I got fed up.
 
-Fed up with all these single-purpose websites full of tracking cookies, commercials, pop-ups, and shady buttons that serve you malware. You know the ones — they're always the first results in Google, not because they're good, but because they've SEO'd and paid their way to the top. They're infested with ads, harvest your data, and make you click through five screens just to convert a UUID or generate a QR code.
+Fed up with all these single-purpose websites full of tracking cookies, commercials, pop-ups, and shady buttons that serve you malware. You know the ones — they're always the first results in Google, not because they're good, but because they've SEO'd and paid their way to the top. They're infested with ads, harvest your data, and make you click through five screens just to get a UUID or generate a QR code.
 
 Sure, there are some very good ones out there. But the overall state of these "simple online tools" is horrible.
 
