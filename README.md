@@ -127,6 +127,6 @@ usefull/
 - No external API calls except where explicitly required (e.g., holiday data)
 - All JavaScript/CSS libraries are self-hosted
 
-## License
+## Note on Use of LLMs
 
-MIT
+This code was created using, among other tools, LLM tools like ChatGPT.
