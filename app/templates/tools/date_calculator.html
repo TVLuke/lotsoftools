@@ -396,6 +396,7 @@
 }
 </style>
 
+<script src="{{ url_for('static', filename='js/date-calculator.js') }}"></script>
 <script>
 document.addEventListener('DOMContentLoaded', function() {
     const dateInput = document.getElementById('dateInput');
@@ -431,10 +432,6 @@ document.addEventListener('DOMContentLoaded', function() {
         return new Date(dateStr);
     }
     
-    function formatNumber(num) {
-        return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.');
-    }
-    
     function updateDisplay() {
         const targetDate = getTargetDate();
         
@@ -448,50 +445,15 @@ document.addEventListener('DOMContentLoaded', function() {
         resultContainer.style.display = 'block';
         
         const now = new Date();
-        let diffMs = targetDate - now;
-        
-        // Handle negative values (past/future depending on mode)
-        const isNegative = diffMs < 0;
-        diffMs = Math.abs(diffMs);
-        
-        const totalSeconds = Math.floor(diffMs / 1000);
-        const totalMinutes = Math.floor(diffMs / (1000 * 60));
-        const totalHours = Math.floor(diffMs / (1000 * 60 * 60));
-        const totalDays = Math.floor(diffMs / (1000 * 60 * 60 * 24));
-        
-        // Years decimal (approximate: 365.25 days per year)
-        const yearsDecimalVal = (diffMs / (1000 * 60 * 60 * 24 * 365.25)).toFixed(6);
-        
-        // Full format: years, months, days, hours, minutes, seconds
-        const years = Math.floor(totalDays / 365.25);
-        const remainingDaysAfterYears = totalDays - Math.floor(years * 365.25);
-        const months = Math.floor(remainingDaysAfterYears / 30.44);
-        const days = Math.floor(remainingDaysAfterYears - Math.floor(months * 30.44));
-        const hours = Math.floor((diffMs % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const minutes = Math.floor((diffMs % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((diffMs % (1000 * 60)) / 1000);
-        
-        // Days format
-        const daysHours = Math.floor((diffMs % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const daysMinutes = Math.floor((diffMs % (1000 * 60 * 60)) / (1000 * 60));
-        const daysSeconds = Math.floor((diffMs % (1000 * 60)) / 1000);
-        
-        // Hours format
-        const hoursMinutes = Math.floor((diffMs % (1000 * 60 * 60)) / (1000 * 60));
-        const hoursSeconds = Math.floor((diffMs % (1000 * 60)) / 1000);
-        
-        // Minutes format
-        const minutesSeconds = Math.floor((diffMs % (1000 * 60)) / 1000);
-        
-        const prefix = isNegative ? '-' : '';
+        const formats = DateCalculator.getAllFormats(targetDate, now);
         
         // Update display
-        fullFormat.textContent = `${prefix}${years}y ${months}m ${days}d ${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
-        yearsDecimal.textContent = `${prefix}${yearsDecimalVal}`;
-        daysFormat.textContent = `${prefix}${formatNumber(totalDays)}d ${daysHours.toString().padStart(2, '0')}:${daysMinutes.toString().padStart(2, '0')}:${daysSeconds.toString().padStart(2, '0')}`;
-        hoursFormat.textContent = `${prefix}${formatNumber(totalHours)}:${hoursMinutes.toString().padStart(2, '0')}:${hoursSeconds.toString().padStart(2, '0')}`;
-        minutesFormat.textContent = `${prefix}${formatNumber(totalMinutes)}:${minutesSeconds.toString().padStart(2, '0')}`;
-        secondsFormat.textContent = `${prefix}${formatNumber(totalSeconds)}`;
+        fullFormat.textContent = formats.full;
+        yearsDecimal.textContent = formats.yearsDecimal;
+        daysFormat.textContent = formats.days;
+        hoursFormat.textContent = formats.hours;
+        minutesFormat.textContent = formats.minutes;
+        secondsFormat.textContent = formats.seconds;
     }
     
     function startLiveUpdate() {
@@ -629,38 +591,21 @@ document.addEventListener('DOMContentLoaded', function() {
         if (!targetDate) return '-';
         
         const now = new Date();
-        let diffMs = targetDate - now;
-        const isNegative = diffMs < 0;
-        diffMs = Math.abs(diffMs);
-        
-        const totalSeconds = Math.floor(diffMs / 1000);
-        const totalMinutes = Math.floor(diffMs / (1000 * 60));
-        const totalHours = Math.floor(diffMs / (1000 * 60 * 60));
-        const totalDays = Math.floor(diffMs / (1000 * 60 * 60 * 24));
-        
-        const years = Math.floor(totalDays / 365.25);
-        const remainingDaysAfterYears = totalDays - Math.floor(years * 365.25);
-        const months = Math.floor(remainingDaysAfterYears / 30.44);
-        const days = Math.floor(remainingDaysAfterYears - Math.floor(months * 30.44));
-        const hours = Math.floor((diffMs % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const minutes = Math.floor((diffMs % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((diffMs % (1000 * 60)) / 1000);
-        
-        const prefix = isNegative ? '-' : '';
+        const formats = DateCalculator.getAllFormats(targetDate, now);
         
         switch(format) {
             case 'full':
-                return `${prefix}${years}y ${months}m ${days}d ${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+                return formats.full;
             case 'years':
-                return `${prefix}${(diffMs / (1000 * 60 * 60 * 24 * 365.25)).toFixed(6)}`;
+                return formats.yearsDecimal;
             case 'days':
-                return `${prefix}${totalDays}d ${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+                return formats.days;
             case 'hours':
-                return `${prefix}${totalHours}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+                return formats.hours;
             case 'minutes':
-                return `${prefix}${totalMinutes}:${seconds.toString().padStart(2, '0')}`;
+                return formats.minutes;
             case 'seconds':
-                return `${prefix}${totalSeconds}`;
+                return formats.seconds;
             default:
                 return '-';
         }
