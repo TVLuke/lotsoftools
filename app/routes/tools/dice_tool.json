@@ -1,0 +1,74 @@
+{
+    "route": "/tools/dice",
+    "img": "fa-solid fa-dice",
+    "name": {
+        "en": "Dice",
+        "de": "Würfel"
+    },
+    "new_window": false,
+    "frontend_only": true,
+    "description": {
+        "en": "Roll virtual dice or flip a coin - from D3 to D20",
+        "de": "Virtuelle Würfel werfen oder eine Münze werfen - von W3 bis W20"
+    },
+    "tags": ["generator", "utility"],
+    "ui": {
+        "roll": { "en": "Roll", "de": "Würfeln" },
+        "flip": { "en": "Flip", "de": "Werfen" },
+        "coin": { "en": "Coin", "de": "Münze" },
+        "sides": { "en": "Sides", "de": "Seiten" },
+        "result": { "en": "Result", "de": "Ergebnis" },
+        "history": { "en": "History", "de": "Verlauf" },
+        "clear_history": { "en": "Clear", "de": "Löschen" },
+        "heads": { "en": "Heads", "de": "Kopf" },
+        "tails": { "en": "Tails", "de": "Zahl" }
+    },
+    "seo": {
+        "title": {
+            "en": "Dice Roller - Virtual Dice & Coin Flip",
+            "de": "Würfel - Virtueller Würfel & Münzwurf"
+        },
+        "meta_description": {
+            "en": "Free online dice roller. Roll D3, D4, D6, D8, D10, D12, D20 dice or flip a coin. Perfect for board games and RPGs.",
+            "de": "Kostenloser Online-Würfel. D3, D4, D6, D8, D10, D12, D20 Würfel werfen oder Münze werfen. Perfekt für Brettspiele und Rollenspiele."
+        },
+        "keywords": {
+            "en": "dice roller, virtual dice, coin flip, d20, d6, random number, board games, RPG",
+            "de": "Würfel, virtueller Würfel, Münzwurf, D20, D6, Zufallszahl, Brettspiele, Rollenspiel"
+        },
+        "content": {
+            "heading": {
+                "en": "About the Dice Roller",
+                "de": "Über den Würfel"
+            },
+            "intro": {
+                "en": "A simple virtual dice roller for board games, role-playing games, or any situation where you need random numbers. Choose from various dice types or flip a coin.",
+                "de": "Ein einfacher virtueller Würfel für Brettspiele, Rollenspiele oder jede Situation, in der Sie Zufallszahlen benötigen. Wählen Sie aus verschiedenen Würfeltypen oder werfen Sie eine Münze."
+            },
+            "features": {
+                "heading": {
+                    "en": "Features:",
+                    "de": "Funktionen:"
+                },
+                "items": [
+                    {
+                        "en": "<strong>Multiple Dice:</strong> D3, D4, D5, D6, D8, D10, D12, D20",
+                        "de": "<strong>Mehrere Würfel:</strong> D3, D4, D5, D6, D8, D10, D12, D20"
+                    },
+                    {
+                        "en": "<strong>Coin Flip:</strong> Special mode with Heads/Tails display",
+                        "de": "<strong>Münzwurf:</strong> Spezialmodus mit Kopf/Zahl-Anzeige"
+                    },
+                    {
+                        "en": "<strong>Roll History:</strong> Keep track of your rolls during the session",
+                        "de": "<strong>Würfelverlauf:</strong> Behalten Sie Ihre Würfe während der Sitzung im Blick"
+                    }
+                ]
+            },
+            "privacy_note": {
+                "en": "🔒 Privacy-Friendly: All dice rolls happen in your browser using cryptographically secure random numbers. No data is sent to any server.",
+                "de": "🔒 Datenschutzfreundlich: Alle Würfelwürfe erfolgen in Ihrem Browser mit kryptografisch sicheren Zufallszahlen. Es werden keine Daten an einen Server gesendet."
+            }
+        }
+    }
+}

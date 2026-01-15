@@ -1,6 +1,7 @@
 {
   "ascii_table": {"active": true},
   "barcode_generator": {"active": true},
+  "dice": {"active": true},
   "base64": {"active": true},
   "base_converter": {"active": true},
   "calendar": {"active": true},

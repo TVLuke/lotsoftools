@@ -1,0 +1,390 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ tool_data.seo.title[current_lang] }} - Lots of Tools{% endblock %}
+
+{% block meta_description %}{{ tool_data.seo.meta_description[current_lang] }}{% endblock %}
+{% block meta_keywords %}{{ tool_data.seo.keywords[current_lang] }}{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-12">
+        <div class="d-flex justify-content-between align-items-center flex-wrap mb-4">
+            <h1 class="mb-0">
+                <i class="{{ tool_data.img }} me-2"></i>{{ tool_data.name[current_lang] }}
+            </h1>
+            {% include 'components/share_button.html' %}
+        </div>
+    </div>
+</div>
+
+<div class="row justify-content-center">
+    <div class="col-lg-6">
+        <div class="card mb-4">
+            <div class="card-body text-center">
+                <!-- Dice Type Selector -->
+                <div class="mb-4">
+                    <label class="form-label">{{ tool_data.ui.sides[current_lang] }}</label>
+                    <div class="d-flex flex-wrap justify-content-center gap-2 mb-3">
+                        <button class="btn btn-outline-warning dice-btn" data-sides="coin">
+                            <i class="fas fa-coins me-1"></i>{{ tool_data.ui.coin[current_lang] }}
+                        </button>
+                        <button class="btn btn-outline-secondary dice-btn" data-sides="3">D3</button>
+                        <button class="btn btn-outline-secondary dice-btn" data-sides="4">D4</button>
+                        <button class="btn btn-outline-secondary dice-btn" data-sides="6">D6</button>
+                        <button class="btn btn-outline-secondary dice-btn" data-sides="8">D8</button>
+                        <button class="btn btn-outline-secondary dice-btn" data-sides="10">D10</button>
+                        <button class="btn btn-outline-secondary dice-btn" data-sides="12">D12</button>
+                        <button class="btn btn-outline-secondary dice-btn" data-sides="20">D20</button>
+                    </div>
+                    <div class="d-flex justify-content-center align-items-center gap-2">
+                        <span class="text-muted">{% if current_lang == 'de' %}oder{% else %}or{% endif %}</span>
+                        <div class="input-group" style="max-width: 150px;">
+                            <span class="input-group-text">D</span>
+                            <input type="number" class="form-control" id="customSides" min="3" max="1000" placeholder="...">
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Result Display -->
+                <div class="result-container mb-4">
+                    <div id="resultDisplay" class="result-display">
+                        <span class="result-placeholder">?</span>
+                    </div>
+                    <div id="resultLabel" class="result-label text-muted"></div>
+                </div>
+                
+                <!-- Roll Button -->
+                <button class="btn btn-primary btn-lg px-5" id="rollBtn">
+                    <i class="fas fa-dice me-2"></i>
+                    <span id="rollBtnText">{{ tool_data.ui.roll[current_lang] }}</span>
+                </button>
+            </div>
+        </div>
+        
+        <!-- History -->
+        <div class="card">
+            <div class="card-header d-flex justify-content-between align-items-center">
+                <h5 class="mb-0">
+                    <i class="fas fa-history me-2"></i>{{ tool_data.ui.history[current_lang] }}
+                </h5>
+                <button class="btn btn-sm btn-outline-secondary" id="clearHistoryBtn">
+                    <i class="fas fa-trash-alt me-1"></i>{{ tool_data.ui.clear_history[current_lang] }}
+                </button>
+            </div>
+            <div class="card-body">
+                <div id="historyContainer" class="history-container">
+                    <span class="text-muted">-</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% include 'components/seo_content.html' %}
+{% endblock %}
+
+{% block extra_css %}
+<style>
+.dice-btn {
+    min-width: 60px;
+}
+
+.dice-btn.active {
+    background-color: var(--bs-primary);
+    border-color: var(--bs-primary);
+    color: white;
+}
+
+.dice-btn[data-sides="coin"].active {
+    background-color: var(--bs-warning);
+    border-color: var(--bs-warning);
+    color: #000;
+}
+
+.result-container {
+    padding: 20px;
+}
+
+.result-display {
+    width: 150px;
+    height: 150px;
+    margin: 0 auto;
+    border: 4px solid var(--bs-primary);
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 4rem;
+    font-weight: bold;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    transition: transform 0.1s ease;
+}
+
+.result-display.coin {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border-color: var(--bs-warning);
+    font-size: 4rem;
+}
+
+.result-display.rolling {
+    animation: shake 0.3s ease-in-out;
+}
+
+.result-placeholder {
+    color: #adb5bd;
+}
+
+.result-label {
+    margin-top: 10px;
+    font-size: 1.2rem;
+}
+
+@keyframes shake {
+    0%, 100% { transform: rotate(0deg); }
+    25% { transform: rotate(-10deg); }
+    50% { transform: rotate(10deg); }
+    75% { transform: rotate(-5deg); }
+}
+
+.history-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+.history-item {
+    display: inline-flex;
+    align-items: center;
+    padding: 4px 10px;
+    border-radius: 20px;
+    background-color: #e9ecef;
+    font-size: 0.9rem;
+}
+
+.history-item .dice-type {
+    font-weight: bold;
+    margin-right: 5px;
+    color: #6c757d;
+}
+
+.history-item .roll-result {
+    font-weight: bold;
+}
+
+.history-item.coin {
+    background-color: #fff3cd;
+}
+
+[data-bs-theme="dark"] .result-display {
+    background: linear-gradient(135deg, #343a40 0%, #495057 100%);
+}
+
+[data-bs-theme="dark"] .history-item {
+    background-color: #495057;
+}
+
+[data-bs-theme="dark"] .history-item.coin {
+    background-color: #665c00;
+}
+</style>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+const lang = '{{ current_lang }}';
+
+const i18n = {
+    roll: { en: 'Roll', de: 'Würfeln' },
+    flip: { en: 'Flip', de: 'Werfen' },
+    heads: { en: 'Heads', de: 'Kopf' },
+    tails: { en: 'Tails', de: 'Zahl' },
+    coin: { en: 'Coin', de: 'Münze' }
+};
+
+function t(key) {
+    return i18n[key] ? (i18n[key][lang] || i18n[key]['en']) : key;
+}
+
+let currentSides = 6;
+let isCoin = false;
+let history = [];
+
+const resultDisplay = document.getElementById('resultDisplay');
+const resultLabel = document.getElementById('resultLabel');
+const rollBtn = document.getElementById('rollBtn');
+const rollBtnText = document.getElementById('rollBtnText');
+const historyContainer = document.getElementById('historyContainer');
+const clearHistoryBtn = document.getElementById('clearHistoryBtn');
+const diceButtons = document.querySelectorAll('.dice-btn');
+const customSidesInput = document.getElementById('customSides');
+
+// Update URL with current dice type
+function updateUrl() {
+    const params = new URLSearchParams();
+    if (isCoin) {
+        params.set('type', 'coin');
+    } else if (currentSides !== 6) {
+        params.set('type', 'd' + currentSides);
+    }
+    const newUrl = params.toString() ? `${window.location.pathname}?${params.toString()}` : window.location.pathname;
+    history.replaceState(null, '', newUrl);
+}
+
+// Load state from URL
+function loadFromUrl() {
+    const params = new URLSearchParams(window.location.search);
+    const type = params.get('type');
+    
+    if (type === 'coin') {
+        selectDice('coin');
+    } else if (type && type.startsWith('d')) {
+        const sides = parseInt(type.substring(1));
+        if (sides >= 3) {
+            selectDice(sides);
+        }
+    }
+}
+
+function selectDice(sides) {
+    isCoin = sides === 'coin';
+    currentSides = isCoin ? 2 : parseInt(sides);
+    
+    // Update button states
+    const presetSides = ['coin', '3', '4', '6', '8', '10', '12', '20'];
+    const isPreset = presetSides.includes(String(sides));
+    
+    diceButtons.forEach(btn => {
+        btn.classList.remove('active');
+        if (btn.dataset.sides === String(sides)) {
+            btn.classList.add('active');
+        }
+    });
+    
+    // Update custom input
+    if (!isCoin && !isPreset) {
+        customSidesInput.value = currentSides;
+    } else {
+        customSidesInput.value = '';
+    }
+    
+    // Update result display style
+    if (isCoin) {
+        resultDisplay.classList.add('coin');
+        rollBtnText.textContent = t('flip');
+    } else {
+        resultDisplay.classList.remove('coin');
+        rollBtnText.textContent = t('roll');
+    }
+    
+    // Reset display
+    resultDisplay.innerHTML = '<span class="result-placeholder">?</span>';
+    resultLabel.textContent = '';
+    
+    updateUrl();
+}
+
+function roll() {
+    // Use crypto.getRandomValues for better randomness
+    const array = new Uint32Array(1);
+    crypto.getRandomValues(array);
+    const result = (array[0] % currentSides) + 1;
+    
+    // Animate
+    resultDisplay.classList.add('rolling');
+    
+    // Show result after animation
+    setTimeout(() => {
+        resultDisplay.classList.remove('rolling');
+        
+        if (isCoin) {
+            const label = result === 1 ? t('heads') : t('tails');
+            if (result === 1) {
+                resultDisplay.innerHTML = `<i class="fas fa-user"></i>`;
+            } else {
+                resultDisplay.textContent = '2';
+            }
+            resultLabel.textContent = label;
+            addToHistory('coin', result, label);
+        } else {
+            resultDisplay.textContent = result;
+            resultLabel.textContent = `D${currentSides}`;
+            addToHistory(`D${currentSides}`, result);
+        }
+        
+        if (typeof window.showSupportOnAction === 'function') {
+            window.showSupportOnAction(10000);
+        }
+    }, 300);
+}
+
+function addToHistory(type, result, label) {
+    history.unshift({ type, result, label });
+    renderHistory();
+}
+
+function renderHistory() {
+    if (history.length === 0) {
+        historyContainer.innerHTML = '<span class="text-muted">-</span>';
+        return;
+    }
+    
+    historyContainer.innerHTML = history.map(item => {
+        const isCoinItem = item.type === 'coin';
+        const displayResult = item.label || item.result;
+        return `
+            <span class="history-item ${isCoinItem ? 'coin' : ''}">
+                <span class="dice-type">${isCoinItem ? t('coin') : item.type}:</span>
+                <span class="roll-result">${displayResult}</span>
+            </span>
+        `;
+    }).join('');
+}
+
+function clearHistory() {
+    history = [];
+    renderHistory();
+}
+
+// Event listeners
+diceButtons.forEach(btn => {
+    btn.addEventListener('click', () => selectDice(btn.dataset.sides));
+});
+
+customSidesInput.addEventListener('change', () => {
+    const sides = parseInt(customSidesInput.value);
+    if (sides >= 3) {
+        selectDice(sides);
+    }
+});
+
+customSidesInput.addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') {
+        const sides = parseInt(customSidesInput.value);
+        if (sides >= 3) {
+            selectDice(sides);
+            roll();
+        }
+    }
+});
+
+rollBtn.addEventListener('click', roll);
+clearHistoryBtn.addEventListener('click', clearHistory);
+
+// Keyboard shortcut: Space to roll (not when typing in input)
+document.addEventListener('keydown', (e) => {
+    if (e.code === 'Space') {
+        if (document.activeElement.tagName !== 'BUTTON' && document.activeElement.tagName !== 'INPUT') {
+            e.preventDefault();
+            roll();
+        }
+    }
+});
+
+// Initialize
+loadFromUrl();
+</script>
+{% endblock %}
