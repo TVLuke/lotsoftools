@@ -24,6 +24,8 @@ jobs:
         node tests/js/json-formatter.test.js
         node tests/js/xml-formatter.test.js
         node tests/js/text-analyzer.test.js
+        node tests/js/base_converter.test.js
+        node tests/js/iban_validator.test.js
 
   test-python:
     runs-on: ubuntu-latest
