@@ -30,7 +30,20 @@ def holiday_calendar():
     # Get URL params for SEO text
     country_code = request.args.get('country', 'DE')
     region_code = request.args.get('region', '')
-    year = request.args.get('year', str(datetime.now().year))
+    year_param = request.args.get('year', '')
+    view = request.args.get('view', '')
+    
+    # Only set year for SEO if explicitly provided (not "all") and valid
+    # In calendar view, year is always shown; in list view, only when a specific year is selected
+    year = None
+    if year_param and year_param != 'all':
+        try:
+            year = int(year_param)
+        except ValueError:
+            year = None
+    elif view == 'calendar' and not year_param:
+        # Default to current year for calendar view if no year specified
+        year = datetime.now().year
     
     # Get country and region names for SEO
     country_info = SUPPORTED_COUNTRIES.get(country_code, {'name': 'Deutschland', 'name_en': 'Germany'})

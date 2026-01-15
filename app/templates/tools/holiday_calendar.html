@@ -2,9 +2,9 @@
 
 {% block title %}
     {% if seo_region %}
-        {% if current_lang == 'de' %}Schulferien & Feiertage {{ seo_region }} {{ seo_year }}{% else %}School Holidays & Bank Holidays {{ seo_region_en }} {{ seo_year }}{% endif %}
+        {% if seo_year %}{% if current_lang == 'de' %}Schulferien & Feiertage {{ seo_region }} {{ seo_year }}{% else %}School Holidays & Bank Holidays {{ seo_region_en }} {{ seo_year }}{% endif %}{% else %}{% if current_lang == 'de' %}Schulferien & Feiertage {{ seo_region }}{% else %}School Holidays & Bank Holidays {{ seo_region_en }}{% endif %}{% endif %}
     {% elif seo_country %}
-        {% if current_lang == 'de' %}Schulferien & Feiertage {{ seo_country }} {{ seo_year }}{% else %}School Holidays & Bank Holidays {{ seo_country_en }} {{ seo_year }}{% endif %}
+        {% if seo_year %}{% if current_lang == 'de' %}Schulferien & Feiertage {{ seo_country }} {{ seo_year }}{% else %}School Holidays & Bank Holidays {{ seo_country_en }} {{ seo_year }}{% endif %}{% else %}{% if current_lang == 'de' %}Schulferien & Feiertage {{ seo_country }}{% else %}School Holidays & Bank Holidays {{ seo_country_en }}{% endif %}{% endif %}
     {% else %}
         {% if current_lang == 'de' %}Schulferien & Feiertage{% else %}School Holidays & Bank Holidays{% endif %}
     {% endif %} - Lots of Tools
@@ -14,18 +14,18 @@
 <div class="container mt-4">
     <h1 class="mb-4" id="seoHeading">
         {% if seo_region %}
-            {% if current_lang == 'de' %}Schulferien & Feiertage {{ seo_region }} {{ seo_year }}{% else %}School Holidays & Bank Holidays {{ seo_region_en }} {{ seo_year }}{% endif %}
+            {% if seo_year %}{% if current_lang == 'de' %}Schulferien & Feiertage {{ seo_region }} {{ seo_year }}{% else %}School Holidays & Bank Holidays {{ seo_region_en }} {{ seo_year }}{% endif %}{% else %}{% if current_lang == 'de' %}Schulferien & Feiertage {{ seo_region }}{% else %}School Holidays & Bank Holidays {{ seo_region_en }}{% endif %}{% endif %}
         {% elif seo_country %}
-            {% if current_lang == 'de' %}Schulferien & Feiertage {{ seo_country }} {{ seo_year }}{% else %}School Holidays & Bank Holidays {{ seo_country_en }} {{ seo_year }}{% endif %}
+            {% if seo_year %}{% if current_lang == 'de' %}Schulferien & Feiertage {{ seo_country }} {{ seo_year }}{% else %}School Holidays & Bank Holidays {{ seo_country_en }} {{ seo_year }}{% endif %}{% else %}{% if current_lang == 'de' %}Schulferien & Feiertage {{ seo_country }}{% else %}School Holidays & Bank Holidays {{ seo_country_en }}{% endif %}{% endif %}
         {% else %}
             {% if current_lang == 'de' %}Schulferien & Feiertage{% else %}School Holidays & Bank Holidays{% endif %}
         {% endif %}
     </h1>
     <p class="text-muted mb-3" id="seoDescription">
         {% if seo_region %}
-            {% if current_lang == 'de' %}Übersicht aller Schulferien und gesetzlichen Feiertage für {{ seo_region }}, {{ seo_country }} im Jahr {{ seo_year }}. Kalender zum Ausdrucken als PDF und iCal-Download verfügbar.{% else %}Overview of all school holidays and public holidays for {{ seo_region_en }}, {{ seo_country_en }} in {{ seo_year }}. Printable PDF calendar and iCal download available.{% endif %}
+            {% if seo_year %}{% if current_lang == 'de' %}Übersicht aller Schulferien und gesetzlichen Feiertage für {{ seo_region }}, {{ seo_country }} im Jahr {{ seo_year }}. Kalender zum Ausdrucken als PDF und iCal-Download verfügbar.{% else %}Overview of all school holidays and public holidays for {{ seo_region_en }}, {{ seo_country_en }} in {{ seo_year }}. Printable PDF calendar and iCal download available.{% endif %}{% else %}{% if current_lang == 'de' %}Übersicht aller Schulferien und gesetzlichen Feiertage für {{ seo_region }}, {{ seo_country }}. Kalender zum Ausdrucken als PDF und iCal-Download verfügbar.{% else %}Overview of all school holidays and public holidays for {{ seo_region_en }}, {{ seo_country_en }}. Printable PDF calendar and iCal download available.{% endif %}{% endif %}
         {% elif seo_country %}
-            {% if current_lang == 'de' %}Übersicht aller Schulferien und gesetzlichen Feiertage für {{ seo_country }} im Jahr {{ seo_year }}. Kalender zum Ausdrucken als PDF und iCal-Download verfügbar.{% else %}Overview of all school holidays and public holidays for {{ seo_country_en }} in {{ seo_year }}. Printable PDF calendar and iCal download available.{% endif %}
+            {% if seo_year %}{% if current_lang == 'de' %}Übersicht aller Schulferien und gesetzlichen Feiertage für {{ seo_country }} im Jahr {{ seo_year }}. Kalender zum Ausdrucken als PDF und iCal-Download verfügbar.{% else %}Overview of all school holidays and public holidays for {{ seo_country_en }} in {{ seo_year }}. Printable PDF calendar and iCal download available.{% endif %}{% else %}{% if current_lang == 'de' %}Übersicht aller Schulferien und gesetzlichen Feiertage für {{ seo_country }}. Kalender zum Ausdrucken als PDF und iCal-Download verfügbar.{% else %}Overview of all school holidays and public holidays for {{ seo_country_en }}. Printable PDF calendar and iCal download available.{% endif %}{% endif %}
         {% else %}
             {% if current_lang == 'de' %}Übersicht aller Schulferien und gesetzlichen Feiertage. Wählen Sie ein Land und eine Region aus.{% else %}Overview of all school holidays and public holidays. Select a country and region.{% endif %}
         {% endif %}
@@ -40,13 +40,19 @@
                 {% endfor %}
             </select>
         </div>
-        <div class="col-md-4 col-6 mb-2">
+        <div class="col-md-3 col-6 mb-2">
             <label for="subdivisionSelect" class="form-label small text-muted">{% if current_lang == 'de' %}Region{% else %}Region{% endif %}</label>
             <select class="form-select" id="subdivisionSelect">
                 <option value="all">{% if current_lang == 'de' %}Alle{% else %}All{% endif %}</option>
             </select>
         </div>
-        <div class="col-md-3 col-8 mb-2">
+        <div class="col-md-2 col-4 mb-2">
+            <label for="yearSelect" class="form-label small text-muted">{% if current_lang == 'de' %}Jahr{% else %}Year{% endif %}</label>
+            <select class="form-select" id="yearSelect">
+                <option value="all">{% if current_lang == 'de' %}Alle{% else %}All{% endif %}</option>
+            </select>
+        </div>
+        <div class="col-md-2 col-4 mb-2">
             <div class="form-check mt-4">
                 <input class="form-check-input" type="checkbox" id="includePast">
                 <label class="form-check-label" for="includePast">
@@ -192,11 +198,13 @@
 {% endblock %}
 
 {% block extra_js %}
+<script src="{{ url_for('static', filename='js/holiday-calendar.js') }}"></script>
 <script>
 document.addEventListener('DOMContentLoaded', function() {
     const uiLang = '{{ current_lang }}';
     const countrySelect = document.getElementById('countrySelect');
     const subdivisionSelect = document.getElementById('subdivisionSelect');
+    const yearSelect = document.getElementById('yearSelect');
     const langRadios = document.querySelectorAll('input[name="langRadio"]');
     const viewRadios = document.querySelectorAll('input[name="viewRadio"]');
     const includePast = document.getElementById('includePast');
@@ -213,6 +221,24 @@ document.addEventListener('DOMContentLoaded', function() {
         opt.value = y;
         opt.textContent = y;
         pdfYearSelect.appendChild(opt);
+    }
+    
+    // Populate year filter dropdown (All, current year, next year)
+    function populateYearSelect() {
+        const t = getT();
+        yearSelect.innerHTML = `<option value="all">${t.all}</option>`;
+        const opt1 = document.createElement('option');
+        opt1.value = currentYear;
+        opt1.textContent = currentYear;
+        yearSelect.appendChild(opt1);
+        const opt2 = document.createElement('option');
+        opt2.value = currentYear + 1;
+        opt2.textContent = currentYear + 1;
+        yearSelect.appendChild(opt2);
+    }
+    
+    function getSelectedYear() {
+        return yearSelect.value;
     }
     
     // Calendar view elements
@@ -238,96 +264,20 @@ document.addEventListener('DOMContentLoaded', function() {
         return checked ? checked.value : 'list';
     }
     
-    const labels = {
-        de: {
-            all: 'Alle',
-            loading: 'Laden...',
-            error: 'Fehler beim Laden',
-            noEntries: 'Keine Einträge gefunden',
-            publicHoliday: 'Feiertag',
-            schoolHoliday: 'Ferien'
-        },
-        en: {
-            all: 'All',
-            loading: 'Loading...',
-            error: 'Error loading data',
-            noEntries: 'No entries found',
-            publicHoliday: 'Public Holiday',
-            schoolHoliday: 'School Holiday'
-        },
-        fr: {
-            all: 'Tous',
-            loading: 'Chargement...',
-            error: 'Erreur de chargement',
-            noEntries: 'Aucune entrée trouvée',
-            publicHoliday: 'Jour férié',
-            schoolHoliday: 'Vacances'
-        },
-        es: {
-            all: 'Todos',
-            loading: 'Cargando...',
-            error: 'Error al cargar',
-            noEntries: 'No se encontraron entradas',
-            publicHoliday: 'Día festivo',
-            schoolHoliday: 'Vacaciones'
-        },
-        it: {
-            all: 'Tutti',
-            loading: 'Caricamento...',
-            error: 'Errore di caricamento',
-            noEntries: 'Nessuna voce trovata',
-            publicHoliday: 'Giorno festivo',
-            schoolHoliday: 'Vacanze'
-        }
-    };
-    
     function getT() {
-        const dataLang = getSelectedLang().toLowerCase();
-        return labels[dataLang] || labels.en;
+        return HolidayCalendar.getLabels(getSelectedLang());
     }
     
     function getLocale() {
-        const dataLang = getSelectedLang();
-        if (dataLang === 'DE') return 'de-DE';
-        if (dataLang === 'FR') return 'fr-FR';
-        if (dataLang === 'ES') return 'es-ES';
-        if (dataLang === 'IT') return 'it-IT';
-        return 'en-GB';
+        return HolidayCalendar.getLocale(getSelectedLang());
     }
     
     function formatDate(dateStr) {
-        if (!dateStr) return '';
-        const date = new Date(dateStr + 'T00:00:00');
-        return date.toLocaleDateString(getLocale(), { 
-            weekday: 'short',
-            day: '2-digit', 
-            month: '2-digit', 
-            year: 'numeric' 
-        });
+        return HolidayCalendar.formatDate(dateStr, getLocale());
     }
     
     function formatDateRange(start, end) {
-        if (!start) return '';
-        if (!end || start === end) {
-            return formatDate(start);
-        }
-        const startDate = new Date(start + 'T00:00:00');
-        const endDate = new Date(end + 'T00:00:00');
-        const locale = getLocale();
-        
-        const startStr = startDate.toLocaleDateString(locale, { 
-            weekday: 'short',
-            day: '2-digit', 
-            month: '2-digit'
-        });
-        const endStr = endDate.toLocaleDateString(locale, { 
-            weekday: 'short',
-            day: '2-digit', 
-            month: '2-digit', 
-            year: 'numeric' 
-        });
-        
-        return `${startStr} – ${endStr}`;
+        return HolidayCalendar.formatDateRange(start, end, getLocale());
     }
     
     function loadSubdivisions() {
@@ -376,7 +326,6 @@ document.addEventListener('DOMContentLoaded', function() {
             .then(data => {
                 if (data.success) {
                     renderHolidays(data.holidays);
-                    holidayCount.textContent = data.count;
                 }
             })
             .catch(error => {
@@ -391,9 +340,18 @@ document.addEventListener('DOMContentLoaded', function() {
             });
     }
     
+    function filterHolidaysByYear(holidays, year) {
+        return HolidayCalendar.filterHolidaysByYear(holidays, year);
+    }
+    
     function renderHolidays(holidays) {
         const t = getT();
-        if (holidays.length === 0) {
+        const filteredYear = getSelectedYear();
+        const filteredHolidays = filterHolidaysByYear(holidays, filteredYear);
+        
+        holidayCount.textContent = filteredHolidays.length;
+        
+        if (filteredHolidays.length === 0) {
             holidayTableBody.innerHTML = `
                 <tr>
                     <td colspan="4" class="text-center text-muted py-4">
@@ -407,7 +365,7 @@ document.addEventListener('DOMContentLoaded', function() {
         let html = '';
         const showSubs = subdivisionSelect.value === 'all';
         
-        holidays.forEach(h => {
+        filteredHolidays.forEach(h => {
             const isPublic = h.type === 'public';
             const dateStr = formatDateRange(h.start_date, h.end_date);
             const typeLabel = isPublic ? t.publicHoliday : t.schoolHoliday;
@@ -443,54 +401,18 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     // Calendar view functions
-    const monthNames = {
-        'en': ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
-        'de': ['Januar', 'Februar', 'März', 'April', 'Mai', 'Juni', 'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember'],
-        'fr': ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre'],
-        'es': ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
-        'it': ['Gennaio', 'Febbraio', 'Marzo', 'Aprile', 'Maggio', 'Giugno', 'Luglio', 'Agosto', 'Settembre', 'Ottobre', 'Novembre', 'Dicembre']
-    };
-    
-    const dayNamesShort = {
-        'en': ['Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa', 'Su'],
-        'de': ['Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa', 'So'],
-        'fr': ['Lu', 'Ma', 'Me', 'Je', 'Ve', 'Sa', 'Di'],
-        'es': ['Lu', 'Ma', 'Mi', 'Ju', 'Vi', 'Sá', 'Do'],
-        'it': ['Lu', 'Ma', 'Me', 'Gi', 'Ve', 'Sa', 'Do']
-    };
-    
     function getHolidayMap(holidays, year) {
-        // Create a map of date -> {public: bool, school: bool}
-        const map = {};
-        holidays.forEach(h => {
-            const start = new Date(h.start_date + 'T00:00:00');
-            const end = h.end_date ? new Date(h.end_date + 'T00:00:00') : start;
-            
-            for (let d = new Date(start); d <= end; d.setDate(d.getDate() + 1)) {
-                if (d.getFullYear() === year) {
-                    const key = d.toISOString().split('T')[0];
-                    if (!map[key]) map[key] = { public: false, school: false };
-                    if (h.type === 'public') map[key].public = true;
-                    else map[key].school = true;
-                }
-            }
-        });
-        return map;
+        return HolidayCalendar.getHolidayMap(holidays, year);
     }
     
-    // Get week number (ISO 8601)
     function getWeekNumber(date) {
-        const d = new Date(Date.UTC(date.getFullYear(), date.getMonth(), date.getDate()));
-        const dayNum = d.getUTCDay() || 7;
-        d.setUTCDate(d.getUTCDate() + 4 - dayNum);
-        const yearStart = new Date(Date.UTC(d.getUTCFullYear(), 0, 1));
-        return Math.ceil((((d - yearStart) / 86400000) + 1) / 7);
+        return HolidayCalendar.getWeekNumber(date);
     }
     
     function generateMonth(year, month, holidayMap) {
         const lang = getSelectedLang().toLowerCase();
-        const monthName = (monthNames[lang] || monthNames['en'])[month];
-        const days = dayNamesShort[lang] || dayNamesShort['en'];
+        const monthName = HolidayCalendar.getMonthNames(lang)[month];
+        const days = HolidayCalendar.getDayNamesShort(lang);
         const kwLabel = lang === 'de' ? 'KW' : 'W';
         
         const firstDay = new Date(year, month, 1);
@@ -633,10 +555,12 @@ document.addEventListener('DOMContentLoaded', function() {
         if (view === 'calendar') {
             listView.style.display = 'none';
             calendarView.style.display = 'block';
+            yearSelect.parentElement.style.display = 'none';
             loadAllHolidays();
         } else {
             listView.style.display = 'block';
             calendarView.style.display = 'none';
+            yearSelect.parentElement.style.display = '';
         }
         updatePageTitle();
     }
@@ -647,29 +571,41 @@ document.addEventListener('DOMContentLoaded', function() {
         const regionName = subdivisionText && subdivisionSelect.value !== 'all' 
             ? (subdivisionText.split(' – ')[1] || subdivisionText) 
             : '';
-        const year = getSelectedView() === 'calendar' ? selectedYear : new Date().getFullYear();
+        
+        // Only show year in title when a specific year is selected (not "all")
+        // In calendar view, use the calendar's selectedYear; in list view, use the year dropdown
+        let year = null;
+        if (getSelectedView() === 'calendar') {
+            year = selectedYear;
+        } else if (getSelectedYear() !== 'all') {
+            year = getSelectedYear();
+        }
+        
         const lang = getSelectedLang().toLowerCase();
+        const yearStr = year ? ` ${year}` : '';
+        const yearInStr = year ? ` im Jahr ${year}` : '';
+        const yearInStrEn = year ? ` in ${year}` : '';
         
         let title, heading, description;
         if (lang === 'de') {
             if (regionName) {
-                title = `Schulferien & Feiertage ${regionName} ${year} - Lots of Tools`;
-                heading = `Schulferien & Feiertage ${regionName} ${year}`;
-                description = `Übersicht aller Schulferien und gesetzlichen Feiertage für ${regionName}, ${countryName} im Jahr ${year}. Kalender zum Ausdrucken als PDF und iCal-Download verfügbar.`;
+                title = `Schulferien & Feiertage ${regionName}${yearStr} - Lots of Tools`;
+                heading = `Schulferien & Feiertage ${regionName}${yearStr}`;
+                description = `Übersicht aller Schulferien und gesetzlichen Feiertage für ${regionName}, ${countryName}${yearInStr}. Kalender zum Ausdrucken als PDF und iCal-Download verfügbar.`;
             } else {
-                title = `Schulferien & Feiertage ${countryName} ${year} - Lots of Tools`;
-                heading = `Schulferien & Feiertage ${countryName} ${year}`;
-                description = `Übersicht aller Schulferien und gesetzlichen Feiertage für ${countryName} im Jahr ${year}. Kalender zum Ausdrucken als PDF und iCal-Download verfügbar.`;
+                title = `Schulferien & Feiertage ${countryName}${yearStr} - Lots of Tools`;
+                heading = `Schulferien & Feiertage ${countryName}${yearStr}`;
+                description = `Übersicht aller Schulferien und gesetzlichen Feiertage für ${countryName}${yearInStr}. Kalender zum Ausdrucken als PDF und iCal-Download verfügbar.`;
             }
         } else {
             if (regionName) {
-                title = `School Holidays & Bank Holidays ${regionName} ${year} - Lots of Tools`;
-                heading = `School Holidays & Bank Holidays ${regionName} ${year}`;
-                description = `Overview of all school holidays and public holidays for ${regionName}, ${countryName} in ${year}. Printable PDF calendar and iCal download available.`;
+                title = `School Holidays & Bank Holidays ${regionName}${yearStr} - Lots of Tools`;
+                heading = `School Holidays & Bank Holidays ${regionName}${yearStr}`;
+                description = `Overview of all school holidays and public holidays for ${regionName}, ${countryName}${yearInStrEn}. Printable PDF calendar and iCal download available.`;
             } else {
-                title = `School Holidays & Bank Holidays ${countryName} ${year} - Lots of Tools`;
-                heading = `School Holidays & Bank Holidays ${countryName} ${year}`;
-                description = `Overview of all school holidays and public holidays for ${countryName} in ${year}. Printable PDF calendar and iCal download available.`;
+                title = `School Holidays & Bank Holidays ${countryName}${yearStr} - Lots of Tools`;
+                heading = `School Holidays & Bank Holidays ${countryName}${yearStr}`;
+                description = `Overview of all school holidays and public holidays for ${countryName}${yearInStrEn}. Printable PDF calendar and iCal download available.`;
             }
         }
         document.title = title;
@@ -687,6 +623,8 @@ document.addEventListener('DOMContentLoaded', function() {
         if (getSelectedView() === 'calendar') {
             params.set('view', 'calendar');
             params.set('year', selectedYear);
+        } else if (getSelectedYear() !== 'all') {
+            params.set('year', getSelectedYear());
         }
         if (includePast.checked) {
             params.set('past', '1');
@@ -716,11 +654,16 @@ document.addEventListener('DOMContentLoaded', function() {
             includePast.checked = true;
         }
         
-        // Year
+        // Year (for list view dropdown and calendar view)
         const year = params.get('year');
         if (year && !isNaN(parseInt(year))) {
             selectedYear = parseInt(year);
             yearInput.value = selectedYear;
+            // Also set year dropdown if it matches current or next year
+            const yearInt = parseInt(year);
+            if (yearInt === currentYear || yearInt === currentYear + 1) {
+                yearSelect.value = year;
+            }
         }
         
         // View
@@ -752,11 +695,17 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
     langRadios.forEach(radio => radio.addEventListener('change', () => {
+        populateYearSelect();
         loadHolidays();
         if (getSelectedView() === 'calendar') loadAllHolidays();
         updatePageTitle();
         updateUrl();
     }));
+    yearSelect.addEventListener('change', () => {
+        loadHolidays();
+        updatePageTitle();
+        updateUrl();
+    });
     includePast.addEventListener('change', () => {
         loadHolidays();
         updateUrl();
@@ -808,6 +757,9 @@ document.addEventListener('DOMContentLoaded', function() {
             syncPdfYearWithCalendar();
         }
     });
+    
+    // Initialize year select dropdown
+    populateYearSelect();
     
     // Initial load - read URL params first
     const urlRegion = loadFromUrl();

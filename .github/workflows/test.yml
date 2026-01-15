@@ -26,6 +26,7 @@ jobs:
         node tests/js/text-analyzer.test.js
         node tests/js/base_converter.test.js
         node tests/js/iban_validator.test.js
+        node tests/js/holiday-calendar.test.js
 
   test-python:
     runs-on: ubuntu-latest
