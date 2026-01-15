@@ -26,6 +26,7 @@ geoip_data/
 # Holiday cache (fetched from OpenHolidays API on startup)
 app/assets/holidays/*_holidays.json
 app/assets/holidays/*.ics
+data/holidays/
 
 # Temporary favicon files
 temp_favicons/
