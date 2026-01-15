@@ -198,7 +198,7 @@
 
 {% block extra_js %}
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
-<script src="https://unpkg.com/leaflet-simple-map-screenshoter@0.4.5/dist/leaflet-simple-map-screenshoter.min.js"></script>
+{% include 'components/imports/html2canvas.html' %}
 <script>
 document.addEventListener('DOMContentLoaded', function() {
     const lang = '{{ current_lang }}';
@@ -416,78 +416,20 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
     
-    // Export with map background using html2canvas approach
+    // Export with map background using html2canvas
     async function exportWithMap() {
         if (points.length < 2) return;
         
-        // Use leaflet-simple-map-screenshoter if available, otherwise fallback
         try {
-            const mapContainer = document.getElementById('map');
-            const rect = mapContainer.getBoundingClientRect();
+            const mapEl = document.getElementById('map');
             
-            // Create canvas from map tiles + overlay
-            const canvas = document.createElement('canvas');
-            canvas.width = rect.width * 2;
-            canvas.height = rect.height * 2;
-            const ctx = canvas.getContext('2d');
-            ctx.scale(2, 2);
-            
-            // Draw white background first
-            ctx.fillStyle = '#ffffff';
-            ctx.fillRect(0, 0, rect.width, rect.height);
-            
-            // Get all tile images and draw them
-            const tiles = mapContainer.querySelectorAll('.leaflet-tile');
-            const tilePromises = [];
-            
-            tiles.forEach(tile => {
-                if (tile.complete && tile.naturalWidth > 0) {
-                    const tileRect = tile.getBoundingClientRect();
-                    const x = tileRect.left - rect.left;
-                    const y = tileRect.top - rect.top;
-                    ctx.drawImage(tile, x, y, tile.width, tile.height);
-                }
+            // Use html2canvas with useCORS and allowTaint options
+            const canvas = await html2canvas(mapEl, {
+                useCORS: true,
+                allowTaint: true,
+                scale: 2,
+                logging: false
             });
-            
-            // Draw the polyline
-            if (points.length >= 2) {
-                ctx.strokeStyle = '#0d6efd';
-                ctx.lineWidth = 3;
-                ctx.lineCap = 'round';
-                ctx.lineJoin = 'round';
-                ctx.beginPath();
-                
-                points.forEach((point, index) => {
-                    const pixel = map.latLngToContainerPoint([point.lat, point.lng]);
-                    if (index === 0) {
-                        ctx.moveTo(pixel.x, pixel.y);
-                    } else {
-                        ctx.lineTo(pixel.x, pixel.y);
-                    }
-                });
-                ctx.stroke();
-                
-                // Draw points
-                points.forEach((point, index) => {
-                    const pixel = map.latLngToContainerPoint([point.lat, point.lng]);
-                    ctx.beginPath();
-                    
-                    if (index === 0) {
-                        ctx.fillStyle = '#198754';
-                        ctx.arc(pixel.x, pixel.y, 8, 0, 2 * Math.PI);
-                    } else if (index === points.length - 1) {
-                        ctx.fillStyle = '#dc3545';
-                        ctx.arc(pixel.x, pixel.y, 8, 0, 2 * Math.PI);
-                    } else {
-                        ctx.fillStyle = '#0d6efd';
-                        ctx.arc(pixel.x, pixel.y, 6, 0, 2 * Math.PI);
-                    }
-                    ctx.fill();
-                    ctx.strokeStyle = '#ffffff';
-                    ctx.lineWidth = 2;
-                    ctx.stroke();
-                });
-            }
             
             // Download
             canvas.toBlob(function(blob) {
@@ -556,8 +498,8 @@ document.addEventListener('DOMContentLoaded', function() {
             return {x, y};
         }
         
-        // Draw line
-        ctx.strokeStyle = '#0d6efd';
+        // Draw line (black, no dots)
+        ctx.strokeStyle = '#000000';
         ctx.lineWidth = 4;
         ctx.lineCap = 'round';
         ctx.lineJoin = 'round';
@@ -572,27 +514,6 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
         ctx.stroke();
-        
-        // Draw points
-        points.forEach((point, index) => {
-            const pos = toCanvas(point.lat, point.lng);
-            ctx.beginPath();
-            
-            if (index === 0) {
-                ctx.fillStyle = '#198754';
-                ctx.arc(pos.x, pos.y, 10, 0, 2 * Math.PI);
-            } else if (index === points.length - 1) {
-                ctx.fillStyle = '#dc3545';
-                ctx.arc(pos.x, pos.y, 10, 0, 2 * Math.PI);
-            } else {
-                ctx.fillStyle = '#0d6efd';
-                ctx.arc(pos.x, pos.y, 6, 0, 2 * Math.PI);
-            }
-            ctx.fill();
-            ctx.strokeStyle = '#ffffff';
-            ctx.lineWidth = 2;
-            ctx.stroke();
-        });
         
         // Download
         canvas.toBlob(function(blob) {

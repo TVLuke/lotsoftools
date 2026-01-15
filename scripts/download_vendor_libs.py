@@ -92,6 +92,15 @@ LIBRARIES = [
         ]
     },
     {
+        'name': 'html2canvas',
+        'files': [
+            {
+                'url': 'https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js',
+                'filename': 'html2canvas.min.js'
+            }
+        ]
+    },
+    {
         'name': 'dojo',
         'files': [
             {
