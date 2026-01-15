@@ -60,3 +60,11 @@ app/config/support_config.json
 
 # Last.fm API credentials
 app/config/lastfm_config.json
+
+# Node.js / Playwright
+node_modules/
+package.json
+package-lock.json
+test-results/
+playwright-report/
+playwright/.cache/
