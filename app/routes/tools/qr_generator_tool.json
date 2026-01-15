@@ -93,6 +93,10 @@
       "privacy_note": {
         "en": "🔒 Privacy-Friendly: QR codes are generated entirely in your browser. Your data never leaves your device.",
         "de": "🔒 Datenschutzfreundlich: QR-Codes werden vollständig in Ihrem Browser generiert. Ihre Daten verlassen nie Ihr Gerät."
+      },
+      "disclaimer": {
+        "en": "⚠️ Disclaimer: Always test generated QR codes with multiple scanning apps before printing or distribution. We are not responsible for scanning failures or incorrect data encoding. Verify the encoded content matches your input.",
+        "de": "⚠️ Haftungsausschluss: Testen Sie generierte QR-Codes immer mit mehreren Scan-Apps vor dem Drucken oder der Verteilung. Wir sind nicht verantwortlich für Scanfehler oder falsche Datenkodierung. Überprüfen Sie, ob der kodierte Inhalt mit Ihrer Eingabe übereinstimmt."
       }
     }
   }

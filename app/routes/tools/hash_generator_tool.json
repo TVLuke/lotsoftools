@@ -93,6 +93,10 @@
       "privacy_note": {
         "en": "🔒 Privacy-Friendly & Secure: This browser-based tool calculates hashes directly in your browser using client-side JavaScript. Your data never leaves your device and is not sent to any server. No registration, no tracking, completely private.",
         "de": "🔒 Datenschutzfreundlich & Sicher: Dieses Browser-basierte Tool berechnet Hashes direkt in Ihrem Browser mit client-seitigem JavaScript. Ihre Daten verlassen nie Ihr Gerät und werden nicht an einen Server gesendet. Keine Registrierung, kein Tracking, vollständig privat."
+      },
+      "disclaimer": {
+        "en": "⚠️ Disclaimer: MD5 and SHA-1 are considered cryptographically broken and should not be used for security purposes. Use SHA-256 or higher for security-critical applications. Hashes are provided without warranty.",
+        "de": "⚠️ Haftungsausschluss: MD5 und SHA-1 gelten als kryptografisch gebrochen und sollten nicht für Sicherheitszwecke verwendet werden. Verwenden Sie SHA-256 oder höher für sicherheitskritische Anwendungen. Hashes werden ohne Gewähr bereitgestellt."
       }
     }
   }

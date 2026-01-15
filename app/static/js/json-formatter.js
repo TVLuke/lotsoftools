@@ -58,7 +58,9 @@ const JsonFormatter = (function() {
         }
         
         try {
-            const output = JSON.stringify(validation.data);
+            let output = JSON.stringify(validation.data);
+            // Add space after colons (between key and value) like standard JSON convention
+            output = output.replace(/":(["\[{tfn\d-])/g, '": $1');
             return { success: true, output: output, error: null };
         } catch (e) {
             return { success: false, output: '', error: e.message };

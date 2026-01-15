@@ -89,6 +89,10 @@
       "privacy_note": {
         "en": "🔒 Privacy-Friendly: All distance calculations happen in your browser. Your location is only used locally and never sent to our servers.",
         "de": "🔒 Datenschutzfreundlich: Alle Entfernungsberechnungen erfolgen in Ihrem Browser. Ihr Standort wird nur lokal verwendet und nie an unsere Server gesendet."
+      },
+      "disclaimer": {
+        "en": "⚠️ Disclaimer: Distance calculations are approximate (straight-line/haversine). Actual travel distances may vary significantly. Do not use for navigation or trip planning without consulting proper mapping services.",
+        "de": "⚠️ Haftungsausschluss: Entfernungsberechnungen sind Näherungswerte (Luftlinie/Haversine). Tatsächliche Reiseentfernungen können erheblich abweichen. Nicht für Navigation oder Reiseplanung ohne Konsultation geeigneter Kartendienste verwenden."
       }
     }
   }

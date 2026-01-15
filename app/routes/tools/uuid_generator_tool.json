@@ -89,6 +89,10 @@
       "privacy_note": {
         "en": "🔒 Privacy-Friendly: UUIDs are generated directly in your browser using secure random number generation. No data is sent to any server.",
         "de": "🔒 Datenschutzfreundlich: UUIDs werden direkt in Ihrem Browser mit sicherer Zufallszahlengenerierung erstellt. Es werden keine Daten an einen Server gesendet."
+      },
+      "disclaimer": {
+        "en": "⚠️ Disclaimer: UUIDs generated here are provided without any guarantees. While the browser's cryptographic random number generator is used, we cannot guarantee absolute uniqueness across all systems. Use these UUIDs at your own discretion and responsibility. Avoid using UUIDs from cached or archived pages.",
+        "de": "⚠️ Haftungsausschluss: Die hier generierten UUIDs werden ohne Garantien bereitgestellt. Obwohl der kryptografische Zufallszahlengenerator des Browsers verwendet wird, können wir keine absolute Einzigartigkeit über alle Systeme hinweg garantieren. Verwenden Sie diese UUIDs nach eigenem Ermessen und auf eigene Verantwortung. Vermeiden Sie die Verwendung von UUIDs aus zwischengespeicherten oder archivierten Seiten."
       }
     }
   }

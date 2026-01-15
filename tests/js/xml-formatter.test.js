@@ -44,9 +44,14 @@ console.log('\n--- format ---');
 result = XmlFormatter.format('<root><child>text</child></root>', '  ');
 assert(result.success === true, 'format: success on valid XML');
 assert(result.output.includes('\n'), 'format: output has newlines');
+assert(result.output === '<root>\n  <child>text</child>\n</root>', 'format: correct indentation with inline text');
+
+result = XmlFormatter.format('<xml><test>bla</test></xml>', '  ');
+assert(result.output === '<xml>\n  <test>bla</test>\n</xml>', 'format: closing tag stays on same line as text');
 
 result = XmlFormatter.format('<root><a>1</a><b>2</b></root>', '    ');
 assert(result.success === true, 'format: 4-space indentation works');
+assert(result.output === '<root>\n    <a>1</a>\n    <b>2</b>\n</root>', 'format: 4-space indentation correct');
 
 result = XmlFormatter.format('<root><child>text</child></root>', '\t');
 assert(result.output.includes('\t') || result.success, 'format: tab indentation works');

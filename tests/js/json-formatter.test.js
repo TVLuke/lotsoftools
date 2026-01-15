@@ -4,6 +4,10 @@
  */
 
 const JsonFormatter = require('../../app/static/js/json-formatter.js');
+const fs = require('fs');
+const path = require('path');
+
+const DUMMY_DATA_DIR = path.join(__dirname, 'static', 'json-dummy-data');
 
 let passed = 0;
 let failed = 0;
@@ -76,7 +80,7 @@ console.log('\n--- minify ---');
 
 result = JsonFormatter.minify('{\n  "a": 1,\n  "b": 2\n}');
 assert(result.success === true, 'minify: success on valid JSON');
-assert(result.output === '{"a":1,"b":2}', 'minify: removes whitespace');
+assert(result.output === '{"a": 1,"b": 2}', 'minify: removes whitespace but keeps space after colon');
 
 result = JsonFormatter.minify('invalid');
 assert(result.success === false, 'minify: fails on invalid JSON');
@@ -98,6 +102,62 @@ assert(result.valid === true, 'edge case: string literal is valid JSON');
 
 result = JsonFormatter.format('{"nested":{"a":{"b":1}}}', 2);
 assert(result.success === true, 'edge case: nested objects format correctly');
+
+// Test with dummy data files
+console.log('\n--- dummy data files ---');
+
+// Helper: check if two JSON strings are semantically equivalent
+function jsonEqual(a, b) {
+    return JSON.stringify(JSON.parse(a)) === JSON.stringify(JSON.parse(b));
+}
+
+// Test formatting min.json produces equivalent JSON
+const minFile64 = fs.readFileSync(path.join(DUMMY_DATA_DIR, '64KB-min.json'), 'utf8');
+const formattedFile64 = fs.readFileSync(path.join(DUMMY_DATA_DIR, '64KB.json'), 'utf8');
+result = JsonFormatter.format(minFile64, 2);
+assert(result.success === true, 'dummy data: 64KB-min.json formats successfully');
+assert(jsonEqual(result.output, formattedFile64), 'dummy data: 64KB-min.json formats to equivalent JSON');
+
+// Test minifying formatted produces equivalent JSON
+result = JsonFormatter.minify(formattedFile64);
+assert(result.success === true, 'dummy data: 64KB.json minifies successfully');
+assert(jsonEqual(result.output, minFile64), 'dummy data: 64KB.json minifies to equivalent JSON');
+
+// Test round-trip consistency
+const formatted = JsonFormatter.format(minFile64, 2).output;
+const minified = JsonFormatter.minify(formatted).output;
+const reformatted = JsonFormatter.format(minified, 2).output;
+assert(formatted === reformatted, 'dummy data: 64KB round-trip is consistent');
+
+// Test with 128KB file
+const minFile128 = fs.readFileSync(path.join(DUMMY_DATA_DIR, '128KB-min.json'), 'utf8');
+const formattedFile128 = fs.readFileSync(path.join(DUMMY_DATA_DIR, '128KB.json'), 'utf8');
+result = JsonFormatter.format(minFile128, 2);
+assert(result.success === true, 'dummy data: 128KB-min.json formats successfully');
+assert(jsonEqual(result.output, formattedFile128), 'dummy data: 128KB-min.json formats to equivalent JSON');
+
+result = JsonFormatter.minify(formattedFile128);
+assert(result.success === true, 'dummy data: 128KB.json minifies successfully');
+assert(jsonEqual(result.output, minFile128), 'dummy data: 128KB.json minifies to equivalent JSON');
+
+// Test invalid JSON files
+console.log('\n--- invalid JSON files ---');
+
+const missingColon = fs.readFileSync(path.join(DUMMY_DATA_DIR, 'missing-colon.json'), 'utf8');
+result = JsonFormatter.validate(missingColon);
+assert(result.valid === false, 'invalid: missing-colon.json detected as invalid');
+
+const unterminated = fs.readFileSync(path.join(DUMMY_DATA_DIR, 'unterminated.json'), 'utf8');
+result = JsonFormatter.validate(unterminated);
+assert(result.valid === false, 'invalid: unterminated.json detected as invalid');
+
+// binary-data.json test (if file exists)
+const binaryDataPath = path.join(DUMMY_DATA_DIR, 'binary-data.json');
+if (fs.existsSync(binaryDataPath)) {
+    const binaryData = fs.readFileSync(binaryDataPath, 'utf8');
+    result = JsonFormatter.validate(binaryData);
+    assert(result.valid === false, 'invalid: binary-data.json detected as invalid');
+}
 
 // Summary
 console.log('\n=== Test Summary ===');

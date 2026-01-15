@@ -101,6 +101,10 @@
       "privacy_note": {
         "en": "🔒 Privacy-Friendly: IP lookups are performed entirely on our server using local GeoLite2 databases. No IP addresses are stored, logged, or sent to any external services. All data exists only in memory during the lookup and is immediately discarded after the response is sent.",
         "de": "🔒 Datenschutzfreundlich: IP-Abfragen werden vollständig auf unserem Server mit lokalen GeoLite2-Datenbanken durchgeführt. Keine IP-Adressen werden gespeichert, protokolliert oder an externe Dienste gesendet. Alle Daten existieren nur im Speicher während der Abfrage und werden sofort nach dem Senden der Antwort verworfen."
+      },
+      "disclaimer": {
+        "en": "⚠️ Disclaimer: IP geolocation is approximate and may be inaccurate. Location data should not be used for legal purposes, fraud detection, or any application requiring precise location. ISP and organization data may be outdated.",
+        "de": "⚠️ Haftungsausschluss: IP-Geolokalisierung ist ungenau und kann fehlerhaft sein. Standortdaten sollten nicht für rechtliche Zwecke, Betrugserkennung oder Anwendungen verwendet werden, die eine präzise Lokalisierung erfordern. ISP- und Organisationsdaten können veraltet sein."
       }
     }
   }

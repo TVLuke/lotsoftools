@@ -124,6 +124,10 @@
       "privacy_note": {
         "en": "🔒 Privacy-Friendly: All conversions happen directly in your browser. Your coordinates are never sent to any server.",
         "de": "🔒 Datenschutzfreundlich: Alle Umrechnungen erfolgen direkt in Ihrem Browser. Ihre Koordinaten werden niemals an einen Server gesendet."
+      },
+      "disclaimer": {
+        "en": "⚠️ Disclaimer: Coordinate conversions are approximate and may have rounding errors. Do not use for navigation, surveying, or other applications where precision is critical without independent verification.",
+        "de": "⚠️ Haftungsausschluss: Koordinatenumrechnungen sind Näherungswerte und können Rundungsfehler aufweisen. Nicht für Navigation, Vermessung oder andere Anwendungen verwenden, bei denen Präzision entscheidend ist, ohne unabhängige Überprüfung."
       }
     }
   }

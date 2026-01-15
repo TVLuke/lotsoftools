@@ -81,6 +81,10 @@
             "de": "TXT-Einträge für SPF, DKIM, DMARC überprüfen"
           }
         ]
+      },
+      "disclaimer": {
+        "en": "⚠️ Disclaimer: DNS results may be cached or stale. Records can change at any time. Do not rely solely on these results for security decisions or critical infrastructure configuration without verification from authoritative sources.",
+        "de": "⚠️ Haftungsausschluss: DNS-Ergebnisse können zwischengespeichert oder veraltet sein. Einträge können sich jederzeit ändern. Verlassen Sie sich nicht ausschließlich auf diese Ergebnisse für Sicherheitsentscheidungen oder kritische Infrastrukturkonfiguration ohne Überprüfung aus autoritativen Quellen."
       }
     }
   }

@@ -93,6 +93,10 @@
       "privacy_note": {
         "en": "🔒 Privacy-Friendly: Barcodes are generated entirely in your browser. Your data never leaves your device.",
         "de": "🔒 Datenschutzfreundlich: Barcodes werden vollständig in Ihrem Browser generiert. Ihre Daten verlassen nie Ihr Gerät."
+      },
+      "disclaimer": {
+        "en": "⚠️ Disclaimer: Always test generated barcodes with appropriate scanning equipment before commercial use or printing. We are not responsible for scanning failures or incorrect data encoding. Verify barcode format compatibility with your systems.",
+        "de": "⚠️ Haftungsausschluss: Testen Sie generierte Barcodes immer mit geeigneten Scannern vor kommerziellem Einsatz oder Druck. Wir sind nicht verantwortlich für Scanfehler oder falsche Datenkodierung. Überprüfen Sie die Barcode-Format-Kompatibilität mit Ihren Systemen."
       }
     }
   }

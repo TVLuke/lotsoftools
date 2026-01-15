@@ -85,6 +85,7 @@ const XmlFormatter = (function() {
     function formatXmlString(xml, indent) {
         let formatted = '';
         let indentLevel = 0;
+        let lastWasText = false;
         
         // Normalize the XML first - remove existing formatting
         xml = xml.replace(/>\s+</g, '><').trim();
@@ -109,10 +110,17 @@ const XmlFormatter = (function() {
             
             // Add indentation and node
             if (node.startsWith('<')) {
-                formatted += indent.repeat(indentLevel) + node + '\n';
+                if (lastWasText && isClosing) {
+                    // Closing tag after text content - keep on same line
+                    formatted = formatted.trimEnd() + node + '\n';
+                } else {
+                    formatted += indent.repeat(indentLevel) + node + '\n';
+                }
+                lastWasText = false;
             } else {
-                // Text content - add to previous line or on new line
+                // Text content - add to previous line
                 formatted = formatted.trimEnd() + node + '\n';
+                lastWasText = true;
             }
             
             // Increase indent for opening tags

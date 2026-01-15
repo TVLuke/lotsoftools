@@ -86,6 +86,10 @@
       "privacy_note": {
         "en": "⚠️ Note: This tool sends the IBAN to the Openiban API (openiban.com) for validation. Do not use with sensitive data if privacy is a concern.",
         "de": "⚠️ Hinweis: Dieses Tool sendet die IBAN zur Validierung an die Openiban-API (openiban.com). Verwenden Sie es nicht mit sensiblen Daten, wenn Datenschutz ein Anliegen ist."
+      },
+      "disclaimer": {
+        "en": "⚠️ Disclaimer: IBAN validation only checks format and checksum correctness. A valid IBAN does not guarantee that the account exists, is active, or that transfers will succeed. Always verify bank details through official channels before making financial transactions.",
+        "de": "⚠️ Haftungsausschluss: Die IBAN-Validierung prüft nur Format und Prüfsumme. Eine gültige IBAN garantiert nicht, dass das Konto existiert, aktiv ist oder dass Überweisungen erfolgreich sein werden. Überprüfen Sie Bankdaten immer über offizielle Kanäle, bevor Sie Finanztransaktionen durchführen."
       }
     }
   }

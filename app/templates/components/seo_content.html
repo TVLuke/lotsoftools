@@ -28,6 +28,10 @@
                 {% if tool_data.seo.content.privacy_note %}
                 <p class="text-muted small mt-3">{{ tool_data.seo.content.privacy_note[current_lang] }}</p>
                 {% endif %}
+                
+                {% if tool_data.seo.content.disclaimer %}
+                <p class="text-muted small mt-2">{{ tool_data.seo.content.disclaimer[current_lang] }}</p>
+                {% endif %}
             </div>
         </div>
     </div>

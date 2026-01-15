@@ -14,16 +14,16 @@
   "frontend_only": true,
   "seo": {
     "title": {
-      "en": "Random String Generator - Free Secure Password & Token Generator",
-      "de": "Zufallsstring-Generator - Kostenloser sicherer Passwort & Token Generator"
+      "en": "Random String Generator - Free Password & Token Generator",
+      "de": "Zufallsstring-Generator - Kostenloser Passwort & Token Generator"
     },
     "meta_description": {
-      "en": "Generate secure random strings, passwords, and tokens. Customizable length and character sets (uppercase, lowercase, numbers, symbols). Browser-based, cryptographically secure, privacy-friendly.",
-      "de": "Generieren Sie sichere Zufallsstrings, Passwörter und Tokens. Anpassbare Länge und Zeichensätze (Großbuchstaben, Kleinbuchstaben, Zahlen, Symbole). Browser-basiert, kryptographisch sicher, datenschutzfreundlich."
+      "en": "Generate random strings, passwords, and tokens. Customizable length and character sets (uppercase, lowercase, numbers, symbols). Browser-based and privacy-friendly.",
+      "de": "Generieren Sie Zufallsstrings, Passwörter und Tokens. Anpassbare Länge und Zeichensätze (Großbuchstaben, Kleinbuchstaben, Zahlen, Symbole). Browser-basiert und datenschutzfreundlich."
     },
     "keywords": {
-      "en": "random string generator, password generator, secure password, random token, API key generator, browser-based, cryptographically secure, privacy-friendly",
-      "de": "Zufallsstring-Generator, Passwort-Generator, sicheres Passwort, zufälliger Token, API-Schlüssel-Generator, Browser-basiert, kryptographisch sicher, Datenschutzfreundlich"
+      "en": "random string generator, password generator, random password, random token, API key generator, browser-based, privacy-friendly",
+      "de": "Zufallsstring-Generator, Passwort-Generator, zufälliges Passwort, zufälliger Token, API-Schlüssel-Generator, Browser-basiert, Datenschutzfreundlich"
     },
     "content": {
       "heading": {
@@ -31,8 +31,8 @@
         "de": "Über diesen Zufallsstring-Generator"
       },
       "intro": {
-        "en": "This browser-based random string generator creates cryptographically secure random strings for passwords, API keys, tokens, and more. Customize the length and character sets to match your exact requirements. All generation happens in your browser using secure random number generation - no data is ever sent to any server.",
-        "de": "Dieser Browser-basierte Zufallsstring-Generator erstellt kryptographisch sichere Zufallsstrings für Passwörter, API-Schlüssel, Tokens und mehr. Passen Sie die Länge und Zeichensätze an Ihre genauen Anforderungen an. Alle Generierung erfolgt in Ihrem Browser mit sicherer Zufallszahlengenerierung - es werden nie Daten an einen Server gesendet."
+        "en": "This browser-based random string generator creates random strings for passwords, API keys, tokens, and more. Customize the length and character sets to match your requirements. All generation happens in your browser - no data is ever sent to any server.",
+        "de": "Dieser Browser-basierte Zufallsstring-Generator erstellt Zufallsstrings für Passwörter, API-Schlüssel, Tokens und mehr. Passen Sie die Länge und Zeichensätze an Ihre Anforderungen an. Alle Generierung erfolgt in Ihrem Browser - es werden nie Daten an einen Server gesendet."
       },
       "features": {
         "heading": {
@@ -49,8 +49,8 @@
             "de": "<strong>Zeichensatz-Optionen:</strong> Wählen Sie aus Großbuchstaben, Kleinbuchstaben, Zahlen und Sonderzeichen"
           },
           {
-            "en": "<strong>Cryptographically Secure:</strong> Uses browser's crypto API for true randomness",
-            "de": "<strong>Kryptographisch sicher:</strong> Verwendet die Crypto-API des Browsers für echte Zufälligkeit"
+            "en": "<strong>Browser-Based:</strong> All generation happens locally in your browser",
+            "de": "<strong>Browser-basiert:</strong> Alle Generierung erfolgt lokal in Ihrem Browser"
           },
           {
             "en": "<strong>Bulk Generation:</strong> Generate multiple random strings at once",
@@ -87,8 +87,12 @@
         ]
       },
       "privacy_note": {
-        "en": "🔒 Privacy-Friendly & Secure: Random strings are generated in your browser using cryptographically secure random number generation. Nothing is sent to any server.",
-        "de": "🔒 Datenschutzfreundlich & Sicher: Zufallsstrings werden in Ihrem Browser mit kryptographisch sicherer Zufallszahlengenerierung erstellt. Nichts wird an einen Server gesendet."
+        "en": "🔒 Privacy-Friendly: Random strings are generated entirely in your browser. Nothing is sent to any server.",
+        "de": "🔒 Datenschutzfreundlich: Zufallsstrings werden vollständig in Ihrem Browser generiert. Nichts wird an einen Server gesendet."
+      },
+      "disclaimer": {
+        "en": "⚠️ Disclaimer: Generated strings are provided without any guarantees regarding randomness, uniqueness, or suitability for any specific purpose. Use at your own discretion. Do not use strings from cached or archived pages.",
+        "de": "⚠️ Haftungsausschluss: Generierte Strings werden ohne Garantien bezüglich Zufälligkeit, Einzigartigkeit oder Eignung für bestimmte Zwecke bereitgestellt. Verwendung auf eigene Verantwortung. Verwenden Sie keine Strings von zwischengespeicherten oder archivierten Seiten."
       }
     }
   }

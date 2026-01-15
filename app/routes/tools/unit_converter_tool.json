@@ -93,6 +93,10 @@
       "privacy_note": {
         "en": "🔒 Privacy-Friendly: All conversions are performed entirely in your browser using the convert.js library. Your data never leaves your device. Powered by convert.js by Jonah Snider.",
         "de": "🔒 Datenschutzfreundlich: Alle Konvertierungen werden vollständig in Ihrem Browser mit der convert.js-Bibliothek durchgeführt. Ihre Daten verlassen nie Ihr Gerät. Angetrieben von convert.js von Jonah Snider."
+      },
+      "disclaimer": {
+        "en": "⚠️ Disclaimer: Conversions are provided for informational purposes only. Do not rely on these results for medical dosages, engineering calculations, or other critical applications without independent verification.",
+        "de": "⚠️ Haftungsausschluss: Umrechnungen dienen nur zu Informationszwecken. Verlassen Sie sich nicht auf diese Ergebnisse für medizinische Dosierungen, technische Berechnungen oder andere kritische Anwendungen ohne unabhängige Überprüfung."
       }
     }
   }
