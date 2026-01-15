@@ -120,27 +120,6 @@
                 </div>
             </div>
             
-            <!-- Share Section -->
-            <div class="card">
-                <div class="card-header">
-                    <h5 class="mb-0">
-                        <i class="fas fa-share-alt me-2"></i>
-                        {% if current_lang == 'de' %}Teilen{% else %}Share{% endif %}
-                    </h5>
-                </div>
-                <div class="card-body">
-                    <button class="btn btn-primary w-100" id="shareBtn" disabled>
-                        <i class="fas fa-link me-1"></i>
-                        {% if current_lang == 'de' %}Link kopieren{% else %}Copy Link{% endif %}
-                    </button>
-                    
-                    <div class="text-success text-center mt-2" id="copiedMsg" style="display: none;">
-                        <i class="fas fa-check me-1"></i>
-                        {% if current_lang == 'de' %}Kopiert!{% else %}Copied!{% endif %}
-                    </div>
-                </div>
-            </div>
-            
             <!-- Show My Location -->
             <div class="card mb-3">
                 <div class="card-body">
@@ -207,8 +186,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const radiusInput = document.getElementById('radiusInput');
     const radiusUnit = document.getElementById('radiusUnit');
     const radiusInfo = document.getElementById('radiusInfo');
-    const shareBtn = document.getElementById('shareBtn');
-    const copiedMsg = document.getElementById('copiedMsg');
     const clickModeIndicator = document.getElementById('clickModeIndicator');
     
     // Initialize map (centered on Europe)
@@ -311,9 +288,6 @@ document.addEventListener('DOMContentLoaded', function() {
         updateRadiusInfo();
         updateMap();
         
-        // Enable/disable share button
-        shareBtn.disabled = !centerPoint;
-        
         // Update URL
         updateUrl();
     }
@@ -329,31 +303,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         
         window.history.replaceState({}, '', url.toString());
-    }
-    
-    function getShareUrl() {
-        const url = new URL(window.location.origin + window.location.pathname);
-        
-        if (centerPoint) {
-            url.searchParams.set('lat', centerPoint.lat.toFixed(6));
-            url.searchParams.set('lng', centerPoint.lng.toFixed(6));
-            url.searchParams.set('r', getRadiusInKm().toFixed(2));
-        }
-        
-        return url.toString();
-    }
-    
-    function copyToClipboard(text) {
-        navigator.clipboard.writeText(text).then(function() {
-            copiedMsg.style.display = 'block';
-            setTimeout(function() {
-                copiedMsg.style.display = 'none';
-            }, 2000);
-            
-            if (typeof window.showSupportOnAction === 'function') {
-                window.showSupportOnAction(30000);
-            }
-        });
     }
     
     function getUserLocation(callback) {
@@ -439,10 +388,6 @@ document.addEventListener('DOMContentLoaded', function() {
     
     radiusUnit.addEventListener('change', function() {
         updateUI();
-    });
-    
-    shareBtn.addEventListener('click', function() {
-        copyToClipboard(getShareUrl());
     });
     
     // Map click handler

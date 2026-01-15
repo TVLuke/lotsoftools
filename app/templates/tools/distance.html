@@ -75,14 +75,6 @@
     white-space: nowrap;
 }
 
-.share-options {
-    display: none;
-}
-
-.share-options.show {
-    display: block;
-}
-
 .mylocation-notice {
     background-color: #fff3cd;
     border: 1px solid #ffc107;
@@ -114,7 +106,25 @@
         <h1 class="mb-0">
             <i class="{{ tool_data.img }} me-2"></i>{{ tool_data.name[current_lang] }}
         </h1>
-        {% include 'components/share_button.html' %}
+        <!-- Custom share button with mylocation options -->
+        <div class="share-button-wrapper">
+            <div class="btn-group">
+                <button class="btn btn-outline-secondary btn-sm" id="shareBtn" disabled>
+                    <i class="fas fa-share-alt me-1"></i>{% if current_lang == 'de' %}Link teilen{% else %}Share link{% endif %}
+                </button>
+                <button type="button" class="btn btn-outline-secondary btn-sm dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false" id="shareDropdownToggle" disabled>
+                    <span class="visually-hidden">Toggle Dropdown</span>
+                </button>
+                <ul class="dropdown-menu dropdown-menu-end">
+                    <li><h6 class="dropdown-header">{% if current_lang == 'de' %}Mit Empfänger-Standort{% else %}With recipient's location{% endif %}</h6></li>
+                    <li><button class="dropdown-item" id="shareWithMyLocationA"><i class="fas fa-map-marker-alt text-success me-2"></i>{% if current_lang == 'de' %}A = Empfänger{% else %}A = Recipient{% endif %}</button></li>
+                    <li><button class="dropdown-item" id="shareWithMyLocationB"><i class="fas fa-map-marker-alt text-danger me-2"></i>{% if current_lang == 'de' %}B = Empfänger{% else %}B = Recipient{% endif %}</button></li>
+                </ul>
+            </div>
+            <span class="ms-2 text-success small" id="copiedMsg" style="display: none;">
+                <i class="fas fa-check me-1"></i>{% if current_lang == 'de' %}Kopiert!{% else %}Copied!{% endif %}
+            </span>
+        </div>
     </div>
     <p class="lead mb-4">{{ tool_data.description[current_lang] }}</p>
     
@@ -206,46 +216,6 @@
                 </div>
             </div>
             
-            <!-- Share Section -->
-            <div class="card">
-                <div class="card-header">
-                    <h5 class="mb-0">
-                        <i class="fas fa-share-alt me-2"></i>
-                        {% if current_lang == 'de' %}Teilen{% else %}Share{% endif %}
-                    </h5>
-                </div>
-                <div class="card-body">
-                    <button class="btn btn-primary w-100 mb-2" id="shareBtn" disabled>
-                        <i class="fas fa-link me-1"></i>
-                        {% if current_lang == 'de' %}Link kopieren{% else %}Copy Link{% endif %}
-                    </button>
-                    
-                    <div class="share-options" id="shareOptions">
-                        <hr>
-                        <p class="small text-muted mb-2">
-                            {% if current_lang == 'de' %}
-                                Ersetze einen Punkt mit dem Standort des Empfängers:
-                            {% else %}
-                                Replace a point with recipient's location:
-                            {% endif %}
-                        </p>
-                        <div class="btn-group w-100" role="group">
-                            <button class="btn btn-outline-success btn-sm" id="shareWithMyLocationA">
-                                <i class="fas fa-user-location me-1"></i>A
-                            </button>
-                            <button class="btn btn-outline-danger btn-sm" id="shareWithMyLocationB">
-                                <i class="fas fa-user-location me-1"></i>B
-                            </button>
-                        </div>
-                    </div>
-                    
-                    <div class="text-success text-center mt-2" id="copiedMsg" style="display: none;">
-                        <i class="fas fa-check me-1"></i>
-                        {% if current_lang == 'de' %}Kopiert!{% else %}Copied!{% endif %}
-                    </div>
-                </div>
-            </div>
-            
             <!-- Show My Location -->
             <div class="card mb-3">
                 <div class="card-body">
@@ -317,7 +287,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const distanceDisplayEl = document.getElementById('distanceDisplay');
     const distanceDetailsEl = document.getElementById('distanceDetails');
     const shareBtn = document.getElementById('shareBtn');
-    const shareOptions = document.getElementById('shareOptions');
+    const shareDropdownToggle = document.getElementById('shareDropdownToggle');
     const copiedMsg = document.getElementById('copiedMsg');
     const clickModeIndicator = document.getElementById('clickModeIndicator');
     const mylocationNotice = document.getElementById('mylocationNotice');
@@ -457,14 +427,14 @@ document.addEventListener('DOMContentLoaded', function() {
             ]);
             map.fitBounds(bounds, {padding: [50, 50]});
             
-            // Enable share button and show options
+            // Enable share buttons
             shareBtn.disabled = false;
-            shareOptions.classList.add('show');
+            shareDropdownToggle.disabled = false;
         } else {
             distanceDisplayEl.textContent = '--';
             distanceDetailsEl.textContent = '';
             shareBtn.disabled = true;
-            shareOptions.classList.remove('show');
+            shareDropdownToggle.disabled = true;
         }
         
         // Update URL
