@@ -1,0 +1,36 @@
+<!-- Share Button Component -->
+<div class="share-button-wrapper">
+    <button class="btn btn-outline-secondary btn-sm" id="shareBtn">
+        <i class="fas fa-share-alt me-1"></i>{% if current_lang == 'de' %}Link teilen{% else %}Share link{% endif %}
+    </button>
+    <span class="ms-2 text-success small" id="copiedMsg" style="display: none;">
+        <i class="fas fa-check me-1"></i>{% if current_lang == 'de' %}Kopiert!{% else %}Copied!{% endif %}
+    </span>
+</div>
+
+<script>
+document.getElementById('shareBtn').addEventListener('click', function() {
+    const url = window.location.href;
+    navigator.clipboard.writeText(url).then(function() {
+        const copiedMsg = document.getElementById('copiedMsg');
+        copiedMsg.style.display = 'inline';
+        setTimeout(function() {
+            copiedMsg.style.display = 'none';
+        }, 2000);
+    }).catch(function(err) {
+        console.error('Could not copy URL:', err);
+        // Fallback: select text in a temporary input
+        const tempInput = document.createElement('input');
+        tempInput.value = url;
+        document.body.appendChild(tempInput);
+        tempInput.select();
+        document.execCommand('copy');
+        document.body.removeChild(tempInput);
+        const copiedMsg = document.getElementById('copiedMsg');
+        copiedMsg.style.display = 'inline';
+        setTimeout(function() {
+            copiedMsg.style.display = 'none';
+        }, 2000);
+    });
+});
+</script>

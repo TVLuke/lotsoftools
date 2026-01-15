@@ -101,6 +101,15 @@ LIBRARIES = [
         ]
     },
     {
+        'name': 'convert',
+        'files': [
+            {
+                'url': 'https://cdn.jsdelivr.net/npm/convert@5/dist/index.js',
+                'filename': 'convert.min.js'
+            }
+        ]
+    },
+    {
         'name': 'dojo',
         'files': [
             {

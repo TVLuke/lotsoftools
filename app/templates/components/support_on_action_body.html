@@ -60,7 +60,7 @@
             hideTimer = setTimeout(() => {
                 toast.classList.remove('support-toast--visible');
                 toast.classList.add('support-toast--hidden');
-            }, typeof durationMs === 'number' ? durationMs : 30000);
+            }, typeof durationMs === 'number' ? durationMs : 10000);
         }
 
         window.showSupportOnAction = show;

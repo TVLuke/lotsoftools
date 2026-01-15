@@ -9,10 +9,13 @@
 {% block content %}
 <div class="row">
     <div class="col-12">
-        <h1 class="mb-4">
-            <i class="fas fa-exchange-alt me-2"></i>
-            {% if current_lang == 'de' %}Einheitenumrechner{% else %}Unit Converter{% endif %}
-        </h1>
+        <div class="d-flex justify-content-between align-items-center flex-wrap mb-4">
+            <h1 class="mb-0" id="pageTitle">
+                <i class="fas fa-exchange-alt me-2"></i>
+                <span id="titleText">{% if current_lang == 'de' %}Einheitenumrechner{% else %}Unit Converter{% endif %}</span>
+            </h1>
+            {% include 'components/share_button.html' %}
+        </div>
     </div>
 </div>
 
@@ -137,9 +140,9 @@
 {% endblock %}
 
 {% block extra_js %}
-<script src="https://cdn.jsdelivr.net/npm/convert@5/dist/index.js"></script>
+{% include 'components/imports/convert.html' %}
 <script>
-const lang = document.documentElement.lang || 'en';
+const lang = '{{ current_lang }}';
 
 // The library exports as 'convert' object with a 'convert' function
 // Access it as convert.convert or window.convert.convert
@@ -167,7 +170,7 @@ const units = {
     length: ['mm', 'cm', 'm', 'km', 'in', 'ft', 'yd', 'mi'],
     mass: ['mg', 'g', 'kg', 'oz', 'lb'],
     temperature: ['C', 'F', 'K'],
-    volume: ['ml', 'l', 'tsp', 'Tbs', 'fl-oz', 'cup', 'pnt', 'qt', 'gal'],
+    volume: ['ml', 'l', 'cup', 'pt', 'qt', 'gal'],
     time: ['ns', 'ms', 's', 'min', 'h', 'd', 'week', 'month', 'year'],
     area: ['mm2', 'cm2', 'm2', 'km2', 'in2', 'ft2', 'ac', 'mi2'],
     energy: ['J', 'kJ', 'Wh', 'kWh', 'cal', 'kcal'],
@@ -178,8 +181,8 @@ const units = {
     data: ['b', 'B', 'KB', 'MB', 'GB', 'TB']
 };
 
-// Unit labels for display
-const unitLabels = {
+// Unit labels for display (English)
+const unitLabelsEn = {
     // Length
     'mm': 'Millimeters', 'cm': 'Centimeters', 'm': 'Meters', 'km': 'Kilometers',
     'in': 'Inches', 'ft': 'Feet', 'yd': 'Yards', 'mi': 'Miles', 'nmi': 'Nautical Miles',
@@ -189,24 +192,22 @@ const unitLabels = {
     // Temperature
     'C': 'Celsius', 'F': 'Fahrenheit', 'K': 'Kelvin',
     // Volume
-    'ml': 'Milliliters', 'l': 'Liters', 'kl': 'Kiloliters',
-    'tsp': 'Teaspoons', 'Tbs': 'Tablespoons', 'fl-oz': 'Fluid Ounces',
-    'cup': 'Cups', 'pnt': 'Pints', 'qt': 'Quarts', 'gal': 'Gallons',
-    'ft3': 'Cubic Feet', 'm3': 'Cubic Meters',
+    'ml': 'Milliliters', 'l': 'Liters',
+    'cup': 'Cups', 'pt': 'Pints', 'qt': 'Quarts', 'gal': 'Gallons',
     // Time
     'ns': 'Nanoseconds', 'mu': 'Microseconds', 'ms': 'Milliseconds', 's': 'Seconds',
     'min': 'Minutes', 'h': 'Hours', 'd': 'Days', 'week': 'Weeks', 'month': 'Months', 'year': 'Years',
     // Area
-    'mm2': 'Square Millimeters', 'cm2': 'Square Centimeters', 'm2': 'Square Meters',
-    'ha': 'Hectares', 'km2': 'Square Kilometers', 'in2': 'Square Inches',
-    'ft2': 'Square Feet', 'ac': 'Acres', 'mi2': 'Square Miles',
+    'mm2': 'mm²', 'cm2': 'cm²', 'm2': 'm²',
+    'ha': 'Hectares', 'km2': 'km²', 'in2': 'in²',
+    'ft2': 'ft²', 'ac': 'Acres', 'mi2': 'mi²',
     // Energy
     'J': 'Joules', 'kJ': 'Kilojoules', 'Wh': 'Watt-hours', 'kWh': 'Kilowatt-hours',
     'eV': 'Electronvolts', 'BTU': 'BTU', 'cal': 'Calories', 'kcal': 'Kilocalories',
     // Power
     'W': 'Watts', 'kW': 'Kilowatts', 'MW': 'Megawatts', 'hp': 'Horsepower', 'BTU/s': 'BTU/second',
     // Pressure
-    'Pa': 'Pascals', 'kPa': 'Kilopascals', 'MPa': 'Megapascals', 'bar': 'Bar',
+    'Pa': 'Pascal', 'kPa': 'Kilopascal', 'MPa': 'Megapascal', 'bar': 'Bar',
     'psi': 'PSI', 'atm': 'Atmospheres', 'torr': 'Torr',
     // Force
     'N': 'Newtons', 'kN': 'Kilonewtons', 'lbf': 'Pound-force',
@@ -216,6 +217,46 @@ const unitLabels = {
     'b': 'Bits', 'B': 'Bytes', 'KB': 'Kilobytes', 'MB': 'Megabytes', 'GB': 'Gigabytes', 'TB': 'Terabytes',
     'KiB': 'Kibibytes', 'MiB': 'Mebibytes', 'GiB': 'Gibibytes', 'TiB': 'Tebibytes'
 };
+
+// Unit labels for display (German)
+const unitLabelsDe = {
+    // Length
+    'mm': 'Millimeter', 'cm': 'Zentimeter', 'm': 'Meter', 'km': 'Kilometer',
+    'in': 'Zoll', 'ft': 'Fuß', 'yd': 'Yard', 'mi': 'Meilen', 'nmi': 'Seemeilen',
+    // Mass
+    'mg': 'Milligramm', 'g': 'Gramm', 'kg': 'Kilogramm', 't': 'Tonnen',
+    'oz': 'Unzen', 'lb': 'Pfund', 'st': 'Stone', 'ton': 'US-Tonnen',
+    // Temperature
+    'C': 'Celsius', 'F': 'Fahrenheit', 'K': 'Kelvin',
+    // Volume
+    'ml': 'Milliliter', 'l': 'Liter',
+    'cup': 'Tassen', 'pt': 'Pints', 'qt': 'Quarts', 'gal': 'Gallonen',
+    // Time
+    'ns': 'Nanosekunden', 'mu': 'Mikrosekunden', 'ms': 'Millisekunden', 's': 'Sekunden',
+    'min': 'Minuten', 'h': 'Stunden', 'd': 'Tage', 'week': 'Wochen', 'month': 'Monate', 'year': 'Jahre',
+    // Area
+    'mm2': 'mm²', 'cm2': 'cm²', 'm2': 'm²',
+    'ha': 'Hektar', 'km2': 'km²', 'in2': 'in²',
+    'ft2': 'ft²', 'ac': 'Acres', 'mi2': 'mi²',
+    // Energy
+    'J': 'Joule', 'kJ': 'Kilojoule', 'Wh': 'Wattstunden', 'kWh': 'Kilowattstunden',
+    'eV': 'Elektronenvolt', 'BTU': 'BTU', 'cal': 'Kalorien', 'kcal': 'Kilokalorien',
+    // Power
+    'W': 'Watt', 'kW': 'Kilowatt', 'MW': 'Megawatt', 'hp': 'Pferdestärken', 'BTU/s': 'BTU/Sekunde',
+    // Pressure
+    'Pa': 'Pascal', 'kPa': 'Kilopascal', 'MPa': 'Megapascal', 'bar': 'Bar',
+    'psi': 'PSI', 'atm': 'Atmosphären', 'torr': 'Torr',
+    // Force
+    'N': 'Newton', 'kN': 'Kilonewton', 'lbf': 'Pound-force',
+    // Angle
+    'deg': 'Grad', 'rad': 'Radiant', 'grad': 'Gon', 'arcmin': 'Bogenminuten', 'arcsec': 'Bogensekunden',
+    // Data
+    'b': 'Bits', 'B': 'Bytes', 'KB': 'Kilobytes', 'MB': 'Megabytes', 'GB': 'Gigabytes', 'TB': 'Terabytes',
+    'KiB': 'Kibibytes', 'MiB': 'Mebibytes', 'GiB': 'Gibibytes', 'TiB': 'Tebibytes'
+};
+
+// Select labels based on language
+const unitLabels = lang === 'de' ? unitLabelsDe : unitLabelsEn;
 
 let currentCategory = 'length';
 
@@ -341,7 +382,7 @@ function performConversion() {
             const outTime = convertFn(1, 's').to(outputUnit2);
             result = outLength / outTime;
             
-            outputValueEl.textContent = `${formatNumber(result)} ${outputUnit1}/${outputUnit2}`;
+            outputValueEl.textContent = `${formatNumber(result)} ${unitLabels[outputUnit1] || outputUnit1}/${unitLabels[outputUnit2] || outputUnit2}`;
             
             // Generate table for all combinations
             generateSpeedTable(inputValue, inputUnit1, inputUnit2, tableBody);
@@ -359,13 +400,13 @@ function performConversion() {
             const outTime = convertFn(1, 's').to(outputUnit2);
             result = outLength / (outTime * outTime);
             
-            outputValueEl.textContent = `${formatNumber(result)} ${outputUnit1}/${outputUnit2}²`;
+            outputValueEl.textContent = `${formatNumber(result)} ${unitLabels[outputUnit1] || outputUnit1}/${unitLabels[outputUnit2] || outputUnit2}²`;
             
             // Generate table for all combinations
             generateAccelerationTable(inputValue, inputUnit1, inputUnit2, tableBody);
         } else {
             result = convertFn(inputValue, inputUnit1).to(outputUnit1);
-            outputValueEl.textContent = `${formatNumber(result)} ${outputUnit1}`;
+            outputValueEl.textContent = `${formatNumber(result)} ${unitLabels[outputUnit1] || outputUnit1}`;
             
             // Generate table for all units in category
             generateStandardTable(inputValue, inputUnit1, tableBody);
@@ -414,6 +455,8 @@ function generateStandardTable(value, fromUnit, tableBody) {
                 document.getElementById('inputUnit1').value = toUnit;
                 document.getElementById('outputUnit1').value = fromUnit;
                 performConversion();
+                updateTitle();
+                updateUrl();
             });
         } catch (e) {
             // Skip units that don't convert
@@ -453,6 +496,8 @@ function generateSpeedTable(value, lengthUnit, timeUnit, tableBody) {
                     document.getElementById('outputUnit1').value = lengthUnit;
                     document.getElementById('outputUnit2').value = timeUnit;
                     performConversion();
+                    updateTitle();
+                    updateUrl();
                 });
             } catch (e) {
                 // Skip invalid combinations
@@ -493,6 +538,8 @@ function generateAccelerationTable(value, lengthUnit, timeUnit, tableBody) {
                     document.getElementById('outputUnit1').value = lengthUnit;
                     document.getElementById('outputUnit2').value = timeUnit;
                     performConversion();
+                    updateTitle();
+                    updateUrl();
                 });
             } catch (e) {
                 // Skip invalid combinations
@@ -501,20 +548,125 @@ function generateAccelerationTable(value, lengthUnit, timeUnit, tableBody) {
     });
 }
 
+// Update page title based on current conversion
+function updateTitle() {
+    const inputUnit1 = document.getElementById('inputUnit1').value;
+    const outputUnit1 = document.getElementById('outputUnit1').value;
+    const inputLabel = unitLabels[inputUnit1] || inputUnit1;
+    const outputLabel = unitLabels[outputUnit1] || outputUnit1;
+    
+    const baseTitleDe = 'Einheitenumrechner';
+    const baseTitleEn = 'Unit Converter';
+    const baseTitle = lang === 'de' ? baseTitleDe : baseTitleEn;
+    
+    let titleText;
+    if (currentCategory === 'speed' || currentCategory === 'acceleration') {
+        const inputUnit2 = document.getElementById('inputUnit2').value;
+        const outputUnit2 = document.getElementById('outputUnit2').value;
+        const inputLabel2 = unitLabels[inputUnit2] || inputUnit2;
+        const outputLabel2 = unitLabels[outputUnit2] || outputUnit2;
+        const suffix = currentCategory === 'acceleration' ? '²' : '';
+        if (lang === 'de') {
+            titleText = `${baseTitle}: ${inputLabel}/${inputLabel2}${suffix} zu ${outputLabel}/${outputLabel2}${suffix}`;
+        } else {
+            titleText = `${baseTitle}: ${inputLabel}/${inputLabel2}${suffix} to ${outputLabel}/${outputLabel2}${suffix}`;
+        }
+    } else {
+        if (lang === 'de') {
+            titleText = `${baseTitle}: ${inputLabel} zu ${outputLabel}`;
+        } else {
+            titleText = `${baseTitle}: ${inputLabel} to ${outputLabel}`;
+        }
+    }
+    
+    document.getElementById('titleText').textContent = titleText;
+    document.title = titleText + ' - Lots of Tools';
+}
+
+// Update URL with current state for sharing
+function updateUrl() {
+    const params = new URLSearchParams();
+    params.set('cat', currentCategory);
+    params.set('v', document.getElementById('inputValue').value);
+    params.set('from', document.getElementById('inputUnit1').value);
+    params.set('to', document.getElementById('outputUnit1').value);
+    
+    if (currentCategory === 'speed' || currentCategory === 'acceleration') {
+        params.set('from2', document.getElementById('inputUnit2').value);
+        params.set('to2', document.getElementById('outputUnit2').value);
+    }
+    
+    const newUrl = `${window.location.pathname}?${params.toString()}`;
+    history.replaceState(null, '', newUrl);
+}
+
+// Load state from URL
+function loadFromUrl() {
+    const params = new URLSearchParams(window.location.search);
+    const category = params.get('cat');
+    const value = params.get('v');
+    const fromUnit = params.get('from');
+    const toUnit = params.get('to');
+    const fromUnit2 = params.get('from2');
+    const toUnit2 = params.get('to2');
+    
+    if (category && units[category]) {
+        // Select the category radio
+        const radio = document.getElementById(`cat-${category}`);
+        if (radio) {
+            radio.checked = true;
+            setupCategory(category);
+        }
+        
+        // Set value
+        if (value) {
+            document.getElementById('inputValue').value = value;
+        }
+        
+        // Set units after category is set up
+        if (fromUnit) {
+            document.getElementById('inputUnit1').value = fromUnit;
+        }
+        if (toUnit) {
+            document.getElementById('outputUnit1').value = toUnit;
+        }
+        if ((category === 'speed' || category === 'acceleration') && fromUnit2 && toUnit2) {
+            document.getElementById('inputUnit2').value = fromUnit2;
+            document.getElementById('outputUnit2').value = toUnit2;
+        }
+        
+        performConversion();
+        updateTitle();
+        return true;
+    }
+    return false;
+}
+
 // Event listeners
 document.querySelectorAll('input[name="category"]').forEach(radio => {
     radio.addEventListener('change', function() {
         setupCategory(this.value);
+        updateTitle();
+        updateUrl();
     });
 });
 
-document.getElementById('inputValue').addEventListener('input', performConversion);
-document.getElementById('inputUnit1').addEventListener('change', performConversion);
-document.getElementById('inputUnit2').addEventListener('change', performConversion);
-document.getElementById('outputUnit1').addEventListener('change', performConversion);
-document.getElementById('outputUnit2').addEventListener('change', performConversion);
+function onInputChange() {
+    performConversion();
+    updateTitle();
+    updateUrl();
+}
+
+document.getElementById('inputValue').addEventListener('input', onInputChange);
+document.getElementById('inputUnit1').addEventListener('change', onInputChange);
+document.getElementById('inputUnit2').addEventListener('change', onInputChange);
+document.getElementById('outputUnit1').addEventListener('change', onInputChange);
+document.getElementById('outputUnit2').addEventListener('change', onInputChange);
 
 // Initialize
-setupCategory('length');
+if (!loadFromUrl()) {
+    setupCategory('length');
+    updateTitle();
+}
 </script>
 {% endblock %}

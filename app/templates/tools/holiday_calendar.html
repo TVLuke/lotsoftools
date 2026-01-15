@@ -12,7 +12,8 @@
 
 {% block content %}
 <div class="container mt-4">
-    <h1 class="mb-4" id="seoHeading">
+    <div class="d-flex justify-content-between align-items-center flex-wrap mb-4">
+    <h1 class="mb-0" id="seoHeading">
         {% if seo_region %}
             {% if seo_year %}{% if current_lang == 'de' %}Schulferien & Feiertage {{ seo_region }} {{ seo_year }}{% else %}School Holidays & Bank Holidays {{ seo_region_en }} {{ seo_year }}{% endif %}{% else %}{% if current_lang == 'de' %}Schulferien & Feiertage {{ seo_region }}{% else %}School Holidays & Bank Holidays {{ seo_region_en }}{% endif %}{% endif %}
         {% elif seo_country %}
@@ -21,6 +22,8 @@
             {% if current_lang == 'de' %}Schulferien & Feiertage{% else %}School Holidays & Bank Holidays{% endif %}
         {% endif %}
     </h1>
+    {% include 'components/share_button.html' %}
+    </div>
     <p class="text-muted mb-3" id="seoDescription">
         {% if seo_region %}
             {% if seo_year %}{% if current_lang == 'de' %}Übersicht aller Schulferien und gesetzlichen Feiertage für {{ seo_region }}, {{ seo_country }} im Jahr {{ seo_year }}. Kalender zum Ausdrucken als PDF und iCal-Download verfügbar.{% else %}Overview of all school holidays and public holidays for {{ seo_region_en }}, {{ seo_country_en }} in {{ seo_year }}. Printable PDF calendar and iCal download available.{% endif %}{% else %}{% if current_lang == 'de' %}Übersicht aller Schulferien und gesetzlichen Feiertage für {{ seo_region }}, {{ seo_country }}. Kalender zum Ausdrucken als PDF und iCal-Download verfügbar.{% else %}Overview of all school holidays and public holidays for {{ seo_region_en }}, {{ seo_country_en }}. Printable PDF calendar and iCal download available.{% endif %}{% endif %}
