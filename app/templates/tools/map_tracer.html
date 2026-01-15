@@ -26,6 +26,7 @@
 
 #map.draw-mode {
     cursor: crosshair;
+    touch-action: none;
 }
 
 .distance-display {
@@ -636,25 +637,26 @@ document.addEventListener('DOMContentLoaded', function() {
     map.on('mouseup', onMouseUp);
     map.on('mouseout', onMouseUp);
     
-    // Touch support for drawing
-    map.on('touchstart', function(e) {
+    // Touch support for drawing - use native events with preventDefault
+    mapContainer.addEventListener('touchstart', function(e) {
         if (currentMode !== 'draw') return;
+        e.preventDefault();
         isDrawing = true;
-        const touch = e.touches ? e.touches[0] : e;
-        if (e.latlng) {
-            addPoint(e.latlng.lat, e.latlng.lng);
-        }
-    });
+        const touch = e.touches[0];
+        const latlng = map.containerPointToLatLng([touch.clientX - mapContainer.getBoundingClientRect().left, touch.clientY - mapContainer.getBoundingClientRect().top]);
+        addPoint(latlng.lat, latlng.lng);
+    }, {passive: false});
     
-    map.on('touchmove', function(e) {
+    mapContainer.addEventListener('touchmove', function(e) {
         if (currentMode !== 'draw' || !isDrawing) return;
-        if (e.latlng) {
-            addPoint(e.latlng.lat, e.latlng.lng);
-            updateUI();
-        }
-    });
+        e.preventDefault();
+        const touch = e.touches[0];
+        const latlng = map.containerPointToLatLng([touch.clientX - mapContainer.getBoundingClientRect().left, touch.clientY - mapContainer.getBoundingClientRect().top]);
+        addPoint(latlng.lat, latlng.lng);
+        updateUI();
+    }, {passive: false});
     
-    map.on('touchend', function(e) {
+    mapContainer.addEventListener('touchend', function(e) {
         if (currentMode !== 'draw') return;
         isDrawing = false;
         updateUI();

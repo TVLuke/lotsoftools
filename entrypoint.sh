@@ -1,12 +1,19 @@
 #!/bin/bash
 
-# Install ffmpeg if not present (persists until container is recreated)
-if ! command -v ffmpeg &> /dev/null; then
-    echo "Installing ffmpeg..."
-    apt-get update && apt-get install -y --no-install-recommends ffmpeg && rm -rf /var/lib/apt/lists/*
-    echo "✓ ffmpeg installed"
+# Check if youtube_dl is enabled in tool_config.json
+YOUTUBE_DL_ACTIVE=$(python3 -c "import json; print(json.load(open('/app/app/config/tool_config.json')).get('youtube_dl', {}).get('active', False))" 2>/dev/null)
+
+# Install ffmpeg only if youtube_dl is active
+if [ "$YOUTUBE_DL_ACTIVE" = "True" ]; then
+    if ! command -v ffmpeg &> /dev/null; then
+        echo "Installing ffmpeg (required for youtube-dl)..."
+        apt-get update && apt-get install -y --no-install-recommends ffmpeg && rm -rf /var/lib/apt/lists/*
+        echo "✓ ffmpeg installed"
+    else
+        echo "✓ ffmpeg already installed"
+    fi
 else
-    echo "✓ ffmpeg already installed"
+    echo "○ ffmpeg skipped (youtube-dl not active)"
 fi
 
 # Start gunicorn
