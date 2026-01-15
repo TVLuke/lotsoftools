@@ -19,7 +19,10 @@ jobs:
         node-version: '20'
     
     - name: Run JavaScript tests
-      run: node tests/js/color-converter.test.js
+      run: |
+        node tests/js/color-converter.test.js
+        node tests/js/json-formatter.test.js
+        node tests/js/xml-formatter.test.js
 
   test-python:
     runs-on: ubuntu-latest
