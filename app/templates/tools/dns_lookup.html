@@ -403,8 +403,11 @@ async function performLookup() {
         const resultHtml = renderResults(data);
         resultsContainer.insertAdjacentHTML('afterbegin', resultHtml);
         
+        // Update URL after successful lookup
+        updateUrl();
+        
         if (typeof window.showSupportOnAction === 'function') {
-            window.showSupportOnAction(30000);
+            window.showSupportOnAction(10000);
         }
         
     } catch (e) {
@@ -433,5 +436,57 @@ autoRefresh.addEventListener('change', () => {
         }
     }
 });
+
+// Update URL with current state for sharing
+function updateUrl() {
+    const params = new URLSearchParams();
+    const domain = domainInput.value.trim();
+    const type = recordType.value;
+    const dns = customServer.value.trim();
+    
+    if (domain) {
+        params.set('domain', domain);
+    }
+    if (type && type !== 'ALL') {
+        params.set('type', type);
+    }
+    if (dns) {
+        params.set('dns', dns);
+    }
+    
+    const newUrl = params.toString() ? `${window.location.pathname}?${params.toString()}` : window.location.pathname;
+    history.replaceState(null, '', newUrl);
+}
+
+// Load state from URL
+function loadFromUrl() {
+    const params = new URLSearchParams(window.location.search);
+    const domain = params.get('domain');
+    const type = params.get('type');
+    const dns = params.get('dns');
+    
+    if (domain) {
+        domainInput.value = domain;
+    }
+    if (type) {
+        recordType.value = type;
+    }
+    if (dns) {
+        customServer.value = dns;
+    }
+    
+    // Auto-perform lookup if domain is provided
+    if (domain) {
+        performLookup();
+    }
+}
+
+// Update URL when inputs change
+domainInput.addEventListener('change', updateUrl);
+recordType.addEventListener('change', updateUrl);
+customServer.addEventListener('change', updateUrl);
+
+// Load state on page load
+loadFromUrl();
 </script>
 {% endblock %}
