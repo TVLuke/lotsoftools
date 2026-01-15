@@ -12,7 +12,23 @@
                 <i class="fas fa-eye me-2"></i>
                 {% if current_lang == 'de' %}Farbenblindheit-Simulator{% else %}Color Blindness Simulator{% endif %}
             </h1>
-            {% include 'components/share_button.html' %}
+            <!-- Custom share button with colors option -->
+            <div class="share-button-wrapper">
+                <div class="btn-group">
+                    <button class="btn btn-outline-secondary btn-sm" id="shareBtn">
+                        <i class="fas fa-share-alt me-1"></i>{% if current_lang == 'de' %}Link teilen{% else %}Share link{% endif %}
+                    </button>
+                    <button type="button" class="btn btn-outline-secondary btn-sm dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
+                        <span class="visually-hidden">Toggle Dropdown</span>
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-end">
+                        <li><button class="dropdown-item" id="shareWithColors"><i class="fas fa-palette me-2"></i>{% if current_lang == 'de' %}Mit Farben teilen{% else %}Share with colors{% endif %}</button></li>
+                    </ul>
+                </div>
+                <span class="ms-2 text-success small" id="copiedMsg" style="display: none;">
+                    <i class="fas fa-check me-1"></i>{% if current_lang == 'de' %}Kopiert!{% else %}Copied!{% endif %}
+                </span>
+            </div>
         </div>
     </div>
 </div>
@@ -80,15 +96,86 @@
 {% block extra_js %}
 {% include 'components/imports/colorblind.html' %}
 <script>
-// Get colors from URL parameters or use defaults
+// Get colors and type from URL parameters or use defaults
 const urlParams = new URLSearchParams(window.location.search);
 const colorsParam = urlParams.get('colors');
+const typeParam = urlParams.get('type');
 const defaultColors = colorsParam ? colorsParam.split(',').map(c => '#' + c).slice(0, 5) : ['#FF0000', '#00FF00', '#0000FF', '#FFFF00', '#FF00FF'];
 
 // Ensure we always have 5 colors
 while (defaultColors.length < 5) {
     defaultColors.push('#' + Math.floor(Math.random()*16777215).toString(16).padStart(6, '0'));
 }
+
+// Set deficiency type from URL if provided
+if (typeParam && ['protanopia', 'deuteranopia', 'tritanopia', 'achromatopsia'].includes(typeParam)) {
+    document.getElementById('deficiencyType').value = typeParam;
+}
+
+// Update URL with current state
+function updateUrl() {
+    const params = new URLSearchParams();
+    
+    // Get current type
+    const type = document.getElementById('deficiencyType').value;
+    params.set('type', type);
+    
+    // Get current colors
+    const colors = [];
+    for (let i = 0; i < 5; i++) {
+        const colorInput = document.getElementById(`color${i}`);
+        if (colorInput) {
+            colors.push(colorInput.value.replace('#', ''));
+        }
+    }
+    params.set('colors', colors.join(','));
+    
+    const newUrl = `${window.location.pathname}?${params.toString()}`;
+    history.replaceState(null, '', newUrl);
+}
+
+// Get share URL (with or without colors)
+function getShareUrl(includeColors) {
+    const params = new URLSearchParams();
+    
+    // Get current type
+    const type = document.getElementById('deficiencyType').value;
+    params.set('type', type);
+    
+    if (includeColors) {
+        // Get current colors
+        const colors = [];
+        for (let i = 0; i < 5; i++) {
+            const colorInput = document.getElementById(`color${i}`);
+            if (colorInput) {
+                colors.push(colorInput.value.replace('#', ''));
+            }
+        }
+        params.set('colors', colors.join(','));
+    }
+    
+    return `${window.location.origin}${window.location.pathname}?${params.toString()}`;
+}
+
+// Copy to clipboard helper
+function copyToClipboard(text) {
+    navigator.clipboard.writeText(text).then(function() {
+        const copiedMsg = document.getElementById('copiedMsg');
+        copiedMsg.style.display = 'inline';
+        setTimeout(function() {
+            copiedMsg.style.display = 'none';
+        }, 2000);
+    });
+}
+
+// Share button event listeners
+document.getElementById('shareBtn').addEventListener('click', function() {
+    copyToClipboard(getShareUrl(false));
+});
+
+document.getElementById('shareWithColors').addEventListener('click', function() {
+    copyToClipboard(getShareUrl(true));
+});
 
 // Initialize color inputs
 function initializeColors() {
@@ -127,6 +214,7 @@ function initializeColors() {
         colorInput.addEventListener('change', function(e) {
             hexInput.value = e.target.value.toUpperCase();
             simulateColors();
+            updateUrl();
         });
         
         hexInput.addEventListener('input', function(e) {
@@ -134,6 +222,7 @@ function initializeColors() {
             if (/^#[0-9A-Fa-f]{6}$/.test(hex)) {
                 colorInput.value = hex;
                 simulateColors();
+                updateUrl();
             }
         });
     });
@@ -170,9 +259,13 @@ function simulateColors() {
 }
 
 // Event listener for deficiency type change
-document.getElementById('deficiencyType').addEventListener('change', simulateColors);
+document.getElementById('deficiencyType').addEventListener('change', function() {
+    simulateColors();
+    updateUrl();
+});
 
 // Initialize on page load
 initializeColors();
+updateUrl();
 </script>
 {% endblock %}
