@@ -1,7 +1,13 @@
-from flask import Blueprint, render_template, redirect, url_for, request
+import json
+import os
+from flask import Blueprint, render_template, redirect, url_for, request, session
 from app.services.link_service import increment_click_count
 
 color_bp = Blueprint('color', __name__, url_prefix='/tools')
+
+tool_json_path = os.path.join(os.path.dirname(__file__), 'color_tool.json')
+with open(tool_json_path, 'r', encoding='utf-8') as f:
+    tool_data = json.load(f)
 
 @color_bp.route('/color')
 def index():
@@ -11,6 +17,7 @@ def index():
 @color_bp.route('/color/<hex_color>')
 def show_color(hex_color):
     increment_click_count('/tools/color')
+    current_lang = session.get('lang', 'en')
     
     # Remove # if present
     hex_color = hex_color.lstrip('#')
@@ -23,4 +30,4 @@ def show_color(hex_color):
     if len(hex_color) == 3:
         hex_color = ''.join([c*2 for c in hex_color])
     
-    return render_template('tools/color.html', hex_color=hex_color.upper())
+    return render_template('tools/color.html', hex_color=hex_color.upper(), tool_data=tool_data, current_lang=current_lang)

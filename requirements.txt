@@ -10,3 +10,4 @@ yt-dlp
 mutagen==1.47.0
 dnspython==2.4.2
 reportlab==4.0.7
+pytest==8.0.0

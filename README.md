@@ -1,5 +1,7 @@
 # Lots of tools
 
+[![Tests](https://github.com/TVLuke/lotsoftools/actions/workflows/test.yml/badge.svg)](https://github.com/TVLuke/lotsoftools/actions/workflows/test.yml)
+
 I got fed up.
 
 Fed up with all these single-purpose websites full of tracking cookies, commercials, pop-ups, and shady buttons that serve you malware. You know the ones — they're always the first results in Google, not because they're good, but because they've SEO'd and paid their way to the top. They're infested with ads, harvest your data, and make you click through five screens just to get a UUID or generate a QR code.
