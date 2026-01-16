@@ -50,5 +50,27 @@
         Total clicks: {{ links|map(attribute='click_count')|sum }} |
         Total bot clicks: {{ links|map(attribute='bot_click_count')|sum }}
     </p>
+    
+    {% if user_agents %}
+    <h2 class="mt-5 mb-3">User Agents (in-memory, since last restart)</h2>
+    <div class="table-responsive">
+        <table class="table table-sm table-hover">
+            <thead class="table-dark">
+                <tr>
+                    <th style="width: 80px;">Count</th>
+                    <th>User Agent</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for ua, count in user_agents %}
+                <tr>
+                    <td><span class="badge bg-{% if count > 100 %}danger{% elif count > 20 %}warning{% else %}secondary{% endif %}">{{ count }}</span></td>
+                    <td><code style="font-size: 0.8em; word-break: break-all;">{{ ua if ua else '(empty)' }}</code></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    {% endif %}
 </div>
 {% endblock %}

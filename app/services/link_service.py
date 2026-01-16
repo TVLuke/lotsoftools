@@ -14,6 +14,20 @@ _bot_simple_patterns = [
     'lighthouse', 'pagespeed', 'gtmetrix', 'playwright'
 ]
 
+# In-memory tracking of user agents and their click counts
+_user_agent_counts = {}
+
+def get_user_agent_stats():
+    """Get user agent statistics sorted by count descending."""
+    return sorted(_user_agent_counts.items(), key=lambda x: x[1], reverse=True)
+
+def track_user_agent(user_agent):
+    """Track user agent and increment its count."""
+    if user_agent in _user_agent_counts:
+        _user_agent_counts[user_agent] += 1
+    else:
+        _user_agent_counts[user_agent] = 1
+
 def _load_bot_patterns():
     """Load regex patterns from well-known-bots.json"""
     global _bot_regex_patterns
@@ -67,6 +81,8 @@ def increment_click_count(url):
     """Increment the click count for a link by its URL. Separates bot vs human clicks."""
     link = get_link_by_url(url)
     if link:
+        user_agent = request.headers.get('User-Agent', '')
+        track_user_agent(user_agent)
         if is_bot_request():
             link.bot_click_count = (link.bot_click_count or 0) + 1
         else:

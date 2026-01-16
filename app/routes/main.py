@@ -95,7 +95,8 @@ def sitemap():
 @main_bp.route('/stats')
 def stats():
     links = link_service.get_links_stats()
-    return render_template('stats.html', links=links)
+    user_agents = link_service.get_user_agent_stats()
+    return render_template('stats.html', links=links, user_agents=user_agents)
 
 @main_bp.route('/stats.csv')
 def stats_csv():
