@@ -73,6 +73,7 @@
                 </button>
             </div>
             <div class="card-body">
+                <div id="streakDisplay" class="streak-display mb-2" style="display: none;"></div>
                 <div id="historyContainer" class="history-container">
                     <span class="text-muted">-</span>
                 </div>
@@ -181,6 +182,25 @@
     font-weight: bold;
 }
 
+.streak-display {
+    font-size: 0.9rem;
+    padding: 4px 10px;
+    border-radius: 4px;
+    display: inline-block;
+}
+
+.streak-display.active {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.streak-display.record {
+    background-color: #e9ecef;
+    color: #6c757d;
+    border: 1px solid #dee2e6;
+}
+
 .history-item.coin {
     background-color: #fff3cd;
 }
@@ -208,7 +228,10 @@ const i18n = {
     flip: { en: 'Flip', de: 'Werfen' },
     heads: { en: 'Heads', de: 'Kopf' },
     tails: { en: 'Tails', de: 'Zahl' },
-    coin: { en: 'Coin', de: 'Münze' }
+    coin: { en: 'Coin', de: 'Münze' },
+    onARoll: { en: 'On a roll', de: 'Serie' },
+    inARow: { en: 'in a row', de: 'in Folge' },
+    bestStreak: { en: 'Best streak', de: 'Beste Serie' }
 };
 
 function t(key) {
@@ -218,12 +241,16 @@ function t(key) {
 let currentSides = 6;
 let isCoin = false;
 let history = [];
+let currentStreak = 0;
+let longestStreak = 0;
+let lastRollKey = null;
 
 const resultDisplay = document.getElementById('resultDisplay');
 const resultLabel = document.getElementById('resultLabel');
 const rollBtn = document.getElementById('rollBtn');
 const rollBtnText = document.getElementById('rollBtnText');
 const historyContainer = document.getElementById('historyContainer');
+const streakDisplay = document.getElementById('streakDisplay');
 const clearHistoryBtn = document.getElementById('clearHistoryBtn');
 const diceButtons = document.querySelectorAll('.dice-btn');
 const customSidesInput = document.getElementById('customSides');
@@ -331,8 +358,36 @@ function roll() {
 }
 
 function addToHistory(type, result, label) {
+    const rollKey = `${type}-${result}`;
+    
+    if (rollKey === lastRollKey) {
+        currentStreak++;
+    } else {
+        currentStreak = 1;
+        lastRollKey = rollKey;
+    }
+    
+    if (currentStreak > longestStreak) {
+        longestStreak = currentStreak;
+    }
+    
     history.unshift({ type, result, label });
     renderHistory();
+    renderStreak();
+}
+
+function renderStreak() {
+    if (currentStreak >= 2) {
+        streakDisplay.className = 'streak-display mb-2 active';
+        streakDisplay.innerHTML = `<i class="fas fa-fire me-1"></i>${t('onARoll')}: ${currentStreak} ${t('inARow')}`;
+        streakDisplay.style.display = 'inline-block';
+    } else if (longestStreak >= 2) {
+        streakDisplay.className = 'streak-display mb-2 record';
+        streakDisplay.innerHTML = `<i class="fas fa-trophy me-1"></i>${t('bestStreak')}: ${longestStreak} ${t('inARow')}`;
+        streakDisplay.style.display = 'inline-block';
+    } else {
+        streakDisplay.style.display = 'none';
+    }
 }
 
 function renderHistory() {
@@ -355,7 +410,11 @@ function renderHistory() {
 
 function clearHistory() {
     history = [];
+    currentStreak = 0;
+    longestStreak = 0;
+    lastRollKey = null;
     renderHistory();
+    streakDisplay.style.display = 'none';
 }
 
 // Event listeners
