@@ -110,6 +110,24 @@ LIBRARIES = [
         ]
     },
     {
+        'name': 'leaflet',
+        'files': [
+            {
+                'url': 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.css',
+                'filename': 'leaflet.css'
+            },
+            {
+                'url': 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.js',
+                'filename': 'leaflet.js'
+            }
+        ],
+        'extra_files': [
+            {'url': 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon.png', 'filename': 'marker-icon.png', 'subdir': 'images'},
+            {'url': 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon-2x.png', 'filename': 'marker-icon-2x.png', 'subdir': 'images'},
+            {'url': 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png', 'filename': 'marker-shadow.png', 'subdir': 'images'},
+        ]
+    },
+    {
         'name': 'dojo',
         'files': [
             {
