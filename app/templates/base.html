@@ -25,7 +25,7 @@
 <body data-desktop-layout="{{ desktop_layout|default('categorized') }}" data-mobile-layout="{{ mobile_layout|default('compact') }}">
     <nav class="navbar navbar-expand-md navbar-light bg-light">
         <div class="container-fluid">
-            <a class="navbar-brand" href="{{ url_for('main.index') }}">
+            <a class="navbar-brand" href="{{ url_for('main.index') }}" aria-label="Lots of Tools - Home">
                 <i class="fas fa-tools me-2"></i>
                 <span class="d-none d-md-inline">Lots of Tools</span>
             </a>
@@ -40,7 +40,7 @@
                 </div>
                 {% endif %}
                 
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#topNavbarCollapse">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#topNavbarCollapse" aria-label="Toggle navigation" aria-expanded="false" aria-controls="topNavbarCollapse">
                     <span class="navbar-toggler-icon"></span>
                 </button>
             </div>
