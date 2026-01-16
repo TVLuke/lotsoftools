@@ -30,15 +30,15 @@ module.exports = defineConfig({
   projects: [
     {
       name: 'chromium',
-      use: { ...devices['Desktop Chrome'] },
+      use: { ...devices['Desktop Chrome'], userAgent: 'Mozilla/5.0 PlaywrightBot/1.0' },
     },
     {
       name: 'firefox',
-      use: { ...devices['Desktop Firefox'] },
+      use: { ...devices['Desktop Firefox'], userAgent: 'Mozilla/5.0 PlaywrightBot/1.0' },
     },
     {
       name: 'webkit',
-      use: { ...devices['Desktop Safari'] },
+      use: { ...devices['Desktop Safari'], userAgent: 'Mozilla/5.0 PlaywrightBot/1.0' },
     },
   ],
 });
