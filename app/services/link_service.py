@@ -5,7 +5,7 @@ from flask import session, request
 from app.models.link import Link
 from app import db
 
-# Load bot patterns from well-known-bots.json
+# Load bot patterns from well-known-bots.json for User-Agent detection
 _bot_regex_patterns = []
 _bot_simple_patterns = [
     'bot', 'crawler', 'spider', 'slurp', 'wget', 'curl', 'python-requests',
