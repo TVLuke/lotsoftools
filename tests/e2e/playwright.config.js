@@ -17,6 +17,9 @@ module.exports = defineConfig({
     // Base URL for the live site
     baseURL: process.env.BASE_URL || 'https://lotsof.tools',
     
+    // Custom user agent to identify as bot for stats tracking
+    userAgent: 'Mozilla/5.0 (compatible; PlaywrightBot/1.0; +https://github.com/TVLuke/lotsoftools)',
+    
     // Collect trace when retrying the failed test
     trace: 'on-first-retry',
     
