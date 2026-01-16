@@ -1,0 +1,20 @@
+{# Map Container Component - Visual wrapper for Leaflet maps #}
+{# Params: map_id (default: 'map'), map_height (default: '400px'), show_header (default: true) #}
+{%- set _map_id = map_id | default('map') -%}
+{%- set _map_height = map_height | default('400px') -%}
+{%- set _show_header = show_header | default(true) -%}
+
+<div class="map-container-wrapper">
+    {%- if _show_header %}
+    <div class="map-container-header">
+        <span class="map-container-title">
+            <i class="fas fa-map me-2"></i>{% if current_lang == 'de' %}Karte{% else %}Map{% endif %}
+        </span>
+    </div>
+    {%- endif %}
+    <div id="{{ _map_id }}" class="map-container-map" style="height: {{ _map_height }};"></div>
+    <div class="map-container-info">
+        <span id="{{ _map_id }}-coords" class="map-container-coords"></span>
+        <span id="{{ _map_id }}-zoom" class="map-container-zoom"></span>
+    </div>
+</div>

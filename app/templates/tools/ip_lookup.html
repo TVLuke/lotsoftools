@@ -6,6 +6,11 @@
 {% block og_title %}{{ tool_data.seo.title[current_lang] }}{% endblock %}
 {% block og_description %}{{ tool_data.seo.meta_description[current_lang] }}{% endblock %}
 
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='libs/vendor/leaflet/leaflet.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/map-container.css') }}">
+{% endblock %}
+
 {% block content %}
 <div class="row">
     <div class="col-12">
@@ -72,16 +77,11 @@
                     {% if current_lang == 'de' %}Standort{% else %}Location{% endif %}
                 </h5>
             </div>
-            <div class="card-body">
-                <div id="map" style="height: 400px; background: #e0e0e0; border-radius: 4px; display: flex; align-items: center; justify-content: center;">
-                    <p class="text-muted mb-0">
-                        {% if current_lang == 'de' %}Karte wird geladen...{% else %}Loading map...{% endif %}
-                    </p>
-                </div>
-                <p class="text-muted small mt-2 mb-0">
-                    <i class="fas fa-info-circle me-1"></i>
-                    <span id="mapCoordinates"></span>
-                </p>
+            <div class="card-body p-0">
+                {% set map_id = 'map' %}
+                {% set map_height = '400px' %}
+                {% set show_header = false %}
+                {% include 'components/map_container.html' %}
             </div>
         </div>
     </div>
@@ -95,8 +95,11 @@
 {% endblock %}
 
 {% block extra_js %}
+<script src="{{ url_for('static', filename='libs/vendor/leaflet/leaflet.js') }}"></script>
+<script src="{{ url_for('static', filename='js/map-container.js') }}"></script>
 <script>
 const lang = document.documentElement.lang || 'en';
+let mapHelper = null;
 
 document.getElementById('lookupBtn').addEventListener('click', performLookup);
 document.getElementById('ipInput').addEventListener('keypress', function(e) {
@@ -211,26 +214,17 @@ function displayResults(data) {
 }
 
 function showMap(lat, lng) {
-    const mapDiv = document.getElementById('map');
-    const coordsDiv = document.getElementById('mapCoordinates');
-    
-    // Create OpenStreetMap embed
-    mapDiv.innerHTML = `
-        <iframe 
-            width="100%" 
-            height="400" 
-            frameborder="0" 
-            scrolling="no" 
-            marginheight="0" 
-            marginwidth="0" 
-            src="https://www.openstreetmap.org/export/embed.html?bbox=${lng-0.1},${lat-0.1},${lng+0.1},${lat+0.1}&layer=mapnik&marker=${lat},${lng}"
-            style="border: 1px solid #ccc; border-radius: 4px;">
-        </iframe>
-    `;
-    
-    coordsDiv.innerHTML = `${lang === 'de' ? 'Breitengrad' : 'Latitude'}: ${lat.toFixed(6)}°, ${lang === 'de' ? 'Längengrad' : 'Longitude'}: ${lng.toFixed(6)}°`;
-    
     document.getElementById('mapRow').style.display = 'block';
+    
+    if (!mapHelper) {
+        mapHelper = createMapContainer('map', { lat: lat, lng: lng, zoom: 12, interactive: true });
+    } else {
+        mapHelper.setView(lat, lng, 12);
+        mapHelper.setMarker(lat, lng);
+    }
+    
+    // Invalidate size after display change
+    setTimeout(() => mapHelper.invalidateSize(), 100);
 }
 
 function showError(message) {

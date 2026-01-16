@@ -1,0 +1,53 @@
+/* Map Container Component Styles */
+.map-container-wrapper {
+    border: 1px solid var(--bs-border-color, #dee2e6);
+    border-radius: 0.375rem;
+    overflow: hidden;
+    background: var(--bs-body-bg, #fff);
+}
+
+.map-container-header {
+    background: var(--bs-secondary-bg, #e9ecef);
+    padding: 0.5rem 0.75rem;
+    border-bottom: 1px solid var(--bs-border-color, #dee2e6);
+    font-weight: 500;
+}
+
+.map-container-title {
+    font-size: 0.9rem;
+    color: var(--bs-body-color, #212529);
+}
+
+.map-container-map {
+    width: 100%;
+}
+
+.map-container-info {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.4rem 0.75rem;
+    background: var(--bs-secondary-bg, #e9ecef);
+    border-top: 1px solid var(--bs-border-color, #dee2e6);
+    font-size: 0.75rem;
+    font-family: 'Courier New', monospace;
+    color: var(--bs-secondary-color, #6c757d);
+}
+
+.map-container-coords {
+    flex: 1;
+}
+
+.map-container-zoom {
+    text-align: right;
+}
+
+/* Dark mode support */
+[data-bs-theme="dark"] .map-container-wrapper {
+    border-color: #495057;
+}
+
+[data-bs-theme="dark"] .map-container-header,
+[data-bs-theme="dark"] .map-container-info {
+    background: #343a40;
+    border-color: #495057;
+}
