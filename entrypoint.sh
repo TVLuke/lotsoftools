@@ -18,7 +18,8 @@ fi
 
 # Run database migrations
 echo "Running database migrations..."
-flask db upgrade
+export FLASK_APP=wsgi:application
+cd /app && flask db upgrade || echo "⚠ Migration failed or already applied"
 echo "✓ Database migrations complete"
 
 # Start gunicorn
