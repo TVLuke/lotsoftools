@@ -103,10 +103,10 @@ def stats_csv():
     
     output = io.StringIO()
     writer = csv.writer(output)
-    writer.writerow(['name', 'url', 'click_count'])
+    writer.writerow(['name', 'url', 'click_count', 'bot_click_count'])
     
     for link in links:
-        writer.writerow([link['name'], link['url'], link['click_count']])
+        writer.writerow([link['name'], link['url'], link['click_count'], link['bot_click_count']])
     
     response = make_response(output.getvalue())
     response.headers['Content-Type'] = 'text/csv'

@@ -14,6 +14,7 @@
                     <th>Name</th>
                     <th>URL</th>
                     <th class="text-end" style="width: 100px;">Clicks</th>
+                    <th class="text-end" style="width: 100px;">Bots</th>
                 </tr>
             </thead>
             <tbody>
@@ -33,6 +34,11 @@
                             {{ link.click_count }}
                         </span>
                     </td>
+                    <td class="text-end">
+                        <span class="badge bg-secondary">
+                            {{ link.bot_click_count }}
+                        </span>
+                    </td>
                 </tr>
                 {% endfor %}
             </tbody>
@@ -41,7 +47,8 @@
     
     <p class="text-muted small mt-4">
         Total: {{ links|length }} links | 
-        Total clicks: {{ links|map(attribute='click_count')|sum }}
+        Total clicks: {{ links|map(attribute='click_count')|sum }} |
+        Total bot clicks: {{ links|map(attribute='bot_click_count')|sum }}
     </p>
 </div>
 {% endblock %}

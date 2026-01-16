@@ -16,5 +16,10 @@ else
     echo "○ ffmpeg skipped (youtube-dl not active)"
 fi
 
+# Run database migrations
+echo "Running database migrations..."
+flask db upgrade
+echo "✓ Database migrations complete"
+
 # Start gunicorn
 exec gunicorn --bind 0.0.0.0:5000 --workers 2 --timeout 1500 --preload wsgi:application

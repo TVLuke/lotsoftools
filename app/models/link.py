@@ -12,6 +12,7 @@ class Link(db.Model):
     frontend_only = db.Column(db.Boolean, default=False)
     uses_external_service = db.Column(db.Boolean, default=False)
     click_count = db.Column(db.Integer, default=0)
+    bot_click_count = db.Column(db.Integer, default=0)
     
     @property
     def name(self):
