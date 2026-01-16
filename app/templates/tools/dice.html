@@ -47,6 +47,7 @@
                 
                 <!-- Result Display -->
                 <div class="result-container mb-4">
+                    <div id="currentTypeLabel" class="current-type-label text-muted mb-2">D6</div>
                     <div id="resultDisplay" class="result-display">
                         <span class="result-placeholder">?</span>
                     </div>
@@ -139,6 +140,11 @@
 .result-label {
     margin-top: 10px;
     font-size: 1.2rem;
+}
+
+.current-type-label {
+    font-size: 1.5rem;
+    font-weight: 600;
 }
 
 @keyframes shake {
@@ -271,13 +277,16 @@ function selectDice(sides) {
         customSidesInput.value = '';
     }
     
-    // Update result display style
+    // Update result display style and label
+    const currentTypeLabel = document.getElementById('currentTypeLabel');
     if (isCoin) {
         resultDisplay.classList.add('coin');
         rollBtnText.textContent = t('flip');
+        currentTypeLabel.textContent = t('coin');
     } else {
         resultDisplay.classList.remove('coin');
         rollBtnText.textContent = t('roll');
+        currentTypeLabel.textContent = `D${currentSides}`;
     }
     
     // Reset display
