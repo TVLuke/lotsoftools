@@ -66,8 +66,8 @@
                 ]
             },
             "privacy_note": {
-                "en": "🔒 Privacy-Friendly: All dice rolls happen in your browser using cryptographically secure random numbers. No data is sent to any server.",
-                "de": "🔒 Datenschutzfreundlich: Alle Würfelwürfe erfolgen in Ihrem Browser mit kryptografisch sicheren Zufallszahlen. Es werden keine Daten an einen Server gesendet."
+                "en": "🔒 Privacy-Friendly: All dice rolls happen in your browser. No data is sent to any server.",
+                "de": "🔒 Datenschutzfreundlich: Alle Würfelwürfe erfolgen in Ihrem Browser. Es werden keine Daten an einen Server gesendet."
             }
         }
     }
