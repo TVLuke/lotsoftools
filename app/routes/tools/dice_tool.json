@@ -62,6 +62,10 @@
                     {
                         "en": "<strong>Roll History:</strong> Keep track of your rolls during the session",
                         "de": "<strong>Würfelverlauf:</strong> Behalten Sie Ihre Würfe während der Sitzung im Blick"
+                    },
+                    {
+                        "en": "<strong>Streak Tracking:</strong> See when you're on a roll with consecutive same results",
+                        "de": "<strong>Serien-Tracking:</strong> Sehen Sie, wenn Sie mehrmals das gleiche Ergebnis in Folge würfeln"
                     }
                 ]
             },
