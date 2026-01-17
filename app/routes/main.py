@@ -98,8 +98,10 @@ def stats():
     user_agents = link_service.get_user_agent_stats()
     bot_user_agents = link_service.get_bot_user_agents()
     human_user_agents = link_service.get_human_user_agents()
+    server_start_time = link_service.get_server_start_time()
     return render_template('stats.html', links=links, user_agents=user_agents, 
-                          bot_user_agents=bot_user_agents, human_user_agents=human_user_agents)
+                          bot_user_agents=bot_user_agents, human_user_agents=human_user_agents,
+                          server_start_time=server_start_time)
 
 @main_bp.route('/stats.csv')
 def stats_csv():

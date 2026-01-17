@@ -1,9 +1,17 @@
 import json
 import re
 import os
+from datetime import datetime
 from flask import session, request
 from app.models.link import Link
 from app import db
+
+# Server start time for stats display
+_server_start_time = datetime.now()
+
+def get_server_start_time():
+    """Get the server start time."""
+    return _server_start_time
 
 # Load bot patterns from well-known-bots.json for User-Agent detection
 _bot_regex_patterns = []
