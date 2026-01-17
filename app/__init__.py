@@ -26,7 +26,11 @@ def _get_subdomain_routes():
             with open(json_file, 'r') as f:
                 data = json.load(f)
                 if 'subdomain' in data and 'route' in data:
-                    routes[data['subdomain']] = data['route']
+                    subdomains = data['subdomain']
+                    if isinstance(subdomains, str):
+                        subdomains = [subdomains]
+                    for subdomain in subdomains:
+                        routes[subdomain] = data['route']
         except (json.JSONDecodeError, IOError):
             pass
     
@@ -59,10 +63,12 @@ def create_app(config_class=Config):
             # Load subdomain mappings from tool JSON files
             subdomain_routes = _get_subdomain_routes()
             if subdomain in subdomain_routes:
-                # Redirect to the tool route, preserving path and query string
-                target = subdomain_routes[subdomain]
-                if request.path != '/':
-                    target += request.path
+                # Build the main domain (remove subdomain)
+                main_domain = '.'.join(parts[1:])
+                scheme = 'https' if request.is_secure else 'http'
+                
+                # Redirect to the main domain with tool route
+                target = f"{scheme}://{main_domain}{subdomain_routes[subdomain]}"
                 if request.query_string:
                     target += '?' + request.query_string.decode('utf-8')
                 return redirect(target, code=301)

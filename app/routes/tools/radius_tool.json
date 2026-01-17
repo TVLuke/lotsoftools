@@ -1,6 +1,6 @@
 {
   "route": "/tools/radius",
-  "subdomain": "radius",
+  "subdomain": ["radius"],
   "img": "fas fa-circle-notch",
   "name": {
     "en": "Radius Map",
