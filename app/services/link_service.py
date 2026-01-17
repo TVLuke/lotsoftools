@@ -16,18 +16,28 @@ _bot_simple_patterns = [
 ]
 
 # In-memory tracking of user agents and their click counts
-_user_agent_counts = {}
+_user_agent_counts = {}  # {user_agent: {'count': N, 'is_bot': bool}}
 
 def get_user_agent_stats():
     """Get user agent statistics sorted by count descending."""
-    return sorted(_user_agent_counts.items(), key=lambda x: x[1], reverse=True)
+    return sorted(_user_agent_counts.items(), key=lambda x: x[1]['count'], reverse=True)
 
-def track_user_agent(user_agent):
+def get_bot_user_agents():
+    """Get only bot user agents sorted by count descending."""
+    bots = [(ua, data) for ua, data in _user_agent_counts.items() if data['is_bot']]
+    return sorted(bots, key=lambda x: x[1]['count'], reverse=True)
+
+def get_human_user_agents():
+    """Get only human user agents sorted by count descending."""
+    humans = [(ua, data) for ua, data in _user_agent_counts.items() if not data['is_bot']]
+    return sorted(humans, key=lambda x: x[1]['count'], reverse=True)
+
+def track_user_agent(user_agent, is_bot):
     """Track user agent and increment its count."""
     if user_agent in _user_agent_counts:
-        _user_agent_counts[user_agent] += 1
+        _user_agent_counts[user_agent]['count'] += 1
     else:
-        _user_agent_counts[user_agent] = 1
+        _user_agent_counts[user_agent] = {'count': 1, 'is_bot': is_bot}
 
 def _load_bot_patterns():
     """Load regex patterns from well-known-bots.json"""
@@ -83,8 +93,9 @@ def increment_click_count(url):
     link = get_link_by_url(url)
     if link:
         user_agent = request.headers.get('User-Agent', '')
-        track_user_agent(user_agent)
-        if is_bot_request():
+        is_bot = is_bot_request()
+        track_user_agent(user_agent, is_bot)
+        if is_bot:
             link.bot_click_count = (link.bot_click_count or 0) + 1
         else:
             link.click_count = (link.click_count or 0) + 1
