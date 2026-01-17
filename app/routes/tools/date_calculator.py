@@ -1,6 +1,7 @@
 from flask import Blueprint, render_template
 import json
 import os
+from app.services.link_service import increment_click_count
 
 date_calculator_bp = Blueprint('date_calculator', __name__)
 
@@ -16,24 +17,12 @@ def load_tool_data(mode='since'):
 
 @date_calculator_bp.route('/tools/time-since')
 def time_since():
-    from app.models import Link
-    from app import db
-    link = Link.query.filter_by(url='/tools/time-since').first()
-    if link:
-        link.click_count += 1
-        db.session.commit()
-    
+    increment_click_count('/tools/time-since')
     tool_data = load_tool_data('since')
     return render_template('tools/date_calculator.html', tool_data=tool_data, mode='since')
 
 @date_calculator_bp.route('/tools/time-until')
 def time_until():
-    from app.models import Link
-    from app import db
-    link = Link.query.filter_by(url='/tools/time-until').first()
-    if link:
-        link.click_count += 1
-        db.session.commit()
-    
+    increment_click_count('/tools/time-until')
     tool_data = load_tool_data('until')
     return render_template('tools/date_calculator.html', tool_data=tool_data, mode='until')

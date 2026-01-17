@@ -5,6 +5,7 @@ from datetime import datetime
 
 from app.services.holiday_service import HolidayService, SUPPORTED_COUNTRIES
 from app.services.calendar_pdf_service import CalendarPDFService
+from app.services.link_service import increment_click_count
 
 holiday_calendar_bp = Blueprint('holiday_calendar', __name__)
 
@@ -17,12 +18,7 @@ def load_tool_data():
 
 @holiday_calendar_bp.route('/tools/holidays')
 def holiday_calendar():
-    from app.models import Link
-    link = Link.query.filter_by(url='/tools/holidays').first()
-    if link:
-        link.click_count += 1
-        from app import db
-        db.session.commit()
+    increment_click_count('/tools/holidays')
     
     tool_data = load_tool_data()
     countries = HolidayService.get_countries()
