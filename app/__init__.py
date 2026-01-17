@@ -7,6 +7,32 @@ from config import Config
 db = SQLAlchemy()
 migrate = Migrate()
 
+# Cache for subdomain routes
+_subdomain_routes_cache = None
+
+def _get_subdomain_routes():
+    """Load subdomain mappings from tool JSON files."""
+    global _subdomain_routes_cache
+    if _subdomain_routes_cache is not None:
+        return _subdomain_routes_cache
+    
+    import json
+    import glob
+    
+    routes = {}
+    tools_dir = os.path.join(os.path.dirname(__file__), 'routes', 'tools')
+    for json_file in glob.glob(os.path.join(tools_dir, '*_tool.json')):
+        try:
+            with open(json_file, 'r') as f:
+                data = json.load(f)
+                if 'subdomain' in data and 'route' in data:
+                    routes[data['subdomain']] = data['route']
+        except (json.JSONDecodeError, IOError):
+            pass
+    
+    _subdomain_routes_cache = routes
+    return routes
+
 def create_app(config_class=Config):
     app = Flask(__name__)
     app.config.from_object(config_class)
@@ -20,6 +46,26 @@ def create_app(config_class=Config):
     def set_language():
         if 'lang' not in session:
             session['lang'] = request.accept_languages.best_match(['en', 'de']) or 'en'
+    
+    @app.before_request
+    def handle_subdomain_redirect():
+        from flask import redirect
+        host = request.host.split(':')[0]  # Remove port if present
+        
+        # Check if this is a subdomain request (not www, not bare domain)
+        parts = host.split('.')
+        if len(parts) >= 3 and parts[0] not in ('www', ''):
+            subdomain = parts[0]
+            # Load subdomain mappings from tool JSON files
+            subdomain_routes = _get_subdomain_routes()
+            if subdomain in subdomain_routes:
+                # Redirect to the tool route, preserving path and query string
+                target = subdomain_routes[subdomain]
+                if request.path != '/':
+                    target += request.path
+                if request.query_string:
+                    target += '?' + request.query_string.decode('utf-8')
+                return redirect(target, code=301)
     
     @app.context_processor
     def inject_language():
