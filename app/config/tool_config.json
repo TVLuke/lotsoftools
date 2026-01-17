@@ -27,6 +27,7 @@
   "lastfm_export": {"active": true},
   "letter_counter": {"active": true},
   "lorem_ipsum": {"active": true},
+  "map_maker": {"active": true},
   "map_tracer": {"active": true},
   "noise_generator": {"active": true},
   "qr_generator": {"active": true},

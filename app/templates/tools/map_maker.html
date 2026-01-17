@@ -1,0 +1,406 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ tool_data.seo.title[current_lang] }} - Lots of Tools{% endblock %}
+
+{% block meta_description %}{{ tool_data.seo.meta_description[current_lang] }}{% endblock %}
+{% block meta_keywords %}{{ tool_data.seo.keywords[current_lang] }}{% endblock %}
+{% block og_title %}{{ tool_data.seo.title[current_lang] }}{% endblock %}
+{% block og_description %}{{ tool_data.seo.meta_description[current_lang] }}{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='libs/vendor/leaflet/leaflet.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/map-container.css') }}">
+<style>
+#map {
+    height: 500px;
+    width: 100%;
+    border-radius: 0.375rem;
+    cursor: crosshair;
+}
+
+.location-card {
+    border-left: 4px solid var(--bs-primary);
+}
+
+.place-marker {
+    background-color: #dc3545;
+    border: 3px solid white;
+    border-radius: 50% 50% 50% 0;
+    width: 30px;
+    height: 30px;
+    transform: rotate(-45deg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+}
+
+.place-marker i {
+    transform: rotate(45deg);
+    color: white;
+    font-size: 12px;
+}
+
+.coordinate-display {
+    font-family: 'Courier New', monospace;
+    font-size: 0.85rem;
+}
+
+.marker-user {
+    background-color: #6c757d;
+    border: 3px solid white;
+    border-radius: 50%;
+    width: 16px;
+    height: 16px;
+    box-shadow: 0 0 0 2px #6c757d, 0 2px 5px rgba(0,0,0,0.3);
+}
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <div class="d-flex justify-content-between align-items-center flex-wrap mb-4">
+        <h1 class="mb-0">
+            <i class="{{ tool_data.img }} me-2"></i>{{ tool_data.name[current_lang] }}
+        </h1>
+        {% include 'components/share_button.html' %}
+    </div>
+    <p class="lead mb-4">{{ tool_data.description[current_lang] }}</p>
+    
+    <div class="row">
+        <div class="col-lg-4 mb-4">
+            <!-- Marker Location -->
+            <div class="card location-card mb-3">
+                <div class="card-header">
+                    <h5 class="mb-0">
+                        <i class="fas fa-map-marker-alt me-2"></i>
+                        {% if current_lang == 'de' %}Markierung{% else %}Marker{% endif %}
+                    </h5>
+                </div>
+                <div class="card-body">
+                    <div class="coordinate-display mb-2" id="markerCoords">
+                        {% if current_lang == 'de' %}Nicht gesetzt{% else %}Not set{% endif %}
+                    </div>
+                    <div class="btn-group-vertical w-100" role="group">
+                        <button class="btn btn-outline-primary btn-sm" id="setMyLocation">
+                            <i class="fas fa-location-arrow me-1"></i>
+                            {% if current_lang == 'de' %}Meinen Standort verwenden{% else %}Use my location{% endif %}
+                        </button>
+                        <button class="btn btn-outline-secondary btn-sm" id="setClickMode">
+                            <i class="fas fa-mouse-pointer me-1"></i>
+                            {% if current_lang == 'de' %}Auf Karte klicken{% else %}Click on map{% endif %}
+                        </button>
+                        <button class="btn btn-outline-danger btn-sm" id="clearMarker">
+                            <i class="fas fa-times me-1"></i>
+                            {% if current_lang == 'de' %}Löschen{% else %}Clear{% endif %}
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Share Link -->
+            <div class="card mb-3">
+                <div class="card-header">
+                    <h5 class="mb-0">
+                        <i class="fas fa-share-alt me-2"></i>
+                        {% if current_lang == 'de' %}Link teilen{% else %}Share Link{% endif %}
+                    </h5>
+                </div>
+                <div class="card-body">
+                    <div class="input-group">
+                        <input type="text" class="form-control form-control-sm" id="shareUrl" readonly>
+                        <button class="btn btn-outline-primary btn-sm" id="copyLink" title="{% if current_lang == 'de' %}Kopieren{% else %}Copy{% endif %}">
+                            <i class="fas fa-copy"></i>
+                        </button>
+                    </div>
+                    <small class="text-muted mt-2 d-block" id="copyFeedback"></small>
+                </div>
+            </div>
+            
+            <!-- Show My Location -->
+            <div class="card mb-3">
+                <div class="card-body">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="showMyLocation">
+                        <label class="form-check-label" for="showMyLocation">
+                            <i class="fas fa-location-arrow me-1"></i>
+                            {% if current_lang == 'de' %}Meinen Standort anzeigen{% else %}Show my location{% endif %}
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Map -->
+        <div class="col-lg-8 mb-4">
+            <div class="card h-100">
+                <div class="card-header d-flex justify-content-between align-items-center">
+                    <h5 class="mb-0">
+                        <i class="fas fa-map me-2"></i>
+                        {% if current_lang == 'de' %}Karte{% else %}Map{% endif %}
+                    </h5>
+                    <span class="badge bg-secondary" id="clickModeIndicator" style="display: none;">
+                        {% if current_lang == 'de' %}Klicken Sie, um Markierung zu setzen{% else %}Click to place marker{% endif %}
+                    </span>
+                </div>
+                <div class="card-body p-0">
+                    <div id="map"></div>
+                    <div class="map-container-info">
+                        <span id="map-coords" class="map-container-coords"></span>
+                        <span id="map-zoom" class="map-container-zoom"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    {% include 'components/seo_content.html' %}
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{{ url_for('static', filename='libs/vendor/leaflet/leaflet.js') }}"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const lang = '{{ current_lang }}';
+    const i18n = {
+        notSet: lang === 'de' ? 'Nicht gesetzt' : 'Not set',
+        locationError: lang === 'de' ? 'Standort konnte nicht ermittelt werden' : 'Could not get location',
+        locationDenied: lang === 'de' ? 'Standortzugriff verweigert' : 'Location access denied',
+        copied: lang === 'de' ? 'Link kopiert!' : 'Link copied!',
+        clickToPlace: lang === 'de' ? 'Klicken Sie auf die Karte' : 'Click on the map'
+    };
+    
+    // State
+    let markerPoint = null;
+    let userLocation = null;
+    let clickMode = false;
+    let marker = null;
+    let markerUser = null;
+    
+    // Elements
+    const markerCoordsEl = document.getElementById('markerCoords');
+    const shareUrlEl = document.getElementById('shareUrl');
+    const clickModeIndicator = document.getElementById('clickModeIndicator');
+    const copyFeedback = document.getElementById('copyFeedback');
+    
+    // Initialize map (centered on Europe)
+    const map = L.map('map').setView([50.0, 10.0], 4);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(map);
+    
+    // Map info display
+    const mapCoordsEl = document.getElementById('map-coords');
+    const mapZoomEl = document.getElementById('map-zoom');
+    function updateMapInfo() {
+        const center = map.getCenter();
+        mapCoordsEl.textContent = `Lat: ${center.lat.toFixed(6)}° | Lon: ${center.lng.toFixed(6)}°`;
+        mapZoomEl.textContent = `Zoom: ${map.getZoom()}`;
+    }
+    map.on('moveend', updateMapInfo);
+    map.on('zoomend', updateMapInfo);
+    updateMapInfo();
+    
+    // Custom marker icons
+    const placeIcon = L.divIcon({
+        className: 'custom-marker',
+        html: '<div class="place-marker"><i class="fas fa-map-marker-alt"></i></div>',
+        iconSize: [30, 30],
+        iconAnchor: [15, 30]
+    });
+    
+    const iconUser = L.divIcon({
+        className: 'custom-marker',
+        html: '<div class="marker-user"></div>',
+        iconSize: [16, 16],
+        iconAnchor: [8, 8]
+    });
+    
+    function formatCoords(point) {
+        if (!point) return i18n.notSet;
+        return `${point.lat.toFixed(6)}, ${point.lng.toFixed(6)}`;
+    }
+    
+    function updateMap() {
+        if (markerPoint) {
+            if (marker) {
+                marker.setLatLng([markerPoint.lat, markerPoint.lng]);
+            } else {
+                marker = L.marker([markerPoint.lat, markerPoint.lng], {icon: placeIcon, draggable: true}).addTo(map);
+                marker.on('dragend', function(e) {
+                    markerPoint = {lat: e.target.getLatLng().lat, lng: e.target.getLatLng().lng};
+                    updateUI();
+                });
+            }
+            map.setView([markerPoint.lat, markerPoint.lng], Math.max(map.getZoom(), 12));
+        } else {
+            if (marker) {
+                map.removeLayer(marker);
+                marker = null;
+            }
+        }
+    }
+    
+    function updateUrl() {
+        const url = new URL(window.location.href);
+        url.search = '';
+        
+        if (markerPoint) {
+            url.searchParams.set('lat', markerPoint.lat.toFixed(6));
+            url.searchParams.set('lng', markerPoint.lng.toFixed(6));
+            url.searchParams.set('z', map.getZoom());
+        }
+        
+        window.history.replaceState({}, '', url.toString());
+        shareUrlEl.value = url.toString();
+    }
+    
+    function updateUI() {
+        markerCoordsEl.textContent = formatCoords(markerPoint);
+        updateMap();
+        updateUrl();
+    }
+    
+    function getUserLocation(callback) {
+        if (!navigator.geolocation) {
+            alert(i18n.locationError);
+            return;
+        }
+        
+        navigator.geolocation.getCurrentPosition(
+            function(position) {
+                callback({
+                    lat: position.coords.latitude,
+                    lng: position.coords.longitude
+                });
+            },
+            function(error) {
+                if (error.code === error.PERMISSION_DENIED) {
+                    alert(i18n.locationDenied);
+                } else {
+                    alert(i18n.locationError);
+                }
+            },
+            {enableHighAccuracy: true, timeout: 10000}
+        );
+    }
+    
+    function setClickMode(enabled) {
+        clickMode = enabled;
+        if (enabled) {
+            clickModeIndicator.style.display = 'inline';
+            map.getContainer().style.cursor = 'crosshair';
+        } else {
+            clickModeIndicator.style.display = 'none';
+            map.getContainer().style.cursor = '';
+        }
+    }
+    
+    function updateUserLocationMarker() {
+        const showMyLocation = document.getElementById('showMyLocation');
+        if (showMyLocation.checked && userLocation) {
+            if (markerUser) {
+                markerUser.setLatLng([userLocation.lat, userLocation.lng]);
+            } else {
+                markerUser = L.marker([userLocation.lat, userLocation.lng], {icon: iconUser}).addTo(map);
+            }
+        } else if (markerUser) {
+            map.removeLayer(markerUser);
+            markerUser = null;
+        }
+    }
+    
+    // Event listeners
+    document.getElementById('setMyLocation').addEventListener('click', function() {
+        getUserLocation(function(loc) {
+            markerPoint = loc;
+            updateUI();
+        });
+    });
+    
+    document.getElementById('setClickMode').addEventListener('click', function() {
+        setClickMode(true);
+    });
+    
+    document.getElementById('showMyLocation').addEventListener('change', function() {
+        if (this.checked && !userLocation) {
+            getUserLocation(function(loc) {
+                userLocation = loc;
+                updateUserLocationMarker();
+            });
+        } else {
+            updateUserLocationMarker();
+        }
+    });
+    
+    document.getElementById('clearMarker').addEventListener('click', function() {
+        markerPoint = null;
+        updateUI();
+    });
+    
+    document.getElementById('copyLink').addEventListener('click', function() {
+        shareUrlEl.select();
+        navigator.clipboard.writeText(shareUrlEl.value).then(function() {
+            copyFeedback.textContent = i18n.copied;
+            setTimeout(() => copyFeedback.textContent = '', 2000);
+        });
+    });
+    
+    // Map click handler
+    map.on('click', function(e) {
+        if (clickMode) {
+            markerPoint = {lat: e.latlng.lat, lng: e.latlng.lng};
+            setClickMode(false);
+            updateUI();
+        } else if (!markerPoint) {
+            markerPoint = {lat: e.latlng.lat, lng: e.latlng.lng};
+            updateUI();
+        }
+    });
+    
+    // Load from URL parameters
+    function loadFromUrl() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const lat = parseFloat(urlParams.get('lat'));
+        const lng = parseFloat(urlParams.get('lng'));
+        const z = parseInt(urlParams.get('z'));
+        
+        if (!isNaN(lat) && !isNaN(lng)) {
+            markerPoint = {lat, lng};
+            if (!isNaN(z)) {
+                map.setView([lat, lng], z);
+            }
+        }
+        
+        updateUI();
+    }
+    
+    // Initial load
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.has('lat') || urlParams.has('lng')) {
+        loadFromUrl();
+    } else {
+        // Try to get user location, fall back to Berlin
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(
+                function(position) {
+                    map.setView([position.coords.latitude, position.coords.longitude], 12);
+                    updateUI();
+                },
+                function(error) {
+                    // Fall back to Berlin
+                    map.setView([52.52, 13.405], 10);
+                    updateUI();
+                },
+                {enableHighAccuracy: true, timeout: 5000}
+            );
+        } else {
+            // Fall back to Berlin
+            map.setView([52.52, 13.405], 10);
+            updateUI();
+        }
+    }
+});
+</script>
+{% endblock %}

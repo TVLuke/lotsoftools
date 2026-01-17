@@ -138,6 +138,7 @@ def create_app(config_class=Config):
     from app.routes.tools.map_tracer import map_tracer_bp
     from app.routes.tools.simulate_location import simulate_location_bp
     from app.routes.tools.dice import dice_bp
+    from app.routes.tools.map_maker import map_maker_bp
     from app.routes.icon_cache import icon_cache_bp
     
     app.register_blueprint(main_bp)
@@ -182,6 +183,7 @@ def create_app(config_class=Config):
     app.register_blueprint(map_tracer_bp)
     app.register_blueprint(simulate_location_bp)
     app.register_blueprint(dice_bp)
+    app.register_blueprint(map_maker_bp)
     app.register_blueprint(icon_cache_bp)
     
     with app.app_context():

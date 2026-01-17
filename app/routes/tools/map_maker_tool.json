@@ -1,0 +1,92 @@
+{
+  "route": "/tools/map-maker",
+  "subdomain": ["map", "marker"],
+  "img": "fas fa-map-marker-alt",
+  "name": {
+    "en": "Map Marker",
+    "de": "Kartenmarkierung"
+  },
+  "description": {
+    "en": "Place a marker on the map and share the location",
+    "de": "Setze eine Markierung auf die Karte und teile den Standort"
+  },
+  "tags": ["map"],
+  "new_window": false,
+  "frontend_only": true,
+  "seo": {
+    "title": {
+      "en": "Map Marker - Share Location on Map",
+      "de": "Kartenmarkierung - Standort auf Karte teilen"
+    },
+    "meta_description": {
+      "en": "Place a marker on an interactive map and share the exact location via URL. Use your current location or click anywhere on the map. Privacy-friendly, no data stored.",
+      "de": "Setzen Sie eine Markierung auf eine interaktive Karte und teilen Sie den genauen Standort per URL. Nutzen Sie Ihren aktuellen Standort oder klicken Sie irgendwo auf die Karte. Datenschutzfreundlich, keine Daten gespeichert."
+    },
+    "keywords": {
+      "en": "map marker, share location, location sharing, pin on map, OSM map, share coordinates, gps location",
+      "de": "Kartenmarkierung, Standort teilen, Ort teilen, Pin auf Karte, OSM-Karte, Koordinaten teilen, GPS-Standort"
+    },
+    "content": {
+      "heading": {
+        "en": "About This Map Marker Tool",
+        "de": "Über dieses Kartenmarkierungs-Tool"
+      },
+      "intro": {
+        "en": "This simple tool lets you place a marker on an interactive OpenStreetMap and share that location with anyone. Perfect for sharing meeting points, addresses, or any location without needing to send coordinates manually.",
+        "de": "Mit diesem einfachen Tool können Sie eine Markierung auf einer interaktiven OpenStreetMap setzen und diesen Standort mit anderen teilen. Perfekt zum Teilen von Treffpunkten, Adressen oder beliebigen Orten, ohne Koordinaten manuell senden zu müssen."
+      },
+      "features": {
+        "heading": {
+          "en": "Key Features:",
+          "de": "Hauptfunktionen:"
+        },
+        "items": [
+          {
+            "en": "<strong>Click to Place:</strong> Simply click anywhere on the map to place your marker",
+            "de": "<strong>Klicken zum Setzen:</strong> Klicken Sie einfach irgendwo auf die Karte, um Ihre Markierung zu setzen"
+          },
+          {
+            "en": "<strong>Use Your Location:</strong> Quickly mark your current GPS position",
+            "de": "<strong>Eigenen Standort nutzen:</strong> Markieren Sie schnell Ihre aktuelle GPS-Position"
+          },
+          {
+            "en": "<strong>Drag to Adjust:</strong> Fine-tune the marker position by dragging it",
+            "de": "<strong>Ziehen zum Anpassen:</strong> Passen Sie die Markierungsposition durch Ziehen an"
+          },
+          {
+            "en": "<strong>Shareable Link:</strong> The URL updates automatically - just copy and share",
+            "de": "<strong>Teilbarer Link:</strong> Die URL aktualisiert sich automatisch - einfach kopieren und teilen"
+          }
+        ]
+      },
+      "use_cases": {
+        "heading": {
+          "en": "Use Cases:",
+          "de": "Anwendungsfälle:"
+        },
+        "items": [
+          {
+            "en": "Share a meeting point with friends",
+            "de": "Teilen Sie einen Treffpunkt mit Freunden"
+          },
+          {
+            "en": "Send the location of an event or place",
+            "de": "Senden Sie den Standort eines Events oder Ortes"
+          },
+          {
+            "en": "Mark a specific address or landmark",
+            "de": "Markieren Sie eine bestimmte Adresse oder Sehenswürdigkeit"
+          },
+          {
+            "en": "Share your current position",
+            "de": "Teilen Sie Ihre aktuelle Position"
+          }
+        ]
+      },
+      "privacy_note": {
+        "en": "🔒 Privacy-Friendly: Your location is only used locally in your browser. We don't store any location data on our servers.",
+        "de": "🔒 Datenschutzfreundlich: Ihr Standort wird nur lokal in Ihrem Browser verwendet. Wir speichern keine Standortdaten auf unseren Servern."
+      }
+    }
+  }
+}
