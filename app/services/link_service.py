@@ -11,7 +11,8 @@ _bot_simple_patterns = [
     'bot', 'crawler', 'spider', 'slurp', 'wget', 'curl', 'python-requests',
     'python-urllib', 'java/', 'libwww', 'httpclient', 'go-http-client',
     'scrapy', 'nutch', 'headlesschrome', 'phantomjs', 'prerender',
-    'lighthouse', 'pagespeed', 'gtmetrix', 'playwright', 'claudebot'
+    'lighthouse', 'pagespeed', 'gtmetrix', 'playwright', 'claudebot', 'req/',
+    'python-requests/'
 ]
 
 # In-memory tracking of user agents and their click counts
