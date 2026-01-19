@@ -1,6 +1,14 @@
 {% extends 'base.html' %}
 
-{% block title %}Lots of Tools - Dashboard{% endblock %}
+{% block title %}Lots of Tools - Free Online Tools for Developers & Everyday Use{% endblock %}
+
+{% block meta_description %}Free, ad-free, privacy-friendly online tools. QR code generator, JSON formatter, unit converter, color picker, UUID generator, hash tools, and 40+ more utilities. No registration, no tracking, open-source.{% endblock %}
+
+{% block meta_keywords %}free online tools, developer tools, QR code generator, JSON formatter, unit converter, color picker, UUID generator, hash generator, privacy tools, ad-free tools, open source tools{% endblock %}
+
+{% block og_title %}Lots of Tools - Free Online Developer & Utility Tools{% endblock %}
+
+{% block og_description %}40+ free, ad-free, privacy-friendly online tools. QR codes, formatters, converters, generators, and more. No registration required.{% endblock %}
 
 {% block content %}
 <div class="layout-switcher desktop-layout-switcher">
@@ -38,6 +46,40 @@
     {% for category, links in categories.items() %}
         {% include 'components/category_section.html' %}
     {% endfor %}
+    
+    <!-- SEO Content Section -->
+    <div class="row mt-5">
+        <div class="col-12">
+            <div class="card bg-light">
+                <div class="card-body">
+                    <h2 class="h4 mb-3">{% if current_lang == 'de' %}Über Lots of Tools{% else %}About Lots of Tools{% endif %}</h2>
+                    {% if current_lang == 'de' %}
+                    <p>Lots of Tools ist eine Sammlung kostenloser Online-Werkzeuge für Entwickler und den täglichen Gebrauch. Alle Tools sind werbefrei, datenschutzfreundlich und erfordern keine Registrierung.</p>
+                    <h3 class="h5 mt-3">Beliebte Kategorien</h3>
+                    <ul class="mb-3">
+                        <li><strong>Entwickler-Tools:</strong> JSON Formatter, XML Formatter, YAML Formatter, Base64 Encoder, Hash Generator</li>
+                        <li><strong>Generatoren:</strong> QR Code Generator, UUID Generator, Lorem Ipsum, Barcode Generator, Zufallsstring</li>
+                        <li><strong>Konverter:</strong> Einheitenrechner, Farbkonverter, Koordinatenkonverter, Untertitel-Konverter</li>
+                        <li><strong>Karten-Tools:</strong> Entfernungsrechner, Radius-Karte, Kartenmarkierung, Standort-Simulator</li>
+                        <li><strong>Text-Tools:</strong> Buchstabenzähler, Diff-Vergleich, Teleprompter</li>
+                    </ul>
+                    <p class="mb-0"><strong>Open Source:</strong> Der Quellcode ist frei verfügbar. Alle Berechnungen erfolgen in Ihrem Browser – Ihre Daten verlassen nie Ihr Gerät.</p>
+                    {% else %}
+                    <p>Lots of Tools is a collection of free online utilities for developers and everyday use. All tools are ad-free, privacy-friendly, and require no registration.</p>
+                    <h3 class="h5 mt-3">Popular Categories</h3>
+                    <ul class="mb-3">
+                        <li><strong>Developer Tools:</strong> JSON Formatter, XML Formatter, YAML Formatter, Base64 Encoder, Hash Generator</li>
+                        <li><strong>Generators:</strong> QR Code Generator, UUID Generator, Lorem Ipsum, Barcode Generator, Random String</li>
+                        <li><strong>Converters:</strong> Unit Converter, Color Converter, Coordinate Converter, Subtitle Converter</li>
+                        <li><strong>Map Tools:</strong> Distance Calculator, Radius Map, Map Marker, Location Simulator</li>
+                        <li><strong>Text Tools:</strong> Letter Counter, Diff Tool, Teleprompter</li>
+                    </ul>
+                    <p class="mb-0"><strong>Open Source:</strong> The source code is freely available. All calculations happen in your browser – your data never leaves your device.</p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 {% endblock %}
 
