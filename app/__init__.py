@@ -97,6 +97,7 @@ def create_app(config_class=Config):
         init_tools()
     
     from app.routes.main import main_bp
+    from app.routes.sitemaps import sitemaps_bp
     from app.routes.tools.letter_counter import letter_counter_bp
     from app.routes.tools.json_formatter import json_formatter_bp
     from app.routes.tools.xml_formatter import xml_formatter_bp
@@ -142,6 +143,7 @@ def create_app(config_class=Config):
     from app.routes.icon_cache import icon_cache_bp
     
     app.register_blueprint(main_bp)
+    app.register_blueprint(sitemaps_bp)
     app.register_blueprint(letter_counter_bp)
     app.register_blueprint(json_formatter_bp)
     app.register_blueprint(xml_formatter_bp)
