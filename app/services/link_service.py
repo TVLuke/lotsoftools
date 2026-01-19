@@ -143,7 +143,16 @@ def get_related_tools(current_url, limit=4, lang=None):
     if lang is None:
         lang = session.get('lang', 'en')
     
+    # Try exact match first, then try base path (for tools with dynamic segments like /tools/color/HEXCODE)
     current_link = get_link_by_url(current_url)
+    if not current_link:
+        # Try matching by prefix - find tool whose route is a prefix of current_url
+        all_links = get_all_links()
+        for link in all_links:
+            if current_url.startswith(link.url) and link.url != '/':
+                current_link = link
+                break
+    
     if not current_link or not current_link.tags:
         return []
     
@@ -153,7 +162,7 @@ def get_related_tools(current_url, limit=4, lang=None):
     # Score links by number of shared tags
     scored_links = []
     for link in all_links:
-        if link.url == current_url:
+        if link.url == current_link.url:
             continue
         shared_tags = len(current_tags & set(link.tags))
         if shared_tags > 0:
