@@ -2,6 +2,37 @@
 
 {% block title %}Stats - Lots of Tools{% endblock %}
 
+{% block extra_css %}
+<style>
+    @media (max-width: 767px) {
+        .stats-table { display: none; }
+        .stats-cards { display: block; }
+    }
+    @media (min-width: 768px) {
+        .stats-table { display: block; }
+        .stats-cards { display: none; }
+    }
+    .stats-card {
+        border: 1px solid #dee2e6;
+        border-radius: 0.375rem;
+        padding: 0.75rem;
+        margin-bottom: 0.5rem;
+        background: #fff;
+    }
+    .stats-card .card-title {
+        font-weight: 600;
+        margin-bottom: 0.25rem;
+    }
+    .stats-card .card-url {
+        font-size: 0.85em;
+        word-break: break-all;
+    }
+    .stats-card .card-badges {
+        margin-top: 0.5rem;
+    }
+</style>
+{% endblock %}
+
 {% block content %}
 <div class="container mt-4">
     <h1 class="mb-4">Link Statistics</h1>
@@ -10,7 +41,8 @@
         Server started: <strong>{{ server_start_time.strftime('%Y-%m-%d %H:%M:%S UTC') }}</strong>
     </p>
     
-    <div class="table-responsive">
+    <!-- Desktop table view -->
+    <div class="table-responsive stats-table">
         <table class="table table-hover">
             <thead class="table-dark">
                 <tr>
@@ -47,6 +79,37 @@
                 {% endfor %}
             </tbody>
         </table>
+    </div>
+    
+    <!-- Mobile card view -->
+    <div class="stats-cards">
+        {% for link in links %}
+        <div class="stats-card">
+            <div class="d-flex justify-content-between align-items-start">
+                <div>
+                    <div class="card-title">
+                        {% if link.name is mapping %}
+                            {{ link.name.get(current_lang, link.name.get('en', link.name)) }}
+                        {% else %}
+                            {{ link.name }}
+                        {% endif %}
+                    </div>
+                    <div class="card-url">
+                        <code><a href="{{ link.url }}" class="text-decoration-none">{{ link.url }}</a></code>
+                    </div>
+                </div>
+                <span class="text-muted small">#{{ loop.index }}</span>
+            </div>
+            <div class="card-badges">
+                <span class="badge bg-{% if link.click_count > 20 %}success{% elif link.click_count > 10 %}primary{% elif link.click_count > 5 %}secondary{% else %}light text-dark{% endif %}">
+                    <i class="fas fa-mouse-pointer me-1"></i>{{ link.click_count }}
+                </span>
+                <span class="badge bg-secondary ms-1">
+                    <i class="fas fa-robot me-1"></i>{{ link.bot_click_count }}
+                </span>
+            </div>
+        </div>
+        {% endfor %}
     </div>
     
     <p class="text-muted small mt-4">
