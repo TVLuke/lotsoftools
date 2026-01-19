@@ -152,7 +152,6 @@ def sitemap_extra_pages_xml():
         ('/about', '0.5', 'monthly'),
         ('/privacy', '0.3', 'monthly'),
         ('/sitemap', '0.4', 'weekly'),
-        ('/stats', '0.3', 'daily'),
     ]
     
     for url, priority, changefreq in static_pages:
@@ -193,34 +192,12 @@ def sitemap_products_xml():
 
 @main_bp.route('/sitemaps/categories.xml')
 def sitemap_categories_xml():
-    """Sitemap for category/tag pages."""
-    base_url = 'https://lotsof.tools'
-    today = datetime.now().strftime('%Y-%m-%d')
-    
-    # Get unique tags from all tools
-    from app.models import Link
-    tags = set()
-    for link in Link.query.all():
-        if link.tags:
-            for tag in link.tags:
-                tags.add(tag)
-    
+    """Sitemap for category/tag pages - currently empty as no dedicated category pages exist."""
     xml_parts = [
         '<?xml version="1.0" encoding="UTF-8"?>',
-        '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'
+        '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
+        '</urlset>'
     ]
-    
-    # Category pages based on tags (if we have tag filter pages)
-    # For now, list the main page with tag anchors
-    for tag in sorted(tags):
-        xml_parts.append(f'''  <url>
-    <loc>{base_url}/?tag={tag}</loc>
-    <lastmod>{today}</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
-  </url>''')
-    
-    xml_parts.append('</urlset>')
     return Response('\n'.join(xml_parts), mimetype='application/xml')
 
 @main_bp.route('/rss/products.rss')
