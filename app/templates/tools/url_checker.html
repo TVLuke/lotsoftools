@@ -408,46 +408,65 @@ function renderResults(data) {
         const sslClass = data.ssl.valid ? 'ssl-valid' : 'ssl-invalid';
         html += `
             <div class="card mb-3 ${sslClass}">
-                <div class="card-header">
-                    <strong><i class="fas fa-lock me-2"></i>${t.ssl}</strong>
-                    <span class="badge ${data.ssl.valid ? 'bg-success' : 'bg-danger'} ms-2">
-                        ${data.ssl.valid ? t.sslValid : t.sslInvalid}
-                    </span>
+                <div class="card-header d-flex justify-content-between align-items-center">
+                    <div>
+                        <strong><i class="fas fa-lock me-2"></i>${t.ssl}</strong>
+                        <span class="badge ${data.ssl.valid ? 'bg-success' : 'bg-danger'} ms-2">
+                            ${data.ssl.valid ? t.sslValid : t.sslInvalid}
+                        </span>
+                    </div>
+                    ${data.ssl.version ? `<small class="text-muted">${escapeHtml(data.ssl.version)}</small>` : ''}
                 </div>
                 <div class="card-body small">
         `;
         
         if (data.ssl.valid) {
-            html += `
-                <div class="row">
-                    <div class="col-md-6">
-                        <strong>Subject:</strong> ${escapeHtml(data.ssl.subject)}<br>
-                        <strong>${t.sslIssuer}:</strong> ${escapeHtml(data.ssl.issuer)}
-                    </div>
-                    <div class="col-md-6">
-                        <strong>${t.sslExpires}:</strong> ${escapeHtml(data.ssl.not_after)}
-            `;
+            html += `<table class="table table-sm mb-0">`;
             
+            // Subject info
+            if (data.ssl.subject) {
+                const subj = data.ssl.subject;
+                html += `<tr><td style="width:150px;"><strong>Subject CN</strong></td><td>${escapeHtml(subj.common_name || '')}</td></tr>`;
+                if (subj.organization) html += `<tr><td><strong>Organization</strong></td><td>${escapeHtml(subj.organization)}</td></tr>`;
+            }
+            
+            // Issuer info
+            if (data.ssl.issuer) {
+                const iss = data.ssl.issuer;
+                html += `<tr><td><strong>${t.sslIssuer}</strong></td><td>${escapeHtml(iss.organization || iss.common_name || '')}</td></tr>`;
+            }
+            
+            // Validity
+            html += `<tr><td><strong>Valid From</strong></td><td>${escapeHtml(data.ssl.not_before || '')}</td></tr>`;
+            html += `<tr><td><strong>${t.sslExpires}</strong></td><td>${escapeHtml(data.ssl.not_after || '')}`;
             if (data.ssl.days_until_expiry !== null) {
                 if (data.ssl.days_until_expiry < 0) {
-                    html += `<span class="badge bg-danger ms-2">${t.sslExpired}</span>`;
+                    html += ` <span class="badge bg-danger">${t.sslExpired}</span>`;
                 } else if (data.ssl.days_until_expiry < 30) {
-                    html += `<span class="badge bg-warning text-dark ms-2">${data.ssl.days_until_expiry} ${t.sslDaysLeft}</span>`;
+                    html += ` <span class="badge bg-warning text-dark">${data.ssl.days_until_expiry} ${t.sslDaysLeft}</span>`;
                 } else {
-                    html += `<span class="badge bg-success ms-2">${data.ssl.days_until_expiry} ${t.sslDaysLeft}</span>`;
+                    html += ` <span class="badge bg-success">${data.ssl.days_until_expiry} ${t.sslDaysLeft}</span>`;
                 }
             }
+            html += `</td></tr>`;
             
-            html += `</div></div>`;
-            
-            if (data.ssl.san && data.ssl.san.length > 0) {
-                html += `
-                    <div class="mt-2">
-                        <strong>${t.sslSan}:</strong>
-                        <code>${escapeHtml(data.ssl.san.join(', '))}</code>
-                    </div>
-                `;
+            // Cipher
+            if (data.ssl.cipher) {
+                html += `<tr><td><strong>Cipher</strong></td><td>${escapeHtml(data.ssl.cipher)} (${data.ssl.cipher_bits} bit)</td></tr>`;
             }
+            
+            // Serial
+            if (data.ssl.serial_number) {
+                html += `<tr><td><strong>Serial</strong></td><td><code class="small">${escapeHtml(data.ssl.serial_number)}</code></td></tr>`;
+            }
+            
+            // SANs
+            if (data.ssl.san && data.ssl.san.length > 0) {
+                const sanText = data.ssl.san.join(', ') + (data.ssl.san_count > 10 ? ` (+${data.ssl.san_count - 10} more)` : '');
+                html += `<tr><td><strong>${t.sslSan}</strong></td><td><code class="small">${escapeHtml(sanText)}</code></td></tr>`;
+            }
+            
+            html += `</table>`;
         } else {
             html += `
                 <div class="text-danger">
@@ -458,6 +477,32 @@ function renderResults(data) {
         }
         
         html += `</div></div>`;
+    }
+    
+    // Meta Tags
+    if (data.meta_tags && Object.keys(data.meta_tags).length > 0) {
+        html += `
+            <div class="card mb-3">
+                <div class="card-header">
+                    <strong><i class="fas fa-tags me-2"></i>${lang === 'de' ? 'Meta-Tags' : 'Meta Tags'}</strong>
+                </div>
+                <div class="card-body small">
+                    <table class="table table-sm mb-0">
+        `;
+        
+        // Show title first
+        if (data.meta_tags.title) {
+            html += `<tr><td style="width:150px;"><strong>Title</strong></td><td>${escapeHtml(data.meta_tags.title)}</td></tr>`;
+        }
+        
+        // Then other meta tags
+        for (const [key, value] of Object.entries(data.meta_tags)) {
+            if (key !== 'title' && value) {
+                html += `<tr><td><strong>${escapeHtml(key)}</strong></td><td class="text-break">${escapeHtml(value)}</td></tr>`;
+            }
+        }
+        
+        html += `</table></div></div>`;
     }
     
     // Response Headers

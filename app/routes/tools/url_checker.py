@@ -7,9 +7,73 @@ import socket
 import time
 import hashlib
 import threading
+import re
 from datetime import datetime, timedelta
 from urllib.parse import urlparse
+from html.parser import HTMLParser
 from app.services.link_service import increment_click_count
+
+
+class MetaTagParser(HTMLParser):
+    """Parse HTML to extract meta tags and title."""
+    
+    def __init__(self):
+        super().__init__()
+        self.meta_tags = {}
+        self.title = None
+        self._in_title = False
+        self._title_data = []
+    
+    def handle_starttag(self, tag, attrs):
+        if tag == 'title':
+            self._in_title = True
+            self._title_data = []
+        elif tag == 'meta':
+            attrs_dict = dict(attrs)
+            name = attrs_dict.get('name', attrs_dict.get('property', '')).lower()
+            content = attrs_dict.get('content', '')
+            if name and content:
+                self.meta_tags[name] = content
+    
+    def handle_data(self, data):
+        if self._in_title:
+            self._title_data.append(data)
+    
+    def handle_endtag(self, tag):
+        if tag == 'title':
+            self._in_title = False
+            self.title = ''.join(self._title_data).strip()
+
+
+def extract_meta_tags(html_content):
+    """Extract meta tags and title from HTML content."""
+    try:
+        # Only parse the head section for performance
+        head_match = re.search(r'<head[^>]*>(.*?)</head>', html_content, re.IGNORECASE | re.DOTALL)
+        html_to_parse = head_match.group(0) if head_match else html_content[:10000]
+        
+        parser = MetaTagParser()
+        parser.feed(html_to_parse)
+        
+        result = {
+            'title': parser.title
+        }
+        
+        # Common meta tags to extract
+        important_tags = [
+            'description', 'keywords', 'author', 'robots', 'viewport',
+            'og:title', 'og:description', 'og:image', 'og:url', 'og:type', 'og:site_name',
+            'twitter:card', 'twitter:title', 'twitter:description', 'twitter:image',
+            'theme-color', 'generator'
+        ]
+        
+        for tag in important_tags:
+            if tag in parser.meta_tags:
+                result[tag] = parser.meta_tags[tag]
+        
+        return result
+    except Exception:
+        return {}
 
 url_checker_bp = Blueprint('url_checker', __name__, url_prefix='/tools')
 
@@ -107,10 +171,19 @@ def get_ssl_info(hostname, port=443):
         with socket.create_connection((hostname, port), timeout=10) as sock:
             with context.wrap_socket(sock, server_hostname=hostname) as ssock:
                 cert = ssock.getpeercert()
+                cipher = ssock.cipher()
+                version = ssock.version()
                 
-                # Parse certificate info
-                subject = dict(x[0] for x in cert.get('subject', []))
-                issuer = dict(x[0] for x in cert.get('issuer', []))
+                # Parse certificate info - get all fields
+                subject = {}
+                for item in cert.get('subject', []):
+                    for key, value in item:
+                        subject[key] = value
+                
+                issuer = {}
+                for item in cert.get('issuer', []):
+                    for key, value in item:
+                        issuer[key] = value
                 
                 # Parse dates
                 not_before = cert.get('notBefore', '')
@@ -124,14 +197,33 @@ def get_ssl_info(hostname, port=443):
                 except:
                     days_until_expiry = None
                 
+                # Get all SANs
+                sans = [x[1] for x in cert.get('subjectAltName', []) if x[0] == 'DNS']
+                
                 return {
                     'valid': True,
-                    'subject': subject.get('commonName', 'Unknown'),
-                    'issuer': issuer.get('organizationName', issuer.get('commonName', 'Unknown')),
+                    'version': version,
+                    'cipher': cipher[0] if cipher else None,
+                    'cipher_bits': cipher[2] if cipher else None,
+                    'serial_number': cert.get('serialNumber', ''),
+                    'subject': {
+                        'common_name': subject.get('commonName', ''),
+                        'organization': subject.get('organizationName', ''),
+                        'organizational_unit': subject.get('organizationalUnitName', ''),
+                        'country': subject.get('countryName', ''),
+                        'state': subject.get('stateOrProvinceName', ''),
+                        'locality': subject.get('localityName', '')
+                    },
+                    'issuer': {
+                        'common_name': issuer.get('commonName', ''),
+                        'organization': issuer.get('organizationName', ''),
+                        'country': issuer.get('countryName', '')
+                    },
                     'not_before': not_before,
                     'not_after': not_after,
                     'days_until_expiry': days_until_expiry,
-                    'san': [x[1] for x in cert.get('subjectAltName', []) if x[0] == 'DNS'][:5]  # First 5 SANs
+                    'san': sans[:10],  # First 10 SANs
+                    'san_count': len(sans)
                 }
     except ssl.SSLCertVerificationError as e:
         return {
@@ -174,6 +266,7 @@ def check_url():
         'redirects': [],
         'headers': {},
         'ssl': None,
+        'meta_tags': {},
         'content_hash': None,
         'content_changed': None,
         'previous_checks': 0,
@@ -233,17 +326,19 @@ def check_url():
         result['status_text'] = response.reason
         result['response_time_ms'] = response_time_ms
         
-        # Collect relevant headers
-        headers_to_collect = [
-            'Server', 'Content-Type', 'Content-Length', 'Cache-Control',
-            'X-Powered-By', 'X-Frame-Options', 'X-Content-Type-Options',
-            'Strict-Transport-Security', 'Content-Security-Policy',
-            'X-XSS-Protection', 'Referrer-Policy', 'Permissions-Policy'
-        ]
+        # Collect all response headers
+        result['headers'] = dict(response.headers)
         
-        for header in headers_to_collect:
-            if header in response.headers:
-                result['headers'][header] = response.headers[header]
+        # Extract meta tags from HTML content
+        content_type = response.headers.get('Content-Type', '')
+        if 'text/html' in content_type or 'application/xhtml' in content_type:
+            try:
+                html_content = response.content.decode('utf-8', errors='ignore')
+                result['meta_tags'] = extract_meta_tags(html_content)
+            except Exception:
+                result['meta_tags'] = {}
+        else:
+            result['meta_tags'] = {}
         
         # Compute content hash and detect changes
         content_hash = _compute_content_hash(response.content)
