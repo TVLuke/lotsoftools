@@ -140,6 +140,47 @@
 {% include 'components/library_credit.html' %}
 {% endblock %}
 
+{% block extra_css %}
+<style>
+@media (max-width: 767px) {
+    .dns-table-desktop { display: none !important; }
+    .dns-cards-mobile { display: block !important; }
+}
+@media (min-width: 768px) {
+    .dns-table-desktop { display: block !important; }
+    .dns-cards-mobile { display: none !important; }
+}
+.dns-record-card {
+    border: 1px solid #dee2e6;
+    border-radius: 0.375rem;
+    padding: 0.75rem;
+    margin-bottom: 0.5rem;
+    background: #f8f9fa;
+}
+.dns-record-card .record-type {
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+.dns-record-card .server-result {
+    border-top: 1px solid #dee2e6;
+    padding-top: 0.5rem;
+    margin-top: 0.5rem;
+}
+.dns-record-card .server-name {
+    font-weight: 600;
+    font-size: 0.9em;
+}
+.dns-record-card .server-ip {
+    font-family: monospace;
+    font-size: 0.8em;
+    color: #666;
+}
+.dns-record-card code {
+    word-break: break-all;
+}
+</style>
+{% endblock %}
+
 {% block extra_js %}
 <script>
 const lang = document.documentElement.lang || 'en';
@@ -277,7 +318,7 @@ function renderResults(data) {
     
     let html = `
         <div class="card mb-3 result-card">
-            <div class="card-header d-flex justify-content-between align-items-center">
+            <div class="card-header d-flex justify-content-between align-items-center flex-wrap">
                 <div>
                     <strong class="font-monospace">${escapeHtml(data.domain)}</strong>
                     <span class="badge bg-primary ms-2">${data.record_type}</span>
@@ -285,7 +326,8 @@ function renderResults(data) {
                 <small class="text-muted">${t.queryTime}: ${formatTimestamp(data.timestamp)}</small>
             </div>
             <div class="card-body p-0">
-                <div class="table-responsive">
+                <!-- Desktop table view -->
+                <div class="table-responsive dns-table-desktop">
                     <table class="table table-sm table-striped mb-0">
                         <thead>
                             <tr>
@@ -327,6 +369,43 @@ function renderResults(data) {
     html += `
                         </tbody>
                     </table>
+                </div>
+                
+                <!-- Mobile card view -->
+                <div class="dns-cards-mobile p-2">
+    `;
+    
+    for (const rtype of sortedTypes) {
+        html += `<div class="dns-record-card">
+            <div class="record-type"><span class="badge bg-secondary">${rtype}</span></div>`;
+        
+        for (const server of servers) {
+            const record = server.records[rtype];
+            html += `<div class="server-result">
+                <div class="server-name">${escapeHtml(server.name)} <span class="server-ip">${escapeHtml(server.ip)}</span></div>`;
+            
+            if (!record) {
+                html += '<span class="text-muted">-</span>';
+            } else if (!record.success || record.data.length === 0) {
+                html += `<span class="text-muted">${t.noRecords}</span>`;
+            } else {
+                html += '<div class="small">';
+                for (const r of record.data) {
+                    html += `<div class="mb-1">${renderRecordValue(rtype, r)}</div>`;
+                }
+                if (record.ttl) {
+                    html += `<div class="text-muted">${t.ttl}: ${record.ttl}s</div>`;
+                }
+                html += '</div>';
+            }
+            
+            html += '</div>';
+        }
+        
+        html += '</div>';
+    }
+    
+    html += `
                 </div>
             </div>
     `;
