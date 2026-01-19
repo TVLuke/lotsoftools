@@ -58,6 +58,10 @@
             "de": "<strong>Einfache Bedienung:</strong> Starten, stoppen, Runde und zurücksetzen mit einem Klick"
           }
         ]
+      },
+      "privacy_note": {
+        "en": "🔒 Privacy-Friendly: This stopwatch runs entirely in your browser. No data is sent to any server.",
+        "de": "🔒 Datenschutzfreundlich: Diese Stoppuhr läuft vollständig in Ihrem Browser. Es werden keine Daten an einen Server gesendet."
       }
     }
   }

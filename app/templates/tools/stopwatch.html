@@ -45,6 +45,15 @@
                         <span>{% if current_lang == 'de' %}Reset{% else %}Reset{% endif %}</span>
                     </button>
                 </div>
+                
+                <div class="mt-4 text-muted small">
+                    <i class="fas fa-keyboard me-1"></i>
+                    {% if current_lang == 'de' %}
+                    Tastenkürzel: <kbd>Leertaste</kbd> Start/Stop · <kbd>L</kbd> oder <kbd>Enter</kbd> Runde · <kbd>R</kbd> Reset
+                    {% else %}
+                    Keyboard shortcuts: <kbd>Space</kbd> Start/Stop · <kbd>L</kbd> or <kbd>Enter</kbd> Lap · <kbd>R</kbd> Reset
+                    {% endif %}
+                </div>
             </div>
         </div>
         
@@ -223,7 +232,9 @@
         stop();
         elapsedTime = 0;
         lastLapTime = 0;
+        laps = [];
         updateDisplay();
+        renderLaps();
     }
     
     function clearLaps() {
