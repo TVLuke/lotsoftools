@@ -1,0 +1,596 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ tool_data.seo.title[current_lang] }}{% endblock %}
+{% block meta_description %}{{ tool_data.seo.meta_description[current_lang] }}{% endblock %}
+{% block meta_keywords %}{{ tool_data.seo.keywords[current_lang] }}{% endblock %}
+{% block og_title %}{{ tool_data.seo.title[current_lang] }}{% endblock %}
+{% block og_description %}{{ tool_data.seo.meta_description[current_lang] }}{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-12">
+        <div class="d-flex justify-content-between align-items-center flex-wrap mb-4">
+            <h1 class="mb-0">
+                <i class="{{ tool_data.img }} me-2"></i>
+                {% if current_lang == 'de' %}URL-Prüfer{% else %}URL Checker{% endif %}
+            </h1>
+            {% include 'components/share_button.html' %}
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12 col-lg-8">
+        <div class="card mb-3">
+            <div class="card-body">
+                <div class="row g-2 align-items-end">
+                    <div class="col-12 col-md-9">
+                        <label for="urlInput" class="form-label">
+                            {% if current_lang == 'de' %}URL (HTTPS erforderlich){% else %}URL (HTTPS required){% endif %}
+                        </label>
+                        <input type="url" class="form-control" id="urlInput" placeholder="https://example.com">
+                        <div class="invalid-feedback" id="urlError"></div>
+                    </div>
+                    <div class="col-12 col-md-3">
+                        <button class="btn btn-primary w-100" id="checkBtn">
+                            <i class="fas fa-search me-1"></i>
+                            {% if current_lang == 'de' %}Prüfen{% else %}Check{% endif %}
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="d-flex flex-wrap gap-4 mt-3">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="followRedirects" checked>
+                        <label class="form-check-label" for="followRedirects">
+                            {% if current_lang == 'de' %}Weiterleitungen folgen{% else %}Follow redirects{% endif %}
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="autoRefresh">
+                        <label class="form-check-label" for="autoRefresh">
+                            {% if current_lang == 'de' %}Automatisch alle 5 Minuten prüfen{% else %}Auto check every 5 minutes{% endif %}
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="alert alert-danger" id="errorAlert" style="display:none;"></div>
+        
+        <div id="resultsContainer"></div>
+    </div>
+    
+    <div class="col-12 col-lg-4">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0">
+                    <i class="fas fa-info-circle me-2"></i>
+                    {% if current_lang == 'de' %}HTTP-Statuscodes{% else %}HTTP Status Codes{% endif %}
+                </h5>
+            </div>
+            <div class="card-body small">
+                <dl class="mb-0">
+                    <dt class="text-success">2xx</dt>
+                    <dd class="text-muted mb-2">{% if current_lang == 'de' %}Erfolg (200 OK, 201 Created){% else %}Success (200 OK, 201 Created){% endif %}</dd>
+                    <dt class="text-primary">3xx</dt>
+                    <dd class="text-muted mb-2">{% if current_lang == 'de' %}Weiterleitung (301, 302, 307, 308){% else %}Redirect (301, 302, 307, 308){% endif %}</dd>
+                    <dt class="text-warning">4xx</dt>
+                    <dd class="text-muted mb-2">{% if current_lang == 'de' %}Client-Fehler (400, 401, 403, 404){% else %}Client Error (400, 401, 403, 404){% endif %}</dd>
+                    <dt class="text-danger">5xx</dt>
+                    <dd class="text-muted mb-0">{% if current_lang == 'de' %}Server-Fehler (500, 502, 503){% else %}Server Error (500, 502, 503){% endif %}</dd>
+                </dl>
+            </div>
+        </div>
+        
+        <div class="card mt-3">
+            <div class="card-header">
+                <h5 class="mb-0">
+                    <i class="fas fa-shield-alt me-2"></i>
+                    {% if current_lang == 'de' %}Sicherheits-Header{% else %}Security Headers{% endif %}
+                </h5>
+            </div>
+            <div class="card-body small">
+                <dl class="mb-0">
+                    <dt>HSTS</dt>
+                    <dd class="text-muted mb-2">Strict-Transport-Security</dd>
+                    <dt>CSP</dt>
+                    <dd class="text-muted mb-2">Content-Security-Policy</dd>
+                    <dt>X-Frame-Options</dt>
+                    <dd class="text-muted mb-2">{% if current_lang == 'de' %}Clickjacking-Schutz{% else %}Clickjacking protection{% endif %}</dd>
+                    <dt>X-Content-Type-Options</dt>
+                    <dd class="text-muted mb-0">{% if current_lang == 'de' %}MIME-Sniffing-Schutz{% else %}MIME sniffing protection{% endif %}</dd>
+                </dl>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% include 'components/seo_content.html' %}
+{% include 'components/related_tools.html' %}
+{% endblock %}
+
+{% block extra_css %}
+<style>
+.status-badge {
+    font-size: 1.5rem;
+    padding: 0.5rem 1rem;
+}
+.redirect-chain {
+    border-left: 3px solid #dee2e6;
+    padding-left: 1rem;
+    margin-left: 0.5rem;
+}
+.redirect-item {
+    position: relative;
+    padding: 0.5rem 0;
+}
+.redirect-item::before {
+    content: '';
+    position: absolute;
+    left: -1.25rem;
+    top: 50%;
+    width: 0.75rem;
+    height: 2px;
+    background: #dee2e6;
+}
+.header-value {
+    word-break: break-all;
+    font-family: monospace;
+    font-size: 0.85em;
+}
+.ssl-valid {
+    border-left: 4px solid #198754;
+}
+.ssl-invalid {
+    border-left: 4px solid #dc3545;
+}
+</style>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+const lang = document.documentElement.lang || 'en';
+
+const urlInput = document.getElementById('urlInput');
+const urlError = document.getElementById('urlError');
+const checkBtn = document.getElementById('checkBtn');
+const followRedirects = document.getElementById('followRedirects');
+const autoRefresh = document.getElementById('autoRefresh');
+const errorAlert = document.getElementById('errorAlert');
+const resultsContainer = document.getElementById('resultsContainer');
+
+let autoRefreshInterval = null;
+
+const t = {
+    en: {
+        checking: 'Checking...',
+        reachable: 'Reachable',
+        unreachable: 'Unreachable',
+        responseTime: 'Response Time',
+        statusCode: 'Status Code',
+        finalUrl: 'Final URL',
+        redirects: 'Redirects',
+        noRedirects: 'No redirects',
+        headers: 'Response Headers',
+        noHeaders: 'No headers collected',
+        ssl: 'SSL Certificate',
+        sslValid: 'Valid',
+        sslInvalid: 'Invalid',
+        sslIssuer: 'Issuer',
+        sslExpires: 'Expires',
+        sslDaysLeft: 'days left',
+        sslExpired: 'EXPIRED',
+        sslSan: 'Alt Names',
+        error: 'Error',
+        httpsRequired: 'URL must start with https://',
+        checkTime: 'Check time',
+        contentHash: 'Content Hash',
+        contentChanged: 'Content Changed',
+        contentUnchanged: 'Content Unchanged',
+        firstCheck: 'First Check',
+        previousChecks: 'previous checks in last hour'
+    },
+    de: {
+        checking: 'Prüfe...',
+        reachable: 'Erreichbar',
+        unreachable: 'Nicht erreichbar',
+        responseTime: 'Antwortzeit',
+        statusCode: 'Statuscode',
+        finalUrl: 'Endgültige URL',
+        redirects: 'Weiterleitungen',
+        noRedirects: 'Keine Weiterleitungen',
+        headers: 'Antwort-Header',
+        noHeaders: 'Keine Header gesammelt',
+        ssl: 'SSL-Zertifikat',
+        sslValid: 'Gültig',
+        sslInvalid: 'Ungültig',
+        sslIssuer: 'Aussteller',
+        sslExpires: 'Läuft ab',
+        sslDaysLeft: 'Tage verbleibend',
+        sslExpired: 'ABGELAUFEN',
+        sslSan: 'Alt. Namen',
+        error: 'Fehler',
+        httpsRequired: 'URL muss mit https:// beginnen',
+        checkTime: 'Prüfzeit',
+        contentHash: 'Inhalt-Hash',
+        contentChanged: 'Inhalt geändert',
+        contentUnchanged: 'Inhalt unverändert',
+        firstCheck: 'Erste Prüfung',
+        previousChecks: 'vorherige Prüfungen in der letzten Stunde'
+    }
+}[lang] || {
+    checking: 'Checking...',
+    reachable: 'Reachable',
+    unreachable: 'Unreachable',
+    responseTime: 'Response Time',
+    statusCode: 'Status Code',
+    finalUrl: 'Final URL',
+    redirects: 'Redirects',
+    noRedirects: 'No redirects',
+    contentHash: 'Content Hash',
+    contentChanged: 'Content Changed',
+    contentUnchanged: 'Content Unchanged',
+    firstCheck: 'First Check',
+    previousChecks: 'previous checks in last hour',
+    headers: 'Response Headers',
+    noHeaders: 'No headers collected',
+    ssl: 'SSL Certificate',
+    sslValid: 'Valid',
+    sslInvalid: 'Invalid',
+    sslIssuer: 'Issuer',
+    sslExpires: 'Expires',
+    sslDaysLeft: 'days left',
+    sslExpired: 'EXPIRED',
+    sslSan: 'Alt Names',
+    error: 'Error',
+    httpsRequired: 'URL must start with https://',
+    checkTime: 'Check time'
+};
+
+function showError(msg) {
+    errorAlert.textContent = msg;
+    errorAlert.style.display = 'block';
+}
+
+function clearError() {
+    errorAlert.style.display = 'none';
+}
+
+function validateUrl(url) {
+    if (!url) return false;
+    if (!url.startsWith('https://')) {
+        urlInput.classList.add('is-invalid');
+        urlError.textContent = t.httpsRequired;
+        return false;
+    }
+    try {
+        new URL(url);
+        urlInput.classList.remove('is-invalid');
+        return true;
+    } catch {
+        urlInput.classList.add('is-invalid');
+        urlError.textContent = 'Invalid URL format';
+        return false;
+    }
+}
+
+function escapeHtml(str) {
+    return String(str)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#39;');
+}
+
+function formatTimestamp(isoString) {
+    const date = new Date(isoString);
+    return date.toLocaleString(lang === 'de' ? 'de-DE' : 'en-US', {
+        year: 'numeric',
+        month: '2-digit',
+        day: '2-digit',
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit'
+    });
+}
+
+function getStatusBadgeClass(code) {
+    if (code >= 200 && code < 300) return 'bg-success';
+    if (code >= 300 && code < 400) return 'bg-primary';
+    if (code >= 400 && code < 500) return 'bg-warning text-dark';
+    if (code >= 500) return 'bg-danger';
+    return 'bg-secondary';
+}
+
+function renderResults(data) {
+    let html = `
+        <div class="card mb-3">
+            <div class="card-header d-flex justify-content-between align-items-center flex-wrap">
+                <div>
+                    <code class="text-break">${escapeHtml(data.url)}</code>
+                </div>
+                <small class="text-muted">${t.checkTime}: ${formatTimestamp(data.timestamp)}</small>
+            </div>
+            <div class="card-body">
+    `;
+    
+    // Main status
+    if (data.reachable) {
+        html += `
+            <div class="d-flex align-items-center mb-4 flex-wrap gap-3">
+                <span class="badge status-badge ${getStatusBadgeClass(data.status_code)}">
+                    ${data.status_code} ${escapeHtml(data.status_text || '')}
+                </span>
+                <span class="badge bg-success status-badge">
+                    <i class="fas fa-check me-1"></i>${t.reachable}
+                </span>
+                <span class="text-muted">
+                    <i class="fas fa-clock me-1"></i>${t.responseTime}: <strong>${data.response_time_ms}ms</strong>
+                </span>
+            </div>
+        `;
+    } else {
+        html += `
+            <div class="d-flex align-items-center mb-4 flex-wrap gap-3">
+                <span class="badge status-badge bg-danger">
+                    <i class="fas fa-times me-1"></i>${t.unreachable}
+                </span>
+            </div>
+        `;
+        
+        if (data.error) {
+            html += `
+                <div class="alert alert-danger">
+                    <strong>${escapeHtml(data.error.type)}:</strong> ${escapeHtml(data.error.message)}
+                </div>
+            `;
+        }
+    }
+    
+    // Final URL (if different from original)
+    if (data.final_url && data.final_url !== data.url) {
+        html += `
+            <div class="mb-3">
+                <strong>${t.finalUrl}:</strong>
+                <code class="ms-2 text-break">${escapeHtml(data.final_url)}</code>
+            </div>
+        `;
+    }
+    
+    // Redirects
+    if (data.redirects && data.redirects.length > 0) {
+        html += `
+            <div class="mb-3">
+                <strong>${t.redirects} (${data.redirects.length}):</strong>
+                <div class="redirect-chain mt-2">
+        `;
+        for (const r of data.redirects) {
+            html += `
+                <div class="redirect-item">
+                    <span class="badge ${getStatusBadgeClass(r.status_code)} me-2">${r.status_code}</span>
+                    <code class="text-break">${escapeHtml(r.url)}</code>
+                </div>
+            `;
+        }
+        html += `
+                </div>
+            </div>
+        `;
+    }
+    
+    // Content Change Detection
+    if (data.content_hash) {
+        let changeHtml = '';
+        if (data.content_changed === null) {
+            changeHtml = `<span class="badge bg-secondary">${t.firstCheck}</span>`;
+        } else if (data.content_changed) {
+            changeHtml = `<span class="badge bg-warning text-dark"><i class="fas fa-exclamation-triangle me-1"></i>${t.contentChanged}</span>`;
+        } else {
+            changeHtml = `<span class="badge bg-success"><i class="fas fa-check me-1"></i>${t.contentUnchanged}</span>`;
+        }
+        
+        html += `
+            <div class="mb-3 d-flex align-items-center flex-wrap gap-3">
+                <div>
+                    <strong>${t.contentHash}:</strong>
+                    <code class="ms-2">${escapeHtml(data.content_hash)}</code>
+                </div>
+                ${changeHtml}
+                ${data.previous_checks > 0 ? `<small class="text-muted">(${data.previous_checks} ${t.previousChecks})</small>` : ''}
+            </div>
+        `;
+    }
+    
+    // SSL Certificate
+    if (data.ssl) {
+        const sslClass = data.ssl.valid ? 'ssl-valid' : 'ssl-invalid';
+        html += `
+            <div class="card mb-3 ${sslClass}">
+                <div class="card-header">
+                    <strong><i class="fas fa-lock me-2"></i>${t.ssl}</strong>
+                    <span class="badge ${data.ssl.valid ? 'bg-success' : 'bg-danger'} ms-2">
+                        ${data.ssl.valid ? t.sslValid : t.sslInvalid}
+                    </span>
+                </div>
+                <div class="card-body small">
+        `;
+        
+        if (data.ssl.valid) {
+            html += `
+                <div class="row">
+                    <div class="col-md-6">
+                        <strong>Subject:</strong> ${escapeHtml(data.ssl.subject)}<br>
+                        <strong>${t.sslIssuer}:</strong> ${escapeHtml(data.ssl.issuer)}
+                    </div>
+                    <div class="col-md-6">
+                        <strong>${t.sslExpires}:</strong> ${escapeHtml(data.ssl.not_after)}
+            `;
+            
+            if (data.ssl.days_until_expiry !== null) {
+                if (data.ssl.days_until_expiry < 0) {
+                    html += `<span class="badge bg-danger ms-2">${t.sslExpired}</span>`;
+                } else if (data.ssl.days_until_expiry < 30) {
+                    html += `<span class="badge bg-warning text-dark ms-2">${data.ssl.days_until_expiry} ${t.sslDaysLeft}</span>`;
+                } else {
+                    html += `<span class="badge bg-success ms-2">${data.ssl.days_until_expiry} ${t.sslDaysLeft}</span>`;
+                }
+            }
+            
+            html += `</div></div>`;
+            
+            if (data.ssl.san && data.ssl.san.length > 0) {
+                html += `
+                    <div class="mt-2">
+                        <strong>${t.sslSan}:</strong>
+                        <code>${escapeHtml(data.ssl.san.join(', '))}</code>
+                    </div>
+                `;
+            }
+        } else {
+            html += `
+                <div class="text-danger">
+                    <strong>${escapeHtml(data.ssl.error || 'Error')}:</strong>
+                    ${escapeHtml(data.ssl.message || 'Unknown error')}
+                </div>
+            `;
+        }
+        
+        html += `</div></div>`;
+    }
+    
+    // Response Headers
+    if (data.headers && Object.keys(data.headers).length > 0) {
+        html += `
+            <div class="mb-3">
+                <strong>${t.headers}:</strong>
+                <table class="table table-sm table-striped mt-2 mb-0">
+                    <tbody>
+        `;
+        
+        for (const [key, value] of Object.entries(data.headers)) {
+            html += `
+                <tr>
+                    <td style="width: 200px;"><strong>${escapeHtml(key)}</strong></td>
+                    <td class="header-value">${escapeHtml(value)}</td>
+                </tr>
+            `;
+        }
+        
+        html += `</tbody></table></div>`;
+    }
+    
+    html += `</div></div>`;
+    
+    return html;
+}
+
+async function performCheck() {
+    const url = urlInput.value.trim();
+    
+    if (!validateUrl(url)) {
+        return;
+    }
+    
+    clearError();
+    checkBtn.disabled = true;
+    checkBtn.innerHTML = `<i class="fas fa-spinner fa-spin me-1"></i>${t.checking}`;
+    
+    try {
+        const resp = await fetch('/tools/url-checker/check', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                url: url,
+                follow_redirects: followRedirects.checked
+            })
+        });
+        
+        const data = await resp.json();
+        
+        if (!resp.ok) {
+            showError(data.error || 'Check failed');
+            return;
+        }
+        
+        const resultHtml = renderResults(data);
+        resultsContainer.insertAdjacentHTML('afterbegin', resultHtml);
+        
+        updateUrl();
+        
+        if (typeof window.showSupportOnAction === 'function') {
+            window.showSupportOnAction(10000);
+        }
+        
+    } catch (e) {
+        showError((lang === 'de' ? 'Netzwerkfehler: ' : 'Network error: ') + e.message);
+    } finally {
+        checkBtn.disabled = false;
+        checkBtn.innerHTML = `<i class="fas fa-search me-1"></i>${lang === 'de' ? 'Prüfen' : 'Check'}`;
+    }
+}
+
+checkBtn.addEventListener('click', performCheck);
+
+urlInput.addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') {
+        performCheck();
+    }
+});
+
+urlInput.addEventListener('input', () => {
+    urlInput.classList.remove('is-invalid');
+});
+
+// Auto-refresh every 5 minutes
+autoRefresh.addEventListener('change', () => {
+    if (autoRefresh.checked) {
+        autoRefreshInterval = setInterval(performCheck, 5 * 60 * 1000);
+    } else {
+        if (autoRefreshInterval) {
+            clearInterval(autoRefreshInterval);
+            autoRefreshInterval = null;
+        }
+    }
+});
+
+// URL state management
+function updateUrl() {
+    const params = new URLSearchParams();
+    const url = urlInput.value.trim();
+    
+    if (url) {
+        params.set('url', url);
+    }
+    if (!followRedirects.checked) {
+        params.set('follow', 'false');
+    }
+    
+    const newUrl = params.toString() ? `${window.location.pathname}?${params.toString()}` : window.location.pathname;
+    history.replaceState(null, '', newUrl);
+}
+
+function loadFromUrl() {
+    const params = new URLSearchParams(window.location.search);
+    const url = params.get('url');
+    const follow = params.get('follow');
+    
+    if (url) {
+        urlInput.value = url;
+    }
+    if (follow === 'false') {
+        followRedirects.checked = false;
+    }
+    
+    if (url) {
+        performCheck();
+    }
+}
+
+urlInput.addEventListener('change', updateUrl);
+followRedirects.addEventListener('change', updateUrl);
+
+loadFromUrl();
+</script>
+{% endblock %}

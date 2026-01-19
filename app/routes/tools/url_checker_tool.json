@@ -1,0 +1,96 @@
+{
+  "route": "/tools/url-checker",
+  "img": "fas fa-link",
+  "name": {
+    "en": "URL Checker",
+    "de": "URL-Prüfer"
+  },
+  "description": {
+    "en": "Check if a URL is reachable and get HTTP status information",
+    "de": "Prüfen, ob eine URL erreichbar ist und HTTP-Statusinformationen abrufen"
+  },
+  "tags": ["network"],
+  "new_window": false,
+  "frontend_only": false,
+  "uses_external_service": true,
+  "seo": {
+    "title": {
+      "en": "URL Checker - Check Website Availability and HTTP Status",
+      "de": "URL-Prüfer - Website-Verfügbarkeit und HTTP-Status prüfen"
+    },
+    "meta_description": {
+      "en": "Free online tool to check if a website URL is reachable. Get HTTP status codes, response times, redirects, SSL certificate info, and server headers.",
+      "de": "Kostenloses Online-Tool um zu prüfen, ob eine Website-URL erreichbar ist. HTTP-Statuscodes, Antwortzeiten, Weiterleitungen, SSL-Zertifikatsinformationen und Server-Header abrufen."
+    },
+    "keywords": {
+      "en": "URL checker, website checker, HTTP status, is site down, website status, SSL checker, response time, redirect checker, server headers",
+      "de": "URL-Prüfer, Website-Prüfer, HTTP-Status, Website-Status, SSL-Prüfer, Antwortzeit, Weiterleitungs-Prüfer, Server-Header"
+    },
+    "content": {
+      "heading": {
+        "en": "About This URL Checker Tool",
+        "de": "Über dieses URL-Prüfer-Tool"
+      },
+      "intro": {
+        "en": "This URL checker tool allows you to verify if a website is accessible and get detailed information about the HTTP response. Check status codes, response times, SSL certificates, and server headers to diagnose connectivity issues.",
+        "de": "Dieses URL-Prüfer-Tool ermöglicht es Ihnen zu überprüfen, ob eine Website erreichbar ist und detaillierte Informationen über die HTTP-Antwort zu erhalten. Überprüfen Sie Statuscodes, Antwortzeiten, SSL-Zertifikate und Server-Header, um Verbindungsprobleme zu diagnostizieren."
+      },
+      "features": {
+        "heading": {
+          "en": "Key Features:",
+          "de": "Hauptfunktionen:"
+        },
+        "items": [
+          {
+            "en": "<strong>HTTP Status:</strong> Get the exact HTTP status code and message",
+            "de": "<strong>HTTP-Status:</strong> Den genauen HTTP-Statuscode und die Meldung abrufen"
+          },
+          {
+            "en": "<strong>Response Time:</strong> Measure how long the server takes to respond",
+            "de": "<strong>Antwortzeit:</strong> Messen, wie lange der Server für eine Antwort braucht"
+          },
+          {
+            "en": "<strong>SSL Info:</strong> View SSL certificate details and expiration",
+            "de": "<strong>SSL-Info:</strong> SSL-Zertifikatsdetails und Ablaufdatum anzeigen"
+          },
+          {
+            "en": "<strong>Redirects:</strong> Track redirect chains to final destination",
+            "de": "<strong>Weiterleitungen:</strong> Weiterleitungsketten zum endgültigen Ziel verfolgen"
+          },
+          {
+            "en": "<strong>Headers:</strong> View response headers from the server",
+            "de": "<strong>Header:</strong> Antwort-Header vom Server anzeigen"
+          }
+        ]
+      },
+      "use_cases": {
+        "heading": {
+          "en": "Use Cases:",
+          "de": "Anwendungsfälle:"
+        },
+        "items": [
+          {
+            "en": "Check if a website is down or just you",
+            "de": "Prüfen, ob eine Website offline ist oder nur bei Ihnen"
+          },
+          {
+            "en": "Verify SSL certificate validity",
+            "de": "SSL-Zertifikatsgültigkeit überprüfen"
+          },
+          {
+            "en": "Debug redirect chains",
+            "de": "Weiterleitungsketten debuggen"
+          },
+          {
+            "en": "Monitor website response times",
+            "de": "Website-Antwortzeiten überwachen"
+          }
+        ]
+      },
+      "disclaimer": {
+        "en": "⚠️ Disclaimer: This tool makes requests from our server, not your browser. Results may differ from your local experience due to geographic location, firewall rules, or network conditions.",
+        "de": "⚠️ Haftungsausschluss: Dieses Tool sendet Anfragen von unserem Server, nicht von Ihrem Browser. Die Ergebnisse können aufgrund von geografischem Standort, Firewall-Regeln oder Netzwerkbedingungen von Ihrer lokalen Erfahrung abweichen."
+      }
+    }
+  }
+}

@@ -39,6 +39,7 @@
   "teleprompter": {"active": true},
   "time_converter": {"active": true},
   "unit_converter": {"active": true},
+  "url_checker": {"active": true},
   "uuid_generator": {"active": true},
   "xml_formatter": {"active": true},
   "yaml_formatter": {"active": true},
