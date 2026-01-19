@@ -136,3 +136,31 @@ def get_links_by_category(lang=None):
         sorted_categories[category].sort(key=lambda x: x.get('name', '').lower())
     
     return sorted_categories
+
+
+def get_related_tools(current_url, limit=4, lang=None):
+    """Get related tools based on shared tags, excluding current tool."""
+    if lang is None:
+        lang = session.get('lang', 'en')
+    
+    current_link = get_link_by_url(current_url)
+    if not current_link or not current_link.tags:
+        return []
+    
+    current_tags = set(current_link.tags)
+    all_links = get_all_links()
+    
+    # Score links by number of shared tags
+    scored_links = []
+    for link in all_links:
+        if link.url == current_url:
+            continue
+        shared_tags = len(current_tags & set(link.tags))
+        if shared_tags > 0:
+            scored_links.append((shared_tags, link))
+    
+    # Sort by score (descending), then by name
+    scored_links.sort(key=lambda x: (-x[0], x[1].get_name(lang).lower()))
+    
+    # Return top N as dicts
+    return [link.to_dict(lang) for _, link in scored_links[:limit]]

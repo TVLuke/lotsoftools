@@ -92,6 +92,11 @@ def create_app(config_class=Config):
             'support_link_text': support_link_text,
         }
     
+    @app.context_processor
+    def inject_related_tools():
+        from app.services.link_service import get_related_tools
+        return {'get_related_tools': get_related_tools}
+    
     def sync_app_data():
         from app.utils import init_tools
         init_tools()

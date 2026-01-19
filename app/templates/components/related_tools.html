@@ -1,0 +1,32 @@
+{% set related = get_related_tools(request.path, 4, current_lang) %}
+{% if related %}
+<!-- Related Tools -->
+<div class="row mt-4">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <h2 class="h5 mb-3">
+                    {% if current_lang == 'de' %}Ähnliche Tools{% else %}Similar Tools{% endif %}
+                </h2>
+                <div class="row">
+                    {% for tool in related %}
+                    <div class="col-6 col-md-3 mb-2 related-tool-item {% if loop.index > 2 %}d-none d-md-block{% endif %}">
+                        <a href="{{ tool.url }}" class="text-decoration-none">
+                            <div class="card h-100 border-0 bg-light">
+                                <div class="card-body p-2 text-center">
+                                    <img src="{{ url_for('static', filename='img/' ~ tool.img) }}" 
+                                         alt="{{ tool.name }}" 
+                                         class="mb-2" 
+                                         style="width: 32px; height: 32px;">
+                                    <div class="small text-dark">{{ tool.name }}</div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endif %}
