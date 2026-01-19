@@ -1,0 +1,296 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ tool_data.seo.title[current_lang] }}{% endblock %}
+{% block meta_description %}{{ tool_data.seo.meta_description[current_lang] }}{% endblock %}
+{% block meta_keywords %}{{ tool_data.seo.keywords[current_lang] }}{% endblock %}
+{% block og_title %}{{ tool_data.seo.title[current_lang] }}{% endblock %}
+{% block og_description %}{{ tool_data.seo.meta_description[current_lang] }}{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-12">
+        <div class="d-flex justify-content-between align-items-center flex-wrap mb-4">
+            <h1 class="mb-0">
+                <i class="{{ tool_data.img }} me-2"></i>
+                {{ tool_data.name[current_lang] }}
+            </h1>
+            {% include 'components/share_button.html' %}
+        </div>
+    </div>
+</div>
+
+<div class="row justify-content-center">
+    <div class="col-12 col-md-8 col-lg-6">
+        <div class="card mb-4">
+            <div class="card-body text-center py-5">
+                <div class="stopwatch-display mb-4" id="display">
+                    <span class="hours">00</span><span class="separator">:</span><span class="minutes">00</span><span class="separator">:</span><span class="seconds">00</span><span class="separator ms">.</span><span class="milliseconds">000</span>
+                </div>
+                
+                <div class="d-flex justify-content-center gap-3 flex-wrap">
+                    <button class="btn btn-success btn-lg" id="startBtn">
+                        <i class="fas fa-play me-2"></i>
+                        <span>{% if current_lang == 'de' %}Start{% else %}Start{% endif %}</span>
+                    </button>
+                    <button class="btn btn-danger btn-lg" id="stopBtn" disabled>
+                        <i class="fas fa-pause me-2"></i>
+                        <span>{% if current_lang == 'de' %}Stop{% else %}Stop{% endif %}</span>
+                    </button>
+                    <button class="btn btn-primary btn-lg" id="lapBtn" disabled>
+                        <i class="fas fa-flag me-2"></i>
+                        <span>{% if current_lang == 'de' %}Runde{% else %}Lap{% endif %}</span>
+                    </button>
+                    <button class="btn btn-secondary btn-lg" id="resetBtn">
+                        <i class="fas fa-redo me-2"></i>
+                        <span>{% if current_lang == 'de' %}Reset{% else %}Reset{% endif %}</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="card" id="lapsCard" style="display: none;">
+            <div class="card-header d-flex justify-content-between align-items-center">
+                <h5 class="mb-0">
+                    <i class="fas fa-list me-2"></i>
+                    {% if current_lang == 'de' %}Rundenzeiten{% else %}Lap Times{% endif %}
+                </h5>
+                <button class="btn btn-sm btn-outline-secondary" id="clearLapsBtn">
+                    <i class="fas fa-trash me-1"></i>
+                    {% if current_lang == 'de' %}Löschen{% else %}Clear{% endif %}
+                </button>
+            </div>
+            <div class="card-body p-0">
+                <table class="table table-striped mb-0">
+                    <thead>
+                        <tr>
+                            <th style="width: 60px;">#</th>
+                            <th>{% if current_lang == 'de' %}Rundenzeit{% else %}Lap Time{% endif %}</th>
+                            <th>{% if current_lang == 'de' %}Gesamtzeit{% else %}Total Time{% endif %}</th>
+                        </tr>
+                    </thead>
+                    <tbody id="lapsTable"></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% include 'components/seo_content.html' %}
+{% include 'components/related_tools.html' %}
+{% endblock %}
+
+{% block extra_css %}
+<style>
+.stopwatch-display {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 4rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.stopwatch-display .separator {
+    opacity: 0.6;
+}
+
+.stopwatch-display .separator.ms {
+    font-size: 2.5rem;
+}
+
+.stopwatch-display .milliseconds {
+    font-size: 2.5rem;
+    opacity: 0.8;
+}
+
+@media (max-width: 576px) {
+    .stopwatch-display {
+        font-size: 2.5rem;
+    }
+    .stopwatch-display .separator.ms,
+    .stopwatch-display .milliseconds {
+        font-size: 1.5rem;
+    }
+}
+
+#lapsTable tr:first-child {
+    background-color: rgba(var(--bs-primary-rgb), 0.1);
+}
+
+#lapsTable .lap-time {
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+}
+
+#lapsTable .total-time {
+    font-family: 'Courier New', Courier, monospace;
+    color: var(--bs-secondary);
+}
+</style>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+(function() {
+    const display = document.getElementById('display');
+    const startBtn = document.getElementById('startBtn');
+    const stopBtn = document.getElementById('stopBtn');
+    const lapBtn = document.getElementById('lapBtn');
+    const resetBtn = document.getElementById('resetBtn');
+    const lapsCard = document.getElementById('lapsCard');
+    const lapsTable = document.getElementById('lapsTable');
+    const clearLapsBtn = document.getElementById('clearLapsBtn');
+    
+    let startTime = 0;
+    let elapsedTime = 0;
+    let timerInterval = null;
+    let isRunning = false;
+    let laps = [];
+    let lastLapTime = 0;
+    
+    function formatTime(ms) {
+        const hours = Math.floor(ms / 3600000);
+        const minutes = Math.floor((ms % 3600000) / 60000);
+        const seconds = Math.floor((ms % 60000) / 1000);
+        const milliseconds = ms % 1000;
+        
+        return {
+            hours: String(hours).padStart(2, '0'),
+            minutes: String(minutes).padStart(2, '0'),
+            seconds: String(seconds).padStart(2, '0'),
+            milliseconds: String(milliseconds).padStart(3, '0')
+        };
+    }
+    
+    function formatTimeString(ms) {
+        const t = formatTime(ms);
+        return `${t.hours}:${t.minutes}:${t.seconds}.${t.milliseconds}`;
+    }
+    
+    function updateDisplay() {
+        const t = formatTime(elapsedTime);
+        display.querySelector('.hours').textContent = t.hours;
+        display.querySelector('.minutes').textContent = t.minutes;
+        display.querySelector('.seconds').textContent = t.seconds;
+        display.querySelector('.milliseconds').textContent = t.milliseconds;
+    }
+    
+    function start() {
+        if (isRunning) return;
+        
+        isRunning = true;
+        startTime = Date.now() - elapsedTime;
+        
+        timerInterval = setInterval(() => {
+            elapsedTime = Date.now() - startTime;
+            updateDisplay();
+        }, 10);
+        
+        startBtn.disabled = true;
+        stopBtn.disabled = false;
+        lapBtn.disabled = false;
+        
+        startBtn.querySelector('i').className = 'fas fa-play me-2';
+    }
+    
+    function stop() {
+        if (!isRunning) return;
+        
+        isRunning = false;
+        clearInterval(timerInterval);
+        timerInterval = null;
+        
+        startBtn.disabled = false;
+        stopBtn.disabled = true;
+        lapBtn.disabled = true;
+    }
+    
+    function lap() {
+        if (!isRunning) return;
+        
+        const lapTime = elapsedTime - lastLapTime;
+        const totalTime = elapsedTime;
+        
+        laps.unshift({
+            number: laps.length + 1,
+            lapTime: lapTime,
+            totalTime: totalTime
+        });
+        
+        lastLapTime = elapsedTime;
+        renderLaps();
+    }
+    
+    function reset() {
+        stop();
+        elapsedTime = 0;
+        lastLapTime = 0;
+        updateDisplay();
+    }
+    
+    function clearLaps() {
+        laps = [];
+        renderLaps();
+    }
+    
+    function renderLaps() {
+        if (laps.length === 0) {
+            lapsCard.style.display = 'none';
+            return;
+        }
+        
+        lapsCard.style.display = 'block';
+        
+        // Re-number laps in display order (newest first, but numbered from 1)
+        const html = laps.map((lap, index) => {
+            const displayNumber = laps.length - index;
+            return `
+                <tr>
+                    <td><strong>${displayNumber}</strong></td>
+                    <td class="lap-time">${formatTimeString(lap.lapTime)}</td>
+                    <td class="total-time">${formatTimeString(lap.totalTime)}</td>
+                </tr>
+            `;
+        }).join('');
+        
+        lapsTable.innerHTML = html;
+    }
+    
+    // Event listeners
+    startBtn.addEventListener('click', start);
+    stopBtn.addEventListener('click', stop);
+    lapBtn.addEventListener('click', lap);
+    resetBtn.addEventListener('click', reset);
+    clearLapsBtn.addEventListener('click', clearLaps);
+    
+    // Keyboard shortcuts
+    document.addEventListener('keydown', (e) => {
+        // Ignore if typing in an input
+        if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+        
+        switch(e.code) {
+            case 'Space':
+                e.preventDefault();
+                if (isRunning) {
+                    stop();
+                } else {
+                    start();
+                }
+                break;
+            case 'KeyL':
+            case 'Enter':
+                if (isRunning) {
+                    e.preventDefault();
+                    lap();
+                }
+                break;
+            case 'KeyR':
+                e.preventDefault();
+                reset();
+                break;
+        }
+    });
+    
+    // Initialize display
+    updateDisplay();
+})();
+</script>
+{% endblock %}

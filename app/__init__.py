@@ -147,6 +147,7 @@ def create_app(config_class=Config):
     from app.routes.tools.map_maker import map_maker_bp
     from app.routes.tools.time_converter import time_converter_bp
     from app.routes.tools.url_checker import url_checker_bp
+    from app.routes.tools.stopwatch import stopwatch_bp
     from app.routes.icon_cache import icon_cache_bp
     
     app.register_blueprint(main_bp)
@@ -195,6 +196,7 @@ def create_app(config_class=Config):
     app.register_blueprint(map_maker_bp)
     app.register_blueprint(time_converter_bp)
     app.register_blueprint(url_checker_bp)
+    app.register_blueprint(stopwatch_bp)
     app.register_blueprint(icon_cache_bp)
     
     with app.app_context():

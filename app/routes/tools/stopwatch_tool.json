@@ -1,0 +1,64 @@
+{
+  "route": "/tools/stopwatch",
+  "img": "fas fa-stopwatch",
+  "name": {
+    "en": "Stopwatch",
+    "de": "Stoppuhr"
+  },
+  "description": {
+    "en": "Online stopwatch with lap times - measure time with precision",
+    "de": "Online Stoppuhr mit Rundenzeiten - Zeit präzise messen"
+  },
+  "tags": ["utility", "time"],
+  "new_window": false,
+  "frontend_only": true,
+  "uses_external_service": false,
+  "seo": {
+    "title": {
+      "en": "Online Stopwatch - Timer with Lap Times",
+      "de": "Online Stoppuhr - Timer mit Rundenzeiten"
+    },
+    "meta_description": {
+      "en": "Free online stopwatch with lap/split times. Measure hours, minutes, seconds and milliseconds. Start, stop and record lap times easily.",
+      "de": "Kostenlose Online-Stoppuhr mit Runden-/Zwischenzeiten. Stunden, Minuten, Sekunden und Millisekunden messen. Einfach starten, stoppen und Rundenzeiten aufzeichnen."
+    },
+    "keywords": {
+      "en": "stopwatch, timer, lap time, split time, online stopwatch, time measurement, chronometer",
+      "de": "Stoppuhr, Timer, Rundenzeit, Zwischenzeit, Online-Stoppuhr, Zeitmessung, Chronometer"
+    },
+    "content": {
+      "heading": {
+        "en": "About This Stopwatch",
+        "de": "Über diese Stoppuhr"
+      },
+      "intro": {
+        "en": "This stopwatch runs entirely in your browser with millisecond precision. Use it to time events, workouts, cooking, or any activity where you need accurate time measurement.",
+        "de": "Diese Stoppuhr läuft vollständig in Ihrem Browser mit Millisekunden-Präzision. Verwenden Sie sie zum Messen von Ereignissen, Workouts, Kochen oder anderen Aktivitäten, bei denen Sie eine genaue Zeitmessung benötigen."
+      },
+      "features": {
+        "heading": {
+          "en": "Features:",
+          "de": "Funktionen:"
+        },
+        "items": [
+          {
+            "en": "<strong>Precise timing:</strong> Displays hours, minutes, seconds, and milliseconds",
+            "de": "<strong>Präzise Zeitmessung:</strong> Zeigt Stunden, Minuten, Sekunden und Millisekunden"
+          },
+          {
+            "en": "<strong>Lap times:</strong> Record split times without stopping the stopwatch",
+            "de": "<strong>Rundenzeiten:</strong> Zwischenzeiten aufzeichnen ohne die Stoppuhr anzuhalten"
+          },
+          {
+            "en": "<strong>Lap and total time:</strong> See both the time for each lap and cumulative total",
+            "de": "<strong>Runden- und Gesamtzeit:</strong> Sehen Sie sowohl die Zeit für jede Runde als auch die kumulative Gesamtzeit"
+          },
+          {
+            "en": "<strong>Simple controls:</strong> Start, stop, lap, and reset with one click",
+            "de": "<strong>Einfache Bedienung:</strong> Starten, stoppen, Runde und zurücksetzen mit einem Klick"
+          }
+        ]
+      }
+    }
+  }
+}

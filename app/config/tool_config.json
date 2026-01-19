@@ -35,6 +35,7 @@
   "random_string": {"active": true},
   "simulate_location": {"active": true},
   "speed_test": {"active": false},
+  "stopwatch": {"active": true},
   "subtitle_converter": {"active": true},
   "teleprompter": {"active": true},
   "time_converter": {"active": true},
