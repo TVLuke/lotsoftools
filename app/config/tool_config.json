@@ -37,6 +37,7 @@
   "speed_test": {"active": false},
   "subtitle_converter": {"active": true},
   "teleprompter": {"active": true},
+  "time_converter": {"active": true},
   "unit_converter": {"active": true},
   "uuid_generator": {"active": true},
   "xml_formatter": {"active": true},

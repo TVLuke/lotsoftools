@@ -1,0 +1,88 @@
+{
+    "route": "/tools/time-converter",
+    "img": "fas fa-clock",
+    "name": {
+        "en": "Time Converter",
+        "de": "Zeitkonverter"
+    },
+    "description": {
+        "en": "Convert between Unix timestamps, ISO 8601, RFC formats and custom date formats",
+        "de": "Konvertieren zwischen Unix-Zeitstempeln, ISO 8601, RFC-Formaten und benutzerdefinierten Datumsformaten"
+    },
+    "tags": ["converter", "utility", "time"],
+    "new_window": false,
+    "frontend_only": true,
+    "ui": {
+        "current_unix": { "en": "Current Unix Timestamp", "de": "Aktueller Unix-Zeitstempel" },
+        "seconds": { "en": "seconds", "de": "Sekunden" },
+        "milliseconds": { "en": "milliseconds", "de": "Millisekunden" },
+        "input_label": { "en": "Enter a date/time value", "de": "Datum/Zeit-Wert eingeben" },
+        "input_placeholder": { "en": "e.g., 1737284400, 2026-01-19T11:00:00Z, or any date format", "de": "z.B., 1737284400, 2026-01-19T11:00:00Z, oder ein beliebiges Datumsformat" },
+        "convert": { "en": "Convert", "de": "Konvertieren" },
+        "results": { "en": "Converted Formats", "de": "Konvertierte Formate" },
+        "custom_formats": { "en": "Custom Formats", "de": "Benutzerdefinierte Formate" },
+        "add_format": { "en": "Add Format", "de": "Format hinzufügen" },
+        "format_placeholder": { "en": "e.g., %Y-%m-%d %H:%M:%S", "de": "z.B., %Y-%m-%d %H:%M:%S" },
+        "format_help": { "en": "Format Reference", "de": "Format-Referenz" },
+        "copy": { "en": "Copy", "de": "Kopieren" },
+        "copied": { "en": "Copied!", "de": "Kopiert!" },
+        "invalid_input": { "en": "Could not parse input. Try Unix timestamp, ISO 8601, or common date formats.", "de": "Eingabe konnte nicht verarbeitet werden. Versuchen Sie Unix-Zeitstempel, ISO 8601 oder gängige Datumsformate." },
+        "invalid_format": { "en": "Invalid format string", "de": "Ungültiger Format-String" }
+    },
+    "seo": {
+        "title": {
+            "en": "Time Converter - Unix Timestamp, ISO 8601, RFC 2822 & Custom Formats",
+            "de": "Zeitkonverter - Unix-Zeitstempel, ISO 8601, RFC 2822 & Benutzerdefinierte Formate"
+        },
+        "meta_description": {
+            "en": "Convert timestamps between Unix (seconds/milliseconds), ISO 8601, RFC 2822, RFC 3339 and custom strftime formats. Live Unix clock, instant conversion, privacy-friendly.",
+            "de": "Konvertieren Sie Zeitstempel zwischen Unix (Sekunden/Millisekunden), ISO 8601, RFC 2822, RFC 3339 und benutzerdefinierten strftime-Formaten. Live Unix-Uhr, sofortige Konvertierung, datenschutzfreundlich."
+        },
+        "keywords": {
+            "en": "unix timestamp converter, epoch converter, ISO 8601, RFC 2822, RFC 3339, date format converter, strftime, time conversion",
+            "de": "Unix-Zeitstempel-Konverter, Epoch-Konverter, ISO 8601, RFC 2822, RFC 3339, Datumsformat-Konverter, strftime, Zeitkonvertierung"
+        },
+        "content": {
+            "heading": {
+                "en": "About the Time Converter",
+                "de": "Über den Zeitkonverter"
+            },
+            "intro": {
+                "en": "This tool converts between various date and time formats used in programming and data exchange. Enter a Unix timestamp, ISO 8601 date, or almost any common date format and instantly see it converted to multiple standard formats. Add custom strftime format strings to create exactly the output you need.",
+                "de": "Dieses Tool konvertiert zwischen verschiedenen Datums- und Zeitformaten, die in der Programmierung und beim Datenaustausch verwendet werden. Geben Sie einen Unix-Zeitstempel, ein ISO 8601-Datum oder fast jedes gängige Datumsformat ein und sehen Sie es sofort in mehrere Standardformate konvertiert. Fügen Sie benutzerdefinierte strftime-Format-Strings hinzu, um genau die gewünschte Ausgabe zu erstellen."
+            },
+            "features": {
+                "heading": {
+                    "en": "Supported Formats:",
+                    "de": "Unterstützte Formate:"
+                },
+                "items": [
+                    {
+                        "en": "<strong>Unix Timestamp:</strong> Seconds and milliseconds since January 1, 1970 (Epoch)",
+                        "de": "<strong>Unix-Zeitstempel:</strong> Sekunden und Millisekunden seit dem 1. Januar 1970 (Epoch)"
+                    },
+                    {
+                        "en": "<strong>ISO 8601:</strong> International standard format (2026-01-19T11:12:44+00:00)",
+                        "de": "<strong>ISO 8601:</strong> Internationales Standardformat (2026-01-19T11:12:44+00:00)"
+                    },
+                    {
+                        "en": "<strong>RFC 2822/822:</strong> Email and HTTP header format (Mon, 19 Jan 2026 11:12:44 +0000)",
+                        "de": "<strong>RFC 2822/822:</strong> E-Mail- und HTTP-Header-Format (Mon, 19 Jan 2026 11:12:44 +0000)"
+                    },
+                    {
+                        "en": "<strong>RFC 3339:</strong> Internet date/time format used in APIs",
+                        "de": "<strong>RFC 3339:</strong> Internet-Datums-/Zeitformat für APIs"
+                    },
+                    {
+                        "en": "<strong>Custom Formats:</strong> Add your own strftime patterns like %Y-%m-%d",
+                        "de": "<strong>Benutzerdefinierte Formate:</strong> Eigene strftime-Muster wie %Y-%m-%d hinzufügen"
+                    }
+                ]
+            },
+            "privacy_note": {
+                "en": "🔒 Privacy-Friendly: All conversions happen in your browser. No data is sent to any server.",
+                "de": "🔒 Datenschutzfreundlich: Alle Konvertierungen erfolgen in Ihrem Browser. Es werden keine Daten an einen Server gesendet."
+            }
+        }
+    }
+}

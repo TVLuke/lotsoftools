@@ -1,0 +1,392 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ tool_data.seo.title[current_lang] | default(tool_data.name[current_lang]) }}{% endblock %}
+
+{% block meta_description %}{{ tool_data.seo.meta_description[current_lang] }}{% endblock %}
+{% block meta_keywords %}{{ tool_data.seo.keywords[current_lang] }}{% endblock %}
+{% block og_title %}{{ tool_data.seo.title[current_lang] }}{% endblock %}
+{% block og_description %}{{ tool_data.seo.meta_description[current_lang] }}{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h1 class="mb-0">{{ tool_data.name[current_lang] }}</h1>
+        {% include 'components/share_button.html' %}
+    </div>
+    
+    <!-- Live Unix Timestamp -->
+    <div class="card mb-4">
+        <div class="card-body text-center">
+            <h5 class="card-title">{{ tool_data.ui.current_unix[current_lang] }}</h5>
+            <div class="d-flex justify-content-center align-items-center gap-4 flex-wrap">
+                <div>
+                    <span id="liveUnixSeconds" class="display-4 font-monospace text-primary">0</span>
+                    <small class="text-muted d-block">{{ tool_data.ui.seconds[current_lang] }}</small>
+                </div>
+                <div>
+                    <span id="liveUnixMillis" class="h4 font-monospace text-secondary">0</span>
+                    <small class="text-muted d-block">{{ tool_data.ui.milliseconds[current_lang] }}</small>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Input Section -->
+    <div class="card mb-4">
+        <div class="card-body">
+            <label for="timeInput" class="form-label">{{ tool_data.ui.input_label[current_lang] }}</label>
+            <div class="input-group mb-3">
+                <input type="text" class="form-control form-control-lg" id="timeInput" 
+                       placeholder="{{ tool_data.ui.input_placeholder[current_lang] }}"
+                       autocomplete="off">
+                <button class="btn btn-primary" type="button" id="convertBtn">
+                    <i class="fas fa-sync-alt me-1"></i>{{ tool_data.ui.convert[current_lang] }}
+                </button>
+            </div>
+            <div id="inputError" class="alert alert-warning d-none">
+                {{ tool_data.ui.invalid_input[current_lang] }}
+            </div>
+        </div>
+    </div>
+
+    <!-- Results Section -->
+    <div class="card mb-4" id="resultsCard" style="display: none;">
+        <div class="card-header">
+            <h5 class="mb-0">{{ tool_data.ui.results[current_lang] }}</h5>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-striped mb-0">
+                    <tbody id="resultsBody">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Custom Formats Section -->
+    <div class="card mb-4">
+        <div class="card-header d-flex justify-content-between align-items-center">
+            <h5 class="mb-0">{{ tool_data.ui.custom_formats[current_lang] }}</h5>
+            <button class="btn btn-sm btn-outline-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#formatHelp">
+                <i class="fas fa-question-circle me-1"></i>{{ tool_data.ui.format_help[current_lang] }}
+            </button>
+        </div>
+        <div class="card-body">
+            <div class="collapse mb-3" id="formatHelp">
+                <div class="card card-body bg-light">
+                    <small>
+                        <code>%Y</code> - Year (4 digits) &nbsp;|&nbsp;
+                        <code>%y</code> - Year (2 digits) &nbsp;|&nbsp;
+                        <code>%m</code> - Month (01-12) &nbsp;|&nbsp;
+                        <code>%d</code> - Day (01-31) &nbsp;|&nbsp;
+                        <code>%H</code> - Hour 24h (00-23) &nbsp;|&nbsp;
+                        <code>%I</code> - Hour 12h (01-12) &nbsp;|&nbsp;
+                        <code>%M</code> - Minute (00-59) &nbsp;|&nbsp;
+                        <code>%S</code> - Second (00-59) &nbsp;|&nbsp;
+                        <code>%p</code> - AM/PM &nbsp;|&nbsp;
+                        <code>%z</code> - Timezone (+0000) &nbsp;|&nbsp;
+                        <code>%Z</code> - Timezone name &nbsp;|&nbsp;
+                        <code>%A</code> - Weekday name &nbsp;|&nbsp;
+                        <code>%a</code> - Weekday abbr &nbsp;|&nbsp;
+                        <code>%B</code> - Month name &nbsp;|&nbsp;
+                        <code>%b</code> - Month abbr &nbsp;|&nbsp;
+                        <code>%j</code> - Day of year &nbsp;|&nbsp;
+                        <code>%W</code> - Week number
+                    </small>
+                </div>
+            </div>
+            
+            <div id="customFormats">
+            </div>
+            
+            <div class="input-group mt-3">
+                <input type="text" class="form-control" id="newFormatInput" 
+                       placeholder="{{ tool_data.ui.format_placeholder[current_lang] }}">
+                <button class="btn btn-outline-primary" type="button" id="addFormatBtn">
+                    <i class="fas fa-plus me-1"></i>{{ tool_data.ui.add_format[current_lang] }}
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% include 'components/seo_content.html' %}
+{% include 'components/related_tools.html' %}
+{% endblock %}
+
+{% block extra_js %}
+<script src="{{ url_for('static', filename='js/time-converter.js') }}"></script>
+<script>
+(function() {
+    'use strict';
+    
+    const UI = {
+        copy: "{{ tool_data.ui.copy[current_lang] }}",
+        copied: "{{ tool_data.ui.copied[current_lang] }}",
+        invalidFormat: "{{ tool_data.ui.invalid_format[current_lang] }}"
+    };
+
+    // Standard output formats
+    const STANDARD_FORMATS = [
+        { name: 'Unix Timestamp (seconds)', format: 'unix_seconds' },
+        { name: 'Unix Timestamp (milliseconds)', format: 'unix_millis' },
+        { name: 'ISO 8601', format: 'iso8601' },
+        { name: 'RFC 3339', format: 'rfc3339' },
+        { name: 'RFC 2822', format: 'rfc2822' },
+        { name: 'UTC String', format: 'utc' },
+        { name: 'Local String', format: 'local' },
+        { name: 'Date Only', format: '%Y-%m-%d' },
+        { name: 'Time Only', format: '%H:%M:%S' },
+        { name: 'US Format', format: '%m/%d/%Y @ %I:%M%p' }
+    ];
+
+    let customFormats = [];
+    let currentDate = null;
+
+    // Sanitize output for display (prevent XSS)
+    function sanitizeOutput(str) {
+        const div = document.createElement('div');
+        div.textContent = str;
+        return div.innerHTML;
+    }
+
+    // Create result row HTML
+    function createResultRow(name, value) {
+        const safeValue = sanitizeOutput(value);
+        return `
+            <tr>
+                <td class="fw-bold" style="width: 200px;">${sanitizeOutput(name)}</td>
+                <td class="font-monospace">${safeValue}</td>
+                <td style="width: 80px;">
+                    <button class="btn btn-sm btn-outline-secondary copy-btn" data-value="${safeValue.replace(/"/g, '&quot;')}">
+                        <i class="fas fa-copy"></i>
+                    </button>
+                </td>
+            </tr>
+        `;
+    }
+
+    // Create custom format row
+    function createCustomFormatRow(format, index) {
+        const safeFormat = sanitizeOutput(format);
+        const value = currentDate ? TimeConverter.format(currentDate, format) : '';
+        const safeValue = sanitizeOutput(value);
+        return `
+            <div class="input-group mb-2 custom-format-row" data-index="${index}">
+                <span class="input-group-text font-monospace" style="min-width: 150px;">${safeFormat}</span>
+                <input type="text" class="form-control font-monospace" value="${safeValue.replace(/"/g, '&quot;')}" readonly>
+                <button class="btn btn-outline-secondary copy-btn" data-value="${safeValue.replace(/"/g, '&quot;')}">
+                    <i class="fas fa-copy"></i>
+                </button>
+                <button class="btn btn-outline-danger remove-format-btn" data-index="${index}">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+        `;
+    }
+
+    // Update results display
+    function updateResults() {
+        const resultsBody = document.getElementById('resultsBody');
+        const resultsCard = document.getElementById('resultsCard');
+
+        if (!currentDate) {
+            resultsCard.style.display = 'none';
+            return;
+        }
+
+        let html = '';
+        for (const { name, format } of STANDARD_FORMATS) {
+            const value = TimeConverter.format(currentDate, format);
+            html += createResultRow(name, value);
+        }
+        resultsBody.innerHTML = html;
+        resultsCard.style.display = 'block';
+
+        updateCustomFormats();
+    }
+
+    // Update custom formats display
+    function updateCustomFormats() {
+        const container = document.getElementById('customFormats');
+        let html = '';
+        customFormats.forEach((format, index) => {
+            html += createCustomFormatRow(format, index);
+        });
+        container.innerHTML = html;
+    }
+
+    // Convert input
+    function convert() {
+        const input = document.getElementById('timeInput').value;
+        const errorDiv = document.getElementById('inputError');
+        
+        currentDate = TimeConverter.parse(input);
+        
+        if (!currentDate) {
+            errorDiv.classList.remove('d-none');
+            document.getElementById('resultsCard').style.display = 'none';
+            return;
+        }
+        
+        errorDiv.classList.add('d-none');
+        updateResults();
+        updateUrl();
+    }
+
+    // Add custom format
+    function addCustomFormat() {
+        const input = document.getElementById('newFormatInput');
+        const format = input.value.trim();
+        
+        if (!format) return;
+        if (!TimeConverter.validateFormatString(format)) {
+            alert(UI.invalidFormat);
+            return;
+        }
+        if (customFormats.includes(format)) return;
+        
+        customFormats.push(format);
+        input.value = '';
+        updateCustomFormats();
+        saveCustomFormats();
+        updateUrl();
+    }
+
+    // Remove custom format
+    function removeCustomFormat(index) {
+        customFormats.splice(index, 1);
+        updateCustomFormats();
+        saveCustomFormats();
+        updateUrl();
+    }
+
+    // Save/load custom formats to localStorage
+    function saveCustomFormats() {
+        try {
+            localStorage.setItem('timeConverter_customFormats', JSON.stringify(customFormats));
+        } catch (e) {}
+    }
+
+    function loadCustomFormats() {
+        try {
+            const saved = localStorage.getItem('timeConverter_customFormats');
+            if (saved) {
+                const parsed = JSON.parse(saved);
+                if (Array.isArray(parsed)) {
+                    customFormats = parsed.filter(f => TimeConverter.validateFormatString(f));
+                }
+            }
+        } catch (e) {}
+    }
+
+    // Copy to clipboard
+    function copyToClipboard(text, button) {
+        navigator.clipboard.writeText(text).then(() => {
+            const icon = button.querySelector('i');
+            const originalClass = icon.className;
+            icon.className = 'fas fa-check';
+            button.classList.add('btn-success');
+            button.classList.remove('btn-outline-secondary');
+            
+            setTimeout(() => {
+                icon.className = originalClass;
+                button.classList.remove('btn-success');
+                button.classList.add('btn-outline-secondary');
+            }, 1000);
+        });
+    }
+
+    // Update live timestamp
+    function updateLiveTimestamp() {
+        const now = Date.now();
+        document.getElementById('liveUnixSeconds').textContent = Math.floor(now / 1000);
+        document.getElementById('liveUnixMillis').textContent = now;
+    }
+
+    // Initialize
+    document.addEventListener('DOMContentLoaded', function() {
+        loadCustomFormats();
+        updateCustomFormats();
+        
+        // Live timestamp update
+        updateLiveTimestamp();
+        setInterval(updateLiveTimestamp, 100);
+
+        // Convert button
+        document.getElementById('convertBtn').addEventListener('click', convert);
+        
+        // Enter key in input
+        document.getElementById('timeInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') convert();
+        });
+
+        // Add format button
+        document.getElementById('addFormatBtn').addEventListener('click', addCustomFormat);
+        
+        // Enter key in format input
+        document.getElementById('newFormatInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') addCustomFormat();
+        });
+
+        // Copy buttons (delegated)
+        document.addEventListener('click', function(e) {
+            const copyBtn = e.target.closest('.copy-btn');
+            if (copyBtn) {
+                copyToClipboard(copyBtn.dataset.value, copyBtn);
+            }
+            
+            const removeBtn = e.target.closest('.remove-format-btn');
+            if (removeBtn) {
+                removeCustomFormat(parseInt(removeBtn.dataset.index, 10));
+            }
+        });
+
+        // Load from URL parameters
+        loadFromUrl();
+    });
+
+    // Update URL with current state
+    function updateUrl() {
+        const url = new URL(window.location.href);
+        url.search = '';
+        
+        const input = document.getElementById('timeInput').value.trim();
+        if (input) {
+            url.searchParams.set('t', input);
+        }
+        
+        if (customFormats.length > 0) {
+            url.searchParams.set('f', customFormats.join('|'));
+        }
+        
+        window.history.replaceState({}, '', url.toString());
+    }
+
+    // Load state from URL parameters
+    function loadFromUrl() {
+        const urlParams = new URLSearchParams(window.location.search);
+        
+        // Load custom formats from URL
+        const formats = urlParams.get('f');
+        if (formats) {
+            const urlFormats = formats.split('|').filter(f => TimeConverter.validateFormatString(f));
+            urlFormats.forEach(f => {
+                if (!customFormats.includes(f)) {
+                    customFormats.push(f);
+                }
+            });
+            updateCustomFormats();
+        }
+        
+        // Load input value from URL
+        const timeValue = urlParams.get('t');
+        if (timeValue) {
+            document.getElementById('timeInput').value = timeValue;
+            convert();
+        }
+    }
+})();
+</script>
+{% endblock %}
