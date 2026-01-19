@@ -14,10 +14,7 @@
                         <a href="{{ tool.url }}" class="text-decoration-none">
                             <div class="card h-100 border-0 bg-light">
                                 <div class="card-body p-2 text-center">
-                                    <img src="{{ url_for('static', filename='img/' ~ tool.img) }}" 
-                                         alt="{{ tool.name }}" 
-                                         class="mb-2" 
-                                         style="width: 32px; height: 32px;">
+                                    <i class="{{ tool.img }} mb-2" style="font-size: 1.5rem; color: #6c757d;"></i>
                                     <div class="small text-dark">{{ tool.name }}</div>
                                 </div>
                             </div>
