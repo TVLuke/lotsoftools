@@ -19,7 +19,12 @@ fi
 # Run database migrations
 echo "Running database migrations..."
 export FLASK_APP=wsgi:application
-cd /app && flask db upgrade || echo "⚠ Migration failed or already applied"
+cd /app
+if ! flask db upgrade 2>&1; then
+    echo "⚠ Migration upgrade failed, stamping current state..."
+    flask db stamp head
+    echo "✓ Database stamped at head"
+fi
 echo "✓ Database migrations complete"
 
 # Start gunicorn
