@@ -4,6 +4,7 @@
   "dice": {"active": true},
   "base64": {"active": true},
   "base_converter": {"active": true},
+  "bmi_calculator": {"active": true},
   "calendar": {"active": true},
   "clock": {"active": true},
   "color": {"active": true},

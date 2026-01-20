@@ -9,7 +9,7 @@
     "en": "Online stopwatch with lap times - measure time with precision",
     "de": "Online Stoppuhr mit Rundenzeiten - Zeit präzise messen"
   },
-  "tags": ["utility", "time"],
+  "tags": ["time"],
   "new_window": false,
   "frontend_only": true,
   "uses_external_service": false,

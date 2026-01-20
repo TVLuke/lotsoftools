@@ -20,17 +20,17 @@
                 <h3 class="h6 mb-2 mt-3">{{ tool_data.seo.content.use_cases.heading[current_lang] }}</h3>
                 <ul>
                     {% for item in tool_data.seo.content.use_cases['items'] %}
-                    <li>{{ item[current_lang] }}</li>
+                    <li>{{ item[current_lang]|safe }}</li>
                     {% endfor %}
                 </ul>
                 {% endif %}
                 
                 {% if tool_data.seo.content.privacy_note %}
-                <p class="text-muted small mt-3">{{ tool_data.seo.content.privacy_note[current_lang] }}</p>
+                <p class="text-muted small mt-3">{{ tool_data.seo.content.privacy_note[current_lang]|safe }}</p>
                 {% endif %}
                 
                 {% if tool_data.seo.content.disclaimer %}
-                <p class="text-muted small mt-2">{{ tool_data.seo.content.disclaimer[current_lang] }}</p>
+                <p class="text-muted small mt-2">{{ tool_data.seo.content.disclaimer[current_lang]|safe }}</p>
                 {% endif %}
             </div>
         </div>

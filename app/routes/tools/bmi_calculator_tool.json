@@ -1,0 +1,117 @@
+{
+  "route": "/tools/bmi-calculator",
+  "img": "fas fa-weight",
+  "name": {
+    "en": "BMI Calculator",
+    "de": "BMI-Rechner"
+  },
+  "description": {
+    "en": "Calculate your Body Mass Index and understand what it means",
+    "de": "Berechne deinen Body-Mass-Index und verstehe, was er bedeutet"
+  },
+  "tags": ["health"],
+  "new_window": false,
+  "frontend_only": true,
+  "uses_external_service": false,
+  "ui": {
+    "weight_label": { "en": "Weight", "de": "Gewicht" },
+    "height_label": { "en": "Height", "de": "Größe" },
+    "your_bmi": { "en": "Your BMI", "de": "Dein BMI" },
+    "adjust_slider": { "en": "Move the slider to see what weight would result in that BMI", "de": "Bewege den Regler, um zu sehen, welches Gewicht zu diesem BMI führen würde" },
+    "required_weight": { "en": "Required weight for this BMI", "de": "Benötigtes Gewicht für diesen BMI" },
+    "category_underweight": { "en": "Underweight", "de": "Untergewicht" },
+    "category_normal": { "en": "Normal weight", "de": "Normalgewicht" },
+    "category_overweight": { "en": "Overweight", "de": "Übergewicht" },
+    "category_obese1": { "en": "Obesity Class I", "de": "Adipositas Grad I" },
+    "category_obese2": { "en": "Obesity Class II", "de": "Adipositas Grad II" },
+    "category_obese3": { "en": "Obesity Class III", "de": "Adipositas Grad III" }
+  },
+  "seo": {
+    "title": {
+      "en": "BMI Calculator - Body Mass Index with Health Context",
+      "de": "BMI-Rechner - Body-Mass-Index mit Gesundheitskontext"
+    },
+    "meta_description": {
+      "en": "Calculate your BMI (Body Mass Index) and understand its limitations. Learn what BMI can and cannot tell you about your health.",
+      "de": "Berechne deinen BMI (Body-Mass-Index) und verstehe seine Grenzen. Erfahre, was der BMI über deine Gesundheit aussagen kann und was nicht."
+    },
+    "keywords": {
+      "en": "BMI calculator, body mass index, weight calculator, healthy weight, BMI chart, BMI categories",
+      "de": "BMI-Rechner, Body-Mass-Index, Gewichtsrechner, gesundes Gewicht, BMI-Tabelle, BMI-Kategorien"
+    },
+    "content": {
+      "heading": {
+        "en": "Understanding Body Mass Index (BMI)",
+        "de": "Den Body-Mass-Index (BMI) verstehen"
+      },
+      "intro": {
+        "en": "Body Mass Index (BMI) is a screening tool that estimates body fat by measuring the ratio of your height to your weight. It's calculated by dividing weight in kilograms by height in meters squared (kg/m²). While BMI can be a useful starting point, it has significant limitations and should never be used alone to assess health. Many factors affect your overall health beyond body weight: genetics, physical activity level, diet quality, sleep, stress, mental health, smoking, alcohol consumption, and family medical history. Healthcare providers use BMI as just one of many tools.",
+        "de": "Der Body-Mass-Index (BMI) ist ein Screening-Tool, das den Körperfettanteil schätzt, indem es das Verhältnis von Größe zu Gewicht misst. Er wird berechnet, indem das Gewicht in Kilogramm durch die Körpergröße in Metern zum Quadrat geteilt wird (kg/m²). Obwohl der BMI ein nützlicher Ausgangspunkt sein kann, hat er erhebliche Einschränkungen und sollte niemals allein zur Beurteilung der Gesundheit verwendet werden. Viele Faktoren beeinflussen die allgemeine Gesundheit über das Körpergewicht hinaus: Genetik, körperliche Aktivität, Ernährungsqualität, Schlaf, Stress, psychische Gesundheit, Rauchen, Alkoholkonsum und familiäre Krankengeschichte. Gesundheitsdienstleister verwenden den BMI als nur eines von vielen Werkzeugen."
+      },
+      "features": {
+        "heading": {
+          "en": "BMI Categories:",
+          "de": "BMI-Kategorien:"
+        },
+        "items": [
+          {
+            "en": "<strong>Underweight:</strong> BMI less than 18.5",
+            "de": "<strong>Untergewicht:</strong> BMI unter 18,5"
+          },
+          {
+            "en": "<strong>Normal weight:</strong> BMI 18.5 to 24.9",
+            "de": "<strong>Normalgewicht:</strong> BMI 18,5 bis 24,9"
+          },
+          {
+            "en": "<strong>Overweight:</strong> BMI 25 to 29.9",
+            "de": "<strong>Übergewicht:</strong> BMI 25 bis 29,9"
+          },
+          {
+            "en": "<strong>Obesity Class I:</strong> BMI 30 to 34.9",
+            "de": "<strong>Adipositas Grad I:</strong> BMI 30 bis 34,9"
+          },
+          {
+            "en": "<strong>Obesity Class II:</strong> BMI 35 to 39.9",
+            "de": "<strong>Adipositas Grad II:</strong> BMI 35 bis 39,9"
+          },
+          {
+            "en": "<strong>Obesity Class III:</strong> BMI 40 or higher",
+            "de": "<strong>Adipositas Grad III:</strong> BMI 40 oder höher"
+          }
+        ]
+      },
+      "use_cases": {
+        "heading": {
+          "en": "Important Limitations of BMI:",
+          "de": "Wichtige Einschränkungen des BMI:"
+        },
+        "items": [
+          {
+            "en": "<strong>Doesn't distinguish muscle from fat:</strong> A muscular person may have a high BMI but very low body fat, and vice versa",
+            "de": "<strong>Unterscheidet nicht zwischen Muskeln und Fett:</strong> Eine muskulöse Person kann einen hohen BMI, aber sehr wenig Körperfett haben, und umgekehrt"
+          },
+          {
+            "en": "<strong>Doesn't account for fat distribution:</strong> Abdominal fat carries higher health risks than fat stored elsewhere, but BMI doesn't measure this",
+            "de": "<strong>Berücksichtigt nicht die Fettverteilung:</strong> Bauchfett birgt höhere Gesundheitsrisiken als Fett in anderen Bereichen, aber der BMI misst dies nicht"
+          },
+          {
+            "en": "<strong>Same formula for everyone:</strong> Body composition differs by sex, age, and ethnicity, but BMI uses the same chart for all adults",
+            "de": "<strong>Gleiche Formel für alle:</strong> Die Körperzusammensetzung unterscheidet sich nach Geschlecht, Alter und ethnischer Herkunft, aber der BMI verwendet die gleiche Tabelle für alle Erwachsenen"
+          },
+          {
+            "en": "<strong>Not suitable for certain groups:</strong> Athletes, bodybuilders, pregnant women, people over 65, children/teenagers, or those with muscle-wasting conditions",
+            "de": "<strong>Nicht geeignet für bestimmte Gruppen:</strong> Sportler, Bodybuilder, Schwangere, Menschen über 65, Kinder/Jugendliche oder Personen mit Muskelschwund"
+          }
+        ]
+      },
+      "disclaimer": {
+        "en": "⚠️ <strong>Medical Disclaimer:</strong> This calculator is for informational purposes only and is not a medical diagnosis. BMI is a screening tool, not a diagnostic tool. It cannot determine your actual body fat percentage or your health status. Always consult with a qualified healthcare provider for personal health advice and before making any decisions about your weight or health.",
+        "de": "⚠️ <strong>Medizinischer Hinweis:</strong> Dieser Rechner dient nur zu Informationszwecken und ist keine medizinische Diagnose. Der BMI ist ein Screening-Tool, kein Diagnosewerkzeug. Er kann weder deinen tatsächlichen Körperfettanteil noch deinen Gesundheitszustand bestimmen. Konsultiere immer einen qualifizierten Gesundheitsdienstleister für persönliche Gesundheitsberatung und bevor du Entscheidungen über dein Gewicht oder deine Gesundheit triffst."
+      },
+      "privacy_note": {
+        "en": "🔒 Privacy-Friendly: All calculations happen in your browser. No personal health data is sent to any server.",
+        "de": "🔒 Datenschutzfreundlich: Alle Berechnungen erfolgen in deinem Browser. Es werden keine persönlichen Gesundheitsdaten an einen Server gesendet."
+      }
+    }
+  }
+}

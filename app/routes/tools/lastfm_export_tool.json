@@ -9,7 +9,7 @@
     "en": "Download your last.fm listening history as CSV",
     "de": "Lade deinen Last.fm Hörverlauf als CSV herunter"
   },
-  "tags": ["media", "utility"],
+  "tags": ["media"],
   "new_window": false,
   "frontend_only": false,
   "uses_external_service": true,

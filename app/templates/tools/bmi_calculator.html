@@ -1,0 +1,331 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ tool_data.seo.title[current_lang] }}{% endblock %}
+{% block meta_description %}{{ tool_data.seo.meta_description[current_lang] }}{% endblock %}
+{% block meta_keywords %}{{ tool_data.seo.keywords[current_lang] }}{% endblock %}
+{% block og_title %}{{ tool_data.seo.title[current_lang] }}{% endblock %}
+{% block og_description %}{{ tool_data.seo.meta_description[current_lang] }}{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-12">
+        <div class="d-flex justify-content-between align-items-center flex-wrap mb-4">
+            <h1 class="mb-0">
+                <i class="{{ tool_data.img }} me-2"></i>
+                {{ tool_data.name[current_lang] }}
+            </h1>
+            {% include 'components/share_button.html' %}
+        </div>
+    </div>
+</div>
+
+<div class="row justify-content-center">
+    <div class="col-12 col-lg-8">
+        <div class="alert alert-warning mb-4">
+            {{ tool_data.seo.content.disclaimer[current_lang]|safe }}
+        </div>
+        
+        <div class="card mb-4">
+            <div class="card-body">
+                <div class="row g-4">
+                    <div class="col-md-6">
+                        <label for="weight" class="form-label fw-bold">
+                            {{ tool_data.ui.weight_label[current_lang] }} (kg)
+                        </label>
+                        <input type="number" class="form-control form-control-lg" id="weight" 
+                               min="20" max="300" step="0.1" value="70" inputmode="decimal">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="height" class="form-label fw-bold">
+                            {{ tool_data.ui.height_label[current_lang] }} (cm)
+                        </label>
+                        <input type="number" class="form-control form-control-lg" id="height" 
+                               min="100" max="250" step="1" value="170" inputmode="decimal">
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="card mb-4">
+            <div class="card-body">
+                <h3 class="text-center mb-4">{{ tool_data.ui.your_bmi[current_lang] }}</h3>
+                
+                <div class="bmi-result text-center mb-4">
+                    <span class="bmi-value" id="bmiValue">24.2</span>
+                    <span class="bmi-category" id="bmiCategory"></span>
+                </div>
+                
+                <div class="bmi-scale-container mb-4">
+                    <div class="bmi-scale" id="bmiScale">
+                        <div class="bmi-zone zone-underweight"></div>
+                        <div class="bmi-zone zone-normal"></div>
+                        <div class="bmi-zone zone-overweight"></div>
+                        <div class="bmi-zone zone-obese1"></div>
+                        <div class="bmi-zone zone-obese2"></div>
+                        <div class="bmi-zone zone-obese3"></div>
+                        <div class="bmi-marker" id="bmiMarker"></div>
+                    </div>
+                    <div class="bmi-labels">
+                        <span>15</span>
+                        <span>18.5</span>
+                        <span>25</span>
+                        <span>30</span>
+                        <span>35</span>
+                        <span>40</span>
+                        <span>45</span>
+                    </div>
+                </div>
+                
+                <div class="mt-4">
+                    <label for="bmiSlider" class="form-label text-muted small">
+                        <i class="fas fa-sliders-h me-1"></i>
+                        {{ tool_data.ui.adjust_slider[current_lang] }}
+                    </label>
+                    <input type="range" class="form-range" id="bmiSlider" min="15" max="45" step="0.1" value="24.2">
+                    <div class="text-center mt-2" id="sliderWeightInfo" style="display: none;">
+                        <strong>{{ tool_data.ui.required_weight[current_lang] }}:</strong>
+                        <span id="sliderWeight" class="fs-5"></span> kg
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% include 'components/seo_content.html' %}
+{% include 'components/related_tools.html' %}
+{% endblock %}
+
+{% block extra_css %}
+<style>
+.bmi-result {
+    padding: 1.5rem;
+}
+
+.bmi-value {
+    font-size: 4rem;
+    font-weight: bold;
+    display: block;
+    line-height: 1;
+}
+
+.bmi-category {
+    font-size: 1.25rem;
+    display: block;
+    margin-top: 0.5rem;
+}
+
+.bmi-scale-container {
+    padding: 0 1rem;
+}
+
+.bmi-scale {
+    height: 30px;
+    border-radius: 15px;
+    display: flex;
+    overflow: hidden;
+    position: relative;
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.bmi-zone {
+    height: 100%;
+}
+
+.zone-underweight {
+    flex: 3.5;
+    background: linear-gradient(to right, #64b5f6, #90caf9);
+}
+
+.zone-normal {
+    flex: 6.4;
+    background: linear-gradient(to right, #81c784, #a5d6a7, #81c784);
+    box-shadow: 0 0 10px rgba(76, 175, 80, 0.5);
+}
+
+.zone-overweight {
+    flex: 5;
+    background: linear-gradient(to right, #fff176, #ffee58);
+}
+
+.zone-obese1 {
+    flex: 5;
+    background: linear-gradient(to right, #ffb74d, #ffa726);
+}
+
+.zone-obese2 {
+    flex: 5;
+    background: linear-gradient(to right, #ff8a65, #ff7043);
+}
+
+.zone-obese3 {
+    flex: 5;
+    background: linear-gradient(to right, #e57373, #ef5350);
+}
+
+.bmi-marker {
+    position: absolute;
+    top: -5px;
+    width: 4px;
+    height: 40px;
+    background: #333;
+    border-radius: 2px;
+    transform: translateX(-50%);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    transition: left 0.3s ease;
+}
+
+.bmi-marker::after {
+    content: '';
+    position: absolute;
+    top: -6px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-top: 8px solid #333;
+}
+
+.bmi-labels {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 0.5rem;
+    font-size: 0.75rem;
+    color: #666;
+    padding: 0 0.5rem;
+}
+
+.category-underweight { color: #1976d2; }
+.category-normal { color: #388e3c; }
+.category-overweight { color: #f9a825; }
+.category-obese1 { color: #ef6c00; }
+.category-obese2 { color: #e64a19; }
+.category-obese3 { color: #c62828; }
+
+@media (max-width: 576px) {
+    .bmi-value {
+        font-size: 3rem;
+    }
+    .bmi-labels {
+        font-size: 0.65rem;
+    }
+}
+</style>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+(function() {
+    const weightInput = document.getElementById('weight');
+    const heightInput = document.getElementById('height');
+    const bmiValue = document.getElementById('bmiValue');
+    const bmiCategory = document.getElementById('bmiCategory');
+    const bmiMarker = document.getElementById('bmiMarker');
+    const bmiSlider = document.getElementById('bmiSlider');
+    const sliderWeightInfo = document.getElementById('sliderWeightInfo');
+    const sliderWeight = document.getElementById('sliderWeight');
+    
+    const lang = '{{ current_lang }}';
+    
+    const categories = {
+        underweight: { en: '{{ tool_data.ui.category_underweight.en }}', de: '{{ tool_data.ui.category_underweight.de }}' },
+        normal: { en: '{{ tool_data.ui.category_normal.en }}', de: '{{ tool_data.ui.category_normal.de }}' },
+        overweight: { en: '{{ tool_data.ui.category_overweight.en }}', de: '{{ tool_data.ui.category_overweight.de }}' },
+        obese1: { en: '{{ tool_data.ui.category_obese1.en }}', de: '{{ tool_data.ui.category_obese1.de }}' },
+        obese2: { en: '{{ tool_data.ui.category_obese2.en }}', de: '{{ tool_data.ui.category_obese2.de }}' },
+        obese3: { en: '{{ tool_data.ui.category_obese3.en }}', de: '{{ tool_data.ui.category_obese3.de }}' }
+    };
+    
+    function calculateBMI(weight, heightCm) {
+        const heightM = heightCm / 100;
+        return weight / (heightM * heightM);
+    }
+    
+    function calculateWeight(bmi, heightCm) {
+        const heightM = heightCm / 100;
+        return bmi * (heightM * heightM);
+    }
+    
+    function getCategory(bmi) {
+        if (bmi < 18.5) return 'underweight';
+        if (bmi < 25) return 'normal';
+        if (bmi < 30) return 'overweight';
+        if (bmi < 35) return 'obese1';
+        if (bmi < 40) return 'obese2';
+        return 'obese3';
+    }
+    
+    function bmiToPercent(bmi) {
+        const minBmi = 15;
+        const maxBmi = 45;
+        return Math.max(0, Math.min(100, ((bmi - minBmi) / (maxBmi - minBmi)) * 100));
+    }
+    
+    function updateDisplay() {
+        const weight = parseFloat(weightInput.value) || 70;
+        const height = parseFloat(heightInput.value) || 170;
+        
+        const bmi = calculateBMI(weight, height);
+        const category = getCategory(bmi);
+        
+        bmiValue.textContent = bmi.toFixed(1);
+        bmiCategory.textContent = categories[category][lang];
+        bmiCategory.className = 'bmi-category category-' + category;
+        
+        const percent = bmiToPercent(bmi);
+        bmiMarker.style.left = percent + '%';
+        
+        bmiSlider.value = Math.max(15, Math.min(45, bmi));
+        
+        sliderWeightInfo.style.display = 'none';
+    }
+    
+    function updateFromSlider() {
+        const height = parseFloat(heightInput.value) || 170;
+        const targetBmi = parseFloat(bmiSlider.value);
+        const requiredWeight = calculateWeight(targetBmi, height);
+        const currentWeight = parseFloat(weightInput.value) || 70;
+        
+        const category = getCategory(targetBmi);
+        
+        bmiValue.textContent = targetBmi.toFixed(1);
+        bmiCategory.textContent = categories[category][lang];
+        bmiCategory.className = 'bmi-category category-' + category;
+        
+        const percent = bmiToPercent(targetBmi);
+        bmiMarker.style.left = percent + '%';
+        
+        if (Math.abs(requiredWeight - currentWeight) > 0.5) {
+            sliderWeightInfo.style.display = 'block';
+            sliderWeight.textContent = requiredWeight.toFixed(1);
+        } else {
+            sliderWeightInfo.style.display = 'none';
+        }
+    }
+    
+    weightInput.addEventListener('input', updateDisplay);
+    heightInput.addEventListener('input', updateDisplay);
+    bmiSlider.addEventListener('input', updateFromSlider);
+    
+    bmiSlider.addEventListener('mouseup', function() {
+        const height = parseFloat(heightInput.value) || 170;
+        const targetBmi = parseFloat(bmiSlider.value);
+        const requiredWeight = calculateWeight(targetBmi, height);
+        weightInput.value = requiredWeight.toFixed(1);
+        updateDisplay();
+    });
+    
+    bmiSlider.addEventListener('touchend', function() {
+        const height = parseFloat(heightInput.value) || 170;
+        const targetBmi = parseFloat(bmiSlider.value);
+        const requiredWeight = calculateWeight(targetBmi, height);
+        weightInput.value = requiredWeight.toFixed(1);
+        updateDisplay();
+    });
+    
+    updateDisplay();
+})();
+</script>
+{% endblock %}
