@@ -162,6 +162,28 @@ const resultsContainer = document.getElementById('resultsContainer');
 
 let autoRefreshInterval = null;
 
+// LocalStorage helpers for content hash change detection
+const HASH_STORAGE_KEY = 'url_checker_hashes';
+
+function getStoredHash(url) {
+    try {
+        const stored = JSON.parse(localStorage.getItem(HASH_STORAGE_KEY) || '{}');
+        return stored[url] || null;
+    } catch (e) {
+        return null;
+    }
+}
+
+function storeHash(url, hash) {
+    try {
+        const stored = JSON.parse(localStorage.getItem(HASH_STORAGE_KEY) || '{}');
+        stored[url] = hash;
+        localStorage.setItem(HASH_STORAGE_KEY, JSON.stringify(stored));
+    } catch (e) {
+        // localStorage might be full or disabled
+    }
+}
+
 const t = {
     en: {
         checking: 'Checking...',
@@ -189,7 +211,7 @@ const t = {
         contentChanged: 'Content Changed',
         contentUnchanged: 'Content Unchanged',
         firstCheck: 'First Check',
-        previousChecks: 'previous checks in last hour'
+        previousHash: 'Previous hash'
     },
     de: {
         checking: 'Prüfe...',
@@ -217,7 +239,7 @@ const t = {
         contentChanged: 'Inhalt geändert',
         contentUnchanged: 'Inhalt unverändert',
         firstCheck: 'Erste Prüfung',
-        previousChecks: 'vorherige Prüfungen in der letzten Stunde'
+        previousHash: 'Vorheriger Hash'
     }
 }[lang] || {
     checking: 'Checking...',
@@ -232,7 +254,7 @@ const t = {
     contentChanged: 'Content Changed',
     contentUnchanged: 'Content Unchanged',
     firstCheck: 'First Check',
-    previousChecks: 'previous checks in last hour',
+    previousHash: 'Previous hash',
     headers: 'Response Headers',
     noHeaders: 'No headers collected',
     ssl: 'SSL Certificate',
@@ -380,16 +402,22 @@ function renderResults(data) {
         `;
     }
     
-    // Content Change Detection
+    // Content Change Detection (using localStorage)
     if (data.content_hash) {
+        const checkUrl = data.final_url || url;
+        const previousHash = getStoredHash(checkUrl);
         let changeHtml = '';
-        if (data.content_changed === null) {
+        
+        if (previousHash === null) {
             changeHtml = `<span class="badge bg-secondary">${t.firstCheck}</span>`;
-        } else if (data.content_changed) {
+        } else if (previousHash !== data.content_hash) {
             changeHtml = `<span class="badge bg-warning text-dark"><i class="fas fa-exclamation-triangle me-1"></i>${t.contentChanged}</span>`;
         } else {
             changeHtml = `<span class="badge bg-success"><i class="fas fa-check me-1"></i>${t.contentUnchanged}</span>`;
         }
+        
+        // Store the new hash for future comparisons
+        storeHash(checkUrl, data.content_hash);
         
         html += `
             <div class="mb-3 d-flex align-items-center flex-wrap gap-3">
@@ -398,7 +426,7 @@ function renderResults(data) {
                     <code class="ms-2">${escapeHtml(data.content_hash)}</code>
                 </div>
                 ${changeHtml}
-                ${data.previous_checks > 0 ? `<small class="text-muted">(${data.previous_checks} ${t.previousChecks})</small>` : ''}
+                ${previousHash && previousHash !== data.content_hash ? `<small class="text-muted">(${t.previousHash}: ${escapeHtml(previousHash)})</small>` : ''}
             </div>
         `;
     }

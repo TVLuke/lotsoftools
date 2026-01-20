@@ -6,9 +6,8 @@ import ssl
 import socket
 import time
 import hashlib
-import threading
 import re
-from datetime import datetime, timedelta
+from datetime import datetime
 from urllib.parse import urlparse
 from html.parser import HTMLParser
 from app.services.link_service import increment_click_count
@@ -83,47 +82,48 @@ REQUEST_TIMEOUT = 15
 # User agent to use for requests
 USER_AGENT = 'Mozilla/5.0 (compatible; LotsOfTools URL Checker/1.0)'
 
-# In-memory storage for content hashes (URL -> list of {hash, timestamp})
-# Only keeps hashes from the last hour
-_content_hashes = {}
-_hash_lock = threading.Lock()
-HASH_RETENTION_HOURS = 1
+# Cache for URL check results (prevents DOS by rapid repeated requests)
+# Format: {cache_key: {'result': ..., 'timestamp': ...}}
+_result_cache = {}
+CACHE_TTL_SECONDS = 5
 
 
-def _cleanup_old_hashes():
-    """Remove hashes older than HASH_RETENTION_HOURS."""
-    cutoff = datetime.now() - timedelta(hours=HASH_RETENTION_HOURS)
-    with _hash_lock:
-        urls_to_remove = []
-        for url, entries in _content_hashes.items():
-            # Filter out old entries
-            _content_hashes[url] = [e for e in entries if e['timestamp'] > cutoff]
-            # Mark empty URLs for removal
-            if not _content_hashes[url]:
-                urls_to_remove.append(url)
-        for url in urls_to_remove:
-            del _content_hashes[url]
+def _get_cache_key(url, follow_redirects):
+    """Generate a cache key from URL and options."""
+    return f"{url}:{follow_redirects}"
 
 
-def _store_hash(url, content_hash):
-    """Store a content hash for a URL."""
-    _cleanup_old_hashes()
-    with _hash_lock:
-        if url not in _content_hashes:
-            _content_hashes[url] = []
-        _content_hashes[url].append({
-            'hash': content_hash,
-            'timestamp': datetime.now()
-        })
+def _get_cached_result(url, follow_redirects):
+    """Get cached result if still valid, otherwise return None."""
+    cache_key = _get_cache_key(url, follow_redirects)
+    if cache_key in _result_cache:
+        entry = _result_cache[cache_key]
+        if time.time() - entry['timestamp'] < CACHE_TTL_SECONDS:
+            return entry['result']
+        else:
+            # Expired, remove it
+            del _result_cache[cache_key]
+    return None
 
 
-def _get_previous_hashes(url):
-    """Get previous hashes for a URL (excluding the most recent one just added)."""
-    _cleanup_old_hashes()
-    with _hash_lock:
-        entries = _content_hashes.get(url, [])
-        # Return all but potentially the last one (which might be current)
-        return entries[:-1] if len(entries) > 1 else []
+def _cache_result(url, follow_redirects, result):
+    """Cache a result for the URL."""
+    cache_key = _get_cache_key(url, follow_redirects)
+    _result_cache[cache_key] = {
+        'result': result,
+        'timestamp': time.time()
+    }
+    # Clean up old entries occasionally (when cache gets large)
+    if len(_result_cache) > 1000:
+        _cleanup_cache()
+
+
+def _cleanup_cache():
+    """Remove expired cache entries."""
+    now = time.time()
+    expired = [k for k, v in _result_cache.items() if now - v['timestamp'] >= CACHE_TTL_SECONDS]
+    for k in expired:
+        del _result_cache[k]
 
 
 def _compute_content_hash(content):
@@ -250,6 +250,11 @@ def check_url():
     if not is_valid:
         return jsonify({'error': error_msg}), 400
     
+    # Check cache first (prevents DOS by rapid repeated requests)
+    cached = _get_cached_result(url, follow_redirects)
+    if cached:
+        return jsonify(cached)
+    
     parsed = urlparse(url)
     hostname = parsed.netloc
     if ':' in hostname:
@@ -340,25 +345,9 @@ def check_url():
         else:
             result['meta_tags'] = {}
         
-        # Compute content hash and detect changes
+        # Compute content hash (change detection handled in frontend via localStorage)
         content_hash = _compute_content_hash(response.content)
         result['content_hash'] = content_hash[:16]  # Short hash for display
-        
-        # Get previous hashes before storing new one
-        check_url_key = result['final_url'] or url
-        previous = _get_previous_hashes(check_url_key)
-        result['previous_checks'] = len(previous)
-        
-        if previous:
-            # Check if content changed from any previous hash
-            previous_hashes = [e['hash'] for e in previous]
-            if content_hash in previous_hashes:
-                result['content_changed'] = False
-            else:
-                result['content_changed'] = True
-        
-        # Store the new hash
-        _store_hash(check_url_key, content_hash)
         
     except requests.exceptions.SSLError as e:
         result['error'] = {
@@ -385,5 +374,8 @@ def check_url():
             'type': 'Error',
             'message': str(e)
         }
+    
+    # Cache the result before returning
+    _cache_result(url, follow_redirects, result)
     
     return jsonify(result)

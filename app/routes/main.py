@@ -2,8 +2,12 @@ from flask import Blueprint, render_template, request, make_response, jsonify, s
 from app import db
 import csv
 import io
+import uuid
 from datetime import datetime
 from app.services import link_service
+
+# Random ID generated once per instance startup
+INSTANCE_ID = uuid.uuid4().hex[:8]
 
 main_bp = Blueprint('main', __name__)
 
@@ -99,9 +103,13 @@ def stats():
     bot_user_agents = link_service.get_bot_user_agents()
     human_user_agents = link_service.get_human_user_agents()
     server_start_time = link_service.get_server_start_time()
-    return render_template('stats.html', links=links, user_agents=user_agents, 
+    response = make_response(render_template('stats.html', links=links, user_agents=user_agents, 
                           bot_user_agents=bot_user_agents, human_user_agents=human_user_agents,
-                          server_start_time=server_start_time)
+                          server_start_time=server_start_time, instance_id=INSTANCE_ID))
+    response.headers['Cache-Control'] = 'no-cache, no-store, must-revalidate'
+    response.headers['Pragma'] = 'no-cache'
+    response.headers['Expires'] = '0'
+    return response
 
 @main_bp.route('/stats.csv')
 def stats_csv():
