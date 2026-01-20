@@ -309,20 +309,15 @@
     heightInput.addEventListener('input', updateDisplay);
     bmiSlider.addEventListener('input', updateFromSlider);
     
-    bmiSlider.addEventListener('mouseup', function() {
+    bmiSlider.addEventListener('change', function() {
         const height = parseFloat(heightInput.value) || 170;
         const targetBmi = parseFloat(bmiSlider.value);
         const requiredWeight = calculateWeight(targetBmi, height);
         weightInput.value = requiredWeight.toFixed(1);
-        updateDisplay();
-    });
-    
-    bmiSlider.addEventListener('touchend', function() {
-        const height = parseFloat(heightInput.value) || 170;
-        const targetBmi = parseFloat(bmiSlider.value);
-        const requiredWeight = calculateWeight(targetBmi, height);
-        weightInput.value = requiredWeight.toFixed(1);
-        updateDisplay();
+        // Keep weight info visible for 2 seconds after releasing slider
+        setTimeout(function() {
+            updateDisplay();
+        }, 2000);
     });
     
     updateDisplay();
