@@ -70,6 +70,16 @@
                     </div>
                 </div>
                 {% endif %}
+                
+                <div class="dropdown">
+                    <button class="btn btn-outline-secondary btn-sm dropdown-toggle" type="button" id="langDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="fas fa-globe me-1"></i>{{ 'DE' if current_lang == 'de' else 'EN' }}
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="langDropdown">
+                        <li><a class="dropdown-item {% if current_lang == 'en' %}active{% endif %}" href="#" onclick="setLanguage('en'); return false;">English</a></li>
+                        <li><a class="dropdown-item {% if current_lang == 'de' %}active{% endif %}" href="#" onclick="setLanguage('de'); return false;">Deutsch</a></li>
+                    </ul>
+                </div>
             </div>
         </div>
     </nav>
@@ -114,6 +124,25 @@
     <script src="{{ url_for('static', filename='js/color-picker.js') }}"></script>
     <script src="{{ url_for('static', filename='js/layout-switcher.js') }}"></script>
     <script src="{{ url_for('static', filename='js/search.js') }}"></script>
+    
+    <script>
+    function setLanguage(lang) {
+        fetch('/api/language/' + lang, { method: 'POST' })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    // Update URL lang param if present (for tools like holiday calendar)
+                    const url = new URL(window.location.href);
+                    if (url.searchParams.has('lang')) {
+                        url.searchParams.set('lang', lang.toUpperCase());
+                        window.location.href = url.toString();
+                    } else {
+                        location.reload();
+                    }
+                }
+            });
+    }
+    </script>
 
     {% block extra_js %}{% endblock %}
 </body>

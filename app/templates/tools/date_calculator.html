@@ -6,10 +6,7 @@
 
 {% block content %}
 <div class="container mt-4">
-    <div class="d-flex justify-content-between align-items-center flex-wrap mb-4">
-        <h1 class="mb-0">{% if current_lang == 'de' %}{{ tool_data.name.de }}{% else %}{{ tool_data.name.en }}{% endif %}</h1>
-        {% include 'components/share_button.html' %}
-    </div>
+    {% include 'components/tool_header.html' %}
     <p class="text-muted mb-4">{% if current_lang == 'de' %}{{ tool_data.description.de }}{% else %}{{ tool_data.description.en }}{% endif %}</p>
     
     <div class="row mb-4">

@@ -13,7 +13,20 @@
 {% block content %}
 <div class="container mt-4">
     <div class="d-flex justify-content-between align-items-center flex-wrap mb-4">
-    <h1 class="mb-0" id="seoHeading">
+    <h1 class="mb-0 d-flex align-items-center" id="seoHeading">
+        <span class="position-relative me-2">
+            <i class="{{ tool_data.img }}"></i>
+            {% if tool_data.frontend_only is defined %}
+            <span class="position-absolute top-0 start-100 translate-middle p-1 rounded-circle {% if tool_data.uses_external_service %}text-white{% elif tool_data.frontend_only %}bg-success{% else %}bg-warning{% endif %}"
+                  {% if tool_data.uses_external_service %}style="background-color: #fd7e14;"{% endif %}
+                  data-bs-toggle="tooltip"
+                  data-bs-placement="right"
+                  title="{% if tool_data.uses_external_service %}{% if current_lang == 'de' %}Externer Dienst: Sendet Daten an externe API{% else %}External service: Sends data to external API{% endif %}{% elif tool_data.frontend_only %}{% if current_lang == 'de' %}Datenschutzfreundlich: Läuft vollständig in Ihrem Browser{% else %}Privacy-friendly: Runs entirely in your browser{% endif %}{% else %}{% if current_lang == 'de' %}Server-seitig: Verarbeitung auf dem Server{% else %}Server-side: Processing on the server{% endif %}{% endif %}">
+                <span class="visually-hidden">Privacy</span>
+            </span>
+            {% endif %}
+        </span>
+        <span>
         {% if seo_region %}
             {% if seo_year %}{% if current_lang == 'de' %}Schulferien & Feiertage {{ seo_region }} {{ seo_year }}{% else %}School Holidays & Bank Holidays {{ seo_region_en }} {{ seo_year }}{% endif %}{% else %}{% if current_lang == 'de' %}Schulferien & Feiertage {{ seo_region }}{% else %}School Holidays & Bank Holidays {{ seo_region_en }}{% endif %}{% endif %}
         {% elif seo_country %}
@@ -21,6 +34,7 @@
         {% else %}
             {% if current_lang == 'de' %}Schulferien & Feiertage{% else %}School Holidays & Bank Holidays{% endif %}
         {% endif %}
+        </span>
     </h1>
     {% include 'components/share_button.html' %}
     </div>
@@ -703,6 +717,11 @@ document.addEventListener('DOMContentLoaded', function() {
         if (getSelectedView() === 'calendar') loadAllHolidays();
         updatePageTitle();
         updateUrl();
+        // Sync with global UI language for DE/EN
+        const selectedLang = getSelectedLang().toLowerCase();
+        if (selectedLang === 'de' || selectedLang === 'en') {
+            fetch('/api/language/' + selectedLang, { method: 'POST' });
+        }
     }));
     yearSelect.addEventListener('change', () => {
         loadHolidays();
