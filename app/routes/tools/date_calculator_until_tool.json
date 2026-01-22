@@ -18,9 +18,13 @@
             "en": "Time Until Calculator - Countdown to any date",
             "de": "Zeit bis Rechner - Countdown zu jedem Datum"
         },
-        "description": {
+        "meta_description": {
             "en": "Calculate how much time remains until any date. See the countdown in years, months, days, hours, minutes and seconds - live updating.",
             "de": "Berechne wie viel Zeit bis zu einem Datum verbleibt. Countdown in Jahren, Monaten, Tagen, Stunden, Minuten und Sekunden - live aktualisiert."
+        },
+        "keywords": {
+            "en": "time until, countdown, date calculator, days until, how long until, remaining time",
+            "de": "Zeit bis, Countdown, Datumsrechner, Tage bis, wie lange noch, verbleibende Zeit"
         },
         "content": {
             "heading": {
@@ -28,23 +32,37 @@
                 "de": "Über dieses Tool"
             },
             "intro": {
-                "en": "This tool calculates the exact time remaining until any future date you specify.",
-                "de": "Dieses Tool berechnet die genaue verbleibende Zeit bis zu einem beliebigen Datum."
+                "en": "This tool calculates the exact time remaining until any future date you specify. Perfect for countdowns to events, holidays, or deadlines.",
+                "de": "Dieses Tool berechnet die genaue verbleibende Zeit bis zu einem beliebigen Datum. Perfekt für Countdowns zu Ereignissen, Feiertagen oder Fristen."
             },
-            "features": [
-                {
-                    "title": { "en": "Multiple Formats", "de": "Mehrere Formate" },
-                    "description": { "en": "View remaining time in years, days, hours, minutes or seconds.", "de": "Zeige verbleibende Zeit in Jahren, Tagen, Stunden, Minuten oder Sekunden an." }
+            "features": {
+                "heading": {
+                    "en": "Features:",
+                    "de": "Funktionen:"
                 },
-                {
-                    "title": { "en": "Live Countdown", "de": "Live-Countdown" },
-                    "description": { "en": "Watch the countdown tick in real-time.", "de": "Beobachte den Countdown in Echtzeit." }
-                },
-                {
-                    "title": { "en": "Quick Examples", "de": "Schnelle Beispiele" },
-                    "description": { "en": "Countdown to Christmas, New Year's Eve, and more.", "de": "Countdown zu Weihnachten, Silvester und mehr." }
-                }
-            ]
+                "items": [
+                    {
+                        "en": "<strong>Multiple Formats:</strong> View remaining time in years, months, days, weeks, hours, minutes or seconds",
+                        "de": "<strong>Mehrere Formate:</strong> Zeige verbleibende Zeit in Jahren, Monaten, Tagen, Wochen, Stunden, Minuten oder Sekunden an"
+                    },
+                    {
+                        "en": "<strong>Live Countdown:</strong> Watch the countdown tick in real-time",
+                        "de": "<strong>Live-Countdown:</strong> Beobachte den Countdown in Echtzeit"
+                    },
+                    {
+                        "en": "<strong>Date Range Display:</strong> Shows the period with weekdays for easy reference",
+                        "de": "<strong>Zeitraumanzeige:</strong> Zeigt den Zeitraum mit Wochentagen zur einfachen Referenz"
+                    },
+                    {
+                        "en": "<strong>Quick Examples:</strong> Countdown to Christmas, New Year's Eve, and more",
+                        "de": "<strong>Schnelle Beispiele:</strong> Countdown zu Weihnachten, Silvester und mehr"
+                    }
+                ]
+            },
+            "privacy_note": {
+                "en": "🔒 Privacy-Friendly: This calculator runs entirely in your browser. No data is sent to any server.",
+                "de": "🔒 Datenschutzfreundlich: Dieser Rechner läuft vollständig in Ihrem Browser. Es werden keine Daten an einen Server gesendet."
+            }
         }
     }
 }

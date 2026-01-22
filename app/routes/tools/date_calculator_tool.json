@@ -18,9 +18,13 @@
             "en": "Time Since Calculator - How long ago was a date?",
             "de": "Zeit seit Rechner - Wie lange ist ein Datum her?"
         },
-        "description": {
+        "meta_description": {
             "en": "Calculate how much time has passed since any date. See the result in years, months, days, hours, minutes and seconds - live updating.",
             "de": "Berechne wie viel Zeit seit einem Datum vergangen ist. Ergebnis in Jahren, Monaten, Tagen, Stunden, Minuten und Sekunden - live aktualisiert."
+        },
+        "keywords": {
+            "en": "time since, date calculator, elapsed time, how long ago, time passed, days since",
+            "de": "Zeit seit, Datumsrechner, vergangene Zeit, wie lange her, Zeit vergangen, Tage seit"
         },
         "content": {
             "heading": {
@@ -28,23 +32,37 @@
                 "de": "Über dieses Tool"
             },
             "intro": {
-                "en": "This tool calculates the exact time elapsed since any date you specify.",
-                "de": "Dieses Tool berechnet die genaue vergangene Zeit seit einem beliebigen Datum."
+                "en": "This tool calculates the exact time elapsed since any date you specify. Perfect for tracking how long ago events occurred.",
+                "de": "Dieses Tool berechnet die genaue vergangene Zeit seit einem beliebigen Datum. Perfekt um zu verfolgen, wie lange Ereignisse zurückliegen."
             },
-            "features": [
-                {
-                    "title": { "en": "Multiple Formats", "de": "Mehrere Formate" },
-                    "description": { "en": "View elapsed time in years, days, hours, minutes or seconds.", "de": "Zeige vergangene Zeit in Jahren, Tagen, Stunden, Minuten oder Sekunden an." }
+            "features": {
+                "heading": {
+                    "en": "Features:",
+                    "de": "Funktionen:"
                 },
-                {
-                    "title": { "en": "Live Updates", "de": "Live-Aktualisierung" },
-                    "description": { "en": "Watch the seconds tick by in real-time.", "de": "Beobachte die Sekunden in Echtzeit." }
-                },
-                {
-                    "title": { "en": "Historical Events", "de": "Historische Ereignisse" },
-                    "description": { "en": "Quick examples include Moon Landing, Fall of Rome, and more.", "de": "Schnelle Beispiele wie Mondlandung, Fall Roms und mehr." }
-                }
-            ]
+                "items": [
+                    {
+                        "en": "<strong>Multiple Formats:</strong> View elapsed time in years, months, days, weeks, hours, minutes or seconds",
+                        "de": "<strong>Mehrere Formate:</strong> Zeige vergangene Zeit in Jahren, Monaten, Tagen, Wochen, Stunden, Minuten oder Sekunden an"
+                    },
+                    {
+                        "en": "<strong>Live Updates:</strong> Watch the seconds tick by in real-time",
+                        "de": "<strong>Live-Aktualisierung:</strong> Beobachte die Sekunden in Echtzeit"
+                    },
+                    {
+                        "en": "<strong>Date Range Display:</strong> Shows the period with weekdays for easy reference",
+                        "de": "<strong>Zeitraumanzeige:</strong> Zeigt den Zeitraum mit Wochentagen zur einfachen Referenz"
+                    },
+                    {
+                        "en": "<strong>Historical Events:</strong> Quick examples include Moon Landing, Fall of Berlin Wall, and more",
+                        "de": "<strong>Historische Ereignisse:</strong> Schnelle Beispiele wie Mondlandung, Mauerfall und mehr"
+                    }
+                ]
+            },
+            "privacy_note": {
+                "en": "🔒 Privacy-Friendly: This calculator runs entirely in your browser. No data is sent to any server.",
+                "de": "🔒 Datenschutzfreundlich: Dieser Rechner läuft vollständig in Ihrem Browser. Es werden keine Daten an einen Server gesendet."
+            }
         }
     }
 }

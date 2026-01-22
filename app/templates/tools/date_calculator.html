@@ -12,18 +12,21 @@
     <div class="row mb-4">
         <div class="col-md-6">
             <div class="card">
+                <div class="card-header">
+                    <h6 class="mb-0">{% if current_lang == 'de' %}Startdatum{% else %}Start Date{% endif %}</h6>
+                </div>
                 <div class="card-body">
                     <div class="mb-3">
-                        <label for="dateInput" class="form-label">{% if current_lang == 'de' %}Datum{% else %}Date{% endif %}</label>
-                        <input type="date" class="form-control" id="dateInput">
+                        <label for="startDateInput" class="form-label">{% if current_lang == 'de' %}Datum{% else %}Date{% endif %}</label>
+                        <input type="date" class="form-control" id="startDateInput">
                     </div>
                     <div class="mb-3">
-                        <label for="timeInput" class="form-label">{% if current_lang == 'de' %}Uhrzeit (optional){% else %}Time (optional){% endif %}</label>
-                        <input type="time" class="form-control" id="timeInput" step="1">
+                        <label for="startTimeInput" class="form-label">{% if current_lang == 'de' %}Uhrzeit (optional){% else %}Time (optional){% endif %}</label>
+                        <input type="time" class="form-control" id="startTimeInput" step="1">
                     </div>
-                    <div class="form-check mb-3">
-                        <input class="form-check-input" type="checkbox" id="includeTime">
-                        <label class="form-check-label" for="includeTime">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="includeStartTime">
+                        <label class="form-check-label" for="includeStartTime">
                             {% if current_lang == 'de' %}Uhrzeit einbeziehen{% else %}Include time{% endif %}
                         </label>
                     </div>
@@ -33,30 +36,53 @@
         <div class="col-md-6">
             <div class="card">
                 <div class="card-header">
+                    <h6 class="mb-0">{% if current_lang == 'de' %}Enddatum{% else %}End Date{% endif %}</h6>
+                </div>
+                <div class="card-body">
+                    <div class="mb-3">
+                        <label for="endDateInput" class="form-label">{% if current_lang == 'de' %}Datum{% else %}Date{% endif %}</label>
+                        <input type="date" class="form-control" id="endDateInput">
+                    </div>
+                    <div class="mb-3">
+                        <label for="endTimeInput" class="form-label">{% if current_lang == 'de' %}Uhrzeit (optional){% else %}Time (optional){% endif %}</label>
+                        <input type="time" class="form-control" id="endTimeInput" step="1">
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="includeEndTime">
+                        <label class="form-check-label" for="includeEndTime">
+                            {% if current_lang == 'de' %}Uhrzeit einbeziehen{% else %}Include time{% endif %}
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="row mb-4">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
                     <h6 class="mb-0">{% if current_lang == 'de' %}Beispiele{% else %}Examples{% endif %}</h6>
                 </div>
                 <div class="card-body">
                     <div class="d-flex flex-wrap gap-2">
-                        <button class="btn btn-outline-secondary btn-sm example-btn" data-date="last-christmas" data-time="false">
-                            {% if current_lang == 'de' %}Letztes Weihnachten{% else %}Last Christmas{% endif %}
+                        <button class="btn btn-outline-secondary btn-sm example-btn" data-start="last-christmas" data-end="today">
+                            {% if current_lang == 'de' %}Seit letztem Weihnachten{% else %}Since last Christmas{% endif %}
                         </button>
-                        <button class="btn btn-outline-secondary btn-sm example-btn" data-date="next-christmas" data-time="false">
-                            {% if current_lang == 'de' %}Nächstes Weihnachten{% else %}Next Christmas{% endif %}
+                        <button class="btn btn-outline-secondary btn-sm example-btn" data-start="today" data-end="next-christmas">
+                            {% if current_lang == 'de' %}Bis Weihnachten{% else %}Until Christmas{% endif %}
                         </button>
-                        <button class="btn btn-outline-secondary btn-sm example-btn" data-date="new-years" data-time="true">
-                            {% if current_lang == 'de' %}Silvester Mitternacht{% else %}New Year's Midnight{% endif %}
+                        <button class="btn btn-outline-secondary btn-sm example-btn" data-start="today" data-end="new-years">
+                            {% if current_lang == 'de' %}Bis Silvester{% else %}Until New Year's{% endif %}
                         </button>
-                        <button class="btn btn-outline-secondary btn-sm example-btn" data-date="fall-of-rome" data-time="false">
-                            {% if current_lang == 'de' %}Fall Roms (476){% else %}Fall of Rome (476){% endif %}
+                        <button class="btn btn-outline-secondary btn-sm example-btn" data-start="moon-landing" data-end="today">
+                            {% if current_lang == 'de' %}Seit Mondlandung{% else %}Since Moon Landing{% endif %}
                         </button>
-                        <button class="btn btn-outline-secondary btn-sm example-btn" data-date="moon-landing" data-time="true">
-                            {% if current_lang == 'de' %}Mondlandung (1969){% else %}Moon Landing (1969){% endif %}
+                        <button class="btn btn-outline-secondary btn-sm example-btn" data-start="berlin-wall" data-end="today">
+                            {% if current_lang == 'de' %}Seit Mauerfall{% else %}Since Berlin Wall{% endif %}
                         </button>
-                        <button class="btn btn-outline-secondary btn-sm example-btn" data-date="berlin-wall" data-time="false">
-                            {% if current_lang == 'de' %}Mauerfall (1989){% else %}Fall of Berlin Wall (1989){% endif %}
-                        </button>
-                        <button class="btn btn-outline-secondary btn-sm example-btn" data-date="millennium" data-time="true">
-                            {% if current_lang == 'de' %}Jahrtausendwende{% else %}Millennium{% endif %}
+                        <button class="btn btn-outline-secondary btn-sm example-btn" data-start="millennium" data-end="today">
+                            {% if current_lang == 'de' %}Seit Jahrtausendwende{% else %}Since Millennium{% endif %}
                         </button>
                     </div>
                 </div>
@@ -71,6 +97,8 @@
                     <h5 class="mb-0" id="resultTitle">
                         {% if mode == 'until' %}
                             {% if current_lang == 'de' %}Zeit bis{% else %}Time until{% endif %}
+                        {% elif mode == 'between' %}
+                            {% if current_lang == 'de' %}Zeit zwischen{% else %}Time between{% endif %}
                         {% else %}
                             {% if current_lang == 'de' %}Zeit seit{% else %}Time since{% endif %}
                         {% endif %}
@@ -83,10 +111,29 @@
                     <div id="resultContainer" style="display: none;">
                         <table class="table table-borderless mb-0">
                             <tbody>
+                                <tr class="table-secondary">
+                                    <td class="text-muted" style="width: 250px;">{% if current_lang == 'de' %}Zeitraum{% else %}Period{% endif %}</td>
+                                    <td colspan="2"><strong id="dateRangeFormat" class="fs-5">-</strong></td>
+                                </tr>
                                 <tr>
                                     <td class="text-muted" style="width: 250px;">{% if current_lang == 'de' %}Jahre, Monate, Tage, Stunden, Minuten, Sekunden{% else %}Years, Months, Days, Hours, Minutes, Seconds{% endif %}</td>
                                     <td><strong id="fullFormat" class="font-monospace fs-5">-</strong></td>
                                     <td class="text-end"><button class="btn btn-sm btn-outline-secondary fullscreen-btn" data-format="full" title="{% if current_lang == 'de' %}Vollbild{% else %}Fullscreen{% endif %}"><i class="fas fa-expand"></i></button></td>
+                                </tr>
+                                <tr class="table-light">
+                                    <td class="text-muted">{% if current_lang == 'de' %}Länge des Zeitraums{% else %}Duration{% endif %}</td>
+                                    <td><strong id="monthsDaysFormat" class="font-monospace fs-5">-</strong></td>
+                                    <td class="text-end"><button class="btn btn-sm btn-outline-secondary fullscreen-btn" data-format="monthsDays" title="{% if current_lang == 'de' %}Vollbild{% else %}Fullscreen{% endif %}"><i class="fas fa-expand"></i></button></td>
+                                </tr>
+                                <tr class="table-light">
+                                    <td class="text-muted">{% if current_lang == 'de' %}Länge in Tagen{% else %}Duration in Days{% endif %}</td>
+                                    <td><strong id="totalDaysFormat" class="font-monospace fs-5">-</strong></td>
+                                    <td class="text-end"><button class="btn btn-sm btn-outline-secondary fullscreen-btn" data-format="totalDays" title="{% if current_lang == 'de' %}Vollbild{% else %}Fullscreen{% endif %}"><i class="fas fa-expand"></i></button></td>
+                                </tr>
+                                <tr class="table-light">
+                                    <td class="text-muted">{% if current_lang == 'de' %}Länge in Wochen{% else %}Duration in Weeks{% endif %}</td>
+                                    <td><strong id="weeksDaysFormat" class="font-monospace fs-5">-</strong></td>
+                                    <td class="text-end"><button class="btn btn-sm btn-outline-secondary fullscreen-btn" data-format="weeksDays" title="{% if current_lang == 'de' %}Vollbild{% else %}Fullscreen{% endif %}"><i class="fas fa-expand"></i></button></td>
                                 </tr>
                                 <tr>
                                     <td class="text-muted">{% if current_lang == 'de' %}Jahre (dezimal){% else %}Years (decimal){% endif %}</td>
@@ -121,24 +168,8 @@
         </div>
     </div>
     
-    {% if tool_data and tool_data.seo and tool_data.seo.content %}
-    <div class="mt-5">
-        <h2 class="h5 mb-3">{{ tool_data.seo.content.heading[current_lang] }}</h2>
-        <p>{{ tool_data.seo.content.intro[current_lang] }}</p>
-        
-        {% if tool_data.seo.content.features %}
-        <ul class="mt-3">
-            {% for feature in tool_data.seo.content.features %}
-            <li><strong>{{ feature.title[current_lang] }}</strong> – {{ feature.description[current_lang] }}</li>
-            {% endfor %}
-        </ul>
-        {% endif %}
-        
-        {% if tool_data.seo.content.data_source %}
-        <p class="text-muted small mt-3">{{ tool_data.seo.content.data_source[current_lang]|safe }}</p>
-        {% endif %}
-    </div>
-    {% endif %}
+    {% include 'components/seo_content.html' %}
+    {% include 'components/related_tools.html' %}
 </div>
 
 <!-- Fullscreen Overlay -->
@@ -399,33 +430,91 @@
 <script src="{{ url_for('static', filename='js/date-calculator.js') }}"></script>
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-    const dateInput = document.getElementById('dateInput');
-    const timeInput = document.getElementById('timeInput');
-    const includeTime = document.getElementById('includeTime');
+    const startDateInput = document.getElementById('startDateInput');
+    const startTimeInput = document.getElementById('startTimeInput');
+    const includeStartTime = document.getElementById('includeStartTime');
+    const endDateInput = document.getElementById('endDateInput');
+    const endTimeInput = document.getElementById('endTimeInput');
+    const includeEndTime = document.getElementById('includeEndTime');
     const noDateMessage = document.getElementById('noDateMessage');
     const resultContainer = document.getElementById('resultContainer');
     
+    const dateRangeFormat = document.getElementById('dateRangeFormat');
     const fullFormat = document.getElementById('fullFormat');
+    const monthsDaysFormat = document.getElementById('monthsDaysFormat');
+    const totalDaysFormat = document.getElementById('totalDaysFormat');
+    const weeksDaysFormat = document.getElementById('weeksDaysFormat');
     const yearsDecimal = document.getElementById('yearsDecimal');
     const daysFormat = document.getElementById('daysFormat');
     const hoursFormat = document.getElementById('hoursFormat');
     const minutesFormat = document.getElementById('minutesFormat');
     const secondsFormat = document.getElementById('secondsFormat');
     
+    // Weekday names for date range display
+    const weekdaysDE = ['So', 'Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa'];
+    const weekdaysEN = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+    
+    function formatDateWithWeekday(date, lang) {
+        const weekdays = lang === 'de' ? weekdaysDE : weekdaysEN;
+        const weekday = weekdays[date.getDay()];
+        const day = date.getDate().toString().padStart(2, '0');
+        const month = (date.getMonth() + 1).toString().padStart(2, '0');
+        const year = date.getFullYear();
+        return `${weekday}, ${day}.${month}.${year}`;
+    }
+    
+    function formatDateRange(startDate, endDate, lang) {
+        const startStr = formatDateWithWeekday(startDate, lang);
+        const endStr = formatDateWithWeekday(endDate, lang);
+        return `${startStr}  -  ${endStr}`;
+    }
+    
     const mode = '{{ mode }}';
+    const currentLang = '{{ current_lang }}';
     let intervalId = null;
     
-    // Set default date to today
+    // Set default dates based on mode
     const today = new Date();
-    dateInput.value = today.toISOString().split('T')[0];
-    timeInput.value = today.toTimeString().split(' ')[0];
+    const todayStr = today.toISOString().split('T')[0];
+    const nowTimeStr = today.toTimeString().split(' ')[0];
     
-    function getTargetDate() {
-        if (!dateInput.value) return null;
-        
-        let dateStr = dateInput.value;
-        if (includeTime.checked && timeInput.value) {
-            dateStr += 'T' + timeInput.value;
+    // Initialize based on mode
+    if (mode === 'since') {
+        // time-since: end date = today (fixed), start date = user selects
+        endDateInput.value = todayStr;
+        endTimeInput.value = nowTimeStr;
+        startDateInput.value = todayStr;
+        startTimeInput.value = '00:00:00';
+    } else if (mode === 'until') {
+        // time-until: start date = today (fixed), end date = user selects
+        startDateInput.value = todayStr;
+        startTimeInput.value = nowTimeStr;
+        endDateInput.value = todayStr;
+        endTimeInput.value = '00:00:00';
+    } else {
+        // time-between: both dates user-selectable
+        startDateInput.value = todayStr;
+        startTimeInput.value = '00:00:00';
+        endDateInput.value = todayStr;
+        endTimeInput.value = '00:00:00';
+    }
+    
+    function getStartDate() {
+        if (!startDateInput.value) return null;
+        let dateStr = startDateInput.value;
+        if (includeStartTime.checked && startTimeInput.value) {
+            dateStr += 'T' + startTimeInput.value;
+        } else {
+            dateStr += 'T00:00:00';
+        }
+        return new Date(dateStr);
+    }
+    
+    function getEndDate() {
+        if (!endDateInput.value) return null;
+        let dateStr = endDateInput.value;
+        if (includeEndTime.checked && endTimeInput.value) {
+            dateStr += 'T' + endTimeInput.value;
         } else {
             dateStr += 'T00:00:00';
         }
@@ -433,9 +522,10 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     function updateDisplay() {
-        const targetDate = getTargetDate();
+        const startDate = getStartDate();
+        const endDate = getEndDate();
         
-        if (!targetDate) {
+        if (!startDate || !endDate) {
             noDateMessage.style.display = 'block';
             resultContainer.style.display = 'none';
             return;
@@ -444,11 +534,14 @@ document.addEventListener('DOMContentLoaded', function() {
         noDateMessage.style.display = 'none';
         resultContainer.style.display = 'block';
         
-        const now = new Date();
-        const formats = DateCalculator.getAllFormats(targetDate, now);
+        const formats = DateCalculator.getAllFormats(endDate, startDate, currentLang);
         
         // Update display
+        dateRangeFormat.textContent = formatDateRange(startDate, endDate, currentLang);
         fullFormat.textContent = formats.full;
+        monthsDaysFormat.textContent = formats.monthsDays;
+        totalDaysFormat.textContent = formats.totalDays;
+        weeksDaysFormat.textContent = formats.weeksDays;
         yearsDecimal.textContent = formats.yearsDecimal;
         daysFormat.textContent = formats.days;
         hoursFormat.textContent = formats.hours;
@@ -468,8 +561,10 @@ document.addEventListener('DOMContentLoaded', function() {
         const currentYear = now.getFullYear();
         
         switch(type) {
+            case 'today':
+                return { date: now, time: now.toTimeString().split(' ')[0] };
+            
             case 'last-christmas':
-                // Dec 25 of last year, or this year if we're past it
                 const lastChristmas = new Date(currentYear, 11, 25);
                 if (now < lastChristmas) {
                     return { date: new Date(currentYear - 1, 11, 25), time: null };
@@ -477,7 +572,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 return { date: lastChristmas, time: null };
             
             case 'next-christmas':
-                // Dec 25 of this year, or next year if we're past it
                 const nextChristmas = new Date(currentYear, 11, 25);
                 if (now >= nextChristmas) {
                     return { date: new Date(currentYear + 1, 11, 25), time: null };
@@ -485,23 +579,18 @@ document.addEventListener('DOMContentLoaded', function() {
                 return { date: nextChristmas, time: null };
             
             case 'new-years':
-                // Jan 1 midnight of next year
                 return { date: new Date(currentYear + 1, 0, 1, 0, 0, 0), time: '00:00:00' };
             
             case 'fall-of-rome':
-                // 476 AD, Jan 1 (approximate)
                 return { date: new Date('0476-01-01'), time: null };
             
             case 'moon-landing':
-                // July 20, 1969, 20:17 UTC (first step on moon was 02:56 UTC July 21)
                 return { date: new Date('1969-07-20T20:17:00Z'), time: '20:17:00' };
             
             case 'berlin-wall':
-                // Nov 9, 1989
                 return { date: new Date(1989, 10, 9), time: null };
             
             case 'millennium':
-                // Jan 1, 2000, midnight
                 return { date: new Date(2000, 0, 1, 0, 0, 0), time: '00:00:00' };
             
             default:
@@ -509,48 +598,63 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
     
+    function formatDateForInput(d) {
+        const year = d.getFullYear();
+        const month = (d.getMonth() + 1).toString().padStart(2, '0');
+        const day = d.getDate().toString().padStart(2, '0');
+        if (year < 1000) {
+            return `${year.toString().padStart(4, '0')}-${month}-${day}`;
+        }
+        return `${year}-${month}-${day}`;
+    }
+    
     // Example button click handlers
     document.querySelectorAll('.example-btn').forEach(btn => {
         btn.addEventListener('click', function() {
-            const dateType = this.dataset.date;
-            const useTime = this.dataset.time === 'true';
-            const example = getExampleDate(dateType);
+            const startType = this.dataset.start;
+            const endType = this.dataset.end;
+            const startExample = getExampleDate(startType);
+            const endExample = getExampleDate(endType);
             
-            if (example) {
-                // Format date for input
-                const d = example.date;
-                const year = d.getFullYear();
-                const month = (d.getMonth() + 1).toString().padStart(2, '0');
-                const day = d.getDate().toString().padStart(2, '0');
-                
-                // Handle years before 1000 (need special formatting)
-                if (year < 1000) {
-                    dateInput.value = `${year.toString().padStart(4, '0')}-${month}-${day}`;
+            if (startExample) {
+                startDateInput.value = formatDateForInput(startExample.date);
+                if (startExample.time) {
+                    startTimeInput.value = startExample.time;
+                    includeStartTime.checked = true;
                 } else {
-                    dateInput.value = `${year}-${month}-${day}`;
+                    includeStartTime.checked = false;
                 }
-                
-                if (useTime && example.time) {
-                    timeInput.value = example.time;
-                    includeTime.checked = true;
-                } else {
-                    includeTime.checked = false;
-                }
-                
-                startLiveUpdate();
-                updateUrl();
             }
+            
+            if (endExample) {
+                endDateInput.value = formatDateForInput(endExample.date);
+                if (endExample.time) {
+                    endTimeInput.value = endExample.time;
+                    includeEndTime.checked = true;
+                } else {
+                    includeEndTime.checked = false;
+                }
+            }
+            
+            startLiveUpdate();
+            updateUrl();
         });
     });
     
     // URL state management
     function updateUrl() {
         const params = new URLSearchParams();
-        if (dateInput.value) {
-            params.set('date', dateInput.value);
+        if (startDateInput.value) {
+            params.set('start', startDateInput.value);
         }
-        if (includeTime.checked && timeInput.value) {
-            params.set('time', timeInput.value);
+        if (includeStartTime.checked && startTimeInput.value) {
+            params.set('startTime', startTimeInput.value);
+        }
+        if (endDateInput.value) {
+            params.set('end', endDateInput.value);
+        }
+        if (includeEndTime.checked && endTimeInput.value) {
+            params.set('endTime', endTimeInput.value);
         }
         const newUrl = `${window.location.pathname}?${params.toString()}`;
         history.replaceState(null, '', newUrl);
@@ -558,15 +662,24 @@ document.addEventListener('DOMContentLoaded', function() {
     
     function loadFromUrl() {
         const params = new URLSearchParams(window.location.search);
-        const dateParam = params.get('date');
-        const timeParam = params.get('time');
+        const startParam = params.get('start');
+        const startTimeParam = params.get('startTime');
+        const endParam = params.get('end');
+        const endTimeParam = params.get('endTime');
         
-        if (dateParam) {
-            dateInput.value = dateParam;
+        if (startParam) {
+            startDateInput.value = startParam;
         }
-        if (timeParam) {
-            timeInput.value = timeParam;
-            includeTime.checked = true;
+        if (startTimeParam) {
+            startTimeInput.value = startTimeParam;
+            includeStartTime.checked = true;
+        }
+        if (endParam) {
+            endDateInput.value = endParam;
+        }
+        if (endTimeParam) {
+            endTimeInput.value = endTimeParam;
+            includeEndTime.checked = true;
         }
     }
     
@@ -574,9 +687,12 @@ document.addEventListener('DOMContentLoaded', function() {
     loadFromUrl();
     
     // Event listeners
-    dateInput.addEventListener('change', () => { startLiveUpdate(); updateUrl(); });
-    timeInput.addEventListener('change', () => { startLiveUpdate(); updateUrl(); });
-    includeTime.addEventListener('change', () => { startLiveUpdate(); updateUrl(); });
+    startDateInput.addEventListener('change', () => { startLiveUpdate(); updateUrl(); });
+    startTimeInput.addEventListener('change', () => { startLiveUpdate(); updateUrl(); });
+    includeStartTime.addEventListener('change', () => { startLiveUpdate(); updateUrl(); });
+    endDateInput.addEventListener('change', () => { startLiveUpdate(); updateUrl(); });
+    endTimeInput.addEventListener('change', () => { startLiveUpdate(); updateUrl(); });
+    includeEndTime.addEventListener('change', () => { startLiveUpdate(); updateUrl(); });
     
     // Fullscreen functionality
     const fullscreenOverlay = document.getElementById('fullscreenOverlay');
@@ -587,15 +703,21 @@ document.addEventListener('DOMContentLoaded', function() {
     let fullscreenIntervalId = null;
     
     function formatForFullscreen(format) {
-        const targetDate = getTargetDate();
-        if (!targetDate) return '-';
+        const startDate = getStartDate();
+        const endDate = getEndDate();
+        if (!startDate || !endDate) return '-';
         
-        const now = new Date();
-        const formats = DateCalculator.getAllFormats(targetDate, now);
+        const formats = DateCalculator.getAllFormats(endDate, startDate, currentLang);
         
         switch(format) {
             case 'full':
                 return formats.full;
+            case 'monthsDays':
+                return formats.monthsDays;
+            case 'totalDays':
+                return formats.totalDays;
+            case 'weeksDays':
+                return formats.weeksDays;
             case 'years':
                 return formats.yearsDecimal;
             case 'days':

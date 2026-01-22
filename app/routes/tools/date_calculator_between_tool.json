@@ -1,0 +1,68 @@
+{
+    "route": "/tools/time-between",
+    "img": "fas fa-calendar-alt",
+    "name": {
+        "en": "Time Between Dates",
+        "de": "Zeit zwischen Daten"
+    },
+    "description": {
+        "en": "Calculate the exact time between any two dates",
+        "de": "Berechne die genaue Zeit zwischen zwei beliebigen Daten"
+    },
+    "tags": ["time"],
+    "new_window": false,
+    "frontend_only": true,
+    "uses_external_service": false,
+    "seo": {
+        "title": {
+            "en": "Time Between Dates Calculator - Days, Weeks, Months Between Two Dates",
+            "de": "Zeit zwischen Daten Rechner - Tage, Wochen, Monate zwischen zwei Daten"
+        },
+        "meta_description": {
+            "en": "Calculate the exact time between any two dates. See the duration in days, weeks, months, years, hours, minutes and seconds.",
+            "de": "Berechne die genaue Zeit zwischen zwei Daten. Ergebnis in Tagen, Wochen, Monaten, Jahren, Stunden, Minuten und Sekunden."
+        },
+        "keywords": {
+            "en": "time between dates, date calculator, days between, duration calculator, date difference, weeks between dates",
+            "de": "Zeit zwischen Daten, Datumsrechner, Tage dazwischen, Dauerrechner, Datumsdifferenz, Wochen zwischen Daten"
+        },
+        "content": {
+            "heading": {
+                "en": "About This Tool",
+                "de": "Über dieses Tool"
+            },
+            "intro": {
+                "en": "This tool calculates the exact duration between any two dates you specify. Perfect for project planning, age calculations, or tracking time periods.",
+                "de": "Dieses Tool berechnet die genaue Dauer zwischen zwei beliebigen Daten. Perfekt für Projektplanung, Altersberechnungen oder zur Verfolgung von Zeiträumen."
+            },
+            "features": {
+                "heading": {
+                    "en": "Features:",
+                    "de": "Funktionen:"
+                },
+                "items": [
+                    {
+                        "en": "<strong>Multiple Duration Formats:</strong> View duration in months & days, total days, weeks & days, or the complete breakdown",
+                        "de": "<strong>Mehrere Dauerformate:</strong> Zeige Dauer in Monaten & Tagen, Gesamttagen, Wochen & Tagen oder der vollständigen Aufschlüsselung an"
+                    },
+                    {
+                        "en": "<strong>Precise Calculations:</strong> Get exact results down to the second with optional time input",
+                        "de": "<strong>Präzise Berechnungen:</strong> Erhalte exakte Ergebnisse bis auf die Sekunde mit optionaler Uhrzeitangabe"
+                    },
+                    {
+                        "en": "<strong>Date Range Display:</strong> Shows the period with weekdays for easy reference",
+                        "de": "<strong>Zeitraumanzeige:</strong> Zeigt den Zeitraum mit Wochentagen zur einfachen Referenz"
+                    },
+                    {
+                        "en": "<strong>Live Updates:</strong> When using today's date, watch the duration update in real-time",
+                        "de": "<strong>Live-Aktualisierung:</strong> Bei Verwendung des heutigen Datums wird die Dauer in Echtzeit aktualisiert"
+                    }
+                ]
+            },
+            "privacy_note": {
+                "en": "🔒 Privacy-Friendly: This calculator runs entirely in your browser. No data is sent to any server.",
+                "de": "🔒 Datenschutzfreundlich: Dieser Rechner läuft vollständig in Ihrem Browser. Es werden keine Daten an einen Server gesendet."
+            }
+        }
+    }
+}

@@ -13,6 +13,7 @@
   "csv_table": {"active": true},
   "date_calculator": {"active": true},
   "date_calculator_until": {"active": true},
+  "date_calculator_between": {"active": true},
   "diff": {"active": true},
   "distance": {"active": true},
   "dns_lookup": {"active": true},

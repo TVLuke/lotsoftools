@@ -138,12 +138,56 @@ const DateCalculator = (function() {
     }
 
     /**
+     * Format the difference as months and days only
+     * @param {Object} diff - Result from calculateDifference
+     * @param {string} lang - Language code ('en' or 'de')
+     * @returns {string} Formatted string
+     */
+    function formatMonthsDays(diff, lang) {
+        const totalMonths = diff.years * 12 + diff.months;
+        if (lang === 'de') {
+            return `${diff.prefix}${totalMonths} Monat${totalMonths !== 1 ? 'e' : ''}, ${diff.days} Tag${diff.days !== 1 ? 'e' : ''}`;
+        }
+        return `${diff.prefix}${totalMonths} month${totalMonths !== 1 ? 's' : ''}, ${diff.days} day${diff.days !== 1 ? 's' : ''}`;
+    }
+
+    /**
+     * Format the difference as total days only
+     * @param {Object} diff - Result from calculateDifference
+     * @param {string} lang - Language code ('en' or 'de')
+     * @returns {string} Formatted string
+     */
+    function formatTotalDays(diff, lang) {
+        if (lang === 'de') {
+            return `${diff.prefix}${formatNumber(diff.totalDays)} Tag${diff.totalDays !== 1 ? 'e' : ''}`;
+        }
+        return `${diff.prefix}${formatNumber(diff.totalDays)} day${diff.totalDays !== 1 ? 's' : ''}`;
+    }
+
+    /**
+     * Format the difference as weeks and days
+     * @param {Object} diff - Result from calculateDifference
+     * @param {string} lang - Language code ('en' or 'de')
+     * @returns {string} Formatted string
+     */
+    function formatWeeksDays(diff, lang) {
+        const weeks = Math.floor(diff.totalDays / 7);
+        const remainingDays = diff.totalDays % 7;
+        if (lang === 'de') {
+            return `${diff.prefix}${formatNumber(weeks)} Woche${weeks !== 1 ? 'n' : ''}, ${remainingDays} Tag${remainingDays !== 1 ? 'e' : ''}`;
+        }
+        return `${diff.prefix}${formatNumber(weeks)} week${weeks !== 1 ? 's' : ''}, ${remainingDays} day${remainingDays !== 1 ? 's' : ''}`;
+    }
+
+    /**
      * Get all formatted outputs at once
      * @param {Date} date1 - First date
      * @param {Date} date2 - Second date
+     * @param {string} lang - Language code ('en' or 'de')
      * @returns {Object} Object with all formatted strings
      */
-    function getAllFormats(date1, date2) {
+    function getAllFormats(date1, date2, lang) {
+        lang = lang || 'en';
         const diff = calculateDifference(date1, date2);
         return {
             full: formatFull(diff),
@@ -152,6 +196,9 @@ const DateCalculator = (function() {
             hours: formatHours(diff),
             minutes: formatMinutes(diff),
             seconds: formatSeconds(diff),
+            monthsDays: formatMonthsDays(diff, lang),
+            totalDays: formatTotalDays(diff, lang),
+            weeksDays: formatWeeksDays(diff, lang),
             raw: diff
         };
     }
@@ -165,6 +212,9 @@ const DateCalculator = (function() {
         formatHours,
         formatMinutes,
         formatSeconds,
+        formatMonthsDays,
+        formatTotalDays,
+        formatWeeksDays,
         getAllFormats
     };
 })();
