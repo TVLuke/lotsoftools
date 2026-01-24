@@ -242,6 +242,23 @@ footer {
     color: var(--color-text);
 }
 
+.btn-group-vertical > .btn {
+    border-color: var(--color-border);
+}
+
+.btn-group-vertical > .btn:not(:first-child) {
+    margin-top: -1px;
+}
+
+.btn-group-vertical > .btn:hover,
+.btn-group-vertical > .btn:focus {
+    z-index: 1;
+}
+
+.btn-group > .btn-outline-secondary:not(:first-child) {
+    border-left-color: var(--color-border);
+}
+
 .dropdown-menu {
     background-color: var(--color-card-bg);
     border-color: var(--color-border);
