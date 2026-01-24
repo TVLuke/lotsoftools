@@ -6,7 +6,7 @@
     --color-text: #212529;
     --color-text-muted: #5a6268;
     --color-text-secondary: #666666;
-    --color-link: #007bff;
+    --color-link: #0056b3;
     --color-primary: #0d6efd;
     --color-brand: #17a2b8;
     --color-success: #198754;
@@ -294,6 +294,33 @@ footer {
     background-color: #6ea8fe;
     border-color: #6ea8fe;
     color: #1a1a2e;
+}
+
+a {
+    color: var(--color-link);
+}
+
+a:hover {
+    color: #004085;
+}
+
+code {
+    color: #a71d2a !important;
+}
+
+.text-warning {
+    color: #806600 !important;
+}
+
+.btn-outline-warning {
+    color: #806600;
+    border-color: #806600;
+}
+
+.btn-outline-warning:hover {
+    background-color: #806600;
+    border-color: #806600;
+    color: #ffffff;
 }
 
 .btn-outline-secondary {
