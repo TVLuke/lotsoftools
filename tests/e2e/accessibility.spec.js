@@ -80,8 +80,8 @@ function getActiveToolUrls() {
     .map(([key]) => toolUrlMap[key]);
 }
 
-// Get tool URLs dynamically from config
-const TOOL_URLS = getActiveToolUrls();
+// Get tool URLs dynamically from config, plus index page
+const TOOL_URLS = ['/', ...getActiveToolUrls()];
 
 // Helper function to run axe analysis
 async function runAccessibilityAudit(page, options = {}) {
