@@ -23,77 +23,7 @@
     {% include 'components/support_on_action_head.html' %}
 </head>
 <body data-desktop-layout="{{ desktop_layout|default('categorized') }}" data-mobile-layout="{{ mobile_layout|default('compact') }}">
-    <nav class="navbar navbar-expand-md navbar-light bg-light">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="{{ url_for('main.index') }}" aria-label="Lots of Tools - Home">
-                <i class="fas fa-tools me-2"></i>
-                <span class="d-none d-md-inline">Lots of Tools</span>
-            </a>
-            
-            <div class="ms-auto d-flex align-items-center">
-                {% if request.endpoint == 'main.index' %}
-                <div class="d-flex d-md-none me-2" style="max-width: 180px;">
-                    <div class="input-group">
-                        <input type="text" id="searchInputMobile" class="form-control" placeholder="Search..." aria-label="Search">
-                        <span class="input-group-text"><i class="fas fa-search"></i></span>
-                    </div>
-                </div>
-                {% endif %}
-                
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#topNavbarCollapse" aria-label="Toggle navigation" aria-expanded="false" aria-controls="topNavbarCollapse">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-            </div>
-            
-            <div class="collapse navbar-collapse" id="topNavbarCollapse">
-                <ul class="navbar-nav me-auto mb-0">
-                </ul>
-
-                {% if support_links %}
-                    <div class="d-none d-md-flex align-items-center me-3">
-                        {% for link in support_links %}
-                            {% if support_placement_enabled(link, 'menu') %}
-                                <a href="{{ link.url }}" class="nav-link small text-muted" target="_blank" rel="noopener noreferrer">
-                                    <i class="{{ support_icon_class(link.type) }} me-1"></i>
-                                    {{ support_link_text(link, 'menu', current_lang) }}
-                                </a>
-                            {% endif %}
-                        {% endfor %}
-                    </div>
-                {% endif %}
-
-                {% if request.endpoint == 'main.index' %}
-                <div class="d-none d-md-flex me-3">
-                    <div class="input-group">
-                        <input type="text" id="searchInput" class="form-control" placeholder="Search..." aria-label="Search">
-                        <span class="input-group-text"><i class="fas fa-search"></i></span>
-                    </div>
-                </div>
-                {% endif %}
-                
-                <div class="dropdown me-2">
-                    <button class="btn btn-outline-secondary btn-sm dropdown-toggle" type="button" id="themeToggle" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Choose theme">
-                        <i class="fas fa-moon" id="themeIcon"></i>
-                    </button>
-                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="themeToggle">
-                        <li><a class="dropdown-item theme-option" href="#" data-theme="light"><i class="fas fa-sun me-2"></i>Light</a></li>
-                        <li><a class="dropdown-item theme-option" href="#" data-theme="dark"><i class="fas fa-moon me-2"></i>Dark</a></li>
-                        <li><a class="dropdown-item theme-option" href="#" data-theme="high-contrast"><i class="fas fa-adjust me-2"></i>High Contrast (AAA)</a></li>
-                    </ul>
-                </div>
-                
-                <div class="dropdown">
-                    <button class="btn btn-outline-secondary btn-sm dropdown-toggle" type="button" id="langDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-                        <i class="fas fa-globe me-1"></i>{{ 'DE' if current_lang == 'de' else 'EN' }}
-                    </button>
-                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="langDropdown">
-                        <li><a class="dropdown-item {% if current_lang == 'en' %}active{% endif %}" href="#" onclick="setLanguage('en'); return false;">English</a></li>
-                        <li><a class="dropdown-item {% if current_lang == 'de' %}active{% endif %}" href="#" onclick="setLanguage('de'); return false;">Deutsch</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </nav>
+    {% include 'components/navbar.html' %}
     
     <main class="container" style="margin-top: 30px;">
         {% block content %}{% endblock %}
