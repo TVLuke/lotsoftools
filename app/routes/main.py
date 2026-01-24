@@ -172,3 +172,9 @@ def accessibility_report(filename='index.html'):
     """Serve the accessibility test report."""
     report_dir = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'static', 'accessibility-report')
     return send_from_directory(report_dir, filename)
+
+@main_bp.route('/accessibility-statement')
+@main_bp.route('/barrierefreiheit')
+def accessibility_statement():
+    """Accessibility statement page."""
+    return render_template('accessibility_statement.html')

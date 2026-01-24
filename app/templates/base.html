@@ -71,9 +71,16 @@
                 </div>
                 {% endif %}
                 
-                <button class="btn btn-outline-secondary btn-sm me-2" id="themeToggle" type="button" aria-label="Toggle dark mode">
-                    <i class="fas fa-moon" id="themeIcon"></i>
-                </button>
+                <div class="dropdown me-2">
+                    <button class="btn btn-outline-secondary btn-sm dropdown-toggle" type="button" id="themeToggle" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Choose theme">
+                        <i class="fas fa-moon" id="themeIcon"></i>
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="themeToggle">
+                        <li><a class="dropdown-item theme-option" href="#" data-theme="light"><i class="fas fa-sun me-2"></i>Light</a></li>
+                        <li><a class="dropdown-item theme-option" href="#" data-theme="dark"><i class="fas fa-moon me-2"></i>Dark</a></li>
+                        <li><a class="dropdown-item theme-option" href="#" data-theme="high-contrast"><i class="fas fa-adjust me-2"></i>High Contrast (AAA)</a></li>
+                    </ul>
+                </div>
                 
                 <div class="dropdown">
                     <button class="btn btn-outline-secondary btn-sm dropdown-toggle" type="button" id="langDropdown" data-bs-toggle="dropdown" aria-expanded="false">
@@ -100,6 +107,8 @@
             <a href="/about" class="text-muted small">{% if current_lang == 'de' %}Über diesen Dienst{% else %}About{% endif %}</a>
             <span class="text-muted small mx-2">|</span>
             <a href="/privacy" class="text-muted small">{% if current_lang == 'de' %}Datenschutz{% else %}Privacy{% endif %}</a>
+            <span class="text-muted small mx-2">|</span>
+            <a href="/accessibility-statement" class="text-muted small">{% if current_lang == 'de' %}Barrierefreiheit{% else %}Accessibility{% endif %}</a>
             <span class="text-muted small mx-2">|</span>
             <a href="/sitemap" class="text-muted small">{% if current_lang == 'de' %}Seitenübersicht{% else %}Sitemap{% endif %}</a>
             <span class="text-muted small mx-2">|</span>
@@ -133,8 +142,8 @@
     // Theme Management
     (function() {
         const THEME_COOKIE = 'lotsoftools_theme';
-        const themeToggle = document.getElementById('themeToggle');
         const themeIcon = document.getElementById('themeIcon');
+        const themeOptions = document.querySelectorAll('.theme-option');
         const html = document.documentElement;
         
         // Get theme from cookie
@@ -162,8 +171,18 @@
         function applyTheme(theme) {
             html.setAttribute('data-bs-theme', theme);
             if (themeIcon) {
-                themeIcon.className = theme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+                if (theme === 'dark') {
+                    themeIcon.className = 'fas fa-moon';
+                } else if (theme === 'high-contrast') {
+                    themeIcon.className = 'fas fa-adjust';
+                } else {
+                    themeIcon.className = 'fas fa-sun';
+                }
             }
+            // Update active state in dropdown
+            themeOptions.forEach(function(opt) {
+                opt.classList.toggle('active', opt.dataset.theme === theme);
+            });
         }
         
         // Initialize theme
@@ -171,14 +190,6 @@
             const storedTheme = getStoredTheme();
             const theme = storedTheme || getSystemTheme();
             applyTheme(theme);
-        }
-        
-        // Toggle theme
-        function toggleTheme() {
-            const currentTheme = html.getAttribute('data-bs-theme');
-            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-            applyTheme(newTheme);
-            setStoredTheme(newTheme);
         }
         
         // Listen for system theme changes
@@ -191,10 +202,15 @@
             });
         }
         
-        // Attach click handler
-        if (themeToggle) {
-            themeToggle.addEventListener('click', toggleTheme);
-        }
+        // Attach click handlers to theme options
+        themeOptions.forEach(function(option) {
+            option.addEventListener('click', function(e) {
+                e.preventDefault();
+                const theme = this.dataset.theme;
+                applyTheme(theme);
+                setStoredTheme(theme);
+            });
+        });
         
         // Initialize on load
         initTheme();

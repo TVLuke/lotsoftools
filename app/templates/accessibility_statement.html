@@ -1,0 +1,148 @@
+{% extends "base.html" %}
+
+{% block title %}{% if current_lang == 'de' %}Erklärung zur Barrierefreiheit{% else %}Accessibility Statement{% endif %} - Lots of Tools{% endblock %}
+
+{% block content %}
+<div class="container py-4">
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            {% if current_lang == 'de' %}
+            <h1 class="mb-4">Erklärung zur Barrierefreiheit</h1>
+            
+            <p class="lead">Lots of Tools ist bestrebt, seine Website im Einklang mit den Web Content Accessibility Guidelines (WCAG) 2.1 barrierefrei zugänglich zu machen.</p>
+            
+            <p>Diese Erklärung zur Barrierefreiheit gilt für <a href="https://lotsof.tools">https://lotsof.tools</a>.</p>
+            
+            <h2 class="h4 mt-4">Stand der Konformität</h2>
+            <p>Diese Website ist <strong>teilweise konform</strong> mit WCAG 2.1 Level AA.</p>
+            
+            <ul>
+                <li><strong>Light Mode (Standard):</strong> Entspricht weitgehend WCAG 2.1 Level AA (Kontrastverhältnis 4,5:1).</li>
+                <li><strong>Dark Mode:</strong> Entspricht weitgehend WCAG 2.1 Level AA (Kontrastverhältnis 4,5:1).</li>
+                <li><strong>Hochkontrast-Modus:</strong> Entspricht WCAG 2.1 Level AAA (Kontrastverhältnis 7:1). Dieser Modus kann über das Theme-Menü in der Navigationsleiste aktiviert werden.</li>
+            </ul>
+            
+            <p>Wir führen regelmäßig automatisierte Tests durch, um die Barrierefreiheit zu überprüfen und zu verbessern.</p>
+            
+            <h2 class="h4 mt-4">Nicht barrierefreie Inhalte</h2>
+            <p>Trotz unserer Bemühungen können einige Inhalte oder Funktionen möglicherweise nicht vollständig barrierefrei sein:</p>
+            <ul>
+                <li>Einige interaktive Kartenkomponenten (Leaflet-basiert) haben möglicherweise eingeschränkte Tastaturnavigation.</li>
+                <li>Dynamisch generierte Inhalte in einigen Tools können temporäre Kontrastprobleme aufweisen.</li>
+                <li>Externe Bibliotheken und eingebettete Inhalte entsprechen möglicherweise nicht vollständig den Barrierefreiheitsstandards.</li>
+            </ul>
+            
+            <p>Die aktuellen automatisierten Testergebnisse finden Sie unter <a href="/accessibility">/accessibility</a>.</p>
+            
+            <h2 class="h4 mt-4">Feedback und Kontaktmöglichkeiten</h2>
+            <p>Wir nehmen Barrierefreiheit ernst. Wenn Sie auf Barrieren stoßen oder Verbesserungsvorschläge haben, kontaktieren Sie uns bitte:</p>
+            
+            <ul>
+                <li><strong>E-Mail:</strong> <a href="mailto:lotsoftools@lukas-ruge.info">lotsoftools@lukas-ruge.info</a></li>
+                <li><strong>GitHub Issues:</strong> <a href="https://github.com/TVLuke/lotsoftools/issues" target="_blank" rel="noopener noreferrer">github.com/TVLuke/lotsoftools/issues</a></li>
+            </ul>
+            
+            <p>Wir bemühen uns, innerhalb von 2 Wochen auf Ihre Anfrage zu antworten.</p>
+            
+            <h2 class="h4 mt-4">Durchsetzungsverfahren</h2>
+            <div class="alert alert-info">
+                <i class="fas fa-info-circle me-2"></i>
+                <strong>Hinweis:</strong> Als nicht-kommerzieller, privater Dienst unterliegt Lots of Tools nicht den gesetzlichen Verpflichtungen zur Barrierefreiheit nach dem Barrierefreiheitsstärkungsgesetz (BFSG) oder der BITV 2.0. Wir stellen diese Erklärung und die Barrierefreiheitsfunktionen freiwillig bereit, weil wir der Überzeugung sind, dass das Internet für alle zugänglich sein sollte.
+            </div>
+            <p>Sollten Sie dennoch der Meinung sein, dass Ihre Anfrage nicht zufriedenstellend bearbeitet wurde, können Sie sich an die zuständige Schlichtungsstelle wenden. In Deutschland ist dies die Schlichtungsstelle nach dem Behindertengleichstellungsgesetz (BGG):</p>
+            
+            <address>
+                <strong>Schlichtungsstelle nach dem Behindertengleichstellungsgesetz</strong><br>
+                bei dem Beauftragten der Bundesregierung für die Belange von Menschen mit Behinderungen<br>
+                Mauerstraße 53<br>
+                10117 Berlin<br>
+                Telefon: <a href="tel:+4930185272805">030 18527-2805</a><br>
+                E-Mail: <a href="mailto:info@schlichtungsstelle-bgg.de">info@schlichtungsstelle-bgg.de</a><br>
+                Website: <a href="https://www.schlichtungsstelle-bgg.de" target="_blank" rel="noopener noreferrer">www.schlichtungsstelle-bgg.de</a>
+            </address>
+            
+            <h2 class="h4 mt-4">Technische Informationen</h2>
+            <p>Diese Website wurde mit folgenden Technologien erstellt:</p>
+            <ul>
+                <li>HTML5, CSS3, JavaScript</li>
+                <li>Bootstrap 5 Framework</li>
+                <li>CSS-Variablen für konsistente Farbgebung und Theme-Unterstützung</li>
+            </ul>
+            <p class="mt-2"><em>Hinweis: Die ARIA-Unterstützung wird kontinuierlich verbessert. Formularfelder verwenden korrekte Label-Zuordnungen, aber einige interaktive Elemente könnten zusätzliche ARIA-Attribute benötigen.</em></p>
+            
+            <h2 class="h4 mt-4">Erstellung dieser Erklärung</h2>
+            <p>Diese Erklärung wurde am <strong>24. Januar 2026</strong> erstellt und wird regelmäßig überprüft.</p>
+            <p>Die Bewertung erfolgt durch automatisierte Tests mit <a href="https://www.deque.com/axe/" target="_blank" rel="noopener noreferrer">axe-core</a> und manuelle Überprüfungen.</p>
+            
+            {% else %}
+            <h1 class="mb-4">Accessibility Statement</h1>
+            
+            <p class="lead">Lots of Tools is committed to making its website accessible in accordance with the Web Content Accessibility Guidelines (WCAG) 2.1.</p>
+            
+            <p>This accessibility statement applies to <a href="https://lotsof.tools">https://lotsof.tools</a>.</p>
+            
+            <h2 class="h4 mt-4">Conformance Status</h2>
+            <p>This website is <strong>partially conformant</strong> with WCAG 2.1 Level AA.</p>
+            
+            <ul>
+                <li><strong>Light Mode (Default):</strong> Largely conforms to WCAG 2.1 Level AA (4.5:1 contrast ratio).</li>
+                <li><strong>Dark Mode:</strong> Largely conforms to WCAG 2.1 Level AA (4.5:1 contrast ratio).</li>
+                <li><strong>High Contrast Mode:</strong> Conforms to WCAG 2.1 Level AAA (7:1 contrast ratio). This mode can be activated via the theme menu in the navigation bar.</li>
+            </ul>
+            
+            <p>We regularly conduct automated tests to verify and improve accessibility.</p>
+            
+            <h2 class="h4 mt-4">Non-Accessible Content</h2>
+            <p>Despite our efforts, some content or features may not be fully accessible:</p>
+            <ul>
+                <li>Some interactive map components (Leaflet-based) may have limited keyboard navigation.</li>
+                <li>Dynamically generated content in some tools may have temporary contrast issues.</li>
+                <li>External libraries and embedded content may not fully comply with accessibility standards.</li>
+            </ul>
+            
+            <p>Current automated test results can be found at <a href="/accessibility">/accessibility</a>.</p>
+            
+            <h2 class="h4 mt-4">Feedback and Contact</h2>
+            <p>We take accessibility seriously. If you encounter barriers or have suggestions for improvement, please contact us:</p>
+            
+            <ul>
+                <li><strong>Email:</strong> <a href="mailto:lotsoftools@lukas-ruge.info">lotsoftools@lukas-ruge.info</a></li>
+                <li><strong>GitHub Issues:</strong> <a href="https://github.com/TVLuke/lotsoftools/issues" target="_blank" rel="noopener noreferrer">github.com/TVLuke/lotsoftools/issues</a></li>
+            </ul>
+            
+            <p>We aim to respond to your inquiry within 2 weeks.</p>
+            
+            <h2 class="h4 mt-4">Enforcement Procedure</h2>
+            <div class="alert alert-info">
+                <i class="fas fa-info-circle me-2"></i>
+                <strong>Note:</strong> As a non-commercial, private service, Lots of Tools is not subject to legal accessibility requirements under the European Accessibility Act (EAA) or similar regulations. We provide this statement and accessibility features voluntarily because we believe the internet should be accessible to everyone.
+            </div>
+            <p>If you still believe your request has not been satisfactorily addressed, you may contact the relevant arbitration body. In Germany, this is the Schlichtungsstelle nach dem Behindertengleichstellungsgesetz (BGG):</p>
+            
+            <address>
+                <strong>Schlichtungsstelle nach dem Behindertengleichstellungsgesetz</strong><br>
+                bei dem Beauftragten der Bundesregierung für die Belange von Menschen mit Behinderungen<br>
+                Mauerstraße 53<br>
+                10117 Berlin, Germany<br>
+                Phone: <a href="tel:+4930185272805">+49 30 18527-2805</a><br>
+                Email: <a href="mailto:info@schlichtungsstelle-bgg.de">info@schlichtungsstelle-bgg.de</a><br>
+                Website: <a href="https://www.schlichtungsstelle-bgg.de" target="_blank" rel="noopener noreferrer">www.schlichtungsstelle-bgg.de</a>
+            </address>
+            
+            <h2 class="h4 mt-4">Technical Information</h2>
+            <p>This website was built with the following technologies:</p>
+            <ul>
+                <li>HTML5, CSS3, JavaScript</li>
+                <li>Bootstrap 5 Framework</li>
+                <li>CSS variables for consistent theming and theme support</li>
+            </ul>
+            <p class="mt-2"><em>Note: ARIA support is being continuously improved. Form fields use proper label associations, but some interactive elements may need additional ARIA attributes.</em></p>
+            
+            <h2 class="h4 mt-4">Preparation of this Statement</h2>
+            <p>This statement was prepared on <strong>January 24, 2026</strong> and is reviewed regularly.</p>
+            <p>The assessment is conducted through automated testing with <a href="https://www.deque.com/axe/" target="_blank" rel="noopener noreferrer">axe-core</a> and manual reviews.</p>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}

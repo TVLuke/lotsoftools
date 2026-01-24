@@ -165,6 +165,35 @@ test.describe('Accessibility - Color Contrast Tests', () => {
       });
     }
   });
+
+  // High Contrast (AAA) mode tests
+  test.describe('High Contrast Mode (AAA)', () => {
+    for (const toolUrl of TOOL_URLS) {
+      test(`${toolUrl} (high-contrast) meets WCAG AAA contrast`, async ({ page }) => {
+        await page.goto(toolUrl);
+        
+        // Enable high-contrast mode
+        await page.evaluate(() => {
+          document.documentElement.setAttribute('data-bs-theme', 'high-contrast');
+        });
+        
+        // Wait for styles to apply
+        await page.waitForTimeout(100);
+        
+        const results = await runAccessibilityAudit(page, { contrastOnly: true });
+        
+        if (results.violations.length > 0) {
+          console.log(`\nHigh contrast AAA violations on ${toolUrl}:`);
+          console.log(JSON.stringify(formatViolations(results.violations), null, 2));
+        }
+        
+        // For AAA mode, check both AA and AAA contrast rules
+        expect(results.violations.filter(v => 
+          v.id === 'color-contrast' || v.id === 'color-contrast-enhanced'
+        )).toHaveLength(0);
+      });
+    }
+  });
 });
 
 test.describe('Accessibility - Full WCAG Audit', () => {
