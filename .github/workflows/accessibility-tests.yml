@@ -15,19 +15,16 @@ permissions:
   contents: write
 
 jobs:
-  accessibility-tests:
+  setup:
     runs-on: ubuntu-latest
-    timeout-minutes: 45
-    
+    outputs:
+      version: ${{ steps.get_version.outputs.VERSION }}
     steps:
-    - uses: actions/checkout@v4
-    
     - name: Get tag version
       id: get_version
       run: |
         if [[ "$GITHUB_REF" == refs/tags/* ]]; then
           TAG="${GITHUB_REF#refs/tags/}"
-          # Strip 'v' prefix if present (v1.1.1 -> 1.1.1)
           VERSION="${TAG#v}"
           echo "VERSION=$VERSION" >> $GITHUB_OUTPUT
         else
@@ -46,10 +43,7 @@ jobs:
         
         while [ $ATTEMPT -le $MAX_ATTEMPTS ]; do
           echo "Attempt $ATTEMPT of $MAX_ATTEMPTS"
-          
-          # Fetch the page and check for the version in the footer
           DEPLOYED_VERSION=$(curl -s "$BASE_URL" | grep -oP 'CHANGELOG\.md"[^>]*>\K[0-9]+\.[0-9]+\.[0-9]+' | head -1 || echo "")
-          
           echo "Found deployed version: $DEPLOYED_VERSION"
           
           if [ "$DEPLOYED_VERSION" = "$VERSION" ]; then
@@ -67,35 +61,92 @@ jobs:
         
         echo "❌ Timeout: Version $VERSION not detected after $MAX_ATTEMPTS attempts"
         exit 1
-    
-    - name: Setup Node.js
-      uses: actions/setup-node@v4
+
+  light-mode:
+    needs: setup
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+    - uses: actions/checkout@v4
+    - uses: actions/setup-node@v4
       with:
         node-version: '20'
-    
-    - name: Install Playwright and dependencies
+    - name: Install dependencies
       run: |
         npm init -y
         npm install @playwright/test @axe-core/playwright
         npx playwright install --with-deps chromium
-    
-    - name: Run accessibility tests
+    - name: Run Light Mode tests
+      run: npx playwright test tests/e2e/accessibility.spec.js --config=tests/e2e/playwright.config.js --project=chromium --workers=4 --grep="Light Mode"
+      env:
+        BASE_URL: ${{ github.event.inputs.base_url || 'https://lotsof.tools' }}
+
+  dark-mode:
+    needs: setup
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+    - uses: actions/checkout@v4
+    - uses: actions/setup-node@v4
+      with:
+        node-version: '20'
+    - name: Install dependencies
+      run: |
+        npm init -y
+        npm install @playwright/test @axe-core/playwright
+        npx playwright install --with-deps chromium
+    - name: Run Dark Mode tests
+      run: npx playwright test tests/e2e/accessibility.spec.js --config=tests/e2e/playwright.config.js --project=chromium --workers=4 --grep="Dark Mode"
+      env:
+        BASE_URL: ${{ github.event.inputs.base_url || 'https://lotsof.tools' }}
+
+  high-contrast:
+    needs: setup
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+    - uses: actions/checkout@v4
+    - uses: actions/setup-node@v4
+      with:
+        node-version: '20'
+    - name: Install dependencies
+      run: |
+        npm init -y
+        npm install @playwright/test @axe-core/playwright
+        npx playwright install --with-deps chromium
+    - name: Run High Contrast (AAA) tests
+      run: npx playwright test tests/e2e/accessibility.spec.js --config=tests/e2e/playwright.config.js --project=chromium --workers=4 --grep="High Contrast"
+      env:
+        BASE_URL: ${{ github.event.inputs.base_url || 'https://lotsof.tools' }}
+
+  report:
+    needs: [setup, light-mode, dark-mode, high-contrast]
+    if: always()
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - uses: actions/setup-node@v4
+      with:
+        node-version: '20'
+    - name: Install dependencies
+      run: |
+        npm init -y
+        npm install @playwright/test @axe-core/playwright
+        npx playwright install --with-deps chromium
+    - name: Run all tests for report
       run: npx playwright test tests/e2e/accessibility.spec.js --config=tests/e2e/playwright.config.js --project=chromium --workers=4
       env:
         BASE_URL: ${{ github.event.inputs.base_url || 'https://lotsof.tools' }}
-    
+      continue-on-error: true
     - name: Upload test results
       uses: actions/upload-artifact@v4
-      if: always()
       with:
-        name: accessibility-report-${{ steps.get_version.outputs.VERSION }}
+        name: accessibility-report-${{ needs.setup.outputs.version }}
         path: playwright-report/
         retention-days: 90
-    
     - name: Commit accessibility report to repo
-      if: always()
       run: |
-        VERSION=${{ steps.get_version.outputs.VERSION }}
+        VERSION=${{ needs.setup.outputs.version }}
         mkdir -p app/static/accessibility-report/$VERSION
         cp -r playwright-report/* app/static/accessibility-report/$VERSION/
         git config user.name "GitHub Actions"

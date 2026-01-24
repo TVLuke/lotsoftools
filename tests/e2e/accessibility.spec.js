@@ -83,6 +83,29 @@ function getActiveToolUrls() {
 // Get tool URLs dynamically from config, plus index page
 const TOOL_URLS = ['/', ...getActiveToolUrls()];
 
+// URLs that need extra wait time for dynamic content to load
+const URLS_WITH_PARAMS = [
+  '/tools/url-checker?url=https%3A%2F%2Flotsof.tools%2F',
+  '/tools/dns-lookup?domain=lotsof.tools',
+];
+
+// Combined list of all URLs to test
+const ALL_URLS = [...TOOL_URLS, ...URLS_WITH_PARAMS];
+
+// Helper to wait for dynamic content on specific pages
+async function waitForDynamicContent(page, url) {
+  if (url.includes('/tools/url-checker?url=')) {
+    // Wait for URL checker results to load
+    await page.waitForSelector('#resultsCard:not(.d-none)', { timeout: 15000 }).catch(() => {});
+    await page.waitForTimeout(1000); // Extra time for all results to render
+  }
+  if (url.includes('/tools/dns-lookup?domain=')) {
+    // Wait for DNS lookup results to load
+    await page.waitForSelector('#resultsContainer:not(.d-none)', { timeout: 15000 }).catch(() => {});
+    await page.waitForTimeout(1000); // Extra time for all results to render
+  }
+}
+
 // Helper function to run axe analysis
 async function runAccessibilityAudit(page, options = {}) {
   const axeBuilder = new AxeBuilder({ page })
@@ -113,12 +136,15 @@ function formatViolations(violations) {
 test.describe('Accessibility - Color Contrast Tests', () => {
   
   test.describe('Light Mode', () => {
-    for (const toolUrl of TOOL_URLS) {
+    for (const toolUrl of ALL_URLS) {
       test(`${toolUrl} has sufficient color contrast`, async ({ page }) => {
         await page.goto(toolUrl);
         
         // Wait for page to fully load
         await page.waitForLoadState('networkidle');
+        
+        // Wait for dynamic content on specific pages
+        await waitForDynamicContent(page, toolUrl);
         
         // Run axe analysis focusing on color contrast
         const results = await runAccessibilityAudit(page, { contrastOnly: true });
@@ -139,9 +165,13 @@ test.describe('Accessibility - Color Contrast Tests', () => {
 
   // Dark mode tests
   test.describe('Dark Mode', () => {
-    for (const toolUrl of TOOL_URLS) {
+    for (const toolUrl of ALL_URLS) {
       test(`${toolUrl} (dark mode) has sufficient color contrast`, async ({ page }) => {
         await page.goto(toolUrl);
+        
+        // Wait for page to fully load and dynamic content
+        await page.waitForLoadState('networkidle');
+        await waitForDynamicContent(page, toolUrl);
         
         // Enable dark mode (adjust selector based on implementation)
         await page.evaluate(() => {
@@ -168,9 +198,13 @@ test.describe('Accessibility - Color Contrast Tests', () => {
 
   // High Contrast (AAA) mode tests
   test.describe('High Contrast Mode (AAA)', () => {
-    for (const toolUrl of TOOL_URLS) {
+    for (const toolUrl of ALL_URLS) {
       test(`${toolUrl} (high-contrast) meets WCAG AAA contrast`, async ({ page }) => {
         await page.goto(toolUrl);
+        
+        // Wait for page to fully load and dynamic content
+        await page.waitForLoadState('networkidle');
+        await waitForDynamicContent(page, toolUrl);
         
         // Enable high-contrast mode
         await page.evaluate(() => {
