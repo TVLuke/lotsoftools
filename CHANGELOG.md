@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.1.4] - 2026-01-24
+
+- Fix `.bg-success` contrast in high-contrast mode (AAA compliance)
+- Fix support toast contrast in dark and high-contrast modes
+- Fix heading order: tile titles now use `<span>` instead of `<h5>`
+- Add accessibility badge to README
+- Split accessibility tests into separate jobs per theme
+- Add URL checker and DNS lookup with params to accessibility tests
+
 ## [1.1.0] - 2026-01-24
 
 - **Dark mode**: Toggle between light and dark themes, respects your system preference
