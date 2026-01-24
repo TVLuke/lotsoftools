@@ -199,6 +199,10 @@
     color: #333333 !important;
 }
 
+[data-bs-theme="high-contrast"] .bg-success {
+    background-color: #0a5c36 !important;
+}
+
 [data-bs-theme="dark"] code {
     color: #ea868f !important;
 }
