@@ -1,7 +1,7 @@
 # Lots of tools
 
 [![Tests](https://github.com/TVLuke/lotsoftools/actions/workflows/test.yml/badge.svg)](https://github.com/TVLuke/lotsoftools/actions/workflows/test.yml)
-[![Accessibility](https://github.com/TVLuke/lotsoftools/actions/workflows/accessibility-tests.yml/badge.svg)](https://github.com/TVLuke/lotsoftools/actions/workflows/accessibility-tests.yml)
+[![Accessibility](https://github.com/TVLuke/lotsoftools/actions/workflows/accessibility-tests.yml/badge.svg?event=push)](https://github.com/TVLuke/lotsoftools/actions/workflows/accessibility-tests.yml)
 
 I got fed up.
 
