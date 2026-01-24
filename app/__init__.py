@@ -48,7 +48,12 @@ def create_app(config_class=Config):
     
     @app.before_request
     def set_language():
-        if 'lang' not in session:
+        # Check cookie first (user explicitly set preference)
+        cookie_lang = request.cookies.get('lotsoftools_lang')
+        if cookie_lang in ['en', 'de']:
+            session['lang'] = cookie_lang
+        elif 'lang' not in session:
+            # Fall back to browser preference
             session['lang'] = request.accept_languages.best_match(['en', 'de']) or 'en'
     
     @app.before_request

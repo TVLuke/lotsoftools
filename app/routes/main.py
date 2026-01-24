@@ -70,7 +70,9 @@ def set_mobile_layout():
 def set_language(lang):
     if lang in ['en', 'de']:
         session['lang'] = lang
-        return jsonify({'success': True, 'language': lang})
+        response = make_response(jsonify({'success': True, 'language': lang}))
+        response.set_cookie('lotsoftools_lang', lang, max_age=31536000, samesite='Lax')
+        return response
     return jsonify({'success': False, 'message': 'Invalid language'}), 400
 
 
