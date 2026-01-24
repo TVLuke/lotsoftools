@@ -12,10 +12,10 @@
                     {% for tool in related %}
                     <div class="col-6 col-md-3 mb-2 related-tool-item {% if loop.index > 2 %}d-none d-md-block{% endif %}">
                         <a href="{{ tool.url }}" class="text-decoration-none">
-                            <div class="card h-100 border-0 bg-light">
+                            <div class="card h-100 border-0" style="background-color: var(--color-light);">
                                 <div class="card-body p-2 text-center">
-                                    <i class="{{ tool.img }} mb-2" style="font-size: 1.5rem; color: var(--color-text-muted);"></i>
-                                    <div class="small text-dark">{{ tool.name }}</div>
+                                    <i class="{{ tool.img }} mb-2" style="font-size: 1.5rem; color: var(--color-brand);"></i>
+                                    <div class="small" style="color: var(--color-text);">{{ tool.name }}</div>
                                 </div>
                             </div>
                         </a>

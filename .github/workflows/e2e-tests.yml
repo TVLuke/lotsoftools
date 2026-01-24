@@ -30,7 +30,8 @@ jobs:
     
     - name: Install Playwright and dependencies
       run: |
-        npm install
+        npm init -y
+        npm install @playwright/test @axe-core/playwright
         npx playwright install --with-deps chromium firefox webkit
     
     - name: Run E2E tests
