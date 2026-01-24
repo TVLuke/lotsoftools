@@ -2,6 +2,11 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.1.6] - 2026-01-24
+
+- Clean up old accessibility reports (only keep latest version)
+- Update workflow to auto-delete old reports before adding new
+
 ## [1.1.5] - 2026-01-24
 
 - Fix `.bg-success` contrast in high-contrast mode (AAA compliance)
