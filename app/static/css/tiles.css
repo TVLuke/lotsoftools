@@ -12,7 +12,7 @@
     height: 220px;
     border-radius: 8px;
     overflow: hidden;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: var(--shadow-md);
     transition: all 0.3s ease;
     margin-bottom: 1rem;
     background-color: var(--color-card-bg);
@@ -22,7 +22,7 @@
 
 .tile-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+    box-shadow: var(--shadow-lg);
     text-decoration: none;
     color: var(--color-text);
 }
@@ -44,7 +44,7 @@
 
 .tile-icon-fa {
     font-size: 4rem;
-    color: var(--color-primary);
+    color: var(--color-brand);
 }
 
 .tile-content {

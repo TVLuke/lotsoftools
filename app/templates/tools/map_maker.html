@@ -23,7 +23,7 @@
 }
 
 .place-marker {
-    background-color: #dc3545;
+    background-color: var(--color-danger);
     border: 3px solid white;
     border-radius: 50% 50% 50% 0;
     width: 30px;
@@ -32,7 +32,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    box-shadow: var(--shadow-marker);
 }
 
 .place-marker i {
@@ -47,12 +47,12 @@
 }
 
 .marker-user {
-    background-color: #6c757d;
+    background-color: var(--color-text-muted);
     border: 3px solid white;
     border-radius: 50%;
     width: 16px;
     height: 16px;
-    box-shadow: 0 0 0 2px #6c757d, 0 2px 5px rgba(0,0,0,0.3);
+    box-shadow: 0 0 0 2px var(--color-text-muted), var(--shadow-marker);
 }
 </style>
 {% endblock %}

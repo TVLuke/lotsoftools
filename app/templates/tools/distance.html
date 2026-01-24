@@ -30,15 +30,15 @@
 }
 
 .location-card.point-a {
-    border-left-color: #198754;
+    border-left-color: var(--color-success);
 }
 
 .location-card.point-b {
-    border-left-color: #dc3545;
+    border-left-color: var(--color-danger);
 }
 
 .marker-a {
-    background-color: #198754;
+    background-color: var(--color-success);
     border: 2px solid white;
     border-radius: 50%;
     width: 24px;
@@ -49,11 +49,11 @@
     color: white;
     font-weight: bold;
     font-size: 14px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    box-shadow: var(--shadow-marker);
 }
 
 .marker-b {
-    background-color: #dc3545;
+    background-color: var(--color-danger);
     border: 2px solid white;
     border-radius: 50%;
     width: 24px;
@@ -64,7 +64,7 @@
     color: white;
     font-weight: bold;
     font-size: 14px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    box-shadow: var(--shadow-marker);
 }
 
 .coordinate-display {
@@ -77,26 +77,26 @@
 }
 
 .mylocation-notice {
-    background-color: #fff3cd;
-    border: 1px solid #ffc107;
+    background-color: var(--color-warning-bg, #fff3cd);
+    border: 1px solid var(--color-warning);
     border-radius: 0.375rem;
     padding: 1rem;
     margin-bottom: 1rem;
 }
 
 .distance-line {
-    stroke: #0d6efd;
+    stroke: var(--color-primary);
     stroke-width: 3;
     stroke-dasharray: 10, 5;
 }
 
 .marker-user {
-    background-color: #0d6efd;
+    background-color: var(--color-primary);
     border: 3px solid white;
     border-radius: 50%;
     width: 16px;
     height: 16px;
-    box-shadow: 0 0 0 2px #0d6efd, 0 2px 5px rgba(0,0,0,0.3);
+    box-shadow: 0 0 0 2px var(--color-primary), var(--shadow-marker);
 }
 </style>
 {% endblock %}
@@ -109,7 +109,7 @@
                 <i class="{{ tool_data.img }}"></i>
                 {% if tool_data.frontend_only is defined %}
                 <span class="position-absolute top-0 start-100 translate-middle p-1 rounded-circle {% if tool_data.uses_external_service %}text-white{% elif tool_data.frontend_only %}bg-success{% else %}bg-warning{% endif %}"
-                      {% if tool_data.uses_external_service %}style="background-color: #fd7e14;"{% endif %}
+                      {% if tool_data.uses_external_service %}style="background-color: var(--color-warning-dark);"{% endif %}
                       data-bs-toggle="tooltip"
                       data-bs-placement="right"
                       title="{% if tool_data.uses_external_service %}{% if current_lang == 'de' %}Externer Dienst: Sendet Daten an externe API{% else %}External service: Sends data to external API{% endif %}{% elif tool_data.frontend_only %}{% if current_lang == 'de' %}Datenschutzfreundlich: Läuft vollständig in Ihrem Browser{% else %}Privacy-friendly: Runs entirely in your browser{% endif %}{% else %}{% if current_lang == 'de' %}Server-seitig: Verarbeitung auf dem Server{% else %}Server-side: Processing on the server{% endif %}{% endif %}">

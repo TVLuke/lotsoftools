@@ -43,11 +43,11 @@
 
 /* Dark mode support */
 [data-bs-theme="dark"] .map-container-wrapper {
-    border-color: #495057;
+    border-color: var(--color-border);
 }
 
 [data-bs-theme="dark"] .map-container-header,
 [data-bs-theme="dark"] .map-container-info {
-    background: #343a40;
-    border-color: #495057;
+    background: var(--color-light);
+    border-color: var(--color-border);
 }

@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.1.0] - 2026-01-24
+
+- **Dark mode**: Toggle between light and dark themes, respects your system preference
+- New tool: BMI Calculator with visual BMI scale
+- New tool: Stopwatch with lap times
+- New tool: URL Checker - check redirects, SSL, and content changes
+- New tool: Time Converter between timezones
+- New tool: Map Maker - place markers and export coordinates
+- Improved accessibility with better color contrast
+- Automated accessibility testing for all tools
+
 ## [1.0.22] - 2026-01-15
 
 - New tool: Dice roller with coin flip mode

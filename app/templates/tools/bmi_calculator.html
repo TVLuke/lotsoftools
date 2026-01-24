@@ -119,7 +119,7 @@
     display: flex;
     overflow: hidden;
     position: relative;
-    box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);
+    box-shadow: var(--shadow-inset);
 }
 
 .bmi-zone {
@@ -134,7 +134,7 @@
 .zone-normal {
     flex: 6.4;
     background: linear-gradient(to right, #81c784, #a5d6a7, #81c784);
-    box-shadow: 0 0 10px rgba(76, 175, 80, 0.5);
+    box-shadow: var(--bmi-normal-glow, 0 0 10px rgba(76, 175, 80, 0.5));
 }
 
 .zone-overweight {
@@ -162,10 +162,10 @@
     top: -5px;
     width: 4px;
     height: 40px;
-    background: #333;
+    background: var(--color-darker);
     border-radius: 2px;
     transform: translateX(-50%);
-    box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    box-shadow: var(--shadow-md);
     transition: left 0.3s ease;
 }
 
@@ -179,7 +179,7 @@
     height: 0;
     border-left: 8px solid transparent;
     border-right: 8px solid transparent;
-    border-top: 8px solid #333;
+    border-top: 8px solid var(--color-darker);
 }
 
 .bmi-labels {
@@ -187,16 +187,16 @@
     justify-content: space-between;
     margin-top: 0.5rem;
     font-size: 0.75rem;
-    color: #666;
+    color: var(--color-text-secondary);
     padding: 0 0.5rem;
 }
 
-.category-underweight { color: #1976d2; }
-.category-normal { color: #388e3c; }
-.category-overweight { color: #f9a825; }
-.category-obese1 { color: #ef6c00; }
-.category-obese2 { color: #e64a19; }
-.category-obese3 { color: #c62828; }
+.category-underweight { color: var(--bmi-underweight, #1976d2); }
+.category-normal { color: var(--bmi-normal, #388e3c); }
+.category-overweight { color: var(--bmi-overweight, #f9a825); }
+.category-obese1 { color: var(--bmi-obese1, #ef6c00); }
+.category-obese2 { color: var(--bmi-obese2, #e64a19); }
+.category-obese3 { color: var(--bmi-obese3, #c62828); }
 
 @media (max-width: 576px) {
     .bmi-value {

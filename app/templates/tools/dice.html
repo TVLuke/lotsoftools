@@ -114,7 +114,7 @@
     justify-content: center;
     font-size: 4rem;
     font-weight: bold;
-    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    background: linear-gradient(135deg, var(--color-light) 0%, var(--color-light-hover) 100%);
     transition: transform 0.1s ease;
 }
 
@@ -131,7 +131,7 @@
 }
 
 .result-placeholder {
-    color: #adb5bd;
+    color: var(--color-text-muted);
 }
 
 .result-label {
@@ -164,14 +164,14 @@
     align-items: center;
     padding: 4px 10px;
     border-radius: 20px;
-    background-color: #e9ecef;
+    background-color: var(--color-light-hover);
     font-size: 0.9rem;
 }
 
 .history-item .dice-type {
     font-weight: bold;
     margin-right: 5px;
-    color: #6c757d;
+    color: var(--color-text-muted);
 }
 
 .history-item .roll-result {
@@ -186,19 +186,19 @@
 }
 
 .streak-display.active {
-    background-color: #d4edda;
-    color: #155724;
-    border: 1px solid #c3e6cb;
+    background-color: var(--color-success-bg);
+    color: var(--color-success);
+    border: 1px solid var(--color-success-bg);
 }
 
 .streak-display.record {
-    background-color: #e9ecef;
-    color: #6c757d;
-    border: 1px solid #dee2e6;
+    background-color: var(--color-light);
+    box-shadow: 0 0 0 2px var(--color-text-muted);
+    border: 1px solid var(--color-border);
 }
 
 .history-item.coin {
-    background-color: #fff3cd;
+    background-color: var(--color-warning-bg, #fff3cd);
 }
 
 [data-bs-theme="dark"] .result-display {

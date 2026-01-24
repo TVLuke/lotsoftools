@@ -1,4 +1,5 @@
-from flask import Blueprint, render_template, request, make_response, jsonify, session, Response
+from flask import Blueprint, render_template, request, make_response, jsonify, session, Response, send_from_directory
+import os
 from app import db
 import csv
 import io
@@ -162,3 +163,10 @@ def privacy():
     tools_privacy.sort(key=lambda x: x['name'].lower())
     
     return render_template('privacy.html', tools=tools_privacy, privacy_content=privacy_content)
+
+@main_bp.route('/accessibility')
+@main_bp.route('/accessibility/<path:filename>')
+def accessibility_report(filename='index.html'):
+    """Serve the accessibility test report."""
+    report_dir = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'static', 'accessibility-report')
+    return send_from_directory(report_dir, filename)

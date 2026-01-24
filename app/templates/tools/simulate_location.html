@@ -80,14 +80,14 @@
 .direction-marker .dot {
     width: 20px;
     height: 20px;
-    background-color: #0d6efd;
+    background-color: var(--color-primary);
     border: 3px solid white;
     border-radius: 50%;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    box-shadow: var(--shadow-marker);
 }
 
 .direction-marker .arrow {
@@ -95,7 +95,7 @@
     height: 0;
     border-left: 8px solid transparent;
     border-right: 8px solid transparent;
-    border-bottom: 16px solid #0d6efd;
+    border-bottom: 16px solid var(--color-primary);
     position: absolute;
     top: -5px;
     left: 50%;
@@ -117,22 +117,22 @@
 }
 
 .status-indicator.idle {
-    background-color: #e9ecef;
-    color: #6c757d;
+    background-color: var(--color-light-hover);
+    color: var(--color-text-muted);
 }
 
 .status-indicator.moving {
-    background-color: #d1e7dd;
-    color: #198754;
+    background-color: var(--color-success-bg);
+    color: var(--color-success);
 }
 
 .marker-user {
-    background-color: #6c757d;
+    background-color: var(--color-text-muted);
     border: 3px solid white;
     border-radius: 50%;
     width: 16px;
     height: 16px;
-    box-shadow: 0 0 0 2px #6c757d, 0 2px 5px rgba(0,0,0,0.3);
+    box-shadow: 0 0 0 2px var(--color-text-muted), var(--shadow-marker);
 }
 </style>
 {% endblock %}

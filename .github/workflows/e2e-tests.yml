@@ -12,6 +12,9 @@ on:
         required: false
         default: 'https://lotsof.tools'
 
+permissions:
+  contents: write
+
 jobs:
   e2e-tests:
     runs-on: ubuntu-latest
@@ -25,10 +28,9 @@ jobs:
       with:
         node-version: '20'
     
-    - name: Install Playwright
+    - name: Install Playwright and dependencies
       run: |
-        npm init -y
-        npm install @playwright/test
+        npm install
         npx playwright install --with-deps chromium firefox webkit
     
     - name: Run E2E tests
@@ -51,3 +53,14 @@ jobs:
         name: test-screenshots
         path: test-results/
         retention-days: 7
+    
+    - name: Commit accessibility report to repo
+      if: always()
+      run: |
+        mkdir -p app/static/accessibility-report
+        cp -r playwright-report/* app/static/accessibility-report/
+        git config user.name "GitHub Actions"
+        git config user.email "actions@github.com"
+        git add app/static/accessibility-report/
+        git diff --staged --quiet || git commit -m "Update accessibility report [skip ci]"
+        git push
