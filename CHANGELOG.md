@@ -2,7 +2,7 @@
 
 All notable changes to this project will be documented in this file.
 
-## [1.1.4] - 2026-01-24
+## [1.1.5] - 2026-01-24
 
 - Fix `.bg-success` contrast in high-contrast mode (AAA compliance)
 - Fix support toast contrast in dark and high-contrast modes
