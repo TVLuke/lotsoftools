@@ -4,6 +4,8 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 from config import Config
 
+APP_VERSION = "1.1.1"
+
 db = SQLAlchemy()
 migrate = Migrate()
 
@@ -81,6 +83,10 @@ def create_app(config_class=Config):
     @app.context_processor
     def inject_language():
         return {'current_lang': session.get('lang', 'en')}
+    
+    @app.context_processor
+    def inject_version():
+        return {'app_version': APP_VERSION}
 
     @app.context_processor
     def inject_support_links():
