@@ -4,7 +4,7 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 from config import Config
 
-APP_VERSION = "1.1.2"
+APP_VERSION = "1.1.3"
 
 db = SQLAlchemy()
 migrate = Migrate()
