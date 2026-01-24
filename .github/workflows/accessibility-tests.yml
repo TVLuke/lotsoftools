@@ -26,7 +26,10 @@ jobs:
       id: get_version
       run: |
         if [[ "$GITHUB_REF" == refs/tags/* ]]; then
-          echo "VERSION=${GITHUB_REF#refs/tags/}" >> $GITHUB_OUTPUT
+          TAG="${GITHUB_REF#refs/tags/}"
+          # Strip 'v' prefix if present (v1.1.1 -> 1.1.1)
+          VERSION="${TAG#v}"
+          echo "VERSION=$VERSION" >> $GITHUB_OUTPUT
         else
           echo "VERSION=manual-$(date +%Y%m%d-%H%M%S)" >> $GITHUB_OUTPUT
         fi
