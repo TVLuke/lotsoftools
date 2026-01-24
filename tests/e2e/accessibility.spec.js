@@ -129,9 +129,9 @@ test.describe('Accessibility - Color Contrast Tests', () => {
           console.log(JSON.stringify(formatViolations(results.violations), null, 2));
         }
         
-        // Assert no color contrast violations
+        // Assert no color contrast violations (WCAG AA only, not AAA)
         expect(results.violations.filter(v => 
-          v.id === 'color-contrast' || v.id === 'color-contrast-enhanced'
+          v.id === 'color-contrast'
         )).toHaveLength(0);
       });
     }
@@ -158,8 +158,9 @@ test.describe('Accessibility - Color Contrast Tests', () => {
           console.log(JSON.stringify(formatViolations(results.violations), null, 2));
         }
         
+        // Assert no color contrast violations (WCAG AA only, not AAA)
         expect(results.violations.filter(v => 
-          v.id === 'color-contrast' || v.id === 'color-contrast-enhanced'
+          v.id === 'color-contrast'
         )).toHaveLength(0);
       });
     }

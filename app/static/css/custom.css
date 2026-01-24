@@ -159,6 +159,42 @@ footer {
     color: var(--color-text);
 }
 
+.btn-outline-primary {
+    color: #0a58ca;
+    border-color: #0a58ca;
+}
+
+.btn-outline-primary:hover {
+    background-color: #0a58ca;
+    border-color: #0a58ca;
+    color: #ffffff;
+}
+
+.btn-outline-primary.active,
+.btn-outline-primary:active {
+    background-color: #0a58ca;
+    border-color: #0a58ca;
+    color: #ffffff;
+}
+
+[data-bs-theme="dark"] .btn-outline-primary {
+    color: #6ea8fe;
+    border-color: #6ea8fe;
+}
+
+[data-bs-theme="dark"] .btn-outline-primary:hover {
+    background-color: #6ea8fe;
+    border-color: #6ea8fe;
+    color: #1a1a2e;
+}
+
+[data-bs-theme="dark"] .btn-outline-primary.active,
+[data-bs-theme="dark"] .btn-outline-primary:active {
+    background-color: #6ea8fe;
+    border-color: #6ea8fe;
+    color: #1a1a2e;
+}
+
 .btn-outline-secondary {
     color: var(--color-text-muted);
     border-color: var(--color-border);
