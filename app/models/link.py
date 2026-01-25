@@ -13,6 +13,14 @@ class Link(db.Model):
     uses_external_service = db.Column(db.Boolean, default=False)
     click_count = db.Column(db.Integer, default=0)
     bot_click_count = db.Column(db.Integer, default=0)
+    # Theme click tracking
+    light_clicks = db.Column(db.Integer, default=0)
+    dark_clicks = db.Column(db.Integer, default=0)
+    high_contrast_clicks = db.Column(db.Integer, default=0)
+    system_theme_clicks = db.Column(db.Integer, default=0)
+    # Language click tracking
+    en_clicks = db.Column(db.Integer, default=0)
+    de_clicks = db.Column(db.Integer, default=0)
     
     @property
     def name(self):

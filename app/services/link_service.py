@@ -97,7 +97,7 @@ def get_link_by_url(url):
     return Link.query.filter_by(url=url).first()
 
 def increment_click_count(url):
-    """Increment the click count for a link by its URL. Separates bot vs human clicks."""
+    """Increment the click count for a link by its URL. Separates bot vs human clicks, theme, and language."""
     link = get_link_by_url(url)
     if link:
         user_agent = request.headers.get('User-Agent', '')
@@ -107,6 +107,25 @@ def increment_click_count(url):
             link.bot_click_count = (link.bot_click_count or 0) + 1
         else:
             link.click_count = (link.click_count or 0) + 1
+            
+            # Track theme from cookie (only for humans)
+            theme = request.cookies.get('lotsoftools_theme', '')
+            if theme == 'light':
+                link.light_clicks = (link.light_clicks or 0) + 1
+            elif theme == 'dark':
+                link.dark_clicks = (link.dark_clicks or 0) + 1
+            elif theme == 'high-contrast':
+                link.high_contrast_clicks = (link.high_contrast_clicks or 0) + 1
+            else:
+                link.system_theme_clicks = (link.system_theme_clicks or 0) + 1
+            
+            # Track language from session (only for humans)
+            lang = session.get('lang', 'en')
+            if lang == 'en':
+                link.en_clicks = (link.en_clicks or 0) + 1
+            elif lang == 'de':
+                link.de_clicks = (link.de_clicks or 0) + 1
+        
         db.session.commit()
         return True
     return False
@@ -114,7 +133,37 @@ def increment_click_count(url):
 def get_links_stats():
     """Get all links with stats, ordered by click count descending."""
     links = Link.query.order_by(Link.click_count.desc()).all()
-    return [{'name': link.name, 'url': link.url, 'click_count': link.click_count or 0, 'bot_click_count': link.bot_click_count or 0} for link in links]
+    return [{
+        'name': link.name, 
+        'url': link.url, 
+        'click_count': link.click_count or 0, 
+        'bot_click_count': link.bot_click_count or 0,
+        'light_clicks': link.light_clicks or 0,
+        'dark_clicks': link.dark_clicks or 0,
+        'high_contrast_clicks': link.high_contrast_clicks or 0,
+        'system_theme_clicks': link.system_theme_clicks or 0,
+        'en_clicks': link.en_clicks or 0,
+        'de_clicks': link.de_clicks or 0
+    } for link in links]
+
+def get_theme_language_totals():
+    """Get total counts for theme and language across all links."""
+    links = Link.query.all()
+    light = sum(link.light_clicks or 0 for link in links)
+    dark = sum(link.dark_clicks or 0 for link in links)
+    high_contrast = sum(link.high_contrast_clicks or 0 for link in links)
+    system_theme = sum(link.system_theme_clicks or 0 for link in links)
+    total_theme = light + dark + high_contrast + system_theme
+    totals = {
+        'light': light,
+        'dark': dark,
+        'high_contrast': high_contrast,
+        'system_theme': system_theme,
+        'system_theme_pct': round(system_theme / total_theme * 100, 1) if total_theme > 0 else 0,
+        'en': sum(link.en_clicks or 0 for link in links),
+        'de': sum(link.de_clicks or 0 for link in links)
+    }
+    return totals
 
 def get_links_by_category(lang=None):
     if lang is None:

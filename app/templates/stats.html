@@ -55,8 +55,14 @@
                     <th style="width: 50px;">#</th>
                     <th>Name</th>
                     <th>URL</th>
-                    <th class="text-end" style="width: 100px;">Clicks</th>
-                    <th class="text-end" style="width: 100px;">Bots</th>
+                    <th class="text-end" style="width: 80px;">Clicks</th>
+                    <th class="text-end" style="width: 80px;">Bots</th>
+                    <th class="text-end" style="width: 80px;"><i class="fas fa-sun"></i></th>
+                    <th class="text-end" style="width: 80px;"><i class="fas fa-moon"></i></th>
+                    <th class="text-end" style="width: 80px;"><i class="fas fa-adjust"></i></th>
+                    <th class="text-end" style="width: 80px;"><i class="fas fa-desktop"></i></th>
+                    <th class="text-end" style="width: 80px;">EN</th>
+                    <th class="text-end" style="width: 80px;">DE</th>
                 </tr>
             </thead>
             <tbody>
@@ -81,6 +87,12 @@
                             {{ link.bot_click_count }}
                         </span>
                     </td>
+                    <td class="text-end"><span class="badge bg-light text-dark">{{ link.light_clicks }}</span></td>
+                    <td class="text-end"><span class="badge bg-dark">{{ link.dark_clicks }}</span></td>
+                    <td class="text-end"><span class="badge bg-secondary">{{ link.high_contrast_clicks }}</span></td>
+                    <td class="text-end"><span class="badge bg-primary">{{ link.system_theme_clicks }}</span></td>
+                    <td class="text-end"><span class="badge bg-primary">{{ link.en_clicks }}</span></td>
+                    <td class="text-end"><span class="badge bg-info">{{ link.de_clicks }}</span></td>
                 </tr>
                 {% endfor %}
             </tbody>
@@ -114,6 +126,14 @@
                     <i class="fas fa-robot me-1"></i>{{ link.bot_click_count }}
                 </span>
             </div>
+            <div class="card-badges mt-1">
+                <span class="badge bg-light text-dark"><i class="fas fa-sun me-1"></i>{{ link.light_clicks }}</span>
+                <span class="badge bg-dark ms-1"><i class="fas fa-moon me-1"></i>{{ link.dark_clicks }}</span>
+                <span class="badge bg-secondary ms-1"><i class="fas fa-adjust me-1"></i>{{ link.high_contrast_clicks }}</span>
+                <span class="badge bg-primary ms-1"><i class="fas fa-desktop me-1"></i>{{ link.system_theme_clicks }}</span>
+                <span class="badge bg-primary ms-1">EN: {{ link.en_clicks }}</span>
+                <span class="badge bg-info ms-1">DE: {{ link.de_clicks }}</span>
+            </div>
         </div>
         {% endfor %}
     </div>
@@ -123,6 +143,25 @@
         Total clicks: {{ links|map(attribute='click_count')|sum }} |
         Total bot clicks: {{ links|map(attribute='bot_click_count')|sum }}
     </p>
+    
+    <div class="row mt-4">
+        <div class="col-md-6">
+            <h3 class="h5"><i class="fas fa-palette me-2"></i>Theme Usage</h3>
+            <div class="d-flex gap-2 flex-wrap">
+                <span class="badge bg-light text-dark"><i class="fas fa-sun me-1"></i>Light: {{ theme_lang_totals.light }}</span>
+                <span class="badge bg-dark"><i class="fas fa-moon me-1"></i>Dark: {{ theme_lang_totals.dark }}</span>
+                <span class="badge bg-secondary"><i class="fas fa-adjust me-1"></i>High Contrast: {{ theme_lang_totals.high_contrast }}</span>
+                <span class="badge bg-primary"><i class="fas fa-desktop me-1"></i>System: {{ theme_lang_totals.system_theme }} ({{ theme_lang_totals.system_theme_pct }}%)</span>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <h3 class="h5"><i class="fas fa-language me-2"></i>Language Usage</h3>
+            <div class="d-flex gap-2 flex-wrap">
+                <span class="badge bg-primary">English: {{ theme_lang_totals.en }}</span>
+                <span class="badge bg-info">Deutsch: {{ theme_lang_totals.de }}</span>
+            </div>
+        </div>
+    </div>
     
     {% if bot_user_agents %}
     <h2 class="mt-5 mb-3"><i class="fas fa-robot me-2"></i>Bot User Agents (since restart)</h2>

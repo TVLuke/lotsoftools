@@ -106,9 +106,11 @@ def stats():
     bot_user_agents = link_service.get_bot_user_agents()
     human_user_agents = link_service.get_human_user_agents()
     server_start_time = link_service.get_server_start_time()
+    theme_lang_totals = link_service.get_theme_language_totals()
     response = make_response(render_template('stats.html', links=links, user_agents=user_agents, 
                           bot_user_agents=bot_user_agents, human_user_agents=human_user_agents,
-                          server_start_time=server_start_time, instance_id=INSTANCE_ID))
+                          server_start_time=server_start_time, instance_id=INSTANCE_ID,
+                          theme_lang_totals=theme_lang_totals))
     response.headers['Cache-Control'] = 'no-cache, no-store, must-revalidate'
     response.headers['Pragma'] = 'no-cache'
     response.headers['Expires'] = '0'
@@ -120,10 +122,12 @@ def stats_csv():
     
     output = io.StringIO()
     writer = csv.writer(output)
-    writer.writerow(['name', 'url', 'click_count', 'bot_click_count'])
+    writer.writerow(['name', 'url', 'click_count', 'bot_click_count', 'light_clicks', 'dark_clicks', 'high_contrast_clicks', 'system_theme_clicks', 'en_clicks', 'de_clicks'])
     
     for link in links:
-        writer.writerow([link['name'], link['url'], link['click_count'], link['bot_click_count']])
+        writer.writerow([link['name'], link['url'], link['click_count'], link['bot_click_count'], 
+                        link['light_clicks'], link['dark_clicks'], link['high_contrast_clicks'], link['system_theme_clicks'],
+                        link['en_clicks'], link['de_clicks']])
     
     response = make_response(output.getvalue())
     response.headers['Content-Type'] = 'text/csv'
