@@ -9,6 +9,7 @@ import hashlib
 import re
 from datetime import datetime
 from urllib.parse import urlparse
+from urllib.robotparser import RobotFileParser
 from html.parser import HTMLParser
 from app.services.link_service import increment_click_count
 
@@ -79,8 +80,61 @@ url_checker_bp = Blueprint('url_checker', __name__, url_prefix='/tools')
 # Request timeout in seconds
 REQUEST_TIMEOUT = 15
 
-# User agent to use for requests
-USER_AGENT = 'Mozilla/5.0 (compatible; LotsOfTools URL Checker/1.0)'
+
+def get_user_agent():
+    """Generate User-Agent string with dynamic domain from current request."""
+    host = request.host_url.rstrip('/')
+    return f'Mozilla/5.0 (compatible; LotsOfTools URL Checker/1.0; +{host}/tools/url-checker)'
+
+
+def check_robots_txt(url, user_agent):
+    """Check if robots.txt allows access to the given URL.
+    
+    Returns:
+        dict with 'allowed' (bool), 'robots_url' (str), 'error' (str or None)
+    """
+    parsed = urlparse(url)
+    robots_url = f"{parsed.scheme}://{parsed.netloc}/robots.txt"
+    
+    try:
+        rp = RobotFileParser()
+        rp.set_url(robots_url)
+        
+        # Fetch robots.txt with timeout
+        response = requests.get(robots_url, timeout=5, headers={'User-Agent': user_agent})
+        if response.status_code == 200:
+            rp.parse(response.text.splitlines())
+            allowed = rp.can_fetch(user_agent, url)
+            return {
+                'allowed': allowed,
+                'robots_url': robots_url,
+                'found': True,
+                'error': None
+            }
+        elif response.status_code == 404:
+            # No robots.txt means everything is allowed
+            return {
+                'allowed': True,
+                'robots_url': robots_url,
+                'found': False,
+                'error': None
+            }
+        else:
+            # Other errors - assume allowed but note the issue
+            return {
+                'allowed': True,
+                'robots_url': robots_url,
+                'found': False,
+                'error': f'robots.txt returned status {response.status_code}'
+            }
+    except Exception as e:
+        # On error, assume allowed but note the issue
+        return {
+            'allowed': True,
+            'robots_url': robots_url,
+            'found': False,
+            'error': str(e)
+        }
 
 # Cache for URL check results (prevents DOS by rapid repeated requests)
 # Format: {cache_key: {'result': ..., 'timestamp': ...}}
@@ -260,6 +314,8 @@ def check_url():
     if ':' in hostname:
         hostname = hostname.split(':')[0]
     
+    user_agent = get_user_agent()
+    
     result = {
         'url': url,
         'timestamp': datetime.now().isoformat(),
@@ -271,6 +327,7 @@ def check_url():
         'redirects': [],
         'headers': {},
         'ssl': None,
+        'robots_txt': None,
         'meta_tags': {},
         'content_hash': None,
         'content_changed': None,
@@ -284,19 +341,28 @@ def check_url():
     except Exception as e:
         result['ssl'] = {'valid': False, 'error': str(e)}
     
+    # Check robots.txt
+    robots_check = check_robots_txt(url, user_agent)
+    result['robots_txt'] = robots_check
+    content_allowed = robots_check['allowed']
+    
     # Make HTTP request
     try:
         start_time = time.time()
         
         headers = {
-            'User-Agent': USER_AGENT,
+            'User-Agent': user_agent,
             'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
             'Accept-Language': 'en-US,en;q=0.5',
         }
         
+        # Use HEAD if robots.txt forbids content (don't download body)
+        # Use GET if content is allowed (need body for meta tags and hash)
+        request_method = requests.get if content_allowed else requests.head
+        
         # Track redirects manually if needed
         if follow_redirects:
-            response = requests.get(
+            response = request_method(
                 url,
                 headers=headers,
                 timeout=REQUEST_TIMEOUT,
@@ -314,7 +380,7 @@ def check_url():
             
             result['final_url'] = response.url
         else:
-            response = requests.get(
+            response = request_method(
                 url,
                 headers=headers,
                 timeout=REQUEST_TIMEOUT,
@@ -334,20 +400,26 @@ def check_url():
         # Collect all response headers
         result['headers'] = dict(response.headers)
         
-        # Extract meta tags from HTML content
-        content_type = response.headers.get('Content-Type', '')
-        if 'text/html' in content_type or 'application/xhtml' in content_type:
-            try:
-                html_content = response.content.decode('utf-8', errors='ignore')
-                result['meta_tags'] = extract_meta_tags(html_content)
-            except Exception:
+        # Only extract content if robots.txt allows
+        if content_allowed:
+            # Extract meta tags from HTML content
+            content_type = response.headers.get('Content-Type', '')
+            if 'text/html' in content_type or 'application/xhtml' in content_type:
+                try:
+                    html_content = response.content.decode('utf-8', errors='ignore')
+                    result['meta_tags'] = extract_meta_tags(html_content)
+                except Exception:
+                    result['meta_tags'] = {}
+            else:
                 result['meta_tags'] = {}
+            
+            # Compute content hash (change detection handled in frontend via localStorage)
+            content_hash = _compute_content_hash(response.content)
+            result['content_hash'] = content_hash[:16]  # Short hash for display
         else:
-            result['meta_tags'] = {}
-        
-        # Compute content hash (change detection handled in frontend via localStorage)
-        content_hash = _compute_content_hash(response.content)
-        result['content_hash'] = content_hash[:16]  # Short hash for display
+            # robots.txt forbids content access - skip meta tags and change detection
+            result['meta_tags'] = {'_blocked': 'Content not fetched due to robots.txt'}
+            result['content_hash'] = None
         
     except requests.exceptions.SSLError as e:
         result['error'] = {

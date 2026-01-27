@@ -60,6 +60,10 @@
           {
             "en": "<strong>Headers:</strong> View response headers from the server",
             "de": "<strong>Header:</strong> Antwort-Header vom Server anzeigen"
+          },
+          {
+            "en": "<strong>Robots.txt:</strong> Respects robots.txt rules and skips content analysis when disallowed",
+            "de": "<strong>Robots.txt:</strong> Respektiert robots.txt-Regeln und überspringt Inhaltsanalyse wenn nicht erlaubt"
           }
         ]
       },

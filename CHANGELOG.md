@@ -5,6 +5,7 @@ All notable changes to this project will be documented in this file.
 ## [1.1.7] - 2026-01-27
 
 - Enhanced textarea: configurable controls panel with syntax highlighting, text transforms, and undo/redo history
+- URL Checker: identifies itself in User-Agent, respects robots.txt (uses HEAD request when disallowed)
 
 ## [1.1.6] - 2026-01-24
 

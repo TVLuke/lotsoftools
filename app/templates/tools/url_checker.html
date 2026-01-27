@@ -205,7 +205,9 @@ const t = {
         contentChanged: 'Content Changed',
         contentUnchanged: 'Content Unchanged',
         firstCheck: 'First Check',
-        previousHash: 'Previous hash'
+        previousHash: 'Previous hash',
+        robotsBlocked: 'Content not fetched (robots.txt)',
+        robotsAllowed: 'robots.txt allows access'
     },
     de: {
         checking: 'Prüfe...',
@@ -233,7 +235,9 @@ const t = {
         contentChanged: 'Inhalt geändert',
         contentUnchanged: 'Inhalt unverändert',
         firstCheck: 'Erste Prüfung',
-        previousHash: 'Vorheriger Hash'
+        previousHash: 'Vorheriger Hash',
+        robotsBlocked: 'Inhalt nicht abgerufen (robots.txt)',
+        robotsAllowed: 'robots.txt erlaubt Zugriff'
     }
 }[lang] || {
     checking: 'Checking...',
@@ -249,6 +253,8 @@ const t = {
     contentUnchanged: 'Content Unchanged',
     firstCheck: 'First Check',
     previousHash: 'Previous hash',
+    robotsBlocked: 'Content not fetched (robots.txt)',
+    robotsAllowed: 'robots.txt allows access',
     headers: 'Response Headers',
     noHeaders: 'No headers collected',
     ssl: 'SSL Certificate',
@@ -423,6 +429,15 @@ function renderResults(data) {
                 ${previousHash && previousHash !== data.content_hash ? `<small class="text-muted">(${t.previousHash}: ${escapeHtml(previousHash)})</small>` : ''}
             </div>
         `;
+    } else if (data.robots_txt && !data.robots_txt.allowed) {
+        // Show robots.txt blocked message
+        html += `
+            <div class="mb-3">
+                <span class="badge bg-secondary">
+                    <i class="fas fa-robot me-1"></i>${t.robotsBlocked}
+                </span>
+            </div>
+        `;
     }
     
     // SSL Certificate
@@ -501,8 +516,9 @@ function renderResults(data) {
         html += `</div></div>`;
     }
     
-    // Meta Tags
-    if (data.meta_tags && Object.keys(data.meta_tags).length > 0) {
+    // Meta Tags (skip if only contains _blocked key)
+    const metaKeys = data.meta_tags ? Object.keys(data.meta_tags).filter(k => k !== '_blocked') : [];
+    if (metaKeys.length > 0) {
         html += `
             <div class="card mb-3">
                 <div class="card-header">
@@ -519,7 +535,7 @@ function renderResults(data) {
         
         // Then other meta tags
         for (const [key, value] of Object.entries(data.meta_tags)) {
-            if (key !== 'title' && value) {
+            if (key !== 'title' && key !== '_blocked' && value) {
                 html += `<tr><td><strong>${escapeHtml(key)}</strong></td><td class="text-break">${escapeHtml(value)}</td></tr>`;
             }
         }
