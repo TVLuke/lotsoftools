@@ -97,6 +97,26 @@
       "disclaimer": {
         "en": "⚠️ Disclaimer: Always test generated barcodes with appropriate scanning equipment before commercial use or printing. We are not responsible for scanning failures or incorrect data encoding. Verify barcode format compatibility with your systems.",
         "de": "⚠️ Haftungsausschluss: Testen Sie generierte Barcodes immer mit geeigneten Scannern vor kommerziellem Einsatz oder Druck. Wir sind nicht verantwortlich für Scanfehler oder falsche Datenkodierung. Überprüfen Sie die Barcode-Format-Kompatibilität mit Ihren Systemen."
+      },
+      "search_queries": {
+        "en": [
+          "How to create a barcode online?",
+          "Free EAN-13 barcode generator",
+          "Generate UPC code for my product",
+          "Create barcode from number",
+          "EAN-8 vs EAN-13 difference",
+          "Download barcode as PNG",
+          "Make barcode for inventory"
+        ],
+        "de": [
+          "Wie erstelle ich einen Barcode online?",
+          "Kostenloser EAN-13 Barcode-Generator",
+          "UPC-Code für mein Produkt erstellen",
+          "Barcode aus Nummer erstellen",
+          "EAN-8 vs EAN-13 Unterschied",
+          "Barcode als PNG herunterladen",
+          "Barcode für Inventar erstellen"
+        ]
       }
     }
   }

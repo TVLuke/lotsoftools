@@ -93,6 +93,24 @@
       "disclaimer": {
         "en": "⚠️ Disclaimer: Generated strings are provided without any guarantees regarding randomness, uniqueness, or suitability for any specific purpose. Use at your own discretion. Do not use strings from cached or archived pages.",
         "de": "⚠️ Haftungsausschluss: Generierte Strings werden ohne Garantien bezüglich Zufälligkeit, Einzigartigkeit oder Eignung für bestimmte Zwecke bereitgestellt. Verwendung auf eigene Verantwortung. Verwenden Sie keine Strings von zwischengespeicherten oder archivierten Seiten."
+      },
+      "search_queries": {
+        "en": [
+          "Random password generator",
+          "Generate random string online",
+          "Secure password creator",
+          "Random API key generator",
+          "Create random token",
+          "Password generator with symbols"
+        ],
+        "de": [
+          "Zufälliges Passwort Generator",
+          "Zufallsstring online generieren",
+          "Sicherer Passwort-Ersteller",
+          "Zufälliger API-Schlüssel-Generator",
+          "Zufälliges Token erstellen",
+          "Passwort-Generator mit Symbolen"
+        ]
       }
     }
   }

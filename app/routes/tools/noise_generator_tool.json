@@ -107,6 +107,24 @@
             "privacy_note": {
                 "en": "🔒 Privacy-Friendly: All audio is generated entirely in your browser using the Web Audio API. No data is sent to any server.",
                 "de": "🔒 Datenschutzfreundlich: Alle Audiodaten werden vollständig in Ihrem Browser mit der Web Audio API erzeugt. Es werden keine Daten an einen Server gesendet."
+            },
+            "search_queries": {
+                "en": [
+                    "White noise for sleep",
+                    "Pink noise generator online",
+                    "Brown noise for focus",
+                    "Background noise for studying",
+                    "Noise machine online free",
+                    "Relaxation sounds generator"
+                ],
+                "de": [
+                    "Weißes Rauschen zum Schlafen",
+                    "Rosa-Rauschen-Generator online",
+                    "Braunes Rauschen zur Konzentration",
+                    "Hintergrundgeräusche zum Lernen",
+                    "Geräuschmaschine online kostenlos",
+                    "Entspannungsgeräusche-Generator"
+                ]
             }
         }
     }

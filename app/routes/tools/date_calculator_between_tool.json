@@ -62,6 +62,24 @@
             "privacy_note": {
                 "en": "🔒 Privacy-Friendly: This calculator runs entirely in your browser. No data is sent to any server.",
                 "de": "🔒 Datenschutzfreundlich: Dieser Rechner läuft vollständig in Ihrem Browser. Es werden keine Daten an einen Server gesendet."
+            },
+            "search_queries": {
+                "en": [
+                    "How many days between two dates?",
+                    "Calculate time between dates",
+                    "Days between dates calculator",
+                    "Weeks between two dates",
+                    "Date difference calculator",
+                    "How long until a date?"
+                ],
+                "de": [
+                    "Wie viele Tage zwischen zwei Daten?",
+                    "Zeit zwischen Daten berechnen",
+                    "Tage zwischen Daten Rechner",
+                    "Wochen zwischen zwei Daten",
+                    "Datumsdifferenz-Rechner",
+                    "Wie lange bis zu einem Datum?"
+                ]
             }
         }
     }

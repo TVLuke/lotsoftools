@@ -77,6 +77,24 @@
       "privacy_note": {
         "en": "🔒 Privacy first: Your image stays on your device. This tool does not upload files to a server and does not store your data.",
         "de": "🔒 Datenschutzfreundlich: Ihr Bild bleibt auf Ihrem Gerät. Dieses Tool lädt keine Dateien auf einen Server hoch und speichert keine Daten."
+      },
+      "search_queries": {
+        "en": [
+          "Crop image online free",
+          "Crop photo to square",
+          "Image cropper 16:9",
+          "Resize and crop image",
+          "Cut image without upload",
+          "Crop picture for profile"
+        ],
+        "de": [
+          "Bild online zuschneiden kostenlos",
+          "Foto auf Quadrat zuschneiden",
+          "Bild zuschneiden 16:9",
+          "Bild zuschneiden und skalieren",
+          "Bild ohne Upload zuschneiden",
+          "Profilbild zuschneiden"
+        ]
       }
     }
   }

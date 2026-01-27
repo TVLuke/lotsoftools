@@ -64,6 +64,24 @@
             "privacy_note": {
                 "en": "🔒 Privacy-Friendly: All time calculations happen in your browser. No data is sent to any server.",
                 "de": "🔒 Datenschutzfreundlich: Alle Zeitberechnungen erfolgen in Ihrem Browser. Es werden keine Daten an einen Server gesendet."
+            },
+            "search_queries": {
+                "en": [
+                    "What time is it now?",
+                    "Current time in different timezones",
+                    "Online analog clock",
+                    "World clock with timezones",
+                    "Digital clock display",
+                    "Time in Tokyo/London/New York"
+                ],
+                "de": [
+                    "Wie spät ist es jetzt?",
+                    "Aktuelle Uhrzeit in verschiedenen Zeitzonen",
+                    "Online Analoguhr",
+                    "Weltuhr mit Zeitzonen",
+                    "Digitale Uhranzeige",
+                    "Uhrzeit in Tokio/London/New York"
+                ]
             }
         }
     }

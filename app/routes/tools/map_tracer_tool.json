@@ -89,6 +89,24 @@
       "privacy_note": {
         "en": "🔒 Privacy-Friendly: All drawing and calculations happen in your browser. Your location and routes are never sent to our servers.",
         "de": "🔒 Datenschutzfreundlich: Alle Zeichnungen und Berechnungen erfolgen in Ihrem Browser. Ihr Standort und Ihre Routen werden nie an unsere Server gesendet."
+      },
+      "search_queries": {
+        "en": [
+          "Draw route on map",
+          "Measure walking distance",
+          "Trace path on map",
+          "Running route planner",
+          "Draw line on map measure distance",
+          "Export route as image"
+        ],
+        "de": [
+          "Route auf Karte zeichnen",
+          "Gehstrecke messen",
+          "Pfad auf Karte nachzeichnen",
+          "Laufstrecken-Planer",
+          "Linie auf Karte zeichnen Entfernung messen",
+          "Route als Bild exportieren"
+        ]
       }
     }
   }

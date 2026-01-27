@@ -105,6 +105,24 @@
       "disclaimer": {
         "en": "⚠️ Disclaimer: IP geolocation is approximate and may be inaccurate. Location data should not be used for legal purposes, fraud detection, or any application requiring precise location. ISP and organization data may be outdated.",
         "de": "⚠️ Haftungsausschluss: IP-Geolokalisierung ist ungenau und kann fehlerhaft sein. Standortdaten sollten nicht für rechtliche Zwecke, Betrugserkennung oder Anwendungen verwendet werden, die eine präzise Lokalisierung erfordern. ISP- und Organisationsdaten können veraltet sein."
+      },
+      "search_queries": {
+        "en": [
+          "What is my IP address?",
+          "IP location lookup",
+          "Find location of IP address",
+          "IP to country converter",
+          "Who owns this IP address?",
+          "Check IP geolocation"
+        ],
+        "de": [
+          "Was ist meine IP-Adresse?",
+          "IP-Standort-Lookup",
+          "Standort einer IP-Adresse finden",
+          "IP zu Land Konverter",
+          "Wem gehört diese IP-Adresse?",
+          "IP-Geolokalisierung prüfen"
+        ]
       }
     }
   }

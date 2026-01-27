@@ -89,6 +89,24 @@
       "privacy_note": {
         "en": "🔒 Privacy-Friendly: All text analysis happens in your browser. Your text never leaves your device.",
         "de": "🔒 Datenschutzfreundlich: Alle Textanalysen erfolgen in Ihrem Browser. Ihr Text verlässt nie Ihr Gerät."
+      },
+      "search_queries": {
+        "en": [
+          "Count characters in text",
+          "Word counter online",
+          "How many words in my text?",
+          "Character count for Twitter",
+          "Letter frequency analyzer",
+          "Text length checker"
+        ],
+        "de": [
+          "Zeichen im Text zählen",
+          "Wortzähler online",
+          "Wie viele Wörter in meinem Text?",
+          "Zeichenzähler für Twitter",
+          "Buchstabenhäufigkeit analysieren",
+          "Textlänge prüfen"
+        ]
       }
     }
   }

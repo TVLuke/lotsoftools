@@ -86,6 +86,24 @@
       "privacy_note": {
         "en": "🔒 Privacy-Friendly: Your location is only used locally in your browser. We don't store any location data on our servers.",
         "de": "🔒 Datenschutzfreundlich: Ihr Standort wird nur lokal in Ihrem Browser verwendet. Wir speichern keine Standortdaten auf unseren Servern."
+      },
+      "search_queries": {
+        "en": [
+          "Share location on map",
+          "Pin location to share",
+          "Create map link with marker",
+          "Share GPS coordinates",
+          "Send location to someone",
+          "Mark place on map"
+        ],
+        "de": [
+          "Standort auf Karte teilen",
+          "Ort markieren zum Teilen",
+          "Kartenlink mit Markierung erstellen",
+          "GPS-Koordinaten teilen",
+          "Standort an jemanden senden",
+          "Ort auf Karte markieren"
+        ]
       }
     }
   }

@@ -93,6 +93,24 @@
       "privacy_note": {
         "en": "🔒 Privacy-Friendly: All icon browsing happens in your browser. No data is sent to servers. Icons are loaded from CDNs (Font Awesome and Lucide).",
         "de": "🔒 Datenschutzfreundlich: Das gesamte Icon-Browsing erfolgt in Ihrem Browser. Keine Daten werden an Server gesendet. Icons werden von CDNs geladen (Font Awesome und Lucide)."
+      },
+      "search_queries": {
+        "en": [
+          "Font Awesome icons list",
+          "Find icon by name",
+          "Free icons for website",
+          "Lucide icons search",
+          "Copy icon code HTML",
+          "Browse all icons"
+        ],
+        "de": [
+          "Font Awesome Icons Liste",
+          "Icon nach Name finden",
+          "Kostenlose Icons für Website",
+          "Lucide Icons Suche",
+          "Icon-Code HTML kopieren",
+          "Alle Icons durchsuchen"
+        ]
       }
     }
   }

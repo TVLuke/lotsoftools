@@ -97,6 +97,38 @@
       "disclaimer": {
         "en": "⚠️ Disclaimer: Conversions are provided for informational purposes only. Do not rely on these results for medical dosages, engineering calculations, or other critical applications without independent verification.",
         "de": "⚠️ Haftungsausschluss: Umrechnungen dienen nur zu Informationszwecken. Verlassen Sie sich nicht auf diese Ergebnisse für medizinische Dosierungen, technische Berechnungen oder andere kritische Anwendungen ohne unabhängige Überprüfung."
+      },
+      "search_queries": {
+        "en": [
+          "Convert meters to feet",
+          "Convert feet to meters",
+          "Celsius to Fahrenheit",
+          "Fahrenheit to Celsius",
+          "Pounds to kilograms",
+          "Kilograms to pounds",
+          "Unit converter online",
+          "Liters to gallons",
+          "Gallons to liters",
+          "Miles to kilometers",
+          "Kilometers to miles",
+          "Inches to centimeters",
+          "Centimeters to inches"
+        ],
+        "de": [
+          "Meter in Fuß umrechnen",
+          "Fuß in Meter umrechnen",
+          "Celsius zu Fahrenheit",
+          "Fahrenheit zu Celsius",
+          "Pfund zu Kilogramm",
+          "Kilogramm zu Pfund",
+          "Einheitenumrechner online",
+          "Liter in Gallonen",
+          "Gallonen in Liter",
+          "Meilen zu Kilometer",
+          "Kilometer zu Meilen",
+          "Zoll in Zentimeter",
+          "Zentimeter in Zoll"
+        ]
       }
     }
   }

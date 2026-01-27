@@ -82,6 +82,24 @@
             "privacy_note": {
                 "en": "🔒 Privacy-Friendly: All conversions happen in your browser. No data is sent to any server.",
                 "de": "🔒 Datenschutzfreundlich: Alle Konvertierungen erfolgen in Ihrem Browser. Es werden keine Daten an einen Server gesendet."
+            },
+            "search_queries": {
+                "en": [
+                    "Unix timestamp converter",
+                    "Convert epoch to date",
+                    "ISO 8601 converter",
+                    "What is current Unix time?",
+                    "Timestamp to human date",
+                    "Date to Unix seconds"
+                ],
+                "de": [
+                    "Unix-Zeitstempel-Konverter",
+                    "Epoch zu Datum konvertieren",
+                    "ISO 8601 Konverter",
+                    "Was ist aktuelle Unix-Zeit?",
+                    "Zeitstempel zu Datum",
+                    "Datum zu Unix-Sekunden"
+                ]
             }
         }
     }

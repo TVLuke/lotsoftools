@@ -48,6 +48,45 @@
       "data_source": {
         "en": "Holiday data is provided by the <a href=\"https://www.openholidaysapi.org/en/faq/\" target=\"_blank\">OpenHolidays API</a>. The OpenHolidays API project is open data, its use is free of charge and also permitted in commercial projects. All data comes from public sources and is documented under Data Sources. The processed data is licensed under the <a href=\"https://opendatacommons.org/licenses/odbl/\" target=\"_blank\">ODC Open Database Licence (ODbL)</a>.",
         "de": "Feiertagsdaten werden von der <a href=\"https://www.openholidaysapi.org/en/faq/\" target=\"_blank\">OpenHolidays API</a> bereitgestellt. Das OpenHolidays API-Projekt ist Open Data, die Nutzung ist kostenlos und auch in kommerziellen Projekten gestattet. Alle Daten stammen aus öffentlichen Quellen und sind unter Data Sources dokumentiert. Die verarbeiteten Daten sind unter der <a href=\"https://opendatacommons.org/licenses/odbl/\" target=\"_blank\">ODC Open Database Licence (ODbL)</a> lizenziert."
+      },
+      "search_queries": {
+        "en": [
+          "When are school holidays?",
+          "Bank holidays 2026",
+          "Bank holidays 2027",
+          "Public holidays in Germany",
+          "Public holidays in Austria",
+          "School vacation dates",
+          "Holiday calendar download",
+          "When is Easter holiday?",
+          "German federal state holidays",
+          "School holidays Germany 2026",
+          "School holidays Germany 2027",
+          "School holidays Austria 2026"
+        ],
+        "de": [
+          "Wann sind Schulferien?",
+          "Feiertage 2026",
+          "Feiertage 2027",
+          "Gesetzliche Feiertage Deutschland",
+          "Feiertage Österreich",
+          "Schulferien Termine",
+          "Ferienkalender Download",
+          "Wann sind Osterferien?",
+          "Schulferien Bayern 2026",
+          "Schulferien NRW 2026",
+          "Schulferien Baden-Württemberg 2026",
+          "Schulferien Niedersachsen 2026",
+          "Schulferien Hessen 2026",
+          "Schulferien Berlin 2026",
+          "Schulferien Sachsen 2026",
+          "Schulferien Bayern 2027",
+          "Schulferien NRW 2027",
+          "Sommerferien Deutschland 2026",
+          "Herbstferien 2026",
+          "Winterferien 2026",
+          "Pfingstferien 2026"
+        ]
       }
     }
   }

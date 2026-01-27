@@ -62,6 +62,24 @@
             "privacy_note": {
                 "en": "🔒 Privacy-Friendly: This calculator runs entirely in your browser. No data is sent to any server.",
                 "de": "🔒 Datenschutzfreundlich: Dieser Rechner läuft vollständig in Ihrem Browser. Es werden keine Daten an einen Server gesendet."
+            },
+            "search_queries": {
+                "en": [
+                    "How many days until Christmas?",
+                    "Countdown to a date",
+                    "Days until my birthday",
+                    "How long until New Year?",
+                    "Time remaining until deadline",
+                    "Weeks until vacation"
+                ],
+                "de": [
+                    "Wie viele Tage bis Weihnachten?",
+                    "Countdown zu einem Datum",
+                    "Tage bis zu meinem Geburtstag",
+                    "Wie lange bis Silvester?",
+                    "Verbleibende Zeit bis Frist",
+                    "Wochen bis zum Urlaub"
+                ]
             }
         }
     }

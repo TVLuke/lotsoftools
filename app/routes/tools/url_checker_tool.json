@@ -94,6 +94,24 @@
       "disclaimer": {
         "en": "⚠️ Disclaimer: This tool makes requests from our server, not your browser. Results may differ from your local experience due to geographic location, firewall rules, or network conditions.",
         "de": "⚠️ Haftungsausschluss: Dieses Tool sendet Anfragen von unserem Server, nicht von Ihrem Browser. Die Ergebnisse können aufgrund von geografischem Standort, Firewall-Regeln oder Netzwerkbedingungen von Ihrer lokalen Erfahrung abweichen."
+      },
+      "search_queries": {
+        "en": [
+          "Is this website down?",
+          "Check if URL works",
+          "Website status checker",
+          "HTTP status code checker",
+          "Is site up or down?",
+          "Check website response time"
+        ],
+        "de": [
+          "Ist diese Website offline?",
+          "Prüfen ob URL funktioniert",
+          "Website-Status-Prüfer",
+          "HTTP-Statuscode-Prüfer",
+          "Ist Seite online oder offline?",
+          "Website-Antwortzeit prüfen"
+        ]
       }
     }
   }

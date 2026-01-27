@@ -90,6 +90,24 @@
       "disclaimer": {
         "en": "⚠️ Disclaimer: IBAN validation only checks format and checksum correctness. A valid IBAN does not guarantee that the account exists, is active, or that transfers will succeed. Always verify bank details through official channels before making financial transactions.",
         "de": "⚠️ Haftungsausschluss: Die IBAN-Validierung prüft nur Format und Prüfsumme. Eine gültige IBAN garantiert nicht, dass das Konto existiert, aktiv ist oder dass Überweisungen erfolgreich sein werden. Überprüfen Sie Bankdaten immer über offizielle Kanäle, bevor Sie Finanztransaktionen durchführen."
+      },
+      "search_queries": {
+        "en": [
+          "Is this IBAN valid?",
+          "IBAN checker online",
+          "Find bank from IBAN",
+          "What is BIC for IBAN?",
+          "Validate bank account number",
+          "IBAN to bank name lookup"
+        ],
+        "de": [
+          "Ist diese IBAN gültig?",
+          "IBAN-Prüfer online",
+          "Bank aus IBAN finden",
+          "Was ist BIC für IBAN?",
+          "Kontonummer validieren",
+          "IBAN zu Bankname Suche"
+        ]
       }
     }
   }

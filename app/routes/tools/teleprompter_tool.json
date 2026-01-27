@@ -115,6 +115,24 @@
       "privacy_note": {
         "en": "🔒 Privacy-Friendly: All processing happens in your browser. Your script never leaves your device.",
         "de": "🔒 Datenschutzfreundlich: Alle Verarbeitung erfolgt in Ihrem Browser. Ihr Skript verlässt nie Ihr Gerät."
+      },
+      "search_queries": {
+        "en": [
+          "Free teleprompter online",
+          "Scrolling text for video",
+          "Speech prompter tool",
+          "Presentation text scroller",
+          "Mirror mode teleprompter",
+          "Online prompter for recording"
+        ],
+        "de": [
+          "Kostenloser Teleprompter online",
+          "Scrolltext für Video",
+          "Reden-Prompter-Tool",
+          "Präsentation Text-Scroller",
+          "Spiegelmodus-Teleprompter",
+          "Online-Prompter für Aufnahmen"
+        ]
       }
     }
   }

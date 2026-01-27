@@ -57,6 +57,24 @@
       "privacy_note": {
         "en": "🔒 Privacy-Friendly: All processing happens directly in your browser. Your text is never sent to any server.",
         "de": "🔒 Datenschutzfreundlich: Alle Verarbeitung erfolgt direkt in Ihrem Browser. Ihr Text wird niemals an einen Server gesendet."
+      },
+      "search_queries": {
+        "en": [
+          "Compare two texts online",
+          "Text diff tool free",
+          "Find differences between files",
+          "Side by side text comparison",
+          "What changed between versions?",
+          "Online diff checker"
+        ],
+        "de": [
+          "Zwei Texte online vergleichen",
+          "Text-Diff-Tool kostenlos",
+          "Unterschiede zwischen Dateien finden",
+          "Nebeneinander Textvergleich",
+          "Was hat sich zwischen Versionen geändert?",
+          "Online Diff-Prüfer"
+        ]
       }
     }
   }

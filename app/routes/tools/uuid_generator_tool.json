@@ -93,6 +93,24 @@
       "disclaimer": {
         "en": "⚠️ Disclaimer: UUIDs generated here are provided without any guarantees. While the browser's cryptographic random number generator is used, we cannot guarantee absolute uniqueness across all systems. Use these UUIDs at your own discretion and responsibility. Avoid using UUIDs from cached or archived pages.",
         "de": "⚠️ Haftungsausschluss: Die hier generierten UUIDs werden ohne Garantien bereitgestellt. Obwohl der kryptografische Zufallszahlengenerator des Browsers verwendet wird, können wir keine absolute Einzigartigkeit über alle Systeme hinweg garantieren. Verwenden Sie diese UUIDs nach eigenem Ermessen und auf eigene Verantwortung. Vermeiden Sie die Verwendung von UUIDs aus zwischengespeicherten oder archivierten Seiten."
+      },
+      "search_queries": {
+        "en": [
+          "Generate UUID online",
+          "Random GUID generator",
+          "Create UUID v4",
+          "Unique identifier generator",
+          "UUID without dashes",
+          "Free UUID maker"
+        ],
+        "de": [
+          "UUID online generieren",
+          "Zufälliger GUID-Generator",
+          "UUID v4 erstellen",
+          "Eindeutiger Bezeichner-Generator",
+          "UUID ohne Bindestriche",
+          "Kostenloser UUID-Maker"
+        ]
       }
     }
   }

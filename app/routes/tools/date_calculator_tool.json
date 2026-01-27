@@ -62,6 +62,24 @@
             "privacy_note": {
                 "en": "🔒 Privacy-Friendly: This calculator runs entirely in your browser. No data is sent to any server.",
                 "de": "🔒 Datenschutzfreundlich: Dieser Rechner läuft vollständig in Ihrem Browser. Es werden keine Daten an einen Server gesendet."
+            },
+            "search_queries": {
+                "en": [
+                    "How long ago was a date?",
+                    "Days since a specific date",
+                    "Time elapsed calculator",
+                    "How many days since my birthday?",
+                    "Calculate time passed since event",
+                    "Years months days since date"
+                ],
+                "de": [
+                    "Wie lange ist ein Datum her?",
+                    "Tage seit einem bestimmten Datum",
+                    "Vergangene Zeit Rechner",
+                    "Wie viele Tage seit meinem Geburtstag?",
+                    "Vergangene Zeit seit Ereignis berechnen",
+                    "Jahre Monate Tage seit Datum"
+                ]
             }
         }
     }

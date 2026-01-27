@@ -62,6 +62,24 @@
       "privacy_note": {
         "en": "🔒 Privacy-Friendly: This stopwatch runs entirely in your browser. No data is sent to any server.",
         "de": "🔒 Datenschutzfreundlich: Diese Stoppuhr läuft vollständig in Ihrem Browser. Es werden keine Daten an einen Server gesendet."
+      },
+      "search_queries": {
+        "en": [
+          "Online stopwatch",
+          "Timer with lap times",
+          "Free stopwatch online",
+          "Chronometer with milliseconds",
+          "Measure time online",
+          "Split time recorder"
+        ],
+        "de": [
+          "Online-Stoppuhr",
+          "Timer mit Rundenzeiten",
+          "Kostenlose Stoppuhr online",
+          "Chronometer mit Millisekunden",
+          "Zeit online messen",
+          "Zwischenzeit-Rekorder"
+        ]
       }
     }
   }

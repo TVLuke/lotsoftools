@@ -53,6 +53,24 @@
       "privacy_note": {
         "en": "🔒 Privacy First: All files are automatically deleted after 1 minute. No permanent storage, no tracking.",
         "de": "🔒 Datenschutz zuerst: Alle Dateien werden automatisch nach 1 Minute gelöscht. Keine dauerhafte Speicherung, kein Tracking."
+      },
+      "search_queries": {
+        "en": [
+          "Download YouTube video",
+          "YouTube to MP3",
+          "Convert YouTube to audio",
+          "Save YouTube video offline",
+          "YouTube video downloader",
+          "Extract audio from YouTube"
+        ],
+        "de": [
+          "YouTube-Video herunterladen",
+          "YouTube zu MP3",
+          "YouTube in Audio konvertieren",
+          "YouTube-Video offline speichern",
+          "YouTube-Video-Downloader",
+          "Audio von YouTube extrahieren"
+        ]
       }
     }
   }

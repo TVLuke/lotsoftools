@@ -89,6 +89,26 @@
       "privacy_note": {
         "en": "🔒 Privacy-Friendly: CSV processing happens entirely in your browser. Your data is never uploaded or sent to any server.",
         "de": "🔒 Datenschutzfreundlich: CSV-Verarbeitung erfolgt vollständig in Ihrem Browser. Ihre Daten werden nie hochgeladen oder an einen Server gesendet."
+      },
+      "search_queries": {
+        "en": [
+          "View CSV file online",
+          "CSV to table converter",
+          "Open CSV without Excel",
+          "Format CSV data as table",
+          "CSV viewer free online",
+          "Display CSV in browser",
+          "CSV file visualizer"
+        ],
+        "de": [
+          "CSV-Datei online anzeigen",
+          "CSV zu Tabelle Konverter",
+          "CSV ohne Excel öffnen",
+          "CSV-Daten als Tabelle formatieren",
+          "CSV-Viewer kostenlos online",
+          "CSV im Browser anzeigen",
+          "CSV-Datei-Visualisierer"
+        ]
       }
     }
   }

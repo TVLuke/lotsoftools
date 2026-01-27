@@ -97,6 +97,24 @@
       "disclaimer": {
         "en": "⚠️ Disclaimer: Always test generated QR codes with multiple scanning apps before printing or distribution. We are not responsible for scanning failures or incorrect data encoding. Verify the encoded content matches your input.",
         "de": "⚠️ Haftungsausschluss: Testen Sie generierte QR-Codes immer mit mehreren Scan-Apps vor dem Drucken oder der Verteilung. Wir sind nicht verantwortlich für Scanfehler oder falsche Datenkodierung. Überprüfen Sie, ob der kodierte Inhalt mit Ihrer Eingabe übereinstimmt."
+      },
+      "search_queries": {
+        "en": [
+          "Create QR code online free",
+          "QR code generator for URL",
+          "Make QR code for WiFi",
+          "Generate QR code from text",
+          "Download QR code as PNG",
+          "Free QR code maker"
+        ],
+        "de": [
+          "QR-Code online erstellen kostenlos",
+          "QR-Code-Generator für URL",
+          "QR-Code für WLAN erstellen",
+          "QR-Code aus Text generieren",
+          "QR-Code als PNG herunterladen",
+          "Kostenloser QR-Code-Maker"
+        ]
       }
     }
   }

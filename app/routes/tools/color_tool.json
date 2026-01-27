@@ -89,6 +89,28 @@
       "privacy_note": {
         "en": "🔒 Privacy-Friendly: All color conversions and palette generation happen in your browser. No data is sent to any server.",
         "de": "🔒 Datenschutzfreundlich: Alle Farbkonvertierungen und Palettengenerierung erfolgen in Ihrem Browser. Es werden keine Daten an einen Server gesendet."
+      },
+      "search_queries": {
+        "en": [
+          "How to convert hex to RGB?",
+          "What is the RGB value of a hex color?",
+          "How to create a color palette?",
+          "Convert color to CMYK for printing",
+          "What are complementary colors?",
+          "Generate tints and shades of a color",
+          "HSL to hex converter",
+          "What colors go well together?"
+        ],
+        "de": [
+          "Wie konvertiere ich Hex zu RGB?",
+          "Was ist der RGB-Wert einer Hex-Farbe?",
+          "Wie erstelle ich eine Farbpalette?",
+          "Farbe in CMYK für Druck umwandeln",
+          "Was sind Komplementärfarben?",
+          "Töne und Schattierungen einer Farbe erstellen",
+          "HSL zu Hex Konverter",
+          "Welche Farben passen gut zusammen?"
+        ]
       }
     }
   }

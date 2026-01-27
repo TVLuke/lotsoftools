@@ -32,6 +32,17 @@
                 {% if tool_data.seo.content.disclaimer %}
                 <p class="text-muted small mt-2">{{ tool_data.seo.content.disclaimer[current_lang]|safe }}</p>
                 {% endif %}
+                
+                {% if tool_data.seo.content.search_queries %}
+                <h3 class="h6 mb-2 mt-3">
+                    {% if current_lang == 'de' %}Dieses Tool beantwortet Fragen wie:{% else %}This tool answers questions like:{% endif %}
+                </h3>
+                <ul class="small text-muted">
+                    {% for query in tool_data.seo.content.search_queries[current_lang] %}
+                    <li>{{ query }}</li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
             </div>
         </div>
     </div>

@@ -83,6 +83,26 @@
             "privacy_note": {
                 "en": "🔒 Privacy-Friendly: All encoding and decoding happens in your browser. No data is sent to any server.",
                 "de": "🔒 Datenschutzfreundlich: Alle Kodierung und Dekodierung erfolgt in Ihrem Browser. Es werden keine Daten an einen Server gesendet."
+            },
+            "search_queries": {
+                "en": [
+                    "How to encode text to Base64?",
+                    "Decode Base64 string online",
+                    "What is Base64 encoding?",
+                    "Convert image to Base64",
+                    "Base64 decoder free online",
+                    "How to decode Base64 in browser?",
+                    "Base64 to text converter"
+                ],
+                "de": [
+                    "Wie kodiere ich Text in Base64?",
+                    "Base64-String online dekodieren",
+                    "Was ist Base64-Kodierung?",
+                    "Bild in Base64 umwandeln",
+                    "Base64 Decoder kostenlos online",
+                    "Wie dekodiere ich Base64 im Browser?",
+                    "Base64 zu Text Konverter"
+                ]
             }
         }
     }

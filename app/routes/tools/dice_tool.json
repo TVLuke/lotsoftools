@@ -72,6 +72,24 @@
             "privacy_note": {
                 "en": "🔒 Privacy-Friendly: All dice rolls happen in your browser. No data is sent to any server.",
                 "de": "🔒 Datenschutzfreundlich: Alle Würfelwürfe erfolgen in Ihrem Browser. Es werden keine Daten an einen Server gesendet."
+            },
+            "search_queries": {
+                "en": [
+                    "Roll a dice online",
+                    "Virtual D20 for D&D",
+                    "Flip a coin online",
+                    "Random dice roller",
+                    "Roll D6 dice",
+                    "Online dice for board games"
+                ],
+                "de": [
+                    "Würfel online werfen",
+                    "Virtueller W20 für D&D",
+                    "Münze online werfen",
+                    "Zufälliger Würfel",
+                    "W6 Würfel werfen",
+                    "Online-Würfel für Brettspiele"
+                ]
             }
         }
     }

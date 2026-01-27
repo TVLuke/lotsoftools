@@ -89,6 +89,24 @@
       "privacy_note": {
         "en": "🔒 Privacy-Friendly: All simulation happens in your browser. No location data is sent to any server.",
         "de": "🔒 Datenschutzfreundlich: Die gesamte Simulation erfolgt in Ihrem Browser. Es werden keine Standortdaten an einen Server gesendet."
+      },
+      "search_queries": {
+        "en": [
+          "Simulate walking on map",
+          "Virtual location movement",
+          "GPS location simulator",
+          "Explore map with keyboard",
+          "Fake GPS movement online",
+          "Virtual walking simulator"
+        ],
+        "de": [
+          "Gehen auf Karte simulieren",
+          "Virtuelle Standortbewegung",
+          "GPS-Standort-Simulator",
+          "Karte mit Tastatur erkunden",
+          "Fake GPS-Bewegung online",
+          "Virtueller Geh-Simulator"
+        ]
       }
     }
   }

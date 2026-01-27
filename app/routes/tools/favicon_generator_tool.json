@@ -93,6 +93,24 @@
       "privacy_note": {
         "en": "🔒 Privacy-Friendly: Uploaded images and generated files are stored temporarily on the server and automatically deleted after 5 minutes. No data is kept permanently.",
         "de": "🔒 Datenschutzfreundlich: Hochgeladene Bilder und generierte Dateien werden temporär auf dem Server gespeichert und nach 5 Minuten automatisch gelöscht. Keine Daten werden dauerhaft gespeichert."
+      },
+      "search_queries": {
+        "en": [
+          "How to create a favicon for website?",
+          "Favicon generator from image",
+          "Create ICO file online",
+          "Apple touch icon generator",
+          "Website icon generator",
+          "Favicon sizes for all browsers"
+        ],
+        "de": [
+          "Wie erstelle ich ein Favicon für Website?",
+          "Favicon-Generator aus Bild",
+          "ICO-Datei online erstellen",
+          "Apple Touch Icon Generator",
+          "Website-Icon-Generator",
+          "Favicon-Größen für alle Browser"
+        ]
       }
     }
   }

@@ -89,6 +89,26 @@
       "privacy_note": {
         "en": "🔒 Privacy-Friendly: This calendar runs entirely in your browser. No data is collected or sent to any server.",
         "de": "🔒 Datenschutzfreundlich: Dieser Kalender läuft vollständig in Ihrem Browser. Es werden keine Daten erfasst oder an einen Server gesendet."
+      },
+      "search_queries": {
+        "en": [
+          "What week number is today?",
+          "Calendar with week numbers",
+          "What day of the week was a date?",
+          "Year calendar 2026",
+          "ISO week number lookup",
+          "When does week 1 start?",
+          "Full year calendar view"
+        ],
+        "de": [
+          "Welche Kalenderwoche ist heute?",
+          "Kalender mit Wochennummern",
+          "Welcher Wochentag war ein Datum?",
+          "Jahreskalender 2026",
+          "ISO-Wochennummer nachschlagen",
+          "Wann beginnt Woche 1?",
+          "Vollständige Jahreskalenderansicht"
+        ]
       }
     }
   }

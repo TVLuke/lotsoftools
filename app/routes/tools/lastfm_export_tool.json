@@ -68,5 +68,25 @@
       "en": "Your API key and username are sent to our server to fetch data from last.fm. We do not store any of your data.",
       "de": "Dein API-Schlüssel und Benutzername werden an unseren Server gesendet, um Daten von Last.fm abzurufen. Wir speichern keine deiner Daten."
     }
+  },
+  "seo_content": {
+    "search_queries": {
+      "en": [
+        "Export Last.fm history",
+        "Download scrobbles CSV",
+        "Last.fm listening history backup",
+        "Export Last.fm data",
+        "Download all Last.fm tracks",
+        "Scrobble history export"
+      ],
+      "de": [
+        "Last.fm Verlauf exportieren",
+        "Scrobbles als CSV herunterladen",
+        "Last.fm Hörverlauf sichern",
+        "Last.fm Daten exportieren",
+        "Alle Last.fm Tracks herunterladen",
+        "Scrobble-Verlauf exportieren"
+      ]
+    }
   }
 }

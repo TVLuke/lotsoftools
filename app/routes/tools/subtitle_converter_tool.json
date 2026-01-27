@@ -69,6 +69,24 @@
       "privacy_note": {
         "en": "🔒 Privacy-Friendly: Uploaded subtitle files and converted files are stored temporarily on the server and automatically deleted after 5 minutes. No data is kept permanently.",
         "de": "🔒 Datenschutzfreundlich: Hochgeladene Untertiteldateien und konvertierte Dateien werden temporär auf dem Server gespeichert und nach 5 Minuten automatisch gelöscht. Keine Daten werden dauerhaft gespeichert."
+      },
+      "search_queries": {
+        "en": [
+          "Convert SRT to VTT",
+          "Subtitle format converter",
+          "ASS to SRT converter",
+          "WebVTT converter online",
+          "Change subtitle format",
+          "TTML to SRT"
+        ],
+        "de": [
+          "SRT zu VTT konvertieren",
+          "Untertitelformat-Konverter",
+          "ASS zu SRT Konverter",
+          "WebVTT Konverter online",
+          "Untertitelformat ändern",
+          "TTML zu SRT"
+        ]
       }
     }
   }

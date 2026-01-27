@@ -85,6 +85,24 @@
       "disclaimer": {
         "en": "⚠️ Disclaimer: DNS results may be cached or stale. Records can change at any time. Do not rely solely on these results for security decisions or critical infrastructure configuration without verification from authoritative sources.",
         "de": "⚠️ Haftungsausschluss: DNS-Ergebnisse können zwischengespeichert oder veraltet sein. Einträge können sich jederzeit ändern. Verlassen Sie sich nicht ausschließlich auf diese Ergebnisse für Sicherheitsentscheidungen oder kritische Infrastrukturkonfiguration ohne Überprüfung aus autoritativen Quellen."
+      },
+      "search_queries": {
+        "en": [
+          "Check DNS records for domain",
+          "DNS propagation checker",
+          "What is the IP of a domain?",
+          "MX record lookup",
+          "Check TXT records for SPF",
+          "DNS lookup multiple servers"
+        ],
+        "de": [
+          "DNS-Einträge für Domain prüfen",
+          "DNS-Propagation-Prüfer",
+          "Was ist die IP einer Domain?",
+          "MX-Eintrag-Abfrage",
+          "TXT-Einträge für SPF prüfen",
+          "DNS-Abfrage mehrere Server"
+        ]
       }
     }
   }

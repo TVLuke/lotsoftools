@@ -97,6 +97,24 @@
       "privacy_note": {
         "en": "🔒 Privacy-Friendly: Lorem Ipsum text is generated entirely in your browser. No data is sent to any server.",
         "de": "🔒 Datenschutzfreundlich: Lorem-Ipsum-Text wird vollständig in Ihrem Browser generiert. Es werden keine Daten an einen Server gesendet."
+      },
+      "search_queries": {
+        "en": [
+          "Generate Lorem Ipsum text",
+          "Placeholder text generator",
+          "Dummy text for design",
+          "Lorem Ipsum paragraphs",
+          "Filler text for mockup",
+          "Lipsum generator"
+        ],
+        "de": [
+          "Lorem Ipsum Text generieren",
+          "Platzhaltertext-Generator",
+          "Blindtext für Design",
+          "Lorem Ipsum Absätze",
+          "Fülltext für Mockup",
+          "Lipsum-Generator"
+        ]
       }
     }
   }

@@ -93,6 +93,26 @@
       "privacy_note": {
         "en": "🔒 Privacy-Friendly: Color simulations happen entirely in your browser. No data is sent to any server.",
         "de": "🔒 Datenschutzfreundlich: Farbsimulationen erfolgen vollständig in Ihrem Browser. Es werden keine Daten an einen Server gesendet."
+      },
+      "search_queries": {
+        "en": [
+          "How do colorblind people see colors?",
+          "Test website for color blindness",
+          "Protanopia color simulator",
+          "Is my design accessible for colorblind?",
+          "What is deuteranopia?",
+          "Color blindness accessibility checker",
+          "Simulate red-green color blindness"
+        ],
+        "de": [
+          "Wie sehen Farbenblinde Farben?",
+          "Website auf Farbenblindheit testen",
+          "Protanopie Farbsimulator",
+          "Ist mein Design barrierefrei für Farbenblinde?",
+          "Was ist Deuteranopie?",
+          "Farbenblindheit Barrierefreiheitsprüfer",
+          "Rot-Grün-Blindheit simulieren"
+        ]
       }
     }
   }

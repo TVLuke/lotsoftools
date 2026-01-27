@@ -128,6 +128,26 @@
       "disclaimer": {
         "en": "⚠️ Disclaimer: Coordinate conversions are approximate and may have rounding errors. Do not use for navigation, surveying, or other applications where precision is critical without independent verification.",
         "de": "⚠️ Haftungsausschluss: Koordinatenumrechnungen sind Näherungswerte und können Rundungsfehler aufweisen. Nicht für Navigation, Vermessung oder andere Anwendungen verwenden, bei denen Präzision entscheidend ist, ohne unabhängige Überprüfung."
+      },
+      "search_queries": {
+        "en": [
+          "Convert GPS coordinates to degrees minutes seconds",
+          "Decimal to DMS converter",
+          "How to convert latitude longitude?",
+          "GPS coordinates format converter",
+          "What is 52.5200° N in DMS?",
+          "Degrees minutes seconds to decimal",
+          "Convert coordinates for Google Maps"
+        ],
+        "de": [
+          "GPS-Koordinaten in Grad Minuten Sekunden umrechnen",
+          "Dezimal zu GMS Konverter",
+          "Wie konvertiere ich Breitengrad Längengrad?",
+          "GPS-Koordinatenformat-Konverter",
+          "Was ist 52.5200° N in GMS?",
+          "Grad Minuten Sekunden zu Dezimal",
+          "Koordinaten für Google Maps umrechnen"
+        ]
       }
     }
   }

@@ -57,6 +57,24 @@
       "privacy_note": {
         "en": "🔒 Privacy-Friendly: Searches are processed on the server and no queries are stored.",
         "de": "🔒 Datenschutzfreundlich: Suchen werden auf dem Server verarbeitet und nicht gespeichert."
+      },
+      "search_queries": {
+        "en": [
+          "Find emoji by name",
+          "What is the emoji for thumbs up?",
+          "Search emoji Unicode",
+          "Copy emoji to clipboard",
+          "Emoji shortcode finder",
+          "All emojis list"
+        ],
+        "de": [
+          "Emoji nach Name finden",
+          "Was ist das Emoji für Daumen hoch?",
+          "Emoji Unicode suchen",
+          "Emoji in Zwischenablage kopieren",
+          "Emoji-Shortcode-Finder",
+          "Alle Emojis Liste"
+        ]
       }
     }
   }

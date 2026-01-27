@@ -89,6 +89,24 @@
       "privacy_note": {
         "en": "🔒 Privacy-Friendly: JSON formatting and validation happens entirely in your browser. Your data never leaves your device.",
         "de": "🔒 Datenschutzfreundlich: JSON-Formatierung und -Validierung erfolgt vollständig in Ihrem Browser. Ihre Daten verlassen nie Ihr Gerät."
+      },
+      "search_queries": {
+        "en": [
+          "Format JSON online",
+          "JSON validator free",
+          "Pretty print JSON",
+          "Minify JSON online",
+          "Is my JSON valid?",
+          "JSON beautifier tool"
+        ],
+        "de": [
+          "JSON online formatieren",
+          "JSON-Validator kostenlos",
+          "JSON schön drucken",
+          "JSON online minimieren",
+          "Ist mein JSON gültig?",
+          "JSON-Verschönerer-Tool"
+        ]
       }
     }
   }

@@ -90,6 +90,24 @@
       "privacy_note": {
         "en": "🔒 Privacy-Friendly: All calculations happen in your browser. Your location is only used locally and never sent to our servers.",
         "de": "🔒 Datenschutzfreundlich: Alle Berechnungen erfolgen in Ihrem Browser. Ihr Standort wird nur lokal verwendet und nie an unsere Server gesendet."
+      },
+      "search_queries": {
+        "en": [
+          "Draw circle on map",
+          "Radius around location",
+          "5 km radius from my location",
+          "Show area within distance",
+          "Circle map tool",
+          "Distance radius visualizer"
+        ],
+        "de": [
+          "Kreis auf Karte zeichnen",
+          "Radius um Standort",
+          "5 km Radius von meinem Standort",
+          "Bereich innerhalb Entfernung zeigen",
+          "Kreis-Karten-Tool",
+          "Entfernungsradius-Visualisierer"
+        ]
       }
     }
   }

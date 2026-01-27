@@ -93,6 +93,24 @@
       "disclaimer": {
         "en": "⚠️ Disclaimer: Distance calculations are approximate (straight-line/haversine). Actual travel distances may vary significantly. Do not use for navigation or trip planning without consulting proper mapping services.",
         "de": "⚠️ Haftungsausschluss: Entfernungsberechnungen sind Näherungswerte (Luftlinie/Haversine). Tatsächliche Reiseentfernungen können erheblich abweichen. Nicht für Navigation oder Reiseplanung ohne Konsultation geeigneter Kartendienste verwenden."
+      },
+      "search_queries": {
+        "en": [
+          "Distance between two points on map",
+          "How far is it from here to there?",
+          "Measure distance on map",
+          "Calculate straight line distance",
+          "Distance calculator GPS coordinates",
+          "How many km between cities?"
+        ],
+        "de": [
+          "Entfernung zwischen zwei Punkten auf Karte",
+          "Wie weit ist es von hier nach dort?",
+          "Entfernung auf Karte messen",
+          "Luftlinie berechnen",
+          "Entfernungsrechner GPS-Koordinaten",
+          "Wie viele km zwischen Städten?"
+        ]
       }
     }
   }

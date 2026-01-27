@@ -77,6 +77,24 @@
       "privacy_note": {
         "en": "🔒 Privacy-Friendly: The test data is generated on demand and not stored. Results are calculated in your browser. Note: Like any web speed test, your IP address is visible to the server for the duration of the request.",
         "de": "🔒 Datenschutzfreundlich: Testdaten werden bei Bedarf erzeugt und nicht gespeichert. Ergebnisse werden in Ihrem Browser berechnet. Hinweis: Wie bei jedem Web-Speedtest ist Ihre IP-Adresse für den Server während der Anfrage sichtbar."
+      },
+      "search_queries": {
+        "en": [
+          "Internet speed test",
+          "Check my download speed",
+          "Test upload speed online",
+          "How fast is my WiFi?",
+          "Bandwidth test free",
+          "Mbps speed test"
+        ],
+        "de": [
+          "Internet-Speedtest",
+          "Download-Geschwindigkeit prüfen",
+          "Upload-Geschwindigkeit online testen",
+          "Wie schnell ist mein WLAN?",
+          "Bandbreitentest kostenlos",
+          "Mbps Speedtest"
+        ]
       }
     }
   }

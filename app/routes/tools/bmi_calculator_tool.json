@@ -111,6 +111,26 @@
       "privacy_note": {
         "en": "🔒 Privacy-Friendly: All calculations happen in your browser. No personal health data is sent to any server.",
         "de": "🔒 Datenschutzfreundlich: Alle Berechnungen erfolgen in deinem Browser. Es werden keine persönlichen Gesundheitsdaten an einen Server gesendet."
+      },
+      "search_queries": {
+        "en": [
+          "What is my BMI?",
+          "How to calculate BMI?",
+          "BMI calculator for adults",
+          "What is a healthy BMI?",
+          "BMI categories and ranges",
+          "Am I overweight calculator",
+          "Body mass index formula"
+        ],
+        "de": [
+          "Was ist mein BMI?",
+          "Wie berechne ich den BMI?",
+          "BMI-Rechner für Erwachsene",
+          "Was ist ein gesunder BMI?",
+          "BMI-Kategorien und Bereiche",
+          "Habe ich Übergewicht Rechner",
+          "Body-Mass-Index Formel"
+        ]
       }
     }
   }

@@ -63,6 +63,26 @@
             "privacy_note": {
                 "en": "🔒 Privacy-Friendly: Everything runs in your browser. No data is sent to any server.",
                 "de": "🔒 Datenschutzfreundlich: Alles läuft in Ihrem Browser. Es werden keine Daten an einen Server gesendet."
+            },
+            "search_queries": {
+                "en": [
+                    "What is the ASCII code for a character?",
+                    "ASCII table with hex values",
+                    "Convert character to ASCII number",
+                    "What is ASCII 65?",
+                    "Binary representation of letters",
+                    "ASCII codes for special characters",
+                    "Decimal to ASCII character"
+                ],
+                "de": [
+                    "Was ist der ASCII-Code für ein Zeichen?",
+                    "ASCII-Tabelle mit Hex-Werten",
+                    "Zeichen in ASCII-Nummer umwandeln",
+                    "Was ist ASCII 65?",
+                    "Binärdarstellung von Buchstaben",
+                    "ASCII-Codes für Sonderzeichen",
+                    "Dezimal zu ASCII-Zeichen"
+                ]
             }
         }
     }
