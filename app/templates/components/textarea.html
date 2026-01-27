@@ -1,15 +1,39 @@
-{% macro enhanced_textarea(id, rows=5, placeholder='', label='', required=false, value='') %}
-<div class="mb-3">
+{% macro enhanced_textarea(id, rows=5, placeholder='', label='', required=false, value='', controls=none, readonly=false, extra_classes='') %}
+{# 
+Enhanced textarea with configurable controls.
+
+Parameters:
+  - id: Required. The textarea's id attribute.
+  - rows: Number of rows (default: 5)
+  - placeholder: Placeholder text
+  - label: Optional label text
+  - required: Whether the field is required
+  - value: Initial value
+  - controls: Comma-separated list of enabled controls, or:
+      - none/not provided: All controls enabled (default)
+      - '': Empty string disables all controls
+      - 'syntax': Only syntax highlighting
+      - 'syntax,wordwrap': Multiple controls (future)
+  - readonly: Whether the textarea is readonly
+  - extra_classes: Additional CSS classes for the textarea
+
+Available controls:
+  - syntax: Syntax highlighting (auto-detect or select language)
+  - transform: Text transformations (lowercase, uppercase, sort lines, etc.)
+#}
+<div class="mb-3" style="position: relative;">
     {% if label %}
     <label for="{{ id }}" class="form-label">{{ label }}</label>
     {% endif %}
     <textarea 
-        class="form-control" 
+        class="form-control {{ extra_classes }}" 
         id="{{ id }}" 
         rows="{{ rows }}" 
         data-enhanced 
+        {% if controls is not none %}data-controls="{{ controls }}"{% endif %}
         placeholder="{{ placeholder }}"
         {% if required %}required{% endif %}
+        {% if readonly %}readonly{% endif %}
     >{{ value }}</textarea>
 </div>
 {% endmacro %}

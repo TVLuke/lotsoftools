@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/tiles.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/layout-switcher.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/enhanced-textarea.css') }}">
+    {% include 'components/imports/highlightjs.html' %}
     <link rel="stylesheet" href="{{ url_for('static', filename='css/color-picker.css') }}">
     {% block extra_css %}{% endblock %}
 

@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.1.7] - 2026-01-27
+
+- Enhanced textarea: configurable controls panel with syntax highlighting, text transforms, and undo/redo history
+
 ## [1.1.6] - 2026-01-24
 
 - Clean up old accessibility reports (only keep latest version)

@@ -2,13 +2,181 @@
     background-color: var(--color-light-hover);
     border: 1px solid var(--color-input-border);
     border-top: none;
-    padding: 0.5rem 0.75rem;
     font-size: 0.875rem;
     font-family: monospace;
     color: var(--color-text);
     border-radius: 0 0 0.375rem 0.375rem;
 }
 
+.enhanced-textarea-status-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 0.75rem;
+}
+
+.enhanced-textarea-status-text {
+    flex: 1;
+}
+
+.enhanced-textarea-toggle-btn {
+    background: none;
+    border: none;
+    color: var(--color-text-muted);
+    cursor: pointer;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+    transition: all 0.2s ease;
+}
+
+.enhanced-textarea-toggle-btn:hover {
+    background-color: var(--color-hover);
+    color: var(--color-text);
+}
+
+.enhanced-textarea-toggle-btn.active {
+    color: var(--color-primary);
+}
+
+.enhanced-textarea-controls {
+    border-top: 1px solid var(--color-input-border);
+    padding: 0.5rem 0.75rem;
+    background-color: var(--color-bg-secondary, var(--color-light-hover));
+}
+
+.enhanced-textarea-control {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+}
+
+.enhanced-textarea-control-label {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.enhanced-textarea-control-label input[type="checkbox"] {
+    margin: 0;
+}
+
+.enhanced-textarea-lang-select,
+.enhanced-textarea-transform-select {
+    padding: 0.25rem 0.5rem;
+    border: 1px solid var(--color-input-border);
+    border-radius: 0.25rem;
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    font-size: 0.8rem;
+}
+
+.enhanced-textarea-detected-lang {
+    color: var(--color-text-muted);
+    font-size: 0.8rem;
+    font-style: italic;
+}
+
 textarea[data-enhanced] {
     border-radius: 0.375rem 0.375rem 0 0 !important;
+}
+
+/* History navigation arrows */
+.enhanced-textarea-history-nav {
+    position: absolute;
+    top: 4px;
+    right: 8px;
+    z-index: 10;
+    display: flex;
+    gap: 2px;
+    opacity: 0.6;
+    transition: opacity 0.2s ease;
+}
+
+.enhanced-textarea-history-nav:hover {
+    opacity: 1;
+}
+
+.enhanced-textarea-history-btn {
+    background: var(--color-bg, #fff);
+    border: 1px solid var(--color-input-border);
+    border-radius: 3px;
+    padding: 2px 6px;
+    font-size: 0.75rem;
+    cursor: pointer;
+    color: var(--color-text);
+    transition: all 0.2s ease;
+}
+
+.enhanced-textarea-history-btn:hover:not(:disabled) {
+    background: var(--color-hover, #f0f0f0);
+    border-color: var(--color-primary);
+}
+
+.enhanced-textarea-history-btn:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+}
+
+/* Syntax highlighting wrapper */
+.enhanced-textarea-syntax-wrapper {
+    position: relative;
+    width: 100%;
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Syntax highlighting overlay */
+.enhanced-textarea-syntax-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+    overflow: hidden;
+    background: var(--color-bg, #fff);
+    z-index: 0;
+    border: 1px solid var(--color-input-border);
+    border-radius: 0.375rem 0.375rem 0 0;
+    box-sizing: border-box;
+}
+
+.enhanced-textarea-syntax-overlay pre {
+    margin: 0;
+    background: transparent !important;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    font-family: inherit;
+}
+
+.enhanced-textarea-syntax-overlay code {
+    background: transparent !important;
+    padding: 0 !important;
+    display: block;
+    font-family: inherit;
+}
+
+/* Make textarea transparent when syntax highlighting is active */
+textarea[data-enhanced].syntax-active {
+    position: relative;
+    z-index: 1;
+    background: transparent !important;
+    color: transparent;
+    caret-color: var(--color-text);
+}
+
+/* Wrapper inherits textarea dimensions */
+.enhanced-textarea-syntax-wrapper textarea {
+    width: 100%;
+    flex: 1 1 auto;
+}
+
+/* Ensure overlay matches textarea exactly when in flex container */
+.enhanced-textarea-syntax-wrapper textarea.flex-grow-1 {
+    flex: 1 1 auto;
 }

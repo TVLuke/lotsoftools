@@ -128,6 +128,19 @@ LIBRARIES = [
         ]
     },
     {
+        'name': 'highlightjs',
+        'files': [
+            {
+                'url': 'https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.11.1/build/styles/default.min.css',
+                'filename': 'default.min.css'
+            },
+            {
+                'url': 'https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.11.1/build/highlight.min.js',
+                'filename': 'highlight.min.js'
+            }
+        ]
+    },
+    {
         'name': 'dojo',
         'files': [
             {

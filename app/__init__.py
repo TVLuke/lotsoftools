@@ -4,7 +4,7 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 from config import Config
 
-APP_VERSION = "1.1.6"
+APP_VERSION = "1.1.7"
 
 db = SQLAlchemy()
 migrate = Migrate()
@@ -57,8 +57,8 @@ def create_app(config_class=Config):
         if cookie_lang in ['en', 'de']:
             session['lang'] = cookie_lang
         elif 'lang' not in session:
-            # Fall back to browser preference
-            session['lang'] = request.accept_languages.best_match(['en', 'de']) or 'en'
+            # Fall back to browser preference, default to English
+            session['lang'] = request.accept_languages.best_match(['en', 'de'], default='en')
     
     @app.before_request
     def handle_subdomain_redirect():
