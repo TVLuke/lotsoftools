@@ -1,5 +1,6 @@
 import json
 import os
+import random
 from flask import Blueprint, render_template, redirect, url_for, request, session
 from app.services.link_service import increment_click_count
 
@@ -9,10 +10,14 @@ tool_json_path = os.path.join(os.path.dirname(__file__), 'color_tool.json')
 with open(tool_json_path, 'r', encoding='utf-8') as f:
     tool_data = json.load(f)
 
+def generate_random_hex_color():
+    """Generate a random hex color."""
+    return '{:06X}'.format(random.randint(0, 0xFFFFFF))
+
 @color_bp.route('/color')
 def index():
-    # Default to a nice blue color
-    return redirect(url_for('color.show_color', hex_color='4A90E2'))
+    # Redirect to a random color
+    return redirect(url_for('color.show_color', hex_color=generate_random_hex_color()))
 
 @color_bp.route('/color/<hex_color>')
 def show_color(hex_color):

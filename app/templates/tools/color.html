@@ -154,6 +154,7 @@
             </div>
             <div class="card-body">
                 <div id="tintsDisplay" class="d-flex" style="height: 60px;"></div>
+                <div id="tintsLinks" class="d-flex text-center small mt-1" style="font-size: 0.7rem;"></div>
             </div>
         </div>
     </div>
@@ -176,6 +177,7 @@
             </div>
             <div class="card-body">
                 <div id="shadesDisplay" class="d-flex" style="height: 60px;"></div>
+                <div id="shadesLinks" class="d-flex text-center small mt-1" style="font-size: 0.7rem;"></div>
             </div>
         </div>
     </div>
@@ -203,6 +205,20 @@
 
 {% include 'components/seo_content.html' %}
 {% include 'components/related_tools.html' %}
+
+<!-- Explore More Colors -->
+<div class="row mt-4">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <h2 class="h5 mb-3">
+                    {% if current_lang == 'de' %}Weitere Farben entdecken{% else %}Explore More Colors{% endif %}
+                </h2>
+                <div id="moreColors" class="row row-cols-3 row-cols-sm-4 row-cols-md-6 row-cols-lg-8 g-2"></div>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}
 
 {% block extra_js %}
@@ -251,46 +267,62 @@ document.getElementById('hexB').textContent = rgb.b.toString(16).toUpperCase().p
 // Generate tints
 function generateTints(count) {
     const tintsDisplay = document.getElementById('tintsDisplay');
+    const tintsLinks = document.getElementById('tintsLinks');
     tintsDisplay.innerHTML = '';
+    tintsLinks.innerHTML = '';
     
     for (let i = 1; i <= count; i++) {
         const factor = i / count;
         const tint = ColorConverter.generateTint(rgb.r, rgb.g, rgb.b, factor);
         const hex = '#' + ColorConverter.rgbToHex(tint.r, tint.g, tint.b);
+        const hexUpper = hex.toUpperCase();
         
         const tintDiv = document.createElement('div');
         tintDiv.style.flex = '1';
-        tintDiv.style.backgroundColor = hex.toUpperCase();
+        tintDiv.style.backgroundColor = hexUpper;
         tintDiv.style.cursor = 'pointer';
-        tintDiv.title = hex.toUpperCase();
+        tintDiv.title = hexUpper;
         tintDiv.addEventListener('click', () => {
             window.location.href = '/tools/color/' + hex.substring(1);
         });
-        
         tintsDisplay.appendChild(tintDiv);
+        
+        // Add link below
+        const linkDiv = document.createElement('div');
+        linkDiv.style.flex = '1';
+        linkDiv.innerHTML = '<a href="/tools/color/' + hex.substring(1).toUpperCase() + '" class="text-decoration-none">' + hexUpper + '</a>';
+        tintsLinks.appendChild(linkDiv);
     }
 }
 
 // Generate shades
 function generateShades(count) {
     const shadesDisplay = document.getElementById('shadesDisplay');
+    const shadesLinks = document.getElementById('shadesLinks');
     shadesDisplay.innerHTML = '';
+    shadesLinks.innerHTML = '';
     
     for (let i = 1; i <= count; i++) {
         const factor = i / count;
         const shade = ColorConverter.generateShade(rgb.r, rgb.g, rgb.b, factor);
         const hex = '#' + ColorConverter.rgbToHex(shade.r, shade.g, shade.b);
+        const hexUpper = hex.toUpperCase();
         
         const shadeDiv = document.createElement('div');
         shadeDiv.style.flex = '1';
-        shadeDiv.style.backgroundColor = hex.toUpperCase();
+        shadeDiv.style.backgroundColor = hexUpper;
         shadeDiv.style.cursor = 'pointer';
-        shadeDiv.title = hex.toUpperCase();
+        shadeDiv.title = hexUpper;
         shadeDiv.addEventListener('click', () => {
             window.location.href = '/tools/color/' + hex.substring(1);
         });
-        
         shadesDisplay.appendChild(shadeDiv);
+        
+        // Add link below
+        const linkDiv = document.createElement('div');
+        linkDiv.style.flex = '1';
+        linkDiv.innerHTML = '<a href="/tools/color/' + hex.substring(1).toUpperCase() + '" class="text-decoration-none">' + hexUpper + '</a>';
+        shadesLinks.appendChild(linkDiv);
     }
 }
 
@@ -377,7 +409,7 @@ require([
     palettesContainer.innerHTML = '';
     array.forEach(storedPalettes, function(paletteData) {
         var paletteDiv = document.createElement('div');
-        paletteDiv.className = 'mb-3';
+        paletteDiv.className = 'mb-4';
         
         var titleRow = document.createElement('div');
         titleRow.className = 'd-flex justify-content-between align-items-center mb-2';
@@ -404,21 +436,63 @@ require([
         colorsDiv.className = 'd-flex';
         colorsDiv.style.height = '50px';
         
+        var linksDiv = document.createElement('div');
+        linksDiv.className = 'd-flex text-center small mt-1';
+        linksDiv.style.fontSize = '0.7rem';
+        
         array.forEach(paletteData.colors, function(color) {
+            var hexColor = color.toHex().toUpperCase();
+            var hexCode = hexColor.substring(1);
+            
             var colorDiv = document.createElement('div');
             colorDiv.style.flex = '1';
-            colorDiv.style.backgroundColor = color.toHex();
+            colorDiv.style.backgroundColor = hexColor;
             colorDiv.style.cursor = 'pointer';
-            colorDiv.title = color.toHex().toUpperCase();
+            colorDiv.title = hexColor;
             colorDiv.addEventListener('click', function() {
-                window.location.href = '/tools/color/' + color.toHex().substring(1);
+                window.location.href = '/tools/color/' + hexCode;
             });
             colorsDiv.appendChild(colorDiv);
+            
+            // Add link below
+            var linkDiv = document.createElement('div');
+            linkDiv.style.flex = '1';
+            linkDiv.innerHTML = '<a href="/tools/color/' + hexCode + '" class="text-decoration-none">' + hexColor + '</a>';
+            linksDiv.appendChild(linkDiv);
         });
         
         paletteDiv.appendChild(colorsDiv);
+        paletteDiv.appendChild(linksDiv);
         palettesContainer.appendChild(paletteDiv);
     });
 });
+
+// Generate diverse colors for SEO
+function generateMoreColors() {
+    const container = document.getElementById('moreColors');
+    
+    // Predefined diverse colors across the spectrum
+    const colors = [
+        'FF0000', 'FF4500', 'FFA500', 'FFD700', 'FFFF00', 'ADFF2F',
+        '00FF00', '00FA9A', '00FFFF', '00BFFF', '0000FF', '8A2BE2',
+        'FF00FF', 'FF1493', 'DC143C', '8B0000', '2F4F4F', '000080',
+        '4B0082', '800080', 'A52A2A', 'D2691E', '808080', 'C0C0C0'
+    ].filter(c => c !== hexColor);
+    
+    // Render color links
+    colors.forEach(hex => {
+        const col = document.createElement('div');
+        col.className = 'col';
+        col.innerHTML = `
+            <a href="/tools/color/${hex}" class="text-decoration-none d-block text-center p-1">
+                <div style="height: 30px; background-color: #${hex}; border-radius: 4px; margin-bottom: 2px;"></div>
+                <small class="text-body" style="font-size: 0.65rem;">#${hex}</small>
+            </a>
+        `;
+        container.appendChild(col);
+    });
+}
+
+generateMoreColors();
 </script>
 {% endblock %}

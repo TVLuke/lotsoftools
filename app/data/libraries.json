@@ -1,0 +1,195 @@
+{
+  "generated_at": "2026-01-27T12:35:10.499946",
+  "libraries": [
+    {
+      "name": "bootstrap",
+      "display_name": "Bootstrap",
+      "version": "5.3.0",
+      "license": "MIT",
+      "homepage": "https://getbootstrap.com",
+      "github": "twbs/bootstrap",
+      "license_url": "https://raw.githubusercontent.com/twbs/bootstrap/v5.3.0/LICENSE",
+      "github_url": "https://github.com/twbs/bootstrap",
+      "github_tag_url": "https://github.com/twbs/bootstrap/tree/v5.3.0"
+    },
+    {
+      "name": "fontawesome",
+      "display_name": "Font Awesome",
+      "version": "6.4.0",
+      "license": "Font Awesome Free License",
+      "homepage": "https://fontawesome.com",
+      "github": "FortAwesome/Font-Awesome",
+      "license_url": "https://raw.githubusercontent.com/FortAwesome/Font-Awesome/6.x/LICENSE.txt",
+      "github_url": "https://github.com/FortAwesome/Font-Awesome",
+      "github_tag_url": "https://github.com/FortAwesome/Font-Awesome/tree/v6.4.0"
+    },
+    {
+      "name": "jquery",
+      "display_name": "jQuery",
+      "version": "3.7.0",
+      "license": "MIT",
+      "homepage": "https://jquery.com",
+      "github": "jquery/jquery",
+      "license_url": "https://raw.githubusercontent.com/jquery/jquery/3.7.0/LICENSE.txt",
+      "github_url": "https://github.com/jquery/jquery",
+      "github_tag_url": "https://github.com/jquery/jquery/tree/v3.7.0"
+    },
+    {
+      "name": "js-yaml",
+      "display_name": "js-yaml",
+      "version": "4.1.0",
+      "license": "MIT",
+      "homepage": "https://github.com/nodeca/js-yaml",
+      "github": "nodeca/js-yaml",
+      "license_url": "https://raw.githubusercontent.com/nodeca/js-yaml/4.1.0/LICENSE",
+      "github_url": "https://github.com/nodeca/js-yaml",
+      "github_tag_url": "https://github.com/nodeca/js-yaml/tree/v4.1.0"
+    },
+    {
+      "name": "qrcode",
+      "display_name": "QRCode.js",
+      "version": "1.0.0",
+      "license": "MIT",
+      "homepage": "https://github.com/davidshimjs/qrcodejs",
+      "github": "davidshimjs/qrcodejs",
+      "license_url": "https://raw.githubusercontent.com/davidshimjs/qrcodejs/master/LICENSE",
+      "github_url": "https://github.com/davidshimjs/qrcodejs",
+      "github_tag_url": "https://github.com/davidshimjs/qrcodejs/tree/v1.0.0"
+    },
+    {
+      "name": "marked",
+      "display_name": "Marked",
+      "version": "latest",
+      "license": "MIT",
+      "homepage": "https://marked.js.org",
+      "github": "markedjs/marked",
+      "license_url": "https://raw.githubusercontent.com/markedjs/marked/master/LICENSE.md",
+      "github_url": "https://github.com/markedjs/marked",
+      "github_tag_url": "https://github.com/markedjs/marked"
+    },
+    {
+      "name": "colorblind",
+      "display_name": "@bjornlu/colorblind",
+      "version": "latest",
+      "license": "MIT",
+      "homepage": "https://github.com/bluwy/colorblind",
+      "github": "bluwy/colorblind",
+      "license_url": "https://raw.githubusercontent.com/bluwy/colorblind/master/LICENSE",
+      "github_url": "https://github.com/bluwy/colorblind",
+      "github_tag_url": "https://github.com/bluwy/colorblind"
+    },
+    {
+      "name": "html2canvas",
+      "display_name": "html2canvas",
+      "version": "1.4.1",
+      "license": "MIT",
+      "homepage": "https://html2canvas.hertzen.com",
+      "github": "niklasvh/html2canvas",
+      "license_url": "https://raw.githubusercontent.com/niklasvh/html2canvas/v1.4.1/LICENSE",
+      "github_url": "https://github.com/niklasvh/html2canvas",
+      "github_tag_url": "https://github.com/niklasvh/html2canvas/tree/v1.4.1"
+    },
+    {
+      "name": "convert",
+      "display_name": "convert",
+      "version": "5.x",
+      "license": "MIT",
+      "homepage": "https://convert.js.org",
+      "github": "jonahsnider/convert",
+      "license_url": "https://raw.githubusercontent.com/jonahsnider/convert/main/license.md",
+      "github_url": "https://github.com/jonahsnider/convert",
+      "github_tag_url": "https://github.com/jonahsnider/convert/tree/v5.x"
+    },
+    {
+      "name": "leaflet",
+      "display_name": "Leaflet",
+      "version": "1.9.4",
+      "license": "BSD-2-Clause",
+      "homepage": "https://leafletjs.com",
+      "github": "Leaflet/Leaflet",
+      "license_url": "https://raw.githubusercontent.com/Leaflet/Leaflet/v1.9.4/LICENSE",
+      "github_url": "https://github.com/Leaflet/Leaflet",
+      "github_tag_url": "https://github.com/Leaflet/Leaflet/tree/v1.9.4"
+    },
+    {
+      "name": "highlightjs",
+      "display_name": "highlight.js",
+      "version": "11.11.1",
+      "license": "BSD-3-Clause",
+      "homepage": "https://highlightjs.org",
+      "github": "highlightjs/highlight.js",
+      "license_url": "https://raw.githubusercontent.com/highlightjs/highlight.js/11.11.1/LICENSE",
+      "github_url": "https://github.com/highlightjs/highlight.js",
+      "github_tag_url": "https://github.com/highlightjs/highlight.js/tree/v11.11.1"
+    },
+    {
+      "name": "dojo",
+      "display_name": "Dojo Toolkit",
+      "version": "1.14.1",
+      "license": "BSD-3-Clause OR AFL-2.1",
+      "homepage": "https://dojotoolkit.org",
+      "github": "dojo/dojo",
+      "license_url": "https://raw.githubusercontent.com/dojo/dojo/1.14.1/LICENSE",
+      "github_url": "https://github.com/dojo/dojo",
+      "github_tag_url": "https://github.com/dojo/dojo/tree/v1.14.1"
+    },
+    {
+      "name": "analogclock",
+      "display_name": "Analog Clock",
+      "version": "1.0.1",
+      "license": "MIT",
+      "homepage": "https://github.com/niconiahi/analogclock",
+      "github": "niconiahi/analogclock",
+      "license_url": "https://raw.githubusercontent.com/niconiahi/analogclock/master/LICENSE.txt",
+      "github_url": "https://github.com/niconiahi/analogclock",
+      "github_tag_url": "https://github.com/niconiahi/analogclock/tree/v1.0.1"
+    },
+    {
+      "name": "uuid-js",
+      "display_name": "uuid-js",
+      "version": "0.7.5",
+      "license": "Apache-2.0",
+      "homepage": "https://github.com/pnegri/uuid-js",
+      "github": "pnegri/uuid-js",
+      "license_url": "https://raw.githubusercontent.com/pnegri/uuid-js/master/LICENSE.txt",
+      "github_url": "https://github.com/pnegri/uuid-js",
+      "github_tag_url": "https://github.com/pnegri/uuid-js/tree/v0.7.5"
+    },
+    {
+      "name": "lorem-json",
+      "display_name": "Lorem Ipsum JSON",
+      "version": "unknown",
+      "license": "MIT",
+      "homepage": "https://github.com/niconiahi/lorem-ipsum-json",
+      "github": "niconiahi/lorem-ipsum-json",
+      "license_url": "https://raw.githubusercontent.com/niconiahi/lorem-ipsum-json/master/LICENSE.txt",
+      "note": "Lorem Ipsum text data",
+      "github_url": "https://github.com/niconiahi/lorem-ipsum-json",
+      "github_tag_url": "https://github.com/niconiahi/lorem-ipsum-json"
+    },
+    {
+      "name": "well-known-bots",
+      "display_name": "Well-Known Bots",
+      "version": "latest",
+      "license": "MIT",
+      "homepage": "https://github.com/monperrus/crawler-user-agents",
+      "github": "monperrus/crawler-user-agents",
+      "license_url": "https://raw.githubusercontent.com/monperrus/crawler-user-agents/master/LICENSE",
+      "note": "Bot detection database",
+      "github_url": "https://github.com/monperrus/crawler-user-agents",
+      "github_tag_url": "https://github.com/monperrus/crawler-user-agents"
+    },
+    {
+      "name": "blocklist-project",
+      "display_name": "The Block List Project",
+      "version": "latest",
+      "license": "Unlicense (Public Domain)",
+      "homepage": "https://blocklistproject.github.io/Lists/",
+      "github": "blocklistproject/Lists",
+      "license_url": "https://raw.githubusercontent.com/blocklistproject/Lists/master/LICENSE",
+      "note": "Domain blocklists for malware, phishing, scams, etc.",
+      "github_url": "https://github.com/blocklistproject/Lists",
+      "github_tag_url": "https://github.com/blocklistproject/Lists"
+    }
+  ]
+}
