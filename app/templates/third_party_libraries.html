@@ -1,0 +1,121 @@
+{% extends 'base.html' %}
+
+{% block title %}{% if current_lang == 'de' %}Drittanbieter-Bibliotheken{% else %}Third-Party Libraries{% endif %} - Lots of Tools{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-12">
+        <h1>
+            <i class="fas fa-cube me-2"></i>
+            {% if current_lang == 'de' %}Drittanbieter-Bibliotheken{% else %}Third-Party Libraries{% endif %}
+        </h1>
+        <p class="lead">
+            {% if current_lang == 'de' %}
+            Diese Website verwendet die folgenden Open-Source-Bibliotheken. Wir danken allen Entwicklern für ihre großartige Arbeit.
+            {% else %}
+            This website uses the following open-source libraries. We thank all developers for their great work.
+            {% endif %}
+        </p>
+    </div>
+</div>
+
+<div class="row mt-4">
+    <div class="col-12">
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>{% if current_lang == 'de' %}Bibliothek{% else %}Library{% endif %}</th>
+                        <th>{% if current_lang == 'de' %}Version{% else %}Version{% endif %}</th>
+                        <th>{% if current_lang == 'de' %}Lizenz{% else %}License{% endif %}</th>
+                        <th>{% if current_lang == 'de' %}Links{% else %}Links{% endif %}</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for lib in libraries %}
+                    <tr>
+                        <td>
+                            <strong>{{ lib.display_name }}</strong>
+                            {% if lib.note %}
+                            <br><small class="text-muted">{{ lib.note }}</small>
+                            {% endif %}
+                        </td>
+                        <td>
+                            <code>{{ lib.version }}</code>
+                        </td>
+                        <td>
+                            {{ lib.license }}
+                        </td>
+                        <td>
+                            {% if lib.homepage %}
+                            <a href="{{ lib.homepage }}" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-outline-primary me-1" title="Homepage">
+                                <i class="fas fa-home"></i>
+                            </a>
+                            {% endif %}
+                            {% if lib.github_url %}
+                            <a href="{{ lib.github_url }}" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-outline-secondary me-1" title="GitHub">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            {% endif %}
+                            {% if lib.license_url %}
+                            <a href="{{ lib.license_url }}" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-outline-info" title="{% if current_lang == 'de' %}Lizenz anzeigen{% else %}View License{% endif %}">
+                                <i class="fas fa-file-alt"></i>
+                                LICENSE
+                            </a>
+                            {% endif %}
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<div class="row mt-4">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0">
+                    <i class="fas fa-code me-2"></i>
+                    {% if current_lang == 'de' %}Python-Abhängigkeiten{% else %}Python Dependencies{% endif %}
+                </h5>
+            </div>
+            <div class="card-body">
+                <p>
+                    {% if current_lang == 'de' %}
+                    Die Backend-Abhängigkeiten sind in der <code>requirements.txt</code> Datei dokumentiert. 
+                    Wichtige Python-Pakete sind unter anderem:
+                    {% else %}
+                    Backend dependencies are documented in the <code>requirements.txt</code> file.
+                    Key Python packages include:
+                    {% endif %}
+                </p>
+                <ul class="list-unstyled">
+                    <li><strong>Flask</strong> - Web framework (<a href="https://github.com/pallets/flask/blob/main/LICENSE.txt" target="_blank" rel="noopener">BSD-3-Clause</a>)</li>
+                    <li><strong>SQLAlchemy</strong> - Database ORM (<a href="https://github.com/sqlalchemy/sqlalchemy/blob/main/LICENSE" target="_blank" rel="noopener">MIT</a>)</li>
+                    <li><strong>dnspython</strong> - DNS toolkit (<a href="https://github.com/rthalley/dnspython/blob/master/LICENSE" target="_blank" rel="noopener">ISC</a>)</li>
+                    <li><strong>Requests</strong> - HTTP library (<a href="https://github.com/psf/requests/blob/main/LICENSE" target="_blank" rel="noopener">Apache-2.0</a>)</li>
+                    <li><strong>Pillow</strong> - Image processing (<a href="https://github.com/python-pillow/Pillow/blob/main/LICENSE" target="_blank" rel="noopener">HPND</a>)</li>
+                    <li><strong>python-dateutil</strong> - Date utilities (<a href="https://github.com/dateutil/dateutil/blob/master/LICENSE" target="_blank" rel="noopener">Apache-2.0 / BSD-3-Clause</a>)</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% if generated_at %}
+<div class="row mt-4">
+    <div class="col-12">
+        <p class="text-muted small">
+            <i class="fas fa-clock me-1"></i>
+            {% if current_lang == 'de' %}
+            Zuletzt aktualisiert: {{ generated_at }}
+            {% else %}
+            Last updated: {{ generated_at }}
+            {% endif %}
+        </p>
+    </div>
+</div>
+{% endif %}
+{% endblock %}

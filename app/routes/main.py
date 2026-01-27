@@ -207,3 +207,21 @@ def accessibility_report(filename='index.html'):
 def accessibility_statement():
     """Accessibility statement page."""
     return render_template('accessibility_statement.html')
+
+@main_bp.route('/third-party-libraries')
+@main_bp.route('/drittanbieter-bibliotheken')
+def third_party_libraries():
+    """Third-party libraries page with license information."""
+    import json
+    libraries_file = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'data', 'libraries.json')
+    
+    libraries = []
+    generated_at = None
+    
+    if os.path.exists(libraries_file):
+        with open(libraries_file, 'r', encoding='utf-8') as f:
+            data = json.load(f)
+            libraries = data.get('libraries', [])
+            generated_at = data.get('generated_at')
+    
+    return render_template('third_party_libraries.html', libraries=libraries, generated_at=generated_at)

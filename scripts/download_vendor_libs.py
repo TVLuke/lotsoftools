@@ -8,13 +8,23 @@ import base64
 import os
 import urllib.request
 import ssl
+import json
+from datetime import datetime
 
 LIBS_DIR = os.path.join(os.path.dirname(__file__), '..', 'app', 'static', 'libs', 'vendor')
+METADATA_FILE = os.path.join(os.path.dirname(__file__), '..', 'app', 'data', 'libraries.json')
 
 # URLs taken EXACTLY from app/templates/components/imports/*.html
+# Each library includes metadata for the third-party libraries page
 LIBRARIES = [
     {
         'name': 'bootstrap',
+        'display_name': 'Bootstrap',
+        'version': '5.3.0',
+        'license': 'MIT',
+        'github': 'twbs/bootstrap',
+        'homepage': 'https://getbootstrap.com',
+        'license_url': 'https://raw.githubusercontent.com/twbs/bootstrap/v5.3.0/LICENSE',
         'files': [
             {
                 'url': 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css',
@@ -28,6 +38,12 @@ LIBRARIES = [
     },
     {
         'name': 'fontawesome',
+        'display_name': 'Font Awesome',
+        'version': '6.4.0',
+        'license': 'Font Awesome Free License',
+        'github': 'FortAwesome/Font-Awesome',
+        'homepage': 'https://fontawesome.com',
+        'license_url': 'https://raw.githubusercontent.com/FortAwesome/Font-Awesome/6.x/LICENSE.txt',
         'files': [
             {
                 'url': 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css',
@@ -48,6 +64,12 @@ LIBRARIES = [
     },
     {
         'name': 'jquery',
+        'display_name': 'jQuery',
+        'version': '3.7.0',
+        'license': 'MIT',
+        'github': 'jquery/jquery',
+        'homepage': 'https://jquery.com',
+        'license_url': 'https://raw.githubusercontent.com/jquery/jquery/3.7.0/LICENSE.txt',
         'files': [
             {
                 'url': 'https://code.jquery.com/jquery-3.7.0.min.js',
@@ -57,6 +79,12 @@ LIBRARIES = [
     },
     {
         'name': 'js-yaml',
+        'display_name': 'js-yaml',
+        'version': '4.1.0',
+        'license': 'MIT',
+        'github': 'nodeca/js-yaml',
+        'homepage': 'https://github.com/nodeca/js-yaml',
+        'license_url': 'https://raw.githubusercontent.com/nodeca/js-yaml/4.1.0/LICENSE',
         'files': [
             {
                 'url': 'https://cdn.jsdelivr.net/npm/js-yaml@4.1.0/dist/js-yaml.min.js',
@@ -66,6 +94,12 @@ LIBRARIES = [
     },
     {
         'name': 'qrcode',
+        'display_name': 'QRCode.js',
+        'version': '1.0.0',
+        'license': 'MIT',
+        'github': 'davidshimjs/qrcodejs',
+        'homepage': 'https://github.com/davidshimjs/qrcodejs',
+        'license_url': 'https://raw.githubusercontent.com/davidshimjs/qrcodejs/master/LICENSE',
         'files': [
             {
                 'url': 'https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js',
@@ -75,6 +109,12 @@ LIBRARIES = [
     },
     {
         'name': 'marked',
+        'display_name': 'Marked',
+        'version': 'latest',
+        'license': 'MIT',
+        'github': 'markedjs/marked',
+        'homepage': 'https://marked.js.org',
+        'license_url': 'https://raw.githubusercontent.com/markedjs/marked/master/LICENSE.md',
         'files': [
             {
                 'url': 'https://cdn.jsdelivr.net/npm/marked/marked.min.js',
@@ -84,6 +124,12 @@ LIBRARIES = [
     },
     {
         'name': 'colorblind',
+        'display_name': '@bjornlu/colorblind',
+        'version': 'latest',
+        'license': 'MIT',
+        'github': 'bluwy/colorblind',
+        'homepage': 'https://github.com/bluwy/colorblind',
+        'license_url': 'https://raw.githubusercontent.com/bluwy/colorblind/master/LICENSE',
         'files': [
             {
                 'url': 'https://cdn.jsdelivr.net/npm/@bjornlu/colorblind',
@@ -93,6 +139,12 @@ LIBRARIES = [
     },
     {
         'name': 'html2canvas',
+        'display_name': 'html2canvas',
+        'version': '1.4.1',
+        'license': 'MIT',
+        'github': 'niklasvh/html2canvas',
+        'homepage': 'https://html2canvas.hertzen.com',
+        'license_url': 'https://raw.githubusercontent.com/niklasvh/html2canvas/v1.4.1/LICENSE',
         'files': [
             {
                 'url': 'https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js',
@@ -102,6 +154,12 @@ LIBRARIES = [
     },
     {
         'name': 'convert',
+        'display_name': 'convert',
+        'version': '5.x',
+        'license': 'MIT',
+        'github': 'jonahsnider/convert',
+        'homepage': 'https://convert.js.org',
+        'license_url': 'https://raw.githubusercontent.com/jonahsnider/convert/main/license.md',
         'files': [
             {
                 'url': 'https://cdn.jsdelivr.net/npm/convert@5/dist/index.js',
@@ -111,6 +169,12 @@ LIBRARIES = [
     },
     {
         'name': 'leaflet',
+        'display_name': 'Leaflet',
+        'version': '1.9.4',
+        'license': 'BSD-2-Clause',
+        'github': 'Leaflet/Leaflet',
+        'homepage': 'https://leafletjs.com',
+        'license_url': 'https://raw.githubusercontent.com/Leaflet/Leaflet/v1.9.4/LICENSE',
         'files': [
             {
                 'url': 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.css',
@@ -129,6 +193,12 @@ LIBRARIES = [
     },
     {
         'name': 'highlightjs',
+        'display_name': 'highlight.js',
+        'version': '11.11.1',
+        'license': 'BSD-3-Clause',
+        'github': 'highlightjs/highlight.js',
+        'homepage': 'https://highlightjs.org',
+        'license_url': 'https://raw.githubusercontent.com/highlightjs/highlight.js/11.11.1/LICENSE',
         'files': [
             {
                 'url': 'https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.11.1/build/styles/default.min.css',
@@ -142,6 +212,12 @@ LIBRARIES = [
     },
     {
         'name': 'dojo',
+        'display_name': 'Dojo Toolkit',
+        'version': '1.14.1',
+        'license': 'BSD-3-Clause OR AFL-2.1',
+        'github': 'dojo/dojo',
+        'homepage': 'https://dojotoolkit.org',
+        'license_url': 'https://raw.githubusercontent.com/dojo/dojo/1.14.1/LICENSE',
         'files': [
             {
                 'url': 'https://ajax.googleapis.com/ajax/libs/dojo/1.14.1/dijit/themes/claro/claro.css',
@@ -172,6 +248,58 @@ LIBRARIES = [
             {'url': 'https://ajax.googleapis.com/ajax/libs/dojo/1.14.1/dojo/_base/Color.js', 'filename': 'Color.js', 'subdir': 'dojo/_base'},
         ]
     }
+]
+
+# Static libraries that are included in the repo (not downloaded)
+STATIC_LIBRARIES = [
+    {
+        'name': 'analogclock',
+        'display_name': 'Analog Clock',
+        'version': '1.0.1',
+        'license': 'MIT',
+        'github': 'niconiahi/analogclock',
+        'homepage': 'https://github.com/niconiahi/analogclock',
+        'license_url': 'https://raw.githubusercontent.com/niconiahi/analogclock/master/LICENSE.txt',
+    },
+    {
+        'name': 'uuid-js',
+        'display_name': 'uuid-js',
+        'version': '0.7.5',
+        'license': 'Apache-2.0',
+        'github': 'pnegri/uuid-js',
+        'homepage': 'https://github.com/pnegri/uuid-js',
+        'license_url': 'https://raw.githubusercontent.com/pnegri/uuid-js/master/LICENSE.txt',
+    },
+    {
+        'name': 'lorem-json',
+        'display_name': 'Lorem Ipsum JSON',
+        'version': 'unknown',
+        'license': 'MIT',
+        'github': 'niconiahi/lorem-ipsum-json',
+        'homepage': 'https://github.com/niconiahi/lorem-ipsum-json',
+        'license_url': 'https://raw.githubusercontent.com/niconiahi/lorem-ipsum-json/master/LICENSE.txt',
+        'note': 'Lorem Ipsum text data',
+    },
+    {
+        'name': 'well-known-bots',
+        'display_name': 'Well-Known Bots',
+        'version': 'latest',
+        'license': 'MIT',
+        'github': 'monperrus/crawler-user-agents',
+        'homepage': 'https://github.com/monperrus/crawler-user-agents',
+        'license_url': 'https://raw.githubusercontent.com/monperrus/crawler-user-agents/master/LICENSE',
+        'note': 'Bot detection database',
+    },
+    {
+        'name': 'blocklist-project',
+        'display_name': 'The Block List Project',
+        'version': 'latest',
+        'license': 'Unlicense (Public Domain)',
+        'github': 'blocklistproject/Lists',
+        'homepage': 'https://blocklistproject.github.io/Lists/',
+        'license_url': 'https://raw.githubusercontent.com/blocklistproject/Lists/master/LICENSE',
+        'note': 'Domain blocklists for malware, phishing, scams, etc.',
+    },
 ]
 
 
@@ -274,7 +402,60 @@ def download_vendor_libs(silent=False):
                     print(f'<script src="{{{{ url_for(\'static\', filename=\'libs/vendor/{lib_name}/{f["filename"]}\') }}}}" integrity="{f["integrity"]}" crossorigin="anonymous"></script>')
             print()
     
+    # Generate metadata JSON file for third-party libraries page
+    generate_libraries_metadata()
+    
     return downloaded_any
+
+
+def generate_libraries_metadata():
+    """Generate a JSON file with library metadata for the third-party libraries page."""
+    os.makedirs(os.path.dirname(METADATA_FILE), exist_ok=True)
+    
+    metadata = {
+        'generated_at': datetime.now().isoformat(),
+        'libraries': []
+    }
+    
+    # Combine downloaded and static libraries
+    all_libraries = LIBRARIES + STATIC_LIBRARIES
+    
+    for lib in all_libraries:
+        lib_info = {
+            'name': lib['name'],
+            'display_name': lib.get('display_name', lib['name']),
+            'version': lib.get('version', 'unknown'),
+            'license': lib.get('license', 'unknown'),
+            'homepage': lib.get('homepage', ''),
+            'github': lib.get('github', ''),
+            'license_url': lib.get('license_url', ''),
+        }
+        
+        # Add note if present
+        if lib.get('note'):
+            lib_info['note'] = lib['note']
+        
+        # Build GitHub URLs for license/notice based on version tag
+        if lib_info['github']:
+            github_repo = lib_info['github']
+            version = lib_info['version']
+            # Construct the GitHub repo URL
+            lib_info['github_url'] = f"https://github.com/{github_repo}"
+            # If we have a specific version, link to that tag
+            if version and version not in ('latest', 'unknown'):
+                lib_info['github_tag_url'] = f"https://github.com/{github_repo}/tree/v{version}"
+            else:
+                lib_info['github_tag_url'] = f"https://github.com/{github_repo}"
+        
+        metadata['libraries'].append(lib_info)
+    
+    with open(METADATA_FILE, 'w', encoding='utf-8') as f:
+        json.dump(metadata, f, indent=2, ensure_ascii=False)
+
+
+def get_libraries():
+    """Get the list of all libraries with metadata. Used by the app."""
+    return LIBRARIES + STATIC_LIBRARIES
 
 
 def main():
