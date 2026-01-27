@@ -1,9 +1,11 @@
 {% extends 'base.html' %}
 {% from 'components/textarea.html' import enhanced_textarea %}
 
-{% block title %}
-    {% if current_lang == 'de' %}Zeichenzähler{% else %}Letter Counter{% endif %} - Lots of Tools
-{% endblock %}
+{% block title %}{{ tool_data.seo.title[current_lang] }}{% endblock %}
+{% block meta_description %}{{ tool_data.seo.meta_description[current_lang] }}{% endblock %}
+{% block meta_keywords %}{{ tool_data.seo.keywords[current_lang] }}{% endblock %}
+{% block og_title %}{{ tool_data.seo.title[current_lang] }}{% endblock %}
+{% block og_description %}{{ tool_data.seo.meta_description[current_lang] }}{% endblock %}
 
 {% block content %}
 <div class="row">
@@ -87,6 +89,9 @@
         </div>
     </div>
 </div>
+
+{% include 'components/seo_content.html' %}
+{% include 'components/related_tools.html' %}
 {% endblock %}
 
 {% block extra_css %}

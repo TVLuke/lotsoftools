@@ -209,8 +209,19 @@
         {% if tool_data.seo.content.data_source %}
         <p class="text-muted small mt-3">{{ tool_data.seo.content.data_source[current_lang]|safe }}</p>
         {% endif %}
+        
+        {% if tool_data.seo.content.search_queries %}
+        <h3 class="h6 mt-4 mb-2">{% if current_lang == 'de' %}Dieses Tool beantwortet Fragen wie:{% else %}This tool provides answers to questions like:{% endif %}</h3>
+        <ul class="small text-muted">
+            {% for query in tool_data.seo.content.search_queries[current_lang] %}
+            <li>{{ query }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
     </div>
     {% endif %}
+    
+    {% include 'components/related_tools.html' %}
 </div>
 {% endblock %}
 
