@@ -1,0 +1,101 @@
+{
+  "route": "/tools/subnet-calculator-ipv4",
+  "img": "fas fa-network-wired",
+  "name": {
+    "en": "IPv4 Subnet Calculator",
+    "de": "IPv4 Subnetz-Rechner"
+  },
+  "description": {
+    "en": "Calculate IPv4 network addresses, subnet masks, and host ranges",
+    "de": "IPv4 Netzwerkadressen, Subnetzmasken und Host-Bereiche berechnen"
+  },
+  "tags": ["network"],
+  "new_window": false,
+  "frontend_only": true,
+  "seo": {
+    "title": {
+      "en": "IPv4 Subnet Calculator - Network Address, Mask, Host Range",
+      "de": "IPv4 Subnetz-Rechner - Netzwerkadresse, Maske, Host-Bereich"
+    },
+    "meta_description": {
+      "en": "Calculate IPv4 subnet information including network address, broadcast address, subnet mask, wildcard mask, usable host range, and number of hosts. Free online CIDR calculator.",
+      "de": "Berechnen Sie IPv4 Subnetz-Informationen einschließlich Netzwerkadresse, Broadcast-Adresse, Subnetzmaske, Wildcard-Maske, nutzbarer Host-Bereich und Anzahl der Hosts. Kostenloser Online-CIDR-Rechner."
+    },
+    "keywords": {
+      "en": "ipv4 subnet calculator, cidr calculator, network calculator, subnet mask calculator, ip address calculator, broadcast address, network address, wildcard mask, host range, subnetting, ip class",
+      "de": "IPv4 Subnetz-Rechner, CIDR-Rechner, Netzwerkrechner, Subnetzmasken-Rechner, IP-Adressrechner, Broadcast-Adresse, Netzwerkadresse, Wildcard-Maske, Host-Bereich, Subnetting, IP-Klasse"
+    },
+    "content": {
+      "heading": {
+        "en": "About IPv4 Subnet Calculator",
+        "de": "Über den IPv4 Subnetz-Rechner"
+      },
+      "intro": {
+        "en": "This calculator helps you determine subnet information for IPv4 networks. Enter an IP address with CIDR notation (e.g., 192.168.1.0/24) or subnet mask to calculate network address, broadcast address, usable host range, and more. All calculations are performed in your browser.",
+        "de": "Dieser Rechner hilft Ihnen, Subnetz-Informationen für IPv4-Netzwerke zu ermitteln. Geben Sie eine IP-Adresse mit CIDR-Notation (z.B. 192.168.1.0/24) oder Subnetzmaske ein, um Netzwerkadresse, Broadcast-Adresse, nutzbaren Host-Bereich und mehr zu berechnen. Alle Berechnungen erfolgen in Ihrem Browser."
+      },
+      "features": {
+        "heading": {
+          "en": "IPv4 Subnetting Explained:",
+          "de": "IPv4 Subnetting erklärt:"
+        },
+        "items": [
+          {
+            "en": "<strong>Network Address:</strong> The first address in a subnet, identifies the network itself. All host bits are set to 0.",
+            "de": "<strong>Netzwerkadresse:</strong> Die erste Adresse in einem Subnetz, identifiziert das Netzwerk selbst. Alle Host-Bits sind auf 0 gesetzt."
+          },
+          {
+            "en": "<strong>Broadcast Address:</strong> The last address in a subnet, used to send data to all hosts. All host bits are set to 1.",
+            "de": "<strong>Broadcast-Adresse:</strong> Die letzte Adresse in einem Subnetz, zum Senden von Daten an alle Hosts. Alle Host-Bits sind auf 1 gesetzt."
+          },
+          {
+            "en": "<strong>CIDR Notation:</strong> Classless Inter-Domain Routing uses /prefix to indicate network bits (e.g., /24 = 255.255.255.0).",
+            "de": "<strong>CIDR-Notation:</strong> Classless Inter-Domain Routing verwendet /Präfix zur Angabe der Netzwerk-Bits (z.B. /24 = 255.255.255.0)."
+          },
+          {
+            "en": "<strong>Usable Hosts:</strong> Total addresses minus 2 (network and broadcast). A /24 network has 254 usable hosts.",
+            "de": "<strong>Nutzbare Hosts:</strong> Gesamtadressen minus 2 (Netzwerk und Broadcast). Ein /24-Netzwerk hat 254 nutzbare Hosts."
+          }
+        ]
+      },
+      "privacy_note": {
+        "en": "🔒 Privacy-Friendly: All calculations are performed entirely in your browser. No IP addresses or network data is sent to any server.",
+        "de": "🔒 Datenschutzfreundlich: Alle Berechnungen werden vollständig in Ihrem Browser durchgeführt. Es werden keine IP-Adressen oder Netzwerkdaten an einen Server gesendet."
+      },
+      "disclaimer": {
+        "en": "⚠️ Disclaimer: This calculator is for educational and planning purposes. Always verify network configurations before implementation.",
+        "de": "⚠️ Haftungsausschluss: Dieser Rechner dient nur zu Bildungs- und Planungszwecken. Überprüfen Sie Netzwerkkonfigurationen immer vor der Implementierung."
+      },
+      "search_queries": {
+        "en": [
+          "IPv4 subnet calculator",
+          "CIDR calculator",
+          "Subnet mask calculator",
+          "Calculate network address",
+          "Calculate broadcast address",
+          "How many hosts in /24",
+          "IP address range calculator",
+          "Wildcard mask calculator",
+          "Subnetting calculator",
+          "Network address from IP and mask",
+          "Convert CIDR to subnet mask",
+          "192.168.1.0/24 calculator"
+        ],
+        "de": [
+          "IPv4 Subnetz Rechner",
+          "CIDR Rechner",
+          "Subnetzmaske berechnen",
+          "Netzwerkadresse berechnen",
+          "Broadcast-Adresse berechnen",
+          "Wie viele Hosts in /24",
+          "IP-Adressbereich Rechner",
+          "Wildcard-Maske Rechner",
+          "Subnetting Rechner",
+          "Netzwerkadresse aus IP und Maske",
+          "CIDR in Subnetzmaske umrechnen",
+          "192.168.1.0/24 Rechner"
+        ]
+      }
+    }
+  }
+}

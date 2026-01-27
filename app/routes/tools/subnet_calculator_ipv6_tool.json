@@ -1,0 +1,101 @@
+{
+  "route": "/tools/subnet-calculator-ipv6",
+  "img": "fas fa-network-wired",
+  "name": {
+    "en": "IPv6 Subnet Calculator",
+    "de": "IPv6 Subnetz-Rechner"
+  },
+  "description": {
+    "en": "Calculate IPv6 network prefixes, address ranges, and expansions",
+    "de": "IPv6 Netzwerk-Präfixe, Adressbereiche und Erweiterungen berechnen"
+  },
+  "tags": ["network"],
+  "new_window": false,
+  "frontend_only": true,
+  "seo": {
+    "title": {
+      "en": "IPv6 Subnet Calculator - Prefix, Address Range, Compression",
+      "de": "IPv6 Subnetz-Rechner - Präfix, Adressbereich, Komprimierung"
+    },
+    "meta_description": {
+      "en": "Calculate IPv6 subnet information including network prefix, address range, expanded and compressed notation. Free online IPv6 CIDR calculator with address type detection.",
+      "de": "Berechnen Sie IPv6 Subnetz-Informationen einschließlich Netzwerk-Präfix, Adressbereich, erweiterte und komprimierte Notation. Kostenloser Online-IPv6-CIDR-Rechner mit Adresstyp-Erkennung."
+    },
+    "keywords": {
+      "en": "ipv6 subnet calculator, ipv6 cidr calculator, ipv6 prefix calculator, ipv6 address range, ipv6 expand, ipv6 compress, ipv6 network calculator, /64 subnet, ipv6 address types, link-local, global unicast",
+      "de": "IPv6 Subnetz-Rechner, IPv6 CIDR-Rechner, IPv6 Präfix-Rechner, IPv6 Adressbereich, IPv6 erweitern, IPv6 komprimieren, IPv6 Netzwerkrechner, /64 Subnetz, IPv6 Adresstypen, Link-Local, Global Unicast"
+    },
+    "content": {
+      "heading": {
+        "en": "About IPv6 Subnet Calculator",
+        "de": "Über den IPv6 Subnetz-Rechner"
+      },
+      "intro": {
+        "en": "This calculator helps you work with IPv6 addresses and subnets. Enter an IPv6 address with prefix length (e.g., 2001:db8::/32) to calculate the network range, expand abbreviated addresses, or compress to shortest form. All calculations are performed in your browser.",
+        "de": "Dieser Rechner hilft Ihnen bei der Arbeit mit IPv6-Adressen und Subnetzen. Geben Sie eine IPv6-Adresse mit Präfixlänge ein (z.B. 2001:db8::/32), um den Netzwerkbereich zu berechnen, abgekürzte Adressen zu erweitern oder in kürzeste Form zu komprimieren. Alle Berechnungen erfolgen in Ihrem Browser."
+      },
+      "features": {
+        "heading": {
+          "en": "IPv6 Addressing Explained:",
+          "de": "IPv6-Adressierung erklärt:"
+        },
+        "items": [
+          {
+            "en": "<strong>128-bit Addresses:</strong> IPv6 uses 128-bit addresses written as 8 groups of 4 hex digits (e.g., 2001:0db8:85a3:0000:0000:8a2e:0370:7334).",
+            "de": "<strong>128-Bit-Adressen:</strong> IPv6 verwendet 128-Bit-Adressen, geschrieben als 8 Gruppen von 4 Hex-Ziffern (z.B. 2001:0db8:85a3:0000:0000:8a2e:0370:7334)."
+          },
+          {
+            "en": "<strong>Abbreviation with :::</strong> Consecutive groups of zeros can be replaced with :: once per address (e.g., 2001:db8::1).",
+            "de": "<strong>Abkürzung mit :::</strong> Aufeinanderfolgende Gruppen von Nullen können einmal pro Adresse durch :: ersetzt werden (z.B. 2001:db8::1)."
+          },
+          {
+            "en": "<strong>Common Prefixes:</strong> /64 is standard for LANs (18 quintillion addresses), /48 for sites, /32 for ISP allocations.",
+            "de": "<strong>Gängige Präfixe:</strong> /64 ist Standard für LANs (18 Trillionen Adressen), /48 für Standorte, /32 für ISP-Zuweisungen."
+          },
+          {
+            "en": "<strong>Address Types:</strong> Global Unicast (public), Link-Local (fe80::), Unique Local (fc00::/7), Multicast (ff00::/8).",
+            "de": "<strong>Adresstypen:</strong> Global Unicast (öffentlich), Link-Local (fe80::), Unique Local (fc00::/7), Multicast (ff00::/8)."
+          }
+        ]
+      },
+      "privacy_note": {
+        "en": "🔒 Privacy-Friendly: All calculations are performed entirely in your browser. No IP addresses or network data is sent to any server.",
+        "de": "🔒 Datenschutzfreundlich: Alle Berechnungen werden vollständig in Ihrem Browser durchgeführt. Es werden keine IP-Adressen oder Netzwerkdaten an einen Server gesendet."
+      },
+      "disclaimer": {
+        "en": "⚠️ Disclaimer: This calculator is for educational and planning purposes. Always verify network configurations before implementation.",
+        "de": "⚠️ Haftungsausschluss: Dieser Rechner dient nur zu Bildungs- und Planungszwecken. Überprüfen Sie Netzwerkkonfigurationen immer vor der Implementierung."
+      },
+      "search_queries": {
+        "en": [
+          "IPv6 subnet calculator",
+          "IPv6 CIDR calculator",
+          "IPv6 prefix calculator",
+          "Expand IPv6 address",
+          "Compress IPv6 address",
+          "IPv6 address range",
+          "How many addresses in /64",
+          "IPv6 network calculator",
+          "2001:db8::/32 calculator",
+          "IPv6 address types",
+          "Link-local IPv6",
+          "IPv6 to full form"
+        ],
+        "de": [
+          "IPv6 Subnetz Rechner",
+          "IPv6 CIDR Rechner",
+          "IPv6 Präfix Rechner",
+          "IPv6-Adresse erweitern",
+          "IPv6-Adresse komprimieren",
+          "IPv6 Adressbereich",
+          "Wie viele Adressen in /64",
+          "IPv6 Netzwerkrechner",
+          "2001:db8::/32 Rechner",
+          "IPv6 Adresstypen",
+          "Link-Local IPv6",
+          "IPv6 in volle Form"
+        ]
+      }
+    }
+  }
+}

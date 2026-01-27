@@ -1,0 +1,107 @@
+{
+  "route": "/tools/resistor-calculator",
+  "img": "fas fa-microchip",
+  "name": {
+    "en": "Resistor Color Code Calculator",
+    "de": "Widerstandsfarbcode-Rechner"
+  },
+  "description": {
+    "en": "Calculate resistor values from color bands",
+    "de": "Widerstandswerte aus Farbringen berechnen"
+  },
+  "tags": ["electronics", "calculator"],
+  "new_window": false,
+  "frontend_only": true,
+  "seo": {
+    "title": {
+      "en": "Resistor Color Code Calculator - Free Online Tool",
+      "de": "Widerstandsfarbcode-Rechner - Kostenloses Online-Tool"
+    },
+    "meta_description": {
+      "en": "Calculate resistor values from color bands. Supports 3, 4, 5, and 6 band resistors. Find resistance in ohms, tolerance, and temperature coefficient. Free online resistor calculator.",
+      "de": "Berechnen Sie Widerstandswerte aus Farbringen. Unterstützt 3-, 4-, 5- und 6-Ring-Widerstände. Finden Sie Widerstand in Ohm, Toleranz und Temperaturkoeffizient. Kostenloser Online-Widerstandsrechner."
+    },
+    "keywords": {
+      "en": "resistor calculator, color code calculator, resistor color bands, ohm calculator, resistance calculator, 4 band resistor, 5 band resistor, 6 band resistor, electronic color code, IEC 60062, resistor value, tolerance, temperature coefficient, electronics tool",
+      "de": "Widerstandsrechner, Farbcode-Rechner, Widerstand Farbring, Ohm Rechner, Widerstandsberechnung, 4-Ring-Widerstand, 5-Ring-Widerstand, 6-Ring-Widerstand, elektronischer Farbcode, IEC 60062, Widerstandswert, Toleranz, Temperaturkoeffizient, Elektronik-Tool"
+    },
+    "content": {
+      "heading": {
+        "en": "About This Resistor Color Code Calculator",
+        "de": "Über diesen Widerstandsfarbcode-Rechner"
+      },
+      "intro": {
+        "en": "This browser-based resistor color code calculator helps you quickly determine the resistance value, tolerance, and temperature coefficient of through-hole resistors based on their color bands. The electronic color code is an international standard defined in IEC 60062 used to indicate the values of electronic components. All calculations happen in your browser - your data remains private.",
+        "de": "Dieser Browser-basierte Widerstandsfarbcode-Rechner hilft Ihnen, schnell den Widerstandswert, die Toleranz und den Temperaturkoeffizienten von bedrahteten Widerständen anhand ihrer Farbringe zu bestimmen. Der elektronische Farbcode ist ein internationaler Standard nach IEC 60062, der zur Angabe der Werte elektronischer Bauteile verwendet wird. Alle Berechnungen erfolgen in Ihrem Browser - Ihre Daten bleiben privat."
+      },
+      "features": {
+        "heading": {
+          "en": "Key Features:",
+          "de": "Hauptfunktionen:"
+        },
+        "items": [
+          {
+            "en": "<strong>Multiple Band Support:</strong> Calculate values for 3-band, 4-band, 5-band, and 6-band resistors",
+            "de": "<strong>Unterstützung mehrerer Ringe:</strong> Berechnen Sie Werte für 3-, 4-, 5- und 6-Ring-Widerstände"
+          },
+          {
+            "en": "<strong>Complete Information:</strong> Shows resistance value, tolerance percentage, and temperature coefficient (TCR) for precision resistors",
+            "de": "<strong>Vollständige Informationen:</strong> Zeigt Widerstandswert, Toleranzprozentsatz und Temperaturkoeffizienten (TK) für Präzisionswiderstände"
+          },
+          {
+            "en": "<strong>Visual Color Selection:</strong> Interactive color band selector with actual resistor colors for easy identification",
+            "de": "<strong>Visuelle Farbauswahl:</strong> Interaktive Farbring-Auswahl mit echten Widerstandsfarben zur einfachen Identifizierung"
+          },
+          {
+            "en": "<strong>Standard Compliant:</strong> Based on IEC 60062 international standard for electronic color codes",
+            "de": "<strong>Standardkonform:</strong> Basierend auf dem internationalen Standard IEC 60062 für elektronische Farbcodes"
+          }
+        ]
+      },
+      "privacy_note": {
+        "en": "🔒 Privacy-Friendly: All calculations are performed entirely in your browser. No data is sent to any server.",
+        "de": "🔒 Datenschutzfreundlich: Alle Berechnungen werden vollständig in Ihrem Browser durchgeführt. Es werden keine Daten an einen Server gesendet."
+      },
+      "disclaimer": {
+        "en": "⚠️ Disclaimer: This calculator is provided for educational and reference purposes only. Always verify resistor values with a multimeter before use in critical applications. Color perception may vary, and resistor markings can fade or be difficult to read.",
+        "de": "⚠️ Haftungsausschluss: Dieser Rechner dient nur zu Bildungs- und Referenzzwecken. Überprüfen Sie Widerstandswerte immer mit einem Multimeter, bevor Sie sie in kritischen Anwendungen verwenden. Die Farbwahrnehmung kann variieren, und Widerstandsmarkierungen können verblassen oder schwer zu lesen sein."
+      },
+      "search_queries": {
+        "en": [
+          "Resistor color code calculator",
+          "How to read resistor color bands",
+          "4 band resistor calculator",
+          "5 band resistor calculator",
+          "6 band resistor calculator",
+          "What color is 10k resistor",
+          "Resistor value from colors",
+          "Electronic color code chart",
+          "Ohm value calculator",
+          "Resistance calculator online",
+          "How to calculate resistor value",
+          "Resistor color chart",
+          "IEC 60062 color code",
+          "Resistor tolerance colors",
+          "Temperature coefficient resistor"
+        ],
+        "de": [
+          "Widerstand Farbcode Rechner",
+          "Widerstand Farbringe ablesen",
+          "4-Ring Widerstand berechnen",
+          "5-Ring Widerstand berechnen",
+          "6-Ring Widerstand berechnen",
+          "Welche Farbe hat ein 10k Widerstand",
+          "Widerstandswert aus Farben",
+          "Elektronischer Farbcode Tabelle",
+          "Ohm Wert Rechner",
+          "Widerstand berechnen online",
+          "Widerstandswert berechnen",
+          "Widerstand Farbtabelle",
+          "IEC 60062 Farbcode",
+          "Widerstand Toleranz Farben",
+          "Temperaturkoeffizient Widerstand"
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,103 @@
+{
+  "route": "/tools/ohms-law",
+  "img": "fas fa-bolt",
+  "name": {
+    "en": "Ohm's Law Calculator",
+    "de": "Ohmsches Gesetz Rechner"
+  },
+  "description": {
+    "en": "Calculate voltage, current, resistance, and power",
+    "de": "Spannung, Strom, Widerstand und Leistung berechnen"
+  },
+  "tags": ["electronics", "calculator"],
+  "new_window": false,
+  "frontend_only": true,
+  "seo": {
+    "title": {
+      "en": "Ohm's Law Calculator - Voltage, Current, Resistance, Power",
+      "de": "Ohmsches Gesetz Rechner - Spannung, Strom, Widerstand, Leistung"
+    },
+    "meta_description": {
+      "en": "Calculate voltage (V), current (I), resistance (R), and power (P) using Ohm's Law. Enter any two values to find the others. Free online electrical calculator with formulas V=IR and P=VI.",
+      "de": "Berechnen Sie Spannung (V), Strom (I), Widerstand (R) und Leistung (P) mit dem Ohmschen Gesetz. Geben Sie zwei beliebige Werte ein, um die anderen zu finden. Kostenloser Online-Elektrorechner mit Formeln V=IR und P=VI."
+    },
+    "keywords": {
+      "en": "ohms law calculator, voltage calculator, current calculator, resistance calculator, power calculator, V=IR, P=VI, electrical calculator, electronics calculator, watt calculator, amp calculator, volt calculator, ohm calculator",
+      "de": "Ohmsches Gesetz Rechner, Spannungsrechner, Stromrechner, Widerstandsrechner, Leistungsrechner, V=IR, P=VI, Elektrorechner, Elektronik Rechner, Watt Rechner, Ampere Rechner, Volt Rechner, Ohm Rechner"
+    },
+    "content": {
+      "heading": {
+        "en": "About Ohm's Law Calculator",
+        "de": "Über den Ohmsches Gesetz Rechner"
+      },
+      "intro": {
+        "en": "This calculator helps you solve electrical circuit problems using Ohm's Law and the power equation. Simply enter any two known values (voltage, current, resistance, or power) and the calculator will determine the remaining values. All calculations are performed in your browser - no data is sent to any server.",
+        "de": "Dieser Rechner hilft Ihnen, elektrische Schaltungsprobleme mit dem Ohmschen Gesetz und der Leistungsgleichung zu lösen. Geben Sie einfach zwei bekannte Werte ein (Spannung, Strom, Widerstand oder Leistung) und der Rechner ermittelt die restlichen Werte. Alle Berechnungen erfolgen in Ihrem Browser - es werden keine Daten an einen Server gesendet."
+      },
+      "features": {
+        "heading": {
+          "en": "Understanding Ohm's Law:",
+          "de": "Das Ohmsche Gesetz verstehen:"
+        },
+        "items": [
+          {
+            "en": "<strong>Ohm's Law (V = I × R):</strong> States that voltage equals current multiplied by resistance. This fundamental relationship describes how electrical current flows through a conductor.",
+            "de": "<strong>Ohmsches Gesetz (V = I × R):</strong> Besagt, dass die Spannung gleich dem Strom multipliziert mit dem Widerstand ist. Diese grundlegende Beziehung beschreibt, wie elektrischer Strom durch einen Leiter fließt."
+          },
+          {
+            "en": "<strong>Power Equation (P = V × I):</strong> Electrical power in watts equals voltage multiplied by current. This tells you how much energy is being used per second.",
+            "de": "<strong>Leistungsgleichung (P = V × I):</strong> Die elektrische Leistung in Watt entspricht der Spannung multipliziert mit dem Strom. Dies zeigt, wie viel Energie pro Sekunde verbraucht wird."
+          },
+          {
+            "en": "<strong>Derived Formulas:</strong> P = I²R and P = V²/R are derived by combining Ohm's Law with the power equation, useful when you know different combinations of values.",
+            "de": "<strong>Abgeleitete Formeln:</strong> P = I²R und P = V²/R werden durch Kombination des Ohmschen Gesetzes mit der Leistungsgleichung abgeleitet, nützlich bei verschiedenen Wertekombinationen."
+          },
+          {
+            "en": "<strong>SI Units:</strong> Voltage in Volts (V), Current in Amperes (A), Resistance in Ohms (Ω), Power in Watts (W).",
+            "de": "<strong>SI-Einheiten:</strong> Spannung in Volt (V), Strom in Ampere (A), Widerstand in Ohm (Ω), Leistung in Watt (W)."
+          }
+        ]
+      },
+      "privacy_note": {
+        "en": "🔒 Privacy-Friendly: All calculations are performed entirely in your browser. No data is sent to any server.",
+        "de": "🔒 Datenschutzfreundlich: Alle Berechnungen werden vollständig in Ihrem Browser durchgeführt. Es werden keine Daten an einen Server gesendet."
+      },
+      "disclaimer": {
+        "en": "⚠️ Disclaimer: This calculator is for educational and reference purposes only. Always verify calculations and follow proper safety procedures when working with electrical circuits.",
+        "de": "⚠️ Haftungsausschluss: Dieser Rechner dient nur zu Bildungs- und Referenzzwecken. Überprüfen Sie Berechnungen immer und befolgen Sie die richtigen Sicherheitsverfahren bei der Arbeit mit elektrischen Schaltungen."
+      },
+      "search_queries": {
+        "en": [
+          "Ohm's law calculator",
+          "Calculate voltage from current and resistance",
+          "Calculate current from voltage and resistance",
+          "Calculate resistance from voltage and current",
+          "Calculate power from voltage and current",
+          "V = IR calculator",
+          "P = VI calculator",
+          "Electrical power calculator",
+          "Wattage calculator",
+          "How many amps from watts and volts",
+          "Convert watts to amps",
+          "Voltage drop calculator",
+          "LED resistor calculator"
+        ],
+        "de": [
+          "Ohmsches Gesetz Rechner",
+          "Spannung aus Strom und Widerstand berechnen",
+          "Strom aus Spannung und Widerstand berechnen",
+          "Widerstand aus Spannung und Strom berechnen",
+          "Leistung aus Spannung und Strom berechnen",
+          "V = IR Rechner",
+          "P = VI Rechner",
+          "Elektrische Leistung berechnen",
+          "Watt Rechner",
+          "Ampere aus Watt und Volt berechnen",
+          "Watt in Ampere umrechnen",
+          "Spannungsabfall berechnen",
+          "LED Vorwiderstand berechnen"
+        ]
+      }
+    }
+  }
+}

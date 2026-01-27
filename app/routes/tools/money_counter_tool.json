@@ -1,0 +1,97 @@
+{
+  "route": "/tools/money-counter",
+  "img": "fas fa-coins",
+  "name": {
+    "en": "Money Counter",
+    "de": "Geld-Zähler"
+  },
+  "description": {
+    "en": "Count bills and coins to calculate your total cash",
+    "de": "Scheine und Münzen zählen und Gesamtbetrag berechnen"
+  },
+  "tags": ["utility"],
+  "new_window": false,
+  "frontend_only": true,
+  "seo": {
+    "title": {
+      "en": "Money Counter - Count Bills and Coins Online",
+      "de": "Geld-Zähler - Scheine und Münzen online zählen"
+    },
+    "meta_description": {
+      "en": "Free online money counter to calculate the total value of your cash. Count bills and coins in Euros, US Dollars, or British Pounds. Perfect for counting piggy banks, cash registers, or loose change.",
+      "de": "Kostenloser Online-Geld-Zähler zur Berechnung des Gesamtwerts Ihres Bargelds. Zählen Sie Scheine und Münzen in Euro, US-Dollar oder Britischen Pfund. Perfekt für Sparschweine, Kassen oder Kleingeld."
+    },
+    "keywords": {
+      "en": "money counter, cash counter, coin counter, bill counter, count money online, currency calculator, piggy bank counter, loose change calculator, cash register count, money counting tool",
+      "de": "Geld zählen, Bargeld zählen, Münzen zählen, Scheine zählen, Geld online zählen, Währungsrechner, Sparschwein zählen, Kleingeld Rechner, Kassenabrechnung, Geld-Zähler"
+    },
+    "content": {
+      "heading": {
+        "en": "About Money Counter",
+        "de": "Über den Geld-Zähler"
+      },
+      "intro": {
+        "en": "This money counter helps you quickly calculate the total value of your cash by entering the quantity of each bill and coin denomination. Perfect for counting piggy banks, cash drawers, tips, or loose change. All calculations happen in your browser.",
+        "de": "Dieser Geld-Zähler hilft Ihnen, den Gesamtwert Ihres Bargelds schnell zu berechnen, indem Sie die Anzahl jeder Schein- und Münzstückelung eingeben. Perfekt zum Zählen von Sparschweinen, Kassenschubladen, Trinkgeldern oder Kleingeld. Alle Berechnungen erfolgen in Ihrem Browser."
+      },
+      "features": {
+        "heading": {
+          "en": "Features:",
+          "de": "Funktionen:"
+        },
+        "items": [
+          {
+            "en": "<strong>Multiple Currencies:</strong> Supports Euros (€), US Dollars ($), and British Pounds (£) with all common denominations.",
+            "de": "<strong>Mehrere Währungen:</strong> Unterstützt Euro (€), US-Dollar ($) und Britische Pfund (£) mit allen gängigen Stückelungen."
+          },
+          {
+            "en": "<strong>Real-time Calculation:</strong> See your running total update instantly as you enter quantities.",
+            "de": "<strong>Echtzeit-Berechnung:</strong> Sehen Sie Ihre laufende Summe sofort aktualisiert, während Sie Mengen eingeben."
+          },
+          {
+            "en": "<strong>Breakdown View:</strong> Shows subtotals for each denomination so you can verify your count.",
+            "de": "<strong>Aufschlüsselung:</strong> Zeigt Zwischensummen für jede Stückelung, damit Sie Ihre Zählung überprüfen können."
+          },
+          {
+            "en": "<strong>Shareable URL:</strong> Share your count with others via URL.",
+            "de": "<strong>Teilbare URL:</strong> Teilen Sie Ihre Zählung mit anderen per URL."
+          }
+        ]
+      },
+      "privacy_note": {
+        "en": "🔒 Privacy-Friendly: All calculations are performed entirely in your browser. No data is sent to any server.",
+        "de": "🔒 Datenschutzfreundlich: Alle Berechnungen werden vollständig in Ihrem Browser durchgeführt. Es werden keine Daten an einen Server gesendet."
+      },
+      "disclaimer": {
+        "en": "⚠️ Disclaimer: This tool is for informational purposes only. Always verify your count manually for important transactions.",
+        "de": "⚠️ Haftungsausschluss: Dieses Tool dient nur zu Informationszwecken. Überprüfen Sie Ihre Zählung immer manuell bei wichtigen Transaktionen."
+      },
+      "search_queries": {
+        "en": [
+          "Money counter online",
+          "Count coins calculator",
+          "Cash counter tool",
+          "How much money in piggy bank",
+          "Count loose change",
+          "Bill counter online",
+          "Euro coin counter",
+          "Dollar bill calculator",
+          "Cash register count",
+          "Tip money counter"
+        ],
+        "de": [
+          "Geld zählen online",
+          "Münzen zählen Rechner",
+          "Bargeld Zähler",
+          "Wie viel Geld im Sparschwein",
+          "Kleingeld zählen",
+          "Scheine zählen online",
+          "Euro Münzen zählen",
+          "Kassenabrechnung",
+          "Trinkgeld zählen",
+          "Bargeld Rechner"
+        ]
+      }
+    }
+  }
+}

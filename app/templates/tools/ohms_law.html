@@ -1,0 +1,325 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ tool_data.seo.title[current_lang] }}{% endblock %}
+{% block meta_description %}{{ tool_data.seo.meta_description[current_lang] }}{% endblock %}
+{% block meta_keywords %}{{ tool_data.seo.keywords[current_lang] }}{% endblock %}
+{% block og_title %}{{ tool_data.seo.title[current_lang] }}{% endblock %}
+{% block og_description %}{{ tool_data.seo.meta_description[current_lang] }}{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-12">
+        {% include 'components/tool_header.html' %}
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12 col-lg-6 mb-4">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0">
+                    {% if current_lang == 'de' %}Werte eingeben (mind. 2){% else %}Enter Values (at least 2){% endif %}
+                </h5>
+            </div>
+            <div class="card-body">
+                <div class="row g-3">
+                    <div class="col-12 col-md-6">
+                        <label for="voltage" class="form-label">
+                            <i class="fas fa-bolt text-warning me-2"></i>
+                            {% if current_lang == 'de' %}Spannung (V){% else %}Voltage (V){% endif %}
+                        </label>
+                        <div class="input-group">
+                            <input type="number" class="form-control" id="voltage" step="any" min="0" placeholder="{% if current_lang == 'de' %}z.B. 12{% else %}e.g. 12{% endif %}">
+                            <span class="input-group-text">V</span>
+                            <button class="btn btn-outline-secondary" type="button" id="clearVoltage" title="Clear">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <label for="current" class="form-label">
+                            <i class="fas fa-water text-primary me-2"></i>
+                            {% if current_lang == 'de' %}Strom (I){% else %}Current (I){% endif %}
+                        </label>
+                        <div class="input-group">
+                            <input type="number" class="form-control" id="current" step="any" min="0" placeholder="{% if current_lang == 'de' %}z.B. 0.5{% else %}e.g. 0.5{% endif %}">
+                            <span class="input-group-text">A</span>
+                            <button class="btn btn-outline-secondary" type="button" id="clearCurrent" title="Clear">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <label for="resistance" class="form-label">
+                            <i class="fas fa-microchip text-success me-2"></i>
+                            {% if current_lang == 'de' %}Widerstand (R){% else %}Resistance (R){% endif %}
+                        </label>
+                        <div class="input-group">
+                            <input type="number" class="form-control" id="resistance" step="any" min="0" placeholder="{% if current_lang == 'de' %}z.B. 24{% else %}e.g. 24{% endif %}">
+                            <span class="input-group-text">Ω</span>
+                            <button class="btn btn-outline-secondary" type="button" id="clearResistance" title="Clear">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <label for="power" class="form-label">
+                            <i class="fas fa-fire text-danger me-2"></i>
+                            {% if current_lang == 'de' %}Leistung (P){% else %}Power (P){% endif %}
+                        </label>
+                        <div class="input-group">
+                            <input type="number" class="form-control" id="power" step="any" min="0" placeholder="{% if current_lang == 'de' %}z.B. 6{% else %}e.g. 6{% endif %}">
+                            <span class="input-group-text">W</span>
+                            <button class="btn btn-outline-secondary" type="button" id="clearPower" title="Clear">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-3">
+                    <button class="btn btn-primary" id="calculateBtn">
+                        <i class="fas fa-calculator me-2"></i>
+                        {% if current_lang == 'de' %}Berechnen{% else %}Calculate{% endif %}
+                    </button>
+                    <button class="btn btn-outline-secondary" id="clearAllBtn">
+                        <i class="fas fa-trash me-2"></i>
+                        {% if current_lang == 'de' %}Alles löschen{% else %}Clear All{% endif %}
+                    </button>
+                </div>
+                <div id="errorMessage" class="alert alert-danger mt-3" style="display: none;"></div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-12 col-lg-6 mb-4">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0">
+                    {% if current_lang == 'de' %}Ergebnisse{% else %}Results{% endif %}
+                </h5>
+            </div>
+            <div class="card-body">
+                <div class="row g-3">
+                    <div class="col-6">
+                        <div class="result-card p-3 text-center">
+                            <div class="result-icon text-warning mb-2">
+                                <i class="fas fa-bolt fa-2x"></i>
+                            </div>
+                            <div class="result-label small text-muted">{% if current_lang == 'de' %}Spannung{% else %}Voltage{% endif %}</div>
+                            <div class="result-value h4 mb-0" id="resultVoltage">-</div>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="result-card p-3 text-center">
+                            <div class="result-icon text-primary mb-2">
+                                <i class="fas fa-water fa-2x"></i>
+                            </div>
+                            <div class="result-label small text-muted">{% if current_lang == 'de' %}Strom{% else %}Current{% endif %}</div>
+                            <div class="result-value h4 mb-0" id="resultCurrent">-</div>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="result-card p-3 text-center">
+                            <div class="result-icon text-success mb-2">
+                                <i class="fas fa-microchip fa-2x"></i>
+                            </div>
+                            <div class="result-label small text-muted">{% if current_lang == 'de' %}Widerstand{% else %}Resistance{% endif %}</div>
+                            <div class="result-value h4 mb-0" id="resultResistance">-</div>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="result-card p-3 text-center">
+                            <div class="result-icon text-danger mb-2">
+                                <i class="fas fa-fire fa-2x"></i>
+                            </div>
+                            <div class="result-label small text-muted">{% if current_lang == 'de' %}Leistung{% else %}Power{% endif %}</div>
+                            <div class="result-value h4 mb-0" id="resultPower">-</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12 mb-4">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0">
+                    {% if current_lang == 'de' %}Formeln{% else %}Formulas{% endif %}
+                </h5>
+            </div>
+            <div class="card-body">
+                <div class="row text-center small">
+                    <div class="col-6 col-md-3 col-lg-2 mb-2">
+                        <div class="formula-box p-2 rounded">
+                            <strong>V</strong> = I × R
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-3 col-lg-2 mb-2">
+                        <div class="formula-box p-2 rounded">
+                            <strong>I</strong> = V / R
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-3 col-lg-2 mb-2">
+                        <div class="formula-box p-2 rounded">
+                            <strong>R</strong> = V / I
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-3 col-lg-2 mb-2">
+                        <div class="formula-box p-2 rounded">
+                            <strong>P</strong> = V × I
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-3 col-lg-2 mb-2">
+                        <div class="formula-box p-2 rounded">
+                            <strong>P</strong> = I² × R
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-3 col-lg-2 mb-2">
+                        <div class="formula-box p-2 rounded">
+                            <strong>P</strong> = V² / R
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% include 'components/seo_content.html' %}
+{% include 'components/related_tools.html' %}
+{% endblock %}
+
+{% block extra_css %}
+<style>
+.result-card {
+    background: var(--color-light);
+    border-radius: 8px;
+    transition: transform 0.2s;
+}
+
+.result-card:hover {
+    transform: translateY(-2px);
+}
+
+.result-value {
+    font-family: 'Courier New', monospace;
+    font-weight: bold;
+}
+
+.formula-box {
+    background: var(--color-light);
+    font-family: 'Courier New', monospace;
+}
+
+.input-group .btn-outline-secondary {
+    border-left: 0;
+}
+</style>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{{ url_for('static', filename='js/ohms-law.js') }}"></script>
+<script>
+const voltageInput = document.getElementById('voltage');
+const currentInput = document.getElementById('current');
+const resistanceInput = document.getElementById('resistance');
+const powerInput = document.getElementById('power');
+const errorMessage = document.getElementById('errorMessage');
+
+function calculate() {
+    errorMessage.style.display = 'none';
+    
+    const known = {
+        voltage: voltageInput.value || undefined,
+        current: currentInput.value || undefined,
+        resistance: resistanceInput.value || undefined,
+        power: powerInput.value || undefined
+    };
+    
+    // Count filled inputs
+    const filledCount = [known.voltage, known.current, known.resistance, known.power]
+        .filter(v => v !== undefined && v !== '').length;
+    
+    if (filledCount < 2) {
+        errorMessage.textContent = '{% if current_lang == "de" %}Bitte geben Sie mindestens 2 Werte ein.{% else %}Please enter at least 2 values.{% endif %}';
+        errorMessage.style.display = 'block';
+        clearResults();
+        return;
+    }
+    
+    try {
+        const result = OhmsLaw.calculate(known);
+        
+        document.getElementById('resultVoltage').textContent = result.formatted.voltage;
+        document.getElementById('resultCurrent').textContent = result.formatted.current;
+        document.getElementById('resultResistance').textContent = result.formatted.resistance;
+        document.getElementById('resultPower').textContent = result.formatted.power;
+    } catch (e) {
+        errorMessage.textContent = e.message;
+        errorMessage.style.display = 'block';
+        clearResults();
+    }
+}
+
+function clearResults() {
+    document.getElementById('resultVoltage').textContent = '-';
+    document.getElementById('resultCurrent').textContent = '-';
+    document.getElementById('resultResistance').textContent = '-';
+    document.getElementById('resultPower').textContent = '-';
+}
+
+function clearAll() {
+    voltageInput.value = '';
+    currentInput.value = '';
+    resistanceInput.value = '';
+    powerInput.value = '';
+    errorMessage.style.display = 'none';
+    clearResults();
+}
+
+document.getElementById('calculateBtn').addEventListener('click', calculate);
+document.getElementById('clearAllBtn').addEventListener('click', clearAll);
+
+document.getElementById('clearVoltage').addEventListener('click', () => { voltageInput.value = ''; });
+document.getElementById('clearCurrent').addEventListener('click', () => { currentInput.value = ''; });
+document.getElementById('clearResistance').addEventListener('click', () => { resistanceInput.value = ''; });
+document.getElementById('clearPower').addEventListener('click', () => { powerInput.value = ''; });
+
+// Calculate on Enter key
+[voltageInput, currentInput, resistanceInput, powerInput].forEach(input => {
+    input.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') calculate();
+    });
+    input.addEventListener('input', updateUrl);
+});
+
+// Update URL with current state for sharing
+function updateUrl() {
+    const params = new URLSearchParams();
+    if (voltageInput.value) params.set('v', voltageInput.value);
+    if (currentInput.value) params.set('i', currentInput.value);
+    if (resistanceInput.value) params.set('r', resistanceInput.value);
+    if (powerInput.value) params.set('p', powerInput.value);
+    const newUrl = `${window.location.pathname}?${params.toString()}`;
+    history.replaceState(null, '', newUrl);
+}
+
+// Load state from URL
+function loadFromUrl() {
+    const params = new URLSearchParams(window.location.search);
+    if (params.get('v')) voltageInput.value = params.get('v');
+    if (params.get('i')) currentInput.value = params.get('i');
+    if (params.get('r')) resistanceInput.value = params.get('r');
+    if (params.get('p')) powerInput.value = params.get('p');
+    
+    // Auto-calculate if we have at least 2 values
+    const filled = [params.get('v'), params.get('i'), params.get('r'), params.get('p')].filter(v => v).length;
+    if (filled >= 2) calculate();
+}
+
+loadFromUrl();
+</script>
+{% endblock %}

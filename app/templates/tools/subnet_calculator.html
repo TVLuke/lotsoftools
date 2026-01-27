@@ -1,0 +1,496 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ tool_data.seo.title[current_lang] }}{% endblock %}
+{% block meta_description %}{{ tool_data.seo.meta_description[current_lang] }}{% endblock %}
+{% block meta_keywords %}{{ tool_data.seo.keywords[current_lang] }}{% endblock %}
+{% block og_title %}{{ tool_data.seo.title[current_lang] }}{% endblock %}
+{% block og_description %}{{ tool_data.seo.meta_description[current_lang] }}{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-12">
+        {% include 'components/tool_header.html' %}
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12 col-lg-5 mb-4">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0">
+                    {% if mode == 'ipv6' %}
+                        {% if current_lang == 'de' %}IPv6-Adresse eingeben{% else %}Enter IPv6 Address{% endif %}
+                    {% else %}
+                        {% if current_lang == 'de' %}IPv4-Adresse eingeben{% else %}Enter IPv4 Address{% endif %}
+                    {% endif %}
+                </h5>
+            </div>
+            <div class="card-body">
+                {% if mode == 'ipv6' %}
+                <div class="mb-3">
+                    <label for="ipAddress" class="form-label">
+                        {% if current_lang == 'de' %}IPv6-Adresse{% else %}IPv6 Address{% endif %}
+                    </label>
+                    <input type="text" class="form-control font-monospace" id="ipAddress" 
+                           placeholder="2001:db8:85a3::8a2e:370:7334" value="2001:db8::1">
+                </div>
+                <div class="mb-3">
+                    <label for="prefix" class="form-label">
+                        {% if current_lang == 'de' %}Präfix-Länge{% else %}Prefix Length{% endif %}
+                    </label>
+                    <div class="input-group">
+                        <span class="input-group-text">/</span>
+                        <input type="number" class="form-control" id="prefix" min="0" max="128" value="64">
+                    </div>
+                    <div class="form-text">{% if current_lang == 'de' %}0-128 (Standard: 64 für LANs){% else %}0-128 (Standard: 64 for LANs){% endif %}</div>
+                </div>
+                {% else %}
+                <div class="mb-3">
+                    <label for="ipAddress" class="form-label">
+                        {% if current_lang == 'de' %}IPv4-Adresse{% else %}IPv4 Address{% endif %}
+                    </label>
+                    <input type="text" class="form-control font-monospace" id="ipAddress" 
+                           placeholder="192.168.1.100" value="192.168.1.100">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">
+                        {% if current_lang == 'de' %}Subnetz (CIDR oder Maske){% else %}Subnet (CIDR or Mask){% endif %}
+                    </label>
+                    <div class="row g-2">
+                        <div class="col-5">
+                            <div class="input-group">
+                                <span class="input-group-text">/</span>
+                                <input type="number" class="form-control" id="cidr" min="0" max="32" value="24">
+                            </div>
+                        </div>
+                        <div class="col-2 text-center align-self-center">
+                            <small class="text-muted">{% if current_lang == 'de' %}oder{% else %}or{% endif %}</small>
+                        </div>
+                        <div class="col-5">
+                            <input type="text" class="form-control font-monospace" id="mask" placeholder="255.255.255.0">
+                        </div>
+                    </div>
+                </div>
+                {% endif %}
+                <button class="btn btn-primary w-100" id="calculateBtn">
+                    <i class="fas fa-calculator me-2"></i>
+                    {% if current_lang == 'de' %}Berechnen{% else %}Calculate{% endif %}
+                </button>
+                <div id="errorMessage" class="alert alert-danger mt-3" style="display: none;"></div>
+            </div>
+        </div>
+        
+        {% if mode != 'ipv6' %}
+        <div class="card mt-4">
+            <div class="card-header">
+                <h5 class="mb-0">{% if current_lang == 'de' %}CIDR-Referenz{% else %}CIDR Reference{% endif %}</h5>
+            </div>
+            <div class="card-body p-0">
+                <div class="table-responsive">
+                    <table class="table table-sm table-striped mb-0 small">
+                        <thead>
+                            <tr>
+                                <th>CIDR</th>
+                                <th>{% if current_lang == 'de' %}Maske{% else %}Mask{% endif %}</th>
+                                <th>{% if current_lang == 'de' %}Hosts{% else %}Hosts{% endif %}</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>/8</td><td>255.0.0.0</td><td>16,777,214</td></tr>
+                            <tr><td>/16</td><td>255.255.0.0</td><td>65,534</td></tr>
+                            <tr><td>/24</td><td>255.255.255.0</td><td>254</td></tr>
+                            <tr><td>/25</td><td>255.255.255.128</td><td>126</td></tr>
+                            <tr><td>/26</td><td>255.255.255.192</td><td>62</td></tr>
+                            <tr><td>/27</td><td>255.255.255.224</td><td>30</td></tr>
+                            <tr><td>/28</td><td>255.255.255.240</td><td>14</td></tr>
+                            <tr><td>/29</td><td>255.255.255.248</td><td>6</td></tr>
+                            <tr><td>/30</td><td>255.255.255.252</td><td>2</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+    
+    <div class="col-12 col-lg-7 mb-4">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0">{% if current_lang == 'de' %}Ergebnisse{% else %}Results{% endif %}</h5>
+            </div>
+            <div class="card-body">
+                <div id="results" style="display: none;">
+                    {% if mode == 'ipv6' %}
+                    <div class="table-responsive">
+                        <table class="table table-bordered mb-0">
+                            <tbody>
+                                <tr>
+                                    <th style="width: 40%;">{% if current_lang == 'de' %}Vollständige Adresse{% else %}Full Address{% endif %}</th>
+                                    <td class="font-monospace" id="resultExpanded">-</td>
+                                </tr>
+                                <tr>
+                                    <th>{% if current_lang == 'de' %}Komprimiert{% else %}Compressed{% endif %}</th>
+                                    <td class="font-monospace" id="resultCompressed">-</td>
+                                </tr>
+                                <tr>
+                                    <th>{% if current_lang == 'de' %}Präfix{% else %}Prefix{% endif %}</th>
+                                    <td class="font-monospace" id="resultPrefix">-</td>
+                                </tr>
+                                <tr>
+                                    <th>{% if current_lang == 'de' %}Netzwerkadresse{% else %}Network Address{% endif %}</th>
+                                    <td class="font-monospace" id="resultNetwork">-</td>
+                                </tr>
+                                <tr>
+                                    <th>{% if current_lang == 'de' %}Letzte Adresse{% else %}Last Address{% endif %}</th>
+                                    <td class="font-monospace" id="resultLast">-</td>
+                                </tr>
+                                <tr>
+                                    <th>{% if current_lang == 'de' %}Adressen gesamt{% else %}Total Addresses{% endif %}</th>
+                                    <td id="resultTotal">-</td>
+                                </tr>
+                                <tr>
+                                    <th>{% if current_lang == 'de' %}Adresstyp{% else %}Address Type{% endif %}</th>
+                                    <td id="resultType">-</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    {% else %}
+                    <div class="table-responsive">
+                        <table class="table table-bordered mb-0">
+                            <tbody>
+                                <tr>
+                                    <th style="width: 40%;">{% if current_lang == 'de' %}IP-Adresse{% else %}IP Address{% endif %}</th>
+                                    <td class="font-monospace" id="resultIP">-</td>
+                                </tr>
+                                <tr>
+                                    <th>{% if current_lang == 'de' %}Netzwerkadresse{% else %}Network Address{% endif %}</th>
+                                    <td class="font-monospace" id="resultNetwork">-</td>
+                                </tr>
+                                <tr>
+                                    <th>{% if current_lang == 'de' %}Subnetzmaske{% else %}Subnet Mask{% endif %}</th>
+                                    <td class="font-monospace" id="resultMask">-</td>
+                                </tr>
+                                <tr>
+                                    <th>{% if current_lang == 'de' %}Wildcard-Maske{% else %}Wildcard Mask{% endif %}</th>
+                                    <td class="font-monospace" id="resultWildcard">-</td>
+                                </tr>
+                                <tr>
+                                    <th>{% if current_lang == 'de' %}Broadcast-Adresse{% else %}Broadcast Address{% endif %}</th>
+                                    <td class="font-monospace" id="resultBroadcast">-</td>
+                                </tr>
+                                <tr>
+                                    <th>{% if current_lang == 'de' %}Erster Host{% else %}First Host{% endif %}</th>
+                                    <td class="font-monospace" id="resultHostMin">-</td>
+                                </tr>
+                                <tr>
+                                    <th>{% if current_lang == 'de' %}Letzter Host{% else %}Last Host{% endif %}</th>
+                                    <td class="font-monospace" id="resultHostMax">-</td>
+                                </tr>
+                                <tr>
+                                    <th>{% if current_lang == 'de' %}Nutzbare Hosts{% else %}Usable Hosts{% endif %}</th>
+                                    <td id="resultUsable">-</td>
+                                </tr>
+                                <tr>
+                                    <th>{% if current_lang == 'de' %}Adressen gesamt{% else %}Total Addresses{% endif %}</th>
+                                    <td id="resultTotal">-</td>
+                                </tr>
+                                <tr>
+                                    <th>{% if current_lang == 'de' %}IP-Klasse{% else %}IP Class{% endif %}</th>
+                                    <td id="resultClass">-</td>
+                                </tr>
+                                <tr>
+                                    <th>{% if current_lang == 'de' %}Privat{% else %}Private{% endif %}</th>
+                                    <td id="resultPrivate">-</td>
+                                </tr>
+                                <tr>
+                                    <th>{% if current_lang == 'de' %}Hex-ID{% else %}Hex ID{% endif %}</th>
+                                    <td class="font-monospace" id="resultHex">-</td>
+                                </tr>
+                                <tr>
+                                    <th>{% if current_lang == 'de' %}Integer-ID{% else %}Integer ID{% endif %}</th>
+                                    <td class="font-monospace" id="resultInt">-</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                    <h6 class="mt-4 mb-2">{% if current_lang == 'de' %}Binärdarstellung{% else %}Binary Representation{% endif %}</h6>
+                    <div class="table-responsive">
+                        <table class="table table-sm table-bordered mb-0">
+                            <tbody>
+                                <tr>
+                                    <th style="width: 25%;">IP</th>
+                                    <td class="font-monospace small" id="resultBinaryIP">-</td>
+                                </tr>
+                                <tr>
+                                    <th>{% if current_lang == 'de' %}Maske{% else %}Mask{% endif %}</th>
+                                    <td class="font-monospace small" id="resultBinaryMask">-</td>
+                                </tr>
+                                <tr>
+                                    <th>{% if current_lang == 'de' %}Netzwerk{% else %}Network{% endif %}</th>
+                                    <td class="font-monospace small" id="resultBinaryNetwork">-</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                    <div class="mt-4" id="subnetsSection" style="display: none;">
+                        <h6 class="mb-2 d-flex justify-content-between align-items-center">
+                            <span>{% if current_lang == 'de' %}Alle Subnetze in diesem Block{% else %}All Subnets in This Block{% endif %}</span>
+                            <button class="btn btn-sm btn-outline-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#subnetsList">
+                                <i class="fas fa-chevron-down"></i>
+                            </button>
+                        </h6>
+                        <div class="collapse" id="subnetsList">
+                            <div class="table-responsive" style="max-height: 300px; overflow-y: auto;">
+                                <table class="table table-sm table-striped table-hover mb-0 small">
+                                    <thead class="sticky-top bg-light">
+                                        <tr>
+                                            <th>#</th>
+                                            <th>{% if current_lang == 'de' %}Netzwerk{% else %}Network{% endif %}</th>
+                                            <th>{% if current_lang == 'de' %}Bereich{% else %}Range{% endif %}</th>
+                                            <th>{% if current_lang == 'de' %}Broadcast{% else %}Broadcast{% endif %}</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="subnetsTableBody"></tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    {% endif %}
+                </div>
+                <div id="placeholder" class="text-center text-muted py-4">
+                    <i class="fas fa-network-wired fa-3x mb-3"></i>
+                    <p>{% if current_lang == 'de' %}Geben Sie eine IP-Adresse ein und klicken Sie auf Berechnen{% else %}Enter an IP address and click Calculate{% endif %}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% include 'components/seo_content.html' %}
+{% include 'components/related_tools.html' %}
+{% endblock %}
+
+{% block extra_css %}
+<style>
+.font-monospace {
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.table th {
+    background: var(--color-light);
+}
+</style>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{{ url_for('static', filename='js/subnet-calculator.js') }}"></script>
+<script>
+const mode = '{{ mode }}';
+const lang = '{{ current_lang }}';
+
+function calculate() {
+    const errorMessage = document.getElementById('errorMessage');
+    const results = document.getElementById('results');
+    const placeholder = document.getElementById('placeholder');
+    
+    errorMessage.style.display = 'none';
+    
+    try {
+        if (mode === 'ipv6') {
+            const ip = document.getElementById('ipAddress').value.trim();
+            const prefix = document.getElementById('prefix').value;
+            
+            if (!ip) throw new Error(lang === 'de' ? 'Bitte geben Sie eine IPv6-Adresse ein' : 'Please enter an IPv6 address');
+            if (!SubnetCalculator.isValidIPv6(ip)) throw new Error(lang === 'de' ? 'Ungültige IPv6-Adresse' : 'Invalid IPv6 address');
+            
+            const result = SubnetCalculator.calculateIPv6(ip, prefix);
+            
+            document.getElementById('resultExpanded').textContent = result.expanded;
+            document.getElementById('resultCompressed').textContent = result.compressed;
+            document.getElementById('resultPrefix').textContent = '/' + result.prefix;
+            document.getElementById('resultNetwork').textContent = result.networkAddress;
+            document.getElementById('resultLast').textContent = result.lastAddress;
+            document.getElementById('resultTotal').textContent = formatLargeNumber(result.totalAddresses);
+            document.getElementById('resultType').textContent = result.addressType;
+        } else {
+            const ip = document.getElementById('ipAddress').value.trim();
+            const cidr = document.getElementById('cidr').value;
+            const mask = document.getElementById('mask').value.trim();
+            
+            if (!ip) throw new Error(lang === 'de' ? 'Bitte geben Sie eine IPv4-Adresse ein' : 'Please enter an IPv4 address');
+            if (!SubnetCalculator.isValidIPv4(ip)) throw new Error(lang === 'de' ? 'Ungültige IPv4-Adresse' : 'Invalid IPv4 address');
+            
+            const subnetParam = mask || cidr;
+            const result = SubnetCalculator.calculateIPv4(ip, subnetParam);
+            
+            document.getElementById('resultIP').textContent = result.ipAddress + '/' + result.cidr;
+            document.getElementById('resultNetwork').textContent = result.networkAddress;
+            document.getElementById('resultMask').textContent = result.subnetMask;
+            document.getElementById('resultWildcard').textContent = result.wildcardMask;
+            document.getElementById('resultBroadcast').textContent = result.broadcastAddress;
+            document.getElementById('resultHostMin').textContent = result.hostMin;
+            document.getElementById('resultHostMax').textContent = result.hostMax;
+            document.getElementById('resultUsable').textContent = result.usableHosts.toLocaleString();
+            document.getElementById('resultTotal').textContent = result.totalHosts.toLocaleString();
+            document.getElementById('resultClass').textContent = result.ipClass;
+            document.getElementById('resultPrivate').textContent = result.isPrivate ? 
+                (lang === 'de' ? 'Ja' : 'Yes') : (lang === 'de' ? 'Nein' : 'No');
+            
+            // Calculate hex and integer representations
+            const ipInt = SubnetCalculator.ipv4ToInt(ip);
+            document.getElementById('resultHex').textContent = '0x' + ipInt.toString(16).toUpperCase().padStart(8, '0');
+            document.getElementById('resultInt').textContent = ipInt.toLocaleString();
+            
+            document.getElementById('resultBinaryIP').textContent = result.binary.ip;
+            document.getElementById('resultBinaryMask').textContent = result.binary.mask;
+            document.getElementById('resultBinaryNetwork').textContent = result.binary.network;
+            
+            // Generate all subnets in the same /24 block
+            generateSubnetsList(ip, result.cidr);
+        }
+        
+        results.style.display = 'block';
+        placeholder.style.display = 'none';
+        updateUrl();
+    } catch (e) {
+        errorMessage.textContent = e.message;
+        errorMessage.style.display = 'block';
+        results.style.display = 'none';
+        placeholder.style.display = 'block';
+    }
+}
+
+function formatLargeNumber(numStr) {
+    const num = BigInt(numStr);
+    if (num >= BigInt('1000000000000000000')) {
+        return (Number(num / BigInt('1000000000000000000'))).toFixed(1) + ' quintillion';
+    } else if (num >= BigInt('1000000000000000')) {
+        return (Number(num / BigInt('1000000000000000'))).toFixed(1) + ' quadrillion';
+    } else if (num >= BigInt('1000000000000')) {
+        return (Number(num / BigInt('1000000000000'))).toFixed(1) + ' trillion';
+    } else if (num >= BigInt('1000000000')) {
+        return (Number(num / BigInt('1000000000'))).toFixed(1) + ' billion';
+    } else if (num >= BigInt('1000000')) {
+        return (Number(num / BigInt('1000000'))).toFixed(1) + ' million';
+    }
+    return num.toLocaleString();
+}
+
+function generateSubnetsList(ip, cidr) {
+    const subnetsSection = document.getElementById('subnetsSection');
+    const tbody = document.getElementById('subnetsTableBody');
+    
+    // Only show for /25 to /30 (2-64 subnets in the /24 block)
+    // /31 has 128 subnets, /32 has 256 - too many to be useful
+    if (cidr < 25 || cidr > 30) {
+        subnetsSection.style.display = 'none';
+        return;
+    }
+    
+    // Calculate how many subnets fit in the /24 block
+    const subnetsPerBlock = Math.pow(2, cidr - 24);
+    const hostsPerSubnet = Math.pow(2, 32 - cidr);
+    
+    // Max 64 subnets (/30)
+    const maxToShow = subnetsPerBlock;
+    
+    // Get the /24 base
+    const ipInt = SubnetCalculator.ipv4ToInt(ip);
+    const base24 = (ipInt >>> 8) << 8; // Zero out last octet
+    
+    // Find which subnet the current IP is in
+    const currentResult = SubnetCalculator.calculateIPv4(ip, cidr);
+    const currentNetworkInt = SubnetCalculator.ipv4ToInt(currentResult.networkAddress);
+    const currentSubnetIndex = Math.floor((currentNetworkInt - base24) / hostsPerSubnet);
+    
+    tbody.innerHTML = '';
+    
+    for (let i = 0; i < maxToShow; i++) {
+        const networkInt = base24 + (i * hostsPerSubnet);
+        const broadcastInt = networkInt + hostsPerSubnet - 1;
+        const firstHost = cidr < 31 ? networkInt + 1 : networkInt;
+        const lastHost = cidr < 31 ? broadcastInt - 1 : broadcastInt;
+        
+        const network = SubnetCalculator.intToIpv4(networkInt);
+        const broadcast = SubnetCalculator.intToIpv4(broadcastInt);
+        const range = SubnetCalculator.intToIpv4(firstHost) + ' - ' + SubnetCalculator.intToIpv4(lastHost);
+        
+        const isCurrentSubnet = (i === currentSubnetIndex);
+        
+        const row = document.createElement('tr');
+        if (isCurrentSubnet) row.classList.add('table-success');
+        row.innerHTML = `
+            <td>${i + 1}</td>
+            <td class="font-monospace">${network}/${cidr}</td>
+            <td class="font-monospace">${range}</td>
+            <td class="font-monospace">${broadcast}</td>
+        `;
+        tbody.appendChild(row);
+    }
+    
+    subnetsSection.style.display = 'block';
+}
+
+document.getElementById('calculateBtn').addEventListener('click', calculate);
+
+// Calculate on Enter
+document.querySelectorAll('input').forEach(input => {
+    input.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') calculate();
+    });
+});
+
+// Sync CIDR and mask inputs for IPv4
+{% if mode != 'ipv6' %}
+document.getElementById('cidr').addEventListener('input', function() {
+    document.getElementById('mask').value = '';
+    updateUrl();
+});
+document.getElementById('mask').addEventListener('input', function() {
+    if (this.value) document.getElementById('cidr').value = '';
+    updateUrl();
+});
+{% endif %}
+
+// Update URL with current state for sharing
+function updateUrl() {
+    const params = new URLSearchParams();
+    const ip = document.getElementById('ipAddress').value;
+    if (ip) params.set('ip', ip);
+    {% if mode == 'ipv6' %}
+    const prefix = document.getElementById('prefix').value;
+    if (prefix) params.set('prefix', prefix);
+    {% else %}
+    const cidr = document.getElementById('cidr').value;
+    const mask = document.getElementById('mask').value;
+    if (cidr) params.set('cidr', cidr);
+    if (mask) params.set('mask', mask);
+    {% endif %}
+    const newUrl = `${window.location.pathname}?${params.toString()}`;
+    history.replaceState(null, '', newUrl);
+}
+
+// Load state from URL
+function loadFromUrl() {
+    const params = new URLSearchParams(window.location.search);
+    if (params.get('ip')) document.getElementById('ipAddress').value = params.get('ip');
+    {% if mode == 'ipv6' %}
+    if (params.get('prefix')) document.getElementById('prefix').value = params.get('prefix');
+    {% else %}
+    if (params.get('cidr')) document.getElementById('cidr').value = params.get('cidr');
+    if (params.get('mask')) document.getElementById('mask').value = params.get('mask');
+    {% endif %}
+    if (params.get('ip')) calculate();
+}
+
+document.getElementById('ipAddress').addEventListener('input', updateUrl);
+{% if mode == 'ipv6' %}
+document.getElementById('prefix').addEventListener('input', updateUrl);
+{% endif %}
+
+loadFromUrl();
+</script>
+{% endblock %}

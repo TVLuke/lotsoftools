@@ -1,0 +1,555 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ tool_data.seo.title[current_lang] }}{% endblock %}
+{% block meta_description %}{{ tool_data.seo.meta_description[current_lang] }}{% endblock %}
+{% block meta_keywords %}{{ tool_data.seo.keywords[current_lang] }}{% endblock %}
+{% block og_title %}{{ tool_data.seo.title[current_lang] }}{% endblock %}
+{% block og_description %}{{ tool_data.seo.meta_description[current_lang] }}{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-12">
+        {% include 'components/tool_header.html' %}
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12 col-lg-8 mb-4">
+        <div class="card">
+            <div class="card-header">
+                <div class="d-flex justify-content-between align-items-center flex-wrap gap-2">
+                    <h5 class="mb-0">
+                        {% if current_lang == 'de' %}Farbring-Auswahl{% else %}Color Band Selection{% endif %}
+                    </h5>
+                    <div class="btn-group" role="group">
+                        <input type="radio" class="btn-check" name="bandCount" id="band3" value="3" autocomplete="off">
+                        <label class="btn btn-outline-primary btn-sm" for="band3">3 {% if current_lang == 'de' %}Ringe{% else %}Bands{% endif %}</label>
+                        
+                        <input type="radio" class="btn-check" name="bandCount" id="band4" value="4" autocomplete="off" checked>
+                        <label class="btn btn-outline-primary btn-sm" for="band4">4 {% if current_lang == 'de' %}Ringe{% else %}Bands{% endif %}</label>
+                        
+                        <input type="radio" class="btn-check" name="bandCount" id="band5" value="5" autocomplete="off">
+                        <label class="btn btn-outline-primary btn-sm" for="band5">5 {% if current_lang == 'de' %}Ringe{% else %}Bands{% endif %}</label>
+                        
+                        <input type="radio" class="btn-check" name="bandCount" id="band6" value="6" autocomplete="off">
+                        <label class="btn btn-outline-primary btn-sm" for="band6">6 {% if current_lang == 'de' %}Ringe{% else %}Bands{% endif %}</label>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+                <!-- Resistor visualization -->
+                <div class="resistor-container mb-4">
+                    <div class="resistor-body">
+                        <div class="resistor-wire resistor-wire-left"></div>
+                        <div class="resistor-ceramic">
+                            <div class="resistor-band" id="bandVisual1"></div>
+                            <div class="resistor-band" id="bandVisual2"></div>
+                            <div class="resistor-band" id="bandVisual3"></div>
+                            <div class="resistor-band" id="bandVisual4"></div>
+                            <div class="resistor-band" id="bandVisual5"></div>
+                            <div class="resistor-band" id="bandVisual6"></div>
+                        </div>
+                        <div class="resistor-wire resistor-wire-right"></div>
+                    </div>
+                </div>
+                
+                <!-- Band selectors -->
+                <div class="row" id="bandSelectors">
+                    <div class="col-6 col-md-4 col-lg-2 mb-3 band-selector" id="band1Container">
+                        <label class="form-label small fw-bold">
+                            {% if current_lang == 'de' %}1. Ziffer{% else %}1st Digit{% endif %}
+                        </label>
+                        <div class="color-grid" id="band1Colors"></div>
+                    </div>
+                    <div class="col-6 col-md-4 col-lg-2 mb-3 band-selector" id="band2Container">
+                        <label class="form-label small fw-bold">
+                            {% if current_lang == 'de' %}2. Ziffer{% else %}2nd Digit{% endif %}
+                        </label>
+                        <div class="color-grid" id="band2Colors"></div>
+                    </div>
+                    <div class="col-6 col-md-4 col-lg-2 mb-3 band-selector" id="band3Container">
+                        <label class="form-label small fw-bold">
+                            {% if current_lang == 'de' %}3. Ziffer{% else %}3rd Digit{% endif %}
+                        </label>
+                        <div class="color-grid" id="band3Colors"></div>
+                    </div>
+                    <div class="col-6 col-md-4 col-lg-2 mb-3 band-selector" id="multiplierContainer">
+                        <label class="form-label small fw-bold">
+                            {% if current_lang == 'de' %}Multiplikator{% else %}Multiplier{% endif %}
+                        </label>
+                        <div class="color-grid" id="multiplierColors"></div>
+                    </div>
+                    <div class="col-6 col-md-4 col-lg-2 mb-3 band-selector" id="toleranceContainer">
+                        <label class="form-label small fw-bold">
+                            {% if current_lang == 'de' %}Toleranz{% else %}Tolerance{% endif %}
+                        </label>
+                        <div class="color-grid" id="toleranceColors"></div>
+                        <div class="form-check form-check-inline mt-2 small" id="defaultToleranceContainer" style="display: none;">
+                            <input class="form-check-input" type="checkbox" id="iecTolerance" value="20">
+                            <label class="form-check-label" for="iecTolerance">
+                                {% if current_lang == 'de' %}20% (IEC){% else %}20% (IEC){% endif %}
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-4 col-lg-2 mb-3 band-selector" id="tcrContainer">
+                        <label class="form-label small fw-bold">
+                            {% if current_lang == 'de' %}Temp. Koeff.{% else %}Temp. Coeff.{% endif %}
+                        </label>
+                        <div class="color-grid" id="tcrColors"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-12 col-lg-4 mb-4">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0">
+                    {% if current_lang == 'de' %}Ergebnis{% else %}Result{% endif %}
+                </h5>
+            </div>
+            <div class="card-body">
+                <div class="result-item mb-3">
+                    <label class="form-label small text-muted">
+                        {% if current_lang == 'de' %}Widerstandswert{% else %}Resistance Value{% endif %}
+                    </label>
+                    <div class="h3 mb-0" id="resistanceValue">-</div>
+                </div>
+                <div class="result-item mb-3">
+                    <label class="form-label small text-muted">
+                        {% if current_lang == 'de' %}Toleranz{% else %}Tolerance{% endif %}
+                    </label>
+                    <div class="h5 mb-0" id="toleranceValue">-</div>
+                </div>
+                <div class="result-item mb-3" id="tcrResult" style="display: none;">
+                    <label class="form-label small text-muted">
+                        {% if current_lang == 'de' %}Temperaturkoeffizient{% else %}Temperature Coefficient{% endif %}
+                    </label>
+                    <div class="h5 mb-0" id="tcrValue">-</div>
+                </div>
+                <div class="result-item">
+                    <label class="form-label small text-muted">
+                        {% if current_lang == 'de' %}Wertebereich{% else %}Value Range{% endif %}
+                    </label>
+                    <div class="small" id="valueRange">-</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12 mb-4">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0">
+                    {% if current_lang == 'de' %}Farbreferenz{% else %}Color Reference{% endif %}
+                </h5>
+            </div>
+            <div class="card-body p-0">
+                <div class="table-responsive">
+                    <table class="table table-sm table-striped mb-0 small">
+                        <thead>
+                            <tr>
+                                <th>{% if current_lang == 'de' %}Farbe{% else %}Color{% endif %}</th>
+                                <th>{% if current_lang == 'de' %}Ziffer{% else %}Digit{% endif %}</th>
+                                <th>{% if current_lang == 'de' %}Multiplikator{% else %}Multiplier{% endif %}</th>
+                                <th>{% if current_lang == 'de' %}Toleranz{% else %}Tolerance{% endif %}</th>
+                            </tr>
+                        </thead>
+                        <tbody id="colorReferenceTable"></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% include 'components/seo_content.html' %}
+{% include 'components/related_tools.html' %}
+{% endblock %}
+
+{% block extra_css %}
+<style>
+#colorReferenceTable .color-btn {
+    min-width: 16px !important;
+    width: 16px !important;
+    height: 16px !important;
+    aspect-ratio: unset !important;
+    flex-shrink: 0;
+}
+
+#colorReferenceTable td:first-child {
+    white-space: nowrap;
+}
+
+.card-body.p-0 .table-responsive {
+    max-width: 100%;
+    overflow-x: auto;
+}
+
+.resistor-container {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+.resistor-body {
+    display: flex;
+    align-items: center;
+}
+
+.resistor-wire {
+    width: 40px;
+    height: 3px;
+    background: linear-gradient(to bottom, #c0c0c0, #808080, #c0c0c0);
+}
+
+.resistor-ceramic {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 200px;
+    height: 60px;
+    background: linear-gradient(to bottom, #e8d4b8, #d4bc96, #c4a876);
+    border-radius: 8px;
+    padding: 0 15px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.resistor-band {
+    width: 12px;
+    height: 50px;
+    border-radius: 2px;
+    box-shadow: inset 0 0 2px rgba(0,0,0,0.3);
+    transition: background-color 0.2s;
+}
+
+.color-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 4px;
+}
+
+.color-btn {
+    width: 100%;
+    aspect-ratio: 1;
+    border: 2px solid transparent;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s;
+    min-width: 24px;
+}
+
+.color-btn:hover {
+    transform: scale(1.1);
+    z-index: 1;
+}
+
+.color-btn.selected {
+    border-color: var(--color-brand);
+    box-shadow: 0 0 0 2px var(--color-brand);
+}
+
+.color-btn.color-black { background-color: #000000; }
+.color-btn.color-brown { background-color: #8B4513; }
+.color-btn.color-red { background-color: #FF0000; }
+.color-btn.color-orange { background-color: #FF8C00; }
+.color-btn.color-yellow { background-color: #FFD700; }
+.color-btn.color-green { background-color: #228B22; }
+.color-btn.color-blue { background-color: #0000FF; }
+.color-btn.color-violet { background-color: #8B00FF; }
+.color-btn.color-grey { background-color: #808080; }
+.color-btn.color-white { background-color: #FFFFFF; border-color: #ccc; }
+.color-btn.color-gold { background: linear-gradient(135deg, #FFD700, #B8860B); }
+.color-btn.color-silver { background: linear-gradient(135deg, #C0C0C0, #808080); }
+.color-btn.color-none { 
+    background: repeating-linear-gradient(45deg, #fff, #fff 3px, #eee 3px, #eee 6px);
+    border-color: #ccc;
+}
+
+.result-item {
+    padding: 10px;
+    background: var(--color-light);
+    border-radius: 8px;
+}
+
+[data-bs-theme="dark"] .resistor-ceramic {
+    background: linear-gradient(to bottom, #6b5a48, #5a4a38, #4a3a28);
+}
+
+[data-bs-theme="dark"] .color-btn.color-white {
+    border-color: #666;
+}
+
+[data-bs-theme="dark"] .color-btn.color-none {
+    background: repeating-linear-gradient(45deg, #333, #333 3px, #444 3px, #444 6px);
+    border-color: #666;
+}
+</style>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{{ url_for('static', filename='js/resistor-calculator.js') }}"></script>
+<script>
+const lang = '{{ current_lang }}';
+
+const colors = {
+    black:  { digit: 0, multiplier: 1, hex: '#000000' },
+    brown:  { digit: 1, multiplier: 10, tolerance: 1, tcr: 100, hex: '#8B4513' },
+    red:    { digit: 2, multiplier: 100, tolerance: 2, tcr: 50, hex: '#FF0000' },
+    orange: { digit: 3, multiplier: 1000, tcr: 15, hex: '#FF8C00' },
+    yellow: { digit: 4, multiplier: 10000, tcr: 25, hex: '#FFD700' },
+    green:  { digit: 5, multiplier: 100000, tolerance: 0.5, tcr: 20, hex: '#228B22' },
+    blue:   { digit: 6, multiplier: 1000000, tolerance: 0.25, tcr: 10, hex: '#0000FF' },
+    violet: { digit: 7, multiplier: 10000000, tolerance: 0.1, tcr: 5, hex: '#8B00FF' },
+    grey:   { digit: 8, multiplier: 100000000, tolerance: 0.05, tcr: 1, hex: '#808080' },
+    white:  { digit: 9, multiplier: 1000000000, hex: '#FFFFFF' },
+    gold:   { multiplier: 0.1, tolerance: 5, hex: '#FFD700' },
+    silver: { multiplier: 0.01, tolerance: 10, hex: '#C0C0C0' },
+    none:   { tolerance: 20 }
+};
+
+const colorNames = {
+    en: { black: 'Black', brown: 'Brown', red: 'Red', orange: 'Orange', yellow: 'Yellow', green: 'Green', blue: 'Blue', violet: 'Violet', grey: 'Grey', white: 'White', gold: 'Gold', silver: 'Silver', none: 'None' },
+    de: { black: 'Schwarz', brown: 'Braun', red: 'Rot', orange: 'Orange', yellow: 'Gelb', green: 'Grün', blue: 'Blau', violet: 'Violett', grey: 'Grau', white: 'Weiß', gold: 'Gold', silver: 'Silber', none: 'Keine' }
+};
+
+let bandCount = 4;
+let selectedColors = {
+    band1: 'brown',
+    band2: 'black',
+    band3: 'black',
+    multiplier: 'red',
+    tolerance: 'gold',
+    tcr: 'brown'
+};
+
+function initColorGrids() {
+    const digitColors = ['black', 'brown', 'red', 'orange', 'yellow', 'green', 'blue', 'violet', 'grey', 'white'];
+    const multiplierColors = ['black', 'brown', 'red', 'orange', 'yellow', 'green', 'blue', 'violet', 'grey', 'white', 'gold', 'silver'];
+    const toleranceColors = ['brown', 'red', 'green', 'blue', 'violet', 'grey', 'gold', 'silver', 'none'];
+    const tcrColors = ['brown', 'red', 'orange', 'yellow', 'green', 'blue', 'violet', 'grey'];
+    
+    createColorGrid('band1Colors', digitColors, 'band1');
+    createColorGrid('band2Colors', digitColors, 'band2');
+    createColorGrid('band3Colors', digitColors, 'band3');
+    createColorGrid('multiplierColors', multiplierColors, 'multiplier');
+    createColorGrid('toleranceColors', toleranceColors, 'tolerance');
+    createColorGrid('tcrColors', tcrColors, 'tcr');
+    
+    populateReferenceTable();
+}
+
+function createColorGrid(containerId, colorList, bandType) {
+    const container = document.getElementById(containerId);
+    container.innerHTML = '';
+    
+    colorList.forEach(color => {
+        const btn = document.createElement('button');
+        btn.className = `color-btn color-${color}`;
+        btn.title = colorNames[lang][color];
+        btn.dataset.color = color;
+        btn.dataset.band = bandType;
+        
+        if (selectedColors[bandType] === color) {
+            btn.classList.add('selected');
+        }
+        
+        btn.addEventListener('click', () => selectColor(bandType, color));
+        container.appendChild(btn);
+    });
+}
+
+function selectColor(bandType, color) {
+    selectedColors[bandType] = color;
+    
+    document.querySelectorAll(`[data-band="${bandType}"]`).forEach(btn => {
+        btn.classList.toggle('selected', btn.dataset.color === color);
+    });
+    
+    updateResistorVisual();
+    calculateResistance();
+    updateUrl();
+}
+
+function updateBandCount(count) {
+    bandCount = count;
+    
+    document.getElementById('band3Container').style.display = count >= 5 ? '' : 'none';
+    document.getElementById('toleranceContainer').style.display = count >= 4 ? '' : 'none';
+    document.getElementById('tcrContainer').style.display = count >= 6 ? '' : 'none';
+    document.getElementById('tcrResult').style.display = count >= 6 ? '' : 'none';
+    
+    // Show IEC tolerance option for 3-band resistors
+    document.getElementById('defaultToleranceContainer').style.display = count === 3 ? '' : 'none';
+    
+    updateResistorVisual();
+    calculateResistance();
+    updateUrl();
+}
+
+function updateResistorVisual() {
+    const bands = [
+        selectedColors.band1,
+        selectedColors.band2,
+        bandCount >= 5 ? selectedColors.band3 : null,
+        selectedColors.multiplier,
+        bandCount >= 4 ? selectedColors.tolerance : null,
+        bandCount >= 6 ? selectedColors.tcr : null
+    ].filter(c => c !== null);
+    
+    for (let i = 1; i <= 6; i++) {
+        const bandEl = document.getElementById(`bandVisual${i}`);
+        if (i <= bands.length) {
+            bandEl.style.display = '';
+            const color = bands[i - 1];
+            if (color === 'none') {
+                bandEl.style.backgroundColor = 'transparent';
+            } else if (color === 'gold') {
+                bandEl.style.background = 'linear-gradient(to right, #FFD700, #B8860B, #FFD700)';
+            } else if (color === 'silver') {
+                bandEl.style.background = 'linear-gradient(to right, #C0C0C0, #808080, #C0C0C0)';
+            } else {
+                bandEl.style.background = '';
+                bandEl.style.backgroundColor = colors[color].hex;
+            }
+        } else {
+            bandEl.style.display = 'none';
+        }
+    }
+}
+
+function calculateResistance() {
+    // Build bands array based on current selection
+    let bands;
+    if (bandCount === 3) {
+        bands = [selectedColors.band1, selectedColors.band2, selectedColors.multiplier];
+    } else if (bandCount === 4) {
+        bands = [selectedColors.band1, selectedColors.band2, selectedColors.multiplier, selectedColors.tolerance];
+    } else if (bandCount === 5) {
+        bands = [selectedColors.band1, selectedColors.band2, selectedColors.band3, selectedColors.multiplier, selectedColors.tolerance];
+    } else if (bandCount === 6) {
+        bands = [selectedColors.band1, selectedColors.band2, selectedColors.band3, selectedColors.multiplier, selectedColors.tolerance, selectedColors.tcr];
+    }
+    
+    try {
+        const result = ResistorCalculator.calculate(bands);
+        
+        // For 3-band resistors, check if user wants IEC 20% tolerance
+        let tolerance = result.tolerance;
+        if (bandCount === 3 && document.getElementById('iecTolerance').checked) {
+            tolerance = 20;
+        }
+        
+        const resistance = result.resistance;
+        const min = resistance * (1 - tolerance / 100);
+        const max = resistance * (1 + tolerance / 100);
+        
+        document.getElementById('resistanceValue').textContent = result.formatted;
+        document.getElementById('toleranceValue').textContent = `±${tolerance}%`;
+        
+        if (bandCount >= 6 && result.tcr !== null) {
+            document.getElementById('tcrValue').textContent = `${result.tcr} ppm/K`;
+        }
+        
+        document.getElementById('valueRange').textContent = `${ResistorCalculator.formatResistance(min)} - ${ResistorCalculator.formatResistance(max)}`;
+    } catch (e) {
+        document.getElementById('resistanceValue').textContent = '-';
+        document.getElementById('toleranceValue').textContent = '-';
+        document.getElementById('valueRange').textContent = '-';
+    }
+}
+
+function populateReferenceTable() {
+    const tbody = document.getElementById('colorReferenceTable');
+    const referenceColors = ['black', 'brown', 'red', 'orange', 'yellow', 'green', 'blue', 'violet', 'grey', 'white', 'gold', 'silver'];
+    
+    referenceColors.forEach(color => {
+        const c = colors[color];
+        const row = document.createElement('tr');
+        
+        const colorCell = document.createElement('td');
+        colorCell.innerHTML = `<span class="color-btn color-${color}" style="display:inline-block;width:16px;height:16px;vertical-align:middle;"></span> ${colorNames[lang][color]}`;
+        
+        const digitCell = document.createElement('td');
+        digitCell.textContent = c.digit !== undefined ? c.digit : '-';
+        
+        const multCell = document.createElement('td');
+        if (c.multiplier !== undefined) {
+            if (c.multiplier >= 1000000) {
+                multCell.textContent = (c.multiplier / 1000000) + 'M';
+            } else if (c.multiplier >= 1000) {
+                multCell.textContent = (c.multiplier / 1000) + 'k';
+            } else if (c.multiplier < 1) {
+                multCell.textContent = c.multiplier;
+            } else {
+                multCell.textContent = c.multiplier;
+            }
+        } else {
+            multCell.textContent = '-';
+        }
+        
+        const tolCell = document.createElement('td');
+        tolCell.textContent = c.tolerance !== undefined ? `±${c.tolerance}%` : '-';
+        
+        row.appendChild(colorCell);
+        row.appendChild(digitCell);
+        row.appendChild(multCell);
+        row.appendChild(tolCell);
+        tbody.appendChild(row);
+    });
+}
+
+document.querySelectorAll('input[name="bandCount"]').forEach(radio => {
+    radio.addEventListener('change', (e) => updateBandCount(parseInt(e.target.value)));
+});
+
+document.getElementById('iecTolerance').addEventListener('change', () => {
+    calculateResistance();
+    updateUrl();
+});
+
+// Update URL with current state for sharing
+function updateUrl() {
+    const params = new URLSearchParams();
+    params.set('bands', bandCount);
+    params.set('b1', selectedColors.band1);
+    params.set('b2', selectedColors.band2);
+    params.set('b3', selectedColors.band3);
+    params.set('m', selectedColors.multiplier);
+    params.set('t', selectedColors.tolerance);
+    params.set('tcr', selectedColors.tcr);
+    if (bandCount === 3 && document.getElementById('iecTolerance').checked) {
+        params.set('iec', '1');
+    }
+    const newUrl = `${window.location.pathname}?${params.toString()}`;
+    history.replaceState(null, '', newUrl);
+}
+
+// Load state from URL
+function loadFromUrl() {
+    const params = new URLSearchParams(window.location.search);
+    const bands = params.get('bands');
+    if (bands) {
+        const radio = document.querySelector(`input[name="bandCount"][value="${bands}"]`);
+        if (radio) radio.checked = true;
+        bandCount = parseInt(bands);
+    }
+    if (params.get('b1')) selectedColors.band1 = params.get('b1');
+    if (params.get('b2')) selectedColors.band2 = params.get('b2');
+    if (params.get('b3')) selectedColors.band3 = params.get('b3');
+    if (params.get('m')) selectedColors.multiplier = params.get('m');
+    if (params.get('t')) selectedColors.tolerance = params.get('t');
+    if (params.get('tcr')) selectedColors.tcr = params.get('tcr');
+    if (params.get('iec') === '1') {
+        document.getElementById('iecTolerance').checked = true;
+    }
+}
+
+initColorGrids();
+loadFromUrl();
+updateBandCount(bandCount);
+</script>
+{% endblock %}

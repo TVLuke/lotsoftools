@@ -6,6 +6,11 @@ All notable changes to this project will be documented in this file.
 
 - Enhanced textarea: configurable controls panel with syntax highlighting, text transforms, and undo/redo history
 - URL Checker: identifies itself in User-Agent, respects robots.txt (uses HEAD request when disallowed)
+- New tool: Resistor Color Code Calculator (3-6 band resistors with IEC 60062 standard)
+- New tool: Ohm's Law Calculator (voltage, current, resistance, power)
+- New tool: IPv4 Subnet Calculator (network address, broadcast, host range, subnets list)
+- New tool: IPv6 Subnet Calculator (prefix calculation, address expansion/compression)
+- New tool: Money Counter (count bills and coins in EUR, USD, GBP)
 
 ## [1.1.6] - 2026-01-24
 

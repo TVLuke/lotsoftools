@@ -1,0 +1,331 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ tool_data.seo.title[current_lang] }}{% endblock %}
+{% block meta_description %}{{ tool_data.seo.meta_description[current_lang] }}{% endblock %}
+{% block meta_keywords %}{{ tool_data.seo.keywords[current_lang] }}{% endblock %}
+{% block og_title %}{{ tool_data.seo.title[current_lang] }}{% endblock %}
+{% block og_description %}{{ tool_data.seo.meta_description[current_lang] }}{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-12">
+        {% include 'components/tool_header.html' %}
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12 col-lg-8 mb-4">
+        <div class="card">
+            <div class="card-header">
+                <div class="d-flex justify-content-between align-items-center flex-wrap gap-2">
+                    <h5 class="mb-0">
+                        {% if current_lang == 'de' %}Geld zählen{% else %}Count Your Money{% endif %}
+                    </h5>
+                    <select class="form-select form-select-sm w-auto" id="currencySelect">
+                        <option value="EUR">Euro (€)</option>
+                        <option value="USD">US Dollar ($)</option>
+                        <option value="GBP">British Pound (£)</option>
+                    </select>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-12 col-md-6 mb-4">
+                        <h6 class="border-bottom pb-2 mb-3">
+                            <i class="fas fa-money-bill-wave me-2 text-success"></i>
+                            {% if current_lang == 'de' %}Scheine{% else %}Bills / Notes{% endif %}
+                        </h6>
+                        <div id="billsContainer"></div>
+                    </div>
+                    <div class="col-12 col-md-6 mb-4">
+                        <h6 class="border-bottom pb-2 mb-3">
+                            <i class="fas fa-coins me-2 text-warning"></i>
+                            {% if current_lang == 'de' %}Münzen{% else %}Coins{% endif %}
+                        </h6>
+                        <div id="coinsContainer"></div>
+                    </div>
+                </div>
+                <div class="d-flex gap-2 mt-3">
+                    <button class="btn btn-outline-secondary" id="clearBtn">
+                        <i class="fas fa-trash me-2"></i>
+                        {% if current_lang == 'de' %}Zurücksetzen{% else %}Clear All{% endif %}
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-12 col-lg-4 mb-4">
+        <div class="card sticky-top" style="top: 80px;">
+            <div class="card-header bg-success text-white">
+                <h5 class="mb-0">
+                    <i class="fas fa-calculator me-2"></i>
+                    {% if current_lang == 'de' %}Gesamt{% else %}Total{% endif %}
+                </h5>
+            </div>
+            <div class="card-body text-center">
+                <div class="display-4 fw-bold text-success mb-3" id="totalAmount">€0.00</div>
+                <div class="small text-muted mb-3">
+                    <span id="totalItems">0</span> {% if current_lang == 'de' %}Stück{% else %}items{% endif %}
+                </div>
+                <hr>
+                <div class="text-start">
+                    <h6 class="mb-2">{% if current_lang == 'de' %}Aufschlüsselung{% else %}Breakdown{% endif %}</h6>
+                    <div class="small">
+                        <div class="d-flex justify-content-between">
+                            <span>{% if current_lang == 'de' %}Scheine:{% else %}Bills:{% endif %}</span>
+                            <span class="fw-bold" id="billsTotal">€0.00</span>
+                        </div>
+                        <div class="d-flex justify-content-between">
+                            <span>{% if current_lang == 'de' %}Münzen:{% else %}Coins:{% endif %}</span>
+                            <span class="fw-bold" id="coinsTotal">€0.00</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% include 'components/seo_content.html' %}
+{% include 'components/related_tools.html' %}
+{% endblock %}
+
+{% block extra_css %}
+<style>
+.denomination-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+    padding: 8px;
+    background: var(--color-light);
+    border-radius: 6px;
+}
+
+.denomination-label {
+    min-width: 60px;
+    font-weight: 600;
+    font-family: 'Courier New', monospace;
+}
+
+.denomination-input {
+    width: 80px;
+    text-align: center;
+}
+
+.denomination-subtotal {
+    margin-left: auto;
+    min-width: 80px;
+    text-align: right;
+    font-family: 'Courier New', monospace;
+    color: var(--color-muted);
+}
+
+.denomination-row:has(input:not(:placeholder-shown)) .denomination-subtotal,
+.denomination-row:has(input[value]:not([value=""])) .denomination-subtotal {
+    color: var(--color-success);
+    font-weight: 600;
+}
+</style>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+const lang = '{{ current_lang }}';
+
+const currencies = {
+    EUR: {
+        symbol: '€',
+        bills: [500, 200, 100, 50, 20, 10, 5],
+        coins: [2, 1, 0.50, 0.20, 0.10, 0.05, 0.02, 0.01],
+        billLabels: ['€500', '€200', '€100', '€50', '€20', '€10', '€5'],
+        coinLabels: ['€2', '€1', '50c', '20c', '10c', '5c', '2c', '1c']
+    },
+    USD: {
+        symbol: '$',
+        bills: [100, 50, 20, 10, 5, 2, 1],
+        coins: [1, 0.50, 0.25, 0.10, 0.05, 0.01],
+        billLabels: ['$100', '$50', '$20', '$10', '$5', '$2', '$1'],
+        coinLabels: ['$1', '50¢', '25¢', '10¢', '5¢', '1¢']
+    },
+    GBP: {
+        symbol: '£',
+        bills: [50, 20, 10, 5],
+        coins: [2, 1, 0.50, 0.20, 0.10, 0.05, 0.02, 0.01],
+        billLabels: ['£50', '£20', '£10', '£5'],
+        coinLabels: ['£2', '£1', '50p', '20p', '10p', '5p', '2p', '1p']
+    }
+};
+
+let currentCurrency = 'EUR';
+let counts = {};
+
+function initCurrency(currency) {
+    currentCurrency = currency;
+    counts = {};
+    
+    const cur = currencies[currency];
+    
+    // Build bills
+    const billsContainer = document.getElementById('billsContainer');
+    billsContainer.innerHTML = '';
+    cur.bills.forEach((value, i) => {
+        counts[`bill_${value}`] = 0;
+        billsContainer.innerHTML += createDenominationRow('bill', value, cur.billLabels[i], cur.symbol);
+    });
+    
+    // Build coins
+    const coinsContainer = document.getElementById('coinsContainer');
+    coinsContainer.innerHTML = '';
+    cur.coins.forEach((value, i) => {
+        counts[`coin_${value}`] = 0;
+        coinsContainer.innerHTML += createDenominationRow('coin', value, cur.coinLabels[i], cur.symbol);
+    });
+    
+    // Add event listeners
+    document.querySelectorAll('.denomination-input').forEach(input => {
+        input.addEventListener('input', handleInput);
+    });
+    
+    updateTotals();
+}
+
+function createDenominationRow(type, value, label, symbol) {
+    return `
+        <div class="denomination-row">
+            <span class="denomination-label">${label}</span>
+            <input type="number" class="form-control form-control-sm denomination-input" 
+                   data-type="${type}" data-value="${value}" 
+                   min="0" step="1" placeholder="0">
+            <span class="denomination-subtotal" data-subtotal="${type}_${value}">${symbol}0.00</span>
+        </div>
+    `;
+}
+
+function handleInput(e) {
+    const input = e.target;
+    const type = input.dataset.type;
+    const value = parseFloat(input.dataset.value);
+    const count = parseInt(input.value) || 0;
+    
+    counts[`${type}_${value}`] = count;
+    
+    // Update subtotal
+    const subtotal = count * value;
+    const subtotalEl = document.querySelector(`[data-subtotal="${type}_${value}"]`);
+    subtotalEl.textContent = formatCurrency(subtotal);
+    subtotalEl.classList.toggle('text-success', count > 0);
+    subtotalEl.classList.toggle('fw-bold', count > 0);
+    
+    updateTotals();
+    updateUrl();
+}
+
+function updateTotals() {
+    const cur = currencies[currentCurrency];
+    let billsTotal = 0;
+    let coinsTotal = 0;
+    let totalItems = 0;
+    
+    cur.bills.forEach(value => {
+        const count = counts[`bill_${value}`] || 0;
+        billsTotal += count * value;
+        totalItems += count;
+    });
+    
+    cur.coins.forEach(value => {
+        const count = counts[`coin_${value}`] || 0;
+        coinsTotal += count * value;
+        totalItems += count;
+    });
+    
+    const total = billsTotal + coinsTotal;
+    
+    document.getElementById('totalAmount').textContent = formatCurrency(total);
+    document.getElementById('billsTotal').textContent = formatCurrency(billsTotal);
+    document.getElementById('coinsTotal').textContent = formatCurrency(coinsTotal);
+    document.getElementById('totalItems').textContent = totalItems;
+}
+
+function formatCurrency(amount) {
+    const cur = currencies[currentCurrency];
+    if (currentCurrency === 'EUR') {
+        return cur.symbol + amount.toFixed(2).replace('.', ',');
+    }
+    return cur.symbol + amount.toFixed(2);
+}
+
+function clearAll() {
+    document.querySelectorAll('.denomination-input').forEach(input => {
+        input.value = '';
+    });
+    document.querySelectorAll('.denomination-subtotal').forEach(el => {
+        el.textContent = currencies[currentCurrency].symbol + '0.00';
+        el.classList.remove('text-success', 'fw-bold');
+    });
+    counts = {};
+    const cur = currencies[currentCurrency];
+    cur.bills.forEach(v => counts[`bill_${v}`] = 0);
+    cur.coins.forEach(v => counts[`coin_${v}`] = 0);
+    updateTotals();
+    updateUrl();
+}
+
+function updateUrl() {
+    const params = new URLSearchParams();
+    params.set('c', currentCurrency);
+    
+    Object.entries(counts).forEach(([key, value]) => {
+        if (value > 0) {
+            params.set(key, value);
+        }
+    });
+    
+    const newUrl = `${window.location.pathname}?${params.toString()}`;
+    history.replaceState(null, '', newUrl);
+}
+
+function loadFromUrl() {
+    const params = new URLSearchParams(window.location.search);
+    const currency = params.get('c');
+    
+    if (currency && currencies[currency]) {
+        currentCurrency = currency;
+        document.getElementById('currencySelect').value = currency;
+    }
+    
+    initCurrency(currentCurrency);
+    
+    params.forEach((value, key) => {
+        if (key !== 'c' && counts.hasOwnProperty(key)) {
+            const count = parseInt(value) || 0;
+            counts[key] = count;
+            
+            const input = document.querySelector(`[data-type="${key.split('_')[0]}"][data-value="${key.split('_')[1]}"]`);
+            if (input) {
+                input.value = count || '';
+                const subtotal = count * parseFloat(key.split('_')[1]);
+                const subtotalEl = document.querySelector(`[data-subtotal="${key}"]`);
+                if (subtotalEl) {
+                    subtotalEl.textContent = formatCurrency(subtotal);
+                    subtotalEl.classList.toggle('text-success', count > 0);
+                    subtotalEl.classList.toggle('fw-bold', count > 0);
+                }
+            }
+        }
+    });
+    
+    updateTotals();
+}
+
+document.getElementById('currencySelect').addEventListener('change', (e) => {
+    initCurrency(e.target.value);
+    updateUrl();
+});
+
+document.getElementById('clearBtn').addEventListener('click', clearAll);
+
+loadFromUrl();
+</script>
+{% endblock %}

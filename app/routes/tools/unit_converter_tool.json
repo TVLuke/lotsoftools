@@ -9,7 +9,7 @@
     "en": "Convert between different units of measurement",
     "de": "Zwischen verschiedenen Maßeinheiten umrechnen"
   },
-  "tags": ["converter", "utility"],
+  "tags": ["converter", "electronics", "utility"],
   "new_window": false,
   "frontend_only": true,
   "seo": {
