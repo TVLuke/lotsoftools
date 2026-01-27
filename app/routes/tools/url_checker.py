@@ -12,6 +12,7 @@ from urllib.parse import urlparse
 from urllib.robotparser import RobotFileParser
 from html.parser import HTMLParser
 from app.services.link_service import increment_click_count
+from app.services.blocklist_service import is_url_blocked, log_blocked_request, get_blocklist_info
 
 
 class MetaTagParser(HTMLParser):
@@ -328,12 +329,34 @@ def check_url():
         'headers': {},
         'ssl': None,
         'robots_txt': None,
+        'blocklist': None,
         'meta_tags': {},
         'content_hash': None,
         'content_changed': None,
         'previous_checks': 0,
         'error': None
     }
+    
+    # Check blocklist
+    is_blocked, matched_domain = is_url_blocked(url)
+    if is_blocked:
+        # Log the blocked request
+        requester_ip = request.remote_addr
+        log_blocked_request(url, matched_domain, requester_ip)
+        
+        result['blocklist'] = {
+            'blocked': True,
+            'matched_domain': matched_domain
+        }
+        # Still return basic info but don't make the request
+        _cache_result(url, follow_redirects, result)
+        return jsonify(result)
+    else:
+        blocklist_info = get_blocklist_info()
+        result['blocklist'] = {
+            'blocked': False,
+            'enabled': blocklist_info['enabled']
+        }
     
     # Get SSL info first
     try:

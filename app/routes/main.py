@@ -6,6 +6,7 @@ import io
 import uuid
 from datetime import datetime
 from app.services import link_service
+from app.services.blocklist_service import get_blocklist_info, get_blocked_request_count
 
 # Random ID generated once per instance startup
 INSTANCE_ID = uuid.uuid4().hex[:8]
@@ -107,10 +108,13 @@ def stats():
     human_user_agents = link_service.get_human_user_agents()
     server_start_time = link_service.get_server_start_time()
     theme_lang_totals = link_service.get_theme_language_totals()
+    blocklist_info = get_blocklist_info()
+    blocked_count = get_blocked_request_count()
     response = make_response(render_template('stats.html', links=links, user_agents=user_agents, 
                           bot_user_agents=bot_user_agents, human_user_agents=human_user_agents,
                           server_start_time=server_start_time, instance_id=INSTANCE_ID,
-                          theme_lang_totals=theme_lang_totals))
+                          theme_lang_totals=theme_lang_totals,
+                          blocklist_info=blocklist_info, blocked_count=blocked_count))
     response.headers['Cache-Control'] = 'no-cache, no-store, must-revalidate'
     response.headers['Pragma'] = 'no-cache'
     response.headers['Expires'] = '0'

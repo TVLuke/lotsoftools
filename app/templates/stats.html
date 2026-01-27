@@ -163,6 +163,21 @@
         </div>
     </div>
     
+    {% if blocklist_info and blocklist_info.enabled %}
+    <div class="row mt-4">
+        <div class="col-12">
+            <h3 class="h5"><i class="fas fa-shield-alt me-2"></i>URL Checker Blocklist</h3>
+            <div class="d-flex gap-2 flex-wrap">
+                <span class="badge bg-secondary"><i class="fas fa-list me-1"></i>{{ blocklist_info.domain_count|default(0) }} domains loaded</span>
+                <span class="badge bg-secondary"><i class="fas fa-file-alt me-1"></i>{{ blocklist_info.lists_loaded|default(0) }} lists</span>
+                <span class="badge bg-{% if blocked_count > 0 %}warning text-dark{% else %}success{% endif %}">
+                    <i class="fas fa-ban me-1"></i>{{ blocked_count }} blocked requests
+                </span>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+    
     {% if bot_user_agents %}
     <h2 class="mt-5 mb-3"><i class="fas fa-robot me-2"></i>Bot User Agents (since restart)</h2>
     <div class="table-responsive">

@@ -238,5 +238,9 @@ def create_app(config_class=Config):
         from app.services.holiday_service import HolidayService
         holidays_dir = os.path.join(os.path.dirname(app.root_path), 'data', 'holidays')
         HolidayService.init(holidays_dir)
+        
+        # Initialize blocklists for URL checker
+        from app.services.blocklist_service import init_blocklists
+        init_blocklists(app)
     
     return app
