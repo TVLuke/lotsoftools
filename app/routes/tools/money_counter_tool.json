@@ -6,8 +6,8 @@
     "de": "Geld-Zähler"
   },
   "description": {
-    "en": "Count bills and coins to calculate your total cash",
-    "de": "Scheine und Münzen zählen und Gesamtbetrag berechnen"
+    "en": "Count bills and coins in 15 currencies",
+    "de": "Scheine und Münzen in 15 Währungen zählen"
   },
   "tags": ["utility"],
   "new_window": false,
@@ -18,8 +18,8 @@
       "de": "Geld-Zähler - Scheine und Münzen online zählen"
     },
     "meta_description": {
-      "en": "Free online money counter to calculate the total value of your cash. Count bills and coins in Euros, US Dollars, or British Pounds. Perfect for counting piggy banks, cash registers, or loose change.",
-      "de": "Kostenloser Online-Geld-Zähler zur Berechnung des Gesamtwerts Ihres Bargelds. Zählen Sie Scheine und Münzen in Euro, US-Dollar oder Britischen Pfund. Perfekt für Sparschweine, Kassen oder Kleingeld."
+      "en": "Free online money counter supporting 15 currencies including EUR, USD, GBP, CHF, PLN, CZK, SEK, DKK, NOK, HUF, RON, BGN, CAD, AUD, and JPY. Count bills and coins for piggy banks, cash registers, or loose change.",
+      "de": "Kostenloser Online-Geld-Zähler für 15 Währungen: EUR, USD, GBP, CHF, PLN, CZK, SEK, DKK, NOK, HUF, RON, BGN, CAD, AUD und JPY. Perfekt für Sparschweine, Kassen oder Kleingeld."
     },
     "keywords": {
       "en": "money counter, cash counter, coin counter, bill counter, count money online, currency calculator, piggy bank counter, loose change calculator, cash register count, money counting tool",
@@ -41,8 +41,8 @@
         },
         "items": [
           {
-            "en": "<strong>Multiple Currencies:</strong> Supports Euros (€), US Dollars ($), and British Pounds (£) with all common denominations.",
-            "de": "<strong>Mehrere Währungen:</strong> Unterstützt Euro (€), US-Dollar ($) und Britische Pfund (£) mit allen gängigen Stückelungen."
+            "en": "<strong>15 Currencies:</strong> EUR, USD, GBP, CHF, PLN, CZK, SEK, DKK, NOK, HUF, RON, BGN, CAD, AUD, JPY with all denominations.",
+            "de": "<strong>15 Währungen:</strong> EUR, USD, GBP, CHF, PLN, CZK, SEK, DKK, NOK, HUF, RON, BGN, CAD, AUD, JPY mit allen Stückelungen."
           },
           {
             "en": "<strong>Real-time Calculation:</strong> See your running total update instantly as you enter quantities.",

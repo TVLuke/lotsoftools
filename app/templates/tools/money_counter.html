@@ -25,6 +25,18 @@
                         <option value="EUR">Euro (€)</option>
                         <option value="USD">US Dollar ($)</option>
                         <option value="GBP">British Pound (£)</option>
+                        <option value="CHF">Swiss Franc (Fr.)</option>
+                        <option value="PLN">Polish Złoty (zł)</option>
+                        <option value="CZK">Czech Koruna (Kč)</option>
+                        <option value="SEK">Swedish Krona (kr)</option>
+                        <option value="DKK">Danish Krone (kr)</option>
+                        <option value="NOK">Norwegian Krone (kr)</option>
+                        <option value="HUF">Hungarian Forint (Ft)</option>
+                        <option value="RON">Romanian Leu (lei)</option>
+                        <option value="BGN">Bulgarian Lev (лв)</option>
+                        <option value="CAD">Canadian Dollar (C$)</option>
+                        <option value="AUD">Australian Dollar (A$)</option>
+                        <option value="JPY">Japanese Yen (¥)</option>
                     </select>
                 </div>
             </div>
@@ -155,6 +167,90 @@ const currencies = {
         coins: [2, 1, 0.50, 0.20, 0.10, 0.05, 0.02, 0.01],
         billLabels: ['£50', '£20', '£10', '£5'],
         coinLabels: ['£2', '£1', '50p', '20p', '10p', '5p', '2p', '1p']
+    },
+    CHF: {
+        symbol: 'Fr.',
+        bills: [1000, 200, 100, 50, 20, 10],
+        coins: [5, 2, 1, 0.50, 0.20, 0.10, 0.05],
+        billLabels: ['1000 Fr.', '200 Fr.', '100 Fr.', '50 Fr.', '20 Fr.', '10 Fr.'],
+        coinLabels: ['5 Fr.', '2 Fr.', '1 Fr.', '50 Rp.', '20 Rp.', '10 Rp.', '5 Rp.']
+    },
+    PLN: {
+        symbol: 'zł',
+        bills: [500, 200, 100, 50, 20, 10],
+        coins: [5, 2, 1, 0.50, 0.20, 0.10, 0.05, 0.02, 0.01],
+        billLabels: ['500 zł', '200 zł', '100 zł', '50 zł', '20 zł', '10 zł'],
+        coinLabels: ['5 zł', '2 zł', '1 zł', '50 gr', '20 gr', '10 gr', '5 gr', '2 gr', '1 gr']
+    },
+    CZK: {
+        symbol: 'Kč',
+        bills: [5000, 2000, 1000, 500, 200, 100],
+        coins: [50, 20, 10, 5, 2, 1],
+        billLabels: ['5000 Kč', '2000 Kč', '1000 Kč', '500 Kč', '200 Kč', '100 Kč'],
+        coinLabels: ['50 Kč', '20 Kč', '10 Kč', '5 Kč', '2 Kč', '1 Kč']
+    },
+    SEK: {
+        symbol: 'kr',
+        bills: [1000, 500, 200, 100, 50, 20],
+        coins: [10, 5, 2, 1],
+        billLabels: ['1000 kr', '500 kr', '200 kr', '100 kr', '50 kr', '20 kr'],
+        coinLabels: ['10 kr', '5 kr', '2 kr', '1 kr']
+    },
+    DKK: {
+        symbol: 'kr',
+        bills: [1000, 500, 200, 100, 50],
+        coins: [20, 10, 5, 2, 1, 0.50],
+        billLabels: ['1000 kr', '500 kr', '200 kr', '100 kr', '50 kr'],
+        coinLabels: ['20 kr', '10 kr', '5 kr', '2 kr', '1 kr', '50 øre']
+    },
+    NOK: {
+        symbol: 'kr',
+        bills: [1000, 500, 200, 100, 50],
+        coins: [20, 10, 5, 1],
+        billLabels: ['1000 kr', '500 kr', '200 kr', '100 kr', '50 kr'],
+        coinLabels: ['20 kr', '10 kr', '5 kr', '1 kr']
+    },
+    HUF: {
+        symbol: 'Ft',
+        bills: [20000, 10000, 5000, 2000, 1000, 500],
+        coins: [200, 100, 50, 20, 10, 5],
+        billLabels: ['20000 Ft', '10000 Ft', '5000 Ft', '2000 Ft', '1000 Ft', '500 Ft'],
+        coinLabels: ['200 Ft', '100 Ft', '50 Ft', '20 Ft', '10 Ft', '5 Ft']
+    },
+    RON: {
+        symbol: 'lei',
+        bills: [500, 200, 100, 50, 20, 10, 5, 1],
+        coins: [0.50, 0.10, 0.05, 0.01],
+        billLabels: ['500 lei', '200 lei', '100 lei', '50 lei', '20 lei', '10 lei', '5 lei', '1 leu'],
+        coinLabels: ['50 bani', '10 bani', '5 bani', '1 ban']
+    },
+    BGN: {
+        symbol: 'лв',
+        bills: [100, 50, 20, 10, 5, 2],
+        coins: [1, 0.50, 0.20, 0.10, 0.05, 0.02, 0.01],
+        billLabels: ['100 лв', '50 лв', '20 лв', '10 лв', '5 лв', '2 лв'],
+        coinLabels: ['1 лв', '50 ст', '20 ст', '10 ст', '5 ст', '2 ст', '1 ст']
+    },
+    CAD: {
+        symbol: '$',
+        bills: [100, 50, 20, 10, 5],
+        coins: [2, 1, 0.25, 0.10, 0.05],
+        billLabels: ['$100', '$50', '$20', '$10', '$5'],
+        coinLabels: ['$2', '$1', '25¢', '10¢', '5¢']
+    },
+    AUD: {
+        symbol: '$',
+        bills: [100, 50, 20, 10, 5],
+        coins: [2, 1, 0.50, 0.20, 0.10, 0.05],
+        billLabels: ['$100', '$50', '$20', '$10', '$5'],
+        coinLabels: ['$2', '$1', '50¢', '20¢', '10¢', '5¢']
+    },
+    JPY: {
+        symbol: '¥',
+        bills: [10000, 5000, 2000, 1000],
+        coins: [500, 100, 50, 10, 5, 1],
+        billLabels: ['¥10000', '¥5000', '¥2000', '¥1000'],
+        coinLabels: ['¥500', '¥100', '¥50', '¥10', '¥5', '¥1']
     }
 };
 
@@ -250,7 +346,13 @@ function updateTotals() {
 
 function formatCurrency(amount) {
     const cur = currencies[currentCurrency];
-    if (currentCurrency === 'EUR') {
+    // Currencies without subunits (no decimal places)
+    const noDecimals = ['JPY', 'HUF', 'CZK', 'SEK', 'NOK', 'DKK'];
+    
+    if (noDecimals.includes(currentCurrency)) {
+        return cur.symbol + Math.round(amount).toLocaleString();
+    }
+    if (currentCurrency === 'EUR' || currentCurrency === 'PLN' || currentCurrency === 'RON' || currentCurrency === 'BGN') {
         return cur.symbol + amount.toFixed(2).replace('.', ',');
     }
     return cur.symbol + amount.toFixed(2);
