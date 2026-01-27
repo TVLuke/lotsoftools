@@ -138,6 +138,27 @@ def stats_csv():
     response.headers['Content-Disposition'] = 'attachment; filename=stats.csv'
     return response
 
+@main_bp.route('/stats/blocklist.csv')
+def stats_blocklist_csv():
+    blocklist_info = get_blocklist_info()
+    blocked_count = get_blocked_request_count()
+    
+    output = io.StringIO()
+    writer = csv.writer(output)
+    writer.writerow(['timestamp', 'enabled', 'domains_loaded', 'lists_loaded', 'blocked_requests'])
+    writer.writerow([
+        datetime.now().isoformat(),
+        blocklist_info.get('enabled', False),
+        blocklist_info.get('domain_count', 0),
+        blocklist_info.get('lists_loaded', 0),
+        blocked_count
+    ])
+    
+    response = make_response(output.getvalue())
+    response.headers['Content-Type'] = 'text/csv'
+    response.headers['Content-Disposition'] = 'attachment; filename=blocklist.csv'
+    return response
+
 @main_bp.route('/about')
 def about():
     from app.services.about_content import load_about_content
