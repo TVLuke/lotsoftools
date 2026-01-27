@@ -5,6 +5,7 @@ import json
 import os
 from datetime import datetime
 from app.services.link_service import increment_click_count
+from app.services.blocklist_service import is_domain_blocked, log_blocked_request, get_blocklist_info
 
 dns_lookup_bp = Blueprint('dns_lookup', __name__, url_prefix='/tools')
 
@@ -100,6 +101,18 @@ def query_dns():
     
     if not domain:
         return jsonify({'error': 'Domain is required'}), 400
+    
+    # Check blocklist
+    blocked, matched_domain = is_domain_blocked(domain)
+    if blocked:
+        log_blocked_request(f"dns://{domain}", matched_domain, request.remote_addr)
+        return jsonify({
+            'domain': domain,
+            'timestamp': datetime.now().isoformat(),
+            'blocked': True,
+            'blocked_domain': matched_domain,
+            'blocklist_info': get_blocklist_info()
+        })
     
     # Build list of servers to query
     servers = DEFAULT_DNS_SERVERS.copy()
