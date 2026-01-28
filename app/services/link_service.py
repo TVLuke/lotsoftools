@@ -15,6 +15,9 @@ UA_LOG_FILE = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(__fil
 # Log file for referrer tracking
 REFERRER_LOG_FILE = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(__file__))), 'data', 'logs', 'referrers.log')
 
+# Log rotation settings
+MAX_LOG_ENTRIES = 3_000_000
+
 # Server start time for stats display
 _server_start_time = datetime.now()
 
@@ -53,6 +56,44 @@ def _ensure_log_dir():
     log_dir = os.path.dirname(UA_LOG_FILE)
     if not os.path.exists(log_dir):
         os.makedirs(log_dir, exist_ok=True)
+
+
+def _rotate_log_if_needed(log_file):
+    """Rotate log file if it exceeds MAX_LOG_ENTRIES.
+    
+    Archives current log to .old and starts fresh.
+    """
+    try:
+        if not os.path.exists(log_file):
+            return
+        
+        # Count lines (quick check via file size estimate first)
+        file_size = os.path.getsize(log_file)
+        # If file is small (< 50MB), probably under 3M entries
+        if file_size < 50_000_000:
+            return
+        
+        # Count actual lines
+        with open(log_file, 'r', encoding='utf-8') as f:
+            line_count = sum(1 for _ in f)
+        
+        if line_count >= MAX_LOG_ENTRIES:
+            # Archive to .old (overwrite any existing .old)
+            old_file = log_file + '.old'
+            if os.path.exists(old_file):
+                os.remove(old_file)
+            os.rename(log_file, old_file)
+            logger.info(f"Rotated log file {log_file} ({line_count} entries)")
+    except Exception as e:
+        logger.error(f"Failed to rotate log {log_file}: {e}")
+
+
+def rotate_logs_on_startup():
+    """Check and rotate all log files on app startup. Call once at init."""
+    _ensure_log_dir()
+    _rotate_log_if_needed(UA_LOG_FILE)
+    _rotate_log_if_needed(REFERRER_LOG_FILE)
+    # Country log rotation is handled by country_block module
 
 
 def _parse_ua_log():

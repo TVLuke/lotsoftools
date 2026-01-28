@@ -17,6 +17,9 @@ CITY_DB_PATH = os.path.join(GEOIP_DIR, 'GeoLite2-City.mmdb')
 # Log file for country tracking
 COUNTRY_LOG_FILE = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(__file__))), 'data', 'logs', 'countries.log')
 
+# Log rotation settings
+MAX_LOG_ENTRIES = 3_000_000
+
 # Cache for config
 _blocked_countries = None
 _geoip_reader = None
@@ -132,6 +135,39 @@ def _ensure_log_dir():
     """Ensure the log directory exists."""
     log_dir = os.path.dirname(COUNTRY_LOG_FILE)
     os.makedirs(log_dir, exist_ok=True)
+
+
+def _rotate_log_if_needed():
+    """Rotate country log file if it exceeds MAX_LOG_ENTRIES."""
+    try:
+        if not os.path.exists(COUNTRY_LOG_FILE):
+            return
+        
+        # Quick check via file size estimate first
+        file_size = os.path.getsize(COUNTRY_LOG_FILE)
+        # If file is small (< 50MB), probably under 3M entries
+        if file_size < 50_000_000:
+            return
+        
+        # Count actual lines
+        with open(COUNTRY_LOG_FILE, 'r', encoding='utf-8') as f:
+            line_count = sum(1 for _ in f)
+        
+        if line_count >= MAX_LOG_ENTRIES:
+            # Archive to .old (overwrite any existing .old)
+            old_file = COUNTRY_LOG_FILE + '.old'
+            if os.path.exists(old_file):
+                os.remove(old_file)
+            os.rename(COUNTRY_LOG_FILE, old_file)
+            logger.info(f"Rotated country log ({line_count} entries)")
+    except Exception as e:
+        logger.error(f"Failed to rotate country log: {e}")
+
+
+def rotate_country_log_on_startup():
+    """Check and rotate country log on app startup."""
+    _ensure_log_dir()
+    _rotate_log_if_needed()
 
 
 def track_country(country_code, is_bot, url=None):

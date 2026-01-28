@@ -140,6 +140,10 @@ def create_app(config_class=Config):
     
     def sync_app_data():
         from app.utils import init_tools
+        from app.services.link_service import rotate_logs_on_startup
+        from app.services.country_block import rotate_country_log_on_startup
+        rotate_logs_on_startup()
+        rotate_country_log_on_startup()
         init_tools()
     
     from app.routes.main import main_bp
