@@ -23,8 +23,8 @@ _blocklist_info = {
     'errors': []
 }
 
-# Log file for blocked requests
-BLOCKED_LOG_FILE = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'logs', 'blocked_requests.log')
+# Log file for blocked requests (in data/ for Docker volume persistence)
+BLOCKED_LOG_FILE = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(__file__))), 'data', 'logs', 'blocked_requests.log')
 
 
 def _ensure_log_dir():

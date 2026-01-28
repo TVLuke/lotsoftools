@@ -1,10 +1,17 @@
 import json
 import re
 import os
+import logging
 from datetime import datetime
+from collections import Counter
 from flask import session, request
 from app.models.link import Link
 from app import db
+
+logger = logging.getLogger(__name__)
+
+# Log file for user agent tracking (in data/ for Docker volume persistence)
+UA_LOG_FILE = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(__file__))), 'data', 'logs', 'user_agents.log')
 
 # Server start time for stats display
 _server_start_time = datetime.now()
@@ -23,29 +30,83 @@ _bot_simple_patterns = [
     'python-requests/'
 ]
 
-# In-memory tracking of user agents and their click counts
-_user_agent_counts = {}  # {user_agent: {'count': N, 'is_bot': bool}}
+def _ensure_log_dir():
+    """Ensure the logs directory exists."""
+    log_dir = os.path.dirname(UA_LOG_FILE)
+    if not os.path.exists(log_dir):
+        os.makedirs(log_dir, exist_ok=True)
+
+
+def _parse_ua_log():
+    """Parse user agent log file and return aggregated stats.
+    
+    Log format: timestamp|BOT/HUMAN|url|user_agent
+    Returns dict: {user_agent: {'count': N, 'is_bot': bool}}
+    """
+    stats = {}
+    try:
+        if not os.path.exists(UA_LOG_FILE):
+            return stats
+        with open(UA_LOG_FILE, 'r', encoding='utf-8') as f:
+            for line in f:
+                line = line.strip()
+                if not line or '|' not in line:
+                    continue
+                parts = line.split('|')
+                # Format: timestamp|BOT/HUMAN|url|user_agent (4 parts)
+                # Old format: timestamp|BOT/HUMAN|user_agent (3 parts)
+                if len(parts) >= 4:
+                    is_bot = parts[1].strip() == 'BOT'
+                    ua = parts[3].strip()
+                elif len(parts) >= 3:
+                    is_bot = parts[1].strip() == 'BOT'
+                    ua = parts[2].strip()
+                else:
+                    continue
+                if ua in stats:
+                    stats[ua]['count'] += 1
+                else:
+                    stats[ua] = {'count': 1, 'is_bot': is_bot}
+    except Exception as e:
+        logger.error(f"Failed to parse UA log: {e}")
+    return stats
+
 
 def get_user_agent_stats():
     """Get user agent statistics sorted by count descending."""
-    return sorted(_user_agent_counts.items(), key=lambda x: x[1]['count'], reverse=True)
+    stats = _parse_ua_log()
+    return sorted(stats.items(), key=lambda x: x[1]['count'], reverse=True)
+
 
 def get_bot_user_agents():
     """Get only bot user agents sorted by count descending."""
-    bots = [(ua, data) for ua, data in _user_agent_counts.items() if data['is_bot']]
+    stats = _parse_ua_log()
+    bots = [(ua, data) for ua, data in stats.items() if data['is_bot']]
     return sorted(bots, key=lambda x: x[1]['count'], reverse=True)
+
 
 def get_human_user_agents():
     """Get only human user agents sorted by count descending."""
-    humans = [(ua, data) for ua, data in _user_agent_counts.items() if not data['is_bot']]
+    stats = _parse_ua_log()
+    humans = [(ua, data) for ua, data in stats.items() if not data['is_bot']]
     return sorted(humans, key=lambda x: x[1]['count'], reverse=True)
 
-def track_user_agent(user_agent, is_bot):
-    """Track user agent and increment its count."""
-    if user_agent in _user_agent_counts:
-        _user_agent_counts[user_agent]['count'] += 1
-    else:
-        _user_agent_counts[user_agent] = {'count': 1, 'is_bot': is_bot}
+
+def track_user_agent(user_agent, is_bot, url=None):
+    """Log user agent to file for persistent tracking."""
+    try:
+        _ensure_log_dir()
+        timestamp = datetime.now().isoformat()
+        bot_label = 'BOT' if is_bot else 'HUMAN'
+        # Sanitize user agent (remove newlines, limit length)
+        ua_clean = user_agent.replace('\n', ' ').replace('|', ' ')[:500]
+        url_clean = (url or '').replace('|', ' ')[:100]
+        log_entry = f"{timestamp}|{bot_label}|{url_clean}|{ua_clean}\n"
+        
+        with open(UA_LOG_FILE, 'a', encoding='utf-8') as f:
+            f.write(log_entry)
+    except Exception as e:
+        logger.error(f"Failed to log user agent: {e}")
 
 def _load_bot_patterns():
     """Load regex patterns from well-known-bots.json"""
@@ -68,7 +129,7 @@ def _load_bot_patterns():
         pass
 
 def is_bot_request():
-    """Check if the current request is from a bot/crawler based on User-Agent."""
+    """Check if the current request is from a bot/crawler based on User-Agent and behavior."""
     _load_bot_patterns()
     
     user_agent = request.headers.get('User-Agent', '')
@@ -88,6 +149,16 @@ def is_bot_request():
         if regex.search(user_agent):
             return True
     
+    # Behavioral check: real browsers have cookies after first visit
+    # A bot making many requests without cookies is suspicious
+    has_cookies = bool(request.cookies)
+    has_accept_language = bool(request.headers.get('Accept-Language', ''))
+    
+    # If user agent looks like a browser but has NO cookies and NO accept-language,
+    # it's likely a bot pretending to be a browser
+    if not has_cookies and not has_accept_language:
+        return True
+    
     return False
 
 def get_all_links():
@@ -102,7 +173,7 @@ def increment_click_count(url):
     if link:
         user_agent = request.headers.get('User-Agent', '')
         is_bot = is_bot_request()
-        track_user_agent(user_agent, is_bot)
+        track_user_agent(user_agent, is_bot, url)
         if is_bot:
             link.bot_click_count = (link.bot_click_count or 0) + 1
         else:
