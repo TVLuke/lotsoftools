@@ -12,6 +12,8 @@ logger = logging.getLogger(__name__)
 
 # Log file for user agent tracking (in data/ for Docker volume persistence)
 UA_LOG_FILE = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(__file__))), 'data', 'logs', 'user_agents.log')
+# Log file for referrer tracking
+REFERRER_LOG_FILE = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(__file__))), 'data', 'logs', 'referrers.log')
 
 # Server start time for stats display
 _server_start_time = datetime.now()
@@ -132,6 +134,12 @@ def _categorize_user_agent(user_agent):
     # PetalBot (Huawei search)
     if 'petalbot' in ua_lower:
         return 'Huawei'
+    # UptimeRobot (monitoring)
+    if 'uptimerobot' in ua_lower:
+        return 'UptimeRobot'
+    # Python urllib (scripts/bots)
+    if 'python-urllib' in ua_lower:
+        return 'Python'
     # Generic other bots (matched by UA pattern)
     if any(p in ua_lower for p in _bot_simple_patterns):
         return 'Other Bots'
@@ -195,6 +203,86 @@ def track_user_agent(user_agent, is_bot, url=None):
             f.write(log_entry)
     except Exception as e:
         logger.error(f"Failed to log user agent: {e}")
+
+
+def track_referrer(referrer, is_bot, url=None):
+    """Log referrer to file for persistent tracking."""
+    if not referrer:
+        return
+    try:
+        _ensure_log_dir()
+        timestamp = datetime.now().isoformat()
+        bot_label = 'BOT' if is_bot else 'HUMAN'
+        # Sanitize referrer (remove newlines, limit length)
+        ref_clean = referrer.replace('\n', ' ').replace('|', ' ')[:500]
+        url_clean = (url or '').replace('|', ' ')[:100]
+        log_entry = f"{timestamp}|{bot_label}|{url_clean}|{ref_clean}\n"
+        
+        with open(REFERRER_LOG_FILE, 'a', encoding='utf-8') as f:
+            f.write(log_entry)
+    except Exception as e:
+        logger.error(f"Failed to log referrer: {e}")
+
+
+def _parse_referrer_log():
+    """Parse referrer log file and return aggregated stats.
+    
+    Log format: timestamp|BOT/HUMAN|url|referrer
+    Returns dict: {referrer: {'count': N, 'is_bot': bool}}
+    """
+    stats = {}
+    try:
+        if not os.path.exists(REFERRER_LOG_FILE):
+            return stats
+        with open(REFERRER_LOG_FILE, 'r', encoding='utf-8') as f:
+            for line in f:
+                line = line.strip()
+                if not line or '|' not in line:
+                    continue
+                parts = line.split('|')
+                if len(parts) >= 4:
+                    is_bot = parts[1].strip() == 'BOT'
+                    referrer = parts[3].strip()
+                    if referrer in stats:
+                        stats[referrer]['count'] += 1
+                    else:
+                        stats[referrer] = {'count': 1, 'is_bot': is_bot}
+    except Exception as e:
+        logger.error(f"Failed to parse referrer log: {e}")
+    return stats
+
+
+def _extract_referrer_domain(referrer):
+    """Extract domain from referrer URL."""
+    try:
+        from urllib.parse import urlparse
+        parsed = urlparse(referrer)
+        return parsed.netloc or referrer
+    except:
+        return referrer
+
+
+def get_referrer_stats():
+    """Get referrer statistics sorted by count descending."""
+    stats = _parse_referrer_log()
+    return sorted(stats.items(), key=lambda x: x[1]['count'], reverse=True)
+
+
+def get_referrer_stats_by_domain():
+    """Get referrer statistics aggregated by domain."""
+    stats = _parse_referrer_log()
+    domain_stats = {}
+    
+    for referrer, data in stats.items():
+        if not data['is_bot']:  # Only count human referrers
+            domain = _extract_referrer_domain(referrer)
+            if domain in domain_stats:
+                domain_stats[domain] += data['count']
+            else:
+                domain_stats[domain] = data['count']
+    
+    return domain_stats
+
 
 def _load_bot_patterns():
     """Load regex patterns from well-known-bots.json"""
@@ -260,8 +348,10 @@ def increment_click_count(url):
     link = get_link_by_url(url)
     if link:
         user_agent = request.headers.get('User-Agent', '')
+        referrer = request.headers.get('Referer', '')
         is_bot = is_bot_request()
         track_user_agent(user_agent, is_bot, url)
+        track_referrer(referrer, is_bot, url)
         if is_bot:
             link.bot_click_count = (link.bot_click_count or 0) + 1
         else:

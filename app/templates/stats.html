@@ -176,6 +176,23 @@
         </div>
     </div>
     
+    {% if referrer_stats %}
+    <div class="row mt-4">
+        <div class="col-12">
+            <h3 class="h5"><i class="fas fa-external-link-alt me-2"></i>Top Referrers (Humans)</h3>
+            <div class="d-flex gap-2 flex-wrap">
+                {% for domain, count in referrer_stats|dictsort(by='value', reverse=true) %}
+                {% if loop.index <= 10 %}
+                <span class="badge bg-{% if 'google' in domain %}success{% elif 'bing' in domain %}info{% else %}secondary{% endif %}">
+                    {{ domain }}: {{ count }}
+                </span>
+                {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    {% endif %}
+    
     {% if blocklist_info and blocklist_info.enabled %}
     <div class="row mt-4">
         <div class="col-12">
