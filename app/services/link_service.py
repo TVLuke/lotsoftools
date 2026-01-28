@@ -20,6 +20,22 @@ def get_server_start_time():
     """Get the server start time."""
     return _server_start_time
 
+
+def get_ua_log_file_size():
+    """Get the size of the user agent log file in human-readable format."""
+    try:
+        if os.path.exists(UA_LOG_FILE):
+            size_bytes = os.path.getsize(UA_LOG_FILE)
+            # Convert to human-readable
+            for unit in ['B', 'KB', 'MB', 'GB']:
+                if size_bytes < 1024:
+                    return f"{size_bytes:.1f} {unit}"
+                size_bytes /= 1024
+            return f"{size_bytes:.1f} TB"
+        return "0 B"
+    except Exception:
+        return "unknown"
+
 # Load bot patterns from well-known-bots.json for User-Agent detection
 _bot_regex_patterns = []
 _bot_simple_patterns = [
@@ -83,6 +99,52 @@ def get_bot_user_agents():
     stats = _parse_ua_log()
     bots = [(ua, data) for ua, data in stats.items() if data['is_bot']]
     return sorted(bots, key=lambda x: x[1]['count'], reverse=True)
+
+
+def _categorize_user_agent(user_agent):
+    """Categorize a user agent string by company/type.
+    
+    Only includes bots we've actually observed in logs.
+    """
+    ua_lower = user_agent.lower()
+    
+    # OpenAI bots (GPTBot, ChatGPT-User, OAI-SearchBot)
+    if 'gptbot' in ua_lower or 'chatgpt' in ua_lower or 'oai-searchbot' in ua_lower or 'openai.com' in ua_lower:
+        return 'OpenAI'
+    # Anthropic (ClaudeBot)
+    if 'claudebot' in ua_lower or 'anthropic' in ua_lower:
+        return 'Anthropic'
+    # Google (Googlebot)
+    if 'googlebot' in ua_lower or 'google.com/bot' in ua_lower:
+        return 'Google'
+    # air.ai
+    if 'air.ai' in ua_lower:
+        return 'air.ai'
+    # Generic other bots (matched by UA pattern)
+    if any(p in ua_lower for p in _bot_simple_patterns):
+        return 'Other Bots'
+    
+    # Caught by behavioral detection only (no cookies/Accept-Language)
+    return 'Behavioral Detection'
+
+
+def get_user_agent_stats_by_company():
+    """Get user agent statistics aggregated by company."""
+    stats = _parse_ua_log()
+    company_stats = {}
+    
+    for ua, data in stats.items():
+        if data['is_bot']:
+            company = _categorize_user_agent(ua)
+        else:
+            company = 'Humans'
+        
+        if company in company_stats:
+            company_stats[company] += data['count']
+        else:
+            company_stats[company] = data['count']
+    
+    return company_stats
 
 
 def get_human_user_agents():
