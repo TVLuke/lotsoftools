@@ -111,6 +111,26 @@ def create_app(config_class=Config):
         from app.services.link_service import get_related_tools
         return {'get_related_tools': get_related_tools}
     
+    @app.after_request
+    def track_bandwidth_after_request(response):
+        """Track bandwidth served per link."""
+        from app.services.link_service import track_bandwidth, is_bot_request, get_link_by_url
+        from app.utils import META_LINK_ROUTES
+        
+        # Only track for tool pages and meta links (skip static, API, etc.)
+        path = request.path
+        meta_paths = list(META_LINK_ROUTES.values())
+        if path.startswith('/tools/') or path == '/' or path in meta_paths:
+            # Check if this is a tracked link
+            link = get_link_by_url(path)
+            if link:
+                # Get response size
+                bytes_count = response.content_length or len(response.get_data())
+                is_bot = is_bot_request()
+                track_bandwidth(path, bytes_count, is_bot)
+        
+        return response
+    
     def sync_app_data():
         from app.utils import init_tools
         init_tools()

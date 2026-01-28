@@ -53,17 +53,19 @@
         <table class="table table-hover">
             <thead class="table-dark">
                 <tr>
-                    <th style="width: 50px;">#</th>
-                    <th>Name</th>
-                    <th>URL</th>
-                    <th class="text-end" style="width: 80px;">Clicks</th>
-                    <th class="text-end" style="width: 80px;">Bots</th>
-                    <th class="text-end" style="width: 80px;"><i class="fas fa-sun"></i></th>
-                    <th class="text-end" style="width: 80px;"><i class="fas fa-moon"></i></th>
-                    <th class="text-end" style="width: 80px;"><i class="fas fa-adjust"></i></th>
-                    <th class="text-end" style="width: 80px;"><i class="fas fa-desktop"></i></th>
-                    <th class="text-end" style="width: 80px;">EN</th>
-                    <th class="text-end" style="width: 80px;">DE</th>
+                    <th style="width: 50px; cursor: pointer;" onclick="sortTable(0, 'num')">#</th>
+                    <th style="cursor: pointer;" onclick="sortTable(1, 'str')">Name</th>
+                    <th style="cursor: pointer;" onclick="sortTable(2, 'str')">URL</th>
+                    <th class="text-end" style="width: 80px; cursor: pointer;" onclick="sortTable(3, 'num')">Clicks</th>
+                    <th class="text-end" style="width: 80px; cursor: pointer;" onclick="sortTable(4, 'num')">Bots</th>
+                    <th class="text-end" style="width: 80px; cursor: pointer;" onclick="sortTable(5, 'num')"><i class="fas fa-sun"></i></th>
+                    <th class="text-end" style="width: 80px; cursor: pointer;" onclick="sortTable(6, 'num')"><i class="fas fa-moon"></i></th>
+                    <th class="text-end" style="width: 80px; cursor: pointer;" onclick="sortTable(7, 'num')"><i class="fas fa-adjust"></i></th>
+                    <th class="text-end" style="width: 80px; cursor: pointer;" onclick="sortTable(8, 'num')"><i class="fas fa-desktop"></i></th>
+                    <th class="text-end" style="width: 80px; cursor: pointer;" onclick="sortTable(9, 'num')">EN</th>
+                    <th class="text-end" style="width: 80px; cursor: pointer;" onclick="sortTable(10, 'num')">DE</th>
+                    <th class="text-end" style="width: 100px; cursor: pointer;" onclick="sortTable(11, 'num')"><i class="fas fa-download"></i> KB</th>
+                    <th class="text-end" style="width: 100px; cursor: pointer;" onclick="sortTable(12, 'num')"><i class="fas fa-robot"></i> KB</th>
                 </tr>
             </thead>
             <tbody>
@@ -94,6 +96,8 @@
                     <td class="text-end"><span class="badge bg-primary">{{ link.system_theme_clicks }}</span></td>
                     <td class="text-end"><span class="badge bg-primary">{{ link.en_clicks }}</span></td>
                     <td class="text-end"><span class="badge bg-info">{{ link.de_clicks }}</span></td>
+                    <td class="text-end"><span class="badge bg-success">{{ "%.1f"|format(link.bytes_served / 1024) }}</span></td>
+                    <td class="text-end"><span class="badge bg-secondary">{{ "%.1f"|format(link.bot_bytes_served / 1024) }}</span></td>
                 </tr>
                 {% endfor %}
             </tbody>
@@ -135,6 +139,10 @@
                 <span class="badge bg-primary ms-1">EN: {{ link.en_clicks }}</span>
                 <span class="badge bg-info ms-1">DE: {{ link.de_clicks }}</span>
             </div>
+            <div class="card-badges mt-1">
+                <span class="badge bg-success"><i class="fas fa-download me-1"></i>{{ "%.1f"|format(link.bytes_served / 1024) }} KB</span>
+                <span class="badge bg-secondary ms-1"><i class="fas fa-robot me-1"></i>{{ "%.1f"|format(link.bot_bytes_served / 1024) }} KB</span>
+            </div>
         </div>
         {% endfor %}
     </div>
@@ -142,7 +150,11 @@
     <p class="text-muted small mt-4">
         Total: {{ links|length }} links | 
         Total clicks: {{ links|map(attribute='click_count')|sum }} |
-        Total bot clicks: {{ links|map(attribute='bot_click_count')|sum }}
+        Total bot clicks: {{ links|map(attribute='bot_click_count')|sum }} |
+        {% set total_bytes = links|map(attribute='bytes_served')|sum %}
+        {% set total_bot_bytes = links|map(attribute='bot_bytes_served')|sum %}
+        Bandwidth: {{ "%.2f"|format(total_bytes / 1048576) }} MB (humans) |
+        {{ "%.2f"|format(total_bot_bytes / 1048576) }} MB (bots)
     </p>
     
     <div class="row mt-4">
@@ -223,4 +235,33 @@
     </div>
     {% endif %}
 </div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+let sortDir = {};
+function sortTable(colIdx, type) {
+    const table = document.querySelector('.stats-table table');
+    const tbody = table.querySelector('tbody');
+    const rows = Array.from(tbody.querySelectorAll('tr'));
+    
+    sortDir[colIdx] = !sortDir[colIdx];
+    const dir = sortDir[colIdx] ? 1 : -1;
+    
+    rows.sort((a, b) => {
+        let aVal = a.cells[colIdx].textContent.trim();
+        let bVal = b.cells[colIdx].textContent.trim();
+        
+        if (type === 'num') {
+            aVal = parseFloat(aVal) || 0;
+            bVal = parseFloat(bVal) || 0;
+            return (aVal - bVal) * dir;
+        } else {
+            return aVal.localeCompare(bVal) * dir;
+        }
+    });
+    
+    rows.forEach(row => tbody.appendChild(row));
+}
+</script>
 {% endblock %}

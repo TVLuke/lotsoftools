@@ -114,6 +114,43 @@ def remove_tool_from_db(route):
     except Exception as e:
         print(f"Error removing tool {route}: {e}")
 
+def register_meta_link(name, route, is_meta_link=True):
+    """Register a meta link (about, stats, etc.) in the database."""
+    try:
+        db = get_db()
+        Link = get_link_model()
+        existing_link = Link.query.filter_by(url=route).first()
+        
+        if existing_link:
+            existing_link.is_meta_link = is_meta_link
+        else:
+            new_link = Link(
+                url=route,
+                img='',
+                new_window=False,
+                frontend_only=True,
+                uses_external_service=False
+            )
+            new_link.name = {'en': name.capitalize(), 'de': name.capitalize()}
+            new_link.description = {}
+            new_link.tags = []
+            new_link.is_meta_link = is_meta_link
+            db.session.add(new_link)
+        
+        db.session.commit()
+    except Exception as e:
+        print(f"Error registering meta link {name}: {e}")
+
+
+# Meta link routes mapping
+META_LINK_ROUTES = {
+    'about': '/about',
+    'stats': '/stats',
+    'imprint': '/imprint',
+    'privacy': '/privacy'
+}
+
+
 def init_tools():
     """Initialize tools based on tool_config.json - register active, remove inactive"""
     tools_dir = os.path.join('app', 'routes', 'tools')
@@ -121,6 +158,12 @@ def init_tools():
         return
     
     tool_config = load_tool_config(force_reload=True)
+    
+    # Register meta links from config
+    for meta_name, route in META_LINK_ROUTES.items():
+        config_entry = tool_config.get(meta_name, {})
+        if config_entry.get('active', False) and config_entry.get('is_meta_link', False):
+            register_meta_link(meta_name, route, is_meta_link=True)
     
     for filename in os.listdir(tools_dir):
         if filename.endswith('_tool.json'):

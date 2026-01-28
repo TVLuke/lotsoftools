@@ -289,6 +289,20 @@ def increment_click_count(url):
         return True
     return False
 
+
+def track_bandwidth(url, bytes_count, is_bot):
+    """Track bandwidth served for a link."""
+    link = get_link_by_url(url)
+    if link:
+        if is_bot:
+            link.bot_bytes_served = (link.bot_bytes_served or 0) + bytes_count
+        else:
+            link.bytes_served = (link.bytes_served or 0) + bytes_count
+        db.session.commit()
+        return True
+    return False
+
+
 def get_links_stats():
     """Get all links with stats, ordered by click count descending."""
     links = Link.query.order_by(Link.click_count.desc()).all()
@@ -302,7 +316,10 @@ def get_links_stats():
         'high_contrast_clicks': link.high_contrast_clicks or 0,
         'system_theme_clicks': link.system_theme_clicks or 0,
         'en_clicks': link.en_clicks or 0,
-        'de_clicks': link.de_clicks or 0
+        'de_clicks': link.de_clicks or 0,
+        'bytes_served': link.bytes_served or 0,
+        'bot_bytes_served': link.bot_bytes_served or 0,
+        'is_meta_link': link.is_meta_link or False
     } for link in links]
 
 def get_theme_language_totals():
