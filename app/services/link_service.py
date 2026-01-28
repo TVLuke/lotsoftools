@@ -97,7 +97,15 @@ def get_user_agent_stats():
 def get_bot_user_agents():
     """Get only bot user agents sorted by count descending."""
     stats = _parse_ua_log()
-    bots = [(ua, data) for ua, data in stats.items() if data['is_bot']]
+    # UAs seen as human - used to filter behavioral detection false positives
+    human_uas = {ua for ua, data in stats.items() if not data['is_bot']}
+    bots = []
+    for ua, data in stats.items():
+        if data['is_bot']:
+            # Skip behavioral detection false positives (same UA also seen as human)
+            if _categorize_user_agent(ua) == 'Behavioral Detection' and ua in human_uas:
+                continue
+            bots.append((ua, data))
     return sorted(bots, key=lambda x: x[1]['count'], reverse=True)
 
 
@@ -159,7 +167,15 @@ def get_user_agent_stats_by_company():
 def get_human_user_agents():
     """Get only human user agents sorted by count descending."""
     stats = _parse_ua_log()
-    humans = [(ua, data) for ua, data in stats.items() if not data['is_bot']]
+    # UAs seen as human
+    human_uas = {ua for ua, data in stats.items() if not data['is_bot']}
+    humans = []
+    for ua, data in stats.items():
+        if not data['is_bot']:
+            humans.append((ua, data))
+        elif _categorize_user_agent(ua) == 'Behavioral Detection' and ua in human_uas:
+            # Include behavioral detection false positives (same UA also seen as human)
+            humans.append((ua, data))
     return sorted(humans, key=lambda x: x[1]['count'], reverse=True)
 
 
