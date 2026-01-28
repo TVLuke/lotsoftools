@@ -136,9 +136,15 @@ def get_user_agent_stats_by_company():
     stats = _parse_ua_log()
     company_stats = {}
     
+    # Collect all UAs that have been seen as human
+    human_uas = {ua for ua, data in stats.items() if not data['is_bot']}
+    
     for ua, data in stats.items():
         if data['is_bot']:
             company = _categorize_user_agent(ua)
+            # If this UA was also seen as human, it's likely human (behavioral false positive)
+            if company == 'Behavioral Detection' and ua in human_uas:
+                company = 'Humans'
         else:
             company = 'Humans'
         
