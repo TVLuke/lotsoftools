@@ -110,7 +110,16 @@ def is_country_blocked(ip=None):
 
 def check_country_block():
     """Check if request should be blocked based on country. Call from before_request."""
-    if is_country_blocked():
+    config = _load_config()
+    if not config['enabled'] or not config['countries']:
+        return
+    
+    ip = get_client_ip()
+    country_code = get_country_code(ip)
+    
+    if country_code and country_code.upper() in config['countries']:
+        # Track the blocked request before aborting
+        track_country(country_code, is_bot=True, url=request.path)  # Count as bot for stats
         abort(403)
 
 
