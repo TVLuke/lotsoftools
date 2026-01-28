@@ -183,6 +183,39 @@ def stats_user_agents_csv():
     response.headers['Content-Disposition'] = 'attachment; filename=user_agents.csv'
     return response
 
+@main_bp.route('/stats/countries.csv')
+def stats_countries_csv():
+    from app.services.country_block import get_country_stats
+    country_stats = get_country_stats()
+    
+    output = io.StringIO()
+    writer = csv.writer(output)
+    writer.writerow(['country', 'human_count', 'bot_count'])
+    
+    for country, data in country_stats:
+        writer.writerow([country, data['human'], data['bot']])
+    
+    response = make_response(output.getvalue())
+    response.headers['Content-Type'] = 'text/csv'
+    response.headers['Content-Disposition'] = 'attachment; filename=countries.csv'
+    return response
+
+@main_bp.route('/stats/referrers.csv')
+def stats_referrers_csv():
+    referrer_stats = link_service.get_referrer_stats_by_domain()
+    
+    output = io.StringIO()
+    writer = csv.writer(output)
+    writer.writerow(['domain', 'count'])
+    
+    for domain, count in sorted(referrer_stats.items(), key=lambda x: x[1], reverse=True):
+        writer.writerow([domain, count])
+    
+    response = make_response(output.getvalue())
+    response.headers['Content-Type'] = 'text/csv'
+    response.headers['Content-Disposition'] = 'attachment; filename=referrers.csv'
+    return response
+
 @main_bp.route('/about')
 def about():
     link_service.increment_click_count('/about')
