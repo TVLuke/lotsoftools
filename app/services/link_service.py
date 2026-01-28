@@ -120,6 +120,9 @@ def _categorize_user_agent(user_agent):
     # air.ai
     if 'air.ai' in ua_lower:
         return 'air.ai'
+    # PetalBot (Huawei search)
+    if 'petalbot' in ua_lower:
+        return 'Huawei'
     # Generic other bots (matched by UA pattern)
     if any(p in ua_lower for p in _bot_simple_patterns):
         return 'Other Bots'
