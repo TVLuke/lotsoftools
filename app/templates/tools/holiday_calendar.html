@@ -193,34 +193,17 @@
         </div>
     </div>
     
-    {% if tool_data and tool_data.seo and tool_data.seo.content %}
-    <div class="mt-5">
-        <h2 class="h5 mb-3">{{ tool_data.seo.content.heading[current_lang] }}</h2>
-        <p>{{ tool_data.seo.content.intro[current_lang] }}</p>
-        
-        {% if tool_data.seo.content.features %}
-        <ul class="mt-3">
-            {% for feature in tool_data.seo.content.features %}
-            <li><strong>{{ feature.title[current_lang] }}</strong> – {{ feature.description[current_lang] }}</li>
-            {% endfor %}
-        </ul>
-        {% endif %}
-        
-        {% if tool_data.seo.content.data_source %}
-        <p class="text-muted small mt-3">{{ tool_data.seo.content.data_source[current_lang]|safe }}</p>
-        {% endif %}
-        
-        {% if tool_data.seo.content.search_queries %}
-        <h3 class="h6 mt-4 mb-2">{% if current_lang == 'de' %}Dieses Tool beantwortet Fragen wie:{% else %}This tool provides answers to questions like:{% endif %}</h3>
-        <ul class="small text-muted">
-            {% for query in tool_data.seo.content.search_queries[current_lang] %}
-            <li>{{ query }}</li>
-            {% endfor %}
-        </ul>
-        {% endif %}
+    <!-- Text summary for crawlers (only shown when region + year selected) -->
+    <div id="holidayTextSummary" class="mt-4" style="display: none;">
+        <div class="card">
+            <div class="card-body">
+                <h2 class="h5 mb-3" id="textSummaryHeading"></h2>
+                <div id="textSummaryContent"></div>
+            </div>
+        </div>
     </div>
-    {% endif %}
     
+    {% include 'components/seo_content.html' %}
     {% include 'components/related_tools.html' %}
 </div>
 {% endblock %}
@@ -412,6 +395,77 @@ document.addEventListener('DOMContentLoaded', function() {
         });
         
         holidayTableBody.innerHTML = html;
+        
+        // Update text summary for crawlers
+        updateTextSummary(filteredHolidays);
+    }
+    
+    function updateTextSummary(holidays) {
+        const summaryDiv = document.getElementById('holidayTextSummary');
+        const headingEl = document.getElementById('textSummaryHeading');
+        const contentEl = document.getElementById('textSummaryContent');
+        const selectedRegion = subdivisionSelect.value;
+        const selectedYear = getSelectedYear();
+        const lang = getSelectedLang().toLowerCase();
+        
+        // Only show when a specific region AND year are selected
+        if (selectedRegion === 'all' || selectedYear === 'all') {
+            summaryDiv.style.display = 'none';
+            return;
+        }
+        
+        if (holidays.length === 0) {
+            summaryDiv.style.display = 'none';
+            return;
+        }
+        
+        // Get region name from dropdown
+        const regionOption = subdivisionSelect.options[subdivisionSelect.selectedIndex];
+        const regionName = regionOption ? regionOption.textContent.split(' – ')[1] || regionOption.textContent : selectedRegion;
+        
+        // Set heading
+        if (lang === 'de') {
+            headingEl.textContent = `Ferien und Feiertage in ${regionName} ${selectedYear}`;
+        } else {
+            headingEl.textContent = `Holidays in ${regionName} in ${selectedYear}`;
+        }
+        
+        // Generate text descriptions
+        let html = '<ul class="mb-0">';
+        holidays.forEach(h => {
+            const isPublic = h.type === 'public';
+            const startDate = new Date(h.start_date);
+            const endDate = new Date(h.end_date);
+            const isSingleDay = h.start_date === h.end_date;
+            
+            const dateOptions = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+            const locale = lang === 'de' ? 'de-DE' : 'en-US';
+            
+            let sentence;
+            if (isSingleDay) {
+                // Single day event (usually public holiday)
+                const dateStr = startDate.toLocaleDateString(locale, dateOptions);
+                if (lang === 'de') {
+                    sentence = `<strong>${h.name}</strong> fällt auf ${dateStr}`;
+                } else {
+                    sentence = `<strong>${h.name}</strong> falls on ${dateStr}`;
+                }
+            } else {
+                // Multi-day event (usually school holiday)
+                const startStr = startDate.toLocaleDateString(locale, dateOptions);
+                const endStr = endDate.toLocaleDateString(locale, dateOptions);
+                if (lang === 'de') {
+                    sentence = `<strong>${h.name}</strong> beginnt am ${startStr} und endet am ${endStr}`;
+                } else {
+                    sentence = `<strong>${h.name}</strong> starts on ${startStr} and ends on ${endStr}`;
+                }
+            }
+            html += `<li>${sentence}</li>`;
+        });
+        html += '</ul>';
+        
+        contentEl.innerHTML = html;
+        summaryDiv.style.display = 'block';
     }
     
     function downloadIcalFile() {

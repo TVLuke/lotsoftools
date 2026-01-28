@@ -31,20 +31,30 @@
         "en": "This tool provides an overview of school holidays and bank holidays for multiple countries.",
         "de": "Dieses Tool bietet eine Übersicht über Schulferien und Feiertage für verschiedene Länder."
       },
-      "features": [
-        {
-          "title": { "en": "Multiple Countries", "de": "Mehrere Länder" },
-          "description": { "en": "View holidays for 35+ countries across Europe, Americas and Africa.", "de": "Feiertage und Ferien für 35+ Länder in Europa, Amerika und Afrika anzeigen." }
+      "features": {
+        "heading": {
+          "en": "Key Features:",
+          "de": "Hauptfunktionen:"
         },
-        {
-          "title": { "en": "iCal Export", "de": "iCal Export" },
-          "description": { "en": "Download iCal files to import holidays into your calendar app.", "de": "iCal-Dateien herunterladen, um Ferien und Feiertage in Ihre Kalender-App zu importieren." }
-        },
-        {
-          "title": { "en": "School & Bank Holidays", "de": "Schulferien & Feiertage" },
-          "description": { "en": "Both school holidays and public bank holidays are included.", "de": "Sowohl Schulferien als auch gesetzliche Feiertage sind enthalten." }
-        }
-      ],
+        "items": [
+          {
+            "en": "<strong>Multiple Countries:</strong> View holidays for 35+ countries across Europe, Americas and Africa.",
+            "de": "<strong>Mehrere Länder:</strong> Feiertage und Ferien für 35+ Länder in Europa, Amerika und Afrika anzeigen."
+          },
+          {
+            "en": "<strong>iCal Export:</strong> Download iCal files to import holidays into your calendar app.",
+            "de": "<strong>iCal Export:</strong> iCal-Dateien herunterladen, um Ferien und Feiertage in Ihre Kalender-App zu importieren."
+          },
+          {
+            "en": "<strong>PDF Calendar:</strong> Generate printable PDF calendars with holidays marked.",
+            "de": "<strong>PDF-Kalender:</strong> Druckbare PDF-Kalender mit markierten Feiertagen erstellen."
+          },
+          {
+            "en": "<strong>School & Bank Holidays:</strong> Both school holidays and public bank holidays are included.",
+            "de": "<strong>Schulferien & Feiertage:</strong> Sowohl Schulferien als auch gesetzliche Feiertage sind enthalten."
+          }
+        ]
+      },
       "data_source": {
         "en": "Holiday data is provided by the <a href=\"https://www.openholidaysapi.org/en/faq/\" target=\"_blank\">OpenHolidays API</a>. The OpenHolidays API project is open data, its use is free of charge and also permitted in commercial projects. All data comes from public sources and is documented under Data Sources. The processed data is licensed under the <a href=\"https://opendatacommons.org/licenses/odbl/\" target=\"_blank\">ODC Open Database Licence (ODbL)</a>.",
         "de": "Feiertagsdaten werden von der <a href=\"https://www.openholidaysapi.org/en/faq/\" target=\"_blank\">OpenHolidays API</a> bereitgestellt. Das OpenHolidays API-Projekt ist Open Data, die Nutzung ist kostenlos und auch in kommerziellen Projekten gestattet. Alle Daten stammen aus öffentlichen Quellen und sind unter Data Sources dokumentiert. Die verarbeiteten Daten sind unter der <a href=\"https://opendatacommons.org/licenses/odbl/\" target=\"_blank\">ODC Open Database Licence (ODbL)</a> lizenziert."
