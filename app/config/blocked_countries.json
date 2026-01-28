@@ -1,0 +1,5 @@
+{
+    "enabled": true,
+    "blocked_country_codes": ["RU"],
+    "_comment": "ISO 3166-1 alpha-2 country codes to block"
+}

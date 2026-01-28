@@ -109,6 +109,8 @@ def stats():
     bot_user_agents = link_service.get_bot_user_agents()
     human_user_agents = link_service.get_human_user_agents()
     referrer_stats = link_service.get_referrer_stats_by_domain()
+    from app.services.country_block import get_country_stats
+    country_stats = get_country_stats()
     server_start_time = link_service.get_server_start_time()
     theme_lang_totals = link_service.get_theme_language_totals()
     ua_log_size = link_service.get_ua_log_file_size()
@@ -116,7 +118,7 @@ def stats():
     blocked_count = get_blocked_request_count()
     response = make_response(render_template('stats.html', links=links, user_agents=user_agents, 
                           bot_user_agents=bot_user_agents, human_user_agents=human_user_agents,
-                          referrer_stats=referrer_stats,
+                          referrer_stats=referrer_stats, country_stats=country_stats,
                           server_start_time=server_start_time, instance_id=INSTANCE_ID,
                           theme_lang_totals=theme_lang_totals, ua_log_size=ua_log_size,
                           blocklist_info=blocklist_info, blocked_count=blocked_count))

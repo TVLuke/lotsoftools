@@ -52,6 +52,13 @@ def create_app(config_class=Config):
     os.makedirs('data', exist_ok=True)
     
     @app.before_request
+    def check_country_block():
+        from app.services.country_block import check_country_block as do_check
+        # Skip for static files
+        if not request.path.startswith('/static/'):
+            do_check()
+    
+    @app.before_request
     def set_language():
         # Check cookie first (user explicitly set preference)
         cookie_lang = request.cookies.get('lotsoftools_lang')

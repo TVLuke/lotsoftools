@@ -140,6 +140,27 @@ def _categorize_user_agent(user_agent):
     # Python urllib (scripts/bots)
     if 'python-urllib' in ua_lower:
         return 'Python'
+    # Amazon (Amazonbot)
+    if 'amazonbot' in ua_lower:
+        return 'Amazon'
+    # Let's Encrypt (validation)
+    if 'letsencrypt' in ua_lower:
+        return "Let's Encrypt"
+    # LeakIX (security scanner)
+    if 'leakix' in ua_lower:
+        return 'LeakIX'
+    # Censys (security scanner)
+    if 'censys' in ua_lower:
+        return 'Censys'
+    # Go HTTP client
+    if 'go-http-client' in ua_lower:
+        return 'Go'
+    # OkHttp (Java/Kotlin)
+    if 'okhttp' in ua_lower:
+        return 'OkHttp'
+    # HeadlessChrome (automation)
+    if 'headlesschrome' in ua_lower:
+        return 'HeadlessChrome'
     # Generic other bots (matched by UA pattern)
     if any(p in ua_lower for p in _bot_simple_patterns):
         return 'Other Bots'
@@ -352,6 +373,11 @@ def increment_click_count(url):
         is_bot = is_bot_request()
         track_user_agent(user_agent, is_bot, url)
         track_referrer(referrer, is_bot, url)
+        # Track country
+        from app.services.country_block import get_client_ip, get_country_code, track_country
+        ip = get_client_ip()
+        country = get_country_code(ip)
+        track_country(country, is_bot, url)
         if is_bot:
             link.bot_click_count = (link.bot_click_count or 0) + 1
         else:

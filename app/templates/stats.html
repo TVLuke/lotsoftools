@@ -193,6 +193,23 @@
     </div>
     {% endif %}
     
+    {% if country_stats %}
+    <div class="row mt-4">
+        <div class="col-12">
+            <h3 class="h5"><i class="fas fa-globe me-2"></i>Visitor Countries</h3>
+            <div class="d-flex gap-2 flex-wrap">
+                {% for country, data in country_stats %}
+                {% if loop.index <= 15 %}
+                <span class="badge bg-primary">
+                    {{ country }}: {{ data.human }} <small class="text-muted">(+{{ data.bot }} bots)</small>
+                </span>
+                {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    {% endif %}
+    
     {% if blocklist_info and blocklist_info.enabled %}
     <div class="row mt-4">
         <div class="col-12">
@@ -209,7 +226,7 @@
     {% endif %}
     
     {% if bot_user_agents %}
-    <h2 class="mt-5 mb-3"><i class="fas fa-robot me-2"></i>Bot User Agents (since restart)</h2>
+    <h2 class="mt-5 mb-3"><i class="fas fa-robot me-2"></i>Bot User Agents</h2>
     <div class="table-responsive">
         <table class="table table-sm table-hover">
             <thead class="table-dark">
@@ -231,7 +248,7 @@
     {% endif %}
     
     {% if human_user_agents %}
-    <h2 class="mt-5 mb-3"><i class="fas fa-user me-2"></i>Human User Agents (since restart)</h2>
+    <h2 class="mt-5 mb-3"><i class="fas fa-user me-2"></i>Human User Agents</h2>
     <div class="table-responsive">
         <table class="table table-sm table-hover">
             <thead class="table-dark">
