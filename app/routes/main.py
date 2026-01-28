@@ -15,6 +15,7 @@ main_bp = Blueprint('main', __name__)
 
 @main_bp.route('/')
 def index():
+    link_service.increment_click_count('/')
     desktop_layout = request.cookies.get('desktop_layout', 'categorized')
     mobile_layout = request.cookies.get('mobile_layout', 'compact')
     
@@ -102,6 +103,7 @@ def sitemap():
 
 @main_bp.route('/stats')
 def stats():
+    link_service.increment_click_count('/stats')
     links = link_service.get_links_stats()
     user_agents = link_service.get_user_agent_stats()
     bot_user_agents = link_service.get_bot_user_agents()
@@ -179,6 +181,7 @@ def stats_user_agents_csv():
 
 @main_bp.route('/about')
 def about():
+    link_service.increment_click_count('/about')
     from app.services.about_content import load_about_content
     lang = session.get('lang', 'en')
     about_content = load_about_content(lang)
@@ -188,6 +191,7 @@ def about():
 @main_bp.route('/datenschutz')
 def privacy():
     """Privacy policy page with tool-specific privacy information."""
+    link_service.increment_click_count('/privacy')
     from app.models import Link
     from app.services.privacy_content import load_privacy_content
     
@@ -224,6 +228,7 @@ def accessibility_report(filename='index.html'):
 @main_bp.route('/barrierefreiheit')
 def accessibility_statement():
     """Accessibility statement page."""
+    link_service.increment_click_count('/accessibility-statement')
     return render_template('accessibility_statement.html')
 
 @main_bp.route('/third-party-libraries')

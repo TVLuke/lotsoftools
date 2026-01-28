@@ -144,10 +144,12 @@ def register_meta_link(name, route, is_meta_link=True):
 
 # Meta link routes mapping
 META_LINK_ROUTES = {
+    'index': '/',
     'about': '/about',
     'stats': '/stats',
     'imprint': '/imprint',
-    'privacy': '/privacy'
+    'privacy': '/privacy',
+    'accessibility_statement': '/accessibility-statement'
 }
 
 

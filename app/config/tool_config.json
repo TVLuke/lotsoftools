@@ -1,8 +1,10 @@
 {
+  "index": {"active": true, "is_meta_link": true},
   "about": {"active": true, "is_meta_link": true},
   "stats": {"active": true, "is_meta_link": true},
   "imprint": {"active": true, "is_meta_link": true},
   "privacy": {"active": true, "is_meta_link": true},
+  "accessibility_statement": {"active": true, "is_meta_link": true},
   "ascii_table": {"active": true},
   "barcode_generator": {"active": true},
   "dice": {"active": true},
