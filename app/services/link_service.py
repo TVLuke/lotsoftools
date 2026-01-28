@@ -113,6 +113,7 @@ def _categorize_user_agent(user_agent):
     """Categorize a user agent string by company/type.
     
     Only includes bots we've actually observed in logs.
+    Categories are dynamic - add new ones as they appear.
     """
     ua_lower = user_agent.lower()
     
