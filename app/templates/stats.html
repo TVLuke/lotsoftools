@@ -207,14 +207,33 @@
     <div class="row mt-4">
         <div class="col-12">
             <h3 class="h5"><i class="fas fa-globe me-2"></i>Visitor Countries</h3>
-            <div class="d-flex gap-2 flex-wrap">
-                {% for country, data in country_stats %}
-                {% if loop.index <= 15 %}
-                <span class="badge bg-primary">
-                    {{ country }}: {{ data.human }} <small class="text-muted">(+{{ data.bot }} bots)</small>
-                </span>
-                {% endif %}
-                {% endfor %}
+            <div class="table-responsive">
+                <table class="table table-sm table-hover">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>Country</th>
+                            <th>Human Visitors</th>
+                            <th>Bot Visitors</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for country, data in country_stats %}
+                        {% if loop.index <= 15 %}
+                        <tr>
+                            <td>
+                                {% if country != 'Unknown' %}
+                                {% set flag_map = {'US': '🇺🇸', 'DE': '🇩🇪', 'GB': '🇬🇧', 'FR': '🇫🇷', 'CA': '🇨🇦', 'AU': '🇦🇺', 'JP': '🇯🇵', 'CN': '🇨🇳', 'IN': '🇮🇳', 'BR': '🇧🇷', 'IT': '🇮🇹', 'ES': '🇪🇸', 'NL': '🇳🇱', 'SE': '🇸🇪', 'NO': '🇳🇴', 'DK': '🇩🇰', 'FI': '🇫🇮', 'CH': '🇨🇭', 'AT': '🇦🇹', 'BE': '🇧🇪', 'PL': '🇵🇱', 'CZ': '🇨🇿', 'RU': '🇷🇺', 'UA': '🇺🇦', 'MX': '🇲🇽', 'AR': '🇦🇷', 'KR': '🇰🇷', 'TR': '🇹🇷', 'IL': '🇮🇱', 'SA': '🇸🇦', 'ZA': '🇿🇦', 'EG': '🇪🇬', 'NG': '🇳🇬', 'KE': '🇰🇪', 'TH': '🇹🇭', 'VN': '🇻🇳', 'PH': '🇵🇭', 'MY': '🇲🇾', 'SG': '🇸🇬', 'ID': '🇮🇩', 'NZ': '🇳🇿' %}
+                                <span class="me-2">{{ flag_map.get(country, '🌍') }}</span>
+                                {% endif %}
+                                {{ country }}
+                            </td>
+                            <td><span class="badge bg-{% if data.human > 100 %}success{% elif data.human > 20 %}primary{% else %}secondary{% endif %}">{{ data.human }}</span></td>
+                            <td><span class="badge bg-{% if data.bot > 100 %}danger{% elif data.bot > 20 %}warning{% else %}secondary{% endif %}">{{ data.bot }}</span></td>
+                        </tr>
+                        {% endif %}
+                        {% endfor %}
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
