@@ -47,7 +47,7 @@
             <a href="https://github.com/TVLuke/lotsoftools/issues" class="text-muted small" target="_blank" rel="noopener noreferrer">{% if current_lang == 'de' %}Fehler melden{% else %}Report a Bug{% endif %}</a>
             <span class="text-muted small mx-2">|</span>
             <a rel="me" href="https://der-echte-nerden.social/@lotsoftools" class="text-muted small" target="_blank"><i class="fab fa-mastodon me-1"></i>Mastodon</a>
-            <span class="text-muted small mx-2">|</span>
+            <span id="bot-policy-separator" class="text-muted small mx-2">|</span>
             <a href="/bot-policy" id="bot-policy-link" class="text-muted small">{% if current_lang == 'de' %}Bot-Policy{% else %}Bot-Policy{% endif %}</a>
         </p>
         {% if support_links %}
@@ -172,8 +172,12 @@
         // Hide bot policy link from real users (honeypot for bots)
         document.addEventListener('DOMContentLoaded', function() {
             const botPolicyLink = document.getElementById('bot-policy-link');
+            const botPolicySeparator = document.getElementById('bot-policy-separator');
             if (botPolicyLink) {
                 botPolicyLink.style.display = 'none';
+            }
+            if (botPolicySeparator) {
+                botPolicySeparator.style.display = 'none';
             }
         });
     </script>
