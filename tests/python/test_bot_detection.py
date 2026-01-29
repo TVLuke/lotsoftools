@@ -19,6 +19,17 @@ from app.services.bot_detection import is_bot_request
 BOT_DETECTION_TEST_CASES = {
     "old_browsers": [
         {
+            "name": "Windows NT 6.1 (old)",
+            "headers": {
+                "User-Agent": "Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
+                "Referer": "",
+                "Accept-Language": "en-US,en;q=0.9"
+            },
+            "cookies": {"session": "test"},
+            "expected_bot": True,
+            "expected_reason": "Windows NT 6.1 (old Windows)"
+        },
+        {
             "name": "Chrome 83 (old)",
             "headers": {
                 "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36",
