@@ -110,8 +110,8 @@ def is_bot_request():
         if regex.search(user_agent):
             return True, "Known bot pattern"
     
-    # Behavioral check: real browsers have cookies after first visit
-    # A bot making many requests without cookies is suspicious
+    # Behavioral check: real browsers have cookies and Accept-Language
+    # A bot making many requests without these headers is suspicious
     has_cookies = bool(request.cookies)
     has_accept_language = bool(request.headers.get('Accept-Language', ''))
     
@@ -119,5 +119,10 @@ def is_bot_request():
     # it's likely a bot pretending to be a browser
     if not has_cookies and not has_accept_language:
         return True, "No cookies or Accept-Language"
+    
+    # If user agent looks like a browser but has NO Accept-Language header,
+    # it's likely a bot (real browsers always send Accept-Language)
+    if not has_accept_language:
+        return True, "No Accept-Language header"
     
     return False, "Human"

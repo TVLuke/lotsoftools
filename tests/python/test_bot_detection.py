@@ -186,6 +186,17 @@ BOT_DETECTION_TEST_CASES = {
             "cookies": {},
             "expected_bot": True,
             "expected_reason": "No cookies or Accept-Language"
+        },
+        {
+            "name": "No Accept-Language header",
+            "headers": {
+                "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
+                "Referer": "",
+                "Accept-Language": ""
+            },
+            "cookies": {"session": "test"},
+            "expected_bot": True,
+            "expected_reason": "No Accept-Language header"
         }
     ],
     "legitimate_users": [
