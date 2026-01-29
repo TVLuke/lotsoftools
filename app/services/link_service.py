@@ -134,6 +134,12 @@ def _parse_ua_log():
                     continue
                 if ua in stats:
                     stats[ua]['count'] += 1
+                    # Update reason if this entry has one and the stored one doesn't
+                    if reason and not stats[ua].get('reason'):
+                        stats[ua]['reason'] = reason
+                    # Ensure reason key exists for backward compatibility
+                    if 'reason' not in stats[ua]:
+                        stats[ua]['reason'] = reason
                 else:
                     stats[ua] = {'count': 1, 'is_bot': is_bot, 'reason': reason}
     except Exception as e:
