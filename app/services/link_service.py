@@ -455,8 +455,10 @@ def is_bot_request():
     if 'mozilla/5.0 (windows nt 10.0; win64; x64) applewebkit/537.36 (khtml, like gecko) chrome/42.0.2311.135 safari/537.36 edge/12.246' in user_agent_lower:
         return True
     
-    # Old Chrome versions (4-5 years old) - likely bots
-    if 'chrome/74.0.3729.169' in user_agent_lower or 'chrome/79.0.3945.88' in user_agent_lower or 'chrome/83.0.4103.116' in user_agent_lower:
+    # Chrome versions below 90 are old (4+ years) - likely bots
+    import re
+    chrome_match = re.search(r'chrome/(\d+)\.', user_agent_lower)
+    if chrome_match and int(chrome_match.group(1)) < 90:
         return True
     
     # Check against simple patterns (fast)
