@@ -461,6 +461,11 @@ def is_bot_request():
     if chrome_match and int(chrome_match.group(1)) < 90:
         return True
     
+    # iOS versions below 14 are old (5+ years) - likely bots
+    ios_match = re.search(r'CPU iPhone OS (\d+)_(\d+)', user_agent_lower)
+    if ios_match and int(ios_match.group(1)) < 14:
+        return True
+    
     # Check against simple patterns (fast)
     for pattern in _bot_simple_patterns:
         if pattern in user_agent_lower:
