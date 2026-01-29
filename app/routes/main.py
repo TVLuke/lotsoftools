@@ -80,7 +80,11 @@ def debug_auth():
     """Temporary debug route - remove after testing."""
     pw = get_stats_password()
     auth = request.authorization
-    return f"Password set: {bool(pw)}, len: {len(pw)}, auth present: {auth is not None}, username: {auth.username if auth else 'none'}"
+    
+    # Show all env vars containing 'STATS' or 'PASSWORD'
+    env_matches = {k: v for k, v in os.environ.items() if 'STATS' in k or 'PASSWORD' in k}
+    
+    return f"Password set: {bool(pw)}, len: {len(pw)}, auth present: {auth is not None}, username: {auth.username if auth else 'none'}<br>Env vars: {env_matches}"
 
 @main_bp.route('/')
 def index():
