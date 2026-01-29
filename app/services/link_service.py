@@ -479,7 +479,7 @@ def is_bot_request():
         return True, f"Chrome {chrome_match.group(1)} (old Chrome)"
     
     # iOS versions below 14 are old (5+ years) - likely bots
-    ios_match = re.search(r'CPU iPhone OS (\d+)_(\d+)(?:_(\d+))?', user_agent_lower)
+    ios_match = re.search(r'cpu iphone os (\d+)_(\d+)(?:_(\d+))?', user_agent_lower)
     if ios_match and int(ios_match.group(1)) < 14:
         minor = ios_match.group(2)
         patch = ios_match.group(3) if ios_match.group(3) else ''
