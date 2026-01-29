@@ -40,12 +40,6 @@ def require_stats_auth(f):
     """Decorator to require authentication for stats routes (HTML page)."""
     @wraps(f)
     def decorated(*args, **kwargs):
-        stats_password = get_stats_password()
-        
-        # If no password set, allow access (dev mode)
-        if not stats_password:
-            return f(*args, **kwargs)
-        
         if not check_stats_auth():
             resp = Response('Authentication required', status=401)
             resp.headers['WWW-Authenticate'] = 'Basic realm="Stats"'
@@ -58,6 +52,7 @@ def require_stats_auth(f):
         auth_cookie = request.cookies.get('stats_auth', '')
         if not auth_cookie and request.authorization:
             if hasattr(response, 'set_cookie'):
+                stats_password = get_stats_password()
                 expected = hashlib.sha256(stats_password.encode()).hexdigest()[:16]
                 response.set_cookie('stats_auth', expected, max_age=86400*30, httponly=True, samesite='Lax')
         
@@ -69,10 +64,6 @@ def require_stats_api_auth(f):
     @wraps(f)
     def decorated(*args, **kwargs):
         stats_password = get_stats_password()
-        
-        # If no password set, allow access (dev mode)
-        if not stats_password:
-            return f(*args, **kwargs)
         
         # Check X-Stats-Password header
         header_password = request.headers.get('X-Stats-Password', '')
