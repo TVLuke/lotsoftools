@@ -294,6 +294,28 @@
     </div>
     {% endif %}
     
+    {% if honeypot_agents %}
+    <h2 class="mt-5 mb-3"><i class="fas fa-spider me-2"></i>Honeypot Agents</h2>
+    <div class="table-responsive">
+        <table class="table table-sm table-hover">
+            <thead class="table-dark">
+                <tr>
+                    <th style="width: 80px;">Count</th>
+                    <th>User Agent</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for ua, count in honeypot_agents %}
+                <tr>
+                    <td><span class="badge bg-{% if count > 10 %}danger{% elif count > 3 %}warning{% else %}info{% endif %}">{{ count }}</span></td>
+                    <td><code style="font-size: 0.8em; word-break: break-all;">{{ ua if ua else '(empty)' }}</code></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    {% endif %}
+    
     {% if human_user_agents %}
     <h2 class="mt-5 mb-3"><i class="fas fa-user me-2"></i>Human User Agents</h2>
     <div class="table-responsive">

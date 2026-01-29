@@ -271,6 +271,26 @@ def get_human_user_agents():
             humans.append((ua, data))
     return sorted(humans, key=lambda x: x[1]['count'], reverse=True)
 
+def get_honeypot_agents():
+    """Get honeypot agents from honeypot.log file."""
+    honeypot_log_path = os.path.join(os.path.dirname(__file__), '..', 'logs', 'honeypot.log')
+    agents = {}
+    try:
+        if os.path.exists(honeypot_log_path):
+            with open(honeypot_log_path, 'r', encoding='utf-8') as f:
+                for line in f:
+                    line = line.strip()
+                    if line:
+                        if line in agents:
+                            agents[line] += 1
+                        else:
+                            agents[line] = 1
+    except Exception as e:
+        logger.error(f"Failed to parse honeypot log: {e}")
+    
+    # Convert to list of tuples sorted by count
+    return sorted(agents.items(), key=lambda x: x[1], reverse=True)
+
 
 def track_user_agent(user_agent, is_bot, url=None, bot_reason=None):
     """Log user agent to file for persistent tracking.
