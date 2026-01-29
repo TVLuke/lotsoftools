@@ -18,6 +18,8 @@ services:
       # Support links config (optional) - base64 encoded JSON
       # Generate with: cat support_config.json | base64
       - SUPPORT_CONFIG=${SUPPORT_CONFIG:-}
+      # Stats page password
+      - STATS_PASSWORD=${STATS_PASSWORD:-}
     healthcheck:
       test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:5000/')"]
       interval: 30s
