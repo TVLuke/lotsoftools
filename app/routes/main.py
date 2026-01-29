@@ -19,7 +19,7 @@ def get_stats_password():
 
 def check_stats_auth():
     """Check if user is authenticated for stats page."""
-    stats_password = get_stats_password()
+    stats_password = get_stats_password().strip()  # Strip whitespace
     
     # Check cookie first
     auth_cookie = request.cookies.get('stats_auth', '')
@@ -52,7 +52,7 @@ def require_stats_auth(f):
         auth_cookie = request.cookies.get('stats_auth', '')
         if not auth_cookie and request.authorization:
             if hasattr(response, 'set_cookie'):
-                stats_password = get_stats_password()
+                stats_password = get_stats_password().strip()
                 expected = hashlib.sha256(stats_password.encode()).hexdigest()[:16]
                 response.set_cookie('stats_auth', expected, max_age=86400*30, httponly=True, samesite='Lax')
         
@@ -74,6 +74,13 @@ def require_stats_api_auth(f):
     return decorated
 
 main_bp = Blueprint('main', __name__)
+
+@main_bp.route('/debug-auth')
+def debug_auth():
+    """Temporary debug route - remove after testing."""
+    pw = get_stats_password()
+    auth = request.authorization
+    return f"Password set: {bool(pw)}, len: {len(pw)}, auth present: {auth is not None}, username: {auth.username if auth else 'none'}"
 
 @main_bp.route('/')
 def index():
