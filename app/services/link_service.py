@@ -473,7 +473,7 @@ def is_bot_request():
     import re
     chrome_match = re.search(r'chrome/(\d+)\.', user_agent_lower)
     if chrome_match and int(chrome_match.group(1)) < 90:
-        return True, f"Chrome {chrome_match.group(1)} (old browser)"
+        return True, f"Chrome {chrome_match.group(1)} (old Chrome)"
     
     # iOS versions below 14 are old (5+ years) - likely bots
     ios_match = re.search(r'CPU iPhone OS (\d+)_(\d+)', user_agent_lower)
@@ -483,12 +483,23 @@ def is_bot_request():
     # Android versions below 11 are old (5+ years) - likely bots
     android_match = re.search(r'android (\d+)', user_agent_lower)
     if android_match and int(android_match.group(1)) < 11:
-        return True, f"Android {android_match.group(1)} (old OS)"
+        return True, f"Android {android_match.group(1)} (old Android)"
     
     # Firefox versions below 100 are old (3+ years) - likely bots
     firefox_match = re.search(r'firefox/(\d+)', user_agent_lower)
     if firefox_match and int(firefox_match.group(1)) < 100:
-        return True, f"Firefox {firefox_match.group(1)} (old browser)"
+        return True, f"Firefox {firefox_match.group(1)} (old Firefox)"
+    
+    # Windows NT versions below 10 are old (Windows 7/8/8.1 from 2009-2013)
+    windows_match = re.search(r'windows nt (\d+\.\d+)', user_agent_lower)
+    if windows_match:
+        major_version = float(windows_match.group(1))
+        if major_version < 10.0:
+            return True, f"Windows NT {windows_match.group(1)} (old Windows)"
+    
+    # Windows XP/2000 etc. are very old
+    if 'windows xp' in user_agent_lower or 'windows 2000' in user_agent_lower:
+        return True, "Windows XP/2000 (very old Windows)"
     
     # Check against simple patterns (fast)
     for pattern in _bot_simple_patterns:
