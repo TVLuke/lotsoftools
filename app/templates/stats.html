@@ -260,6 +260,7 @@
                 <tr>
                     <th style="width: 80px;">Count</th>
                     <th>User Agent</th>
+                    <th>Reason</th>
                 </tr>
             </thead>
             <tbody>
@@ -267,6 +268,7 @@
                 <tr>
                     <td><span class="badge bg-{% if data.count > 100 %}danger{% elif data.count > 20 %}warning{% else %}secondary{% endif %}">{{ data.count }}</span></td>
                     <td><code style="font-size: 0.8em; word-break: break-all;">{{ ua if ua else '(empty)' }}</code></td>
+                    <td><span class="badge bg-info">{{ data.reason if data.reason else 'Unknown' }}</span></td>
                 </tr>
                 {% endfor %}
             </tbody>

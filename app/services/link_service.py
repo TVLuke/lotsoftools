@@ -115,20 +115,27 @@ def _parse_ua_log():
                 if not line or '|' not in line:
                     continue
                 parts = line.split('|')
-                # Format: timestamp|BOT/HUMAN|url|user_agent (4 parts)
-                # Old format: timestamp|BOT/HUMAN|user_agent (3 parts)
-                if len(parts) >= 4:
+                # Format: timestamp|BOT/HUMAN|url|user_agent|reason (5 parts)
+                # Old format: timestamp|BOT/HUMAN|url|user_agent (4 parts)
+                # Oldest format: timestamp|BOT/HUMAN|user_agent (3 parts)
+                if len(parts) >= 5:
                     is_bot = parts[1].strip() == 'BOT'
                     ua = parts[3].strip()
+                    reason = parts[4].strip()
+                elif len(parts) >= 4:
+                    is_bot = parts[1].strip() == 'BOT'
+                    ua = parts[3].strip()
+                    reason = ''
                 elif len(parts) >= 3:
                     is_bot = parts[1].strip() == 'BOT'
                     ua = parts[2].strip()
+                    reason = ''
                 else:
                     continue
                 if ua in stats:
                     stats[ua]['count'] += 1
                 else:
-                    stats[ua] = {'count': 1, 'is_bot': is_bot}
+                    stats[ua] = {'count': 1, 'is_bot': is_bot, 'reason': reason}
     except Exception as e:
         logger.error(f"Failed to parse UA log: {e}")
     return stats
@@ -253,7 +260,7 @@ def get_human_user_agents():
     return sorted(humans, key=lambda x: x[1]['count'], reverse=True)
 
 
-def track_user_agent(user_agent, is_bot, url=None):
+def track_user_agent(user_agent, is_bot, url=None, bot_reason=None):
     """Log user agent to file for persistent tracking.
     
     Returns True if successfully logged as HUMAN, False otherwise.
@@ -267,7 +274,8 @@ def track_user_agent(user_agent, is_bot, url=None):
         # Sanitize user agent (remove newlines, limit length)
         ua_clean = user_agent.replace('\n', ' ').replace('|', ' ')[:500]
         url_clean = (url or '').replace('|', ' ')[:100]
-        log_entry = f"{timestamp}|{bot_label}|{url_clean}|{ua_clean}\n"
+        reason_clean = (bot_reason or '')[:100]
+        log_entry = f"{timestamp}|{bot_label}|{url_clean}|{ua_clean}|{reason_clean}\n"
         
         with open(UA_LOG_FILE, 'a', encoding='utf-8') as f:
             f.write(log_entry)
@@ -449,32 +457,32 @@ def is_bot_request():
     
     # No User-Agent is suspicious
     if not user_agent:
-        return True
+        return True, "No User-Agent header"
     
     # Specific Edge 12.246 UA - always bot
     if 'mozilla/5.0 (windows nt 10.0; win64; x64) applewebkit/537.36 (khtml, like gecko) chrome/42.0.2311.135 safari/537.36 edge/12.246' in user_agent_lower:
-        return True
+        return True, "Edge 12.246 (old browser)"
     
     # Chrome versions below 90 are old (4+ years) - likely bots
     import re
     chrome_match = re.search(r'chrome/(\d+)\.', user_agent_lower)
     if chrome_match and int(chrome_match.group(1)) < 90:
-        return True
+        return True, f"Chrome {chrome_match.group(1)} (old browser)"
     
     # iOS versions below 14 are old (5+ years) - likely bots
     ios_match = re.search(r'CPU iPhone OS (\d+)_(\d+)', user_agent_lower)
     if ios_match and int(ios_match.group(1)) < 14:
-        return True
+        return True, f"iOS {ios_match.group(1)}.{ios_match.group(2)} (old iOS)"
     
     # Check against simple patterns (fast)
     for pattern in _bot_simple_patterns:
         if pattern in user_agent_lower:
-            return True
+            return True, f"Bot pattern: {pattern}"
     
     # Check against regex patterns from well-known-bots.json
     for regex in _bot_regex_patterns:
         if regex.search(user_agent):
-            return True
+            return True, "Known bot pattern"
     
     # Behavioral check: real browsers have cookies after first visit
     # A bot making many requests without cookies is suspicious
@@ -484,9 +492,9 @@ def is_bot_request():
     # If user agent looks like a browser but has NO cookies and NO accept-language,
     # it's likely a bot pretending to be a browser
     if not has_cookies and not has_accept_language:
-        return True
+        return True, "No cookies or Accept-Language"
     
-    return False
+    return False, "Human"
 
 def get_all_links():
     return Link.query.all()
@@ -500,11 +508,11 @@ def increment_click_count(url):
     if link:
         user_agent = request.headers.get('User-Agent', '')
         referrer = request.headers.get('Referer', '')
-        is_bot = is_bot_request()
+        is_bot, bot_reason = is_bot_request()
         
         # track_user_agent returns True ONLY if successfully logged as HUMAN
         # This is the source of truth for click counting - ensures log and count match
-        logged_as_human = track_user_agent(user_agent, is_bot, url)
+        logged_as_human = track_user_agent(user_agent, is_bot, url, bot_reason)
         
         track_referrer(referrer, is_bot, url)
         # Track country
