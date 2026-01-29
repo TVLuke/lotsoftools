@@ -21,6 +21,9 @@ class Link(db.Model):
     # Language click tracking
     en_clicks = db.Column(db.Integer, default=0)
     de_clicks = db.Column(db.Integer, default=0)
+    # Device click tracking
+    mobile_clicks = db.Column(db.Integer, default=0)
+    desktop_clicks = db.Column(db.Integer, default=0)
     # Bandwidth tracking (bytes served)
     bytes_served = db.Column(db.BigInteger, default=0)
     bot_bytes_served = db.Column(db.BigInteger, default=0)

@@ -176,6 +176,16 @@
         </div>
     </div>
     
+    <div class="row mt-4">
+        <div class="col-md-6">
+            <h3 class="h5"><i class="fas fa-mobile-alt me-2"></i>Device Usage</h3>
+            <div class="d-flex gap-2 flex-wrap">
+                <span class="badge bg-warning text-dark"><i class="fas fa-mobile-alt me-1"></i>Mobile: {{ theme_lang_totals.mobile }} ({{ theme_lang_totals.mobile_pct }}%)</span>
+                <span class="badge bg-secondary"><i class="fas fa-desktop me-1"></i>Desktop: {{ theme_lang_totals.desktop }} ({{ theme_lang_totals.desktop_pct }}%)</span>
+            </div>
+        </div>
+    </div>
+    
     {% if referrer_stats %}
     <div class="row mt-4">
         <div class="col-12">
@@ -202,6 +212,23 @@
                 {% if loop.index <= 15 %}
                 <span class="badge bg-primary">
                     {{ country }}: {{ data.human }} <small class="text-muted">(+{{ data.bot }} bots)</small>
+                </span>
+                {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    {% endif %}
+    
+    {% if accept_language_stats %}
+    <div class="row mt-4">
+        <div class="col-12">
+            <h3 class="h5"><i class="fas fa-language me-2"></i>Browser Languages (Humans)</h3>
+            <div class="d-flex gap-2 flex-wrap">
+                {% for lang, count in accept_language_stats %}
+                {% if loop.index <= 15 %}
+                <span class="badge bg-{% if lang == 'en' %}primary{% elif lang == 'de' %}info{% else %}secondary{% endif %}">
+                    {{ lang }}: {{ count }}
                 </span>
                 {% endif %}
                 {% endfor %}

@@ -1,5 +1,7 @@
 from flask import Blueprint, render_template, request, make_response, jsonify, session, Response, send_from_directory
 import os
+import hashlib
+from functools import wraps
 from app import db
 import csv
 import io
@@ -10,6 +12,69 @@ from app.services.blocklist_service import get_blocklist_info, get_blocked_reque
 
 # Random ID generated once per instance startup
 INSTANCE_ID = uuid.uuid4().hex[:8]
+
+# Stats password from environment
+STATS_PASSWORD = os.environ.get('STATS_PASSWORD', '')
+
+def check_stats_auth():
+    """Check if user is authenticated for stats page."""
+    # Check cookie first
+    auth_cookie = request.cookies.get('stats_auth', '')
+    if auth_cookie and STATS_PASSWORD:
+        expected = hashlib.sha256(STATS_PASSWORD.encode()).hexdigest()[:16]
+        if auth_cookie == expected:
+            return True
+    
+    # Check HTTP Basic Auth
+    auth = request.authorization
+    if auth and STATS_PASSWORD:
+        if auth.username == 'user' and auth.password == STATS_PASSWORD:
+            return True
+    
+    return False
+
+def require_stats_auth(f):
+    """Decorator to require authentication for stats routes (HTML page)."""
+    @wraps(f)
+    def decorated(*args, **kwargs):
+        # If no password set, allow access (dev mode)
+        if not STATS_PASSWORD:
+            return f(*args, **kwargs)
+        
+        if not check_stats_auth():
+            return Response(
+                'Authentication required', 401,
+                {'WWW-Authenticate': 'Basic realm="Stats"'}
+            )
+        
+        # Execute the route
+        response = f(*args, **kwargs)
+        
+        # Set auth cookie if authenticated via Basic Auth (not already via cookie)
+        auth_cookie = request.cookies.get('stats_auth', '')
+        if not auth_cookie and request.authorization:
+            if hasattr(response, 'set_cookie'):
+                expected = hashlib.sha256(STATS_PASSWORD.encode()).hexdigest()[:16]
+                response.set_cookie('stats_auth', expected, max_age=86400*30, httponly=True, samesite='Lax')
+        
+        return response
+    return decorated
+
+def require_stats_api_auth(f):
+    """Decorator to require header-based auth for stats API/CSV routes."""
+    @wraps(f)
+    def decorated(*args, **kwargs):
+        # If no password set, allow access (dev mode)
+        if not STATS_PASSWORD:
+            return f(*args, **kwargs)
+        
+        # Check X-Stats-Password header
+        header_password = request.headers.get('X-Stats-Password', '')
+        if header_password == STATS_PASSWORD:
+            return f(*args, **kwargs)
+        
+        return Response('Unauthorized', 401)
+    return decorated
 
 main_bp = Blueprint('main', __name__)
 
@@ -102,8 +167,9 @@ def sitemap():
                           tool_sitemaps=tool_sitemaps)
 
 @main_bp.route('/stats')
+@require_stats_auth
 def stats():
-    link_service.increment_click_count('/stats')
+    # Don't track /stats clicks - distorts the numbers
     links = link_service.get_links_stats()
     user_agents = link_service.get_user_agent_stats()
     bot_user_agents = link_service.get_bot_user_agents()
@@ -111,6 +177,7 @@ def stats():
     referrer_stats = link_service.get_referrer_stats_by_domain()
     from app.services.country_block import get_country_stats
     country_stats = get_country_stats()
+    accept_language_stats = link_service.get_accept_language_stats()
     server_start_time = link_service.get_server_start_time()
     theme_lang_totals = link_service.get_theme_language_totals()
     ua_log_size = link_service.get_ua_log_file_size()
@@ -119,6 +186,7 @@ def stats():
     response = make_response(render_template('stats.html', links=links, user_agents=user_agents, 
                           bot_user_agents=bot_user_agents, human_user_agents=human_user_agents,
                           referrer_stats=referrer_stats, country_stats=country_stats,
+                          accept_language_stats=accept_language_stats,
                           server_start_time=server_start_time, instance_id=INSTANCE_ID,
                           theme_lang_totals=theme_lang_totals, ua_log_size=ua_log_size,
                           blocklist_info=blocklist_info, blocked_count=blocked_count))
@@ -128,17 +196,18 @@ def stats():
     return response
 
 @main_bp.route('/stats.csv')
+@require_stats_api_auth
 def stats_csv():
     links = link_service.get_links_stats()
     
     output = io.StringIO()
     writer = csv.writer(output)
-    writer.writerow(['name', 'url', 'click_count', 'bot_click_count', 'light_clicks', 'dark_clicks', 'high_contrast_clicks', 'system_theme_clicks', 'en_clicks', 'de_clicks'])
+    writer.writerow(['name', 'url', 'click_count', 'bot_click_count', 'light_clicks', 'dark_clicks', 'high_contrast_clicks', 'system_theme_clicks', 'en_clicks', 'de_clicks', 'mobile_clicks', 'desktop_clicks'])
     
     for link in links:
         writer.writerow([link['name'], link['url'], link['click_count'], link['bot_click_count'], 
                         link['light_clicks'], link['dark_clicks'], link['high_contrast_clicks'], link['system_theme_clicks'],
-                        link['en_clicks'], link['de_clicks']])
+                        link['en_clicks'], link['de_clicks'], link['mobile_clicks'], link['desktop_clicks']])
     
     response = make_response(output.getvalue())
     response.headers['Content-Type'] = 'text/csv'
@@ -146,6 +215,7 @@ def stats_csv():
     return response
 
 @main_bp.route('/stats/blocklist.csv')
+@require_stats_api_auth
 def stats_blocklist_csv():
     blocklist_info = get_blocklist_info()
     blocked_count = get_blocked_request_count()
@@ -167,6 +237,7 @@ def stats_blocklist_csv():
     return response
 
 @main_bp.route('/stats/user_agents.csv')
+@require_stats_api_auth
 def stats_user_agents_csv():
     company_stats = link_service.get_user_agent_stats_by_company()
     
@@ -184,6 +255,7 @@ def stats_user_agents_csv():
     return response
 
 @main_bp.route('/stats/countries.csv')
+@require_stats_api_auth
 def stats_countries_csv():
     from app.services.country_block import get_country_stats
     country_stats = get_country_stats()
@@ -201,6 +273,7 @@ def stats_countries_csv():
     return response
 
 @main_bp.route('/stats/referrers.csv')
+@require_stats_api_auth
 def stats_referrers_csv():
     referrer_stats = link_service.get_referrer_stats_by_domain()
     
@@ -214,6 +287,23 @@ def stats_referrers_csv():
     response = make_response(output.getvalue())
     response.headers['Content-Type'] = 'text/csv'
     response.headers['Content-Disposition'] = 'attachment; filename=referrers.csv'
+    return response
+
+@main_bp.route('/stats/browser_languages.csv')
+@require_stats_api_auth
+def stats_browser_languages_csv():
+    accept_language_stats = link_service.get_accept_language_stats()
+    
+    output = io.StringIO()
+    writer = csv.writer(output)
+    writer.writerow(['language', 'count'])
+    
+    for lang, count in accept_language_stats:
+        writer.writerow([lang, count])
+    
+    response = make_response(output.getvalue())
+    response.headers['Content-Type'] = 'text/csv'
+    response.headers['Content-Disposition'] = 'attachment; filename=browser_languages.csv'
     return response
 
 @main_bp.route('/about')
