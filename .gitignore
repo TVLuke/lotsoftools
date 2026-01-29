@@ -69,3 +69,6 @@ package-lock.json
 test-results/
 playwright-report/
 playwright/.cache/
+
+# Private documentation
+DB_OPERATIONS.md
