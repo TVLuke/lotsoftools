@@ -372,3 +372,28 @@ def third_party_libraries():
             generated_at = data.get('generated_at')
     
     return render_template('third_party_libraries.html', libraries=libraries, generated_at=generated_at)
+
+@main_bp.route('/.well-known/security.txt')
+@main_bp.route('/security.txt')
+def security_txt():
+    """Serve security.txt file with correct content type and dynamic expiration."""
+    try:
+        from datetime import datetime, timedelta
+        
+        # Calculate expiration date (1 year from now)
+        expires_date = (datetime.now() + timedelta(days=365)).strftime('%Y-%m-%dT%H:%M:%S.000Z')
+        
+        # Render template with dynamic date
+        template_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'templates', 'security.txt')
+        with open(template_path, 'r', encoding='utf-8') as f:
+            template_content = f.read()
+        
+        # Simple template rendering (replace {{ expires_date }})
+        content = template_content.replace('{{ expires_date }}', expires_date)
+        
+        response = make_response(content)
+        response.headers['Content-Type'] = 'text/plain'
+        return response
+        
+    except Exception as e:
+        return "Error serving security file", 500

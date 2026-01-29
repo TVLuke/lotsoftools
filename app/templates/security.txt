@@ -1,0 +1,7 @@
+# security.txt for LotsOfTools
+# https://vulnerabilityreporting.com/
+
+Contact: mailto:lotsoftools+security@tvluke.de
+Expires: {{ expires_date }}
+Preferred-Languages: en, de
+Canonical: https://lotsof.tools/.well-known/security.txt
