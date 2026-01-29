@@ -507,7 +507,20 @@ def is_bot_request():
     
     # Windows XP/2000 etc. are very old
     if 'windows xp' in user_agent_lower or 'windows 2000' in user_agent_lower:
-        return True, "Windows XP/2000 (very old Windows)"
+        return True, "Windows XP/2000 (very old OS)"
+    
+    # Check for lotsof.tools subdomains in referer (no subdomains exist)
+    referer = request.headers.get('Referer', '').lower()
+    if referer and ('lotsof.tools' in referer and not referer.startswith('https://lotsof.tools') and not referer.startswith('http://lotsof.tools')):
+        return True, "lotsof.tools subdomain referer (bot)"
+    
+    # Check for IP addresses in referer (IPv4 space crawlers)
+    if referer:
+        import re
+        # Match IP with optional port (e.g., 152.53.202.205 or 152.53.202.205:80)
+        ip_pattern = r'^https?://(?:\d{1,3}\.){3}\d{1,3}(?::\d+)?/'
+        if re.match(ip_pattern, referer):
+            return True, "IP address referer (bot)"
     
     # Check against simple patterns (fast)
     for pattern in _bot_simple_patterns:
