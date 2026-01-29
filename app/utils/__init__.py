@@ -147,9 +147,9 @@ META_LINK_ROUTES = {
     'index': '/',
     'about': '/about',
     'stats': '/stats',
-    'imprint': '/imprint',
     'privacy': '/privacy',
-    'accessibility_statement': '/accessibility-statement'
+    'accessibility_statement': '/accessibility-statement',
+    'bot_policy': '/bot-policy'
 }
 
 
