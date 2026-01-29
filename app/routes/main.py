@@ -361,8 +361,8 @@ def bot_policy():
     """Bot policy page - honeypot for bots."""
     # Always mark as bot - this is a honeypot link
     user_agent = request.headers.get('User-Agent', '')
-    link_service.track_user_agent(user_agent, True, '/bot-policy', 'Honeypot link access')
-    link_service.increment_click_count('/bot-policy')
+    link_service.increment_bot_click_count('/bot-policy', user_agent, 'Honeypot link access')
+    
     return render_template('bot_policy.html')
 
 @main_bp.route('/third-party-libraries')

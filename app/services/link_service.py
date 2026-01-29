@@ -493,8 +493,10 @@ def increment_click_count(url):
         # Use logged_as_human as the gate - if not logged as human, count as bot
         if not logged_as_human:
             link.bot_click_count = (link.bot_click_count or 0) + 1
+            link.bot_bytes_served = (link.bot_bytes_served or 0) + 0
         else:
             link.click_count = (link.click_count or 0) + 1
+            link.bytes_served = (link.bytes_served or 0) + 0
             
             # Track theme from cookie (only for humans)
             theme = request.cookies.get('lotsoftools_theme', '')
@@ -524,6 +526,21 @@ def increment_click_count(url):
             # Track Accept-Language header (only for humans)
             accept_lang = request.headers.get('Accept-Language', '')
             track_accept_language(accept_lang, url)
+        
+        db.session.commit()
+        return True
+    return False
+
+def increment_bot_click_count(url, user_agent, reason):
+    """Increment bot click count directly (for honeypot links)."""
+    link = get_link_by_url(url)
+    if link:
+        # Track as bot in logs
+        track_user_agent(user_agent, True, url, reason)
+        
+        # Increment bot click count
+        link.bot_click_count = (link.bot_click_count or 0) + 1
+        link.bot_bytes_served = (link.bot_bytes_served or 0) + 0
         
         db.session.commit()
         return True
