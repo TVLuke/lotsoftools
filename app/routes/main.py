@@ -13,22 +13,25 @@ from app.services.blocklist_service import get_blocklist_info, get_blocked_reque
 # Random ID generated once per instance startup
 INSTANCE_ID = uuid.uuid4().hex[:8]
 
-# Stats password from environment
-STATS_PASSWORD = os.environ.get('STATS_PASSWORD', '')
+def get_stats_password():
+    """Get stats password from environment (read at request time)."""
+    return os.environ.get('STATS_PASSWORD', '')
 
 def check_stats_auth():
     """Check if user is authenticated for stats page."""
+    stats_password = get_stats_password()
+    
     # Check cookie first
     auth_cookie = request.cookies.get('stats_auth', '')
-    if auth_cookie and STATS_PASSWORD:
-        expected = hashlib.sha256(STATS_PASSWORD.encode()).hexdigest()[:16]
+    if auth_cookie and stats_password:
+        expected = hashlib.sha256(stats_password.encode()).hexdigest()[:16]
         if auth_cookie == expected:
             return True
     
     # Check HTTP Basic Auth
     auth = request.authorization
-    if auth and STATS_PASSWORD:
-        if auth.username == 'user' and auth.password == STATS_PASSWORD:
+    if auth and stats_password:
+        if auth.username == 'user' and auth.password == stats_password:
             return True
     
     return False
@@ -37,8 +40,10 @@ def require_stats_auth(f):
     """Decorator to require authentication for stats routes (HTML page)."""
     @wraps(f)
     def decorated(*args, **kwargs):
+        stats_password = get_stats_password()
+        
         # If no password set, allow access (dev mode)
-        if not STATS_PASSWORD:
+        if not stats_password:
             return f(*args, **kwargs)
         
         if not check_stats_auth():
@@ -54,7 +59,7 @@ def require_stats_auth(f):
         auth_cookie = request.cookies.get('stats_auth', '')
         if not auth_cookie and request.authorization:
             if hasattr(response, 'set_cookie'):
-                expected = hashlib.sha256(STATS_PASSWORD.encode()).hexdigest()[:16]
+                expected = hashlib.sha256(stats_password.encode()).hexdigest()[:16]
                 response.set_cookie('stats_auth', expected, max_age=86400*30, httponly=True, samesite='Lax')
         
         return response
@@ -64,13 +69,15 @@ def require_stats_api_auth(f):
     """Decorator to require header-based auth for stats API/CSV routes."""
     @wraps(f)
     def decorated(*args, **kwargs):
+        stats_password = get_stats_password()
+        
         # If no password set, allow access (dev mode)
-        if not STATS_PASSWORD:
+        if not stats_password:
             return f(*args, **kwargs)
         
         # Check X-Stats-Password header
         header_password = request.headers.get('X-Stats-Password', '')
-        if header_password == STATS_PASSWORD:
+        if header_password == stats_password:
             return f(*args, **kwargs)
         
         return Response('Unauthorized', 401)
