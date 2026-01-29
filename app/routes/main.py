@@ -355,6 +355,16 @@ def accessibility_statement():
     link_service.increment_click_count('/accessibility-statement')
     return render_template('accessibility_statement.html')
 
+@main_bp.route('/bot-policy')
+@main_bp.route('/bot-policy')
+def bot_policy():
+    """Bot policy page - honeypot for bots."""
+    # Always mark as bot - this is a honeypot link
+    user_agent = request.headers.get('User-Agent', '')
+    link_service.track_user_agent(user_agent, True, '/bot-policy', 'Honeypot link access')
+    link_service.increment_click_count('/bot-policy')
+    return render_template('bot_policy.html')
+
 @main_bp.route('/third-party-libraries')
 @main_bp.route('/drittanbieter-bibliotheken')
 def third_party_libraries():

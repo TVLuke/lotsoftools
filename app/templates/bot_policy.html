@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="mb-0">
+                        <i class="fas fa-robot me-2"></i>
+                        {% if current_lang == 'de' %}Bot-Policy{% else %}Bot-Policy{% endif %}
+                    </h2>
+                </div>
+                <div class="card-body">
+                    {% if current_lang == 'de' %}
+                    <h3>Willkommen bei Lots of Tools!</h3>
+                    <p>Wir begrüßen Bots und Crawler auf unserer Plattform. Bitte beachten Sie jedoch folgende Richtlinien:</p>
+                    <ul>
+                        <li>Generieren Sie nicht übermäßigen Traffic</li>
+                        <li>Crawlen Sie unsere Seiten in vernünftigen Abständen</li>
+                        <li>Verwenden Sie einen aussagekräftigen User-Agent</li>
+                    </ul>
+                    <p>Vielen Dank für Ihre Kooperation!</p>
+                    {% else %}
+                    <h3>Welcome to Lots of Tools!</h3>
+                    <p>We welcome bots and crawlers on our platform. However, please follow these guidelines:</p>
+                    <ul>
+                        <li>Don't generate excessive traffic</li>
+                        <li>Crawl our pages at reasonable intervals</li>
+                        <li>Use a descriptive User-Agent</li>
+                    </ul>
+                    <p>Thank you for your cooperation!</p>
+                    {% endif %}
+                    
+                    <div class="mt-4">
+                        <a href="/" class="btn btn-primary">
+                            <i class="fas fa-home me-2"></i>
+                            {% if current_lang == 'de' %}Zur Startseite{% else %}Back to Home{% endif %}
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

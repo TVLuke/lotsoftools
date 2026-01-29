@@ -4,6 +4,7 @@
   "stats": {"active": true, "is_meta_link": true},
   "privacy": {"active": true, "is_meta_link": true},
   "accessibility_statement": {"active": true, "is_meta_link": true},
+  "bot_policy": {"active": true, "is_meta_link": true},
   "ascii_table": {"active": true},
   "barcode_generator": {"active": true},
   "dice": {"active": true},
