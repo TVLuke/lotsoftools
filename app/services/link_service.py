@@ -486,7 +486,7 @@ def is_bot_request():
         version = f"ios {ios_match.group(1)}.{minor}"
         if patch:
             version += f".{patch}"
-        return True, f"{version} (old OS)"
+        return True, f"{version} (old iOS)"
     
     # Android versions below 11 are old (5+ years) - likely bots
     android_match = re.search(r'android (\d+)', user_agent_lower)
