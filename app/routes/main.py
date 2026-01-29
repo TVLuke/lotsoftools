@@ -359,10 +359,8 @@ def accessibility_statement():
 @main_bp.route('/bot-policy')
 def bot_policy():
     """Bot policy page - honeypot for bots."""
-    # Always mark as bot - this is a honeypot link
-    user_agent = request.headers.get('User-Agent', '')
-    link_service.increment_bot_click_count('/bot-policy', user_agent, 'Honeypot link access')
-    
+    # Use normal increment_click_count - bot_detection will handle the honeypot logic
+    link_service.increment_click_count('/bot-policy')
     return render_template('bot_policy.html')
 
 @main_bp.route('/third-party-libraries')

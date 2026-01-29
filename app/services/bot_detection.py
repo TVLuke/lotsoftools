@@ -35,23 +35,34 @@ def _load_bot_patterns():
     except (FileNotFoundError, json.JSONDecodeError):
         pass
 
+def _log_honeypot_access(user_agent):
+    """Log honeypot access to a file."""
+    log_path = os.path.join(os.path.dirname(__file__), '..', 'logs', 'honeypot.log')
+    os.makedirs(os.path.dirname(log_path), exist_ok=True)
+    with open(log_path, 'a', encoding='utf-8') as f:
+        f.write(f"{user_agent}\n")
+
 def is_bot_request():
     """Check if the current request is from a bot/crawler based on User-Agent and behavior."""
     _load_bot_patterns()
     
-    user_agent = request.headers.get('User-Agent', '')
-    user_agent_lower = user_agent.lower()
+    # Check if this is the bot-policy honeypot page
+    if request.path and request.path == '/bot-policy':
+        # Log to honeypot log file
+        _log_honeypot_access(request.headers.get('User-Agent', ''))
+        return True, "Honeypot link access"
     
-    # No User-Agent is suspicious
+    user_agent = request.headers.get('User-Agent', '')
     if not user_agent:
         return True, "No User-Agent header"
+    
+    user_agent_lower = user_agent.lower()
     
     # Specific Edge 12.246 UA - always bot
     if 'mozilla/5.0 (windows nt 10.0; win64; x64) applewebkit/537.36 (khtml, like gecko) chrome/42.0.2311.135 safari/537.36 edge/12.246' in user_agent_lower:
         return True, "Edge 12.246 (old browser)"
     
     # Chrome versions below 90 are old (4+ years) - likely bots
-    import re
     chrome_match = re.search(r'chrome/(\d+)\.', user_agent_lower)
     if chrome_match and int(chrome_match.group(1)) < 90:
         return True, f"Chrome {chrome_match.group(1)} (old Chrome)"
