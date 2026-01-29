@@ -50,7 +50,7 @@ _bot_simple_patterns = [
     'python-urllib', 'java/', 'libwww', 'httpclient', 'go-http-client',
     'scrapy', 'nutch', 'headlesschrome', 'phantomjs', 'prerender',
     'lighthouse', 'pagespeed', 'gtmetrix', 'playwright', 'claudebot', 'req/',
-    'python-requests/'
+    'python-requests/', 'lotsoftools_url_checker'
 ]
 
 def _ensure_log_dir():
@@ -197,6 +197,9 @@ def _categorize_user_agent(user_agent):
     # Python urllib (scripts/bots)
     if 'python-urllib' in ua_lower:
         return 'Python'
+    # LotsOfTools URL Checker
+    if 'lotsoftools_url_checker' in ua_lower:
+        return 'LotsOfTools'
     # Amazon (Amazonbot)
     if 'amazonbot' in ua_lower:
         return 'Amazon'
