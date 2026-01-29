@@ -251,7 +251,12 @@ def get_human_user_agents():
 
 
 def track_user_agent(user_agent, is_bot, url=None):
-    """Log user agent to file for persistent tracking."""
+    """Log user agent to file for persistent tracking.
+    
+    Returns True if successfully logged as HUMAN, False otherwise.
+    This return value MUST be used to gate human click counting - 
+    ensuring log entries and click counts always match.
+    """
     try:
         _ensure_log_dir()
         timestamp = datetime.now().isoformat()
@@ -263,8 +268,12 @@ def track_user_agent(user_agent, is_bot, url=None):
         
         with open(UA_LOG_FILE, 'a', encoding='utf-8') as f:
             f.write(log_entry)
+        
+        # Only return True if we successfully wrote a HUMAN entry
+        return not is_bot
     except Exception as e:
         logger.error(f"Failed to log user agent: {e}")
+        return False  # Failed to log = count as bot
 
 
 def track_referrer(referrer, is_bot, url=None):
@@ -412,14 +421,20 @@ def increment_click_count(url):
         user_agent = request.headers.get('User-Agent', '')
         referrer = request.headers.get('Referer', '')
         is_bot = is_bot_request()
-        track_user_agent(user_agent, is_bot, url)
+        
+        # track_user_agent returns True ONLY if successfully logged as HUMAN
+        # This is the source of truth for click counting - ensures log and count match
+        logged_as_human = track_user_agent(user_agent, is_bot, url)
+        
         track_referrer(referrer, is_bot, url)
         # Track country
         from app.services.country_block import get_client_ip, get_country_code, track_country
         ip = get_client_ip()
         country = get_country_code(ip)
         track_country(country, is_bot, url)
-        if is_bot:
+        
+        # Use logged_as_human as the gate - if not logged as human, count as bot
+        if not logged_as_human:
             link.bot_click_count = (link.bot_click_count or 0) + 1
         else:
             link.click_count = (link.click_count or 0) + 1
