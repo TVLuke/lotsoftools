@@ -451,6 +451,10 @@ def is_bot_request():
     if not user_agent:
         return True
     
+    # Specific Edge 12.246 UA - always bot
+    if 'mozilla/5.0 (windows nt 10.0; win64; x64) applewebkit/537.36 (khtml, like gecko) chrome/42.0.2311.135 safari/537.36 edge/12.246' in user_agent_lower:
+        return True
+    
     # Check against simple patterns (fast)
     for pattern in _bot_simple_patterns:
         if pattern in user_agent_lower:
