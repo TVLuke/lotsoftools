@@ -483,7 +483,12 @@ def is_bot_request():
     # Android versions below 11 are old (5+ years) - likely bots
     android_match = re.search(r'android (\d+)', user_agent_lower)
     if android_match and int(android_match.group(1)) < 11:
-        return True, f"Android {android_match.group(1)} (old Android)"
+        return True, f"Android {android_match.group(1)} (old OS)"
+    
+    # Firefox versions below 100 are old (3+ years) - likely bots
+    firefox_match = re.search(r'firefox/(\d+)', user_agent_lower)
+    if firefox_match and int(firefox_match.group(1)) < 100:
+        return True, f"Firefox {firefox_match.group(1)} (old browser)"
     
     # Check against simple patterns (fast)
     for pattern in _bot_simple_patterns:
