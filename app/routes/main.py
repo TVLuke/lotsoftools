@@ -47,10 +47,9 @@ def require_stats_auth(f):
             return f(*args, **kwargs)
         
         if not check_stats_auth():
-            return Response(
-                'Authentication required', 401,
-                {'WWW-Authenticate': 'Basic realm="Stats"'}
-            )
+            resp = Response('Authentication required', status=401)
+            resp.headers['WWW-Authenticate'] = 'Basic realm="Stats"'
+            return resp
         
         # Execute the route
         response = f(*args, **kwargs)
