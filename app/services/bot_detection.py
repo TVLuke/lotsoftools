@@ -105,7 +105,6 @@ def is_bot_request():
     
     # Check for IP addresses in referer (IPv4 space crawlers)
     if referer:
-        import re
         # Match IP with optional port (e.g., 152.53.202.205 or 152.53.202.205:80)
         ip_pattern = r'^https?://(?:\d{1,3}\.){3}\d{1,3}(?::\d+)?/'
         if re.match(ip_pattern, referer):
