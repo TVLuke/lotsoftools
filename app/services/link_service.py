@@ -134,9 +134,12 @@ def _parse_ua_log():
                     continue
                 if ua in stats:
                     stats[ua]['count'] += 1
-                    # Update reason if this entry has one and the stored one doesn't
-                    if reason and not stats[ua].get('reason'):
+                    # Update reason if this entry has one
+                    if reason:
                         stats[ua]['reason'] = reason
+                    # Update bot status - if any entry is bot, mark as bot
+                    if is_bot:
+                        stats[ua]['is_bot'] = True
                     # Ensure reason key exists for backward compatibility
                     if 'reason' not in stats[ua]:
                         stats[ua]['reason'] = reason
