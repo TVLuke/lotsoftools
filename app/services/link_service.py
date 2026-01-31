@@ -136,13 +136,25 @@ def _parse_ua_log():
                     continue
                 if ua in stats:
                     stats[ua]['count'] += 1
-                    # If seen as human, override bot status (first detection was false positive)
-                    if not is_bot:
+                    # Definitive bot reasons that should NOT be overridden by human
+                    definitive_bot_reasons = (
+                        'old Chrome', 'old Firefox', 'old iOS', 'old Android',
+                        'old Windows', 'old browser', 'very old OS', 'Bot pattern',
+                        'Known bot pattern', 'Honeypot'
+                    )
+                    current_reason = stats[ua].get('reason', '')
+                    is_definitive_bot = any(r in current_reason for r in definitive_bot_reasons)
+                    
+                    # If seen as human, only override if previous detection was behavioral (not definitive)
+                    if not is_bot and not is_definitive_bot:
                         stats[ua]['is_bot'] = False
                         stats[ua]['reason'] = reason
-                    # Only update reason for bot if not yet seen as human
-                    elif is_bot and stats[ua]['is_bot']:
-                        if reason:
+                    # Update to bot if this is a definitive detection
+                    elif is_bot:
+                        if reason and any(r in reason for r in definitive_bot_reasons):
+                            stats[ua]['is_bot'] = True
+                            stats[ua]['reason'] = reason
+                        elif stats[ua]['is_bot'] and reason:
                             stats[ua]['reason'] = reason
                 else:
                     stats[ua] = {'count': 1, 'is_bot': is_bot, 'reason': reason}
