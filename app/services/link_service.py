@@ -16,6 +16,8 @@ UA_LOG_FILE = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(__fil
 REFERRER_LOG_FILE = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(__file__))), 'data', 'logs', 'referrers.log')
 # Log file for Accept-Language tracking (humans only)
 ACCEPT_LANG_LOG_FILE = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(__file__))), 'data', 'logs', 'accept_languages.log')
+# Log file for honeypot access tracking
+HONEYPOT_LOG_FILE = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(__file__))), 'data', 'logs', 'honeypot.log')
 
 # Log rotation settings
 MAX_LOG_ENTRIES = 3_000_000
@@ -134,15 +136,14 @@ def _parse_ua_log():
                     continue
                 if ua in stats:
                     stats[ua]['count'] += 1
-                    # Update reason if this entry has one
-                    if reason:
+                    # If seen as human, override bot status (first detection was false positive)
+                    if not is_bot:
+                        stats[ua]['is_bot'] = False
                         stats[ua]['reason'] = reason
-                    # Update bot status - if any entry is bot, mark as bot
-                    if is_bot:
-                        stats[ua]['is_bot'] = True
-                    # Ensure reason key exists for backward compatibility
-                    if 'reason' not in stats[ua]:
-                        stats[ua]['reason'] = reason
+                    # Only update reason for bot if not yet seen as human
+                    elif is_bot and stats[ua]['is_bot']:
+                        if reason:
+                            stats[ua]['reason'] = reason
                 else:
                     stats[ua] = {'count': 1, 'is_bot': is_bot, 'reason': reason}
     except Exception as e:
@@ -273,7 +274,7 @@ def get_human_user_agents():
 
 def get_honeypot_agents():
     """Get honeypot agents from honeypot.log file."""
-    honeypot_log_path = os.path.join(os.path.dirname(__file__), '..', 'logs', 'honeypot.log')
+    honeypot_log_path = HONEYPOT_LOG_FILE
     agents = {}
     try:
         if os.path.exists(honeypot_log_path):

@@ -4,6 +4,7 @@ import os
 import re
 import json
 from flask import request
+from app.services.link_service import HONEYPOT_LOG_FILE
 
 # Load bot patterns from well-known-bots.json for User-Agent detection
 _bot_regex_patterns = []
@@ -12,7 +13,7 @@ _bot_simple_patterns = [
     'python-urllib', 'java/', 'libwww', 'httpclient', 'go-http-client',
     'scrapy', 'nutch', 'headlesschrome', 'phantomjs', 'prerender',
     'lighthouse', 'pagespeed', 'gtmetrix', 'playwright', 'claudebot', 'req/',
-    'python-requests/', 'lotsoftools_url_checker'
+    'python-requests/', 'lotsoftools_url_checker', 'leakix', 'letsencrypt', 'petalbot'
 ]
 
 def _load_bot_patterns():
@@ -37,9 +38,8 @@ def _load_bot_patterns():
 
 def _log_honeypot_access(user_agent):
     """Log honeypot access to a file."""
-    log_path = os.path.join(os.path.dirname(__file__), '..', 'logs', 'honeypot.log')
-    os.makedirs(os.path.dirname(log_path), exist_ok=True)
-    with open(log_path, 'a', encoding='utf-8') as f:
+    os.makedirs(os.path.dirname(HONEYPOT_LOG_FILE), exist_ok=True)
+    with open(HONEYPOT_LOG_FILE, 'a', encoding='utf-8') as f:
         f.write(f"{user_agent}\n")
 
 def is_bot_request():
