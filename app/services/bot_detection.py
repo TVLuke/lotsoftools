@@ -6,6 +6,27 @@ import json
 from flask import request
 from app.services.link_service import HONEYPOT_LOG_FILE
 
+# Reason suffixes for definitive bot detection (cannot be overridden by human)
+REASON_OLD_CHROME = "(old Chrome)"
+REASON_OLD_FIREFOX = "(old Firefox)"
+REASON_OLD_IOS = "(old iOS)"
+REASON_OLD_ANDROID = "(old Android)"
+REASON_OLD_WINDOWS = "(old Windows)"
+REASON_OLD_BROWSER = "(old browser)"
+REASON_VERY_OLD_OS = "(very old OS)"
+REASON_BOT_PATTERN = "Bot pattern:"
+REASON_KNOWN_BOT = "Known bot pattern"
+REASON_HONEYPOT = "Honeypot link access"
+REASON_SUBDOMAIN_REFERER = "subdomain referer (bot)"
+REASON_IP_REFERER = "IP address referer (bot)"
+
+# Tuple of all definitive reasons for easy checking
+DEFINITIVE_BOT_REASONS = (
+    REASON_OLD_CHROME, REASON_OLD_FIREFOX, REASON_OLD_IOS, REASON_OLD_ANDROID,
+    REASON_OLD_WINDOWS, REASON_OLD_BROWSER, REASON_VERY_OLD_OS, REASON_BOT_PATTERN,
+    REASON_KNOWN_BOT, REASON_HONEYPOT, REASON_SUBDOMAIN_REFERER, REASON_IP_REFERER
+)
+
 # Load bot patterns from well-known-bots.json for User-Agent detection
 _bot_regex_patterns = []
 _bot_simple_patterns = [
@@ -50,7 +71,7 @@ def is_bot_request():
     if request.path and request.path == '/bot-policy':
         # Log to honeypot log file
         _log_honeypot_access(request.headers.get('User-Agent', ''))
-        return True, "Honeypot link access"
+        return True, REASON_HONEYPOT
     
     user_agent = request.headers.get('User-Agent', '')
     if not user_agent:
@@ -60,12 +81,12 @@ def is_bot_request():
     
     # Specific Edge 12.246 UA - always bot
     if 'mozilla/5.0 (windows nt 10.0; win64; x64) applewebkit/537.36 (khtml, like gecko) chrome/42.0.2311.135 safari/537.36 edge/12.246' in user_agent_lower:
-        return True, "Edge 12.246 (old browser)"
+        return True, f"Edge 12.246 {REASON_OLD_BROWSER}"
     
     # Chrome versions below 90 are old (4+ years) - likely bots
     chrome_match = re.search(r'chrome/(\d+)\.', user_agent_lower)
     if chrome_match and int(chrome_match.group(1)) < 90:
-        return True, f"Chrome {chrome_match.group(1)} (old Chrome)"
+        return True, f"Chrome {chrome_match.group(1)} {REASON_OLD_CHROME}"
     
     # iOS versions below 14 are old (5+ years) - likely bots
     ios_match = re.search(r'cpu iphone os (\d+)_(\d+)(?:_(\d+))?', user_agent_lower)
@@ -75,50 +96,50 @@ def is_bot_request():
         version = f"ios {ios_match.group(1)}.{minor}"
         if patch:
             version += f".{patch}"
-        return True, f"{version} (old iOS)"
+        return True, f"{version} {REASON_OLD_IOS}"
     
     # Android versions below 11 are old (5+ years) - likely bots
     android_match = re.search(r'android (\d+)', user_agent_lower)
     if android_match and int(android_match.group(1)) < 11:
-        return True, f"Android {android_match.group(1)} (old Android)"
+        return True, f"Android {android_match.group(1)} {REASON_OLD_ANDROID}"
     
     # Firefox versions below 100 are old (3+ years) - likely bots
     firefox_match = re.search(r'firefox/(\d+)', user_agent_lower)
     if firefox_match and int(firefox_match.group(1)) < 100:
-        return True, f"Firefox {firefox_match.group(1)} (old Firefox)"
+        return True, f"Firefox {firefox_match.group(1)} {REASON_OLD_FIREFOX}"
     
     # Windows NT versions below 10 are old (Windows 7/8/8.1 from 2009-2013)
     windows_match = re.search(r'windows nt (\d+\.\d+)', user_agent_lower)
     if windows_match:
         major_version = float(windows_match.group(1))
         if major_version < 10.0:
-            return True, f"Windows NT {windows_match.group(1)} (old Windows)"
+            return True, f"Windows NT {windows_match.group(1)} {REASON_OLD_WINDOWS}"
     
     # Windows XP/2000 etc. are very old
     if 'windows xp' in user_agent_lower or 'windows 2000' in user_agent_lower:
-        return True, "Windows XP/2000 (very old OS)"
+        return True, f"Windows XP/2000 {REASON_VERY_OLD_OS}"
     
     # Check for lotsof.tools subdomains in referer (no subdomains exist)
     referer = request.headers.get('Referer', '').lower()
     if referer and ('lotsof.tools' in referer and not referer.startswith('https://lotsof.tools') and not referer.startswith('http://lotsof.tools')):
-        return True, "lotsof.tools subdomain referer (bot)"
+        return True, f"lotsof.tools {REASON_SUBDOMAIN_REFERER}"
     
     # Check for IP addresses in referer (IPv4 space crawlers)
     if referer:
         # Match IP with optional port (e.g., 152.53.202.205 or 152.53.202.205:80)
         ip_pattern = r'^https?://(?:\d{1,3}\.){3}\d{1,3}(?::\d+)?/'
         if re.match(ip_pattern, referer):
-            return True, "IP address referer (bot)"
+            return True, REASON_IP_REFERER
     
     # Check against simple patterns (fast)
     for pattern in _bot_simple_patterns:
         if pattern in user_agent_lower:
-            return True, f"Bot pattern: {pattern}"
+            return True, f"{REASON_BOT_PATTERN} {pattern}"
     
     # Check against regex patterns from well-known-bots.json
     for regex in _bot_regex_patterns:
         if regex.search(user_agent):
-            return True, "Known bot pattern"
+            return True, REASON_KNOWN_BOT
     
     # Behavioral check: real browsers have cookies and Accept-Language
     # A bot making many requests without these headers is suspicious
