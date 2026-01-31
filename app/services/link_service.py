@@ -101,6 +101,37 @@ def rotate_logs_on_startup():
     # Country log rotation is handled by country_block module
 
 
+def _is_ua_definitive_bot(ua_lower):
+    """Check if UA string itself indicates a definitive bot (old browser version, etc.).
+    
+    Used for old log entries that don't have a reason field.
+    """
+    # Chrome versions below 90
+    chrome_match = re.search(r'chrome/(\d+)\.', ua_lower)
+    if chrome_match and int(chrome_match.group(1)) < 90:
+        return True
+    # Firefox versions below 121
+    firefox_match = re.search(r'firefox/(\d+)', ua_lower)
+    if firefox_match and int(firefox_match.group(1)) < 121:
+        return True
+    # iOS versions below 14
+    ios_match = re.search(r'cpu iphone os (\d+)_', ua_lower)
+    if ios_match and int(ios_match.group(1)) < 14:
+        return True
+    # Android versions below 11
+    android_match = re.search(r'android (\d+)', ua_lower)
+    if android_match and int(android_match.group(1)) < 11:
+        return True
+    # Windows NT below 10
+    windows_match = re.search(r'windows nt (\d+)\.', ua_lower)
+    if windows_match and int(windows_match.group(1)) < 10:
+        return True
+    # Very old Windows
+    if 'windows xp' in ua_lower or 'windows 2000' in ua_lower:
+        return True
+    return False
+
+
 def _parse_ua_log():
     """Parse user agent log file and return aggregated stats.
     
@@ -139,18 +170,28 @@ def _parse_ua_log():
                     # Import here to avoid circular import at module level
                     from app.services.bot_detection import DEFINITIVE_BOT_REASONS
                     current_reason = stats[ua].get('reason', '')
-                    is_definitive_bot = any(r in current_reason for r in DEFINITIVE_BOT_REASONS)
+                    is_current_definitive = any(r in current_reason for r in DEFINITIVE_BOT_REASONS)
+                    is_new_definitive = reason and any(r in reason for r in DEFINITIVE_BOT_REASONS)
                     
-                    # If seen as human, only override if previous detection was behavioral (not definitive)
-                    if not is_bot and not is_definitive_bot:
-                        stats[ua]['is_bot'] = False
-                        stats[ua]['reason'] = reason
-                    # Update to bot if this is a definitive detection
-                    elif is_bot:
-                        if reason and any(r in reason for r in DEFINITIVE_BOT_REASONS):
+                    # Check UA itself for definitive bot patterns (for old log entries without reason)
+                    ua_lower = ua.lower()
+                    is_ua_definitive_bot = _is_ua_definitive_bot(ua_lower)
+                    
+                    if is_bot:
+                        # BOT entry - upgrade if definitive (by reason or UA check)
+                        if is_new_definitive or is_ua_definitive_bot:
                             stats[ua]['is_bot'] = True
-                            stats[ua]['reason'] = reason
-                        elif stats[ua]['is_bot'] and reason:
+                            if reason:
+                                stats[ua]['reason'] = reason
+                        elif not stats[ua]['is_bot']:
+                            # Behavioral bot on human - still mark as bot
+                            stats[ua]['is_bot'] = True
+                            if reason:
+                                stats[ua]['reason'] = reason
+                    else:
+                        # HUMAN entry - only override if not definitive bot
+                        if not is_current_definitive and not is_ua_definitive_bot:
+                            stats[ua]['is_bot'] = False
                             stats[ua]['reason'] = reason
                 else:
                     stats[ua] = {'count': 1, 'is_bot': is_bot, 'reason': reason}
