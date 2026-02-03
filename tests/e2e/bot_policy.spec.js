@@ -20,9 +20,9 @@ test.describe('Bot Policy Honeypot', () => {
     const welcomeText = page.locator('h3');
     await expect(welcomeText).toContainText('Welcome to Lots of Tools!');
     
-    // Check for guidelines
-    const guidelines = page.locator('ul li');
-    await expect(guidelines).toHaveCount(3); // Should have 3 guidelines
+    // Check for guidelines (use specific selector for the bot-policy card content)
+    const guidelineItems = page.locator('.card-body ul li');
+    await expect(guidelineItems).toHaveCount(3); // Should have 3 guidelines
     
     // Check for specific guidelines
     await expect(page.locator('text=Don\'t generate excessive traffic')).toBeVisible();
@@ -49,12 +49,12 @@ test.describe('Bot Policy Honeypot', () => {
     await expect(botPolicyLink).toHaveCSS('display', 'none');
   });
   
-  test('bot-policy link should be visible without JavaScript', async ({ context }) => {
+  test('bot-policy link should be visible without JavaScript', async ({ browser }) => {
     // Create a new context with JavaScript disabled
     const contextOptions = {
       javaScriptEnabled: false
     };
-    const noJSContext = await context.newContext(contextOptions);
+    const noJSContext = await browser.newContext(contextOptions);
     const page = await noJSContext.newPage();
     
     // Navigate to home page

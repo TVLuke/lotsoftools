@@ -105,7 +105,7 @@ def is_bot_request():
     
     # Firefox versions below 100 are old (3+ years) - likely bots
     firefox_match = re.search(r'firefox/(\d+)', user_agent_lower)
-    if firefox_match and int(firefox_match.group(1)) < 100:
+    if firefox_match and int(firefox_match.group(1)) < 121:
         return True, f"Firefox {firefox_match.group(1)} {REASON_OLD_FIREFOX}"
     
     # Windows NT versions below 10 are old (Windows 7/8/8.1 from 2009-2013)
