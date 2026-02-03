@@ -84,12 +84,6 @@
                             {% if current_lang == 'de' %}Toleranz{% else %}Tolerance{% endif %}
                         </label>
                         <div class="color-grid" id="toleranceColors"></div>
-                        <div class="form-check form-switch mt-2 small" id="defaultToleranceContainer" style="display: none;">
-                            <input class="form-check-input" type="checkbox" id="iecTolerance" value="20" checked>
-                            <label class="form-check-label" for="iecTolerance">
-                                {% if current_lang == 'de' %}20% (IEC Standard){% else %}20% (IEC Standard){% endif %}
-                            </label>
-                        </div>
                     </div>
                     <div class="col-6 col-md-4 col-lg-2 mb-3 band-selector" id="tcrContainer">
                         <label class="form-label small fw-bold">
@@ -120,7 +114,15 @@
                     <label class="form-label small text-muted">
                         {% if current_lang == 'de' %}Toleranz{% else %}Tolerance{% endif %}
                     </label>
-                    <div class="h5 mb-0" id="toleranceValue">-</div>
+                    <div class="d-flex align-items-center gap-2">
+                        <div class="h5 mb-0" id="toleranceValue">-</div>
+                        <div class="form-check form-switch ms-auto" id="defaultToleranceContainer" style="display: none;">
+                            <input class="form-check-input" type="checkbox" id="iecTolerance" value="20">
+                            <label class="form-check-label small" for="iecTolerance">
+                                {% if current_lang == 'de' %}20% (IEC Standard){% else %}20% (IEC Standard){% endif %}
+                            </label>
+                        </div>
+                    </div>
                 </div>
                 <div class="result-item mb-3" id="tcrResult" style="display: none;">
                     <label class="form-label small text-muted">
@@ -521,8 +523,8 @@ function updateUrl() {
     params.set('m', selectedColors.multiplier);
     params.set('t', selectedColors.tolerance);
     params.set('tcr', selectedColors.tcr);
-    if (bandCount === 3 && !document.getElementById('iecTolerance').checked) {
-        params.set('iec', '0');
+    if (bandCount === 3 && document.getElementById('iecTolerance').checked) {
+        params.set('iec', '1');
     }
     const newUrl = `${window.location.pathname}?${params.toString()}`;
     history.replaceState(null, '', newUrl);
@@ -543,8 +545,8 @@ function loadFromUrl() {
     if (params.get('m')) selectedColors.multiplier = params.get('m');
     if (params.get('t')) selectedColors.tolerance = params.get('t');
     if (params.get('tcr')) selectedColors.tcr = params.get('tcr');
-    if (params.get('iec') === '0') {
-        document.getElementById('iecTolerance').checked = false;
+    if (params.get('iec') === '1') {
+        document.getElementById('iecTolerance').checked = true;
     }
 }
 

@@ -6,33 +6,36 @@ test.describe('Resistor Calculator', () => {
     await page.goto('/tools/resistor-calculator');
     
     // Select 3-band mode
-    const band3Radio = page.locator('input[name="bandCount"][value="3"]');
-    await band3Radio.click();
+    const band3Label = page.locator('label[for="band3"]');
+    await band3Label.click();
     
-    // Verify the tolerance toggle container is visible
+    // Wait a moment for JavaScript to update the UI
+    await page.waitForTimeout(100);
+    
+    // Wait for and verify the tolerance toggle container is visible in results area
     const toleranceToggleContainer = page.locator('#defaultToleranceContainer');
-    await expect(toleranceToggleContainer).toBeVisible();
+    await expect(toleranceToggleContainer).toBeVisible({ timeout: 5000 });
     
-    // Verify the IEC tolerance checkbox exists and is checked by default
+    // Verify the IEC tolerance checkbox exists and is unchecked by default
     const iecCheckbox = page.locator('#iecTolerance');
     await expect(iecCheckbox).toBeVisible();
-    await expect(iecCheckbox).toBeChecked();
-    
-    // Verify tolerance shows 20% when checkbox is checked
-    const toleranceValue = page.locator('#toleranceValue');
-    await expect(toleranceValue).toContainText('±20%');
-    
-    // Toggle the checkbox off
-    await iecCheckbox.click();
     await expect(iecCheckbox).not.toBeChecked();
     
-    // Verify tolerance changes to 5% when unchecked
+    // Verify tolerance shows 5% when checkbox is unchecked
+    const toleranceValue = page.locator('#toleranceValue');
     await expect(toleranceValue).toContainText('±5%');
     
-    // Toggle back on
+    // Toggle the checkbox on
     await iecCheckbox.click();
     await expect(iecCheckbox).toBeChecked();
+    
+    // Verify tolerance changes to 20% when checked
     await expect(toleranceValue).toContainText('±20%');
+    
+    // Toggle back off
+    await iecCheckbox.click();
+    await expect(iecCheckbox).not.toBeChecked();
+    await expect(toleranceValue).toContainText('±5%');
   });
 
   test('tolerance toggle should be hidden for 4-band resistors', async ({ page }) => {
@@ -43,11 +46,11 @@ test.describe('Resistor Calculator', () => {
     await expect(toleranceToggleContainer).toBeHidden();
     
     // Select 5-band and verify toggle is still hidden
-    await page.locator('input[name="bandCount"][value="5"]').click();
+    await page.locator('label[for="band5"]').click();
     await expect(toleranceToggleContainer).toBeHidden();
     
     // Select 6-band and verify toggle is still hidden
-    await page.locator('input[name="bandCount"][value="6"]').click();
+    await page.locator('label[for="band6"]').click();
     await expect(toleranceToggleContainer).toBeHidden();
   });
 
@@ -55,21 +58,21 @@ test.describe('Resistor Calculator', () => {
     await page.goto('/tools/resistor-calculator');
     
     // Select 3-band mode
-    await page.locator('input[name="bandCount"][value="3"]').click();
+    await page.locator('label[for="band3"]').click();
     
-    // Uncheck the IEC checkbox
+    // Check the IEC checkbox (from default unchecked)
     const iecCheckbox = page.locator('#iecTolerance');
     await iecCheckbox.click();
     
-    // Verify URL contains iec=0
-    await expect(page).toHaveURL(/iec=0/);
+    // Verify URL contains iec=1
+    await expect(page).toHaveURL(/iec=1/);
     
     // Reload the page with the URL parameter
     const currentUrl = page.url();
     await page.goto(currentUrl);
     
     // Verify checkbox state persisted
-    await expect(page.locator('#iecTolerance')).not.toBeChecked();
-    await expect(page.locator('#toleranceValue')).toContainText('±5%');
+    await expect(page.locator('#iecTolerance')).toBeChecked();
+    await expect(page.locator('#toleranceValue')).toContainText('±20%');
   });
 });
