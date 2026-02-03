@@ -34,7 +34,8 @@ _bot_simple_patterns = [
     'python-urllib', 'java/', 'libwww', 'httpclient', 'go-http-client',
     'scrapy', 'nutch', 'headlesschrome', 'phantomjs', 'prerender',
     'lighthouse', 'pagespeed', 'gtmetrix', 'playwright', 'claudebot', 'req/',
-    'python-requests/', 'lotsoftools_url_checker', 'leakix', 'letsencrypt', 'petalbot'
+    'python-requests/', 'lotsoftools_url_checker', 'leakix', 'letsencrypt', 'petalbot',
+    'ct-monitor/', 'youruseragenthere'
 ]
 
 def _load_bot_patterns():
@@ -83,6 +84,12 @@ def is_bot_request():
     if 'mozilla/5.0 (windows nt 10.0; win64; x64) applewebkit/537.36 (khtml, like gecko) chrome/42.0.2311.135 safari/537.36 edge/12.246' in user_agent_lower:
         return True, f"Edge 12.246 {REASON_OLD_BROWSER}"
     
+    # Specific Firefox bot UAs - known scraper signatures
+    if 'mozilla/5.0 (x11; ubuntu; linux x86_64; rv:109.0) gecko/20100101 firefox/117.0' in user_agent_lower:
+        return True, f"Firefox 117 {REASON_OLD_FIREFOX}"
+    if 'mozilla/5.0 (x11; linux i686; rv:109.0) gecko/20100101 firefox/120.0' in user_agent_lower:
+        return True, f"Firefox 120 {REASON_OLD_FIREFOX}"
+    
     # Chrome versions below 90 are old (4+ years) - likely bots
     chrome_match = re.search(r'chrome/(\d+)\.', user_agent_lower)
     if chrome_match and int(chrome_match.group(1)) < 90:
@@ -103,9 +110,9 @@ def is_bot_request():
     if android_match and int(android_match.group(1)) < 11:
         return True, f"Android {android_match.group(1)} {REASON_OLD_ANDROID}"
     
-    # Firefox versions below 100 are old (3+ years) - likely bots
+    # Firefox versions below 100 are old (4+ years) - likely bots
     firefox_match = re.search(r'firefox/(\d+)', user_agent_lower)
-    if firefox_match and int(firefox_match.group(1)) < 121:
+    if firefox_match and int(firefox_match.group(1)) < 100:
         return True, f"Firefox {firefox_match.group(1)} {REASON_OLD_FIREFOX}"
     
     # Windows NT versions below 10 are old (Windows 7/8/8.1 from 2009-2013)
