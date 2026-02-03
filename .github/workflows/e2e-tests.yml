@@ -54,14 +54,3 @@ jobs:
         name: test-screenshots
         path: test-results/
         retention-days: 7
-    
-    - name: Commit test report to repo
-      if: always()
-      run: |
-        mkdir -p app/static/accessibility-report
-        cp -r playwright-report/* app/static/accessibility-report/
-        git config user.name "GitHub Actions"
-        git config user.email "actions@github.com"
-        git add app/static/accessibility-report/
-        git diff --staged --quiet || git commit -m "Update E2E test report [skip ci]"
-        git push
