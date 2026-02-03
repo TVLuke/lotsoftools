@@ -77,7 +77,7 @@ jobs:
         npm install @playwright/test @axe-core/playwright
         npx playwright install --with-deps chromium
     - name: Run Light Mode tests
-      run: npx playwright test tests/e2e/accessibility.spec.js --config=tests/e2e/playwright.config.js --project=chromium --workers=4 --grep="Light Mode"
+      run: npx playwright test tests/e2e/accessibility --config=tests/e2e/playwright.config.js --project=chromium --workers=4 --grep="Light Mode"
       env:
         BASE_URL: ${{ github.event.inputs.base_url || 'https://lotsof.tools' }}
 
@@ -96,7 +96,7 @@ jobs:
         npm install @playwright/test @axe-core/playwright
         npx playwright install --with-deps chromium
     - name: Run Dark Mode tests
-      run: npx playwright test tests/e2e/accessibility.spec.js --config=tests/e2e/playwright.config.js --project=chromium --workers=4 --grep="Dark Mode"
+      run: npx playwright test tests/e2e/accessibility --config=tests/e2e/playwright.config.js --project=chromium --workers=4 --grep="Dark Mode"
       env:
         BASE_URL: ${{ github.event.inputs.base_url || 'https://lotsof.tools' }}
 
@@ -115,7 +115,7 @@ jobs:
         npm install @playwright/test @axe-core/playwright
         npx playwright install --with-deps chromium
     - name: Run High Contrast (AAA) tests
-      run: npx playwright test tests/e2e/accessibility.spec.js --config=tests/e2e/playwright.config.js --project=chromium --workers=4 --grep="High Contrast"
+      run: npx playwright test tests/e2e/accessibility --config=tests/e2e/playwright.config.js --project=chromium --workers=4 --grep="High Contrast"
       env:
         BASE_URL: ${{ github.event.inputs.base_url || 'https://lotsof.tools' }}
 
@@ -134,7 +134,7 @@ jobs:
         npm install @playwright/test @axe-core/playwright
         npx playwright install --with-deps chromium
     - name: Run all tests for report
-      run: npx playwright test tests/e2e/accessibility.spec.js --config=tests/e2e/playwright.config.js --project=chromium --workers=4
+      run: npx playwright test tests/e2e/accessibility --config=tests/e2e/playwright.config.js --project=chromium --workers=4
       env:
         BASE_URL: ${{ github.event.inputs.base_url || 'https://lotsof.tools' }}
       continue-on-error: true

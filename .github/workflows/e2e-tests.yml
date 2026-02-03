@@ -35,7 +35,7 @@ jobs:
         npx playwright install --with-deps chromium
     
     - name: Run E2E tests
-      run: npx playwright test --config=tests/e2e/playwright.config.js --project=chromium --workers=4
+      run: npx playwright test tests/e2e/functional --config=tests/e2e/playwright.config.js --project=chromium --workers=4
       env:
         BASE_URL: ${{ github.event.inputs.base_url || 'https://lotsof.tools' }}
     
