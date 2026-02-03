@@ -30,7 +30,7 @@ test.describe('Bot Policy Honeypot', () => {
     await expect(page.locator('text=Use a descriptive User-Agent')).toBeVisible();
     
     // Check for back to home button
-    const backButton = page.locator('a[href="/"]');
+    const backButton = page.locator('a[href="/"].btn-primary');
     await expect(backButton).toContainText('Back to Home');
     await expect(backButton).toBeVisible();
     
