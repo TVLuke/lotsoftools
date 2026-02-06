@@ -192,11 +192,9 @@
             <h3 class="h5"><i class="fas fa-external-link-alt me-2"></i>Top Referrers (Humans)</h3>
             <div class="d-flex gap-2 flex-wrap">
                 {% for domain, count in referrer_stats|dictsort(by='value', reverse=true) %}
-                {% if loop.index <= 10 %}
                 <span class="badge bg-{% if 'google' in domain %}success{% elif 'bing' in domain %}info{% else %}secondary{% endif %}">
                     {{ domain }}: {{ count }}
                 </span>
-                {% endif %}
                 {% endfor %}
             </div>
         </div>
@@ -218,7 +216,6 @@
                     </thead>
                     <tbody>
                         {% for country, data in country_stats %}
-                        {% if loop.index <= 15 %}
                         <tr>
                             <td>
                                 {% if country != 'Unknown' %}
@@ -229,7 +226,6 @@
                             <td><span class="badge bg-{% if data.human > 100 %}success{% elif data.human > 20 %}primary{% else %}secondary{% endif %}">{{ data.human }}</span></td>
                             <td><span class="badge bg-{% if data.bot > 100 %}danger{% elif data.bot > 20 %}warning{% else %}secondary{% endif %}">{{ data.bot }}</span></td>
                         </tr>
-                        {% endif %}
                         {% endfor %}
                     </tbody>
                 </table>
@@ -244,11 +240,9 @@
             <h3 class="h5"><i class="fas fa-language me-2"></i>Browser Languages (Humans)</h3>
             <div class="d-flex gap-2 flex-wrap">
                 {% for lang, count in accept_language_stats %}
-                {% if loop.index <= 15 %}
                 <span class="badge bg-{% if lang == 'en' %}primary{% elif lang == 'de' %}info{% else %}secondary{% endif %}">
                     {{ lang }}: {{ count }}
                 </span>
-                {% endif %}
                 {% endfor %}
             </div>
         </div>
