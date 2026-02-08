@@ -198,6 +198,7 @@ def create_app(config_class=Config):
     from app.routes.tools.ohms_law import ohms_law_bp
     from app.routes.tools.subnet_calculator import subnet_calculator_bp
     from app.routes.tools.money_counter import money_counter_bp
+    from app.routes.tools.fireplace import fireplace_bp
     from app.routes.icon_cache import icon_cache_bp
     
     app.register_blueprint(main_bp)
@@ -253,6 +254,7 @@ def create_app(config_class=Config):
     app.register_blueprint(subnet_calculator_bp)
     app.register_blueprint(money_counter_bp)
     app.register_blueprint(icon_cache_bp)
+    app.register_blueprint(fireplace_bp)
     
     with app.app_context():
         # Import models so SQLAlchemy knows about them

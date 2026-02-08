@@ -1,0 +1,155 @@
+{
+  "route": "/tools/fireplace",
+  "img": "fas fa-fire",
+  "name": {
+    "en": "Cozy Fireplace",
+    "de": "Gemütlicher Kamin"
+  },
+  "description": {
+    "en": "A procedurally generated cozy fireplace animation",
+    "de": "Eine prozedural generierte gemütliche Kamin-Animation"
+  },
+  "tags": ["health"],
+  "new_window": false,
+  "frontend_only": true,
+  "seo": {
+    "title": {
+      "en": "Cozy Fireplace - Relaxing Animated Fireplace",
+      "de": "Gemütlicher Kamin - Entspannende animierte Kaminfeuer-Animation"
+    },
+    "meta_description": {
+      "en": "Create a cozy atmosphere with our procedurally generated fireplace animation. Customizable flames, ambient effects, and relaxing fire simulation. Browser-based, privacy-friendly.",
+      "de": "Schaffen Sie eine gemütliche Atmosphäre mit unserer prozedural generierten Kamin-Animation. Anpassbare Flammen, Ambiente-Effekte und entspannende Feuersimulation. Browser-basiert, datenschutzfreundlich."
+    },
+    "keywords": {
+      "en": "fireplace, cozy fire, animated fireplace, relaxation, ambient, virtual fireplace, fire simulation, browser-based",
+      "de": "Kamin, gemütliches Feuer, animierter Kamin, Entspannung, Ambiente, virtueller Kamin, Feuersimulation, Browser-basiert"
+    },
+    "content": {
+      "heading": {
+        "en": "About This Fireplace Tool",
+        "de": "Über dieses Kamin-Werkzeug"
+      },
+      "intro": {
+        "en": "Create a cozy atmosphere with our procedurally generated fireplace animation. This browser-based tool generates unique flame patterns with customizable colors, intensity, and ambient effects. Perfect for relaxation, background ambiance, or creating a warm atmosphere. All animations happen in your browser with complete privacy.",
+        "de": "Schaffen Sie eine gemütliche Atmosphäre mit unserer prozedural generierten Kamin-Animation. Dieses Browser-basierte Werkzeug generiert einzigartige Flammenmuster mit anpassbaren Farben, Intensität und Ambiente-Effekten. Perfekt für Entspannung, Hintergrundambiente oder zum Schaffen einer warmen Atmosphäre. Alle Animationen erfolgen in Ihrem Browser mit vollständiger Privatsphäre."
+      },
+      "features": {
+        "heading": {
+          "en": "Key Features:",
+          "de": "Hauptfunktionen:"
+        },
+        "items": [
+          {
+            "en": "<strong>Procedural Generation:</strong> Each fireplace generates unique flame patterns",
+            "de": "<strong>Prozedurale Generierung:</strong> Jeder Kamin generiert einzigartige Flammenmuster"
+          },
+          {
+            "en": "<strong>Customizable Colors:</strong> Adjust flame colors from warm orange to cool blue",
+            "de": "<strong>Anpassbare Farben:</strong> Passen Sie Flammenfarben von warmem Orange bis kühlem Blau an"
+          },
+          {
+            "en": "<strong>Intensity Control:</strong> Adjust flame height and movement speed",
+            "de": "<strong>Intensitätskontrolle:</strong> Passen Sie Flammenhöhe und Bewegungsgeschwindigkeit an"
+          },
+          {
+            "en": "<strong>Ambient Effects:</strong> Optional glow and ember effects",
+            "de": "<strong>Ambiente-Effekte:</strong> Optionale Leucht- und Gluteffekte"
+          },
+          {
+            "en": "<strong>Responsive Design:</strong> Works on all screen sizes",
+            "de": "<strong>Responsives Design:</strong> Funktioniert auf allen Bildschirmgrößen"
+          }
+        ]
+      },
+      "use_cases": {
+        "heading": {
+          "en": "Use Cases:",
+          "de": "Anwendungsfälle:"
+        },
+        "items": [
+          {
+            "en": "Create a relaxing background atmosphere",
+            "de": "Eine entspannte Hintergrundatmosphäre schaffen"
+          },
+          {
+            "en": "Meditation and relaxation aid",
+            "de": "Meditations- und Entspannungshilfe"
+          },
+          {
+            "en": "Cozy background for reading or work",
+            "de": "Gemütlicher Hintergrund für Lesen oder Arbeit"
+          },
+          {
+            "en": "Seasonal ambiance for holidays",
+            "de": "Saisonales Ambiente für Feiertage"
+          }
+        ]
+      },
+      "privacy_note": {
+        "en": "🔒 Privacy-Friendly: All fireplace animations and effects happen in your browser. No data is sent to any server.",
+        "de": "🔒 Datenschutzfreundlich: Alle Kamin-Animationen und -Effekte erfolgen in Ihrem Browser. Es werden keine Daten an einen Server gesendet."
+      },
+      "credits": {
+        "en": "Fireplace sound: \"Aachen Burning Fireplace - Crackling Fire Sounds\" by visionear (https://freesound.org/people/visionear/sounds/501417/) - Licensed under Creative Commons 0 (Public Domain)",
+        "de": "Kamin-Sound: \"Aachen Burning Fireplace - Crackling Fire Sounds\" von visionear (https://freesound.org/people/visionear/sounds/501417/) - Lizenziert unter Creative Commons 0 (Public Domain)"
+      },
+      "search_queries": {
+        "en": [
+          "Virtual fireplace animation",
+          "Relaxing fire animation",
+          "Cozy background generator",
+          "Ambient fireplace effects",
+          "Browser-based fireplace",
+          "Customizable fire animation",
+          "Procedural flame generation",
+          "Relaxation tools"
+        ],
+        "de": [
+          "Virtuelle Kamin-Animation",
+          "Entspannende Feuer-Animation",
+          "Gemütlicher Hintergrund-Generator",
+          "Ambiente Kamin-Effekte",
+          "Browser-basierter Kamin",
+          "Anpassbare Feuer-Animation",
+          "Prozedurale Flammengenerierung",
+          "Entspannungswerkzeuge"
+        ]
+      },
+      "ui": {
+        "fullscreen": {
+          "en": "Fullscreen",
+          "de": "Vollbild"
+        },
+        "controls": {
+          "en": "Fireplace Controls",
+          "de": "Kamin-Steuerung"
+        },
+        "fire_color": {
+          "en": "Fire Color",
+          "de": "Feuerfarbe"
+        },
+        "fire_size": {
+          "en": "Fire Size",
+          "de": "Feuergröße"
+        },
+        "classic": {
+          "en": "Classic (Orange/Red)",
+          "de": "Klassisch (Orange/Rot)"
+        },
+        "blue": {
+          "en": "Blue Flames",
+          "de": "Blaue Flammen"
+        },
+        "green": {
+          "en": "Green Flames",
+          "de": "Grüne Flammen"
+        },
+        "purple": {
+          "en": "Purple Flames",
+          "de": "Lila Flammen"
+        }
+      }
+    }
+  }
+}

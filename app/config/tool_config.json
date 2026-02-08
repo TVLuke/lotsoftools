@@ -25,6 +25,7 @@
   "dns_lookup": {"active": true},
   "emoji_search": {"active": true},
   "favicon_generator": {"active": true},
+  "fireplace": {"active": true},
   "hash_generator": {"active": true},
   "holiday_calendar": {"active": true},
   "iban_validator": {"active": true},
