@@ -104,6 +104,7 @@ def get_js_verified_stats():
     stats = {
         'verified_users': set(),  # Use sets to track unique UAs
         'verified_bots': set(),
+        'consent_given': set(),   # Track unique UAs that gave consent
         'recent_verifications': [],
         'top_verified_ua': {},
         'top_verified_humans': {},
@@ -121,42 +122,56 @@ def get_js_verified_stats():
                         continue
                     
                     parts = line.split('|')
-                    if len(parts) >= 5:
+                    # New format: timestamp|BOT_DETECTION_RESULT|url|user_agent|bot_reason|consent_given
+                    # Old format: timestamp|BOT_DETECTION_RESULT|url|user_agent|bot_reason
+                    if len(parts) >= 6:
+                        timestamp, bot_status, url, user_agent, reason, consent_given = parts[:6]
+                    elif len(parts) >= 5:
                         timestamp, bot_status, url, user_agent, reason = parts[:5]
-                        
-                        # Track unique user agents
-                        ua_key = user_agent[:100]  # Truncate for grouping
-                        
-                        if bot_status == 'HUMAN_BY_UA':
-                            stats['verified_users'].add(ua_key)  # Add to set for uniqueness
-                            # Track human user agents separately
-                            stats['top_verified_humans'][ua_key] = stats['top_verified_humans'].get(ua_key, 0) + 1
-                        elif bot_status == 'BOT':
-                            stats['verified_bots'].add(ua_key)  # Add to set for uniqueness
-                            # Track bot user agents separately
-                            stats['top_verified_bots'][ua_key] = stats['top_verified_bots'].get(ua_key, 0) + 1
-                        
-                        # Also track all verified UAs for backward compatibility
-                        stats['top_verified_ua'][ua_key] = stats['top_verified_ua'].get(ua_key, 0) + 1
-                        
-                        # Keep recent verifications (last 10)
-                        if len(stats['recent_verifications']) < 10:
-                            stats['recent_verifications'].append({
-                                'timestamp': timestamp,
-                                'user_agent': user_agent[:50],
-                                'status': bot_status,
-                                'url': url[:50]
-                            })
+                        consent_given = 'unknown'
+                    else:
+                        continue
+                    
+                    # Track unique user agents
+                    ua_key = user_agent[:100]  # Truncate for grouping
+                    
+                    if bot_status == 'HUMAN_BY_UA':
+                        stats['verified_users'].add(ua_key)  # Add to set for uniqueness
+                        # Track human user agents separately
+                        stats['top_verified_humans'][ua_key] = stats['top_verified_humans'].get(ua_key, 0) + 1
+                    elif bot_status == 'BOT':
+                        stats['verified_bots'].add(ua_key)  # Add to set for uniqueness
+                        # Track bot user agents separately
+                        stats['top_verified_bots'][ua_key] = stats['top_verified_bots'].get(ua_key, 0) + 1
+                    
+                    # Track consent given (only for humans)
+                    if bot_status == 'HUMAN_BY_UA' and consent_given == 'true':
+                        stats['consent_given'].add(ua_key)
+                    
+                    # Also track all verified UAs for backward compatibility
+                    stats['top_verified_ua'][ua_key] = stats['top_verified_ua'].get(ua_key, 0) + 1
+                    
+                    # Keep recent verifications (last 10)
+                    if len(stats['recent_verifications']) < 10:
+                        stats['recent_verifications'].append({
+                            'timestamp': timestamp,
+                            'user_agent': user_agent[:50],
+                            'status': bot_status,
+                            'url': url[:50],
+                            'consent_given': consent_given
+                        })
         except Exception:
             pass
     
     # Convert sets to counts for final stats
     unique_humans = len(stats['verified_users'])
     unique_bots = len(stats['verified_bots'])
+    unique_consent = len(stats['consent_given'])
     
     # Replace sets with counts for template compatibility
     stats['verified_users'] = unique_humans
     stats['verified_bots'] = unique_bots
+    stats['consent_given'] = unique_consent
     
     # Sort dictionaries by count (top 10)
     stats['top_verified_ua'] = dict(sorted(stats['top_verified_ua'].items(), key=lambda x: x[1], reverse=True)[:10])

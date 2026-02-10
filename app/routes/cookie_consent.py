@@ -18,13 +18,14 @@ def _ensure_log_dir():
     if not os.path.exists(log_dir):
         os.makedirs(log_dir, exist_ok=True)
 
-def log_js_capable_user(user_agent, url=None):
+def log_js_capable_user(user_agent, url=None, consent_given=None):
     """Log a user that has JavaScript capabilities and cookies.
     
     This is a strong signal of human behavior since:
     1. JavaScript executed successfully
     2. Cookies are enabled
     3. User interacted with the site
+    4. Consent status indicates user agreement (if available)
     """
     try:
         _ensure_log_dir()
@@ -48,9 +49,10 @@ def log_js_capable_user(user_agent, url=None):
         ua_clean = sanitize(user_agent)[:500]
         url_clean = sanitize(url or request.referrer or '')[:100]
         reason_clean = sanitize(bot_reason or '')[:100]
+        consent_clean = 'true' if consent_given else 'false' if consent_given is False else 'unknown'
         
-        # Log format: timestamp|BOT_DETECTION_RESULT|url|user_agent|bot_reason
-        log_entry = f"{timestamp_clean}|{'BOT' if is_bot else 'HUMAN_BY_UA'}|{url_clean}|{ua_clean}|{reason_clean}\n"
+        # Log format: timestamp|BOT_DETECTION_RESULT|url|user_agent|bot_reason|consent_given
+        log_entry = f"{timestamp_clean}|{'BOT' if is_bot else 'HUMAN_BY_UA'}|{url_clean}|{ua_clean}|{reason_clean}|{consent_clean}\n"
         
         with open(JS_CAPABLE_LOG_FILE, 'a', encoding='utf-8') as f:
             f.write(log_entry)
@@ -68,16 +70,18 @@ def log_js_capable():
     This endpoint is called when:
     1. User has existing cookies (returning visitor with JS)
     2. Banner is shown to new user (proves JS execution)
+    3. User accepts consent (explicit agreement)
     
-    Both cases indicate JavaScript execution - strong human signal.
+    All cases indicate JavaScript execution - strong human signal.
     """
     try:
         # Get user agent and other info
         user_agent = request.headers.get('User-Agent', '')
         url = request.json.get('url') if request.is_json else request.referrer
+        consent_given = request.json.get('consent_given') if request.is_json else None
         
-        # Log this as a JavaScript-capable user
-        log_js_capable_user(user_agent, url)
+        # Log this as a JavaScript-capable user with consent status
+        log_js_capable_user(user_agent, url, consent_given)
         
         return jsonify({
             'success': True,

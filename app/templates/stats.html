@@ -268,7 +268,7 @@
         <div class="col-12">
             <h3 class="h5"><i class="fas fa-shield-alt me-2"></i>JavaScript Verification</h3>
             <div class="row">
-                <div class="col-md-4">
+                <div class="col-md-3">
                     <div class="card">
                         <div class="card-body text-center">
                             <h5 class="card-title text-success">{{ js_verified_stats.verified_users }}</h5>
@@ -276,7 +276,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-3">
                     <div class="card">
                         <div class="card-body text-center">
                             <h5 class="card-title text-warning">{{ js_verified_stats.verified_bots }}</h5>
@@ -284,7 +284,15 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-3">
+                    <div class="card">
+                        <div class="card-body text-center">
+                            <h5 class="card-title text-primary">{{ js_verified_stats.consent_given }}</h5>
+                            <p class="card-text">Consent Given</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
                     <div class="card">
                         <div class="card-body text-center">
                             <h5 class="card-title text-info">{{ js_verified_stats.verified_users + js_verified_stats.verified_bots }}</h5>
@@ -307,6 +315,7 @@
                             <th>Time</th>
                             <th>User Agent</th>
                             <th>Status</th>
+                            <th>Consent</th>
                             <th>URL</th>
                         </tr>
                     </thead>
@@ -319,6 +328,15 @@
                                 <span class="badge bg-{% if verification.status == 'HUMAN_BY_UA' %}success{% else %}warning{% endif %}">
                                     {{ verification.status.replace('_', ' ') }}
                                 </span>
+                            </td>
+                            <td>
+                                {% if verification.consent_given == 'true' %}
+                                    <span class="badge bg-success">Yes</span>
+                                {% elif verification.consent_given == 'false' %}
+                                    <span class="badge bg-danger">No</span>
+                                {% else %}
+                                    <span class="badge bg-secondary">Unknown</span>
+                                {% endif %}
                             </td>
                             <td><code>{{ verification.url }}</code></td>
                         </tr>

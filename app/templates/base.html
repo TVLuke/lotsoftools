@@ -214,14 +214,20 @@
         }
         
         // Notify backend about JavaScript capability
-        function notifyBackend() {
+        function notifyBackend(consentGiven = null) {
+            // Determine consent status if not provided
+            if (consentGiven === null) {
+                consentGiven = hasConsentCookie();
+            }
+            
             fetch('/api/js-capable', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({
-                    url: window.location.pathname
+                    url: window.location.pathname,
+                    consent_given: consentGiven
                 })
             })
             .then(response => response.json())
@@ -299,7 +305,7 @@
         // Handle consent acceptance
         window.acceptCookieConsent = function() {
             setConsentCookie();
-            notifyBackend();
+            notifyBackend(true);  // Explicitly pass consent given = true
             hideBanner();
         };
         
