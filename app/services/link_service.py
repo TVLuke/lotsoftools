@@ -4,7 +4,7 @@ import logging
 from datetime import datetime
 from collections import Counter
 from flask import session, request
-from app.routes.cookie_consent import JS_CAPABLE_LOG_FILE, FAILED_API_LOG_FILE
+from app.routes.cookie_consent import JS_CAPABLE_LOG_FILE
 from app.services.bot_detection import HONEYPOT_LOG_FILE
 from app.services.blocklist_service import BLOCKED_LOG_FILE
 from app.models.link import Link
@@ -56,7 +56,6 @@ def get_all_log_file_sizes():
         ('Accept Languages', ACCEPT_LANG_LOG_FILE),
         ('Blocked Requests', BLOCKED_LOG_FILE),
         ('JS-Capable Users', JS_CAPABLE_LOG_FILE),
-        ('Failed API Calls', FAILED_API_LOG_FILE),
         ('Honeypot', HONEYPOT_LOG_FILE),
     ]
     
@@ -101,18 +100,15 @@ def get_all_log_file_sizes():
 def get_js_verified_stats():
     """Get statistics about JavaScript-verified users."""
     js_log_file = JS_CAPABLE_LOG_FILE
-    failed_log_file = FAILED_API_LOG_FILE
     
     stats = {
         'verified_users': 0,
         'verified_bots': 0,
-        'failed_attempts': 0,
         'recent_verifications': [],
         'top_verified_ua': {},
         'top_verified_humans': {},
         'top_verified_bots': {},
-        'top_failed_ua': {},
-        'failure_reasons': {}
+        'top_failed_ua': {}
     }
     
     # Process verified users log
@@ -154,36 +150,11 @@ def get_js_verified_stats():
         except Exception:
             pass
     
-    # Process failed attempts log
-    if os.path.exists(failed_log_file):
-        try:
-            with open(failed_log_file, 'r', encoding='utf-8') as f:
-                for line in f:
-                    line = line.strip()
-                    if not line:
-                        continue
-                    
-                    parts = line.split('|')
-                    if len(parts) >= 4:
-                        timestamp, reason, user_agent, nonce_status = parts[:4]
-                        
-                        stats['failed_attempts'] += 1
-                        
-                        # Track failure reasons
-                        stats['failure_reasons'][reason] = stats['failure_reasons'].get(reason, 0) + 1
-                        
-                        # Track failed user agents
-                        ua_key = user_agent[:100]
-                        stats['top_failed_ua'][ua_key] = stats['top_failed_ua'].get(ua_key, 0) + 1
-        except Exception:
-            pass
-    
     # Sort dictionaries by count (top 10)
     stats['top_verified_ua'] = dict(sorted(stats['top_verified_ua'].items(), key=lambda x: x[1], reverse=True)[:10])
     stats['top_verified_humans'] = dict(sorted(stats['top_verified_humans'].items(), key=lambda x: x[1], reverse=True)[:10])
     stats['top_verified_bots'] = dict(sorted(stats['top_verified_bots'].items(), key=lambda x: x[1], reverse=True)[:10])
     stats['top_failed_ua'] = dict(sorted(stats['top_failed_ua'].items(), key=lambda x: x[1], reverse=True)[:10])
-    stats['failure_reasons'] = dict(sorted(stats['failure_reasons'].items(), key=lambda x: x[1], reverse=True))
     
     return stats
 

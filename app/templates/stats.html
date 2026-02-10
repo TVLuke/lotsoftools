@@ -263,12 +263,12 @@
     </div>
     {% endif %}
     
-    {% if js_verified_stats and (js_verified_stats.verified_users > 0 or js_verified_stats.failed_attempts > 0) %}
+    {% if js_verified_stats and (js_verified_stats.verified_users > 0 or js_verified_stats.verified_bots > 0) %}
     <div class="row mt-4">
         <div class="col-12">
             <h3 class="h5"><i class="fas fa-shield-alt me-2"></i>JavaScript Verification</h3>
             <div class="row">
-                <div class="col-md-3">
+                <div class="col-md-4">
                     <div class="card">
                         <div class="card-body text-center">
                             <h5 class="card-title text-success">{{ js_verified_stats.verified_users }}</h5>
@@ -276,7 +276,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-4">
                     <div class="card">
                         <div class="card-body text-center">
                             <h5 class="card-title text-warning">{{ js_verified_stats.verified_bots }}</h5>
@@ -284,15 +284,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-3">
-                    <div class="card">
-                        <div class="card-body text-center">
-                            <h5 class="card-title text-danger">{{ js_verified_stats.failed_attempts }}</h5>
-                            <p class="card-text">Failed Attempts</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3">
+                <div class="col-md-4">
                     <div class="card">
                         <div class="card-body text-center">
                             <h5 class="card-title text-info">{{ js_verified_stats.verified_users + js_verified_stats.verified_bots }}</h5>
@@ -303,21 +295,6 @@
             </div>
         </div>
     </div>
-    
-    {% if js_verified_stats.failure_reasons %}
-    <div class="row mt-3">
-        <div class="col-md-12">
-            <h5 class="h6"><i class="fas fa-exclamation-triangle me-2"></i>Failure Reasons</h5>
-            <div class="d-flex gap-2 flex-wrap">
-                {% for reason, count in js_verified_stats.failure_reasons.items() %}
-                <span class="badge bg-{% if reason == 'MISSING_NONCE' %}danger{% elif reason == 'INVALID_NONCE' %}warning{% else %}secondary{% endif %}">
-                    {{ reason }}: {{ count }}
-                </span>
-                {% endfor %}
-            </div>
-        </div>
-    </div>
-    {% endif %}
     
     {% if js_verified_stats.recent_verifications %}
     <div class="row mt-4">
