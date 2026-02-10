@@ -112,6 +112,9 @@ def get_js_verified_stats():
         'top_failed_ua': {}
     }
     
+    # Collect all entries for recent verifications
+    all_entries = []
+    
     # Process verified users log
     if os.path.exists(js_log_file):
         with open(js_log_file, 'r', encoding='utf-8') as f:
@@ -150,15 +153,18 @@ def get_js_verified_stats():
                 # Also track all verified UAs for backward compatibility
                 stats['top_verified_ua'][ua_key] = stats['top_verified_ua'].get(ua_key, 0) + 1
                 
-                # Keep recent verifications (last 10)
-                if len(stats['recent_verifications']) < 10:
-                    stats['recent_verifications'].append({
-                        'timestamp': timestamp,
-                        'user_agent': user_agent[:50],
-                        'status': bot_status,
-                        'url': url[:50],
-                        'consent_given': consent_given
-                    })
+                # Collect all entries first, then take the most recent 10
+                all_entries.append({
+                    'timestamp': timestamp,
+                    'user_agent': user_agent[:50],
+                    'status': bot_status,
+                    'url': url[:50],
+                    'consent_given': consent_given
+                })
+        
+        # Sort by timestamp (most recent first) and take last 10
+        all_entries.sort(key=lambda x: x['timestamp'], reverse=True)
+        stats['recent_verifications'] = all_entries[:10]
     
     # Convert sets to counts for final stats
     unique_humans = len(stats['verified_users'])
