@@ -99,12 +99,20 @@ class TestCookieConsent:
             # Check log entry format
             log_entry = mock_file.write.call_args[0][0]
             
-            # Newlines should be replaced with spaces
-            assert "\n" not in log_entry
-            assert " " in log_entry
+            # Should end with exactly one newline (for log file format)
+            assert log_entry.endswith('\n'), 'Log entry should end with newline'
             
-            # Pipe characters should be replaced with spaces
-            assert "|" not in log_entry
+            # Remove the final newline and check for any other newlines
+            content_without_final_newline = log_entry.rstrip('\n')
+            assert "\n" not in content_without_final_newline, f'Newlines found in content: {repr(content_without_final_newline)}'
+            
+            # Check that pipe characters from input were replaced with spaces
+            # The original dangerous inputs had \n| which should become ' ' (single space)
+            assert ' ' in content_without_final_newline, 'Input pipe characters should be replaced with spaces'
+            
+            # Count field separators (should be exactly 4 pipes for 5 fields)
+            pipe_count = content_without_final_newline.count('|')
+            assert pipe_count == 4, f'Should have exactly 4 field separators, got {pipe_count}: {repr(content_without_final_newline)}'
 
 
 class TestCookieConsentAPI:
@@ -112,49 +120,66 @@ class TestCookieConsentAPI:
         """Set up test fixtures for API tests."""
         self.app = Mock()
         self.app.test_client_context = Mock()
+        self.test_user_agent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36"
+        self.test_url = "/tools/qr-generator"
     
     def test_accept_endpoint_success(self):
         """Test successful JavaScript capability logging."""
         from app.routes.cookie_consent import cookie_consent_bp
+        from flask import Flask
         
         # Create a test Flask app context
-        with patch('app.routes.cookie_consent.request') as mock_request:
-            mock_request.headers.get.return_value = self.test_user_agent
-            mock_request.is_json = True
-            mock_request.json = {'url': '/tools/qr-generator'}
-            mock_request.referrer = 'https://lotsof.tools/tools/qr-generator'
-            
-            # Mock the log function
-            with patch('app.routes.cookie_consent.log_js_capable_user', return_value=True) as mock_log:
-                # Import and test the function directly
-                from app.routes.cookie_consent import log_js_capable
-                
-                # Call the function
-                response = log_js_capable()
-                
-                # Verify response
-                response_data = response[0] if isinstance(response, tuple) else response
-                assert response_data['success'] is True
-                
-                # Verify logging was called
-                mock_log.assert_called_once()
+        app = Flask(__name__)
+        with app.app_context():
+            with app.test_request_context():
+                # Mock the request object within the context
+                with patch('app.routes.cookie_consent.request') as mock_request:
+                    mock_request.headers.get.return_value = self.test_user_agent
+                    mock_request.is_json = True
+                    mock_request.json = {'url': '/tools/qr-generator'}
+                    mock_request.referrer = 'https://lotsof.tools/tools/qr-generator'
+                    
+                    # Mock the log function
+                    with patch('app.routes.cookie_consent.log_js_capable_user', return_value=True) as mock_log:
+                        # Import and test the function directly
+                        from app.routes.cookie_consent import log_js_capable
+                        
+                        # Call the function
+                        response = log_js_capable()
+                        
+                        # Flask functions return Response objects, need to get JSON data
+                        import json
+                        response_data = json.loads(response.get_data(as_text=True))
+                        
+                        # Verify response
+                        assert response_data['success'] is True
+                        
+                        # Verify logging was called
+                        mock_log.assert_called_once()
     
     def test_js_capable_endpoint_logging_failure(self):
         """Test JavaScript capability logging when logging fails."""
         from app.routes.cookie_consent import cookie_consent_bp
+        from flask import Flask
         
-        with patch('app.routes.cookie_consent.request') as mock_request:
-            mock_request.headers.get.return_value = self.test_user_agent
-            mock_request.is_json = True
-            mock_request.json = {'url': '/tools/qr-generator'}
-            
-            # Mock the log function to fail
-            with patch('app.routes.cookie_consent.log_js_capable_user', return_value=False):
-                from app.routes.cookie_consent import log_js_capable
-                
-                # Call the function
-                response = log_js_capable()
-                
-                # Should still succeed (logging failure doesn't block user experience)
-                response_data = response[0] if isinstance(response, tuple) else response
-                assert response_data['success'] is True
+        app = Flask(__name__)
+        with app.app_context():
+            with app.test_request_context():
+                with patch('app.routes.cookie_consent.request') as mock_request:
+                    mock_request.headers.get.return_value = self.test_user_agent
+                    mock_request.is_json = True
+                    mock_request.json = {'url': '/tools/qr-generator'}
+                    
+                    # Mock the log function to fail
+                    with patch('app.routes.cookie_consent.log_js_capable_user', return_value=False):
+                        from app.routes.cookie_consent import log_js_capable
+                        
+                        # Call the function
+                        response = log_js_capable()
+                        
+                        # Flask functions return Response objects, need to get JSON data
+                        import json
+                        response_data = json.loads(response.get_data(as_text=True))
+                        
+                        # Should still succeed (logging failure doesn't block user experience)
+                        assert response_data['success'] is True

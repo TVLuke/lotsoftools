@@ -45,8 +45,22 @@
         <i class="fas fa-clock me-1"></i>
         Server started: <strong>{{ server_start_time.strftime('%Y-%m-%d %H:%M:%S UTC') }}</strong>
         <span class="ms-3"><i class="fas fa-server me-1"></i>Instance: <code>{{ instance_id }}</code></span>
-        <span class="ms-3"><i class="fas fa-file me-1"></i>UA log: <strong>{{ ua_log_size }}</strong></span>
     </p>
+    
+    {% if all_log_sizes %}
+    <div class="row mt-3 mb-4">
+        <div class="col-12">
+            <h3 class="h5"><i class="fas fa-file-alt me-2"></i>Log File Sizes</h3>
+            <div class="d-flex gap-2 flex-wrap">
+                {% for log_file in all_log_sizes %}
+                <span class="badge bg-{% if log_file.size_bytes > 1048576 %}primary{% elif log_file.size_bytes > 1024 %}info{% else %}secondary{% endif %}" title="{{ log_file.path }}">
+                    <i class="fas fa-file me-1"></i>{{ log_file.name }}: <strong>{{ log_file.size }}</strong>
+                </span>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    {% endif %}
     
     <!-- Desktop table view -->
     <div class="table-responsive stats-table">

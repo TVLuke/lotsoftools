@@ -33,13 +33,24 @@ def log_js_capable_user(user_agent, url=None):
         # Get current bot detection info
         is_bot, bot_reason = is_bot_request()
         
-        # Sanitize inputs
-        ua_clean = user_agent.replace('\n', ' ').replace('|', ' ')[:500]
-        url_clean = (url or request.referrer or '').replace('|', ' ')[:100]
-        reason_clean = (bot_reason or '')[:100]
+        # Sanitize inputs - remove newlines and pipe characters from all parts
+        import re
+        def sanitize(text):
+            if not text:
+                return text
+            # Remove all types of whitespace and problematic characters
+            text = re.sub(r'[\n\r\t|]', ' ', str(text))
+            # Replace multiple spaces with single space
+            text = re.sub(r'\s+', ' ', text)
+            return text.strip()
+        
+        timestamp_clean = sanitize(timestamp)
+        ua_clean = sanitize(user_agent)[:500]
+        url_clean = sanitize(url or request.referrer or '')[:100]
+        reason_clean = sanitize(bot_reason or '')[:100]
         
         # Log format: timestamp|BOT_DETECTION_RESULT|url|user_agent|bot_reason
-        log_entry = f"{timestamp}|{'BOT' if is_bot else 'HUMAN_BY_UA'}|{url_clean}|{ua_clean}|{reason_clean}\n"
+        log_entry = f"{timestamp_clean}|{'BOT' if is_bot else 'HUMAN_BY_UA'}|{url_clean}|{ua_clean}|{reason_clean}\n"
         
         with open(JS_CAPABLE_LOG_FILE, 'a', encoding='utf-8') as f:
             f.write(log_entry)

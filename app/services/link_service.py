@@ -45,6 +45,58 @@ def get_ua_log_file_size():
     except Exception:
         return "unknown"
 
+def get_all_log_file_sizes():
+    """Get sizes of all log files in the system."""
+    log_files = []
+    
+    # Define all log file paths
+    log_paths = [
+        ('User Agents', UA_LOG_FILE),
+        ('Referrers', 'data/logs/referrers.log'),
+        ('Accept Languages', 'data/logs/accept_languages.log'),
+        ('Blocked Requests', 'app/logs/blocked_requests.log'),
+        ('JS-Capable Users', 'logs/js_capable_users.log'),
+        ('Honeypot', 'logs/honeypot.log'),
+    ]
+    
+    for name, path in log_paths:
+        try:
+            if os.path.exists(path):
+                size_bytes = os.path.getsize(path)
+                # Convert to human-readable
+                for unit in ['B', 'KB', 'MB', 'GB']:
+                    if size_bytes < 1024:
+                        size_str = f"{size_bytes:.1f} {unit}"
+                        break
+                    size_bytes /= 1024
+                else:
+                    size_str = f"{size_bytes:.1f} TB"
+                
+                log_files.append({
+                    'name': name,
+                    'path': path,
+                    'size': size_str,
+                    'size_bytes': os.path.getsize(path)
+                })
+            else:
+                log_files.append({
+                    'name': name,
+                    'path': path,
+                    'size': '0 B',
+                    'size_bytes': 0
+                })
+        except Exception:
+            log_files.append({
+                'name': name,
+                'path': path,
+                'size': 'unknown',
+                'size_bytes': 0
+            })
+    
+    # Sort by size (largest first)
+    log_files.sort(key=lambda x: x['size_bytes'], reverse=True)
+    return log_files
+
 # Load bot patterns from well-known-bots.json for User-Agent detection
 _bot_regex_patterns = []
 _bot_simple_patterns = [
