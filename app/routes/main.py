@@ -180,6 +180,7 @@ def stats():
     theme_lang_totals = link_service.get_theme_language_totals()
     ua_log_size = link_service.get_ua_log_file_size()
     all_log_sizes = link_service.get_all_log_file_sizes()
+    js_verified_stats = link_service.get_js_verified_stats()
     blocklist_info = get_blocklist_info()
     blocked_count = get_blocked_request_count()
     response = make_response(render_template('stats.html', links=links, user_agents=user_agents, 
@@ -187,7 +188,7 @@ def stats():
                           honeypot_agents=honeypot_agents, referrer_stats=referrer_stats, country_stats=country_stats,
                           accept_language_stats=accept_language_stats,
                           server_start_time=server_start_time, instance_id=INSTANCE_ID,
-                          theme_lang_totals=theme_lang_totals, ua_log_size=ua_log_size, all_log_sizes=all_log_sizes,
+                          theme_lang_totals=theme_lang_totals, ua_log_size=ua_log_size, all_log_sizes=all_log_sizes, js_verified_stats=js_verified_stats,
                           blocklist_info=blocklist_info, blocked_count=blocked_count))
     response.headers['Cache-Control'] = 'no-cache, no-store, must-revalidate'
     response.headers['Pragma'] = 'no-cache'

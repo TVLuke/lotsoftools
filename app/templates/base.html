@@ -213,21 +213,45 @@
             document.cookie = CONSENT_COOKIE + '=accepted;expires=' + expires.toUTCString() + ';path=/;SameSite=Lax';
         }
         
+        // Store nonce for API calls
+        let jsNonce = null;
+        
+        // Fetch nonce from server
+        async function fetchNonce() {
+            try {
+                const response = await fetch('/api/js-nonce');
+                const data = await response.json();
+                if (data.success) {
+                    jsNonce = data.nonce;
+                }
+            } catch (error) {
+                console.error('Failed to fetch nonce:', error);
+            }
+        }
+        
         // Notify backend about JavaScript capability
-        function notifyBackend() {
+        async function notifyBackend() {
+            // Ensure we have a nonce
+            if (!jsNonce) {
+                await fetchNonce();
+            }
+            
             fetch('/api/js-capable', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({
-                    url: window.location.pathname
+                    url: window.location.pathname,
+                    nonce: jsNonce
                 })
             })
             .then(response => response.json())
             .then(data => {
                 if (data.success) {
                     console.log('JavaScript capability recorded');
+                } else {
+                    console.error('Failed to record JavaScript capability:', data.error);
                 }
             })
             .catch(error => {
@@ -303,6 +327,9 @@
         
         // Initialize on DOM ready
         document.addEventListener('DOMContentLoaded', function() {
+            // Fetch nonce immediately when page loads
+            fetchNonce();
+            
             if (hasConsentCookie()) {
                 // User already accepted banner - notify backend of JS capability only
                 notifyBackend();

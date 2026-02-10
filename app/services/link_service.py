@@ -1,10 +1,11 @@
-import json
-import re
 import os
+import json
 import logging
 from datetime import datetime
 from collections import Counter
 from flask import session, request
+from app.routes.cookie_consent import JS_CAPABLE_LOG_FILE, FAILED_API_LOG_FILE
+from app.services.blocklist_service import BLOCKED_LOG_FILE
 from app.models.link import Link
 from app import db
 
@@ -52,11 +53,12 @@ def get_all_log_file_sizes():
     # Define all log file paths
     log_paths = [
         ('User Agents', UA_LOG_FILE),
-        ('Referrers', 'data/logs/referrers.log'),
-        ('Accept Languages', 'data/logs/accept_languages.log'),
-        ('Blocked Requests', 'app/logs/blocked_requests.log'),
-        ('JS-Capable Users', 'logs/js_capable_users.log'),
-        ('Honeypot', 'logs/honeypot.log'),
+        ('Referrers', REFERRER_LOG_FILE),
+        ('Accept Languages', ACCEPT_LANG_LOG_FILE),
+        ('Blocked Requests', BLOCKED_LOG_FILE),
+        ('JS-Capable Users', JS_CAPABLE_LOG_FILE),
+        ('Failed API Calls', FAILED_API_LOG_FILE),
+        ('Honeypot', HONEYPOT_LOG_FILE),
     ]
     
     for name, path in log_paths:
@@ -96,6 +98,100 @@ def get_all_log_file_sizes():
     # Sort by size (largest first)
     log_files.sort(key=lambda x: x['size_bytes'], reverse=True)
     return log_files
+
+def get_js_verified_stats():
+    """Get statistics about JavaScript-verified users."""
+    js_log_file = JS_CAPABLE_LOG_FILE
+    failed_log_file = FAILED_API_LOG_FILE
+    
+    stats = {
+        'verified_users': 0,
+        'verified_bots': 0,
+        'failed_attempts': 0,
+        'recent_verifications': [],
+        'top_verified_ua': {},
+        'top_verified_humans': {},
+        'top_verified_bots': {},
+        'top_failed_ua': {},
+        'top_failed_ips': {},
+        'failure_reasons': {}
+    }
+    
+    # Process verified users log
+    if os.path.exists(js_log_file):
+        try:
+            with open(js_log_file, 'r', encoding='utf-8') as f:
+                for line in f:
+                    line = line.strip()
+                    if not line:
+                        continue
+                    
+                    parts = line.split('|')
+                    if len(parts) >= 5:
+                        timestamp, bot_status, url, user_agent, reason = parts[:5]
+                        
+                        # Track user agents
+                        ua_key = user_agent[:100]  # Truncate for grouping
+                        
+                        if bot_status == 'HUMAN_BY_UA':
+                            stats['verified_users'] += 1
+                            # Track human user agents separately
+                            stats['top_verified_humans'][ua_key] = stats['top_verified_humans'].get(ua_key, 0) + 1
+                        elif bot_status == 'BOT':
+                            stats['verified_bots'] += 1
+                            # Track bot user agents separately
+                            stats['top_verified_bots'][ua_key] = stats['top_verified_bots'].get(ua_key, 0) + 1
+                        
+                        # Also track all verified UAs for backward compatibility
+                        stats['top_verified_ua'][ua_key] = stats['top_verified_ua'].get(ua_key, 0) + 1
+                        
+                        # Keep recent verifications (last 10)
+                        if len(stats['recent_verifications']) < 10:
+                            stats['recent_verifications'].append({
+                                'timestamp': timestamp,
+                                'user_agent': user_agent[:50],
+                                'status': bot_status,
+                                'url': url[:50]
+                            })
+        except Exception:
+            pass
+    
+    # Process failed attempts log
+    if os.path.exists(failed_log_file):
+        try:
+            with open(failed_log_file, 'r', encoding='utf-8') as f:
+                for line in f:
+                    line = line.strip()
+                    if not line:
+                        continue
+                    
+                    parts = line.split('|')
+                    if len(parts) >= 5:
+                        timestamp, reason, user_agent, ip, nonce_status = parts[:5]
+                        
+                        stats['failed_attempts'] += 1
+                        
+                        # Track failure reasons
+                        stats['failure_reasons'][reason] = stats['failure_reasons'].get(reason, 0) + 1
+                        
+                        # Track failed user agents
+                        ua_key = user_agent[:100]
+                        stats['top_failed_ua'][ua_key] = stats['top_failed_ua'].get(ua_key, 0) + 1
+                        
+                        # Track failed IPs
+                        stats['top_failed_ips'][ip] = stats['top_failed_ips'].get(ip, 0) + 1
+        except Exception:
+            pass
+    
+    # Sort dictionaries by count (top 10)
+    stats['top_verified_ua'] = dict(sorted(stats['top_verified_ua'].items(), key=lambda x: x[1], reverse=True)[:10])
+    stats['top_verified_humans'] = dict(sorted(stats['top_verified_humans'].items(), key=lambda x: x[1], reverse=True)[:10])
+    stats['top_verified_bots'] = dict(sorted(stats['top_verified_bots'].items(), key=lambda x: x[1], reverse=True)[:10])
+    stats['top_failed_ua'] = dict(sorted(stats['top_failed_ua'].items(), key=lambda x: x[1], reverse=True)[:10])
+    stats['top_failed_ips'] = dict(sorted(stats['top_failed_ips'].items(), key=lambda x: x[1], reverse=True)[:10])
+    stats['failure_reasons'] = dict(sorted(stats['failure_reasons'].items(), key=lambda x: x[1], reverse=True))
+    
+    return stats
 
 # Load bot patterns from well-known-bots.json for User-Agent detection
 _bot_regex_patterns = []
@@ -188,7 +284,7 @@ def _parse_ua_log():
     """Parse user agent log file and return aggregated stats.
     
     Log format: timestamp|BOT/HUMAN|url|user_agent
-    Returns dict: {user_agent: {'count': N, 'is_bot': bool}}
+    Returns dict: {user_agent: {'count': N, 'is_bot': bool, 'js_verified': bool}}
     """
     stats = {}
     try:
@@ -211,45 +307,47 @@ def _parse_ua_log():
                     is_bot = parts[1].strip() == 'BOT'
                     ua = parts[3].strip()
                     reason = ''
-                elif len(parts) >= 3:
+                else:
                     is_bot = parts[1].strip() == 'BOT'
                     ua = parts[2].strip()
                     reason = ''
-                else:
-                    continue
-                if ua in stats:
-                    stats[ua]['count'] += 1
-                    # Import here to avoid circular import at module level
-                    from app.services.bot_detection import DEFINITIVE_BOT_REASONS
-                    current_reason = stats[ua].get('reason', '')
-                    is_current_definitive = any(r in current_reason for r in DEFINITIVE_BOT_REASONS)
-                    is_new_definitive = reason and any(r in reason for r in DEFINITIVE_BOT_REASONS)
+                
+                if ua not in stats:
+                    stats[ua] = {'count': 0, 'is_bot': is_bot, 'js_verified': False, 'reason': reason}
+                stats[ua]['count'] += 1
+        
+        # Now merge JS verification status
+        if os.path.exists(JS_CAPABLE_LOG_FILE):
+            with open(JS_CAPABLE_LOG_FILE, 'r', encoding='utf-8') as f:
+                for line in f:
+                    line = line.strip()
+                    if not line:
+                        continue
                     
-                    # Check UA itself for definitive bot patterns (for old log entries without reason)
-                    ua_lower = ua.lower()
-                    is_ua_definitive_bot = _is_ua_definitive_bot(ua_lower)
-                    
-                    if is_bot:
-                        # BOT entry - upgrade if definitive (by reason or UA check)
-                        if is_new_definitive or is_ua_definitive_bot:
-                            stats[ua]['is_bot'] = True
-                            if reason:
-                                stats[ua]['reason'] = reason
-                        elif not stats[ua]['is_bot']:
-                            # Behavioral bot on human - still mark as bot
-                            stats[ua]['is_bot'] = True
-                            if reason:
-                                stats[ua]['reason'] = reason
-                    else:
-                        # HUMAN entry - only override if not definitive bot
-                        if not is_current_definitive and not is_ua_definitive_bot:
-                            stats[ua]['is_bot'] = False
-                            stats[ua]['reason'] = reason
-                else:
-                    stats[ua] = {'count': 1, 'is_bot': is_bot, 'reason': reason}
+                    parts = line.split('|')
+                    if len(parts) >= 5:
+                        timestamp, bot_status, url, user_agent, bot_reason = parts[:5]
+                        
+                        # Mark as JS-verified if found in JS log
+                        if user_agent in stats:
+                            stats[user_agent]['js_verified'] = True
+                            # Update bot status based on JS verification (more accurate)
+                            stats[user_agent]['is_bot'] = (bot_status == 'BOT')
+                            if bot_reason:
+                                stats[user_agent]['reason'] = bot_reason
+                        else:
+                            # Add JS-only entries that weren't in UA log
+                            stats[user_agent] = {
+                                'count': 1,
+                                'is_bot': (bot_status == 'BOT'),
+                                'js_verified': True,
+                                'reason': bot_reason
+                            }
+        
+        return stats
     except Exception as e:
-        logger.error(f"Failed to parse UA log: {e}")
-    return stats
+        logger.error(f"Error parsing UA log: {e}")
+        return {}
 
 
 def get_user_agent_stats():

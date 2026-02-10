@@ -263,6 +263,110 @@
     </div>
     {% endif %}
     
+    {% if js_verified_stats and (js_verified_stats.verified_users > 0 or js_verified_stats.failed_attempts > 0) %}
+    <div class="row mt-4">
+        <div class="col-12">
+            <h3 class="h5"><i class="fas fa-shield-alt me-2"></i>JavaScript Verification</h3>
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="card">
+                        <div class="card-body text-center">
+                            <h5 class="card-title text-success">{{ js_verified_stats.verified_users }}</h5>
+                            <p class="card-text">Verified Humans</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card">
+                        <div class="card-body text-center">
+                            <h5 class="card-title text-warning">{{ js_verified_stats.verified_bots }}</h5>
+                            <p class="card-text">Verified Bots</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card">
+                        <div class="card-body text-center">
+                            <h5 class="card-title text-danger">{{ js_verified_stats.failed_attempts }}</h5>
+                            <p class="card-text">Failed Attempts</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card">
+                        <div class="card-body text-center">
+                            <h5 class="card-title text-info">{{ js_verified_stats.verified_users + js_verified_stats.verified_bots }}</h5>
+                            <p class="card-text">Total Verified</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    {% if js_verified_stats.failure_reasons %}
+    <div class="row mt-3">
+        <div class="col-md-6">
+            <h5 class="h6"><i class="fas fa-exclamation-triangle me-2"></i>Failure Reasons</h5>
+            <div class="d-flex gap-2 flex-wrap">
+                {% for reason, count in js_verified_stats.failure_reasons.items() %}
+                <span class="badge bg-{% if reason == 'MISSING_NONCE' %}danger{% elif reason == 'INVALID_NONCE' %}warning{% else %}secondary{% endif %}">
+                    {{ reason }}: {{ count }}
+                </span>
+                {% endfor %}
+            </div>
+        </div>
+        {% endif %}
+        
+        {% if js_verified_stats.top_failed_ips %}
+        <div class="col-md-6">
+            <h5 class="h6"><i class="fas fa-ban me-2"></i>Top Failed IPs</h5>
+            <div class="d-flex gap-2 flex-wrap">
+                {% for ip, count in js_verified_stats.top_failed_ips.items() %}
+                <span class="badge bg-{% if count > 5 %}danger{% elif count > 2 %}warning{% else %}secondary{% endif %}">
+                    {{ ip }}: {{ count }}
+                </span>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    {% endif %}
+    
+    {% if js_verified_stats.recent_verifications %}
+    <div class="row mt-4">
+        <div class="col-12">
+            <h5 class="h6"><i class="fas fa-clock me-2"></i>Recent Verifications</h5>
+            <div class="table-responsive">
+                <table class="table table-sm table-hover">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>Time</th>
+                            <th>User Agent</th>
+                            <th>Status</th>
+                            <th>URL</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for verification in js_verified_stats.recent_verifications %}
+                        <tr>
+                            <td><small>{{ verification.timestamp[:19] }}</small></td>
+                            <td><code style="font-size: 0.8em;">{{ verification.user_agent }}</code></td>
+                            <td>
+                                <span class="badge bg-{% if verification.status == 'HUMAN_BY_UA' %}success{% else %}warning{% endif %}">
+                                    {{ verification.status.replace('_', ' ') }}
+                                </span>
+                            </td>
+                            <td><code>{{ verification.url }}</code></td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+    {% endif %}
+    
     {% if blocklist_info and blocklist_info.enabled %}
     <div class="row mt-4">
         <div class="col-12">
@@ -287,6 +391,7 @@
                     <th style="width: 80px;">Count</th>
                     <th>User Agent</th>
                     <th>Reason</th>
+                    <th>JS Status</th>
                 </tr>
             </thead>
             <tbody>
@@ -295,28 +400,13 @@
                     <td><span class="badge bg-{% if data.count > 100 %}danger{% elif data.count > 20 %}warning{% else %}secondary{% endif %}">{{ data.count }}</span></td>
                     <td><code style="font-size: 0.8em; word-break: break-all;">{{ ua if ua else '(empty)' }}</code></td>
                     <td><span class="badge bg-info">{{ data.reason if data.reason else 'Unknown' }}</span></td>
-                </tr>
-                {% endfor %}
-            </tbody>
-        </table>
-    </div>
-    {% endif %}
-    
-    {% if honeypot_agents %}
-    <h2 class="mt-5 mb-3"><i class="fas fa-spider me-2"></i>Honeypot Agents</h2>
-    <div class="table-responsive">
-        <table class="table table-sm table-hover">
-            <thead class="table-dark">
-                <tr>
-                    <th style="width: 80px;">Count</th>
-                    <th>User Agent</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for ua, count in honeypot_agents %}
-                <tr>
-                    <td><span class="badge bg-{% if count > 10 %}danger{% elif count > 3 %}warning{% else %}info{% endif %}">{{ count }}</span></td>
-                    <td><code style="font-size: 0.8em; word-break: break-all;">{{ ua if ua else '(empty)' }}</code></td>
+                    <td>
+                        {% if data.js_verified %}
+                            <span class="badge bg-warning">JS + Bot</span>
+                        {% else %}
+                            <span class="badge bg-secondary">UA Only</span>
+                        {% endif %}
+                    </td>
                 </tr>
                 {% endfor %}
             </tbody>
@@ -332,6 +422,7 @@
                 <tr>
                     <th style="width: 80px;">Count</th>
                     <th>User Agent</th>
+                    <th>JS Status</th>
                 </tr>
             </thead>
             <tbody>
@@ -339,6 +430,13 @@
                 <tr>
                     <td><span class="badge bg-{% if data.count > 100 %}success{% elif data.count > 20 %}primary{% else %}secondary{% endif %}">{{ data.count }}</span></td>
                     <td><code style="font-size: 0.8em; word-break: break-all;">{{ ua if ua else '(empty)' }}</code></td>
+                    <td>
+                        {% if data.js_verified %}
+                            <span class="badge bg-success">JS + Human</span>
+                        {% else %}
+                            <span class="badge bg-secondary">UA Only</span>
+                        {% endif %}
+                    </td>
                 </tr>
                 {% endfor %}
             </tbody>

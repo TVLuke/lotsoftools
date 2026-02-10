@@ -27,26 +27,50 @@ class TestCookieConsent:
     @patch('app.routes.cookie_consent.os.path.exists')
     def test_log_js_capable_user_success(self, mock_exists, mock_makedirs, mock_open):
         """Test successful logging of JavaScript-capable user."""
-        # Setup mocks
         mock_exists.return_value = True
         mock_file = Mock()
         mock_open.return_value.__enter__.return_value = mock_file
         
-        # Mock bot detection to return human
         with patch('app.routes.cookie_consent.is_bot_request', return_value=(False, "Human")):
             result = log_js_capable_user(self.test_user_agent, self.test_url)
             
-            # Verify success
             assert result is True
-            
-            # Verify file was written
             mock_file.write.assert_called_once()
             
             # Check log entry format
             log_entry = mock_file.write.call_args[0][0]
-            assert "HUMAN_BY_UA" in log_entry
-            assert self.test_user_agent in log_entry
-            assert self.test_url in log_entry
+            parts = log_entry.strip().split('|')
+            assert len(parts) == 5
+            assert parts[1] == 'HUMAN_BY_UA'
+            assert self.test_url in parts[2]
+            assert self.test_user_agent in parts[3]
+            assert parts[4] == 'Human'
+
+    def test_nonce_generation_and_validation(self):
+        """Test nonce generation and validation."""
+        from app.routes.cookie_consent import generate_js_nonce, validate_js_nonce
+        from flask import Flask
+        
+        # Need Flask context for session access
+        app = Flask(__name__)
+        app.secret_key = 'test_secret'
+        
+        with app.app_context():
+            with app.test_request_context():
+                # Test nonce generation
+                nonce = generate_js_nonce()
+                assert nonce is not None
+                assert len(nonce) > 20  # Should be a substantial token
+                
+                # Test valid nonce
+                assert validate_js_nonce(nonce) is True
+                
+                # Test replay protection (same nonce should fail second time)
+                assert validate_js_nonce(nonce) is False
+                
+                # Test invalid nonce
+                assert validate_js_nonce('invalid_nonce') is False
+                assert validate_js_nonce(None) is False
     
     @patch('app.routes.cookie_consent.open', create=True)
     @patch('app.routes.cookie_consent.os.makedirs')
@@ -136,26 +160,30 @@ class TestCookieConsentAPI:
                 with patch('app.routes.cookie_consent.request') as mock_request:
                     mock_request.headers.get.return_value = self.test_user_agent
                     mock_request.is_json = True
-                    mock_request.json = {'url': '/tools/qr-generator'}
+                    mock_request.json = {'url': '/tools/qr-generator', 'nonce': 'test_nonce_123'}
                     mock_request.referrer = 'https://lotsof.tools/tools/qr-generator'
                     
-                    # Mock the log function
+                    # Mock the log function and nonce validation
                     with patch('app.routes.cookie_consent.log_js_capable_user', return_value=True) as mock_log:
-                        # Import and test the function directly
-                        from app.routes.cookie_consent import log_js_capable
-                        
-                        # Call the function
-                        response = log_js_capable()
-                        
-                        # Flask functions return Response objects, need to get JSON data
-                        import json
-                        response_data = json.loads(response.get_data(as_text=True))
-                        
-                        # Verify response
-                        assert response_data['success'] is True
-                        
-                        # Verify logging was called
-                        mock_log.assert_called_once()
+                        with patch('app.routes.cookie_consent.validate_js_nonce', return_value=True) as mock_validate:
+                            # Import and test the function directly
+                            from app.routes.cookie_consent import log_js_capable
+                            
+                            # Call the function
+                            response = log_js_capable()
+                            
+                            # Flask functions return Response objects, need to get JSON data
+                            import json
+                            response_data = json.loads(response.get_data(as_text=True))
+                            
+                            # Verify response
+                            assert response_data['success'] is True
+                            
+                            # Verify nonce validation was called
+                            mock_validate.assert_called_once_with('test_nonce_123')
+                            
+                            # Verify logging was called
+                            mock_log.assert_called_once()
     
     def test_js_capable_endpoint_logging_failure(self):
         """Test JavaScript capability logging when logging fails."""
@@ -168,18 +196,81 @@ class TestCookieConsentAPI:
                 with patch('app.routes.cookie_consent.request') as mock_request:
                     mock_request.headers.get.return_value = self.test_user_agent
                     mock_request.is_json = True
-                    mock_request.json = {'url': '/tools/qr-generator'}
+                    mock_request.json = {'url': '/tools/qr-generator', 'nonce': 'test_nonce_123'}
                     
-                    # Mock the log function to fail
+                    # Mock the log function to fail and nonce validation to pass
                     with patch('app.routes.cookie_consent.log_js_capable_user', return_value=False):
+                        with patch('app.routes.cookie_consent.validate_js_nonce', return_value=True):
+                            from app.routes.cookie_consent import log_js_capable
+                            
+                            # Call the function
+                            response = log_js_capable()
+                            
+                            # Flask functions return Response objects, need to get JSON data
+                            import json
+                            response_data = json.loads(response.get_data(as_text=True))
+                            
+                            # Should still succeed (logging failure doesn't block user experience)
+                            assert response_data['success'] is True
+    
+    def test_js_capable_endpoint_invalid_nonce(self):
+        """Test JavaScript capability logging with invalid nonce."""
+        from app.routes.cookie_consent import cookie_consent_bp
+        from flask import Flask
+        
+        app = Flask(__name__)
+        with app.app_context():
+            with app.test_request_context():
+                with patch('app.routes.cookie_consent.request') as mock_request:
+                    mock_request.headers.get.return_value = self.test_user_agent
+                    mock_request.is_json = True
+                    mock_request.json = {'url': '/tools/qr-generator', 'nonce': 'invalid_nonce'}
+                    
+                    # Mock nonce validation to fail
+                    with patch('app.routes.cookie_consent.validate_js_nonce', return_value=False):
                         from app.routes.cookie_consent import log_js_capable
                         
                         # Call the function
                         response = log_js_capable()
                         
+                        # Handle tuple response (response, status_code)
+                        if isinstance(response, tuple):
+                            response_obj = response[0]
+                            status_code = response[1]
+                        else:
+                            response_obj = response
+                            status_code = 200
+                        
                         # Flask functions return Response objects, need to get JSON data
                         import json
-                        response_data = json.loads(response.get_data(as_text=True))
+                        response_data = json.loads(response_obj.get_data(as_text=True))
                         
-                        # Should still succeed (logging failure doesn't block user experience)
-                        assert response_data['success'] is True
+                        # Should fail with invalid nonce
+                        assert response_data['success'] is False
+                        assert 'nonce' in response_data['error'].lower()
+                        assert status_code == 400
+
+    def test_failed_api_logging(self):
+        """Test that failed API attempts are logged."""
+        from app.routes.cookie_consent import log_failed_api_attempt
+        from unittest.mock import mock_open, patch
+        
+        with patch('app.routes.cookie_consent.open', mock_open):
+            with patch('app.routes.cookie_consent.os.makedirs'):
+                with patch('app.routes.cookie_consent.os.path.exists', return_value=True):
+                    mock_file = Mock()
+                    mock_open.return_value.__enter__.return_value = mock_file
+                    
+                    # Test logging failed attempt
+                    result = log_failed_api_attempt('MISSING_NONCE', 'curl/7.68.0', 'missing')
+                    
+                    assert result is True
+                    mock_file.write.assert_called_once()
+                    
+                    # Check log entry format
+                    log_entry = mock_file.write.call_args[0][0]
+                    parts = log_entry.strip().split('|')
+                    assert len(parts) == 5
+                    assert parts[1] == 'MISSING_NONCE'
+                    assert 'curl/7.68.0' in parts[2]
+                    assert parts[4] == 'missing'
