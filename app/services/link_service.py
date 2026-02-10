@@ -102,8 +102,8 @@ def get_js_verified_stats():
     js_log_file = JS_CAPABLE_LOG_FILE
     
     stats = {
-        'verified_users': 0,
-        'verified_bots': 0,
+        'verified_users': set(),  # Use sets to track unique UAs
+        'verified_bots': set(),
         'recent_verifications': [],
         'top_verified_ua': {},
         'top_verified_humans': {},
@@ -124,15 +124,15 @@ def get_js_verified_stats():
                     if len(parts) >= 5:
                         timestamp, bot_status, url, user_agent, reason = parts[:5]
                         
-                        # Track user agents
+                        # Track unique user agents
                         ua_key = user_agent[:100]  # Truncate for grouping
                         
                         if bot_status == 'HUMAN_BY_UA':
-                            stats['verified_users'] += 1
+                            stats['verified_users'].add(ua_key)  # Add to set for uniqueness
                             # Track human user agents separately
                             stats['top_verified_humans'][ua_key] = stats['top_verified_humans'].get(ua_key, 0) + 1
                         elif bot_status == 'BOT':
-                            stats['verified_bots'] += 1
+                            stats['verified_bots'].add(ua_key)  # Add to set for uniqueness
                             # Track bot user agents separately
                             stats['top_verified_bots'][ua_key] = stats['top_verified_bots'].get(ua_key, 0) + 1
                         
@@ -149,6 +149,14 @@ def get_js_verified_stats():
                             })
         except Exception:
             pass
+    
+    # Convert sets to counts for final stats
+    unique_humans = len(stats['verified_users'])
+    unique_bots = len(stats['verified_bots'])
+    
+    # Replace sets with counts for template compatibility
+    stats['verified_users'] = unique_humans
+    stats['verified_bots'] = unique_bots
     
     # Sort dictionaries by count (top 10)
     stats['top_verified_ua'] = dict(sorted(stats['top_verified_ua'].items(), key=lambda x: x[1], reverse=True)[:10])
