@@ -137,7 +137,7 @@ def follow_redirects(url, user_agent='Mozilla/5.0 (compatible; RedirectFollower/
 @redirect_follower_bp.route('/redirect-follower')
 def redirect_follower():
     """Render the redirect follower tool page."""
-    increment_click_count('redirect_follower')
+    increment_click_count(request.path)
     
     json_path = os.path.join(os.path.dirname(__file__), 'redirect_follower_tool.json')
     with open(json_path, 'r', encoding='utf-8') as f:
