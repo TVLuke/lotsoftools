@@ -13,7 +13,6 @@ JS_CAPABLE_LOG_FILE = 'logs/js_capable_users.log'
 REASON_OLD_CHROME = "(old Chrome)"
 REASON_OLD_FIREFOX = "(old Firefox)"
 REASON_OLD_IOS = "(old iOS)"
-REASON_OLD_ANDROID = "(old Android)"
 REASON_OLD_WINDOWS = "(old Windows)"
 REASON_OLD_BROWSER = "(old browser)"
 REASON_VERY_OLD_OS = "(very old OS)"
@@ -25,7 +24,7 @@ REASON_IP_REFERER = "IP address referer (bot)"
 
 # Tuple of all definitive reasons for easy checking
 DEFINITIVE_BOT_REASONS = (
-    REASON_OLD_CHROME, REASON_OLD_FIREFOX, REASON_OLD_IOS, REASON_OLD_ANDROID,
+    REASON_OLD_CHROME, REASON_OLD_FIREFOX, REASON_OLD_IOS,
     REASON_OLD_WINDOWS, REASON_OLD_BROWSER, REASON_VERY_OLD_OS, REASON_BOT_PATTERN,
     REASON_KNOWN_BOT, REASON_HONEYPOT, REASON_SUBDOMAIN_REFERER, REASON_IP_REFERER
 )
@@ -107,11 +106,6 @@ def is_bot_request():
         if patch:
             version += f".{patch}"
         return True, f"{version} {REASON_OLD_IOS}"
-    
-    # Android versions below 11 are old (5+ years) - likely bots
-    android_match = re.search(r'android (\d+)', user_agent_lower)
-    if android_match and int(android_match.group(1)) < 11:
-        return True, f"Android {android_match.group(1)} {REASON_OLD_ANDROID}"
     
     # Firefox versions below 100 are old (4+ years) - likely bots
     firefox_match = re.search(r'firefox/(\d+)', user_agent_lower)
