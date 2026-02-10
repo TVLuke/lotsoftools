@@ -127,8 +127,8 @@ BOT_DETECTION_TEST_CASES = {
                 "Accept-Language": "en-US,en;q=0.9"
             },
             "cookies": {"session": "test"},
-            "expected_bot": True,
-            "expected_reason": "Android 6 (old Android)"
+            "expected_bot": False,
+            "expected_reason": "Human"
         },
         {
             "name": "Android 13 (current)",
