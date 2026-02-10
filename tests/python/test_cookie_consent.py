@@ -253,24 +253,37 @@ class TestCookieConsentAPI:
     def test_failed_api_logging(self):
         """Test that failed API attempts are logged."""
         from app.routes.cookie_consent import log_failed_api_attempt
-        from unittest.mock import mock_open, patch
+        from unittest.mock import Mock, patch
+        from flask import Flask
         
-        with patch('app.routes.cookie_consent.open', mock_open):
-            with patch('app.routes.cookie_consent.os.makedirs'):
-                with patch('app.routes.cookie_consent.os.path.exists', return_value=True):
-                    mock_file = Mock()
-                    mock_open.return_value.__enter__.return_value = mock_file
-                    
-                    # Test logging failed attempt
-                    result = log_failed_api_attempt('MISSING_NONCE', 'curl/7.68.0', 'missing')
-                    
-                    assert result is True
-                    mock_file.write.assert_called_once()
-                    
-                    # Check log entry format
-                    log_entry = mock_file.write.call_args[0][0]
-                    parts = log_entry.strip().split('|')
-                    assert len(parts) == 5
-                    assert parts[1] == 'MISSING_NONCE'
-                    assert 'curl/7.68.0' in parts[2]
-                    assert parts[4] == 'missing'
+        # Mock the file operations
+        mock_file = Mock()
+        
+        with patch('builtins.open', return_value=mock_file):
+            mock_file.__enter__ = Mock(return_value=mock_file)
+            mock_file.__exit__ = Mock(return_value=None)
+            mock_file.write = Mock()
+            
+            with patch('os.makedirs'):
+                with patch('os.path.exists', return_value=True):
+                    # Create Flask app context for request access
+                    app = Flask(__name__)
+                    with app.app_context():
+                        with app.test_request_context():
+                            # Mock the request environ
+                            with patch('app.routes.cookie_consent.request') as mock_request:
+                                mock_request.environ.get.return_value = '192.168.1.100'
+                                
+                                # Test logging failed attempt
+                                result = log_failed_api_attempt('MISSING_NONCE', 'curl/7.68.0', 'missing')
+                                
+                                assert result is True
+                                mock_file.write.assert_called_once()
+                                
+                                # Check log entry format
+                                log_entry = mock_file.write.call_args[0][0]
+                                parts = log_entry.strip().split('|')
+                                assert len(parts) == 5
+                                assert parts[1] == 'MISSING_NONCE'
+                                assert 'curl/7.68.0' in parts[2]
+                                assert parts[4] == 'missing'

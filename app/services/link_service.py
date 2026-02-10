@@ -5,6 +5,7 @@ from datetime import datetime
 from collections import Counter
 from flask import session, request
 from app.routes.cookie_consent import JS_CAPABLE_LOG_FILE, FAILED_API_LOG_FILE
+from app.services.bot_detection import HONEYPOT_LOG_FILE
 from app.services.blocklist_service import BLOCKED_LOG_FILE
 from app.models.link import Link
 from app import db
@@ -17,8 +18,6 @@ UA_LOG_FILE = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(__fil
 REFERRER_LOG_FILE = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(__file__))), 'data', 'logs', 'referrers.log')
 # Log file for Accept-Language tracking (humans only)
 ACCEPT_LANG_LOG_FILE = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(__file__))), 'data', 'logs', 'accept_languages.log')
-# Log file for honeypot access tracking
-HONEYPOT_LOG_FILE = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(__file__))), 'data', 'logs', 'honeypot.log')
 
 # Log rotation settings
 MAX_LOG_ENTRIES = 3_000_000

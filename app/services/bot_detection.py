@@ -4,9 +4,9 @@ import os
 import re
 import json
 from flask import request
-from app.services.link_service import HONEYPOT_LOG_FILE
 
-# Log file for JavaScript-capable users
+# Log file paths (defined here to avoid circular imports)
+HONEYPOT_LOG_FILE = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(__file__))), 'data', 'logs', 'honeypot.log')
 JS_CAPABLE_LOG_FILE = 'logs/js_capable_users.log'
 
 # Reason suffixes for definitive bot detection (cannot be overridden by human)
