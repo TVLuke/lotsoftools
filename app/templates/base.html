@@ -213,37 +213,15 @@
             document.cookie = CONSENT_COOKIE + '=accepted;expires=' + expires.toUTCString() + ';path=/;SameSite=Lax';
         }
         
-        // Store nonce for API calls
-        let jsNonce = null;
-        
-        // Fetch nonce from server
-        async function fetchNonce() {
-            try {
-                const response = await fetch('/api/js-nonce');
-                const data = await response.json();
-                if (data.success) {
-                    jsNonce = data.nonce;
-                }
-            } catch (error) {
-                console.error('Failed to fetch nonce:', error);
-            }
-        }
-        
         // Notify backend about JavaScript capability
-        async function notifyBackend() {
-            // Ensure we have a nonce
-            if (!jsNonce) {
-                await fetchNonce();
-            }
-            
+        function notifyBackend() {
             fetch('/api/js-capable', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({
-                    url: window.location.pathname,
-                    nonce: jsNonce
+                    url: window.location.pathname
                 })
             })
             .then(response => response.json())
@@ -327,9 +305,6 @@
         
         // Initialize on DOM ready
         document.addEventListener('DOMContentLoaded', function() {
-            // Fetch nonce immediately when page loads
-            fetchNonce();
-            
             if (hasConsentCookie()) {
                 // User already accepted banner - notify backend of JS capability only
                 notifyBackend();

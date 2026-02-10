@@ -112,7 +112,6 @@ def get_js_verified_stats():
         'top_verified_humans': {},
         'top_verified_bots': {},
         'top_failed_ua': {},
-        'top_failed_ips': {},
         'failure_reasons': {}
     }
     
@@ -165,8 +164,8 @@ def get_js_verified_stats():
                         continue
                     
                     parts = line.split('|')
-                    if len(parts) >= 5:
-                        timestamp, reason, user_agent, ip, nonce_status = parts[:5]
+                    if len(parts) >= 4:
+                        timestamp, reason, user_agent, nonce_status = parts[:4]
                         
                         stats['failed_attempts'] += 1
                         
@@ -176,9 +175,6 @@ def get_js_verified_stats():
                         # Track failed user agents
                         ua_key = user_agent[:100]
                         stats['top_failed_ua'][ua_key] = stats['top_failed_ua'].get(ua_key, 0) + 1
-                        
-                        # Track failed IPs
-                        stats['top_failed_ips'][ip] = stats['top_failed_ips'].get(ip, 0) + 1
         except Exception:
             pass
     
@@ -187,7 +183,6 @@ def get_js_verified_stats():
     stats['top_verified_humans'] = dict(sorted(stats['top_verified_humans'].items(), key=lambda x: x[1], reverse=True)[:10])
     stats['top_verified_bots'] = dict(sorted(stats['top_verified_bots'].items(), key=lambda x: x[1], reverse=True)[:10])
     stats['top_failed_ua'] = dict(sorted(stats['top_failed_ua'].items(), key=lambda x: x[1], reverse=True)[:10])
-    stats['top_failed_ips'] = dict(sorted(stats['top_failed_ips'].items(), key=lambda x: x[1], reverse=True)[:10])
     stats['failure_reasons'] = dict(sorted(stats['failure_reasons'].items(), key=lambda x: x[1], reverse=True))
     
     return stats
