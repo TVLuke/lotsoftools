@@ -121,7 +121,7 @@ def create_app(config_class=Config):
     @app.after_request
     def track_bandwidth_after_request(response):
         """Track bandwidth served per link."""
-        from app.services.link_service import track_bandwidth, is_bot_request, get_link_by_url
+        from app.services.link_service import track_bandwidth, enhanced_bot_detection, get_link_by_url
         from app.utils import META_LINK_ROUTES
         
         # Only track for tool pages and meta links (skip static, API, etc.)
@@ -133,7 +133,7 @@ def create_app(config_class=Config):
             if link:
                 # Get response size
                 bytes_count = response.content_length or len(response.get_data())
-                is_bot = is_bot_request()
+                is_bot = enhanced_bot_detection()
                 track_bandwidth(path, bytes_count, is_bot)
         
         return response
@@ -200,9 +200,11 @@ def create_app(config_class=Config):
     from app.routes.tools.money_counter import money_counter_bp
     from app.routes.tools.fireplace import fireplace_bp
     from app.routes.icon_cache import icon_cache_bp
+    from app.routes.cookie_consent import cookie_consent_bp
     
     app.register_blueprint(main_bp)
     app.register_blueprint(sitemaps_bp)
+    app.register_blueprint(cookie_consent_bp)
     app.register_blueprint(letter_counter_bp)
     app.register_blueprint(json_formatter_bp)
     app.register_blueprint(xml_formatter_bp)

@@ -6,6 +6,9 @@ import json
 from flask import request
 from app.services.link_service import HONEYPOT_LOG_FILE
 
+# Log file for JavaScript-capable users
+JS_CAPABLE_LOG_FILE = 'logs/js_capable_users.log'
+
 # Reason suffixes for definitive bot detection (cannot be overridden by human)
 REASON_OLD_CHROME = "(old Chrome)"
 REASON_OLD_FIREFOX = "(old Firefox)"
@@ -164,3 +167,59 @@ def is_bot_request():
         return True, "No Accept-Language header"
     
     return False, "Human"
+
+def is_js_capable_user(user_agent):
+    """Check if this user agent has been verified as JavaScript-capable.
+    
+    If a user agent has executed JavaScript and accepted cookies,
+    it's very likely human even if other signals suggest bot.
+    """
+    try:
+        if not os.path.exists(JS_CAPABLE_LOG_FILE):
+            return False
+        
+        # Look for recent entries (last 7 days) with this user agent
+        from datetime import datetime, timedelta
+        cutoff_time = datetime.now() - timedelta(days=7)
+        
+        with open(JS_CAPABLE_LOG_FILE, 'r', encoding='utf-8') as f:
+            for line in f:
+                line = line.strip()
+                if not line:
+                    continue
+                
+                parts = line.split('|')
+                if len(parts) >= 4:
+                    timestamp_str = parts[0]
+                    bot_detection = parts[1]
+                    logged_ua = parts[3]
+                    
+                    # Check if user agent matches (allowing for minor variations)
+                    if logged_ua in user_agent or user_agent in logged_ua:
+                        try:
+                            timestamp = datetime.fromisoformat(timestamp_str.replace('Z', '+00:00'))
+                            if timestamp > cutoff_time:
+                                # Found recent JavaScript-capable activity
+                                return True
+                        except ValueError:
+                            # Skip malformed timestamps
+                            continue
+        
+        return False
+    except Exception:
+        # If we can't check logs, assume not JS-capable
+        return False
+
+def enhanced_bot_detection():
+    """Enhanced bot detection that considers JavaScript capability."""
+    # First, run standard bot detection
+    is_bot, reason = is_bot_request()
+    
+    # If detected as bot, check if this UA has been verified as JavaScript-capable
+    if is_bot:
+        user_agent = request.headers.get('User-Agent', '')
+        if is_js_capable_user(user_agent):
+            # Override bot detection - JavaScript execution + cookies = likely human
+            return False, f"Human (JS-capable, was: {reason})"
+    
+    return is_bot, reason

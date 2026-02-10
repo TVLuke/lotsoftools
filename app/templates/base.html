@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/tiles.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/layout-switcher.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/enhanced-textarea.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/cookie-banner.css') }}">
     {% include 'components/imports/highlightjs.html' %}
     <link rel="stylesheet" href="{{ url_for('static', filename='css/color-picker.css') }}">
     {% block extra_css %}{% endblock %}
@@ -180,6 +181,140 @@
                 botPolicySeparator.style.display = 'none';
             }
         });
+    </script>
+
+    <!-- Cookie Consent JavaScript -->
+    <script>
+    (function() {
+        const CONSENT_COOKIE = 'lotsoftools_cookie_consent';
+        
+        // Get current language from template context
+        const currentLang = '{{ current_lang }}';
+        
+        // Check if user already has consent cookie (explicitly accepted banner)
+        function hasConsentCookie() {
+            const match = document.cookie.match(new RegExp('(^| )' + CONSENT_COOKIE + '=([^;]+)'));
+            return match && match[2] === 'accepted';
+        }
+        
+        // Check if user already has any existing cookies (theme, language, etc.)
+        function hasExistingCookies() {
+            // Check for theme or language cookies
+            const hasThemeCookie = document.cookie.includes('lotsoftools_theme=');
+            const hasLangCookie = document.cookie.includes('lotsoftools_lang=');
+            
+            return hasThemeCookie || hasLangCookie;
+        }
+        
+        // Set consent cookie (expires in 1 year)
+        function setConsentCookie() {
+            const expires = new Date();
+            expires.setFullYear(expires.getFullYear() + 1);
+            document.cookie = CONSENT_COOKIE + '=accepted;expires=' + expires.toUTCString() + ';path=/;SameSite=Lax';
+        }
+        
+        // Notify backend about JavaScript capability
+        function notifyBackend() {
+            fetch('/api/js-capable', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    url: window.location.pathname
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    console.log('JavaScript capability recorded');
+                }
+            })
+            .catch(error => {
+                console.error('Failed to record JavaScript capability:', error);
+            });
+        }
+        
+        // Create cookie banner dynamically
+        function createCookieBanner() {
+            const bannerContainer = document.createElement('div');
+            bannerContainer.className = 'container';
+            bannerContainer.id = 'cookie-banner';
+            
+            const banner = document.createElement('div');
+            banner.className = 'cookie-banner';
+            
+            const content = document.createElement('div');
+            content.className = 'cookie-banner-content';
+            
+            const title = document.createElement('div');
+            title.className = 'cookie-banner-title';
+            title.innerHTML = '<i class="fas fa-cookie-bite"></i> ' + 
+                (currentLang === 'de' ? 'Cookie-Hinweis' : 'Cookie Notice');
+            
+            const text = document.createElement('div');
+            text.className = 'cookie-banner-text';
+            text.textContent = currentLang === 'de' 
+                ? 'Wir verwenden Cookies, um Ihre Einstellungen wie Design und Sprache zu speichern. Diese sind für den Betrieb der Seite erforderlich.'
+                : 'We use cookies to store your preferences like theme and language settings. These are necessary for the site to function properly.';
+            
+            const button = document.createElement('button');
+            button.className = 'cookie-banner-button';
+            button.textContent = currentLang === 'de' ? 'Ich verstehe' : 'I Understand';
+            button.onclick = acceptCookieConsent;
+            
+            content.appendChild(title);
+            content.appendChild(text);
+            banner.appendChild(content);
+            banner.appendChild(button);
+            bannerContainer.appendChild(banner);
+            
+            return bannerContainer;
+        }
+        
+        // Insert banner after navbar
+        function insertBanner(bannerElement) {
+            const navbar = document.querySelector('nav') || document.querySelector('[class*="navbar"]');
+            if (navbar) {
+                navbar.parentNode.insertBefore(bannerElement, navbar.nextSibling);
+            } else {
+                // Fallback: insert at beginning of body
+                document.body.insertBefore(bannerElement, document.body.firstChild);
+            }
+        }
+        
+        // Hide banner with animation
+        function hideBanner() {
+            const cookieBanner = document.getElementById('cookie-banner');
+            if (cookieBanner) {
+                cookieBanner.classList.add('cookie-banner-accepted');
+                setTimeout(() => {
+                    cookieBanner.remove();
+                }, 300);
+            }
+        }
+        
+        // Handle consent acceptance
+        window.acceptCookieConsent = function() {
+            setConsentCookie();
+            notifyBackend();
+            hideBanner();
+        };
+        
+        // Initialize on DOM ready
+        document.addEventListener('DOMContentLoaded', function() {
+            if (hasConsentCookie()) {
+                // User already accepted banner - notify backend of JS capability only
+                notifyBackend();
+            } else {
+                // No consent cookie - create and show banner
+                // Banner creation itself proves JavaScript execution - log immediately
+                notifyBackend();
+                const banner = createCookieBanner();
+                insertBanner(banner);
+            }
+        });
+    })();
     </script>
 
     {% block extra_js %}{% endblock %}

@@ -1,0 +1,147 @@
+/* Cookie Banner Styles */
+.cookie-banner {
+    background: var(--color-primary);
+    color: var(--color-white);
+    padding: 15px 20px;
+    border-radius: 8px;
+    box-shadow: var(--shadow-lg);
+    margin: 20px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 15px;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid var(--color-border);
+}
+
+.cookie-banner::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateX(-100%);
+    transition: transform 0.6s ease;
+}
+
+.cookie-banner:hover::before {
+    transform: translateX(0);
+}
+
+.cookie-banner-content {
+    flex: 1;
+    min-width: 250px;
+}
+
+.cookie-banner-title {
+    font-weight: 600;
+    margin-bottom: 5px;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.cookie-banner-text {
+    font-size: 14px;
+    line-height: 1.4;
+    opacity: 0.95;
+}
+
+.cookie-banner-button {
+    background: var(--color-white);
+    color: var(--color-primary);
+    border: 1px solid var(--color-white);
+    padding: 8px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+.cookie-banner-button:hover {
+    background: var(--color-light-hover);
+    color: var(--color-primary);
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-md);
+}
+
+.cookie-banner-button:active {
+    transform: translateY(0);
+}
+
+/* Dark theme support */
+[data-bs-theme="dark"] .cookie-banner {
+    background: var(--color-primary);
+    color: var(--color-white);
+}
+
+[data-bs-theme="dark"] .cookie-banner-button {
+    background: var(--color-white);
+    color: var(--color-primary);
+}
+
+[data-bs-theme="dark"] .cookie-banner-button:hover {
+    background: var(--color-light-hover);
+}
+
+/* High contrast theme support */
+[data-bs-theme="high-contrast"] .cookie-banner {
+    background: var(--color-black);
+    color: var(--color-white);
+    border: 2px solid var(--color-white);
+}
+
+[data-bs-theme="high-contrast"] .cookie-banner-button {
+    background: var(--color-white);
+    color: var(--color-black);
+    border-color: var(--color-white);
+}
+
+[data-bs-theme="high-contrast"] .cookie-banner-button:hover {
+    background: var(--color-light-hover);
+    color: var(--color-black);
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .cookie-banner {
+        flex-direction: column;
+        text-align: center;
+        padding: 20px;
+    }
+    
+    .cookie-banner-content {
+        min-width: auto;
+        width: 100%;
+    }
+    
+    .cookie-banner-button {
+        width: 100%;
+        max-width: 200px;
+    }
+}
+
+/* Animation for banner appearance */
+.cookie-banner-accepted {
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: all 0.3s ease;
+    pointer-events: none;
+}
+
+/* Cookie icon animation */
+@keyframes cookiePulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+.cookie-banner-title i {
+    animation: cookiePulse 2s infinite;
+}

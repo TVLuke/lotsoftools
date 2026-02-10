@@ -535,6 +535,11 @@ def is_bot_request():
     from app.services.bot_detection import is_bot_request as bot_detection_is_bot_request
     return bot_detection_is_bot_request()
 
+def enhanced_bot_detection():
+    """Enhanced bot detection that considers JavaScript capability."""
+    from app.services.bot_detection import enhanced_bot_detection as enhanced_detection
+    return enhanced_detection()
+
 def get_all_links():
     return Link.query.all()
 
@@ -547,7 +552,7 @@ def increment_click_count(url):
     if link:
         user_agent = request.headers.get('User-Agent', '')
         referrer = request.headers.get('Referer', '')
-        is_bot, bot_reason = is_bot_request()
+        is_bot, bot_reason = enhanced_bot_detection()
         
         # track_user_agent returns True ONLY if successfully logged as HUMAN
         # This is the source of truth for click counting - ensures log and count match
