@@ -1,0 +1,372 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ tool_data.seo.title[current_lang] }}{% endblock %}
+{% block meta_description %}{{ tool_data.seo.meta_description[current_lang] }}{% endblock %}
+{% block meta_keywords %}{{ tool_data.seo.keywords[current_lang] }}{% endblock %}
+{% block og_title %}{{ tool_data.seo.title[current_lang] }}{% endblock %}
+{% block og_description %}{{ tool_data.seo.meta_description[current_lang] }}{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-12">
+        {% include 'components/tool_header.html' %}
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12 col-lg-8">
+        <div class="card mb-3">
+            <div class="card-body">
+                <div class="row g-2 align-items-end">
+                    <div class="col-12 col-md-9">
+                        <label for="urlInput" class="form-label">
+                            {% if current_lang == 'de' %}URL (HTTPS erforderlich){% else %}URL (HTTPS required){% endif %}
+                        </label>
+                        <input type="url" class="form-control" id="urlInput" placeholder="https://example.com">
+                        <div class="invalid-feedback" id="urlError"></div>
+                    </div>
+                    <div class="col-12 col-md-3">
+                        <button class="btn btn-primary w-100" id="followBtn">
+                            <i class="fas fa-route me-1"></i>
+                            {% if current_lang == 'de' %}Weiterleitungen folgen{% else %}Follow Redirects{% endif %}
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="form-check mt-3">
+                    <input class="form-check-input" type="checkbox" id="autoRefresh">
+                    <label class="form-check-label" for="autoRefresh">
+                        {% if current_lang == 'de' %}Automatisch alle 5 Minuten prüfen{% else %}Auto check every 5 minutes{% endif %}
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <!-- Results Card -->
+        <div class="card d-none" id="resultsCard">
+            <div class="card-header">
+                <h5 class="card-title mb-0">
+                    <i class="fas fa-route me-2"></i>
+                    {% if current_lang == 'de' %}Weiterleitungskette{% else %}Redirect Chain{% endif %}
+                </h5>
+            </div>
+            <div class="card-body">
+                <!-- Summary -->
+                <div class="row mb-3" id="summarySection">
+                    <div class="col-md-6">
+                        <div class="card bg-light">
+                            <div class="card-body text-center">
+                                <h6 class="card-subtitle mb-2 text-muted">
+                                    {% if current_lang == 'de' %}Anzahl Weiterleitungen{% else %}Total Redirects{% endif %}
+                                </h6>
+                                <h3 class="card-title mb-0" id="totalRedirects">-</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card bg-light">
+                            <div class="card-body text-center">
+                                <h6 class="card-subtitle mb-2 text-muted">
+                                    {% if current_lang == 'de' %}Endgültiger Status{% else %}Final Status{% endif %}
+                                </h6>
+                                <h3 class="card-title mb-0" id="finalStatus">-</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Redirect Chain -->
+                <div id="redirectChain">
+                    <div class="d-flex justify-content-center">
+                        <div class="spinner-border text-primary" role="status">
+                            <span class="visually-hidden">Loading...</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-12 col-lg-4">
+        <!-- Info Card -->
+        <div class="card mb-3">
+            <div class="card-header">
+                <h6 class="card-title mb-0">
+                    <i class="fas fa-info-circle me-2"></i>
+                    {% if current_lang == 'de' %}Über dieses Tool{% else %}About This Tool{% endif %}
+                </h6>
+            </div>
+            <div class="card-body">
+                {% if current_lang == 'de' %}
+                <p class="card-text">Dieses Tool folgt HTTP-Weiterleitungen (3xx-Statuscodes) und zeigt die complete Weiterleitungskette von der Start-URL bis zur endgültigen Ziel-URL.</p>
+                <ul class="card-text">
+                    <li>Unterstützt HTTP-Statuscodes 301, 302, 303, 307, 308</li>
+                    <li>Maximal 20 Weiterleitungen zur Vermeidung von Endlosschleifen</li>
+                    <li>Zeigt Antwortzeit für jeden Schritt</li>
+                    <li>Kein Download von Inhalten - nur Header-Prüfung</li>
+                </ul>
+                {% else %}
+                <p class="card-text">This tool follows HTTP redirects (3xx status codes) and shows the complete redirect chain from the initial URL to the final destination URL.</p>
+                <ul class="card-text">
+                    <li>Supports HTTP status codes 301, 302, 303, 307, 308</li>
+                    <li>Maximum 20 redirects to prevent infinite loops</li>
+                    <li>Shows response time for each step</li>
+                    <li>No content download - headers only</li>
+                </ul>
+                {% endif %}
+            </div>
+        </div>
+
+        <!-- Status Code Legend -->
+        <div class="card mb-3">
+            <div class="card-header">
+                <h6 class="card-title mb-0">
+                    <i class="fas fa-list me-2"></i>
+                    {% if current_lang == 'de' %}HTTP-Statuscodes{% else %}HTTP Status Codes{% endif %}
+                </h6>
+            </div>
+            <div class="card-body">
+                <div class="small">
+                    <div class="d-flex align-items-center mb-2">
+                        <span class="badge bg-primary me-2">301</span>
+                        <span>{% if current_lang == 'de' %}Moved Permanently{% else %}Moved Permanently{% endif %}</span>
+                    </div>
+                    <div class="d-flex align-items-center mb-2">
+                        <span class="badge bg-info me-2">302</span>
+                        <span>{% if current_lang == 'de' %}Found{% else %}Found{% endif %}</span>
+                    </div>
+                    <div class="d-flex align-items-center mb-2">
+                        <span class="badge bg-secondary me-2">303</span>
+                        <span>{% if current_lang == 'de' %}See Other{% else %}See Other{% endif %}</span>
+                    </div>
+                    <div class="d-flex align-items-center mb-2">
+                        <span class="badge bg-warning me-2">307</span>
+                        <span>{% if current_lang == 'de' %}Temporary Redirect{% else %}Temporary Redirect{% endif %}</span>
+                    </div>
+                    <div class="d-flex align-items-center mb-2">
+                        <span class="badge bg-danger me-2">308</span>
+                        <span>{% if current_lang == 'de' %}Permanent Redirect{% else %}Permanent Redirect{% endif %}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const urlInput = document.getElementById('urlInput');
+    const followBtn = document.getElementById('followBtn');
+    const resultsCard = document.getElementById('resultsCard');
+    const redirectChain = document.getElementById('redirectChain');
+    const totalRedirects = document.getElementById('totalRedirects');
+    const finalStatus = document.getElementById('finalStatus');
+    const autoRefresh = document.getElementById('autoRefresh');
+    let refreshInterval = null;
+
+    function getStatusBadgeClass(statusCode) {
+        if (statusCode >= 200 && statusCode < 300) return 'bg-success';
+        if (statusCode >= 300 && statusCode < 400) return 'bg-primary';
+        if (statusCode >= 400 && statusCode < 500) return 'bg-warning';
+        if (statusCode >= 500) return 'bg-danger';
+        return 'bg-secondary';
+    }
+
+    function formatResponseTime(ms) {
+        if (ms < 1000) return `${ms}ms`;
+        return `${(ms / 1000).toFixed(2)}s`;
+    }
+
+    function renderRedirectChain(data) {
+        if (data.error) {
+            redirectChain.innerHTML = `
+                <div class="alert alert-danger">
+                    <h6><i class="fas fa-exclamation-triangle me-2"></i>${data.error.type}</h6>
+                    <p class="mb-0">${data.error.message}</p>
+                </div>
+            `;
+            totalRedirects.textContent = '-';
+            finalStatus.innerHTML = '<span class="badge bg-danger">Error</span>';
+            return;
+        }
+
+        if (data.blocked) {
+            redirectChain.innerHTML = `
+                <div class="alert alert-warning">
+                    <h6><i class="fas fa-ban me-2"></i>URL Blocked</h6>
+                    <p class="mb-0">${data.error.message}</p>
+                </div>
+            `;
+            totalRedirects.textContent = '-';
+            finalStatus.innerHTML = '<span class="badge bg-warning">Blocked</span>';
+            return;
+        }
+
+        // Update summary
+        totalRedirects.textContent = data.total_redirects;
+        finalStatus.innerHTML = `<span class="badge ${getStatusBadgeClass(data.final_status)}">${data.final_status}</span>`;
+
+        // Render redirect chain
+        let chainHtml = '<div class="redirect-chain">';
+        
+        data.redirect_chain.forEach((step, index) => {
+            const isLast = index === data.redirect_chain.length - 1;
+            const hasRedirect = step.status_code >= 300 && step.status_code < 400;
+            
+            chainHtml += `
+                <div class="d-flex align-items-start mb-3">
+                    <div class="me-3">
+                        <div class="d-flex flex-column align-items-center">
+                            <div class="badge ${getStatusBadgeClass(step.status_code)} mb-1">${step.status_code}</div>
+                            ${!isLast && hasRedirect ? '<i class="fas fa-arrow-down text-muted"></i>' : ''}
+                        </div>
+                    </div>
+                    <div class="flex-grow-1">
+                        <div class="card ${isLast ? 'border-success' : ''}">
+                            <div class="card-body py-2">
+                                <div class="d-flex justify-content-between align-items-start">
+                                    <div>
+                                        <code class="small text-break">${step.url}</code>
+                                        ${step.location ? `<div class="small text-muted mt-1"><i class="fas fa-arrow-right me-1"></i>Location: <code>${step.location}</code></div>` : ''}
+                                    </div>
+                                    <div class="text-end">
+                                        <div class="small text-muted">${formatResponseTime(step.response_time_ms)}</div>
+                                        <div class="small text-muted">${step.status_text}</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+        });
+        
+        chainHtml += '</div>';
+        redirectChain.innerHTML = chainHtml;
+    }
+
+    async function followRedirects() {
+        const url = urlInput.value.trim();
+        
+        if (!url) {
+            urlInput.classList.add('is-invalid');
+            document.getElementById('urlError').textContent = 
+                '{% if current_lang == "de" %}URL ist erforderlich{% else %}URL is required{% endif %}';
+            return;
+        }
+
+        // Clear previous errors
+        urlInput.classList.remove('is-invalid');
+        followBtn.disabled = true;
+        followBtn.innerHTML = '<i class="fas fa-spinner fa-spin me-1"></i> {% if current_lang == "de" %}Prüfe...{% else %}Checking...{% endif %}';
+        
+        // Show results card
+        resultsCard.classList.remove('d-none');
+        redirectChain.innerHTML = `
+            <div class="d-flex justify-content-center">
+                <div class="spinner-border text-primary" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+            </div>
+        `;
+
+        try {
+            const response = await fetch('/tools/api/redirect-follower', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ url: url })
+            });
+
+            const data = await response.json();
+            
+            if (!response.ok) {
+                throw new Error(data.error || 'Request failed');
+            }
+
+            renderRedirectChain(data);
+        } catch (error) {
+            redirectChain.innerHTML = `
+                <div class="alert alert-danger">
+                    <h6><i class="fas fa-exclamation-triangle me-2"></i>
+                        {% if current_lang == 'de' %}Fehler{% else %}Error{% endif %}
+                    </h6>
+                    <p class="mb-0">${error.message}</p>
+                </div>
+            `;
+            totalRedirects.textContent = '-';
+            finalStatus.innerHTML = '<span class="badge bg-danger">Error</span>';
+        } finally {
+            followBtn.disabled = false;
+            followBtn.innerHTML = '<i class="fas fa-route me-1"></i> {% if current_lang == "de" %}Weiterleitungen folgen{% else %}Follow Redirects{% endif %}';
+        }
+    }
+
+    function startAutoRefresh() {
+        if (refreshInterval) {
+            clearInterval(refreshInterval);
+        }
+        
+        refreshInterval = setInterval(() => {
+            if (urlInput.value.trim()) {
+                followRedirects();
+            }
+        }, 5 * 60 * 1000); // 5 minutes
+    }
+
+    function stopAutoRefresh() {
+        if (refreshInterval) {
+            clearInterval(refreshInterval);
+            refreshInterval = null;
+        }
+    }
+
+    // Event listeners
+    followBtn.addEventListener('click', followRedirects);
+    
+    urlInput.addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') {
+            followRedirects();
+        }
+    });
+
+    autoRefresh.addEventListener('change', function() {
+        if (this.checked) {
+            startAutoRefresh();
+        } else {
+            stopAutoRefresh();
+        }
+    });
+
+    // Clear auto refresh on page unload
+    window.addEventListener('beforeunload', stopAutoRefresh);
+});
+</script>
+
+<style>
+.redirect-chain {
+    max-height: 600px;
+    overflow-y: auto;
+}
+
+.redirect-chain .card {
+    transition: all 0.2s ease;
+}
+
+.redirect-chain .card:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.redirect-chain .border-success {
+    border-left: 4px solid var(--bs-success) !important;
+}
+
+code {
+    font-size: 0.875em;
+}
+</style>
+{% include 'components/seo_content.html' %}
+{% include 'components/related_tools.html' %}
+{% endblock %}

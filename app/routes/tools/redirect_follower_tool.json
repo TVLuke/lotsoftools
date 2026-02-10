@@ -1,0 +1,118 @@
+{
+  "route": "/tools/redirect-follower",
+  "img": "fas fa-route",
+  "name": {
+    "en": "Redirect Follower",
+    "de": "Weiterleitungs-Verfolger"
+  },
+  "description": {
+    "en": "Follow HTTP redirects to find the final destination URL",
+    "de": "HTTP-Weiterleitungen folgen, um die endgültige Ziel-URL zu finden"
+  },
+  "tags": ["network"],
+  "new_window": false,
+  "frontend_only": false,
+  "uses_external_service": true,
+  "seo": {
+    "title": {
+      "en": "Redirect Follower - Free Online HTTP Redirect Chain Checker",
+      "de": "Weiterleitungs-Verfolger - Kostenloser Online HTTP-Weiterleitungsketten-Checker"
+    },
+    "meta_description": {
+      "en": "Follow HTTP redirects (301, 302, 303, 307, 308) to find the final destination URL. Check redirect chains, analyze URL forwarding, debug redirect loops. Privacy-friendly, server-side processing.",
+      "de": "HTTP-Weiterleitungen (301, 302, 303, 307, 308) folgen, um die endgültige Ziel-URL zu finden. Weiterleitungsketten prüfen, URL-Weiterleitung analysieren, Weiterleitungsschleifen debuggen. Datenschutzfreundlich, serverseitige Verarbeitung."
+    },
+    "keywords": {
+      "en": "redirect follower, HTTP redirect checker, URL redirect chain, 301 redirect, 302 redirect, link tracer, URL forwarding analyzer, redirect loop detector, privacy-friendly",
+      "de": "Weiterleitungs-Verfolger, HTTP-Weiterleitungs-Checker, URL-Weiterleitungskette, 301-Weiterleitung, 302-Weiterleitung, Link-Tracer, URL-Weiterleitungs-Analysator, Weiterleitungsschleifen-Detektor, Datenschutzfreundlich"
+    },
+    "content": {
+      "heading": {
+        "en": "About This Redirect Follower Tool",
+        "de": "Über diesen Weiterleitungs-Verfolger"
+      },
+      "intro": {
+        "en": "This server-side redirect follower traces HTTP redirects (301, 302, 303, 307, 308) to show you the complete redirect chain from the initial URL to the final destination. Perfect for debugging URL forwarding, analyzing marketing campaigns, or understanding complex redirect patterns.",
+        "de": "Dieser serverseitige Weiterleitungs-Verfolger verfolgt HTTP-Weiterleitungen (301, 302, 303, 307, 308), um Ihnen die complete Weiterleitungskette von der Start-URL bis zum endgültigen Ziel zu zeigen. Perfekt zum Debuggen von URL-Weiterleitungen, Analysieren von Marketing-Kampagnen oder Verstehen komplexer Weiterleitungsmuster."
+      },
+      "features": {
+        "heading": {
+          "en": "Key Features:",
+          "de": "Hauptfunktionen:"
+        },
+        "items": [
+          {
+            "en": "<strong>Complete Redirect Chain:</strong> Shows every step of the redirect journey",
+            "de": "<strong>Complete Weiterleitungskette:</strong> Zeigt jeden Schritt der Weiterleitungsreise"
+          },
+          {
+            "en": "<strong>HTTP Status Codes:</strong> Supports 301, 302, 303, 307, 308 redirects",
+            "de": "<strong>HTTP-Statuscodes:</strong> Unterstützt 301, 302, 303, 307, 308 Weiterleitungen"
+          },
+          {
+            "en": "<strong>Response Times:</strong> Shows timing for each redirect step",
+            "de": "<strong>Antwortzeiten:</strong> Zeigt Zeit für jeden Weiterleitungsschritt"
+          },
+          {
+            "en": "<strong>Loop Protection:</strong> Maximum 20 redirects to prevent infinite loops",
+            "de": "<strong>Schleifenschutz:</strong> Maximal 20 Weiterleitungen zur Vermeidung von Endlosschleifen"
+          },
+          {
+            "en": "<strong>Headers Only:</strong> No content download - faster and more private",
+            "de": "<strong>Nur Header:</strong> Kein Content-Download - schneller und privater"
+          }
+        ]
+      },
+      "use_cases": {
+        "heading": {
+          "en": "Use Cases:",
+          "de": "Anwendungsfälle:"
+        },
+        "items": [
+          {
+            "en": "Debug URL forwarding issues",
+            "de": "URL-Weiterleitungsprobleme debuggen"
+          },
+          {
+            "en": "Analyze marketing campaign redirects",
+            "de": "Marketing-Kampagnen-Weiterleitungen analysieren"
+          },
+          {
+            "en": "Check affiliate link destinations",
+            "de": "Affiliate-Link-Ziele prüfen"
+          },
+          {
+            "en": "Verify URL shortener behavior",
+            "de": "URL-Verkürzer-Verhalten überprüfen"
+          },
+          {
+            "en": "Identify redirect loops",
+            "de": "Weiterleitungsschleifen identifizieren"
+          }
+        ]
+      },
+      "disclaimer": {
+        "en": "⚠️ Disclaimer: This tool makes requests from our server, not your browser. Results may differ from your local experience due to geographic location, firewall rules, or network conditions.",
+        "de": "⚠️ Haftungsausschluss: Dieses Tool sendet Anfragen von unserem Server, nicht von Ihrem Browser. Die Ergebnisse können aufgrund von geografischem Standort, Firewall-Regeln oder Netzwerkbedingungen von Ihrer lokalen Erfahrung abweichen."
+      },
+      "search_queries": {
+        "en": [
+          "Follow URL redirects",
+          "HTTP redirect chain checker",
+          "301 redirect analyzer",
+          "URL forwarding tracer",
+          "Redirect loop detector",
+          "Where does this URL redirect?"
+        ],
+        "de": [
+          "URL-Weiterleitungen folgen",
+          "HTTP-Weiterleitungsketten-Checker",
+          "301-Weiterleitungs-Analysator",
+          "URL-Weiterleitungs-Tracer",
+          "Weiterleitungsschleifen-Detektor",
+          "Wohin leitet diese URL weiter?"
+        ]
+      }
+    }
+  }
+}

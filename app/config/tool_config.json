@@ -43,6 +43,7 @@
   "ohms_law": {"active": true},
   "qr_generator": {"active": true},
   "radius": {"active": true},
+  "redirect_follower": {"active": true},
   "random_string": {"active": true},
   "resistor_calculator": {"active": true},
   "simulate_location": {"active": true},
