@@ -37,14 +37,15 @@ class TestCookieConsent:
             assert result is True
             mock_file.write.assert_called_once()
             
-            # Check log entry format
+            # Check log entry format (now has 6 fields with consent)
             log_entry = mock_file.write.call_args[0][0]
             parts = log_entry.strip().split('|')
-            assert len(parts) == 5
+            assert len(parts) == 6
             assert parts[1] == 'HUMAN_BY_UA'
             assert self.test_url in parts[2]
             assert self.test_user_agent in parts[3]
             assert parts[4] == 'Human'
+            assert parts[5] == 'unknown'  # Default consent status
 
     @patch('app.routes.cookie_consent.open', create=True)
     @patch('app.routes.cookie_consent.os.makedirs')
@@ -108,9 +109,9 @@ class TestCookieConsent:
             # The original dangerous inputs had \n| which should become ' ' (single space)
             assert ' ' in content_without_final_newline, 'Input pipe characters should be replaced with spaces'
             
-            # Count field separators (should be exactly 4 pipes for 5 fields)
+            # Count field separators (should be exactly 5 pipes for 6 fields with consent)
             pipe_count = content_without_final_newline.count('|')
-            assert pipe_count == 4, f'Should have exactly 4 field separators, got {pipe_count}: {repr(content_without_final_newline)}'
+            assert pipe_count == 5, f'Should have exactly 5 field separators, got {pipe_count}: {repr(content_without_final_newline)}'
 
 
 class TestCookieConsentAPI:
