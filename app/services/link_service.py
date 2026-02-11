@@ -611,12 +611,15 @@ def get_referrer_stats_by_domain():
         if not data['is_bot']:  # Only count human referrers
             domain = _extract_referrer_domain(referrer)
             
+            # Extract hostname (remove port if present)
+            hostname = domain.split(':')[0] if ':' in domain else domain
+            
             # Skip excluded domains
-            if domain in excluded_domains:
+            if hostname in excluded_domains:
                 continue
             
             # Extract main domain (remove subdomains)
-            main_domain = _get_main_domain(domain)
+            main_domain = _get_main_domain(hostname)
             
             # Skip if main domain is in excluded list
             if main_domain in excluded_domains:
