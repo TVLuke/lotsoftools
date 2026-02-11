@@ -605,7 +605,7 @@ def get_referrer_stats_by_domain():
     domain_stats = {}
     
     # Domains to exclude
-    excluded_domains = {'lotsoftool.net', 'lotsoftools.de', 'lotsoftools.pro', 'lotsof.tools'}
+    excluded_domains = {'lotsoftools.net', 'lotsoftools.de', 'lotsoftools.pro', 'lotsof.tools'}
     
     for referrer, data in stats.items():
         if not data['is_bot']:  # Only count human referrers
