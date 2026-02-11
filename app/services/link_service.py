@@ -567,6 +567,32 @@ def _extract_referrer_domain(referrer):
         return referrer
 
 
+def _get_main_domain(domain):
+    """Extract main domain from subdomains.
+    
+    Examples:
+        'news.google.com' -> 'google.com'
+        'mail.yahoo.co.uk' -> 'yahoo.co.uk'
+        'subdomain.example.org' -> 'example.org'
+    """
+    try:
+        # Split domain by dots
+        parts = domain.split('.')
+        
+        # Handle common second-level TLDs like .co.uk, .de, .fr, etc.
+        if len(parts) >= 3 and parts[-2] in {'co', 'com', 'org', 'net', 'gov', 'edu', 'mil'}:
+            # For domains like example.co.uk -> example.co.uk
+            return '.'.join(parts[-3:])
+        elif len(parts) >= 2:
+            # For regular domains like subdomain.example.com -> example.com
+            return '.'.join(parts[-2:])
+        else:
+            # For single-part domains or malformed domains
+            return domain
+    except:
+        return domain
+
+
 def get_referrer_stats():
     """Get referrer statistics sorted by count descending."""
     stats = _parse_referrer_log()
@@ -578,13 +604,28 @@ def get_referrer_stats_by_domain():
     stats = _parse_referrer_log()
     domain_stats = {}
     
+    # Domains to exclude
+    excluded_domains = {'lotsoftool.net', 'lotsoftools.de', 'lotsoftools.pro', 'lotsof.tools'}
+    
     for referrer, data in stats.items():
         if not data['is_bot']:  # Only count human referrers
             domain = _extract_referrer_domain(referrer)
-            if domain in domain_stats:
-                domain_stats[domain] += data['count']
+            
+            # Skip excluded domains
+            if domain in excluded_domains:
+                continue
+            
+            # Extract main domain (remove subdomains)
+            main_domain = _get_main_domain(domain)
+            
+            # Skip if main domain is in excluded list
+            if main_domain in excluded_domains:
+                continue
+            
+            if main_domain in domain_stats:
+                domain_stats[main_domain] += data['count']
             else:
-                domain_stats[domain] = data['count']
+                domain_stats[main_domain] = data['count']
     
     return domain_stats
 
