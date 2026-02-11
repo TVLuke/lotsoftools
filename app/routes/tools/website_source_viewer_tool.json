@@ -1,0 +1,122 @@
+{
+  "route": "/tools/website-source-viewer",
+  "img": "fas fa-code",
+  "name": {
+    "en": "Website Source Code Viewer",
+    "de": "Website-Quellcode-Viewer"
+  },
+  "description": {
+    "en": "View and download the HTML source code of any website",
+    "de": "HTML-Quellcode jeder Website anzeigen und herunterladen"
+  },
+  "tags": ["network"],
+  "new_window": false,
+  "frontend_only": false,
+  "uses_external_service": true,
+  "seo": {
+    "title": {
+      "en": "Website Source Code Viewer - Free Online HTML Source Inspector",
+      "de": "Website-Quellcode-Viewer - Kostenloser Online HTML-Quellcode-Inspektor"
+    },
+    "meta_description": {
+      "en": "View and download HTML source code of any website. Inspect web page structure, analyze HTML markup, and study web development techniques. Privacy-friendly, server-side processing.",
+      "de": "HTML-Quellcode jeder Website anzeigen und herunterladen. Webseiten-Struktur inspizieren, HTML-Markup analysieren und Web-Development-Techniken studieren. Datenschutzfreundlich, serverseitige Verarbeitung."
+    },
+    "keywords": {
+      "en": "website source viewer, HTML source code, view page source, HTML inspector, web development tool, source code analyzer, page structure analyzer, privacy-friendly",
+      "de": "Website-Quellcode-Viewer, HTML-Quellcode, Seitenquelltext anzeigen, HTML-Inspektor, Web-Development-Tool, Quellcode-Analysator, Seitenstruktur-Analysator, Datenschutzfreundlich"
+    },
+    "content": {
+      "heading": {
+        "en": "About This Website Source Code Viewer",
+        "de": "Über diesen Website-Quellcode-Viewer"
+      },
+      "intro": {
+        "en": "This server-side website source code viewer allows you to inspect the HTML structure of any website. View the complete source code, analyze page structure, and understand how websites are built. Perfect for web developers, designers, and anyone curious about web technologies.",
+        "de": "Dieser serverseitige Website-Quellcode-Viewer ermöglicht es Ihnen, die HTML-Struktur jeder Website zu inspizieren. Vollständigen Quellcode anzeigen, Seitenstruktur analysieren und verstehen, wie Websites aufgebaut sind. Perfekt für Web-Entwickler, Designer und alle, die sich für Web-Technologien interessieren."
+      },
+      "features": {
+        "heading": {
+          "en": "Key Features:",
+          "de": "Hauptfunktionen:"
+        },
+        "items": [
+          {
+            "en": "<strong>Complete Source Code:</strong> View full HTML source of any website",
+            "de": "<strong>Vollständiger Quellcode:</strong> Vollständigen HTML-Quellcode jeder Website anzeigen"
+          },
+          {
+            "en": "<strong>Response Information:</strong> See status code, content type, and file size",
+            "de": "<strong>Antwort-Informationen:</strong> Statuscode, Content-Type und Dateigröße anzeigen"
+          },
+          {
+            "en": "<strong>Redirect Tracking:</strong> See how many redirects occurred",
+            "de": "<strong>Redirect-Tracking:</strong> Anzahl der Weiterleitungen anzeigen"
+          },
+          {
+            "en": "<strong>Copy Function:</strong> Easy copy to clipboard functionality",
+            "de": "<strong>Kopierfunktion:</strong> Einfache Kopieren-in-Zwischenablage-Funktion"
+          },
+          {
+            "en": "<strong>Download Option:</strong> Save source code as HTML file",
+            "de": "<strong>Download-Option:</strong> Quellcode als HTML-Datei speichern"
+          },
+          {
+            "en": "<strong>Enhanced Text Area:</strong> Syntax highlighting and search features",
+            "de": "<strong>Erweitertes Textfeld:</strong> Syntax-Highlighting und Suchfunktionen"
+          }
+        ]
+      },
+      "use_cases": {
+        "heading": {
+          "en": "Use Cases:",
+          "de": "Anwendungsfälle:"
+        },
+        "items": [
+          {
+            "en": "Study website structure and HTML techniques",
+            "de": "Website-Struktur und HTML-Techniken studieren"
+          },
+          {
+            "en": "Debug and analyze web page issues",
+            "de": "Webseiten-Probleme debuggen und analysieren"
+          },
+          {
+            "en": "Learn from other websites' implementations",
+            "de": "Von Implementierungen anderer Websites lernen"
+          },
+          {
+            "en": "Extract content or structure from websites",
+            "de": "Inhalte oder Strukturen von Websites extrahieren"
+          },
+          {
+            "en": "Check SEO and accessibility implementation",
+            "de": "SEO- und Barrierefreiheits-Implementierung prüfen"
+          }
+        ]
+      },
+      "disclaimer": {
+        "en": "⚠️ Disclaimer: This tool makes requests from our server, not your browser. Results may differ from your local experience due to geographic location, firewall rules, or network conditions. Respect copyright and terms of service when viewing source code.",
+        "de": "⚠️ Haftungsausschluss: Dieses Tool sendet Anfragen von unserem Server, nicht von Ihrem Browser. Die Ergebnisse können aufgrund von geografischem Standort, Firewall-Regeln oder Netzwerkbedingungen von Ihrer lokalen Erfahrung abweichen. Respektieren Sie Urheberrechte und Nutzungsbedingungen beim Anzeigen von Quellcode."
+      },
+      "search_queries": {
+        "en": [
+          "View website source code",
+          "HTML source inspector",
+          "Page source viewer",
+          "Website structure analyzer",
+          "HTML code viewer",
+          "View page source online"
+        ],
+        "de": [
+          "Website-Quellcode anzeigen",
+          "HTML-Quelltext-Inspektor",
+          "Seitenquelltext-Viewer",
+          "Website-Struktur-Analysator",
+          "HTML-Code-Viewer",
+          "Seitenquelltext online anzeigen"
+        ]
+      }
+    }
+  }
+}

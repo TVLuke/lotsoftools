@@ -193,6 +193,7 @@ def create_app(config_class=Config):
     from app.routes.tools.time_converter import time_converter_bp
     from app.routes.tools.url_checker import url_checker_bp
     from app.routes.tools.redirect_follower import redirect_follower_bp
+    from app.routes.tools.website_source_viewer import website_source_viewer_bp
     from app.routes.tools.stopwatch import stopwatch_bp
     from app.routes.tools.bmi_calculator import bmi_calculator_bp
     from app.routes.tools.resistor_calculator import resistor_calculator_bp
@@ -251,6 +252,7 @@ def create_app(config_class=Config):
     app.register_blueprint(time_converter_bp)
     app.register_blueprint(url_checker_bp)
     app.register_blueprint(redirect_follower_bp)
+    app.register_blueprint(website_source_viewer_bp)
     app.register_blueprint(stopwatch_bp)
     app.register_blueprint(bmi_calculator_bp)
     app.register_blueprint(resistor_calculator_bp)

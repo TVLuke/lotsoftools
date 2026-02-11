@@ -1,0 +1,262 @@
+{% extends 'base.html' %}
+{% from 'components/textarea.html' import enhanced_textarea %}
+
+{% block title %}{{ tool_data.seo.title[current_lang] }}{% endblock %}
+{% block meta_description %}{{ tool_data.seo.meta_description[current_lang] }}{% endblock %}
+{% block meta_keywords %}{{ tool_data.seo.keywords[current_lang] }}{% endblock %}
+{% block og_title %}{{ tool_data.seo.title[current_lang] }}{% endblock %}
+{% block og_description %}{{ tool_data.seo.meta_description[current_lang] }}{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-12">
+        {% include 'components/tool_header.html' %}
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12 col-lg-4 mb-4">
+        <div class="card h-100">
+            <div class="card-header">
+                <h5 class="mb-0">
+                    {% if current_lang == 'de' %}URL Eingabe{% else %}URL Input{% endif %}
+                </h5>
+            </div>
+            <div class="card-body">
+                <div class="mb-3">
+                    <label for="urlInput" class="form-label">
+                        {% if current_lang == 'de' %}Website URL{% else %}Website URL{% endif %}
+                    </label>
+                    <div class="input-group">
+                        <span class="input-group-text">
+                            <i class="fas fa-globe"></i>
+                        </span>
+                        <input type="url" class="form-control" id="urlInput" 
+                               placeholder="{% if current_lang == 'de' %}https://example.com{% else %}https://example.com{% endif %}"
+                               aria-label="{% if current_lang == 'de' %}Website URL{% else %}Website URL{% endif %}">
+                    </div>
+                    <div id="urlError" class="invalid-feedback"></div>
+                </div>
+                
+                <div class="d-grid">
+                    <button type="button" id="getSourceBtn" class="btn btn-primary">
+                        <i class="fas fa-code me-1"></i>
+                        {% if current_lang == 'de' %}Quellcode abrufen{% else %}Get Source Code{% endif %}
+                    </button>
+                </div>
+                
+                <div id="sourceInfo" class="mt-3" style="display: none;">
+                    <div class="small text-muted">
+                        <div><strong>{% if current_lang == 'de' %}Status:{% else %}Status:{% endif %}</strong> <span id="statusCode"></span></div>
+                        <div><strong>{% if current_lang == 'de' %}Content-Type:{% else %}Content-Type:{% endif %}</strong> <span id="contentType"></span></div>
+                        <div><strong>{% if current_lang == 'de' %}Größe:{% else %}Size:{% endif %}</strong> <span id="contentLength"></span></div>
+                        <div><strong>{% if current_lang == 'de' %}Weiterleitungen:{% else %}Redirects:{% endif %}</strong> <span id="redirectCount"></span></div>
+                        <div><strong>{% if current_lang == 'de' %}Finale URL:{% else %}Final URL:{% endif %}</strong> <span id="finalUrl"></span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-12 col-lg-8 mb-4">
+        <div class="card h-100">
+            <div class="card-header d-flex justify-content-between align-items-center">
+                <h5 class="mb-0">
+                    {% if current_lang == 'de' %}HTML Quellcode{% else %}HTML Source Code{% endif %}
+                </h5>
+                <div class="btn-group" role="group" id="actionButtons" style="display: none;">
+                    <button type="button" class="btn btn-outline-secondary btn-sm" id="copyBtn">
+                        <i class="fas fa-copy me-1"></i>
+                        {% if current_lang == 'de' %}Kopieren{% else %}Copy{% endif %}
+                    </button>
+                    <button type="button" class="btn btn-outline-secondary btn-sm" id="downloadBtn">
+                        <i class="fas fa-download me-1"></i>
+                        {% if current_lang == 'de' %}Herunterladen{% else %}Download{% endif %}
+                    </button>
+                </div>
+            </div>
+            <div class="card-body d-flex flex-column">
+                <textarea class="form-control flex-grow-1 font-monospace" id="sourceOutput" rows="25" data-enhanced readonly 
+                          placeholder="{% if current_lang == 'de' %}HTML Quellcode wird hier angezeigt...{% else %}HTML source code will be displayed here...{% endif %}"
+                          aria-label="{% if current_lang == 'de' %}HTML Quellcode{% else %}HTML Source Code{% endif %}"></textarea>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+const urlInput = document.getElementById('urlInput');
+const getSourceBtn = document.getElementById('getSourceBtn');
+const sourceOutput = document.getElementById('sourceOutput');
+const sourceInfo = document.getElementById('sourceInfo');
+const actionButtons = document.getElementById('actionButtons');
+const copyBtn = document.getElementById('copyBtn');
+const downloadBtn = document.getElementById('downloadBtn');
+const urlError = document.getElementById('urlError');
+
+// Info elements
+const statusCode = document.getElementById('statusCode');
+const contentType = document.getElementById('contentType');
+const contentLength = document.getElementById('contentLength');
+const redirectCount = document.getElementById('redirectCount');
+const finalUrl = document.getElementById('finalUrl');
+
+async function getSourceCode() {
+    const url = urlInput.value.trim();
+    
+    if (!url) {
+        urlInput.classList.add('is-invalid');
+        urlError.textContent = '{% if current_lang == "de" %}URL ist erforderlich{% else %}URL is required{% endif %}';
+        return;
+    }
+
+    // Clear previous errors
+    urlInput.classList.remove('is-invalid');
+    sourceOutput.value = '';
+    sourceInfo.style.display = 'none';
+    actionButtons.style.display = 'none';
+    
+    // Update button state
+    getSourceBtn.disabled = true;
+    getSourceBtn.innerHTML = '<i class="fas fa-spinner fa-spin me-1"></i> {% if current_lang == "de" %}Lade...{% else %}Loading...{% endif %}';
+    
+    try {
+        const response = await fetch('/tools/api/website-source-viewer', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ url: url })
+        });
+        
+        if (!response.ok) {
+            const errorText = await response.text();
+            throw new Error(`HTTP ${response.status}: ${response.statusText}\nResponse: ${errorText.substring(0, 200)}`);
+        }
+        
+        let data;
+        try {
+            data = await response.json();
+        } catch (jsonError) {
+            const responseText = await response.text();
+            console.error('JSON parsing error:', jsonError);
+            console.error('Response text (first 500 chars):', responseText.substring(0, 500));
+            throw new Error(`Failed to parse JSON response. Response: ${responseText.substring(0, 200)}`);
+        }
+        
+        if (data.error) {
+            // Handle error
+            sourceOutput.value = `Error: ${data.error.type}\n${data.error.message}`;
+            sourceOutput.classList.add('text-danger');
+        } else {
+            // Success - display source code
+            sourceOutput.value = data.source_code || 'No source code available';
+            sourceOutput.classList.remove('text-danger');
+            
+            // Update info
+            statusCode.textContent = data.status_code;
+            contentType.textContent = data.content_type;
+            contentLength.textContent = formatBytes(data.content_length);
+            redirectCount.textContent = data.redirect_count;
+            finalUrl.textContent = data.final_url;
+            
+            // Update input to show the actual URL used
+            if (data.url !== urlInput.value) {
+                urlInput.value = data.url;
+            }
+            
+            sourceInfo.style.display = 'block';
+            actionButtons.style.display = 'flex';
+        }
+    } catch (error) {
+        console.error('Main error:', error);
+        sourceOutput.value = 'Error: Failed to fetch source code';
+        sourceOutput.classList.add('text-danger');
+    } finally {
+        // Reset button state
+        getSourceBtn.disabled = false;
+        getSourceBtn.innerHTML = '<i class="fas fa-code me-1"></i> {% if current_lang == "de" %}Quellcode abrufen{% else %}Get Source Code{% endif %}';
+    }
+}
+
+function formatBytes(bytes) {
+    if (bytes === 0) return '0 Bytes';
+    const k = 1024;
+    const sizes = ['Bytes', 'KB', 'MB', 'GB'];
+    const i = Math.floor(Math.log(bytes) / Math.log(k));
+    return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
+}
+
+function copyToClipboard() {
+    sourceOutput.select();
+    document.execCommand('copy');
+    
+    // Visual feedback
+    const originalText = copyBtn.innerHTML;
+    copyBtn.innerHTML = '<i class="fas fa-check me-1"></i> {% if current_lang == "de" %}Kopiert!{% else %}Copied!{% endif %}';
+    setTimeout(() => {
+        copyBtn.innerHTML = originalText;
+    }, 2000);
+}
+
+function downloadSource() {
+    const url = urlInput.value.trim();
+    const domain = new URL(url).hostname;
+    const filename = `${domain}-source.html`;
+    
+    const blob = new Blob([sourceOutput.value], { type: 'text/html' });
+    const downloadUrl = URL.createObjectURL(blob);
+    
+    const a = document.createElement('a');
+    a.href = downloadUrl;
+    a.download = filename;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(downloadUrl);
+}
+
+// Event listeners
+getSourceBtn.addEventListener('click', getSourceCode);
+copyBtn.addEventListener('click', copyToClipboard);
+downloadBtn.addEventListener('click', downloadSource);
+
+urlInput.addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') {
+        getSourceCode();
+    }
+});
+
+urlInput.addEventListener('input', () => {
+    urlInput.classList.remove('is-invalid');
+});
+</script>
+
+<style>
+.font-monospace {
+    font-family: 'Courier New', Courier, monospace;
+}
+
+#sourceOutput {
+    font-size: 12px;
+    line-height: 1.4;
+}
+
+#sourceOutput.text-danger {
+    color: var(--bs-danger) !important;
+}
+
+.btn-group .btn {
+    font-size: 0.875rem;
+}
+
+#sourceInfo {
+    background-color: var(--bs-gray-100);
+    padding: 0.75rem;
+    border-radius: 0.375rem;
+    border: 1px solid var(--bs-gray-200);
+}
+</style>
+{% include 'components/seo_content.html' %}
+{% include 'components/related_tools.html' %}
+{% endblock %}

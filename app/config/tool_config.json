@@ -47,6 +47,7 @@
   "random_string": {"active": true},
   "resistor_calculator": {"active": true},
   "simulate_location": {"active": true},
+  "website_source_viewer": {"active": true},
   "speed_test": {"active": false},
   "stopwatch": {"active": true},
   "subnet_calculator_ipv4": {"active": true},
