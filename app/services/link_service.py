@@ -593,6 +593,26 @@ def _get_main_domain(domain):
         return domain
 
 
+def _is_ip_or_partial_ip(domain):
+    """Check if domain is an IP address or partial IP address."""
+    try:
+        # Remove port if present
+        hostname = domain.split(':')[0]
+        parts = hostname.split('.')
+        
+        # Check if all parts are numeric (IP address)
+        if len(parts) >= 2 and all(part.isdigit() for part in parts):
+            return True
+            
+        # Check for partial IPs like "202.205" (2-3 numeric parts)
+        if len(parts) >= 2 and len(parts) <= 3 and all(part.isdigit() for part in parts):
+            return True
+            
+        return False
+    except:
+        return False
+
+
 def get_referrer_stats():
     """Get referrer statistics sorted by count descending."""
     stats = _parse_referrer_log()
@@ -616,6 +636,10 @@ def get_referrer_stats_by_domain():
             
             # Skip excluded domains
             if hostname in excluded_domains:
+                continue
+            
+            # Skip IP addresses and partial IPs
+            if _is_ip_or_partial_ip(hostname):
                 continue
             
             # Extract main domain (remove subdomains)
