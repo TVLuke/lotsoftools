@@ -360,62 +360,70 @@ function downloadAsJPG() {
 }
 
 function downloadAsSVG() {
-    // Regenerate QR code as SVG using qrcode library
-    if (!currentText) return;
+    const canvas = qrCodeContainer.querySelector('canvas');
+    if (!canvas) return;
     
-    // Get size
-    let width, height;
-    if (qrSize.value === 'custom') {
-        width = parseInt(document.getElementById('qrWidth').value);
-        height = parseInt(document.getElementById('qrHeight').value);
-    } else {
-        const size = parseInt(qrSize.value);
-        width = size;
-        height = size;
+    const width = canvas.width;
+    const height = canvas.height;
+    const ctx = canvas.getContext('2d');
+    const imageData = ctx.getImageData(0, 0, width, height);
+    const data = imageData.data;
+    
+    // Detect the module size by finding the first transition
+    let moduleSize = 1;
+    for (let x = 1; x < width; x++) {
+        const i1 = (0 * width + 0) * 4;
+        const i2 = (0 * width + x) * 4;
+        if (data[i1] !== data[i2]) {
+            moduleSize = x;
+            break;
+        }
     }
     
-    // Create a temporary container for SVG generation
-    const tempDiv = document.createElement('div');
-    tempDiv.style.display = 'none';
-    document.body.appendChild(tempDiv);
+    // Get colors from the QR code
+    const darkColor = colorDark.value;
+    const lightColor = colorLight.value;
     
-    // Generate QR code as SVG
-    const qr = new QRCode(tempDiv, {
-        text: currentText,
-        width: width,
-        height: height,
-        colorDark: colorDark.value,
-        colorLight: colorLight.value,
-        correctLevel: QRCode.CorrectLevel.H,
-        useSVG: true
-    });
+    // Create SVG with proper structure
+    let svg = `<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="${width}" height="${height}" viewBox="0 0 ${width} ${height}">
+<rect width="${width}" height="${height}" fill="${lightColor}"/>`;
     
-    // Wait a moment for generation
-    setTimeout(() => {
-        const svg = tempDiv.querySelector('svg');
-        if (svg) {
-            // Get SVG content
-            const svgData = new XMLSerializer().serializeToString(svg);
+    // Sample at module centers to determine which modules are dark
+    for (let y = 0; y < height; y += moduleSize) {
+        for (let x = 0; x < width; x += moduleSize) {
+            // Sample from center of module
+            const sampleX = Math.min(Math.floor(x + moduleSize / 2), width - 1);
+            const sampleY = Math.min(Math.floor(y + moduleSize / 2), height - 1);
+            const i = (sampleY * width + sampleX) * 4;
+            const r = data[i];
+            const g = data[i + 1];
+            const b = data[i + 2];
             
-            // Download SVG
-            const blob = new Blob([svgData], { type: 'image/svg+xml' });
-            const url = URL.createObjectURL(blob);
-            const a = document.createElement('a');
-            a.href = url;
-            a.download = 'qrcode.svg';
-            document.body.appendChild(a);
-            a.click();
-            document.body.removeChild(a);
-            URL.revokeObjectURL(url);
-            
-            if (typeof window.showSupportOnAction === 'function') {
-                window.showSupportOnAction(30000);
+            // Check if pixel is dark (closer to dark color than light color)
+            const brightness = (r + g + b) / 3;
+            if (brightness < 128) {
+                svg += `\n<rect x="${x}" y="${y}" width="${moduleSize}" height="${moduleSize}" fill="${darkColor}"/>`;
             }
         }
-        
-        // Clean up
-        document.body.removeChild(tempDiv);
-    }, 100);
+    }
+    
+    svg += '\n</svg>';
+    
+    // Download SVG
+    const blob = new Blob([svg], { type: 'image/svg+xml' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'qrcode.svg';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+
+    if (typeof window.showSupportOnAction === 'function') {
+        window.showSupportOnAction(30000);
+    }
 }
 
 // Toggle custom size fields
