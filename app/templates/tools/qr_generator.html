@@ -360,48 +360,62 @@ function downloadAsJPG() {
 }
 
 function downloadAsSVG() {
-    const canvas = qrCodeContainer.querySelector('canvas');
-    if (!canvas) return;
+    // Regenerate QR code as SVG using qrcode library
+    if (!currentText) return;
     
-    const size = canvas.width;
-    const ctx = canvas.getContext('2d');
-    const imageData = ctx.getImageData(0, 0, size, size);
-    const data = imageData.data;
+    // Get size
+    let width, height;
+    if (qrSize.value === 'custom') {
+        width = parseInt(document.getElementById('qrWidth').value);
+        height = parseInt(document.getElementById('qrHeight').value);
+    } else {
+        const size = parseInt(qrSize.value);
+        width = size;
+        height = size;
+    }
     
-    // Create SVG
-    let svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${size}" height="${size}" viewBox="0 0 ${size} ${size}">`;
-    svg += `<rect width="${size}" height="${size}" fill="#ffffff"/>`;
+    // Create a temporary container for SVG generation
+    const tempDiv = document.createElement('div');
+    tempDiv.style.display = 'none';
+    document.body.appendChild(tempDiv);
     
-    // Sample pixels to create rectangles (simplified approach)
-    const moduleSize = size / Math.sqrt(size);
-    for (let y = 0; y < size; y += moduleSize) {
-        for (let x = 0; x < size; x += moduleSize) {
-            const i = (Math.floor(y) * size + Math.floor(x)) * 4;
-            const r = data[i];
+    // Generate QR code as SVG
+    const qr = new QRCode(tempDiv, {
+        text: currentText,
+        width: width,
+        height: height,
+        colorDark: colorDark.value,
+        colorLight: colorLight.value,
+        correctLevel: QRCode.CorrectLevel.H,
+        useSVG: true
+    });
+    
+    // Wait a moment for generation
+    setTimeout(() => {
+        const svg = tempDiv.querySelector('svg');
+        if (svg) {
+            // Get SVG content
+            const svgData = new XMLSerializer().serializeToString(svg);
             
-            // If pixel is dark (black)
-            if (r < 128) {
-                svg += `<rect x="${x}" y="${y}" width="${moduleSize}" height="${moduleSize}" fill="#000000"/>`;
+            // Download SVG
+            const blob = new Blob([svgData], { type: 'image/svg+xml' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'qrcode.svg';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+            
+            if (typeof window.showSupportOnAction === 'function') {
+                window.showSupportOnAction(30000);
             }
         }
-    }
-    
-    svg += '</svg>';
-    
-    // Download SVG
-    const blob = new Blob([svg], { type: 'image/svg+xml' });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = 'qrcode.svg';
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-    URL.revokeObjectURL(url);
-
-    if (typeof window.showSupportOnAction === 'function') {
-        window.showSupportOnAction(30000);
-    }
+        
+        // Clean up
+        document.body.removeChild(tempDiv);
+    }, 100);
 }
 
 // Toggle custom size fields
