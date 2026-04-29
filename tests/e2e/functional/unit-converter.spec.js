@@ -193,4 +193,55 @@ test.describe('Unit Converter', () => {
       await expect(inputUnit.locator(`option[value="${cat.unit}"]`)).toBeAttached();
     }
   });
+
+  test('data conversion does not show floating-point precision errors', async ({ page }) => {
+    // Switch to data category
+    await page.locator('label[for="cat-data"]').click();
+    
+    // Set input to 1,269,442,330 KB
+    const input = page.locator('#inputValue');
+    await input.fill('1269442330');
+    
+    // Select KB as input unit
+    const inputUnit = page.locator('#inputUnit1');
+    await inputUnit.selectOption('KB');
+    
+    // Wait for table to populate
+    await page.waitForTimeout(500);
+    
+    // Check the conversion table for MB
+    const tableBody = page.locator('#conversionTableBody');
+    const mbRow = tableBody.locator('tr').filter({ hasText: /Megabytes|MB/ });
+    
+    // Get the value cell
+    const valueCell = mbRow.locator('td').nth(1);
+    const valueText = await valueCell.textContent();
+    
+    // Should show 1,269,442.33 NOT 1,269,442.3300000001
+    expect(valueText).toContain('1,269,442.33');
+    expect(valueText).not.toContain('0001');
+    expect(valueText).not.toContain('9999');
+  });
+
+  test('large number conversions maintain precision', async ({ page }) => {
+    // Switch to data category
+    await page.locator('label[for="cat-data"]').click();
+    
+    const input = page.locator('#inputValue');
+    const inputUnit = page.locator('#inputUnit1');
+    
+    // Test case 1: KB to MB
+    await input.fill('1000000');
+    await inputUnit.selectOption('KB');
+    
+    await page.waitForTimeout(300);
+    
+    const tableBody = page.locator('#conversionTableBody');
+    const mbRow = tableBody.locator('tr').filter({ hasText: /Megabytes|MB/ });
+    const mbValue = await mbRow.locator('td').nth(1).textContent();
+    
+    // Should be exactly 1,000 MB
+    expect(mbValue).toContain('1,000');
+    expect(mbValue).not.toMatch(/\d+\.\d{10,}/); // No excessive decimal places
+  });
 });

@@ -436,25 +436,17 @@ function formatNumber(num) {
         return num.toExponential(6);
     }
     
-    // Round to 10 significant digits to avoid floating-point precision errors
-    // This prevents issues like 1269442.3300000001
-    let rounded;
+    // Handle zero
     if (num === 0) {
-        rounded = 0;
-    } else {
-        const magnitude = Math.floor(Math.log10(Math.abs(num)));
-        const scale = Math.pow(10, 10 - magnitude - 1);
-        rounded = Math.round(num * scale) / scale;
+        return '0';
     }
     
-    // Convert to string with up to 10 decimal places, then remove trailing zeros
-    let str = rounded.toFixed(10).replace(/\.?0+$/, '');
+    // Use toPrecision to get 12 significant figures, then parse back to remove trailing zeros
+    // This handles floating-point precision errors properly
+    const precision = 12;
+    let str = parseFloat(num.toPrecision(precision)).toString();
     
-    // If result is just "0" but original number wasn't 0, show more precision
-    if (str === '0' && num !== 0) {
-        str = num.toExponential(6);
-    }
-    
+    // Add thousand separators
     const parts = str.split('.');
     parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ',');
     return parts.join('.');
