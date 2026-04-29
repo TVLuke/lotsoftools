@@ -89,7 +89,7 @@
                     {% if current_lang == 'de' %}Eingabe:{% else %}Input:{% endif %}
                 </label>
                 <div class="d-flex align-items-center gap-2 flex-wrap" id="inputSection">
-                    <input type="number" class="form-control" id="inputValue" value="1" step="any" style="max-width: 200px;">
+                    <input type="text" class="form-control" id="inputValue" value="1" inputmode="decimal" style="max-width: 200px;">
                     <select class="form-select" id="inputUnit1" style="max-width: 150px;"></select>
                     <span id="unitSeparator" style="display: none;">/</span>
                     <select class="form-select" id="inputUnit2" style="max-width: 150px; display: none;"></select>
@@ -365,7 +365,7 @@ function setupCategory(category) {
 }
 
 function performConversion() {
-    const inputValue = parseFloat(document.getElementById('inputValue').value);
+    const inputValue = parseInputNumber(document.getElementById('inputValue').value);
     const outputValueEl = document.getElementById('outputValue');
     const tableBody = document.getElementById('conversionTableBody');
     
@@ -430,6 +430,24 @@ function performConversion() {
     }
 }
 
+// Detect user's preferred decimal separator from input
+function getUserDecimalSeparator() {
+    const inputValue = document.getElementById('inputValue').value;
+    // If input contains comma, user prefers comma as decimal separator
+    if (inputValue.includes(',')) {
+        return ',';
+    }
+    return '.';
+}
+
+// Parse number from input, accepting both comma and point as decimal separator
+function parseInputNumber(str) {
+    if (!str) return 0;
+    // Replace comma with point for parsing
+    const normalized = str.replace(',', '.');
+    return parseFloat(normalized) || 0;
+}
+
 function formatNumber(num) {
     // Handle very small numbers with scientific notation
     if (Math.abs(num) < 0.000001 && num !== 0) {
@@ -446,10 +464,18 @@ function formatNumber(num) {
     const precision = 12;
     let str = parseFloat(num.toPrecision(precision)).toString();
     
-    // Add thousand separators
+    // Detect user's preferred format from input
+    const userDecimalSep = getUserDecimalSeparator();
+    const thousandsSep = userDecimalSep === ',' ? '.' : ',';
+    
+    // Split into integer and decimal parts
     const parts = str.split('.');
-    parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-    return parts.join('.');
+    
+    // Add thousand separators to integer part
+    parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, thousandsSep);
+    
+    // Join with user's preferred decimal separator
+    return parts.join(userDecimalSep);
 }
 
 function generateStandardTable(value, fromUnit, tableBody) {
@@ -466,7 +492,7 @@ function generateStandardTable(value, fromUnit, tableBody) {
                 <td class="text-end font-monospace">${formatNumber(result)}</td>
             `;
             row.addEventListener('click', () => {
-                document.getElementById('inputValue').value = result;
+                document.getElementById('inputValue').value = formatNumber(result);
                 document.getElementById('inputUnit1').value = toUnit;
                 document.getElementById('outputUnit1').value = fromUnit;
                 performConversion();
@@ -505,7 +531,7 @@ function generateSpeedTable(value, lengthUnit, timeUnit, tableBody) {
                     <td class="text-end font-monospace">${formatNumber(result)}</td>
                 `;
                 row.addEventListener('click', () => {
-                    document.getElementById('inputValue').value = result;
+                    document.getElementById('inputValue').value = formatNumber(result);
                     document.getElementById('inputUnit1').value = l;
                     document.getElementById('inputUnit2').value = t;
                     document.getElementById('outputUnit1').value = lengthUnit;
@@ -547,7 +573,7 @@ function generateAccelerationTable(value, lengthUnit, timeUnit, tableBody) {
                     <td class="text-end font-monospace">${formatNumber(result)}</td>
                 `;
                 row.addEventListener('click', () => {
-                    document.getElementById('inputValue').value = result;
+                    document.getElementById('inputValue').value = formatNumber(result);
                     document.getElementById('inputUnit1').value = l;
                     document.getElementById('inputUnit2').value = t;
                     document.getElementById('outputUnit1').value = lengthUnit;
