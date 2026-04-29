@@ -436,8 +436,19 @@ function formatNumber(num) {
         return num.toExponential(6);
     }
     
-    // For regular numbers, use up to 10 decimal places to avoid rounding to 0
-    let str = num.toFixed(10).replace(/\.?0+$/, '');
+    // Round to 10 significant digits to avoid floating-point precision errors
+    // This prevents issues like 1269442.3300000001
+    let rounded;
+    if (num === 0) {
+        rounded = 0;
+    } else {
+        const magnitude = Math.floor(Math.log10(Math.abs(num)));
+        const scale = Math.pow(10, 10 - magnitude - 1);
+        rounded = Math.round(num * scale) / scale;
+    }
+    
+    // Convert to string with up to 10 decimal places, then remove trailing zeros
+    let str = rounded.toFixed(10).replace(/\.?0+$/, '');
     
     // If result is just "0" but original number wasn't 0, show more precision
     if (str === '0' && num !== 0) {
