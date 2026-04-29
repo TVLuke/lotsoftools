@@ -244,4 +244,112 @@ test.describe('Unit Converter', () => {
     expect(mbValue).toContain('1,000');
     expect(mbValue).not.toMatch(/\d+\.\d{10,}/); // No excessive decimal places
   });
+
+  test('accepts comma as decimal separator (German style)', async ({ page }) => {
+    // Switch to length category
+    const input = page.locator('#inputValue');
+    const inputUnit = page.locator('#inputUnit1');
+    const outputUnit = page.locator('#outputUnit1');
+    const output = page.locator('#outputValue');
+    
+    // Enter value with comma as decimal separator
+    await input.fill('1,5');
+    await inputUnit.selectOption('m');
+    await outputUnit.selectOption('cm');
+    
+    await page.waitForTimeout(300);
+    
+    // Should convert correctly (1.5m = 150cm)
+    const outputText = await output.textContent();
+    expect(outputText).toContain('150');
+  });
+
+  test('accepts point as decimal separator (English style)', async ({ page }) => {
+    // Switch to length category
+    const input = page.locator('#inputValue');
+    const inputUnit = page.locator('#inputUnit1');
+    const outputUnit = page.locator('#outputUnit1');
+    const output = page.locator('#outputValue');
+    
+    // Enter value with point as decimal separator
+    await input.fill('1.5');
+    await inputUnit.selectOption('m');
+    await outputUnit.selectOption('cm');
+    
+    await page.waitForTimeout(300);
+    
+    // Should convert correctly (1.5m = 150cm)
+    const outputText = await output.textContent();
+    expect(outputText).toContain('150');
+  });
+
+  test('output format matches input decimal separator - comma', async ({ page }) => {
+    // Switch to data category for larger numbers
+    await page.locator('label[for="cat-data"]').click();
+    
+    const input = page.locator('#inputValue');
+    const inputUnit = page.locator('#inputUnit1');
+    
+    // Use comma as decimal separator
+    await input.fill('1234,56');
+    await inputUnit.selectOption('KB');
+    
+    await page.waitForTimeout(300);
+    
+    const tableBody = page.locator('#conversionTableBody');
+    const mbRow = tableBody.locator('tr').filter({ hasText: /Megabytes|MB/ });
+    const mbValue = await mbRow.locator('td').nth(1).textContent();
+    
+    // Output should use comma for decimals (German style)
+    // Should be around 1,23456 MB with comma as decimal separator
+    expect(mbValue).toMatch(/,\d+/); // Has comma followed by digits (decimal separator)
+  });
+
+  test('output format matches input decimal separator - point', async ({ page }) => {
+    // Switch to data category for larger numbers
+    await page.locator('label[for="cat-data"]').click();
+    
+    const input = page.locator('#inputValue');
+    const inputUnit = page.locator('#inputUnit1');
+    
+    // Use point as decimal separator
+    await input.fill('1234.56');
+    await inputUnit.selectOption('KB');
+    
+    await page.waitForTimeout(300);
+    
+    const tableBody = page.locator('#conversionTableBody');
+    const mbRow = tableBody.locator('tr').filter({ hasText: /Megabytes|MB/ });
+    const mbValue = await mbRow.locator('td').nth(1).textContent();
+    
+    // Output should use point for decimals (English style)
+    // Should be around 1.23456 MB with point as decimal separator
+    expect(mbValue).toMatch(/\.\d+/); // Has point followed by digits (decimal separator)
+  });
+
+  test('clicking table row preserves decimal separator format', async ({ page }) => {
+    const input = page.locator('#inputValue');
+    const inputUnit = page.locator('#inputUnit1');
+    
+    // Start with comma format
+    await input.fill('100,5');
+    await inputUnit.selectOption('m');
+    
+    await page.waitForTimeout(300);
+    
+    // Click on a table row (e.g., kilometers)
+    const tableBody = page.locator('#conversionTableBody');
+    const kmRow = tableBody.locator('tr').filter({ hasText: /Kilometer|km/i }).first();
+    await kmRow.click();
+    
+    await page.waitForTimeout(300);
+    
+    // Input should now have the clicked value with comma format
+    const newInputValue = await input.inputValue();
+    
+    // Should contain comma (not point) as decimal separator
+    if (newInputValue.includes('.') || newInputValue.includes(',')) {
+      expect(newInputValue).toMatch(/,/);
+    }
+  });
 });
