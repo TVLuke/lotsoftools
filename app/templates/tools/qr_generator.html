@@ -297,8 +297,7 @@ function generateQRCode() {
         width: width,
         height: height,
         colorDark: colorDark.value,
-        colorLight: colorLight.value,
-        correctLevel: QRCode.CorrectLevel.H
+        colorLight: colorLight.value
     });
     
     // Show download buttons
@@ -360,58 +359,32 @@ function downloadAsJPG() {
 }
 
 function downloadAsSVG() {
-    const canvas = qrCodeContainer.querySelector('canvas');
-    if (!canvas) return;
+    if (!currentText) return;
     
-    const width = canvas.width;
-    const height = canvas.height;
-    const ctx = canvas.getContext('2d');
-    const imageData = ctx.getImageData(0, 0, width, height);
-    const data = imageData.data;
-    
-    // Detect the module size by finding the first transition
-    let moduleSize = 1;
-    for (let x = 1; x < width; x++) {
-        const i1 = (0 * width + 0) * 4;
-        const i2 = (0 * width + x) * 4;
-        if (data[i1] !== data[i2]) {
-            moduleSize = x;
-            break;
-        }
+    // Get size
+    let size;
+    if (qrSize.value === 'custom') {
+        size = parseInt(document.getElementById('qrWidth').value);
+    } else {
+        size = parseInt(qrSize.value);
     }
     
-    // Get colors from the QR code
-    const darkColor = colorDark.value;
-    const lightColor = colorLight.value;
+    // Generate proper vector SVG using qrcode-svg library
+    const qrSVG = new QRCodeSVG({
+        content: currentText,
+        padding: 0,
+        width: size,
+        height: size,
+        color: colorDark.value,
+        background: colorLight.value,
+        ecl: "H",
+        join: true // Crisp rendering and smaller file size
+    });
     
-    // Create SVG with proper structure
-    let svg = `<?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="${width}" height="${height}" viewBox="0 0 ${width} ${height}">
-<rect width="${width}" height="${height}" fill="${lightColor}"/>`;
-    
-    // Sample at module centers to determine which modules are dark
-    for (let y = 0; y < height; y += moduleSize) {
-        for (let x = 0; x < width; x += moduleSize) {
-            // Sample from center of module
-            const sampleX = Math.min(Math.floor(x + moduleSize / 2), width - 1);
-            const sampleY = Math.min(Math.floor(y + moduleSize / 2), height - 1);
-            const i = (sampleY * width + sampleX) * 4;
-            const r = data[i];
-            const g = data[i + 1];
-            const b = data[i + 2];
-            
-            // Check if pixel is dark (closer to dark color than light color)
-            const brightness = (r + g + b) / 3;
-            if (brightness < 128) {
-                svg += `\n<rect x="${x}" y="${y}" width="${moduleSize}" height="${moduleSize}" fill="${darkColor}"/>`;
-            }
-        }
-    }
-    
-    svg += '\n</svg>';
+    const svgString = qrSVG.svg();
     
     // Download SVG
-    const blob = new Blob([svg], { type: 'image/svg+xml' });
+    const blob = new Blob([svgString], { type: 'image/svg+xml' });
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;

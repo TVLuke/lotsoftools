@@ -1,3 +1,17 @@
-<!-- QRCode.js library -->
+<!-- QRCode.js library for Canvas (PNG/JPG) -->
 <!-- Original URL: https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js -->
 <script src="{{ url_for('static', filename='libs/vendor/qrcode/qrcode.min.js') }}"></script>
+
+<!-- qrcode-svg library for proper vector SVG export -->
+<!-- Source: https://github.com/papnkukn/qrcode-svg -->
+<script>
+    // Save the canvas QRCode before loading SVG library
+    window.QRCodeCanvas = window.QRCode;
+</script>
+<script src="{{ url_for('static', filename='libs/vendor/qrcode/qrcode-svg.min.js') }}"></script>
+<script>
+    // Rename SVG library to avoid conflict
+    window.QRCodeSVG = window.QRCode;
+    // Restore canvas library as the default QRCode
+    window.QRCode = window.QRCodeCanvas;
+</script>
