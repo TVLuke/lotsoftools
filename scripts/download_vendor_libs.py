@@ -104,6 +104,10 @@ LIBRARIES = [
             {
                 'url': 'https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js',
                 'filename': 'qrcode.min.js'
+            },
+            {
+                'url': 'https://cdn.jsdelivr.net/npm/qrcode-svg@1.1.0/dist/qrcode.min.js',
+                'filename': 'qrcode-svg.min.js'
             }
         ]
     },
