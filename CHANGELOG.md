@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.1.9] - 2026-05-09
+
+- Fixed E2E tests: Unit Converter input type validation
+- Fixed E2E tests: QR Generator canvas visibility checks
+- Fixed Accessibility tests: Corrected path to tool configuration
+- Timezone Calculator: Added European date format support (DD.MM.YYYY)
+- Time Converter: Enhanced date parsing for multiple formats
+
 ## [1.1.8] - 2026-05-09
 
 - New tool: Timezone Calculator with automatic DST handling and searchable timezones
