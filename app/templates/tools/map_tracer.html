@@ -197,6 +197,7 @@
 
 {% block extra_js %}
 <script src="{{ url_for('static', filename='libs/vendor/leaflet/leaflet.js') }}"></script>
+<script src="{{ url_for('static', filename='libs/vendor/leaflet/leaflet-image.js') }}"></script>
 {% include 'components/imports/html2canvas.html' %}
 <script>
 document.addEventListener('DOMContentLoaded', function() {
@@ -415,36 +416,56 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
     
-    // Export with map background using html2canvas
-    async function exportWithMap() {
+    // Export with map background using leaflet-image
+    function exportWithMap() {
         if (points.length < 2) return;
         
         try {
-            const mapEl = document.getElementById('map');
-            
-            // Use html2canvas with useCORS and allowTaint options
-            const canvas = await html2canvas(mapEl, {
-                useCORS: true,
-                allowTaint: true,
-                scale: 2,
-                logging: false
-            });
-            
-            // Download
-            canvas.toBlob(function(blob) {
-                const url = URL.createObjectURL(blob);
-                const a = document.createElement('a');
-                a.href = url;
-                a.download = 'map-trace.png';
-                document.body.appendChild(a);
-                a.click();
-                document.body.removeChild(a);
-                URL.revokeObjectURL(url);
-                
-                if (typeof window.showSupportOnAction === 'function') {
-                    window.showSupportOnAction(30000);
+            // Use leaflet-image to capture the map accurately
+            leafletImage(map, function(err, canvas) {
+                if (err) {
+                    console.error('Export failed:', err);
+                    alert('Export failed. Please try again.');
+                    return;
                 }
-            }, 'image/png');
+                
+                // Now draw the polyline on top of the map canvas
+                const ctx = canvas.getContext('2d');
+                const mapSize = map.getSize();
+                
+                // Draw polyline
+                ctx.strokeStyle = '#0d6efd';
+                ctx.lineWidth = 4;
+                ctx.lineCap = 'round';
+                ctx.lineJoin = 'round';
+                ctx.beginPath();
+                
+                points.forEach((point, index) => {
+                    const pos = map.latLngToContainerPoint([point.lat, point.lng]);
+                    if (index === 0) {
+                        ctx.moveTo(pos.x, pos.y);
+                    } else {
+                        ctx.lineTo(pos.x, pos.y);
+                    }
+                });
+                ctx.stroke();
+                
+                // Download
+                canvas.toBlob(function(blob) {
+                    const url = URL.createObjectURL(blob);
+                    const a = document.createElement('a');
+                    a.href = url;
+                    a.download = 'map-trace.png';
+                    document.body.appendChild(a);
+                    a.click();
+                    document.body.removeChild(a);
+                    URL.revokeObjectURL(url);
+                    
+                    if (typeof window.showSupportOnAction === 'function') {
+                        window.showSupportOnAction(30000);
+                    }
+                }, 'image/png');
+            });
             
         } catch (error) {
             console.error('Export failed:', error);
@@ -455,46 +476,27 @@ document.addEventListener('DOMContentLoaded', function() {
     function exportLineOnly() {
         if (points.length < 2) return;
         
-        // Calculate bounds of the line
-        let minLat = Infinity, maxLat = -Infinity;
-        let minLng = Infinity, maxLng = -Infinity;
+        // Use current map viewport dimensions
+        const mapSize = map.getSize();
         
-        points.forEach(point => {
-            minLat = Math.min(minLat, point.lat);
-            maxLat = Math.max(maxLat, point.lat);
-            minLng = Math.min(minLng, point.lng);
-            maxLng = Math.max(maxLng, point.lng);
-        });
-        
-        // Add padding
-        const latPadding = (maxLat - minLat) * 0.1 || 0.01;
-        const lngPadding = (maxLng - minLng) * 0.1 || 0.01;
-        minLat -= latPadding;
-        maxLat += latPadding;
-        minLng -= lngPadding;
-        maxLng += lngPadding;
-        
-        // Create canvas
+        // Create canvas with same dimensions as map
         const canvas = document.createElement('canvas');
-        const size = 800;
-        canvas.width = size;
-        canvas.height = size;
+        const scale = 2; // 2x for better quality
+        canvas.width = mapSize.x * scale;
+        canvas.height = mapSize.y * scale;
         const ctx = canvas.getContext('2d');
         
         // White background
         ctx.fillStyle = '#ffffff';
-        ctx.fillRect(0, 0, size, size);
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
         
-        // Calculate scale
-        const latRange = maxLat - minLat;
-        const lngRange = maxLng - minLng;
-        const scale = (size - 40) / Math.max(latRange, lngRange);
-        
-        // Transform function
+        // Transform function using Leaflet's coordinate system
         function toCanvas(lat, lng) {
-            const x = 20 + (lng - minLng) * scale * (size - 40) / (lngRange * scale);
-            const y = 20 + (maxLat - lat) * scale * (size - 40) / (latRange * scale);
-            return {x, y};
+            const point = map.latLngToContainerPoint([lat, lng]);
+            return {
+                x: point.x * scale,
+                y: point.y * scale
+            };
         }
         
         // Draw line (black, no dots)

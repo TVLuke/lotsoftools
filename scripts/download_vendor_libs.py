@@ -187,6 +187,10 @@ LIBRARIES = [
             {
                 'url': 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.js',
                 'filename': 'leaflet.js'
+            },
+            {
+                'url': 'https://cdn.jsdelivr.net/npm/leaflet-image@0.4.0/leaflet-image.js',
+                'filename': 'leaflet-image.js'
             }
         ],
         'extra_files': [
