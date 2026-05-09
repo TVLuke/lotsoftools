@@ -55,6 +55,7 @@
   "subtitle_converter": {"active": true},
   "teleprompter": {"active": true},
   "time_converter": {"active": true},
+  "timezone_calculator": {"active": true},
   "unit_converter": {"active": true},
   "url_checker": {"active": true},
   "uuid_generator": {"active": true},

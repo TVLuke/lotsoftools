@@ -1,0 +1,439 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ tool_data.seo.title[current_lang] | default(tool_data.name[current_lang]) }}{% endblock %}
+
+{% block meta_description %}{{ tool_data.seo.meta_description[current_lang] }}{% endblock %}
+{% block meta_keywords %}{{ tool_data.seo.keywords[current_lang] }}{% endblock %}
+{% block og_title %}{{ tool_data.seo.title[current_lang] }}{% endblock %}
+{% block og_description %}{{ tool_data.seo.meta_description[current_lang] }}{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    {% include 'components/tool_header.html' %}
+    
+    <!-- Converter Card -->
+    <div class="card mb-4">
+        <div class="card-body">
+            <!-- Source Time Section -->
+            <div class="mb-4">
+                <label for="sourceTime" class="form-label fw-bold">{{ tool_data.ui.source_time[current_lang] }}</label>
+                <input type="text" class="form-control form-control-lg" id="sourceTime" 
+                       placeholder="{{ tool_data.ui.time_placeholder[current_lang] }}"
+                       autocomplete="off">
+                <small class="text-muted">{{ tool_data.ui.dst_note[current_lang] }}</small>
+            </div>
+
+            <!-- Source Timezone -->
+            <div class="mb-4">
+                <label for="sourceTimezone" class="form-label fw-bold">{{ tool_data.ui.source_timezone[current_lang] }}</label>
+                <input type="text" class="form-control form-control-lg" id="sourceTimezone" 
+                       list="timezoneList" 
+                       placeholder="{{ tool_data.ui.select_timezone[current_lang] }}"
+                       autocomplete="off">
+                <datalist id="timezoneList"></datalist>
+            </div>
+
+            <!-- Swap Button -->
+            <div class="text-center mb-4">
+                <button class="btn btn-outline-secondary" id="swapBtn" type="button">
+                    <i class="fas fa-exchange-alt me-2"></i>{{ tool_data.ui.swap_timezones[current_lang] }}
+                </button>
+            </div>
+
+            <!-- Target Timezone -->
+            <div class="mb-4">
+                <label for="targetTimezone" class="form-label fw-bold">{{ tool_data.ui.target_timezone[current_lang] }}</label>
+                <input type="text" class="form-control form-control-lg" id="targetTimezone" 
+                       list="timezoneList" 
+                       placeholder="{{ tool_data.ui.select_timezone[current_lang] }}"
+                       autocomplete="off">
+            </div>
+
+            <!-- Convert Button -->
+            <div class="d-grid mb-3">
+                <button class="btn btn-primary btn-lg" type="button" id="convertBtn">
+                    <i class="fas fa-sync-alt me-2"></i>{{ tool_data.ui.convert[current_lang] }}
+                </button>
+            </div>
+
+            <!-- Error Message -->
+            <div id="errorMessage" class="alert alert-warning d-none">
+                {{ tool_data.ui.invalid_time[current_lang] }}
+            </div>
+        </div>
+    </div>
+
+    <!-- Results Card -->
+    <div class="card mb-4" id="resultsCard" style="display: none;">
+        <div class="card-body">
+            <h5 class="card-title">{{ tool_data.ui.converted_time[current_lang] }}</h5>
+            <div id="resultsContent"></div>
+        </div>
+    </div>
+
+    {% include 'components/seo_content.html' %}
+</div>
+
+<script src="{{ url_for('static', filename='js/timezone-calculator.js') }}"></script>
+<script>
+// UI Labels
+const UI = {
+    invalidTime: {{ tool_data.ui.invalid_time[current_lang] | tojson }},
+    localTimezone: {{ tool_data.ui.local_timezone[current_lang] | tojson }},
+    selectTimezone: {{ tool_data.ui.select_timezone[current_lang] | tojson }},
+    dstAppliedNote: {{ tool_data.ui.dst_applied_note[current_lang] | tojson }}
+};
+
+// Get all IANA timezones
+const timezones = Intl.supportedValuesOf('timeZone');
+
+// Detect user's local timezone
+const localTimezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+
+// Initialize timezone inputs with datalist
+function initializeTimezones() {
+    const datalist = document.getElementById('timezoneList');
+    const sourceInput = document.getElementById('sourceTimezone');
+    const targetInput = document.getElementById('targetTimezone');
+    
+    // Populate datalist with all timezones
+    timezones.forEach(tz => {
+        const option = document.createElement('option');
+        option.value = tz;
+        datalist.appendChild(option);
+    });
+    
+    // Set default: source = local, target = UTC
+    sourceInput.value = localTimezone;
+    targetInput.value = 'UTC';
+}
+
+// Parse time input and interpret it in the source timezone
+function parseTimeInput(input, sourceTimezone) {
+    if (!input || !sourceTimezone) return null;
+    
+    const trimmed = input.trim();
+    
+    // For date-time strings (YYYY-MM-DD HH:MM), we need to interpret them in the source timezone
+    if (trimmed.match(/^\d{4}-\d{2}-\d{2}/)) {
+        // Parse the date components
+        const match = trimmed.match(/^(\d{4})-(\d{2})-(\d{2})[\sT]?(\d{2})?:?(\d{2})?:?(\d{2})?/);
+        if (match) {
+            const [, year, month, day, hour = '0', minute = '0', second = '0'] = match;
+            
+            // Create an ISO string and parse it as UTC, then adjust for source timezone
+            const isoString = `${year}-${month.padStart(2, '0')}-${day.padStart(2, '0')}T${hour.padStart(2, '0')}:${minute.padStart(2, '0')}:${second.padStart(2, '0')}`;
+            
+            // Create a date assuming it's in the source timezone
+            // We'll use toLocaleString to convert it properly
+            const testDate = new Date(`${isoString}Z`); // Start with UTC
+            
+            // Format this date in the source timezone to see what time it shows
+            const formatter = new Intl.DateTimeFormat('en-US', {
+                timeZone: sourceTimezone,
+                year: 'numeric',
+                month: '2-digit',
+                day: '2-digit',
+                hour: '2-digit',
+                minute: '2-digit',
+                second: '2-digit',
+                hour12: false,
+                timeZoneName: 'short'
+            });
+            
+            // We need to find the UTC timestamp that, when formatted in sourceTimezone, shows our desired time
+            // Use a binary search approach or iterative adjustment
+            // Simpler: use the inverse - create date in source timezone
+            const dateString = `${year}-${month.padStart(2, '0')}-${day.padStart(2, '0')} ${hour.padStart(2, '0')}:${minute.padStart(2, '0')}:${second.padStart(2, '0')}`;
+            
+            // Parse as if it's in source timezone by using toLocaleString inverse
+            // Create a date in UTC that represents this local time
+            const utcDate = new Date(Date.UTC(
+                parseInt(year),
+                parseInt(month) - 1,
+                parseInt(day),
+                parseInt(hour),
+                parseInt(minute),
+                parseInt(second)
+            ));
+            
+            // Get what this UTC time looks like in the source timezone
+            const sourceTimeStr = utcDate.toLocaleString('en-US', {
+                timeZone: sourceTimezone,
+                year: 'numeric',
+                month: '2-digit',
+                day: '2-digit',
+                hour: '2-digit',
+                minute: '2-digit',
+                second: '2-digit',
+                hour12: false
+            });
+            
+            // Parse back to get the offset
+            const [datePart, timePart] = sourceTimeStr.split(', ');
+            const [m, d, y] = datePart.split('/');
+            const [h, min, s] = timePart.split(':');
+            const sourceAsUTC = Date.UTC(parseInt(y), parseInt(m) - 1, parseInt(d), parseInt(h), parseInt(min), parseInt(s));
+            
+            // Calculate the difference
+            const offset = utcDate.getTime() - sourceAsUTC;
+            
+            // Apply offset to get the correct absolute time
+            return new Date(utcDate.getTime() + offset);
+        }
+    }
+    
+    // For time-only input (HH:MM), parse it and use today's date in source timezone
+    const parsed = TimezoneCalculator.parseTimeInput(input);
+    if (!parsed) return null;
+    
+    // The parsed date is in local timezone, we need to adjust it to source timezone
+    // Get today's date in the source timezone
+    const now = new Date();
+    const formatter = new Intl.DateTimeFormat('en-US', {
+        timeZone: sourceTimezone,
+        year: 'numeric',
+        month: '2-digit',
+        day: '2-digit',
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit',
+        hour12: false
+    });
+    
+    const parts = formatter.formatToParts(now);
+    const year = parts.find(p => p.type === 'year').value;
+    const month = parts.find(p => p.type === 'month').value;
+    const day = parts.find(p => p.type === 'day').value;
+    
+    // Get the time from parsed input
+    const hour = parsed.getHours();
+    const minute = parsed.getMinutes();
+    const second = parsed.getSeconds();
+    
+    // Now create a date with today's date in source timezone and the specified time
+    const dateString = `${year}-${month}-${day} ${String(hour).padStart(2, '0')}:${String(minute).padStart(2, '0')}:${String(second).padStart(2, '0')}`;
+    
+    // Use the same logic as above to interpret this in source timezone
+    const utcDate = new Date(Date.UTC(
+        parseInt(year),
+        parseInt(month) - 1,
+        parseInt(day),
+        hour,
+        minute,
+        second
+    ));
+    
+    const sourceTimeStr = utcDate.toLocaleString('en-US', {
+        timeZone: sourceTimezone,
+        year: 'numeric',
+        month: '2-digit',
+        day: '2-digit',
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit',
+        hour12: false
+    });
+    
+    const [datePart, timePart] = sourceTimeStr.split(', ');
+    const [m, d, y] = datePart.split('/');
+    const [h, min, s] = timePart.split(':');
+    const sourceAsUTC = Date.UTC(parseInt(y), parseInt(m) - 1, parseInt(d), parseInt(h), parseInt(min), parseInt(s));
+    
+    const offset = utcDate.getTime() - sourceAsUTC;
+    return new Date(utcDate.getTime() + offset);
+}
+
+// Convert time between timezones
+function convertTime() {
+    const sourceTime = document.getElementById('sourceTime').value;
+    const sourceTimezone = document.getElementById('sourceTimezone').value;
+    const targetTimezone = document.getElementById('targetTimezone').value;
+    const errorDiv = document.getElementById('errorMessage');
+    const resultsCard = document.getElementById('resultsCard');
+    
+    // Validate inputs
+    if (!sourceTime || !sourceTimezone || !targetTimezone) {
+        errorDiv.classList.remove('d-none');
+        resultsCard.style.display = 'none';
+        return;
+    }
+    
+    // Parse input time
+    const date = parseTimeInput(sourceTime, sourceTimezone);
+    if (!date) {
+        errorDiv.classList.remove('d-none');
+        resultsCard.style.display = 'none';
+        return;
+    }
+    
+    errorDiv.classList.add('d-none');
+    
+    // Format in both timezones using Intl.DateTimeFormat
+    // This automatically handles DST!
+    const sourceFormatter = new Intl.DateTimeFormat('en-US', {
+        timeZone: sourceTimezone,
+        year: 'numeric',
+        month: '2-digit',
+        day: '2-digit',
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit',
+        hour12: false,
+        timeZoneName: 'long'
+    });
+    
+    const targetFormatter = new Intl.DateTimeFormat('en-US', {
+        timeZone: targetTimezone,
+        year: 'numeric',
+        month: '2-digit',
+        day: '2-digit',
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit',
+        hour12: false,
+        timeZoneName: 'long'
+    });
+    
+    const sourceFormatted = sourceFormatter.format(date);
+    const targetFormatted = targetFormatter.format(date);
+    
+    // Get timezone offsets
+    const sourceOffset = getTimezoneOffset(date, sourceTimezone);
+    const targetOffset = getTimezoneOffset(date, targetTimezone);
+    
+    // Display results
+    const resultsContent = document.getElementById('resultsContent');
+    resultsContent.innerHTML = `
+        <div class="row g-3">
+            <div class="col-md-6">
+                <div class="p-3 bg-light rounded">
+                    <h6 class="text-muted mb-2">${sourceTimezone}</h6>
+                    <div class="display-6 mb-2">${sourceFormatted.split(',')[1].split(' GMT')[0]}</div>
+                    <small class="text-muted">${sourceFormatted.split(',')[0]}</small>
+                    <div class="mt-2"><span class="badge bg-secondary">UTC${sourceOffset}</span></div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="p-3 bg-primary bg-opacity-10 rounded border border-primary">
+                    <h6 class="text-muted mb-2">${targetTimezone}</h6>
+                    <div class="display-6 mb-2 text-primary">${targetFormatted.split(',')[1].split(' GMT')[0]}</div>
+                    <small class="text-muted">${targetFormatted.split(',')[0]}</small>
+                    <div class="mt-2"><span class="badge bg-primary">UTC${targetOffset}</span></div>
+                </div>
+            </div>
+        </div>
+        <div class="mt-3 text-center">
+            <small class="text-muted">
+                <i class="fas fa-info-circle me-1"></i>
+                ${UI.dstAppliedNote}
+            </small>
+        </div>
+    `;
+    
+    resultsCard.style.display = 'block';
+    updateUrl();
+}
+
+// Get timezone offset string (e.g., "+01:00" or "-05:00")
+function getTimezoneOffset(date, timezone) {
+    const formatter = new Intl.DateTimeFormat('en-US', {
+        timeZone: timezone,
+        timeZoneName: 'longOffset'
+    });
+    
+    const parts = formatter.formatToParts(date);
+    const offsetPart = parts.find(p => p.type === 'timeZoneName');
+    
+    if (offsetPart && offsetPart.value.startsWith('GMT')) {
+        return offsetPart.value.replace('GMT', '');
+    }
+    
+    // Fallback: calculate offset manually
+    const utcDate = new Date(date.toLocaleString('en-US', { timeZone: 'UTC' }));
+    const tzDate = new Date(date.toLocaleString('en-US', { timeZone: timezone }));
+    const diff = (tzDate - utcDate) / (1000 * 60);
+    const hours = Math.floor(Math.abs(diff) / 60);
+    const minutes = Math.abs(diff) % 60;
+    const sign = diff >= 0 ? '+' : '-';
+    return `${sign}${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}`;
+}
+
+// Swap timezones
+function swapTimezones() {
+    const sourceInput = document.getElementById('sourceTimezone');
+    const targetInput = document.getElementById('targetTimezone');
+    
+    const temp = sourceInput.value;
+    sourceInput.value = targetInput.value;
+    targetInput.value = temp;
+}
+
+// Event listeners
+document.getElementById('convertBtn').addEventListener('click', convertTime);
+document.getElementById('swapBtn').addEventListener('click', swapTimezones);
+document.getElementById('sourceTime').addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') convertTime();
+});
+
+// Auto-convert on timezone change
+document.getElementById('sourceTimezone').addEventListener('change', () => {
+    if (document.getElementById('sourceTime').value) convertTime();
+});
+document.getElementById('targetTimezone').addEventListener('change', () => {
+    if (document.getElementById('sourceTime').value) convertTime();
+});
+
+// Update URL with current state for sharing
+function updateUrl() {
+    const sourceTime = document.getElementById('sourceTime').value;
+    const sourceTimezone = document.getElementById('sourceTimezone').value;
+    const targetTimezone = document.getElementById('targetTimezone').value;
+    
+    if (!sourceTime || !sourceTimezone || !targetTimezone) return;
+    
+    const params = new URLSearchParams();
+    params.set('time', sourceTime);
+    params.set('from', sourceTimezone);
+    params.set('to', targetTimezone);
+    
+    const newUrl = `${window.location.pathname}?${params.toString()}`;
+    history.replaceState(null, '', newUrl);
+}
+
+// Load state from URL
+function loadFromUrl() {
+    const params = new URLSearchParams(window.location.search);
+    const time = params.get('time');
+    const from = params.get('from');
+    const to = params.get('to');
+    
+    if (time) {
+        document.getElementById('sourceTime').value = time;
+    }
+    if (from) {
+        document.getElementById('sourceTimezone').value = from;
+    }
+    if (to) {
+        document.getElementById('targetTimezone').value = to;
+    }
+    
+    // Auto-convert if all params present
+    if (time && from && to) {
+        convertTime();
+    }
+}
+
+// Initialize
+initializeTimezones();
+
+// Load from URL or set current time as default
+const params = new URLSearchParams(window.location.search);
+if (!params.get('time')) {
+    const now = new Date();
+    document.getElementById('sourceTime').value = now.toISOString().slice(0, 16).replace('T', ' ');
+}
+
+loadFromUrl();
+</script>
+{% endblock %}

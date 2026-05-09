@@ -28,6 +28,8 @@ jobs:
         node tests/js/iban_validator.test.js
         node tests/js/holiday-calendar.test.js
         node tests/js/date-calculator.test.js
+        node tests/js/time-converter.test.js
+        node tests/js/timezone-calculator.test.js
 
   test-python:
     runs-on: ubuntu-latest

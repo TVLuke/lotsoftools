@@ -3,7 +3,7 @@
  * Run with: node time-converter.test.js
  */
 
-const TimeConverter = require('./time-converter.js');
+const TimeConverter = require('../../app/static/js/time-converter.js');
 
 let passed = 0;
 let failed = 0;

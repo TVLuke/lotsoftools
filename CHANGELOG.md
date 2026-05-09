@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.1.8] - 2026-05-09
+
+- New tool: Timezone Calculator with automatic DST handling and searchable timezones
+- New tool: Website Source Code Viewer
+- New tool: Redirect Follower
+- New tool: Cozy Fireplace with CSS animations
+- QR Generator: Fixed SVG export
+- Money Counter: Added 12 more currencies (15 total)
+- Stats: Enhanced bot detection, country/referrer tracking, bandwidth tracking
+- Security: Added security.txt with dynamic expiration
+
 ## [1.1.7] - 2026-01-27
 
 - Enhanced textarea: configurable controls panel with syntax highlighting, text transforms, and undo/redo history

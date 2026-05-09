@@ -4,7 +4,7 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 from config import Config
 
-APP_VERSION = "1.1.7"
+APP_VERSION = "1.1.8"
 
 db = SQLAlchemy()
 migrate = Migrate()
@@ -191,6 +191,7 @@ def create_app(config_class=Config):
     from app.routes.tools.dice import dice_bp
     from app.routes.tools.map_maker import map_maker_bp
     from app.routes.tools.time_converter import time_converter_bp
+    from app.routes.tools.timezone_calculator import timezone_calculator_bp
     from app.routes.tools.url_checker import url_checker_bp
     from app.routes.tools.redirect_follower import redirect_follower_bp
     from app.routes.tools.website_source_viewer import website_source_viewer_bp
@@ -250,6 +251,7 @@ def create_app(config_class=Config):
     app.register_blueprint(dice_bp)
     app.register_blueprint(map_maker_bp)
     app.register_blueprint(time_converter_bp)
+    app.register_blueprint(timezone_calculator_bp)
     app.register_blueprint(url_checker_bp)
     app.register_blueprint(redirect_follower_bp)
     app.register_blueprint(website_source_viewer_bp)

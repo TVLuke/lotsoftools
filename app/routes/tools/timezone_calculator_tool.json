@@ -1,0 +1,107 @@
+{
+    "route": "/tools/timezone-calculator",
+    "img": "fa-solid fa-globe",
+    "name": {
+        "en": "Timezone Calculator",
+        "de": "Zeitzonen-Rechner"
+    },
+    "description": {
+        "en": "Convert times between different timezones with automatic DST handling",
+        "de": "Zeiten zwischen verschiedenen Zeitzonen mit automatischer Sommerzeit-Behandlung konvertieren"
+    },
+    "tags": ["converter", "utility", "time"],
+    "new_window": false,
+    "frontend_only": true,
+    "ui": {
+        "source_time": { "en": "Source Time", "de": "Ausgangszeit" },
+        "source_timezone": { "en": "Source Timezone", "de": "Von Zeitzone" },
+        "target_timezone": { "en": "Target Timezone", "de": "Nach Zeitzone" },
+        "converted_time": { "en": "Converted Time", "de": "Umgerechnete Zeit" },
+        "time_placeholder": { "en": "e.g., 14:30, 14:30:45, 2:30 PM, or 2026-05-09 14:30", "de": "z.B., 14:30, 14:30:45, 14:30 Uhr, oder 2026-05-09 14:30" },
+        "select_timezone": { "en": "Select timezone", "de": "Zeitzone auswählen" },
+        "local_timezone": { "en": "Local Timezone", "de": "Lokale Zeitzone" },
+        "convert": { "en": "Convert", "de": "Konvertieren" },
+        "swap_timezones": { "en": "Swap Timezones", "de": "Zeitzonen tauschen" },
+        "invalid_time": { "en": "Could not parse time. Try formats like '14:30', '2:30 PM', or '2026-05-09 14:30'", "de": "Zeit konnte nicht verarbeitet werden. Versuchen Sie Formate wie '14:30', '14:30 Uhr' oder '2026-05-09 14:30'" },
+        "dst_note": { "en": "The time you enter will be interpreted in the source timezone", "de": "Die eingegebene Zeit wird in der Quell-Zeitzone interpretiert" },
+        "dst_applied_note": { "en": "DST automatically applied based on the date", "de": "Sommerzeit wird automatisch basierend auf dem Datum angewendet" }
+    },
+    "seo": {
+        "title": {
+            "en": "Timezone Calculator - Convert Times Between Timezones with DST Support",
+            "de": "Zeitzonen-Rechner - Zeiten zwischen Zeitzonen mit Sommerzeit-Unterstützung konvertieren"
+        },
+        "meta_description": {
+            "en": "Convert times between any timezones with automatic daylight saving time (DST) handling. Perfect for scheduling international meetings and calls. Privacy-friendly, works offline.",
+            "de": "Konvertieren Sie Zeiten zwischen beliebigen Zeitzonen mit automatischer Sommerzeit-Behandlung. Perfekt für internationale Meetings und Anrufe. Datenschutzfreundlich, funktioniert offline."
+        },
+        "keywords": {
+            "en": "timezone converter, time zone calculator, DST converter, daylight saving time, international time, meeting scheduler, world clock converter",
+            "de": "Zeitzonen-Konverter, Zeitzonen-Rechner, Sommerzeit-Konverter, internationale Zeit, Meeting-Planer, Weltuhr-Konverter"
+        },
+        "content": {
+            "heading": {
+                "en": "About the Timezone Calculator",
+                "de": "Über den Zeitzonen-Rechner"
+            },
+            "intro": {
+                "en": "This tool helps you convert times between different timezones around the world. Simply enter a time in your source timezone and select the target timezone to see the equivalent time. The calculator automatically handles daylight saving time (DST) transitions, so you always get accurate results even when DST rules differ between timezones.",
+                "de": "Dieses Tool hilft Ihnen, Zeiten zwischen verschiedenen Zeitzonen weltweit zu konvertieren. Geben Sie einfach eine Zeit in Ihrer Quell-Zeitzone ein und wählen Sie die Ziel-Zeitzone, um die entsprechende Zeit zu sehen. Der Rechner behandelt automatisch Sommerzeitübergänge, sodass Sie immer genaue Ergebnisse erhalten, auch wenn die Sommerzeitregeln zwischen Zeitzonen unterschiedlich sind."
+            },
+            "features": {
+                "heading": {
+                    "en": "Features:",
+                    "de": "Funktionen:"
+                },
+                "items": [
+                    {
+                        "en": "<strong>Automatic DST Handling:</strong> Correctly applies daylight saving time rules for any date",
+                        "de": "<strong>Automatische Sommerzeit-Behandlung:</strong> Wendet korrekt Sommerzeitregeln für jedes Datum an"
+                    },
+                    {
+                        "en": "<strong>Flexible Time Input:</strong> Enter just a time (uses today's date) like <code>14:30</code>, <code>14:30:45</code>, or <code>2:30 PM</code>, or include a full date like <code>2026-05-09 14:30</code>",
+                        "de": "<strong>Flexible Zeiteingabe:</strong> Geben Sie nur eine Uhrzeit ein (verwendet heutiges Datum) wie <code>14:30</code>, <code>14:30:45</code> oder <code>14:30 Uhr</code>, oder mit vollständigem Datum wie <code>2026-05-09 14:30</code>"
+                    },
+                    {
+                        "en": "<strong>Searchable Timezones:</strong> Type to search through 400+ timezones - just type 'berlin' to find Europe/Berlin",
+                        "de": "<strong>Durchsuchbare Zeitzonen:</strong> Tippen Sie, um durch 400+ Zeitzonen zu suchen - geben Sie einfach 'berlin' ein, um Europe/Berlin zu finden"
+                    },
+                    {
+                        "en": "<strong>All Timezones:</strong> Support for all IANA timezone database entries",
+                        "de": "<strong>Alle Zeitzonen:</strong> Unterstützung für alle IANA-Zeitzonen-Datenbankeinträge"
+                    },
+                    {
+                        "en": "<strong>Quick Swap:</strong> Easily swap source and target timezones",
+                        "de": "<strong>Schneller Tausch:</strong> Quell- und Ziel-Zeitzonen einfach tauschen"
+                    },
+                    {
+                        "en": "<strong>Local Timezone Detection:</strong> Automatically detects your current timezone",
+                        "de": "<strong>Lokale Zeitzonenerkennung:</strong> Erkennt automatisch Ihre aktuelle Zeitzone"
+                    }
+                ]
+            },
+            "privacy_note": {
+                "en": "🔒 Privacy-Friendly: All timezone conversions happen in your browser. No data is sent to any server.",
+                "de": "🔒 Datenschutzfreundlich: Alle Zeitzonen-Konvertierungen erfolgen in Ihrem Browser. Es werden keine Daten an einen Server gesendet."
+            },
+            "search_queries": {
+                "en": [
+                    "What time is 3pm EST in PST?",
+                    "Convert timezone with daylight saving",
+                    "Meeting time in different timezone",
+                    "Time difference calculator",
+                    "Schedule international call",
+                    "Convert UTC to local time"
+                ],
+                "de": [
+                    "Wie spät ist 15 Uhr MEZ in PST?",
+                    "Zeitzone mit Sommerzeit konvertieren",
+                    "Meeting-Zeit in anderer Zeitzone",
+                    "Zeitunterschied-Rechner",
+                    "Internationalen Anruf planen",
+                    "UTC zu lokaler Zeit konvertieren"
+                ]
+            }
+        }
+    }
+}
