@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.1.10] - 2026-05-09
+
+- Fixed E2E tests: QR Generator SVG export whitespace normalization
+
 ## [1.1.9] - 2026-05-09
 
 - Fixed E2E tests: Unit Converter input type validation
