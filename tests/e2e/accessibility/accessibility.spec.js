@@ -19,7 +19,7 @@ const path = require('path');
  * This ensures new tools are automatically tested when added
  */
 function getActiveToolUrls() {
-  const configPath = path.join(__dirname, '../../app/config/tool_config.json');
+  const configPath = path.join(__dirname, '../../../app/config/tool_config.json');
   const config = JSON.parse(fs.readFileSync(configPath, 'utf-8'));
   
   // Map config keys to URL paths
