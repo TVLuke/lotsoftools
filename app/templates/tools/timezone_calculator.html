@@ -419,8 +419,13 @@ function loadFromUrl() {
         document.getElementById('targetTimezone').value = to;
     }
     
-    // Auto-convert if all params present
-    if (time && from && to) {
+    // Auto-convert if both timezones are present (with or without time)
+    if (from && to) {
+        // If no time provided, use current time
+        if (!time) {
+            const now = new Date();
+            document.getElementById('sourceTime').value = now.toISOString().slice(0, 16).replace('T', ' ');
+        }
         convertTime();
     }
 }
