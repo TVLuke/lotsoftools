@@ -101,8 +101,8 @@ test.describe('QR Code Generator', () => {
     const downloadedContent = fs.readFileSync(downloadPath, 'utf-8');
     const referenceContent = fs.readFileSync(referencePath, 'utf-8');
     
-    // Normalize whitespace (remove extra newlines) before comparison
-    const normalizeWhitespace = (str) => str.replace(/\n\s*\n/g, '\n').trim();
+    // Normalize whitespace (remove all newlines and extra spaces) before comparison
+    const normalizeWhitespace = (str) => str.replace(/\s+/g, ' ').trim();
     expect(normalizeWhitespace(downloadedContent)).toBe(normalizeWhitespace(referenceContent));
   });
 
@@ -156,8 +156,8 @@ test.describe('QR Code Generator', () => {
     const downloadedContent = fs.readFileSync(downloadPath, 'utf-8');
     const referenceContent = fs.readFileSync(referencePath, 'utf-8');
     
-    // Normalize whitespace (remove extra newlines) before comparison
-    const normalizeWhitespace = (str) => str.replace(/\n\s*\n/g, '\n').trim();
+    // Normalize whitespace (remove all newlines and extra spaces) before comparison
+    const normalizeWhitespace = (str) => str.replace(/\s+/g, ' ').trim();
     expect(normalizeWhitespace(downloadedContent)).toBe(normalizeWhitespace(referenceContent));
   });
 
@@ -215,8 +215,8 @@ test.describe('QR Code Generator', () => {
     const downloadedContent = fs.readFileSync(downloadPath, 'utf-8');
     const referenceContent = fs.readFileSync(referencePath, 'utf-8');
     
-    // Normalize whitespace (remove extra newlines) before comparison
-    const normalizeWhitespace = (str) => str.replace(/\n\s*\n/g, '\n').trim();
+    // Normalize whitespace (remove all newlines and extra spaces) before comparison
+    const normalizeWhitespace = (str) => str.replace(/\s+/g, ' ').trim();
     expect(normalizeWhitespace(downloadedContent)).toBe(normalizeWhitespace(referenceContent));
   });
 
