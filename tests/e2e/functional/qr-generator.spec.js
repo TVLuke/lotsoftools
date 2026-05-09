@@ -22,14 +22,12 @@ test.describe('QR Code Generator', () => {
     const generateBtn = page.locator('#generateBtn');
     await generateBtn.click();
     
-    // Wait for QR code to appear
-    const qrContainer = page.locator('#qrCodeContainer');
-    const canvas = qrContainer.locator('canvas');
-    await expect(canvas).toBeVisible();
-    
-    // Download section should be visible
+    // Wait for download section to appear (indicates generation is complete)
     const downloadSection = page.locator('#downloadSection');
     await expect(downloadSection).toBeVisible();
+    
+    // Verify QR code image is visible
+    await expect(page.locator('#qrCodeContainer img')).toBeVisible();
   });
 
   test('PNG export matches reference - URL 256px', async ({ page }) => {
@@ -240,8 +238,11 @@ test.describe('QR Code Generator', () => {
       // Generate
       await page.locator('#generateBtn').click();
       
-      // Verify QR code appears
-      await expect(page.locator('#qrCodeContainer canvas')).toBeVisible();
+      // Wait for generation to complete
+      await expect(page.locator('#downloadSection')).toBeVisible();
+      
+      // Verify QR code appears (check the image which is the visible output)
+      await expect(page.locator('#qrCodeContainer img')).toBeVisible();
       
       // Clear for next iteration
       await page.locator('#qrCodeContainer').evaluate(el => el.innerHTML = '');
@@ -263,9 +264,12 @@ test.describe('QR Code Generator', () => {
     await page.locator('#qrInput').fill('Custom Size Test');
     await page.locator('#generateBtn').click();
     
+    // Wait for generation to complete
+    await expect(page.locator('#downloadSection')).toBeVisible();
+    
     // Verify canvas has correct size
     const canvas = page.locator('#qrCodeContainer canvas');
-    await canvas.waitFor();
+    await expect(canvas).toBeAttached();
     
     const width = await canvas.evaluate((el) => /** @type {HTMLCanvasElement} */ (el).width);
     const height = await canvas.evaluate((el) => /** @type {HTMLCanvasElement} */ (el).height);

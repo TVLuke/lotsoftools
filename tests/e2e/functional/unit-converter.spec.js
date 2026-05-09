@@ -40,9 +40,19 @@ test.describe('Unit Converter', () => {
     await expect(output).not.toHaveText('-');
   });
 
-  test('input field is type number', async ({ page }) => {
+  test('input field accepts decimal input with comma or period', async ({ page }) => {
     const input = page.locator('#inputValue');
-    await expect(input).toHaveAttribute('type', 'number');
+    // Input is type="text" with inputmode="decimal" to allow both comma and period
+    await expect(input).toHaveAttribute('type', 'text');
+    await expect(input).toHaveAttribute('inputmode', 'decimal');
+    
+    // Test with period (English style)
+    await input.fill('123.45');
+    await expect(input).toHaveValue('123.45');
+    
+    // Test with comma (European style)
+    await input.fill('123,45');
+    await expect(input).toHaveValue('123,45');
   });
 
   test('unit dropdowns show correct units for length', async ({ page }) => {
