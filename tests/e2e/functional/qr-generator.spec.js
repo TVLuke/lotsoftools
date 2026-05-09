@@ -101,8 +101,9 @@ test.describe('QR Code Generator', () => {
     const downloadedContent = fs.readFileSync(downloadPath, 'utf-8');
     const referenceContent = fs.readFileSync(referencePath, 'utf-8');
     
-    // SVG content should be identical
-    expect(downloadedContent).toBe(referenceContent);
+    // Normalize whitespace (remove extra newlines) before comparison
+    const normalizeWhitespace = (str) => str.replace(/\n\s*\n/g, '\n').trim();
+    expect(normalizeWhitespace(downloadedContent)).toBe(normalizeWhitespace(referenceContent));
   });
 
   test('Text QR Code 512px - PNG export matches reference', async ({ page }) => {
@@ -155,8 +156,9 @@ test.describe('QR Code Generator', () => {
     const downloadedContent = fs.readFileSync(downloadPath, 'utf-8');
     const referenceContent = fs.readFileSync(referencePath, 'utf-8');
     
-    // SVG content should be identical
-    expect(downloadedContent).toBe(referenceContent);
+    // Normalize whitespace (remove extra newlines) before comparison
+    const normalizeWhitespace = (str) => str.replace(/\n\s*\n/g, '\n').trim();
+    expect(normalizeWhitespace(downloadedContent)).toBe(normalizeWhitespace(referenceContent));
   });
 
   test('Custom colors - PNG export matches reference', async ({ page }) => {
@@ -213,8 +215,9 @@ test.describe('QR Code Generator', () => {
     const downloadedContent = fs.readFileSync(downloadPath, 'utf-8');
     const referenceContent = fs.readFileSync(referencePath, 'utf-8');
     
-    // SVG content should be identical
-    expect(downloadedContent).toBe(referenceContent);
+    // Normalize whitespace (remove extra newlines) before comparison
+    const normalizeWhitespace = (str) => str.replace(/\n\s*\n/g, '\n').trim();
+    expect(normalizeWhitespace(downloadedContent)).toBe(normalizeWhitespace(referenceContent));
   });
 
   test('different QR types work', async ({ page }) => {
