@@ -243,7 +243,27 @@ const TimeConverter = (function() {
             return parsed;
         }
 
-        // Try MM/DD/YYYY or MM/DD/YYYY @ HH:MM format
+        // Try DD.MM.YYYY or DD/MM/YYYY (European format) with optional time
+        var euFormat = input.match(/^(\d{1,2})[./](\d{1,2})[./](\d{4})(?:\s+(\d{1,2}):(\d{2})(?::(\d{2}))?\s*(am|pm)?)?/i);
+        if (euFormat) {
+            var d = parseInt(euFormat[1], 10);
+            var m = parseInt(euFormat[2], 10);
+            var y = parseInt(euFormat[3], 10);
+            var h = parseInt(euFormat[4] || 0, 10);
+            var min = parseInt(euFormat[5] || 0, 10);
+            var s = parseInt(euFormat[6] || 0, 10);
+            var ampm = euFormat[7];
+            
+            if (ampm && ampm.toLowerCase() === 'pm' && h < 12) h += 12;
+            if (ampm && ampm.toLowerCase() === 'am' && h === 12) h = 0;
+            
+            // Validate day/month ranges
+            if (d >= 1 && d <= 31 && m >= 1 && m <= 12) {
+                return new Date(y, m - 1, d, h, min, s);
+            }
+        }
+        
+        // Try MM/DD/YYYY or MM/DD/YYYY @ HH:MM format (US format)
         var usFormat = input.match(/^(\d{1,2})\/(\d{1,2})\/(\d{4})(?:\s*@?\s*(\d{1,2}):(\d{2})(?::(\d{2}))?\s*(am|pm)?)?/i);
         if (usFormat) {
             var m = parseInt(usFormat[1], 10);
