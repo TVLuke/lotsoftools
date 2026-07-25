@@ -290,7 +290,6 @@ def stats_browser_languages_csv():
     writer = csv.writer(output)
     writer.writerow(['language', 'count'])
     writer.writerow(['Logging disabled', 0])
-        writer.writerow([lang, count])
     
     response = make_response(output.getvalue())
     response.headers['Content-Type'] = 'text/csv'
