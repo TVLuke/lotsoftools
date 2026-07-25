@@ -1,4 +1,5 @@
 import os
+import random
 from flask import Flask, request, session
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
@@ -11,12 +12,17 @@ migrate = Migrate()
 
 # Cache for subdomain routes
 _subdomain_routes_cache = None
+_subdomain_cache_time = None
 
 def _get_subdomain_routes():
     """Load subdomain mappings from tool JSON files."""
-    global _subdomain_routes_cache
-    if _subdomain_routes_cache is not None:
-        return _subdomain_routes_cache
+    global _subdomain_routes_cache, _subdomain_cache_time
+    from datetime import datetime, timedelta
+    
+    # Cache expires after 1 hour
+    if _subdomain_routes_cache is not None and _subdomain_cache_time is not None:
+        if datetime.now() - _subdomain_cache_time < timedelta(hours=1):
+            return _subdomain_routes_cache
     
     import json
     import glob
@@ -37,6 +43,7 @@ def _get_subdomain_routes():
             pass
     
     _subdomain_routes_cache = routes
+    _subdomain_cache_time = datetime.now()
     return routes
 
 def create_app(config_class=Config):
@@ -136,6 +143,10 @@ def create_app(config_class=Config):
                 is_bot = enhanced_bot_detection()
                 track_bandwidth(path, bytes_count, is_bot)
         
+        # Log memory usage occasionally (1% of requests) to monitor memory health
+        if random.random() < 0.01:  # 1% of requests
+            log_memory_usage()
+        
         return response
     
     def sync_app_data():
@@ -145,6 +156,51 @@ def create_app(config_class=Config):
         rotate_logs_on_startup()
         rotate_country_log_on_startup()
         init_tools()
+    
+    # Add memory monitoring endpoint
+    @app.route('/health/memory')
+    def memory_health():
+        """Memory health check endpoint for monitoring."""
+        try:
+            import psutil
+            import os
+            
+            process = psutil.Process(os.getpid())
+            mem_info = process.memory_info()
+            
+            # Get system memory info
+            system_mem = psutil.virtual_memory()
+            
+            return {
+                'status': 'healthy',
+                'process_memory_mb': mem_info.rss / 1024 / 1024,
+                'process_memory_percent': process.memory_percent(),
+                'system_memory_percent': system_mem.percent,
+                'system_memory_available_mb': system_mem.available / 1024 / 1024,
+                'num_threads': process.num_threads(),
+                'open_files': len(process.open_files()) if hasattr(process, 'open_files') else 0
+            }
+        except ImportError:
+            return {'status': 'psutil_not_available', 'error': 'psutil not installed'}
+        except Exception as e:
+            return {'status': 'error', 'error': str(e)}
+    
+    def log_memory_usage():
+        """Log current memory usage for monitoring."""
+        try:
+            import psutil
+            import os
+            import logging
+            
+            logger = logging.getLogger(__name__)
+            process = psutil.Process(os.getpid())
+            mem_info = process.memory_info()
+            
+            logger.info(f"Memory usage: {mem_info.rss / 1024 / 1024:.2f}MB, "
+                       f"Threads: {process.num_threads()}, "
+                       f"Open files: {len(process.open_files()) if hasattr(process, 'open_files') else 0}")
+        except Exception as e:
+            logger.error(f"Failed to log memory usage: {e}")
     
     from app.routes.main import main_bp
     from app.routes.sitemaps import sitemaps_bp

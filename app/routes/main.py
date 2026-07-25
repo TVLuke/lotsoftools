@@ -168,21 +168,25 @@ def sitemap():
 def stats():
     # Don't track /stats clicks - distorts the numbers
     links = link_service.get_links_stats()
-    user_agents = link_service.get_user_agent_stats()
-    bot_user_agents = link_service.get_bot_user_agents()
-    human_user_agents = link_service.get_human_user_agents()
-    honeypot_agents = link_service.get_honeypot_agents()
-    referrer_stats = link_service.get_referrer_stats_by_domain()
-    from app.services.country_block import get_country_stats
-    country_stats = get_country_stats()
-    accept_language_stats = link_service.get_accept_language_stats()
+    
+    # Logging is disabled, so these stats are no longer available
+    user_agents = []
+    bot_user_agents = []
+    human_user_agents = []
+    honeypot_agents = []
+    referrer_stats = []
+    country_stats = []
+    accept_language_stats = []
+    js_verified_stats = {'verified_users': 0, 'verified_bots': 0, 'consent_given': 0, 'recent_verifications': [], 
+                        'top_verified_ua': {}, 'top_verified_humans': {}, 'top_verified_bots': {}, 'top_failed_ua': {}}
+    
     server_start_time = link_service.get_server_start_time()
     theme_lang_totals = link_service.get_theme_language_totals()
-    ua_log_size = link_service.get_ua_log_file_size()
-    all_log_sizes = link_service.get_all_log_file_sizes()
-    js_verified_stats = link_service.get_js_verified_stats()
+    ua_log_size = "0 B (logging disabled)"
+    all_log_sizes = []
     blocklist_info = get_blocklist_info()
-    blocked_count = get_blocked_request_count()
+    blocked_count = 0
+    
     response = make_response(render_template('stats.html', links=links, user_agents=user_agents, 
                           bot_user_agents=bot_user_agents, human_user_agents=human_user_agents,
                           honeypot_agents=honeypot_agents, referrer_stats=referrer_stats, country_stats=country_stats,
@@ -239,15 +243,11 @@ def stats_blocklist_csv():
 @main_bp.route('/stats/user_agents.csv')
 @require_stats_api_auth
 def stats_user_agents_csv():
-    company_stats = link_service.get_user_agent_stats_by_company()
-    
+    # Logging is disabled, return empty data
     output = io.StringIO()
     writer = csv.writer(output)
     writer.writerow(['company', 'count'])
-    
-    # Sort by count descending
-    for company, count in sorted(company_stats.items(), key=lambda x: x[1], reverse=True):
-        writer.writerow([company, count])
+    writer.writerow(['Logging disabled', 0])
     
     response = make_response(output.getvalue())
     response.headers['Content-Type'] = 'text/csv'
@@ -257,15 +257,11 @@ def stats_user_agents_csv():
 @main_bp.route('/stats/countries.csv')
 @require_stats_api_auth
 def stats_countries_csv():
-    from app.services.country_block import get_country_stats
-    country_stats = get_country_stats()
-    
+    # Logging is disabled, return empty data
     output = io.StringIO()
     writer = csv.writer(output)
     writer.writerow(['country', 'human_count', 'bot_count'])
-    
-    for country, data in country_stats:
-        writer.writerow([country, data['human'], data['bot']])
+    writer.writerow(['Logging disabled', 0, 0])
     
     response = make_response(output.getvalue())
     response.headers['Content-Type'] = 'text/csv'
@@ -275,14 +271,11 @@ def stats_countries_csv():
 @main_bp.route('/stats/referrers.csv')
 @require_stats_api_auth
 def stats_referrers_csv():
-    referrer_stats = link_service.get_referrer_stats_by_domain()
-    
+    # Logging is disabled, return empty data
     output = io.StringIO()
     writer = csv.writer(output)
     writer.writerow(['domain', 'count'])
-    
-    for domain, count in sorted(referrer_stats.items(), key=lambda x: x[1], reverse=True):
-        writer.writerow([domain, count])
+    writer.writerow(['Logging disabled', 0])
     
     response = make_response(output.getvalue())
     response.headers['Content-Type'] = 'text/csv'
@@ -292,13 +285,11 @@ def stats_referrers_csv():
 @main_bp.route('/stats/browser_languages.csv')
 @require_stats_api_auth
 def stats_browser_languages_csv():
-    accept_language_stats = link_service.get_accept_language_stats()
-    
+    # Logging is disabled, return empty data
     output = io.StringIO()
     writer = csv.writer(output)
     writer.writerow(['language', 'count'])
-    
-    for lang, count in accept_language_stats:
+    writer.writerow(['Logging disabled', 0])
         writer.writerow([lang, count])
     
     response = make_response(output.getvalue())

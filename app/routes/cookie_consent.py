@@ -12,6 +12,9 @@ cookie_consent_bp = Blueprint('cookie_consent', __name__)
 # Log files for JavaScript-capable users (in data/ for Docker volume persistence)
 JS_CAPABLE_LOG_FILE = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(__file__))), 'data', 'logs', 'js_capable_users.log')
 
+# Disable logging
+LOGGING_ENABLED = False
+
 def _ensure_log_dir():
     """Ensure log directory exists."""
     log_dir = os.path.dirname(JS_CAPABLE_LOG_FILE)
@@ -26,7 +29,12 @@ def log_js_capable_user(user_agent, url=None, consent_given=None):
     2. Cookies are enabled
     3. User interacted with the site
     4. Consent status indicates user agreement (if available)
+    
+    LOGGING DISABLED - Function does nothing
     """
+    if not LOGGING_ENABLED:
+        return True
+    
     try:
         _ensure_log_dir()
         timestamp = datetime.now().isoformat()

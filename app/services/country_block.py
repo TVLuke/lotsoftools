@@ -19,6 +19,10 @@ COUNTRY_LOG_FILE = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(
 
 # Log rotation settings
 MAX_LOG_ENTRIES = 3_000_000
+MAX_LOG_SIZE_MB = 100  # Also rotate if file exceeds 100MB
+
+# Disable logging
+LOGGING_ENABLED = False
 
 # Cache for config
 _blocked_countries = None
@@ -147,13 +151,23 @@ def _ensure_log_dir():
 
 
 def _rotate_log_if_needed():
-    """Rotate country log file if it exceeds MAX_LOG_ENTRIES."""
+    """Rotate country log file if it exceeds MAX_LOG_ENTRIES or MAX_LOG_SIZE_MB."""
     try:
         if not os.path.exists(COUNTRY_LOG_FILE):
             return
         
-        # Quick check via file size estimate first
         file_size = os.path.getsize(COUNTRY_LOG_FILE)
+        file_size_mb = file_size / (1024 * 1024)
+        
+        # Rotate if file is too large (> 100MB)
+        if file_size_mb > MAX_LOG_SIZE_MB:
+            old_file = COUNTRY_LOG_FILE + '.old'
+            if os.path.exists(old_file):
+                os.remove(old_file)
+            os.rename(COUNTRY_LOG_FILE, old_file)
+            logger.info(f"Rotated country log (size: {file_size_mb:.2f}MB)")
+            return
+        
         # If file is small (< 50MB), probably under 3M entries
         if file_size < 50_000_000:
             return
@@ -177,11 +191,27 @@ def rotate_country_log_on_startup():
     """Check and rotate country log on app startup."""
     _ensure_log_dir()
     _rotate_log_if_needed()
+    _cleanup_old_log_files()
+
+def _cleanup_old_log_files():
+    """Remove .old log files that are too large (> 200MB) to prevent disk bloat."""
+    try:
+        old_file = COUNTRY_LOG_FILE + '.old'
+        if os.path.exists(old_file):
+            file_size_mb = os.path.getsize(old_file) / (1024 * 1024)
+            if file_size_mb > 200:  # Remove .old files larger than 200MB
+                os.remove(old_file)
+                logger.info(f"Removed large old country log file: {old_file} ({file_size_mb:.2f}MB)")
+    except Exception as e:
+        logger.error(f"Failed to cleanup old country log file: {e}")
 
 
 def track_country(country_code, is_bot, url=None):
-    """Log country to file for persistent tracking."""
-    if not country_code:
+    """Log country to file for persistent tracking.
+    
+    LOGGING DISABLED - Function does nothing
+    """
+    if not LOGGING_ENABLED or not country_code:
         return
     try:
         _ensure_log_dir()
@@ -206,21 +236,32 @@ def _parse_country_log():
     try:
         if not os.path.exists(COUNTRY_LOG_FILE):
             return stats
-        with open(COUNTRY_LOG_FILE, 'r', encoding='utf-8') as f:
-            for line in f:
-                line = line.strip()
-                if not line or '|' not in line:
-                    continue
-                parts = line.split('|')
-                if len(parts) >= 4:
-                    is_bot = parts[1].strip() == 'BOT'
-                    country = parts[3].strip().upper()
-                    if country not in stats:
-                        stats[country] = {'human': 0, 'bot': 0}
-                    if is_bot:
-                        stats[country]['bot'] += 1
-                    else:
-                        stats[country]['human'] += 1
+        
+        file_size_mb = os.path.getsize(COUNTRY_LOG_FILE) / (1024 * 1024)
+        
+        # If file is too large (> 50MB), only process recent entries
+        if file_size_mb > 50:
+            logger.warning(f"Country log file is large ({file_size_mb:.2f}MB), processing only recent entries")
+            with open(COUNTRY_LOG_FILE, 'r', encoding='utf-8') as f:
+                lines = f.readlines()[-10000:]  # Only last 10k lines
+        else:
+            with open(COUNTRY_LOG_FILE, 'r', encoding='utf-8') as f:
+                lines = f.readlines()
+        
+        for line in lines:
+            line = line.strip()
+            if not line or '|' not in line:
+                continue
+            parts = line.split('|')
+            if len(parts) >= 4:
+                is_bot = parts[1].strip() == 'BOT'
+                country = parts[3].strip().upper()
+                if country not in stats:
+                    stats[country] = {'human': 0, 'bot': 0}
+                if is_bot:
+                    stats[country]['bot'] += 1
+                else:
+                    stats[country]['human'] += 1
     except Exception as e:
         logger.error(f"Failed to parse country log: {e}")
     return stats

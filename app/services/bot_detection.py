@@ -9,6 +9,9 @@ from flask import request
 HONEYPOT_LOG_FILE = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(__file__))), 'data', 'logs', 'honeypot.log')
 JS_CAPABLE_LOG_FILE = 'logs/js_capable_users.log'
 
+# Disable logging
+LOGGING_ENABLED = False
+
 # Reason suffixes for definitive bot detection (cannot be overridden by human)
 REASON_OLD_CHROME = "(old Chrome)"
 REASON_OLD_FIREFOX = "(old Firefox)"
@@ -61,7 +64,12 @@ def _load_bot_patterns():
         pass
 
 def _log_honeypot_access(user_agent):
-    """Log honeypot access to a file."""
+    """Log honeypot access to a file.
+    
+    LOGGING DISABLED - Function does nothing
+    """
+    if not LOGGING_ENABLED:
+        return
     os.makedirs(os.path.dirname(HONEYPOT_LOG_FILE), exist_ok=True)
     with open(HONEYPOT_LOG_FILE, 'a', encoding='utf-8') as f:
         f.write(f"{user_agent}\n")

@@ -26,6 +26,9 @@ _blocklist_info = {
 # Log file for blocked requests (in data/ for Docker volume persistence)
 BLOCKED_LOG_FILE = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(__file__))), 'data', 'logs', 'blocked_requests.log')
 
+# Disable logging
+LOGGING_ENABLED = False
+
 
 def _ensure_log_dir():
     """Ensure the logs directory exists."""
@@ -175,8 +178,11 @@ def is_url_blocked(url):
 
 
 def log_blocked_request(url, matched_domain, requester_info=None):
-    """Log a blocked request to the log file."""
-    if not _blocklist_info['enabled']:
+    """Log a blocked request to the log file.
+    
+    LOGGING DISABLED - Function does nothing
+    """
+    if not LOGGING_ENABLED or not _blocklist_info['enabled']:
         return
     
     try:

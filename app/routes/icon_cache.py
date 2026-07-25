@@ -12,17 +12,37 @@ FA_CACHE_FILE = os.path.join(CACHE_DIR, 'fontawesome_icons.json')
 LUCIDE_CACHE_FILE = os.path.join(CACHE_DIR, 'lucide_icons.json')
 CACHE_DURATION = timedelta(days=2)
 
-# In-memory cache
+# In-memory cache with size limit
 _memory_cache = {
     'fontawesome': None,
     'lucide': None,
     'fontawesome_time': None,
     'lucide_time': None
 }
+_MAX_CACHE_SIZE_MB = 50  # Maximum memory cache size in MB
 
 def ensure_cache_dir():
     """Ensure cache directory exists"""
     os.makedirs(CACHE_DIR, exist_ok=True)
+
+def _get_cache_size_mb():
+    """Get approximate size of memory cache in MB."""
+    import sys
+    total_size = 0
+    for key, value in _memory_cache.items():
+        if value is not None and not key.endswith('_time'):
+            total_size += sys.getsizeof(value)
+    return total_size / (1024 * 1024)
+
+def _clear_cache_if_needed():
+    """Clear memory cache if it exceeds size limit."""
+    cache_size_mb = _get_cache_size_mb()
+    if cache_size_mb > _MAX_CACHE_SIZE_MB:
+        print(f"Memory cache size ({cache_size_mb:.2f}MB) exceeds limit, clearing cache")
+        _memory_cache['fontawesome'] = None
+        _memory_cache['lucide'] = None
+        _memory_cache['fontawesome_time'] = None
+        _memory_cache['lucide_time'] = None
 
 def is_cache_valid(cache_time):
     """Check if cache is still valid (less than 2 days old)"""
@@ -106,6 +126,9 @@ def get_icons(library):
     """Get icons for a library, using cache if available"""
     cache_file = FA_CACHE_FILE if library == 'fontawesome' else LUCIDE_CACHE_FILE
     fetch_func = fetch_fontawesome_icons if library == 'fontawesome' else fetch_lucide_icons
+    
+    # Clear cache if it exceeds size limit
+    _clear_cache_if_needed()
     
     # Check memory cache first
     if _memory_cache[library] and is_cache_valid(_memory_cache[f'{library}_time']):

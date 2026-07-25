@@ -12,6 +12,7 @@ from app import db
 
 logger = logging.getLogger(__name__)
 
+# Logging disabled - not needed anymore
 # Log file for user agent tracking (in data/ for Docker volume persistence)
 UA_LOG_FILE = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(__file__))), 'data', 'logs', 'user_agents.log')
 # Log file for referrer tracking
@@ -19,8 +20,12 @@ REFERRER_LOG_FILE = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname
 # Log file for Accept-Language tracking (humans only)
 ACCEPT_LANG_LOG_FILE = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(__file__))), 'data', 'logs', 'accept_languages.log')
 
+# Disable all logging
+LOGGING_ENABLED = False
+
 # Log rotation settings
 MAX_LOG_ENTRIES = 3_000_000
+MAX_LOG_SIZE_MB = 100  # Also rotate if file exceeds 100MB
 
 # Server start time for stats display
 _server_start_time = datetime.now()
@@ -112,59 +117,72 @@ def get_js_verified_stats():
         'top_failed_ua': {}
     }
     
-    # Collect all entries for recent verifications
-    all_entries = []
+    # Limit memory usage by only keeping recent entries in memory
+    MAX_RECENT_ENTRIES = 1000  # Only keep last 1000 for sorting
     
     # Process verified users log
     if os.path.exists(js_log_file):
-        with open(js_log_file, 'r', encoding='utf-8') as f:
-            for line in f:
-                line = line.strip()
-                if not line:
-                    continue
-                
-                parts = line.split('|')
-                # New format: timestamp|BOT_DETECTION_RESULT|url|user_agent|bot_reason|consent_given
-                # Old format: timestamp|BOT_DETECTION_RESULT|url|user_agent|bot_reason
-                if len(parts) >= 6:
-                    timestamp, bot_status, url, user_agent, reason, consent_given = parts[:6]
-                elif len(parts) >= 5:
-                    timestamp, bot_status, url, user_agent, reason = parts[:5]
-                    consent_given = 'unknown'
-                else:
-                    continue
-                
-                # Track unique user agents
-                ua_key = user_agent[:100]  # Truncate for grouping
-                
-                if bot_status == 'HUMAN_BY_UA':
-                    stats['verified_users'].add(ua_key)  # Add to set for uniqueness
-                    # Track human user agents separately
-                    stats['top_verified_humans'][ua_key] = stats['top_verified_humans'].get(ua_key, 0) + 1
-                elif bot_status == 'BOT':
-                    stats['verified_bots'].add(ua_key)  # Add to set for uniqueness
-                    # Track bot user agents separately
-                    stats['top_verified_bots'][ua_key] = stats['top_verified_bots'].get(ua_key, 0) + 1
-                
-                # Track consent given (only for humans)
-                if bot_status == 'HUMAN_BY_UA' and consent_given == 'true':
-                    stats['consent_given'].add(ua_key)
-                
-                # Also track all verified UAs for backward compatibility
-                stats['top_verified_ua'][ua_key] = stats['top_verified_ua'].get(ua_key, 0) + 1
-                
-                # Collect all entries first, then take the most recent 10
-                all_entries.append({
-                    'timestamp': timestamp,
-                    'user_agent': user_agent[:50],
-                    'status': bot_status,
-                    'url': url[:50],
-                    'consent_given': consent_given
-                })
+        file_size_mb = os.path.getsize(js_log_file) / (1024 * 1024)
+        
+        # If file is too large (> 50MB), only process recent entries to avoid memory issues
+        if file_size_mb > 50:
+            logger.warning(f"JS log file is large ({file_size_mb:.2f}MB), processing only recent entries")
+            # Read only last 10,000 lines from the end
+            with open(js_log_file, 'r', encoding='utf-8') as f:
+                lines = f.readlines()[-10000:]  # Only last 10k lines
+        else:
+            with open(js_log_file, 'r', encoding='utf-8') as f:
+                lines = f.readlines()
+        
+        for line in lines:
+            line = line.strip()
+            if not line:
+                continue
+            
+            parts = line.split('|')
+            # New format: timestamp|BOT_DETECTION_RESULT|url|user_agent|bot_reason|consent_given
+            # Old format: timestamp|BOT_DETECTION_RESULT|url|user_agent|bot_reason
+            if len(parts) >= 6:
+                timestamp, bot_status, url, user_agent, reason, consent_given = parts[:6]
+            elif len(parts) >= 5:
+                timestamp, bot_status, url, user_agent, reason = parts[:5]
+                consent_given = 'unknown'
+            else:
+                continue
+            
+            # Track unique user agents
+            ua_key = user_agent[:100]  # Truncate for grouping
+            
+            if bot_status == 'HUMAN_BY_UA':
+                stats['verified_users'].add(ua_key)  # Add to set for uniqueness
+                # Track human user agents separately
+                stats['top_verified_humans'][ua_key] = stats['top_verified_humans'].get(ua_key, 0) + 1
+            elif bot_status == 'BOT':
+                stats['verified_bots'].add(ua_key)  # Add to set for uniqueness
+                # Track bot user agents separately
+                stats['top_verified_bots'][ua_key] = stats['top_verified_bots'].get(ua_key, 0) + 1
+            
+            # Track consent given (only for humans)
+            if bot_status == 'HUMAN_BY_UA' and consent_given == 'true':
+                stats['consent_given'].add(ua_key)
+            
+            # Also track all verified UAs for backward compatibility
+            stats['top_verified_ua'][ua_key] = stats['top_verified_ua'].get(ua_key, 0) + 1
+            
+            # Collect recent entries (keep only last MAX_RECENT_ENTRIES)
+            stats['recent_verifications'].append({
+                'timestamp': timestamp,
+                'user_agent': user_agent[:50],
+                'status': bot_status,
+                'url': url[:50],
+                'consent_given': consent_given
+            })
+            if len(stats['recent_verifications']) > MAX_RECENT_ENTRIES:
+                stats['recent_verifications'].pop(0)  # Remove oldest
         
         # Sort by timestamp (most recent first) and take last 10
-        all_entries.sort(key=lambda x: x['timestamp'], reverse=True)
-        stats['recent_verifications'] = all_entries[:10]
+        stats['recent_verifications'].sort(key=lambda x: x['timestamp'], reverse=True)
+        stats['recent_verifications'] = stats['recent_verifications'][:10]
     
     # Convert sets to counts for final stats
     unique_humans = len(stats['verified_users'])
@@ -202,7 +220,7 @@ def _ensure_log_dir():
 
 
 def _rotate_log_if_needed(log_file):
-    """Rotate log file if it exceeds MAX_LOG_ENTRIES.
+    """Rotate log file if it exceeds MAX_LOG_ENTRIES or MAX_LOG_SIZE_MB.
     
     Archives current log to .old and starts fresh.
     """
@@ -210,8 +228,18 @@ def _rotate_log_if_needed(log_file):
         if not os.path.exists(log_file):
             return
         
-        # Count lines (quick check via file size estimate first)
         file_size = os.path.getsize(log_file)
+        file_size_mb = file_size / (1024 * 1024)
+        
+        # Rotate if file is too large (> 100MB)
+        if file_size_mb > MAX_LOG_SIZE_MB:
+            old_file = log_file + '.old'
+            if os.path.exists(old_file):
+                os.remove(old_file)
+            os.rename(log_file, old_file)
+            logger.info(f"Rotated log file {log_file} (size: {file_size_mb:.2f}MB)")
+            return
+        
         # If file is small (< 50MB), probably under 3M entries
         if file_size < 50_000_000:
             return
@@ -237,7 +265,33 @@ def rotate_logs_on_startup():
     _rotate_log_if_needed(UA_LOG_FILE)
     _rotate_log_if_needed(REFERRER_LOG_FILE)
     _rotate_log_if_needed(ACCEPT_LANG_LOG_FILE)
+    _rotate_log_if_needed(JS_CAPABLE_LOG_FILE)
+    _rotate_log_if_needed(HONEYPOT_LOG_FILE)
+    _rotate_log_if_needed(BLOCKED_LOG_FILE)
+    _cleanup_old_log_files()
     # Country log rotation is handled by country_block module
+
+def _cleanup_old_log_files():
+    """Remove .old log files that are too large (> 200MB) to prevent disk bloat."""
+    try:
+        log_files = [
+            UA_LOG_FILE,
+            REFERRER_LOG_FILE, 
+            ACCEPT_LANG_LOG_FILE,
+            JS_CAPABLE_LOG_FILE,
+            HONEYPOT_LOG_FILE,
+            BLOCKED_LOG_FILE
+        ]
+        
+        for log_file in log_files:
+            old_file = log_file + '.old'
+            if os.path.exists(old_file):
+                file_size_mb = os.path.getsize(old_file) / (1024 * 1024)
+                if file_size_mb > 200:  # Remove .old files larger than 200MB
+                    os.remove(old_file)
+                    logger.info(f"Removed large old log file: {old_file} ({file_size_mb:.2f}MB)")
+    except Exception as e:
+        logger.error(f"Failed to cleanup old log files: {e}")
 
 
 def _is_ua_definitive_bot(ua_lower):
@@ -489,7 +543,12 @@ def track_user_agent(user_agent, is_bot, url=None, bot_reason=None):
     Returns True if successfully logged as HUMAN, False otherwise.
     This return value MUST be used to gate human click counting - 
     ensuring log entries and click counts always match.
+    
+    LOGGING DISABLED - Always returns not is_bot to maintain functionality
     """
+    if not LOGGING_ENABLED:
+        return not is_bot
+    
     try:
         _ensure_log_dir()
         timestamp = datetime.now().isoformat()
@@ -511,8 +570,11 @@ def track_user_agent(user_agent, is_bot, url=None, bot_reason=None):
 
 
 def track_referrer(referrer, is_bot, url=None):
-    """Log referrer to file for persistent tracking."""
-    if not referrer:
+    """Log referrer to file for persistent tracking.
+    
+    LOGGING DISABLED - Function does nothing
+    """
+    if not LOGGING_ENABLED or not referrer:
         return
     try:
         _ensure_log_dir()
@@ -658,8 +720,11 @@ def get_referrer_stats_by_domain():
 
 
 def track_accept_language(accept_lang, url=None):
-    """Log Accept-Language header for humans only."""
-    if not accept_lang:
+    """Log Accept-Language header for humans only.
+    
+    LOGGING DISABLED - Function does nothing
+    """
+    if not LOGGING_ENABLED or not accept_lang:
         return
     try:
         _ensure_log_dir()
