@@ -25,6 +25,7 @@ class TestCookieConsent:
     @patch('app.routes.cookie_consent.open', create=True)
     @patch('app.routes.cookie_consent.os.makedirs')
     @patch('app.routes.cookie_consent.os.path.exists')
+    @patch('app.routes.cookie_consent.LOGGING_ENABLED', True)
     def test_log_js_capable_user_success(self, mock_exists, mock_makedirs, mock_open):
         """Test successful logging of JavaScript-capable user."""
         mock_exists.return_value = True
@@ -50,6 +51,7 @@ class TestCookieConsent:
     @patch('app.routes.cookie_consent.open', create=True)
     @patch('app.routes.cookie_consent.os.makedirs')
     @patch('app.routes.cookie_consent.os.path.exists')
+    @patch('app.routes.cookie_consent.LOGGING_ENABLED', True)
     def test_log_js_capable_user_bot(self, mock_exists, mock_makedirs, mock_open):
         """Test logging of user detected as bot by UA analysis."""
         # Setup mocks
@@ -69,6 +71,7 @@ class TestCookieConsent:
             assert "BOT" in log_entry
             assert "old Chrome" in log_entry
     
+    @patch('app.routes.cookie_consent.LOGGING_ENABLED', True)
     def test_log_js_capable_user_exception(self):
         """Test handling of exceptions during logging."""
         # Mock is_bot_request to raise an exception
@@ -81,6 +84,7 @@ class TestCookieConsent:
     @patch('app.routes.cookie_consent.open', create=True)
     @patch('app.routes.cookie_consent.os.makedirs')
     @patch('app.routes.cookie_consent.os.path.exists')
+    @patch('app.routes.cookie_consent.LOGGING_ENABLED', True)
     def test_log_entry_sanitization(self, mock_exists, mock_makedirs, mock_open):
         """Test that log entries are properly sanitized."""
         # Setup mocks
@@ -112,6 +116,14 @@ class TestCookieConsent:
             # Count field separators (should be exactly 5 pipes for 6 fields with consent)
             pipe_count = content_without_final_newline.count('|')
             assert pipe_count == 5, f'Should have exactly 5 field separators, got {pipe_count}: {repr(content_without_final_newline)}'
+    
+    @patch('app.routes.cookie_consent.LOGGING_ENABLED', False)
+    def test_log_js_capable_user_disabled(self):
+        """Test that logging is disabled when LOGGING_ENABLED is False."""
+        result = log_js_capable_user(self.test_user_agent, self.test_url)
+        
+        # Should return True but not actually log anything
+        assert result is True
 
 
 class TestCookieConsentAPI:
