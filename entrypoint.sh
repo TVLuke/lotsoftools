@@ -28,4 +28,11 @@ fi
 echo "✓ Database migrations complete"
 
 # Start gunicorn
-exec gunicorn --bind 0.0.0.0:5000 --workers 2 --timeout 1500 --preload wsgi:application
+# - gthread workers so a single slow/idle client can't tie up a whole worker
+# - short timeout (60s) so stuck connections are reaped quickly instead of
+#   holding a worker for up to 25 minutes (was --timeout 1500)
+# - graceful-timeout/keep-alive tuned to shed slowloris-style connections
+exec gunicorn --bind 0.0.0.0:5000 \
+    --workers 2 --threads 4 --worker-class gthread \
+    --timeout 120 --graceful-timeout 60 --keep-alive 5 \
+    --preload wsgi:application
