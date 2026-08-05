@@ -2,6 +2,11 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.1.11] - 2026-08-05
+
+- New tool: GiroCode (EPC-QR-Code) generator for SEPA credit transfers (EPC069-12), with local IBAN validation, optional BIC/amount, and PNG/SVG export
+- Added shared, reusable GiroCode JS library (reuses the existing IBAN validator library)
+
 ## [1.1.10] - 2026-05-09
 
 - Fixed E2E tests: QR Generator SVG export whitespace normalization

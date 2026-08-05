@@ -1,0 +1,111 @@
+{
+  "route": "/tools/giro-code",
+  "img": "fas fa-money-bill-transfer",
+  "name": {
+    "en": "GiroCode (EPC-QR-Code)",
+    "de": "GiroCode (EPC-QR-Code)"
+  },
+  "description": {
+    "en": "Generate a SEPA payment QR code (GiroCode / EPC-QR-Code)",
+    "de": "SEPA-Zahlungs-QR-Code (GiroCode / EPC-QR-Code) erzeugen"
+  },
+  "tags": ["generator"],
+  "new_window": false,
+  "frontend_only": true,
+  "seo": {
+    "title": {
+      "en": "GiroCode Generator - Free EPC QR Code Creator for SEPA Payments",
+      "de": "GiroCode-Generator - Kostenloser EPC-QR-Code-Ersteller für SEPA-Zahlungen"
+    },
+    "meta_description": {
+      "en": "Create a GiroCode (EPC QR Code) for SEPA credit transfers. Enter beneficiary name, IBAN, optional BIC, amount and reference. Browser-based, privacy-friendly, download as PNG or SVG.",
+      "de": "Erstellen Sie einen GiroCode (EPC-QR-Code) für SEPA-Überweisungen. Empfängername, IBAN, optional BIC, Betrag und Verwendungszweck eingeben. Browser-basiert, datenschutzfreundlich, Download als PNG oder SVG."
+    },
+    "keywords": {
+      "en": "GiroCode, EPC QR code, SEPA QR code, SEPA payment QR, credit transfer QR, IBAN QR code, EPC069-12, payment QR generator, free GiroCode",
+      "de": "GiroCode, EPC-QR-Code, SEPA-QR-Code, Überweisungs-QR-Code, IBAN-QR-Code, EPC069-12, Zahlungs-QR-Code, Verwendungszweck QR, kostenloser GiroCode"
+    },
+    "content": {
+      "heading": {
+        "en": "About This GiroCode Generator",
+        "de": "Über diesen GiroCode-Generator"
+      },
+      "intro": {
+        "en": "This browser-based GiroCode generator creates EPC QR codes (EPC069-12, version 002) for SEPA credit transfers. When scanned with a banking app, the QR code pre-fills the payment form with the beneficiary name, IBAN, amount and reference. All processing happens in your browser - your payment details never leave your device.",
+        "de": "Dieser Browser-basierte GiroCode-Generator erstellt EPC-QR-Codes (EPC069-12, Version 002) für SEPA-Überweisungen. Beim Scannen mit einer Banking-App füllt der QR-Code das Überweisungsformular automatisch mit Empfängername, IBAN, Betrag und Verwendungszweck aus. Die gesamte Verarbeitung erfolgt in Ihrem Browser - Ihre Zahlungsdaten verlassen nie Ihr Gerät."
+      },
+      "features": {
+        "heading": {
+          "en": "Key Features:",
+          "de": "Hauptfunktionen:"
+        },
+        "items": [
+          {
+            "en": "<strong>SEPA-Compliant:</strong> Generates standard EPC QR codes (EPC069-12) accepted by German and European banking apps",
+            "de": "<strong>SEPA-konform:</strong> Erzeugt Standard-EPC-QR-Codes (EPC069-12), die von deutschen und europäischen Banking-Apps akzeptiert werden"
+          },
+          {
+            "en": "<strong>IBAN Validation:</strong> Validates the IBAN locally (MOD-97 checksum) before generating the code",
+            "de": "<strong>IBAN-Validierung:</strong> Prüft die IBAN lokal (MOD-97-Prüfsumme), bevor der Code erzeugt wird"
+          },
+          {
+            "en": "<strong>Optional Fields:</strong> BIC and amount are optional - leave the amount blank for an open payment request",
+            "de": "<strong>Optionale Felder:</strong> BIC und Betrag sind optional - lassen Sie den Betrag leer für eine offene Zahlungsaufforderung"
+          },
+          {
+            "en": "<strong>Download as PNG or SVG:</strong> Save the GiroCode as a high-quality image for invoices, letters or posters",
+            "de": "<strong>Download als PNG oder SVG:</strong> Speichern Sie den GiroCode als hochwertiges Bild für Rechnungen, Briefe oder Poster"
+          }
+        ]
+      },
+      "use_cases": {
+        "heading": {
+          "en": "Use Cases:",
+          "de": "Anwendungsfälle:"
+        },
+        "items": [
+          {
+            "en": "Add a scannable payment code to invoices and bills",
+            "de": "Scannbaren Zahlungscode zu Rechnungen hinzufügen"
+          },
+          {
+            "en": "Collect donations for clubs and charities",
+            "de": "Spenden für Vereine und wohltätige Zwecke sammeln"
+          },
+          {
+            "en": "Request payments without dictating IBAN and amount",
+            "de": "Zahlungen anfordern, ohne IBAN und Betrag zu diktieren"
+          },
+          {
+            "en": "Print on posters, flyers or membership forms",
+            "de": "Auf Postern, Flyern oder Mitgliedsanträgen drucken"
+          }
+        ]
+      },
+      "privacy_note": {
+        "en": "🔒 Privacy-Friendly: The GiroCode is generated entirely in your browser using the qrcode.js library. Your IBAN and payment details never leave your device.",
+        "de": "🔒 Datenschutzfreundlich: Der GiroCode wird vollständig in Ihrem Browser mit der qrcode.js-Bibliothek erzeugt. Ihre IBAN und Zahlungsdaten verlassen nie Ihr Gerät."
+      },
+      "disclaimer": {
+        "en": "⚠️ Disclaimer: Always verify the encoded details by scanning the GiroCode with a banking app before printing or distribution. We are not responsible for incorrect payment data. Only the beneficiary name, IBAN, optional BIC, amount and reference are encoded per the EPC069-12 standard.",
+        "de": "⚠️ Haftungsausschluss: Überprüfen Sie die kodierten Daten immer, indem Sie den GiroCode vor dem Drucken oder Verteilen mit einer Banking-App scannen. Wir übernehmen keine Verantwortung für falsche Zahlungsdaten. Gemäß EPC069-12-Standard werden nur Empfängername, IBAN, optional BIC, Betrag und Verwendungszweck kodiert."
+      },
+      "search_queries": {
+        "en": [
+          "Create GiroCode online free",
+          "Generate EPC QR code for SEPA payment",
+          "Make payment QR code from IBAN",
+          "SEPA QR code generator for invoices",
+          "Download GiroCode as PNG"
+        ],
+        "de": [
+          "GiroCode online erstellen kostenlos",
+          "EPC-QR-Code für SEPA-Zahlung generieren",
+          "Zahlungs-QR-Code aus IBAN erstellen",
+          "SEPA-QR-Code-Generator für Rechnungen",
+          "GiroCode als PNG herunterladen"
+        ]
+      }
+    }
+  }
+}

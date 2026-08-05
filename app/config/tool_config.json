@@ -26,6 +26,7 @@
   "emoji_search": {"active": true},
   "favicon_generator": {"active": true},
   "fireplace": {"active": true},
+  "giro_code": {"active": true},
   "hash_generator": {"active": true},
   "holiday_calendar": {"active": true},
   "iban_validator": {"active": true},

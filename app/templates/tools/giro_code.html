@@ -1,0 +1,309 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ tool_data.seo.title[current_lang] }}{% endblock %}
+{% block meta_description %}{{ tool_data.seo.meta_description[current_lang] }}{% endblock %}
+{% block meta_keywords %}{{ tool_data.seo.keywords[current_lang] }}{% endblock %}
+{% block og_title %}{{ tool_data.seo.title[current_lang] }}{% endblock %}
+{% block og_description %}{{ tool_data.seo.meta_description[current_lang] }}{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-12">
+        {% include 'components/tool_header.html' %}
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12 col-lg-6">
+        <div class="card mb-4">
+            <div class="card-body">
+                <div class="mb-3">
+                    <label for="gcName" class="form-label">
+                        {% if current_lang == 'de' %}Name des Empfängers (Kontoinhaber):{% else %}Beneficiary name (account holder):{% endif %}
+                        <span class="text-danger">*</span>
+                    </label>
+                    <input type="text" class="form-control" id="gcName" maxlength="70"
+                           placeholder="{% if current_lang == 'de' %}z.B. Max Mustermann{% else %}e.g. Max Mustermann{% endif %}"
+                           autocomplete="off">
+                </div>
+
+                <div class="mb-3">
+                    <label for="gcIban" class="form-label">
+                        IBAN <span class="text-danger">*</span>
+                    </label>
+                    <input type="text" class="form-control font-monospace" id="gcIban"
+                           placeholder="{% if current_lang == 'de' %}z.B. DE89 3704 0044 0532 0130 00{% else %}e.g. DE89 3704 0044 0532 0130 00{% endif %}"
+                           autocomplete="off" spellcheck="false">
+                    <small class="text-muted" id="gcIbanHint">
+                        {% if current_lang == 'de' %}Wird lokal geprüft. Leerzeichen werden entfernt.{% else %}Validated locally. Spaces are removed.{% endif %}
+                    </small>
+                </div>
+
+                <div class="mb-3">
+                    <label for="gcBic" class="form-label">
+                        BIC <span class="text-muted">({% if current_lang == 'de' %}optional{% else %}optional{% endif %})</span>
+                    </label>
+                    <input type="text" class="form-control font-monospace" id="gcBic" maxlength="11"
+                           placeholder="{% if current_lang == 'de' %}z.B. COBADEFFXXX{% else %}e.g. COBADEFFXXX{% endif %}"
+                           autocomplete="off" spellcheck="false">
+                </div>
+
+                <div class="mb-3">
+                    <label for="gcAmount" class="form-label">
+                        {% if current_lang == 'de' %}Betrag in €{% else %}Amount in €{% endif %}
+                        <span class="text-muted">({% if current_lang == 'de' %}optional{% else %}optional{% endif %})</span>
+                    </label>
+                    <div class="input-group">
+                        <span class="input-group-text">€</span>
+                        <input type="text" class="form-control" id="gcAmount" inputmode="decimal"
+                               placeholder="{% if current_lang == 'de' %}z.B. 250,00{% else %}e.g. 250.00{% endif %}"
+                               autocomplete="off">
+                    </div>
+                    <small class="text-muted">
+                        {% if current_lang == 'de' %}Leer lassen für eine offene Zahlungsaufforderung.{% else %}Leave blank for an open payment request.{% endif %}
+                    </small>
+                </div>
+
+                <div class="mb-3">
+                    <label for="gcReference" class="form-label">
+                        {% if current_lang == 'de' %}Verwendungszweck{% else %}Reference (Verwendungszweck){% endif %}
+                        <span class="text-muted">({% if current_lang == 'de' %}optional{% else %}optional{% endif %})</span>
+                    </label>
+                    <textarea class="form-control" id="gcReference" rows="2" maxlength="140"
+                              placeholder="{% if current_lang == 'de' %}z.B. Rechnung 2025-001{% else %}e.g. Invoice 2025-001{% endif %}"></textarea>
+                    <small class="text-muted"><span id="gcRefCount">0</span>/140</small>
+                </div>
+
+                <div class="mb-3">
+                    <label for="gcSize" class="form-label">
+                        {% if current_lang == 'de' %}Größe:{% else %}Size:{% endif %}
+                    </label>
+                    <select class="form-select" id="gcSize">
+                        <option value="256">256x256</option>
+                        <option value="512" selected>512x512</option>
+                        <option value="1024">1024x1024</option>
+                    </select>
+                </div>
+
+                <div id="gcErrors" class="alert alert-danger" style="display: none;"></div>
+
+                <button type="button" class="btn btn-primary w-100" id="gcGenerateBtn">
+                    <i class="fas fa-money-bill-transfer me-2"></i>
+                    {% if current_lang == 'de' %}GiroCode generieren{% else %}Generate GiroCode{% endif %}
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-12 col-lg-6">
+        <div class="card mb-4">
+            <div class="card-header">
+                <h5 class="mb-0">GiroCode</h5>
+            </div>
+            <div class="card-body text-center">
+                <div id="gcCodeContainer" class="mb-3">
+                    <p class="text-muted">
+                        {% if current_lang == 'de' %}Füllen Sie das Formular aus und klicken Sie auf "Generieren".{% else %}Fill in the form and click "Generate".{% endif %}
+                    </p>
+                </div>
+
+                <div id="gcDownloadSection" style="display: none;">
+                    <div class="btn-group w-100" role="group">
+                        <button type="button" class="btn btn-success" id="gcDownloadPngBtn">
+                            <i class="fas fa-download me-2"></i>PNG
+                        </button>
+                        <button type="button" class="btn btn-success" id="gcDownloadSvgBtn">
+                            <i class="fas fa-download me-2"></i>SVG
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% include 'components/seo_content.html' %}
+{% include 'components/related_tools.html' %}
+
+{% set library_name = "qrcode.js" %}
+{% set library_url = "https://github.com/davidshimjs/qrcodejs" %}
+{% set library_author = "davidshimjs" %}
+{% include 'components/library_credit.html' %}
+{% endblock %}
+
+{% block extra_css %}
+<style>
+#gcCodeContainer {
+    min-height: 256px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#gcCodeContainer img,
+#gcCodeContainer canvas {
+    max-width: 400px !important;
+    max-height: 400px !important;
+    height: auto !important;
+    width: auto !important;
+    border: 1px solid #dee2e6;
+    border-radius: 0.375rem;
+    background: #ffffff;
+}
+</style>
+{% endblock %}
+
+{% block extra_js %}
+{% include 'components/imports/qrcode.html' %}
+<script src="{{ url_for('static', filename='js/iban_validator.js') }}"></script>
+<script src="{{ url_for('static', filename='js/girocode.js') }}"></script>
+
+<script>
+const lang = document.documentElement.lang || 'en';
+
+const gcName = document.getElementById('gcName');
+const gcIban = document.getElementById('gcIban');
+const gcBic = document.getElementById('gcBic');
+const gcAmount = document.getElementById('gcAmount');
+const gcReference = document.getElementById('gcReference');
+const gcRefCount = document.getElementById('gcRefCount');
+const gcSize = document.getElementById('gcSize');
+const gcErrors = document.getElementById('gcErrors');
+const gcGenerateBtn = document.getElementById('gcGenerateBtn');
+const gcCodeContainer = document.getElementById('gcCodeContainer');
+const gcDownloadSection = document.getElementById('gcDownloadSection');
+const gcDownloadPngBtn = document.getElementById('gcDownloadPngBtn');
+const gcDownloadSvgBtn = document.getElementById('gcDownloadSvgBtn');
+
+let currentPayload = '';
+
+// Translate a small set of library error messages to German where sensible.
+const errorMap = {
+    de: {
+        'Name is required': 'Name ist erforderlich',
+        'IBAN is required': 'IBAN ist erforderlich',
+        'Invalid amount': 'Ungültiger Betrag',
+        'Amount must be at least 0.01 EUR': 'Betrag muss mindestens 0,01 € betragen',
+        'Amount must not exceed 999999999.99 EUR': 'Betrag darf 999999999,99 € nicht überschreiten',
+        'Invalid BIC (must be 8 or 11 alphanumeric characters)': 'Ungültige BIC (muss 8 oder 11 alphanumerische Zeichen haben)',
+        'Name must not exceed 70 characters': 'Name darf 70 Zeichen nicht überschreiten',
+        'Purpose must not exceed 4 characters': 'Verwendungszweck-Code darf 4 Zeichen nicht überschreiten',
+        'Reference must not exceed 140 characters': 'Verwendungszweck darf 140 Zeichen nicht überschreiten'
+    }
+};
+
+function translateError(msg) {
+    if (lang === 'de') {
+        if (errorMap.de[msg]) return errorMap.de[msg];
+        if (msg.indexOf('Invalid IBAN') === 0) return 'Ungültige IBAN';
+        if (msg.indexOf('Payload exceeds') === 0) return 'Die Daten sind zu lang (max. 331 Bytes). Bitte kürzen Sie den Verwendungszweck oder Namen.';
+    }
+    return msg;
+}
+
+function showErrors(errors) {
+    gcErrors.innerHTML = errors.map(translateError).join('<br>');
+    gcErrors.style.display = 'block';
+}
+
+function clearErrors() {
+    gcErrors.style.display = 'none';
+    gcErrors.innerHTML = '';
+}
+
+gcReference.addEventListener('input', function() {
+    gcRefCount.textContent = gcReference.value.length;
+});
+
+function generateGiroCode() {
+    clearErrors();
+
+    const result = GiroCode.build({
+        name: gcName.value,
+        iban: gcIban.value,
+        bic: gcBic.value,
+        amount: gcAmount.value,
+        reference: gcReference.value
+    });
+
+    if (!result.valid) {
+        showErrors(result.errors);
+        gcCodeContainer.innerHTML = '<p class="text-muted">' +
+            (lang === 'de' ? 'Bitte korrigieren Sie die Eingaben.' : 'Please correct the input.') + '</p>';
+        gcDownloadSection.style.display = 'none';
+        return;
+    }
+
+    currentPayload = result.payload;
+    const size = parseInt(gcSize.value, 10);
+
+    gcCodeContainer.innerHTML = '';
+    // EPC069-12 recommends error correction level M.
+    new QRCode(gcCodeContainer, {
+        text: currentPayload,
+        width: size,
+        height: size,
+        colorDark: '#000000',
+        colorLight: '#ffffff',
+        correctLevel: QRCode.CorrectLevel.M
+    });
+
+    gcDownloadSection.style.display = 'block';
+}
+
+function downloadAsPNG() {
+    const canvas = gcCodeContainer.querySelector('canvas');
+    if (!canvas) return;
+
+    canvas.toBlob(function(blob) {
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'girocode.png';
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+
+        if (typeof window.showSupportOnAction === 'function') {
+            window.showSupportOnAction(30000);
+        }
+    });
+}
+
+function downloadAsSVG() {
+    if (!currentPayload) return;
+    const size = parseInt(gcSize.value, 10);
+
+    const qrSVG = new QRCodeSVG({
+        content: currentPayload,
+        padding: 0,
+        width: size,
+        height: size,
+        color: '#000000',
+        background: '#ffffff',
+        ecl: 'M',
+        join: true
+    });
+
+    const svgString = qrSVG.svg();
+    const blob = new Blob([svgString], { type: 'image/svg+xml' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'girocode.svg';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+
+    if (typeof window.showSupportOnAction === 'function') {
+        window.showSupportOnAction(30000);
+    }
+}
+
+gcGenerateBtn.addEventListener('click', generateGiroCode);
+gcDownloadPngBtn.addEventListener('click', downloadAsPNG);
+gcDownloadSvgBtn.addEventListener('click', downloadAsSVG);
+</script>
+{% endblock %}

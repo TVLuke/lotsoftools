@@ -5,7 +5,7 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 from config import Config
 
-APP_VERSION = "1.1.10"
+APP_VERSION = "1.1.11"
 
 db = SQLAlchemy()
 migrate = Migrate()
@@ -257,6 +257,7 @@ def create_app(config_class=Config):
     from app.routes.tools.ohms_law import ohms_law_bp
     from app.routes.tools.subnet_calculator import subnet_calculator_bp
     from app.routes.tools.money_counter import money_counter_bp
+    from app.routes.tools.giro_code import giro_code_bp
     from app.routes.tools.fireplace import fireplace_bp
     from app.routes.icon_cache import icon_cache_bp
     from app.routes.cookie_consent import cookie_consent_bp
@@ -317,6 +318,7 @@ def create_app(config_class=Config):
     app.register_blueprint(ohms_law_bp)
     app.register_blueprint(subnet_calculator_bp)
     app.register_blueprint(money_counter_bp)
+    app.register_blueprint(giro_code_bp)
     app.register_blueprint(icon_cache_bp)
     app.register_blueprint(fireplace_bp)
     
