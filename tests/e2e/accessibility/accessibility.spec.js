@@ -44,6 +44,7 @@ function getActiveToolUrls() {
     'dns_lookup': '/tools/dns-lookup',
     'emoji_search': '/tools/emoji-search',
     'favicon_generator': '/tools/favicon-generator',
+    'giro_code': '/tools/giro-code',
     'hash_generator': '/tools/hash-generator',
     'holiday_calendar': '/tools/holiday-calendar',
     'iban_validator': '/tools/iban-validator',

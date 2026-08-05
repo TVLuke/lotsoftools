@@ -2,6 +2,11 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.1.12] - 2026-08-05
+
+- Fixed dark mode accessibility: map info overlay (coordinates/zoom) now meets WCAG AA contrast on /tools/ip-lookup and other map tools
+- Added GiroCode tool to the accessibility test suite
+
 ## [1.1.11] - 2026-08-05
 
 - New tool: GiroCode (EPC-QR-Code) generator for SEPA credit transfers (EPC069-12), with local IBAN validation, optional BIC/amount, and PNG/SVG export

@@ -51,3 +51,8 @@
     background: var(--color-light);
     border-color: var(--color-border);
 }
+
+/* Ensure map info text meets contrast requirements in dark mode */
+[data-bs-theme="dark"] .map-container-info {
+    color: var(--color-text-muted);
+}
