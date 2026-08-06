@@ -1,0 +1,119 @@
+{
+  "route": "/tools/webp-converter",
+  "img": "fas fa-file-image",
+  "name": {
+    "en": "WebP Converter",
+    "de": "WebP-Konverter"
+  },
+  "description": {
+    "en": "Convert an image to WebP in your browser",
+    "de": "Ein Bild im Browser in WebP umwandeln"
+  },
+  "tags": ["converter", "media"],
+  "new_window": false,
+  "frontend_only": true,
+  "seo": {
+    "title": {
+      "en": "WebP Converter - Free Online Image to WebP (Client-Side, No Upload)",
+      "de": "WebP-Konverter - Bild zu WebP kostenlos online (im Browser, ohne Upload)"
+    },
+    "meta_description": {
+      "en": "Convert JPG, PNG, GIF, BMP or TIFF images to WebP directly in your browser. Adjustable quality, live size savings, no upload. Great for SEO and Core Web Vitals.",
+      "de": "Konvertieren Sie JPG-, PNG-, GIF-, BMP- oder TIFF-Bilder direkt im Browser in WebP. Einstellbare Qualität, sofortige Größenersparnis, kein Upload. Ideal für SEO und Core Web Vitals."
+    },
+    "keywords": {
+      "en": "WebP converter, image to WebP, JPG to WebP, PNG to WebP, convert to WebP, image compression, client-side image converter, no-upload image compressor, SEO image optimization, Core Web Vitals, LCP optimization, browser image conversion, free WebP tool",
+      "de": "WebP-Konverter, Bild zu WebP, JPG zu WebP, PNG zu WebP, in WebP umwandeln, Bildkompression, Bildkonverter im Browser, Bildkomprimierung ohne Upload, SEO-Bildoptimierung, Core Web Vitals, LCP-Optimierung, kostenloses WebP-Tool"
+    },
+    "content": {
+      "heading": {
+        "en": "About This WebP Converter",
+        "de": "Über diesen WebP-Konverter"
+      },
+      "intro": {
+        "en": "This browser-based WebP converter turns a single image (JPG, PNG, GIF, BMP, TIFF or WebP) into an optimized WebP file. WebP typically produces much smaller files than JPG or PNG at comparable quality, which speeds up page loads and improves Core Web Vitals such as LCP. Everything runs locally using the browser's Canvas API - your image is never uploaded to a server.",
+        "de": "Dieser Browser-basierte WebP-Konverter wandelt ein einzelnes Bild (JPG, PNG, GIF, BMP, TIFF oder WebP) in eine optimierte WebP-Datei um. WebP erzeugt bei vergleichbarer Qualität meist deutlich kleinere Dateien als JPG oder PNG, was Ladezeiten verkürzt und Core Web Vitals wie LCP verbessert. Alles läuft lokal über die Canvas-API des Browsers - Ihr Bild wird nie an einen Server gesendet."
+      },
+      "features": {
+        "heading": {
+          "en": "Key Features:",
+          "de": "Hauptfunktionen:"
+        },
+        "items": [
+          {
+            "en": "<strong>Any Common Input:</strong> Convert JPG, PNG, GIF, BMP, TIFF or existing WebP images",
+            "de": "<strong>Gängige Formate:</strong> Konvertieren Sie JPG-, PNG-, GIF-, BMP-, TIFF- oder vorhandene WebP-Bilder"
+          },
+          {
+            "en": "<strong>Adjustable Quality:</strong> Choose the WebP quality to balance file size and image fidelity",
+            "de": "<strong>Einstellbare Qualität:</strong> Wählen Sie die WebP-Qualität, um Dateigröße und Bildqualität auszubalancieren"
+          },
+          {
+            "en": "<strong>Optional Resize:</strong> Cap the maximum width to shrink oversized images (aspect ratio preserved)",
+            "de": "<strong>Optionale Skalierung:</strong> Begrenzen Sie die maximale Breite, um zu große Bilder zu verkleinern (Seitenverhältnis bleibt erhalten)"
+          },
+          {
+            "en": "<strong>Live Savings:</strong> See original vs. WebP size and the percentage saved instantly",
+            "de": "<strong>Sofortige Ersparnis:</strong> Sehen Sie Original- und WebP-Größe sowie die prozentuale Ersparnis sofort"
+          },
+          {
+            "en": "<strong>No Upload:</strong> Conversion happens entirely in your browser via the Canvas API",
+            "de": "<strong>Kein Upload:</strong> Die Konvertierung erfolgt vollständig im Browser über die Canvas-API"
+          }
+        ]
+      },
+      "use_cases": {
+        "heading": {
+          "en": "Use Cases:",
+          "de": "Anwendungsfälle:"
+        },
+        "items": [
+          {
+            "en": "Shrink hero and product images to improve LCP and page speed",
+            "de": "Hero- und Produktbilder verkleinern, um LCP und Ladegeschwindigkeit zu verbessern"
+          },
+          {
+            "en": "Fix 'serve images in next-gen formats' warnings from Lighthouse or PageSpeed",
+            "de": "Warnungen wie \u201eBilder in modernen Formaten bereitstellen\u201c von Lighthouse oder PageSpeed beheben"
+          },
+          {
+            "en": "Convert a screenshot or photo to WebP before uploading to a CMS",
+            "de": "Screenshot oder Foto vor dem Hochladen in ein CMS in WebP umwandeln"
+          },
+          {
+            "en": "Compress confidential or unpublished images without uploading them anywhere",
+            "de": "Vertrauliche oder unveröffentlichte Bilder komprimieren, ohne sie hochzuladen"
+          }
+        ]
+      },
+      "privacy_note": {
+        "en": "🔒 Privacy-Friendly: Your image is decoded and re-encoded entirely in your browser. It never leaves your device.",
+        "de": "🔒 Datenschutzfreundlich: Ihr Bild wird vollständig in Ihrem Browser dekodiert und neu kodiert. Es verlässt nie Ihr Gerät."
+      },
+      "credits": {
+        "en": "Inspired by <a href=\"https://github.com/shufflethis/webp-crusher\" target=\"_blank\" rel=\"noopener\">webp-crusher</a> (MIT). This tool uses the browser's native Canvas API and requires no external image library.",
+        "de": "Inspiriert von <a href=\"https://github.com/shufflethis/webp-crusher\" target=\"_blank\" rel=\"noopener\">webp-crusher</a> (MIT). Dieses Tool nutzt die native Canvas-API des Browsers und benötigt keine externe Bildbibliothek."
+      },
+      "disclaimer": {
+        "en": "⚠️ Disclaimer: Re-encoding drops EXIF, ICC color profiles and other metadata, and does not apply EXIF orientation. WebP encoding requires a modern browser (Chrome, Edge, Firefox, Safari 16.4+). Always verify the result before publishing.",
+        "de": "⚠️ Haftungsausschluss: Beim Neukodieren gehen EXIF, ICC-Farbprofile und andere Metadaten verloren, und die EXIF-Ausrichtung wird nicht angewendet. Die WebP-Kodierung erfordert einen modernen Browser (Chrome, Edge, Firefox, Safari 16.4+). Überprüfen Sie das Ergebnis immer vor der Veröffentlichung."
+      },
+      "search_queries": {
+        "en": [
+          "Convert image to WebP online free",
+          "JPG to WebP converter no upload",
+          "PNG to WebP client-side",
+          "Compress image to WebP for SEO",
+          "Reduce image size for Core Web Vitals"
+        ],
+        "de": [
+          "Bild online kostenlos in WebP umwandeln",
+          "JPG zu WebP Konverter ohne Upload",
+          "PNG zu WebP im Browser",
+          "Bild für SEO in WebP komprimieren",
+          "Bildgröße für Core Web Vitals reduzieren"
+        ]
+      }
+    }
+  }
+}

@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.1.13] - 2026-08-05
+
+- New tool: WebP Converter for client-side image conversion with quality slider and optional max width
+
 ## [1.1.12] - 2026-08-05
 
 - Fixed dark mode accessibility: map info overlay (coordinates/zoom) now meets WCAG AA contrast on /tools/ip-lookup and other map tools

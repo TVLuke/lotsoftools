@@ -1,0 +1,263 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ tool_data.seo.title[current_lang] }}{% endblock %}
+{% block meta_description %}{{ tool_data.seo.meta_description[current_lang] }}{% endblock %}
+{% block meta_keywords %}{{ tool_data.seo.keywords[current_lang] }}{% endblock %}
+{% block og_title %}{{ tool_data.seo.title[current_lang] }}{% endblock %}
+{% block og_description %}{{ tool_data.seo.meta_description[current_lang] }}{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-12">
+        {% include 'components/tool_header.html' %}
+    </div>
+</div>
+
+<div class="row g-3">
+    <div class="col-12 col-lg-5">
+        <div class="card mb-3">
+            <div class="card-body">
+                <div class="mb-3">
+                    <label for="fileInput" class="form-label">
+                        {% if current_lang == 'de' %}Bild auswählen{% else %}Choose image{% endif %}
+                    </label>
+                    <input type="file" class="form-control" id="fileInput" accept="image/*">
+                    <div class="form-text">
+                        {% if current_lang == 'de' %}JPG, PNG, GIF, BMP, TIFF oder WebP. Ein Bild.{% else %}JPG, PNG, GIF, BMP, TIFF or WebP. One image.{% endif %}
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="qualityRange" class="form-label">
+                        {% if current_lang == 'de' %}Qualität{% else %}Quality{% endif %}:
+                        <span id="qualityValue" class="fw-bold">80</span>
+                    </label>
+                    <input type="range" class="form-range" id="qualityRange" min="1" max="100" value="80">
+                    <div class="form-text">
+                        {% if current_lang == 'de' %}Höher = bessere Qualität, größere Datei.{% else %}Higher = better quality, larger file.{% endif %}
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="maxWidth" class="form-label">
+                        {% if current_lang == 'de' %}Maximale Breite (px){% else %}Max width (px){% endif %}
+                        <span class="text-muted">({% if current_lang == 'de' %}optional{% else %}optional{% endif %})</span>
+                    </label>
+                    <input type="number" class="form-control" id="maxWidth" min="1" step="1"
+                           placeholder="{% if current_lang == 'de' %}Originalbreite beibehalten{% else %}Keep original width{% endif %}">
+                    <div class="form-text">
+                        {% if current_lang == 'de' %}Verkleinert breitere Bilder, Seitenverhältnis bleibt erhalten.{% else %}Scales down wider images, aspect ratio preserved.{% endif %}
+                    </div>
+                </div>
+
+                <div class="d-grid">
+                    <button type="button" class="btn btn-primary" id="convertBtn" disabled>
+                        <i class="fas fa-file-image me-2"></i>
+                        {% if current_lang == 'de' %}In WebP konvertieren{% else %}Convert to WebP{% endif %}
+                    </button>
+                </div>
+
+                <div id="errorBox" class="alert alert-danger mt-3" style="display: none;"></div>
+            </div>
+        </div>
+
+        <div class="card" id="statsCard" style="display: none;">
+            <div class="card-header">
+                <h2 class="h6 mb-0">{% if current_lang == 'de' %}Ergebnis{% else %}Result{% endif %}</h2>
+            </div>
+            <div class="card-body">
+                <table class="table table-sm mb-3">
+                    <tbody>
+                        <tr>
+                            <th scope="row">{% if current_lang == 'de' %}Original{% else %}Original{% endif %}</th>
+                            <td id="statOriginal" class="text-end">-</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">WebP</th>
+                            <td id="statWebp" class="text-end">-</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">{% if current_lang == 'de' %}Ersparnis{% else %}Saved{% endif %}</th>
+                            <td id="statSaved" class="text-end">-</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">{% if current_lang == 'de' %}Abmessungen{% else %}Dimensions{% endif %}</th>
+                            <td id="statDimensions" class="text-end">-</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="d-grid">
+                    <a class="btn btn-success" id="downloadBtn" download>
+                        <i class="fas fa-download me-2"></i>
+                        {% if current_lang == 'de' %}WebP herunterladen{% else %}Download WebP{% endif %}
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-12 col-lg-7">
+        <div class="card h-100">
+            <div class="card-header">
+                <h2 class="h6 mb-0">{% if current_lang == 'de' %}Vorschau{% else %}Preview{% endif %}</h2>
+            </div>
+            <div class="card-body text-center" id="previewBody">
+                <p class="text-muted mb-0" id="previewPlaceholder">
+                    {% if current_lang == 'de' %}Wählen Sie ein Bild aus, um es hier anzuzeigen.{% else %}Choose an image to preview it here.{% endif %}
+                </p>
+                <img id="previewImg" alt="{% if current_lang == 'de' %}Vorschau des WebP-Bildes{% else %}WebP image preview{% endif %}" style="display: none; max-width: 100%; height: auto; border: 1px solid #dee2e6; border-radius: 0.375rem;">
+            </div>
+        </div>
+    </div>
+</div>
+
+{% include 'components/seo_content.html' %}
+{% include 'components/related_tools.html' %}
+{% endblock %}
+
+{% block extra_js %}
+<script>
+const lang = document.documentElement.lang || 'en';
+
+const fileInput = document.getElementById('fileInput');
+const qualityRange = document.getElementById('qualityRange');
+const qualityValue = document.getElementById('qualityValue');
+const maxWidth = document.getElementById('maxWidth');
+const convertBtn = document.getElementById('convertBtn');
+const errorBox = document.getElementById('errorBox');
+const statsCard = document.getElementById('statsCard');
+const statOriginal = document.getElementById('statOriginal');
+const statWebp = document.getElementById('statWebp');
+const statSaved = document.getElementById('statSaved');
+const statDimensions = document.getElementById('statDimensions');
+const downloadBtn = document.getElementById('downloadBtn');
+const previewImg = document.getElementById('previewImg');
+const previewPlaceholder = document.getElementById('previewPlaceholder');
+
+const messages = {
+    en: {
+        noWebp: 'Your browser could not encode WebP. Please use a recent version of Chrome, Edge, Firefox or Safari (16.4+).',
+        loadFailed: 'Could not read this image. Please try a different file.',
+        converting: 'Converting…'
+    },
+    de: {
+        noWebp: 'Ihr Browser konnte kein WebP kodieren. Bitte verwenden Sie eine aktuelle Version von Chrome, Edge, Firefox oder Safari (16.4+).',
+        loadFailed: 'Dieses Bild konnte nicht gelesen werden. Bitte versuchen Sie eine andere Datei.',
+        converting: 'Konvertiere…'
+    }
+};
+const t = messages[lang] || messages.en;
+
+let sourceImage = null;
+let originalSize = 0;
+let originalName = 'image';
+let currentObjectUrl = null;
+
+function formatBytes(bytes) {
+    if (bytes < 1024) return bytes + ' B';
+    if (bytes < 1024 * 1024) return (bytes / 1024).toFixed(1) + ' KB';
+    return (bytes / (1024 * 1024)).toFixed(2) + ' MB';
+}
+
+function showError(msg) {
+    errorBox.textContent = msg;
+    errorBox.style.display = 'block';
+}
+
+function clearError() {
+    errorBox.style.display = 'none';
+    errorBox.textContent = '';
+}
+
+qualityRange.addEventListener('input', () => {
+    qualityValue.textContent = qualityRange.value;
+});
+
+fileInput.addEventListener('change', () => {
+    clearError();
+    statsCard.style.display = 'none';
+    const file = fileInput.files && fileInput.files[0];
+    if (!file) {
+        convertBtn.disabled = true;
+        return;
+    }
+
+    originalSize = file.size;
+    originalName = file.name.replace(/\.[^.]+$/, '') || 'image';
+
+    const reader = new FileReader();
+    reader.onload = (e) => {
+        const image = new Image();
+        image.onload = () => {
+            sourceImage = image;
+            convertBtn.disabled = false;
+            // Show the original as an initial preview
+            previewImg.src = e.target.result;
+            previewImg.style.display = 'inline-block';
+            previewPlaceholder.style.display = 'none';
+        };
+        image.onerror = () => {
+            sourceImage = null;
+            convertBtn.disabled = true;
+            showError(t.loadFailed);
+        };
+        image.src = e.target.result;
+    };
+    reader.onerror = () => showError(t.loadFailed);
+    reader.readAsDataURL(file);
+});
+
+convertBtn.addEventListener('click', () => {
+    if (!sourceImage) return;
+    clearError();
+
+    let targetW = sourceImage.naturalWidth;
+    let targetH = sourceImage.naturalHeight;
+    const maxW = parseInt(maxWidth.value, 10);
+    if (!isNaN(maxW) && maxW > 0 && maxW < targetW) {
+        const scale = maxW / targetW;
+        targetW = maxW;
+        targetH = Math.round(sourceImage.naturalHeight * scale);
+    }
+
+    const canvas = document.createElement('canvas');
+    canvas.width = targetW;
+    canvas.height = targetH;
+    const ctx = canvas.getContext('2d');
+    ctx.drawImage(sourceImage, 0, 0, targetW, targetH);
+
+    const quality = parseInt(qualityRange.value, 10) / 100;
+
+    canvas.toBlob((blob) => {
+        if (!blob || blob.type !== 'image/webp') {
+            showError(t.noWebp);
+            return;
+        }
+
+        if (currentObjectUrl) URL.revokeObjectURL(currentObjectUrl);
+        currentObjectUrl = URL.createObjectURL(blob);
+
+        previewImg.src = currentObjectUrl;
+        previewImg.style.display = 'inline-block';
+        previewPlaceholder.style.display = 'none';
+
+        const webpSize = blob.size;
+        const savedPct = originalSize > 0 ? ((1 - webpSize / originalSize) * 100) : 0;
+
+        statOriginal.textContent = formatBytes(originalSize);
+        statWebp.textContent = formatBytes(webpSize);
+        statSaved.textContent = (savedPct >= 0 ? '−' : '+') + Math.abs(savedPct).toFixed(1) + '%';
+        statDimensions.textContent = targetW + ' × ' + targetH + ' px';
+
+        downloadBtn.href = currentObjectUrl;
+        downloadBtn.download = originalName + '.webp';
+
+        statsCard.style.display = 'block';
+
+        if (typeof window.showSupportOnAction === 'function') {
+            window.showSupportOnAction(30000);
+        }
+    }, 'image/webp', quality);
+});
+</script>
+{% endblock %}

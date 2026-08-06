@@ -58,6 +58,7 @@
   "time_converter": {"active": true},
   "timezone_calculator": {"active": true},
   "unit_converter": {"active": true},
+  "webp_converter": {"active": true},
   "url_checker": {"active": true},
   "uuid_generator": {"active": true},
   "xml_formatter": {"active": true},
