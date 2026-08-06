@@ -14,6 +14,12 @@ on:
 permissions:
   contents: write
 
+# Serialize runs so concurrent tag pushes don't race when committing the
+# accessibility report back to main.
+concurrency:
+  group: accessibility-report
+  cancel-in-progress: false
+
 jobs:
   setup:
     runs-on: ubuntu-latest
@@ -146,6 +152,7 @@ jobs:
         retention-days: 90
     - name: Commit accessibility report to repo
       run: |
+        set -euo pipefail
         VERSION=${{ needs.setup.outputs.version }}
         # Remove old version folders, keep only the latest
         find app/static/accessibility-report -mindepth 1 -maxdepth 1 -type d -exec rm -rf {} +
@@ -154,5 +161,31 @@ jobs:
         git config user.name "GitHub Actions"
         git config user.email "actions@github.com"
         git add app/static/accessibility-report/
-        git diff --staged --quiet || git commit -m "Update accessibility report to $VERSION [skip ci]"
-        git push origin HEAD:main
+        if git diff --staged --quiet; then
+          echo "No report changes to commit."
+          exit 0
+        fi
+        git commit -m "Update accessibility report to $VERSION [skip ci]"
+
+        # Resilient push: rebase onto the latest main and retry to survive
+        # concurrent tag runs and transient GitHub server errors
+        # (e.g. "remote: fatal error in commit_refs").
+        for attempt in 1 2 3 4 5; do
+          git fetch origin || true
+          if ! git rebase origin/main; then
+            git rebase --abort || true
+            # Our commit only touches the report folder; reset onto main and
+            # re-apply the report so a diverged main never blocks the push.
+            git reset --soft origin/main
+            git add app/static/accessibility-report/
+            git commit -m "Update accessibility report to $VERSION [skip ci]"
+          fi
+          if git push origin HEAD:main; then
+            echo "✅ Pushed accessibility report on attempt $attempt"
+            exit 0
+          fi
+          echo "Push attempt $attempt failed; retrying after backoff..."
+          sleep $(( attempt * 10 + RANDOM % 10 ))
+        done
+        echo "❌ Failed to push accessibility report after 5 attempts"
+        exit 1
